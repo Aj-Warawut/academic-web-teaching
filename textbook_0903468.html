@@ -2746,7 +2746,7 @@ content.addEventListener('input',e=>{const el=e.target;if(el.id==='pbInv'||el.id
 const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
 document.getElementById('menuToggle').onclick=()=>{sb.classList.add('open');bd.classList.add('show');};
 bd.onclick=closeMenu;function closeMenu(){sb.classList.remove('open');bd.classList.remove('show');}
-let zoom=1;const main=document.getElementById('main');function applyZoom(){main.style.zoom=zoom;}
+let zoom=1;const main=document.getElementById('main');const zc=document.getElementById('content');function applyZoom(){zc.style.zoom=zoom;main.scrollTop=main.scrollTop;}
 document.getElementById('fsz-up').onclick=()=>{zoom=Math.min(2,+(zoom+0.1).toFixed(2));applyZoom();};
 document.getElementById('fsz-down').onclick=()=>{zoom=Math.max(0.7,+(zoom-0.1).toFixed(2));applyZoom();};
 document.getElementById('fs-btn').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}};
