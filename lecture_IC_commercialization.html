@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!-- สร้างจาก ResearchLab interactive_lesson_template.html (skill 34) · palette MSU · แก้ zoom-scroll · ภาษาวิชาการ · คิววิทยากรซ่อนได้ -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>การนำผลงานวิจัยสู่เชิงพาณิชย์ · ส่วนบรรยาย · MSU IC Bootcamp</title>
+<style>
+:root{
+  --navy:#111A3A; --blue:#2F5BD0; --teal:#2FA392; --amber:#E9A72C;
+  --ink:#1B2A3A; --mute:#5C6B7A; --line:#D9E2E8; --tint:#EEF3FB; --tint2:#E4EEF3;
+  --green:#2E7D5B; --red:#C0392B; --purple:#8A56D6; --bg:#F5F7FC; --panel:#FFFFFF; --sidebar:#141D3F;
+  --shadow:0 6px 24px rgba(17,34,51,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);
+  background:var(--bg);line-height:1.65;display:flex;min-height:100vh;overflow:hidden}
+#sidebar{width:300px;flex:0 0 300px;background:var(--sidebar);color:#E8EEF7;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+#sidebar .brand{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1);cursor:pointer}
+#sidebar .brand .kick{font-size:11px;letter-spacing:2px;color:var(--amber);font-weight:700}
+#sidebar .brand h1{font-size:17.5px;color:#fff;margin-top:6px;line-height:1.4}
+#sidebar .brand .sub{font-size:12px;color:#9DB0D6;margin-top:6px}
+nav{padding:10px 0 20px;flex:1}
+.nav-group{padding:14px 22px 4px;font-size:11px;letter-spacing:1px;color:#7E92BD;font-weight:700;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 22px;cursor:pointer;font-size:14.5px;color:#CBD6EC;border-left:3px solid transparent;transition:.15s}
+.nav-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.10);color:#fff;border-left-color:var(--amber);font-weight:600}
+.nav-item .dot{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.nav-item.active .dot{background:var(--amber);color:var(--navy)}
+#sidebar .foot{padding:14px 22px;font-size:11px;color:#7E92BD;border-top:1px solid rgba(255,255,255,.1)}
+#main{flex:1;height:100vh;overflow-y:auto;position:relative;scroll-behavior:smooth}
+#progress{position:sticky;top:0;z-index:20;height:4px;background:var(--line)}
+#progress .bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));width:0;transition:.3s}
+.wrap{max-width:920px;margin:0 auto;padding:38px 46px 120px}
+section.page{display:none;animation:fade .35s ease}
+section.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--teal);text-transform:uppercase}
+h2.title{font-size:29px;color:var(--navy);margin:6px 0 4px;line-height:1.3}
+.lead{font-size:16px;color:var(--mute);margin-bottom:22px}
+p{margin:0 0 14px;font-size:15.5px}
+h3{font-size:20px;color:var(--blue);margin:26px 0 12px}
+.grid{display:grid;gap:16px}
+.grid.c2{grid-template-columns:1fr 1fr}
+.grid.c4{grid-template-columns:1fr 1fr 1fr 1fr}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.card h4{font-size:16.5px;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card p{font-size:14.5px;color:var(--ink);margin:0}
+.card .stat{font-size:36px;font-weight:800;color:var(--red);line-height:1;display:block;margin-bottom:4px}
+.num{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.num.t{background:var(--teal)}
+ul.clean{list-style:none;margin:0 0 14px}
+ul.clean li{position:relative;padding:6px 0 6px 26px;font-size:15px}
+ul.clean li::before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.callout{border-radius:12px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:5px solid}
+.callout.tip{background:#FBEFD8;border-color:var(--amber)}
+.callout.warn{background:#FBF0F0;border-color:var(--red)}
+.callout.info{background:var(--tint);border-color:var(--blue)}
+.callout.ok{background:#E9F5EF;border-color:var(--green)}
+.callout b{color:var(--navy)}
+.cue{display:none;background:#F1F3FB;border:1px dashed #C3CBEA;border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--mute);margin-top:18px}
+body.notes .cue{display:block}
+.cue b{color:var(--navy)}
+.srcline{font-size:12.5px;color:var(--mute);margin-top:8px}
+.tablewrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow)}
+table.cmp{border-collapse:collapse;width:100%;background:#fff;font-size:14.5px;min-width:560px}
+table.cmp th,table.cmp td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+table.cmp thead th{color:#fff;font-weight:700}
+table.cmp thead th:nth-child(1){background:var(--ink)}
+table.cmp thead th:nth-child(2){background:var(--blue)}
+table.cmp thead th:nth-child(3){background:var(--teal)}
+table.cmp td:first-child{font-weight:700;color:var(--blue);background:#F4F8FA}
+.quotebox{background:linear-gradient(135deg,var(--navy),#25336b);color:#fff;border-radius:18px;padding:34px 34px}
+.quotebox .q{font-size:28px;font-weight:800;line-height:1.35;color:var(--amber)}
+.quotebox p{color:#CADCFC;font-size:15.5px;margin:14px 0 0}
+.axrow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+.axb{border-radius:13px;padding:16px;color:#fff;text-align:center}
+.axb b{font-size:22px;display:block}.axb span{font-size:13px;opacity:.93}
+svg.diagram{width:100%;height:auto;display:block;margin:10px 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.matrix{display:grid;grid-template-columns:96px 1fr 1fr;gap:8px}
+.mx{border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;justify-content:center;min-height:92px}
+.mx.h{font-weight:800;color:var(--navy);align-items:center;text-align:center;font-size:14px;background:transparent}
+.mx.q{color:#fff}.mx.q b{font-size:15px}.mx.q span{font-size:12.5px;opacity:.95}
+.wslink{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a00;text-decoration:none;font-weight:800;font-size:16px;padding:13px 24px;border-radius:12px;margin-top:6px}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:18px;padding:40px 36px;margin-bottom:8px}
+.hero .kick{color:var(--amber);font-weight:700;letter-spacing:2px;font-size:13px}
+.hero h2{font-size:32px;margin:10px 0;line-height:1.28}
+.hero p{color:#CADCFC;font-size:16px;margin:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.navbtns{display:flex;justify-content:space-between;margin-top:40px;gap:12px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 20px;cursor:pointer;font-size:14.5px;font-family:inherit;color:var(--blue);font-weight:600;transition:.15s;display:flex;align-items:center;gap:8px}
+.btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn:disabled{opacity:.35;cursor:default}
+#toolbar{position:fixed;top:12px;right:14px;z-index:60;display:flex;gap:6px;align-items:center}
+#toolbar button{background:rgba(20,29,63,.92);color:#fff;border:none;border-radius:9px;height:38px;padding:0 12px;font-size:13.5px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);transition:.15s}
+#toolbar button:hover{background:var(--blue)}
+#toolbar button.on{background:var(--amber);color:var(--navy);font-weight:700}
+#toolbar .az{width:38px;justify-content:center;padding:0;font-weight:700}
+#menuToggle{display:none}
+#backdrop{display:none}
+body.projector #sidebar,#sidebar.overlay{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}
+body.projector #sidebar.open{transform:none}
+body.projector #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+body.projector #menuToggle{display:flex}
+body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
+body.projector .lead{font-size:19px}
+body.projector table.cmp,body.projector .card p,body.projector ul.clean li,body.projector p{font-size:17px}
+body.projector h2.title{font-size:35px}
+@media(max-width:820px){
+  body{overflow:auto}
+  #sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}
+  #sidebar.open{transform:none}
+  #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  #menuToggle{display:flex;position:fixed;top:12px;left:12px;z-index:30;background:var(--navy);color:#fff;border:none;border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+  .wrap{padding:64px 20px 100px}
+  .grid.c2,.grid.c4,.axrow{grid-template-columns:1fr 1fr}
+  .matrix{grid-template-columns:70px 1fr 1fr}
+  h2.title{font-size:23px}
+}
+</style>
+</head>
+<body>
+<button id="menuToggle" aria-label="menu">☰</button>
+<div id="backdrop"></div>
+
+<div id="toolbar">
+  <button id="cue-btn" title="แสดง/ซ่อนบันทึกผู้บรรยาย">💬 คิว</button>
+  <button class="az" id="fsz-down" title="ตัวอักษรเล็กลง">A−</button>
+  <button class="az" id="fsz-up" title="ตัวอักษรใหญ่ขึ้น">A+</button>
+  <button id="fs-btn" title="เต็มจอ">⛶ เต็มจอ</button>
+  <button id="proj-btn" title="โหมดโปรเจกเตอร์">🖥 โปรเจกเตอร์</button>
+</div>
+
+<aside id="sidebar">
+  <div class="brand" onclick="go(0)">
+    <div class="kick">MSU IC BOOTCAMP · ส่วนบรรยาย</div>
+    <h1>การนำผลงานวิจัย<br>สู่เชิงพาณิชย์</h1>
+    <div class="sub">กรอบการประเมินความพร้อมและการเลือกกลยุทธ์</div>
+  </div>
+  <nav id="nav"></nav>
+  <div class="foot">กดหัวข้อทางซ้าย หรือใช้ปุ่ม ◀ ▶ / ลูกศรคีย์บอร์ด · ปุ่ม “💬 คิว” แสดงบันทึกผู้บรรยาย<br><br>© อ.ดร.วราวุฒิ นาคบุญนำ<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+</aside>
+
+<main id="main">
+  <div id="progress"><div class="bar"></div></div>
+  <div class="wrap" id="content"></div>
+</main>
+
+<script>
+const S=[
+{ id:"intro", group:"บทนำ", nav:"บทนำของบทเรียน", icon:"0", html:`
+  <div class="hero">
+    <div class="kick">MSU IC BOOTCAMP · ส่วนบรรยาย</div>
+    <h2>การนำผลงานวิจัยสู่เชิงพาณิชย์</h2>
+    <p>กรอบการประเมินความพร้อม (Readiness Levels) และการเลือกกลยุทธ์การนำนวัตกรรมออกสู่ตลาด สำหรับนักวิจัยและคณาจารย์</p>
+    <div class="pills"><span class="pill">TRL · MRL · CRL · BRL</span><span class="pill">Strategy Compass</span><span class="pill">Teece</span><span class="pill">UHC</span></div>
+    <p style="margin-top:16px;font-size:12.5px;color:#9DB0D6">© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</p>
+  </div>
+  <p class="lead" style="margin-top:18px">ส่วนบรรยายนี้ออกแบบให้ใช้ร่วมกับ <b>เครื่องมือประเมินความพร้อม (Workshop Playbook)</b> โดยผู้บรรยายนำเสนอกรอบแนวคิด แล้วให้ผู้เข้าร่วมประเมินโครงการของตนเองเป็นระยะ เพื่อเชื่อมโยงทฤษฎีเข้ากับสถานการณ์จริงของแต่ละท่าน</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> เปิดคาบด้วยการวางกรอบว่าผู้เข้าร่วมจะได้ทั้ง “แผนที่ความพร้อม–การวินิจฉัยตนเอง–กรอบเลือกกลยุทธ์”</div>
+`},
+{ id:"hook", group:"บทนำ", nav:"ประเด็นนำเข้าสู่บทเรียน", icon:"1", html:`
+  <div class="eyebrow">ประเด็นนำ</div><h2 class="title">คำถามชวนพิจารณา</h2>
+  <p class="lead">คำถามเชิงสะท้อนเพื่อเชื่อมโยงเนื้อหาเข้ากับประสบการณ์ของผู้เข้าร่วม</p>
+  <div class="callout info" style="font-size:20px;line-height:1.5"><b>ท่านมีผลงานวิจัย สิ่งประดิษฐ์ หรือทรัพย์สินทางปัญญา ที่ยังไม่สามารถสร้างมูลค่าเชิงพาณิชย์ได้หรือไม่</b></div>
+  <p>ปรากฏการณ์นี้พบได้ทั่วไปในระบบวิจัยของสถาบันอุดมศึกษา และมิได้สะท้อนความล้มเหลวของตัวผลงาน หากแต่สะท้อน “ช่องว่างของกระบวนการนำสู่ตลาด” ที่สามารถจัดการได้อย่างเป็นระบบ</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ให้ยกมือเพื่อสร้างการมีส่วนร่วม เว้นจังหวะ แล้วเน้นว่าเป็นปรากฏการณ์เชิงระบบ</div>
+`},
+{ id:"evidence", group:"บทนำ", nav:"ความเป็นเลิศ ≠ ความสำเร็จเชิงพาณิชย์", icon:"2", html:`
+  <div class="eyebrow">หลักฐานเชิงประจักษ์</div><h2 class="title">ความเป็นเลิศทางวิชาการไม่รับประกันความสำเร็จเชิงพาณิชย์</h2>
+  <div class="grid c4">
+    <div class="card"><span class="stat">15/187</span><p>สถาบันในสหรัฐฯ ครอบครองรายได้ค่าสิทธิ (licensing) รวมกันถึง <b>ร้อยละ 72</b> ส่วนที่เหลือมักไม่คุ้มต้นทุนบริหารจัดการ</p></div>
+    <div class="card"><span class="stat">~2%</span><p>สัดส่วนสิทธิบัตรของทั้งประเทศที่มาจากมหาวิทยาลัย</p></div>
+    <div class="card"><span class="stat">$25M</span><p>กำไรสุทธิจาก licensing ของ Stanford ขณะที่ลงทุนวิจัยปีละราว <b>1.7 พันล้านดอลลาร์</b></p></div>
+    <div class="card"><span class="stat" style="color:var(--blue)">≈0.1%</span><p>สัดส่วนวิสาหกิจเริ่มต้นรายปีในสหรัฐฯ ที่มีจุดกำเนิดจากมหาวิทยาลัย</p></div>
+  </div>
+  <div class="callout warn"><b>ข้อสรุป:</b> การมีสิทธิบัตรหรือผลงานตีพิมพ์มิได้แปรเป็นรายได้โดยอัตโนมัติ ประเด็นสำคัญจึงอยู่ที่ “กระบวนการนำผลงานสู่ตลาด” มากกว่าคุณภาพของผลงานเพียงอย่างเดียว</div>
+  <p class="srcline">ที่มา: Hechinger Report — สถิติการถ่ายทอดเทคโนโลยีของสถาบันอุดมศึกษาสหรัฐฯ</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ย้ำว่าปัญหามิได้อยู่ที่งานวิจัย แต่อยู่ที่กระบวนการเชิงพาณิชย์</div>
+`},
+{ id:"anchor", group:"บทนำ", nav:"กรอบความคิดหลัก", icon:"3", html:`
+  <div class="eyebrow">กรอบความคิดหลักของบทเรียน</div><h2 class="title">ข้อสังเกตสำคัญ</h2>
+  <div class="quotebox"><div class="q">“เทคโนโลยีระดับ TRL 9 ที่มีระดับความพร้อมเชิงพาณิชย์ (CRL) เพียง 3 ยังคงอยู่ในภาวะเสี่ยง”</div>
+    <p>ความพร้อมด้านเทคโนโลยีที่สูง แต่ความพร้อมด้านตลาดต่ำ ไม่เพียงพอต่อการสร้างมูลค่า บทเรียนนี้จึงมุ่งยกระดับความพร้อม “ทั้งสี่มิติ” ไปพร้อมกัน</p></div>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ใช้ข้อความนี้เป็นหมุดอ้างอิงตลอดคาบ</div>
+`},
+{ id:"valley", group:"เหตุแห่งความล้มเหลว", nav:"หุบเหวแห่งความตาย", icon:"4", html:`
+  <div class="eyebrow">เหตุแห่งความล้มเหลว</div><h2 class="title">หุบเหวแห่งความตาย (Valley of Death)</h2>
+  <p class="lead">ช่วงรอยต่อระหว่าง “ต้นแบบที่สำเร็จ” กับ “ผลิตภัณฑ์ที่สร้างรายได้” ซึ่งงานวิจัยจำนวนมากยุติลง</p>
+  <svg class="diagram" id="lecValley" viewBox="0 0 860 250"></svg>
+  <div class="grid c4" style="margin-top:6px">
+    <div class="card"><h4 style="color:var(--red)">1 · เงินทุน</h4><p>ทุนสนับสนุนการวิจัยสิ้นสุดก่อนที่รายได้จะเกิด</p></div>
+    <div class="card"><h4 style="color:var(--amber)">2 · เทคนิค</h4><p>ปัญหาที่ไม่คาดคิดเมื่อออกจากสภาพห้องปฏิบัติการ</p></div>
+    <div class="card"><h4 style="color:var(--teal)">3 · ตลาด</h4><p>มุ่งความเป็นเลิศเชิงเทคนิค แต่ประเมินความต้องการของลูกค้าไม่เพียงพอ</p></div>
+    <div class="card"><h4 style="color:var(--purple)">4 · ทักษะเชิงธุรกิจ</h4><p>ขาดประสบการณ์ด้านการวิเคราะห์ตลาดและการพัฒนาธุรกิจ</p></div>
+  </div>
+  <p class="srcline">ที่มา: WAITRO — Valley of Death in Research Commercialization</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> เชื้อเชิญให้ผู้เข้าร่วมระบุว่าสาเหตุใดเกี่ยวข้องกับตนมากที่สุด</div>
+`},
+{ id:"pushpull", group:"เหตุแห่งความล้มเหลว", nav:"Technology Push vs Market Pull", icon:"5", html:`
+  <div class="eyebrow">รากของปัญหา</div><h2 class="title">การผลักดันด้วยเทคโนโลยี กับ การขับเคลื่อนด้วยความต้องการตลาด</h2>
+  <div class="grid c2">
+    <div class="card" style="border-top:4px solid var(--red)"><h4 style="color:var(--red)">Technology Push</h4><p>เริ่มจากเทคโนโลยีที่พัฒนาขึ้น แล้วจึงแสวงหาตลาดรองรับ — เป็นรูปแบบที่นักวิจัยมักใช้โดยไม่รู้ตัว</p></div>
+    <div class="card" style="border-top:4px solid var(--green)"><h4 style="color:var(--green)">Market Pull</h4><p>เริ่มจากความต้องการหรือปัญหาที่แท้จริงของตลาด แล้วจึงพัฒนาทางแก้ที่ตอบโจทย์</p></div>
+  </div>
+  <div class="callout ok"><b>แนวคิดหลักของคาบนี้:</b> การปรับกระบวนทัศน์จาก Technology Push สู่ Market Pull</div>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> เป็นสาระสำคัญที่ต้องการให้ผู้เข้าร่วมนำกลับไปประยุกต์</div>
+`},
+{ id:"axes", group:"กรอบความพร้อม", nav:"สี่มิติความพร้อม", icon:"6", html:`
+  <div class="eyebrow">กรอบความพร้อม</div><h2 class="title">สี่มิติของความพร้อมสู่เชิงพาณิชย์</h2>
+  <div class="axrow">
+    <div class="axb" style="background:var(--blue)"><b>TRL</b><span>ความพร้อมด้านเทคโนโลยี</span></div>
+    <div class="axb" style="background:var(--purple)"><b>MRL</b><span>ความพร้อมด้านการผลิต</span></div>
+    <div class="axb" style="background:var(--teal)"><b>CRL</b><span>ความพร้อมด้านการตลาด</span></div>
+    <div class="axb" style="background:var(--amber)"><b>BRL</b><span>ความพร้อมด้านธุรกิจ</span></div>
+  </div>
+  <div class="callout info"><b>การจัดกลุ่มเชิงวิเคราะห์:</b> รวมเป็นสองมิติหลัก คือ “ความสามารถในการผลิต” (TRL+MRL) และ “ความสามารถในการสร้างมูลค่าทางการตลาด” (CRL+BRL) ซึ่งจำเป็นต้องพัฒนาควบคู่กัน</div>
+  <p class="srcline">อ้างอิง: Technology/Manufacturing Readiness Levels (NASA/US DoD) · Adoption Readiness Levels (US DOE, 2023)</p>
+`},
+{ id:"measure", group:"กรอบความพร้อม", nav:"ตัวชี้วัดเชิงประจักษ์", icon:"7", html:`
+  <div class="eyebrow">การวัดที่ตรวจสอบได้</div><h2 class="title">ตัวชี้วัดเชิงประจักษ์ของความพร้อม</h2>
+  <p class="lead">เพื่อแยกความพร้อมที่แท้จริงออกจากการประเมินตามความรู้สึก</p>
+  <div class="grid c2">
+    <div class="card"><h4>ความเหมาะสมของผลิตภัณฑ์กับตลาด — Sean Ellis 40% Test</h4><p>สัดส่วนผู้ใช้ที่ตอบว่า “ผิดหวังมาก” หากไม่สามารถใช้ผลิตภัณฑ์ได้ ตั้งแต่ร้อยละ 40 ขึ้นไป บ่งชี้ถึงการมี Product–Market Fit</p></div>
+    <div class="card"><h4>ความคุ้มค่าเชิงเศรษฐศาสตร์ — LTV/CAC ≥ 3:1</h4><p>อัตราส่วนมูลค่าลูกค้าตลอดช่วงชีวิตต่อต้นทุนการได้มาซึ่งลูกค้า</p></div>
+    <div class="card"><h4>ความพร้อมด้านการผลิต — Yield / อัตราของเสีย</h4><p>ต้นทุนต่อหน่วยเมื่อขยายสู่การผลิตปริมาณมาก</p></div>
+    <div class="card"><h4>ศักยภาพการเติบโต — NRR &gt; 100%</h4><p>อัตราการคงอยู่ของรายได้จากลูกค้าเดิม สะท้อนการซื้อซ้ำและการขยายการใช้งาน</p></div>
+  </div>
+  <p class="srcline">อ้างอิง: Sean Ellis 40% Test · หลักการ unit economics</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ตั้งคำถามเชิงตรวจสอบ เช่น “ลูกค้าที่กล่าวถึง เป็นลูกค้าที่ชำระเงินจริงหรือไม่”</div>
+`},
+{ id:"ws1", group:"กิจกรรมปฏิบัติ", nav:"กิจกรรมที่ 1 · การประเมินตนเอง", icon:"W", html:`
+  <div class="eyebrow">กิจกรรมปฏิบัติ</div><h2 class="title">กิจกรรมที่ 1 · การประเมินตนเอง</h2>
+  <div class="callout ok"><b>ภารกิจของผู้เข้าร่วม:</b> เปิดเครื่องมือประเมิน (Playbook) ประเมินโครงการของตนตามสี่มิติ และพิจารณาแผนภาพเรดาร์พร้อมกลุ่ม (archetype) ที่ระบบจำแนกให้</div>
+  <p><a class="wslink" href="researcher_commercialization_playbook.html" target="_blank">เปิดเครื่องมือประเมิน (Playbook) ▶</a></p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> จัดสรรเวลาประมาณ 15–20 นาที สังเกตการณ์ และเชิญผู้เข้าร่วมสะท้อนกลุ่มของตน</div>
+`},
+{ id:"arche", group:"การจำแนกกลุ่มและกลยุทธ์", nav:"การจำแนกกลุ่ม (Archetypes)", icon:"8", html:`
+  <div class="eyebrow">การจำแนกกลุ่ม</div><h2 class="title">สี่กลุ่มตามมิติ “ผลิตได้ × ขายได้”</h2>
+  <p class="lead">การจำแนกตามการไขว้ของสองมิติ สอดคล้องกับแนวทาง typology ในวรรณกรรม (เช่น Wright &amp; Fryges)</p>
+  <div class="matrix">
+    <div class="mx h"></div><div class="mx h">ความพร้อมตลาดต่ำ</div><div class="mx h">ความพร้อมตลาดสูง</div>
+    <div class="mx h">ผลิตได้สูง</div>
+    <div class="mx q" style="background:var(--blue)"><b>② เทคโนโลยีนำ–ตลาดตาม</b><span>เทคโนโลยีพร้อมสูงแต่ยังขาดตลาด (พบมากที่สุด)</span></div>
+    <div class="mx q" style="background:var(--green)"><b>④ พร้อมขยาย</b><span>พร้อมทั้งสองมิติ ดำเนินการต่อได้</span></div>
+    <div class="mx h">ผลิตได้ต่ำ</div>
+    <div class="mx q" style="background:#8a90b8"><b>① ระยะเริ่มต้น</b><span>ยังอยู่ในขั้นแนวคิด</span></div>
+    <div class="mx q" style="background:var(--teal)"><b>③ ตลาดนำ–เทคโนโลยีตาม</b><span>มีอุปสงค์ แต่ต้องเร่งความพร้อมเทคโนโลยี</span></div>
+  </div>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> สอบถามการกระจายตัวของกลุ่มในห้อง โดยทั่วไปกลุ่ม ② มีสัดส่วนสูงสุด</div>
+`},
+{ id:"trap", group:"การจำแนกกลุ่มและกลยุทธ์", nav:"กลุ่มที่ 2: เทคโนโลยีนำ–ตลาดตาม", icon:"9", html:`
+  <div class="eyebrow">การวิเคราะห์กลุ่มหลัก</div><h2 class="title">กลุ่มที่ 2 · เทคโนโลยีพร้อมสูง–ตลาดพร้อมต่ำ</h2>
+  <div class="grid c2">
+    <div class="card" style="border-top:4px solid var(--red)"><h4 style="color:var(--red)">ข้อพึงระวัง</h4><p>แนวโน้มพัฒนานวัตกรรมใหม่อย่างต่อเนื่องแทนการผลักดันผลงานเดิมสู่ตลาด ประกอบกับสมมติฐานว่าคุณภาพเชิงเทคนิคจะดึงดูดผู้ซื้อโดยอัตโนมัติ</p></div>
+    <div class="card" style="border-top:4px solid var(--green)"><h4 style="color:var(--green)">แนวทางดำเนินการ</h4><p>ระงับการเพิ่มคุณลักษณะ เลือกตลาดหัวหาด (beachhead) ที่ชัดเจน จัดเก็บหลักฐานความต้องการ (LOI / โครงการนำร่องแบบมีค่าตอบแทน) และตัดสินใจระหว่างการอนุญาตให้ใช้สิทธิกับการจัดตั้งธุรกิจ</p></div>
+  </div>
+  <div class="callout ok"><b>เกณฑ์การก้าวสู่ระดับถัดไป:</b> มีตลาดหัวหาดชัดเจน มีโครงการนำร่องแบบมีค่าตอบแทนอย่างน้อยหนึ่งราย และผ่านเกณฑ์ 40% Test</div>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> เป็นช่วงที่ผู้เข้าร่วมจำนวนมากจะระบุตนเองได้ ควรเว้นจังหวะให้พิจารณา</div>
+`},
+{ id:"compass", group:"การจำแนกกลุ่มและกลยุทธ์", nav:"เข็มทิศกลยุทธ์ (Compass)", icon:"10", html:`
+  <div class="eyebrow">กรอบการเลือกกลยุทธ์</div><h2 class="title">เข็มทิศกลยุทธ์ผู้ประกอบการ</h2>
+  <p class="lead">Entrepreneurial Strategy Compass — Gans, Scott &amp; Stern (Harvard Business Review, 2018)</p>
+  <svg class="diagram" id="compassSvg" viewBox="0 0 660 470"></svg>
+  <div class="callout info"><b>สองคำถามกำหนดทิศ:</b> (1) ท่าทีต่อผู้เล่นรายเดิม — ร่วมมือหรือแข่งขัน (2) ท่าทีต่อนวัตกรรม — ปกป้อง/ควบคุมหรือเร่งเข้าสู่ตลาด</div>
+`},
+{ id:"route", group:"การจำแนกกลุ่มและกลยุทธ์", nav:"การเลือกเส้นทาง (Teece)", icon:"11", html:`
+  <div class="eyebrow">การวินิจฉัยเส้นทาง</div><h2 class="title">มิใช่ทุกผลงานควรจัดตั้งบริษัท</h2>
+  <p>กรอบของ Teece ระบุว่าผู้ที่จะได้ประโยชน์จากนวัตกรรมขึ้นอยู่กับสองปัจจัย ได้แก่ ความเข้มแข็งของการคุ้มครองทรัพย์สินทางปัญญา และการมีสินทรัพย์เสริม (การผลิต ช่องทางจัดจำหน่าย ตราสินค้า)</p>
+  <svg class="diagram" id="teeceSvg" viewBox="0 0 660 440"></svg>
+  <div class="tablewrap"><table class="cmp"><thead><tr><th>เส้นทาง</th><th>เงื่อนไขที่เหมาะสม</th><th>บทบาทของ UHC</th></tr></thead>
+    <tbody>
+      <tr><td>การอนุญาตให้ใช้สิทธิ (Licensing)</td><td>IP เข้มแข็ง ไม่ประสงค์ดำเนินธุรกิจเอง</td><td>เจรจาข้อตกลงและถือหุ้นแทน</td></tr>
+      <tr><td>ความร่วมมือ / OEM</td><td>ขาดช่องทาง ต้องการเข้าสู่ตลาดอย่างรวดเร็ว</td><td>จับคู่พันธมิตรภาคอุตสาหกรรม</td></tr>
+      <tr><td>การจัดตั้ง Spin-off</td><td>ประสงค์ดำเนินธุรกิจเอง และมีศักยภาพเติบโต</td><td>ร่วมลงทุนและปลดล็อกข้อจำกัดเชิงระบบ</td></tr>
+    </tbody></table></div>
+  <p class="srcline">อ้างอิง: Teece (1986) · Teece, Business Models and Dynamic Capabilities (2018)</p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ปรับทัศนคติว่า “การอนุญาตให้ใช้สิทธิก็เป็นความสำเร็จรูปแบบหนึ่ง”</div>
+`},
+{ id:"uhc", group:"บทบาทของสถาบัน", nav:"University Holding Company", icon:"12", html:`
+  <div class="eyebrow">การสนับสนุนเชิงสถาบัน</div><h2 class="title">บริษัทโฮลดิงของมหาวิทยาลัย (UHC)</h2>
+  <div class="grid c4">
+    <div class="card"><span class="stat" style="color:var(--blue)">12</span><p>จำนวน UHC ทั่วประเทศ ภายใต้การขับเคลื่อนของ สอวช.</p></div>
+    <div class="card"><span class="stat" style="color:var(--blue)">500M+</span><p>ทุนจดทะเบียนรวม (บาท)</p></div>
+    <div class="card"><span class="stat" style="color:var(--blue)">110+</span><p>บริษัทนวัตกรรมที่ร่วมลงทุน</p></div>
+    <div class="card"><h4>กลไก</h4><p>ร่วมลงทุนในวิสาหกิจที่แยกตัวจากงานวิจัย พร้อมลดข้อจำกัดเชิงระเบียบราชการ</p></div>
+  </div>
+  <div class="callout info"><b>นัยเชิงยุทธศาสตร์:</b> ผลงานวิจัยสามารถต่อยอดจากการตีพิมพ์และสิทธิบัตร ไปสู่การผลิต การตลาด และรายได้ที่เกิดขึ้นจริง โดยสถาบันเปลี่ยนบทบาทเป็น “หุ้นส่วนเชิงพาณิชย์” มิใช่เพียงต้นสังกัด</div>
+  <p class="srcline">มหาวิทยาลัยมหาสารคามอยู่ระหว่างการจัดทำยุทธศาสตร์ด้านนี้ จึงควรวางแผนล่วงหน้า · ที่มา: สอวช. (กรุงเทพธุรกิจ)</p>
+`},
+{ id:"ws2", group:"กิจกรรมปฏิบัติ", nav:"กิจกรรมที่ 2 · แผนปฏิบัติเฉพาะบุคคล", icon:"W", html:`
+  <div class="eyebrow">กิจกรรมปฏิบัติ</div><h2 class="title">กิจกรรมที่ 2 · แผนปฏิบัติเฉพาะบุคคล</h2>
+  <div class="callout ok"><b>ภารกิจของผู้เข้าร่วม:</b> กลับสู่เครื่องมือประเมิน ตอบชุดคำถามเข็มทิศกลยุทธ์และการวินิจฉัยตามกรอบ Teece เพื่อรับแผนปฏิบัติสามขั้นตอนที่จำเพาะต่อโครงการของตน</div>
+  <p><a class="wslink" href="researcher_commercialization_playbook.html" target="_blank">เปิดเครื่องมือประเมิน (Playbook) ▶</a></p>
+  <div class="cue"><b>บันทึกผู้บรรยาย:</b> ให้ผู้เข้าร่วมบันทึกแผนสามขั้นตอน และเชิญผู้แทน 2–3 ท่านนำเสนอ</div>
+`},
+{ id:"close", group:"สรุป", nav:"บทสรุป", icon:"✓", html:`
+  <div class="eyebrow">บทสรุป</div><h2 class="title">การประเมินตนเองสู่การกำหนดแนวทางดำเนินการ</h2>
+  <div class="grid c2">
+    <div class="card"><h4><span class="num">1</span>ยกระดับความพร้อมทั้งสี่มิติควบคู่กัน</h4><p>หลีกเลี่ยงการพัฒนาเพียงด้านเดียว</p></div>
+    <div class="card"><h4><span class="num t">2</span>ประเมินด้วยหลักฐานเชิงประจักษ์</h4><p>LOI · โครงการนำร่องแบบมีค่าตอบแทน · 40% Test · LTV/CAC</p></div>
+    <div class="card"><h4><span class="num">3</span>เลือกเส้นทางให้สอดคล้องกับบริบท</h4><p>การอนุญาตให้ใช้สิทธิ · ความร่วมมือ · การจัดตั้ง spin-off</p></div>
+    <div class="card"><h4><span class="num t">4</span>อาศัยกลไกสนับสนุนเชิงสถาบัน</h4><p>ใช้ UHC เป็นหุ้นส่วนเชิงพาณิชย์</p></div>
+  </div>
+  <div class="callout ok"><b>ปิดท้าย:</b> แต่ละกรณีมีบริบทเฉพาะที่สามารถวิเคราะห์เชิงลึกเป็นรายโครงการได้</div>
+  <p class="srcline">© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</p>
+`},
+];
+
+/* ===== ENGINE (จาก template · แก้ zoom ให้ scroll ได้เต็มจอ) ===== */
+const nav=document.getElementById('nav'),content=document.getElementById('content');
+let cur=0,lastGroup=null;
+S.forEach((s,i)=>{
+  if(s.group!==lastGroup){lastGroup=s.group;const g=document.createElement('div');g.className='nav-group';g.textContent=s.group;nav.appendChild(g);}
+  const it=document.createElement('div');it.className='nav-item';it.dataset.i=i;
+  it.innerHTML='<span class="dot">'+s.icon+'</span><span>'+s.nav+'</span>';it.onclick=()=>go(i);nav.appendChild(it);
+  const sec=document.createElement('section');sec.className='page';sec.id='pg-'+i;sec.innerHTML=s.html;
+  const bn=document.createElement('div');bn.className='navbtns';
+  bn.innerHTML='<button class="btn" data-prev>◀ ก่อนหน้า</button><button class="btn primary" data-next>ถัดไป ▶</button>';
+  sec.appendChild(bn);content.appendChild(sec);
+});
+function go(i){
+  if(i<0||i>=S.length)return;cur=i;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pg-'+i).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',+n.dataset.i===i));
+  document.querySelector('#progress .bar').style.width=((i+1)/S.length*100)+'%';
+  document.getElementById('main').scrollTo({top:0,behavior:'auto'});
+  const nn=document.querySelector('#pg-'+i+' [data-next]'),pp=document.querySelector('#pg-'+i+' [data-prev]');
+  pp.disabled=(i===0);nn.disabled=(i===S.length-1);nn.textContent=(i===S.length-1)?'จบแล้ว ✓':'ถัดไป ▶';
+  closeMenu();
+}
+content.addEventListener('click',e=>{
+  if(e.target.closest('[data-next]'))go(cur+1);
+  if(e.target.closest('[data-prev]'))go(cur-1);
+});
+const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
+document.getElementById('menuToggle').onclick=()=>{sb.classList.add('open');bd.classList.add('show');};
+bd.onclick=closeMenu;function closeMenu(){sb.classList.remove('open');bd.classList.remove('show');}
+const cueBtn=document.getElementById('cue-btn');
+cueBtn.onclick=()=>{const on=document.body.classList.toggle('notes');cueBtn.classList.toggle('on',on);};
+let zoom=1;const zc=document.getElementById('content');
+function applyZoom(){zc.style.zoom=zoom;}
+document.getElementById('fsz-up').onclick=()=>{zoom=Math.min(2,+(zoom+0.1).toFixed(2));applyZoom();};
+document.getElementById('fsz-down').onclick=()=>{zoom=Math.max(0.7,+(zoom-0.1).toFixed(2));applyZoom();};
+document.getElementById('fs-btn').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}};
+document.addEventListener('fullscreenchange',()=>{const b=document.getElementById('fs-btn');b.innerHTML=document.fullscreenElement?'⛶ ออกจากเต็มจอ':'⛶ เต็มจอ';b.classList.toggle('on',!!document.fullscreenElement);});
+const projBtn=document.getElementById('proj-btn');
+projBtn.onclick=()=>{const on=document.body.classList.toggle('projector');projBtn.classList.toggle('on',on);if(on){if(zoom<1.2){zoom=1.2;applyZoom();}}else{zoom=1;applyZoom();closeMenu();}};
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+
+/* ===== diagrams ===== */
+function drawValley(){const svg=document.getElementById('lecValley');if(!svg)return;const W=860,H=250,L=54,B=H-40,T=16,R=W-20,span=R-L,ht=B-T;
+ const x=t=>L+t*span,y=v=>B-(v/9)*ht;let s=`<line x1="${L}" y1="${B}" x2="${R}" y2="${B}" stroke="#d8dbec"/>`;
+ s+=`<text x="${L}" y="${B+22}" font-size="13" fill="#5a6187">วิจัยพื้นฐาน</text><text x="${(L+R)/2}" y="${B+22}" font-size="13" fill="#5a6187" text-anchor="middle">ต้นแบบ</text><text x="${R}" y="${B+22}" font-size="13" fill="#5a6187" text-anchor="end">เชิงพาณิชย์</text>`;
+ const vx1=x(0.37),vx2=x(0.63);s+=`<rect x="${vx1}" y="${T}" width="${vx2-vx1}" height="${B-T}" fill="rgba(192,57,43,.09)"/><text x="${(vx1+vx2)/2}" y="${T+18}" font-size="15" font-weight="800" fill="#C0392B" text-anchor="middle">หุบเหวแห่งความตาย</text>`;
+ const pts=[[0,3.2],[.13,5.2],[.29,6.4],[.43,3.1],[.53,1.6],[.63,2.5],[.79,5.4],[.9,7.4],[1,8.5]];let d='';pts.forEach((p,i)=>{d+=(i?'L':'M')+x(p[0]).toFixed(1)+' '+y(p[1]).toFixed(1)+' ';});
+ s+=`<path d="${d}" fill="none" stroke="#2F5BD0" stroke-width="3.5"/>`;svg.innerHTML=s;}
+
+function draw2x2(id,cfg){const svg=document.getElementById(id);if(!svg)return;
+ const X0=140,X1=640,Y0=44,Y1=(id==='compassSvg'?404:374),MX=(X0+X1)/2,MY=(Y0+Y1)/2;
+ let s='';
+ // quadrant fills
+ const q=cfg.quads; // [TL,TR,BL,BR] each {c,label,sub}
+ const boxes=[[X0,Y0,MX,MY,q[0]],[MX,Y0,X1,MY,q[1]],[X0,MY,MX,Y1,q[2]],[MX,MY,X1,Y1,q[3]]];
+ boxes.forEach(b=>{const[x0,y0,x1,y1,d]=b;s+=`<rect x="${x0+3}" y="${y0+3}" width="${x1-x0-6}" height="${y1-y0-6}" rx="12" fill="${d.c}" opacity="0.93"/>`;
+   s+=`<text x="${(x0+x1)/2}" y="${(y0+y1)/2-6}" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">${d.label}</text>`;
+   s+=`<text x="${(x0+x1)/2}" y="${(y0+y1)/2+16}" text-anchor="middle" font-size="12.5" fill="#eef">${d.sub}</text>`;});
+ // axis labels
+ s+=`<text x="${(X0+X1)/2}" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#1B2A3A">${cfg.top}</text>`;
+ s+=`<text x="${(X0+X1)/2}" y="${Y1+30}" text-anchor="middle" font-size="14" font-weight="700" fill="#1B2A3A">${cfg.bottom}</text>`;
+ s+=`<text x="${X0-12}" y="${(Y0+Y1)/2}" text-anchor="middle" font-size="13.5" font-weight="700" fill="#5C6B7A" transform="rotate(-90 ${X0-12} ${(Y0+Y1)/2})">${cfg.left}</text>`;
+ s+=`<text x="${X1+12}" y="${(Y0+Y1)/2}" text-anchor="middle" font-size="13.5" font-weight="700" fill="#5C6B7A" transform="rotate(90 ${X1+12} ${(Y0+Y1)/2})">${cfg.right}</text>`;
+ svg.setAttribute('viewBox',`0 0 660 ${Y1+46}`);svg.innerHTML=s;}
+
+drawValley();
+draw2x2('compassSvg',{
+ top:'↑ ปกป้อง / ควบคุมนวัตกรรม', bottom:'↓ เร่งเข้าสู่ตลาด', left:'ร่วมมือกับเจ้าตลาด', right:'แข่งขันกับเจ้าตลาด',
+ quads:[
+  {c:'#2F5BD0',label:'IP Strategy',sub:'ร่วมมือ + ควบคุม (เช่น Dolby)'},
+  {c:'#8A56D6',label:'Architectural',sub:'แข่งขัน + ควบคุม (แพลตฟอร์มใหม่)'},
+  {c:'#2FA392',label:'Value Chain',sub:'ร่วมมือ + เร็ว (ป้อนห่วงโซ่เดิม)'},
+  {c:'#E9A72C',label:'Disruption',sub:'แข่งขัน + เร็ว (เช่น Netflix)'}
+ ]});
+draw2x2('teeceSvg',{
+ top:'↑ มีสินทรัพย์เสริม (ผลิต/ช่องทาง)', bottom:'↓ ขาดสินทรัพย์เสริม', left:'IP อ่อน', right:'IP เข้มแข็ง',
+ quads:[
+  {c:'#2FA392',label:'ไปตลาดด้วยสินทรัพย์ที่มี',sub:'ใช้ช่องทาง/การผลิตเป็นความได้เปรียบ'},
+  {c:'#2E7D5B',label:'ดำเนินธุรกิจเอง (Integrate)',sub:'ได้เปรียบเต็มที่ / spin-off'},
+  {c:'#C0392B',label:'เร่งสร้าง IP + หาพันธมิตร/UHC',sub:'ความเสี่ยงสูงสุด'},
+  {c:'#2F5BD0',label:'อนุญาตให้ใช้สิทธิ (License)',sub:'เก็บค่าสิทธิ ไม่ต้องแบกธุรกิจ'}
+ ]});
+
+go(0);
+</script>
+</body>
+</html>
