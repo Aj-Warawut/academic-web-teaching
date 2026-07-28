@@ -24,6 +24,10 @@ a{text-decoration:none;color:inherit}
 .photo{width:150px;height:196px;flex:0 0 150px;border-radius:16px;object-fit:cover;object-position:top center;border:3px solid var(--gold);box-shadow:0 10px 28px rgba(0,0,0,.35)}
 @media(max-width:560px){.phead .wrap{justify-content:center;text-align:center}}
 .phead h1{font-size:28px;font-weight:800}
+.phead h1 .nb{white-space:nowrap}
+.lg-en{display:none}
+html[data-lang="en"] .lg-th{display:none}
+html[data-lang="en"] .lg-en{display:inline}
 .phead .role{font-size:15px;color:var(--gold2);font-weight:700;margin-top:5px;max-width:52ch}
 .phead .org{font-size:13.5px;color:#cdd7f0;margin-top:5px}
 .section{padding:28px 0 4px}
@@ -76,7 +80,7 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
 <div class="phead"><div class="wrap">
   <img class="photo" src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ">
   <div>
-    <h1 data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Narkbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</h1>
+    <h1><span class="lg-th"><span class="nb">อ.ดร.วราวุฒิ</span> <span class="nb">นาคบุญนำ</span></span><span class="lg-en">Dr. Warawut Narkbunnum</span></h1>
     <div class="role" data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่ · รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์" data-en="Lecturer, Modern Management · Deputy Director for Organizational Development and Digital Innovation, Computer Center">อาจารย์ประจำสาขาการจัดการสมัยใหม่ · รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์</div>
     <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
   </div>

@@ -60,7 +60,12 @@ a{text-decoration:none;color:inherit}
 .top{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;padding:44px 0 30px}
 @media(max-width:920px){.top{grid-template-columns:1fr;text-align:center}}
 .kick{font-size:15px;letter-spacing:5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+html[data-lang="th"] .kick{letter-spacing:normal;text-transform:none}
 .left h1{font-size:40px;font-weight:800;margin:14px 0 4px;line-height:1.14}
+.left h1 .nb{white-space:nowrap}
+.lg-en{display:none}
+html[data-lang="en"] .lg-th{display:none}
+html[data-lang="en"] .lg-en{display:inline}
 .heroavatar{width:82px;height:82px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid var(--gold);box-shadow:0 8px 20px rgba(233,167,44,.32);margin-bottom:14px}
 @media(max-width:920px){.heroavatar{margin-left:auto;margin-right:auto;display:block}}
 .left .role{font-size:19px;color:var(--gold2);font-weight:700}
@@ -155,7 +160,7 @@ a{text-decoration:none;color:inherit}
     <div class="left">
       <img class="heroavatar" src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ">
       <div class="kick" data-th="ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ" data-en="Welcome to my Academic Portfolio">ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ</div>
-      <h1 data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Narkbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</h1>
+      <h1><span class="lg-th"><span class="nb">อ.ดร.วราวุฒิ</span> <span class="nb">นาคบุญนำ</span></span><span class="lg-en">Dr. Warawut Narkbunnum</span></h1>
       <div class="role" data-th="อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Lecturer · Program Chair &amp; Coordinator, Business Administration and Digital Innovation">อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล</div>
       <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Faculty of Accountancy and Management · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
       <div class="desc" data-th="พอร์ตโฟลิโอนี้รวบรวมผลงานด้านการเรียนการสอน การวิจัย และบริการวิชาการ ด้วยความมุ่งมั่นในการสร้างองค์ความรู้และสร้างผลกระทบเชิงบวกต่อสังคมและองค์กร" data-en="This portfolio showcases my work in teaching, research, and academic service, with a commitment to creating knowledge and driving positive impact for society and organizations.">พอร์ตโฟลิโอนี้รวบรวมผลงานด้านการเรียนการสอน การวิจัย และบริการวิชาการ ด้วยความมุ่งมั่นในการสร้างองค์ความรู้และสร้างผลกระทบเชิงบวกต่อสังคมและองค์กร</div>
