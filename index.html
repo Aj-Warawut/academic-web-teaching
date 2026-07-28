@@ -17,7 +17,8 @@ a{text-decoration:none;color:inherit}
 
 /* navbar */
 .nav{position:sticky;top:0;z-index:40;background:rgba(11,20,48,.88);backdrop-filter:blur(8px);border-bottom:1px solid rgba(233,167,44,.18)}
-.nav .inner{max-width:1240px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.nav .inner{max-width:1240px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative}
+.menubtn{display:none;background:none;border:1.4px solid rgba(233,167,44,.5);color:#F6D26B;border-radius:9px;width:42px;height:36px;font-size:19px;cursor:pointer;margin-left:auto}
 .brand{display:flex;align-items:center;gap:10px}
 .wnmini{width:38px;height:38px;border-radius:50%;border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-weight:800;font-size:15px;color:var(--gold2);letter-spacing:-1px}
 .brand b{font-size:14px;letter-spacing:2px;color:var(--gold);font-weight:800}
@@ -30,13 +31,38 @@ a{text-decoration:none;color:inherit}
 .langtoggle button.on{background:var(--gold);color:var(--navy)}
 .profilebtn{border:1.4px solid var(--gold);border-radius:24px;padding:7px 16px;color:var(--gold2);font-weight:700;font-size:13px;display:flex;gap:7px;align-items:center}
 .profilebtn:hover{background:rgba(233,167,44,.14)}
-@media(max-width:920px){.navlinks{gap:13px}.navlinks a{font-size:12.5px}}
+@media(max-width:960px){.navlinks{gap:13px}.navlinks a{font-size:12.5px}}
+@media(max-width:840px){
+  .nav .inner{padding:10px 18px}
+  .menubtn{display:flex;align-items:center;justify-content:center}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(11,20,48,.98);border-bottom:1px solid rgba(233,167,44,.22);flex-direction:column;align-items:stretch;gap:0;padding:8px 18px 16px;margin:0}
+  .navlinks.open{display:flex}
+  .navlinks a{font-size:15px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .navlinks a.active{color:var(--gold2)}
+  .langtoggle{align-self:flex-start;margin-top:10px}
+  .profilebtn{align-self:flex-start;margin-top:10px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .kick{letter-spacing:2px;font-size:13px}
+  .left h1{font-size:29px}
+  .left .role{font-size:14.5px}
+  .heroavatar{width:72px;height:72px}
+  .top{padding-top:22px;gap:6px}
+  .emblem{width:278px;height:278px;margin-top:20px}
+  .core{width:184px;height:184px}
+  .core .wn{font-size:56px}
+  .pill{padding:10px 16px}
+}
+@media(max-width:380px){.left h1{font-size:25px}.emblem{width:250px;height:250px}.core{width:168px;height:168px}.core .wn{font-size:50px}}
 
 .wrap{max-width:1240px;margin:0 auto;padding:0 34px;position:relative;z-index:2}
 .top{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;padding:44px 0 30px}
 @media(max-width:920px){.top{grid-template-columns:1fr;text-align:center}}
 .kick{font-size:15px;letter-spacing:5px;color:var(--gold);font-weight:800;text-transform:uppercase}
 .left h1{font-size:40px;font-weight:800;margin:14px 0 4px;line-height:1.14}
+.heroavatar{width:82px;height:82px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid var(--gold);box-shadow:0 8px 20px rgba(233,167,44,.32);margin-bottom:14px}
+@media(max-width:920px){.heroavatar{margin-left:auto;margin-right:auto;display:block}}
 .left .role{font-size:19px;color:var(--gold2);font-weight:700}
 .left .org{font-size:15px;color:#cdd7f0;margin-top:8px;line-height:1.5}
 .left .desc{font-size:15px;color:var(--mute);margin-top:14px;max-width:56ch;line-height:1.6}
@@ -111,6 +137,7 @@ a{text-decoration:none;color:inherit}
 
 <div class="nav"><div class="inner">
   <div class="brand"><div class="wnmini">WN</div><b>ACADEMIC PORTFOLIO</b></div>
+  <button class="menubtn" id="menubtn" aria-label="menu">☰</button>
   <div class="navlinks">
     <a class="active" href="#top" data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
     <a data-href="teaching.html" data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</a>
@@ -126,6 +153,7 @@ a{text-decoration:none;color:inherit}
 <div class="wrap" id="top">
   <div class="top">
     <div class="left">
+      <img class="heroavatar" src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ">
       <div class="kick" data-th="ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ" data-en="Welcome to my Academic Portfolio">ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ</div>
       <h1 data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Narkbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</h1>
       <div class="role" data-th="อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Lecturer · Program Chair &amp; Coordinator, Business Administration and Digital Innovation">อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล</div>
@@ -193,6 +221,9 @@ function setLang(l){document.documentElement.dataset.lang=l;document.documentEle
   document.getElementById('th-btn').classList.toggle('on',l==='th');document.getElementById('en-btn').classList.toggle('on',l==='en');
   document.querySelectorAll('a[data-href]').forEach(a=>{a.href=a.dataset.href+(l==='en'?'?lang=en':'');});}
 setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
+const mb=document.getElementById('menubtn'),nl=document.querySelector('.navlinks');
+mb.onclick=()=>nl.classList.toggle('open');
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
 </script>
 </body>
 </html>

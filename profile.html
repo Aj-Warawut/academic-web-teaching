@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ประวัติ · อ.ดร.วราวุฒิ นาคบุญนำ</title>
 <style>
-:root{--navy:#111A3A;--navy2:#1B2A58;--ac:#E9A72C;--gold:#E9A72C;--gold2:#F6D26B;--ink:#1D2340;--mute:#5C6B7A;--line:#E3E7F2;--bg:#F4F6FC;--card:#fff;--shadow:0 8px 26px rgba(20,30,70,.09)}
+:root{--navy:#111A3A;--navy2:#1B2A58;--gold:#E9A72C;--gold2:#F6D26B;--blue:#2F5BD0;--teal:#2FA392;--ink:#1D2340;--mute:#5C6B7A;--line:#E3E7F2;--bg:#F4F6FC;--card:#fff;--shadow:0 8px 26px rgba(20,30,70,.09)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
 a{text-decoration:none;color:inherit}
 .wrap{max-width:960px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
@@ -19,33 +19,37 @@ a{text-decoration:none;color:inherit}
 .langtoggle{display:flex;background:rgba(255,255,255,.12);border:1px solid rgba(233,167,44,.3);border-radius:22px;overflow:hidden}
 .langtoggle button{background:none;border:none;color:#cdd7f0;font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 12px;cursor:pointer}
 .langtoggle button.on{background:var(--gold);color:var(--navy)}
-.phead{background:radial-gradient(700px 300px at 85% 0,#20386f 0,transparent 60%),linear-gradient(135deg,var(--navy),#152a5e);color:#fff;padding:40px 0 34px}
-.phead .wrap{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-.emblem{width:110px;height:110px;flex:0 0 110px;border-radius:50%;border:3px solid var(--gold);background:radial-gradient(circle at 38% 30%,#17264f,#0a1330);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.emblem .wn{font-family:Georgia,serif;font-weight:800;font-size:40px;background:linear-gradient(180deg,#F8DE8A,#E9A72C 60%,#B9790F);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
-.emblem .nm{font-size:7px;letter-spacing:1px;color:var(--gold2);font-weight:800;margin-top:4px}
+.phead{background:radial-gradient(700px 320px at 88% 0,#20386f 0,transparent 60%),linear-gradient(135deg,var(--navy),#152a5e);color:#fff;padding:38px 0}
+.phead .wrap{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.photo{width:150px;height:196px;flex:0 0 150px;border-radius:16px;object-fit:cover;object-position:top center;border:3px solid var(--gold);box-shadow:0 10px 28px rgba(0,0,0,.35)}
+@media(max-width:560px){.phead .wrap{justify-content:center;text-align:center}}
 .phead h1{font-size:28px;font-weight:800}
-.phead .role{font-size:15px;color:var(--gold2);font-weight:700;margin-top:4px}
-.phead .org{font-size:13.5px;color:#cdd7f0;margin-top:4px}
-.section{padding:30px 0 6px}
+.phead .role{font-size:15px;color:var(--gold2);font-weight:700;margin-top:5px;max-width:52ch}
+.phead .org{font-size:13.5px;color:#cdd7f0;margin-top:5px}
+.section{padding:28px 0 4px}
 .h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .h .bar{width:5px;height:22px;border-radius:4px;background:var(--gold)}
-.h h2{font-size:21px;color:var(--navy)}
-.roles{display:grid;gap:14px}
-.rcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 20px;display:flex;gap:14px;align-items:flex-start;border-left:5px solid var(--rc)}
-.rcard .lv{font-size:11.5px;font-weight:800;letter-spacing:.5px;color:#fff;background:var(--rc);border-radius:20px;padding:4px 12px;flex:0 0 auto;white-space:nowrap}
-.rcard h3{font-size:16.5px;color:var(--navy);margin-bottom:2px}
-.rcard p{font-size:13.5px;color:var(--mute)}
+.h h2{font-size:20px;color:var(--navy)}
+.about{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px 24px;font-size:15px;color:var(--ink);line-height:1.75}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid var(--line);border-radius:22px;padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--navy);box-shadow:var(--shadow)}
+.chip::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:8px;vertical-align:middle}
+.edu{display:grid;gap:12px}
+.ecard{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 18px;display:flex;gap:14px;align-items:center;border-left:5px solid var(--ec)}
+.ecard .deg{font-size:12px;font-weight:800;color:#fff;background:var(--ec);border-radius:20px;padding:4px 12px;flex:0 0 auto;white-space:nowrap}
+.ecard b{font-size:15px;color:var(--navy);display:block}.ecard span{font-size:13px;color:var(--mute)}
+.roles{display:grid;gap:12px}
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 18px;display:flex;gap:13px;align-items:flex-start;border-left:5px solid var(--rc)}
+.rcard .lv{font-size:11.5px;font-weight:800;color:#fff;background:var(--rc);border-radius:20px;padding:4px 12px;flex:0 0 auto;white-space:nowrap}
+.rcard b{font-size:15.5px;color:var(--navy);display:block}.rcard span{font-size:13px;color:var(--mute)}
 .ids{display:flex;gap:12px;flex-wrap:wrap}
 .idcard{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 18px;display:flex;gap:12px;align-items:center;transition:.15s;min-width:250px}
 .idcard:hover{transform:translateY(-2px);border-color:var(--gold)}
 .idcard .ic{width:40px;height:40px;flex:0 0 40px;border-radius:10px;background:var(--navy);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
-.idcard b{font-size:15px;color:var(--navy);display:block}
-.idcard span{font-size:12.5px;color:var(--mute)}
+.idcard b{font-size:15px;color:var(--navy);display:block}.idcard span{font-size:12.5px;color:var(--mute)}
 .contact{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px 22px}
 .contact p{font-size:14.5px;margin-bottom:6px}.contact a{color:var(--navy);font-weight:700}
-.soon{margin-top:14px;font-size:12.5px;color:var(--mute);background:#fff;border:1px dashed var(--line);border-radius:10px;padding:10px 14px}
-footer{margin-top:36px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:12.5px;text-align:center}
+footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:12.5px;text-align:center}
 </style>
 </head>
 <body>
@@ -58,30 +62,49 @@ footer{margin-top:36px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
 </div></div>
 
 <div class="phead"><div class="wrap">
-  <div class="emblem"><div class="wn">WN</div><div class="nm">WARAWUT NARKBUNNUM</div></div>
+  <img class="photo" src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ">
   <div>
     <h1 data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Narkbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</h1>
-    <div class="role" data-th="อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Lecturer · Program Chair & Coordinator, Business Administration and Digital Innovation">อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล</div>
+    <div class="role" data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่ · รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์" data-en="Lecturer, Modern Management · Deputy Director for Organizational Development and Digital Innovation, Computer Center">อาจารย์ประจำสาขาการจัดการสมัยใหม่ · รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์</div>
     <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
   </div>
 </div></div>
 
 <div class="wrap">
   <div class="section">
+    <div class="h"><span class="bar"></span><h2 data-th="เกี่ยวกับ" data-en="About">เกี่ยวกับ</h2></div>
+    <p class="about" data-th="ดร.วราวุฒิ นาคบุญนำ เป็นอาจารย์ประจำสาขาการจัดการสมัยใหม่ คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม และดำรงตำแหน่งรองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม มีความเชี่ยวชาญด้านการประยุกต์ใช้การวิเคราะห์ข้อมูลและการเรียนรู้ของเครื่องในงานธุรกิจและนวัตกรรม โดยเฉพาะการพยากรณ์ภาวะล้มละลายทางการเงิน การวิเคราะห์ความสำเร็จของสตาร์ทอัพ และ Explainable AI เพื่อสนับสนุนการตัดสินใจ มีผลงานตีพิมพ์ในวารสารระดับนานาชาติ และมีบทบาทเป็นผู้ทรงคุณวุฒิ ผู้ประเมิน และวิทยากรด้านการจัดการนวัตกรรม การเปลี่ยนผ่านสู่ดิจิทัล และการพัฒนาองค์กรตามเกณฑ์ EdPEx" data-en="Dr. Warawut Narkbunnum is a lecturer in the Department of Management, Faculty of Accountancy and Management, Mahasarakham University, and serves as Deputy Director for Organizational Development and Digital Innovation at the University's Computer Center. His work focuses on applying data analytics and machine learning to business and innovation — particularly financial distress prediction, startup success analysis, and explainable AI (XAI) for decision support. He has published in international journals and actively contributes as a reviewer, academic committee member, and invited speaker in business innovation, digital transformation, and quality frameworks such as EdPEx.">ดร.วราวุฒิ นาคบุญนำ เป็นอาจารย์ประจำสาขาการจัดการสมัยใหม่ คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม และดำรงตำแหน่งรองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม มีความเชี่ยวชาญด้านการประยุกต์ใช้การวิเคราะห์ข้อมูลและการเรียนรู้ของเครื่องในงานธุรกิจและนวัตกรรม โดยเฉพาะการพยากรณ์ภาวะล้มละลายทางการเงิน การวิเคราะห์ความสำเร็จของสตาร์ทอัพ และ Explainable AI เพื่อสนับสนุนการตัดสินใจ มีผลงานตีพิมพ์ในวารสารระดับนานาชาติ และมีบทบาทเป็นผู้ทรงคุณวุฒิ ผู้ประเมิน และวิทยากรด้านการจัดการนวัตกรรม การเปลี่ยนผ่านสู่ดิจิทัล และการพัฒนาองค์กรตามเกณฑ์ EdPEx</p>
+  </div>
+
+  <div class="section">
+    <div class="h"><span class="bar"></span><h2 data-th="ความเชี่ยวชาญ" data-en="Expertise">ความเชี่ยวชาญ</h2></div>
+    <div class="chips">
+      <span class="chip" data-th="Machine Learning &amp; Data Analytics" data-en="Machine Learning &amp; Data Analytics">Machine Learning &amp; Data Analytics</span>
+      <span class="chip" data-th="การจัดการนวัตกรรม" data-en="Innovation Management">การจัดการนวัตกรรม</span>
+      <span class="chip" data-th="การพยากรณ์ภาวะล้มละลายทางการเงิน" data-en="Financial Distress Prediction">การพยากรณ์ภาวะล้มละลายทางการเงิน</span>
+      <span class="chip" data-th="การวิเคราะห์ความสำเร็จของสตาร์ทอัพ" data-en="Startup Success Analysis">การวิเคราะห์ความสำเร็จของสตาร์ทอัพ</span>
+      <span class="chip" data-th="Explainable AI (XAI)" data-en="Explainable AI (XAI)">Explainable AI (XAI)</span>
+      <span class="chip" data-th="การเปลี่ยนผ่านสู่ดิจิทัล" data-en="Digital Transformation">การเปลี่ยนผ่านสู่ดิจิทัล</span>
+      <span class="chip" data-th="EdPEx" data-en="EdPEx">EdPEx</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="h"><span class="bar"></span><h2 data-th="การศึกษา" data-en="Education">การศึกษา</h2></div>
+    <div class="edu">
+      <div class="ecard" style="--ec:#E9A72C"><span class="deg" data-th="ป.เอก" data-en="Ph.D.">ป.เอก</span><div><b data-th="ปร.ด. บริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Ph.D. in Business Administration and Digital Innovation">ปร.ด. บริหารธุรกิจและนวัตกรรมดิจิทัล</b><span data-th="มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham University">มหาวิทยาลัยมหาสารคาม</span></div></div>
+      <div class="ecard" style="--ec:#2FA392"><span class="deg" data-th="ป.โท" data-en="M.S.">ป.โท</span><div><b data-th="วิทยาศาสตรมหาบัณฑิต การบริหารเทคโนโลยี" data-en="M.S. in Technology Management">วิทยาศาสตรมหาบัณฑิต การบริหารเทคโนโลยี</b><span data-th="มหาวิทยาลัยธรรมศาสตร์" data-en="Thammasat University">มหาวิทยาลัยธรรมศาสตร์</span></div></div>
+      <div class="ecard" style="--ec:#2F5BD0"><span class="deg" data-th="ป.ตรี" data-en="B.S.">ป.ตรี</span><div><b data-th="วิทยาศาสตรบัณฑิต" data-en="Bachelor of Science">วิทยาศาสตรบัณฑิต</b><span data-th="มหาวิทยาลัยมหิดล" data-en="Mahidol University">มหาวิทยาลัยมหิดล</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
     <div class="h"><span class="bar"></span><h2 data-th="บทบาททางวิชาการ" data-en="Academic Roles">บทบาททางวิชาการ</h2></div>
     <div class="roles">
-      <div class="rcard" style="--rc:#2F5BD0">
-        <span class="lv" data-th="ป.ตรี" data-en="Bachelor">ป.ตรี</span>
-        <div><h3 data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่" data-en="Lecturer, Modern Management Program">อาจารย์ประจำสาขาการจัดการสมัยใหม่</h3><p data-th="ระดับปริญญาตรี" data-en="Bachelor's level">ระดับปริญญาตรี</p></div>
-      </div>
-      <div class="rcard" style="--rc:#2FA392">
-        <span class="lv" data-th="ป.โท" data-en="Master">ป.โท</span>
-        <div><h3 data-th="ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Chair, M.B.A. (Business Administration and Digital Innovation)">ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</h3><p data-th="Master of Business Administration (Business Administration and Digital Innovation)" data-en="Master of Business Administration (Business Administration and Digital Innovation)">Master of Business Administration (Business Administration and Digital Innovation)</p></div>
-      </div>
-      <div class="rcard" style="--rc:#E9A72C">
-        <span class="lv" data-th="ป.เอก" data-en="Doctoral">ป.เอก</span>
-        <div><h3 data-th="ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Coordinator, Ph.D. (Business Administration and Digital Innovation)">ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</h3><p data-th="Doctor of Philosophy (Business Administration and Digital Innovation)" data-en="Doctor of Philosophy (Business Administration and Digital Innovation)">Doctor of Philosophy (Business Administration and Digital Innovation)</p></div>
-      </div>
+      <div class="rcard" style="--rc:#2F5BD0"><span class="lv" data-th="ป.ตรี" data-en="Bachelor">ป.ตรี</span><div><b data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่" data-en="Lecturer, Modern Management Program">อาจารย์ประจำสาขาการจัดการสมัยใหม่</b></div></div>
+      <div class="rcard" style="--rc:#2FA392"><span class="lv" data-th="ป.โท" data-en="Master">ป.โท</span><div><b data-th="ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Chair, M.B.A. (Business Administration and Digital Innovation)">ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</b></div></div>
+      <div class="rcard" style="--rc:#E9A72C"><span class="lv" data-th="ป.เอก" data-en="Doctoral">ป.เอก</span><div><b data-th="ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Coordinator, Ph.D. (Business Administration and Digital Innovation)">ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</b></div></div>
+      <div class="rcard" style="--rc:#8A56D6"><span class="lv" data-th="บริหาร" data-en="Admin">บริหาร</span><div><b data-th="รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์" data-en="Deputy Director for Organizational Development and Digital Innovation, Computer Center">รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์</b></div></div>
     </div>
   </div>
 
@@ -99,7 +122,6 @@ footer{margin-top:36px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
       <p><span data-th="อีเมล:" data-en="Email:">อีเมล:</span> <a href="mailto:warawut.n@acc.msu.ac.th">warawut.n@acc.msu.ac.th</a></p>
       <p data-th="คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150" data-en="Mahasarakham Business School, Mahasarakham University, Mahasarakham 44150, Thailand">คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150</p>
     </div>
-    <div class="soon" data-th="หน้านี้เป็นโครงเริ่มต้น — จะเพิ่มประวัติการศึกษา ความเชี่ยวชาญ ผลงานเด่น และ CV ฉบับเต็มภายหลัง" data-en="This is a starter page — education, expertise, selected works, and full CV will be added later">หน้านี้เป็นโครงเริ่มต้น — จะเพิ่มประวัติการศึกษา ความเชี่ยวชาญ ผลงานเด่น และ CV ฉบับเต็มภายหลัง</div>
   </div>
 </div>
 
