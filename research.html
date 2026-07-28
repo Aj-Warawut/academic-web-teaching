@@ -37,12 +37,21 @@ a{text-decoration:none;color:inherit}
 .tags span{background:#f1f4fb;color:var(--mute);border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:600}
 .go{align-self:flex-start;display:inline-flex;gap:7px;align-items:center;background:var(--ac);color:#fff;font-weight:700;font-size:14px;padding:9px 18px;border-radius:10px}
 footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:12.5px;text-align:center}
+@media(max-width:560px){
+  .topbar .wrap{padding:9px 12px;gap:8px;flex-wrap:nowrap}
+  .brandname{font-size:12.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0;flex:1}
+  .brandname small{display:none}
+  .spacer{display:none}
+  .langtoggle button{padding:6px 9px;font-size:12px}
+  .home{padding:6px 10px;font-size:12px;white-space:nowrap}
+  .mhead{padding:26px 0}.mhead h1{font-size:22px}.mico{width:48px;height:48px;flex:0 0 48px;font-size:24px}
+}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
   <svg class="mini" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7CE63"/><stop offset="1" stop-color="#E1971C"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="24" fill="url(#g)"/><text x="50" y="54" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-weight="800" font-size="40" letter-spacing="-2" fill="#111A3A">WN</text></svg>
-  <div class="brandname"><span data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Nakbunnam">อ.ดร.วราวุฒิ นาคบุญนำ</span><small>Academic Portfolio</small></div>
+  <div class="brandname"><span data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Narkbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</span><small>Academic Portfolio</small></div>
   <div class="spacer"></div>
   <div class="langtoggle"><button id="th-btn" class="on" onclick="setLang('th')">ไทย</button><button id="en-btn" onclick="setLang('en')">EN</button></div>
   <a class="home" data-href="index.html" data-th="🏠 หน้าแรก" data-en="🏠 Home">🏠 หน้าแรก</a>
