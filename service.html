@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th" data-lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บริการวิชาการ · อ.ดร.วราวุฒิ นาคบุญนำ</title>
+<style>
+:root{--navy:#111A3A;--navy2:#1B2A58;--ac:#E9A72C;--gold:#E9A72C;--ink:#1D2340;--mute:#5C6B7A;--line:#E3E7F2;--bg:#F4F6FC;--card:#fff;--shadow:0 8px 26px rgba(20,30,70,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}
+.topbar .wrap{display:flex;align-items:center;gap:12px;padding:12px 22px}
+.mini{width:34px;height:34px;flex:0 0 34px}
+.brandname{font-size:14.5px;font-weight:700}
+.brandname small{display:block;font-size:11px;color:#9DB0D6;font-weight:400}
+.spacer{flex:1}
+.home{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;color:#eef1ff}
+.langtoggle{display:flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:22px;overflow:hidden}
+.langtoggle button{background:none;border:none;color:#cdd7f0;font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 12px;cursor:pointer}
+.langtoggle button.on{background:var(--gold);color:var(--navy)}
+.mhead{background:linear-gradient(135deg,var(--navy),#8a6410);color:#fff;padding:34px 0}
+.mhead .wrap{display:flex;align-items:center;gap:16px}
+.mico{width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:28px;flex:0 0 58px}
+.mhead .en{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#F4C150}
+.mhead h1{font-size:28px;margin-top:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding:30px 0 10px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+.wcard:hover{transform:translateY(-3px)}
+.wcard .top{height:6px;background:var(--ac)}
+.wcard .body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.wcard .type{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ac)}
+.wcard h3{font-size:18px;color:var(--navy);margin:6px 0 8px;line-height:1.35}
+.wcard p{font-size:14px;color:var(--mute);flex:1;margin-bottom:14px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tags span{background:#f1f4fb;color:var(--mute);border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:600}
+.go{align-self:flex-start;display:inline-flex;gap:7px;align-items:center;background:var(--ac);color:#3a2a00;font-weight:800;font-size:14px;padding:9px 18px;border-radius:10px}
+footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <svg class="mini" viewBox="0 0 100 100"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7CE63"/><stop offset="1" stop-color="#E1971C"/></linearGradient></defs><rect x="4" y="4" width="92" height="92" rx="24" fill="url(#g)"/><text x="50" y="54" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-weight="800" font-size="40" letter-spacing="-2" fill="#111A3A">WN</text></svg>
+  <div class="brandname"><span data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Nakbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</span><small>Academic Portfolio</small></div>
+  <div class="spacer"></div>
+  <div class="langtoggle"><button id="th-btn" class="on" onclick="setLang('th')">ไทย</button><button id="en-btn" onclick="setLang('en')">EN</button></div>
+  <a class="home" data-href="index.html" data-th="🏠 หน้าแรก" data-en="🏠 Home">🏠 หน้าแรก</a>
+</div></div>
+
+<div class="mhead"><div class="wrap">
+  <div class="mico">🤝</div>
+  <div><div class="en">Academic Service</div><h1 data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</h1></div>
+</div></div>
+
+<div class="wrap">
+  <div class="cards">
+    <article class="wcard">
+      <div class="top"></div>
+      <div class="body">
+        <div class="type" data-th="สื่อบรรยาย" data-en="Lecture">สื่อบรรยาย</div>
+        <h3 data-th="การนำผลงานวิจัยสู่เชิงพาณิชย์ (MSU IC Bootcamp)" data-en="Research Commercialization (MSU IC Bootcamp)">การนำผลงานวิจัยสู่เชิงพาณิชย์ (MSU IC Bootcamp)</h3>
+        <div class="tags"><span>TRL·MRL·CRL·BRL</span><span>Strategy Compass</span></div>
+        <p data-th="ส่วนบรรยายแบบโต้ตอบ: กรอบความพร้อม หุบเหวแห่งความตาย การเลือกกลยุทธ์ และบทบาท UHC" data-en="Interactive lecture: readiness framework, the valley of death, strategy selection, and the role of UHC (content in Thai)">ส่วนบรรยายแบบโต้ตอบ: กรอบความพร้อม หุบเหวแห่งความตาย การเลือกกลยุทธ์ และบทบาท UHC</p>
+        <a class="go" href="lecture_IC_commercialization.html"><span data-th="เปิดบทบรรยาย" data-en="Open">เปิดบทบรรยาย</span> →</a>
+      </div>
+    </article>
+    <article class="wcard">
+      <div class="top"></div>
+      <div class="body">
+        <div class="type" data-th="เครื่องมือ Workshop" data-en="Workshop Tool">เครื่องมือ Workshop</div>
+        <h3 data-th="ประเมินความพร้อมสู่เชิงพาณิชย์ (Playbook)" data-en="Commercialization Readiness (Playbook)">ประเมินความพร้อมสู่เชิงพาณิชย์ (Playbook)</h3>
+        <div class="tags"><span data-th="ประเมินตนเอง" data-en="self-assessment">ประเมินตนเอง</span><span data-th="การ์ดเฉพาะบุคคล" data-en="personalized">การ์ดเฉพาะบุคคล</span></div>
+        <p data-th="เครื่องมือประเมินโต้ตอบ ให้นักวิจัยประเมิน 4 มิติ แล้วได้กลยุทธ์และแผนปฏิบัติเฉพาะโครงการ" data-en="An interactive tool: assess four readiness dimensions and receive a project-specific strategy and action plan (content in Thai)">เครื่องมือประเมินโต้ตอบ ให้นักวิจัยประเมิน 4 มิติ แล้วได้กลยุทธ์และแผนปฏิบัติเฉพาะโครงการ</p>
+        <a class="go" href="researcher_commercialization_playbook.html"><span data-th="เปิดเครื่องมือ" data-en="Open">เปิดเครื่องมือ</span> →</a>
+      </div>
+    </article>
+    <!-- เพิ่มงานบริการวิชาการ/วิทยากรอื่นได้ที่นี่ -->
+  </div>
+</div>
+
+<footer>© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</footer>
+<script>
+function setLang(l){document.documentElement.dataset.lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-th]').forEach(e=>{e.textContent=(l==='en'?e.dataset.en:e.dataset.th);});
+  document.getElementById('th-btn').classList.toggle('on',l==='th');document.getElementById('en-btn').classList.toggle('on',l==='en');
+  document.querySelectorAll('a[data-href]').forEach(a=>{a.href=a.dataset.href+(l==='en'?'?lang=en':'');});}
+setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
+</script>
+</body>
+</html>

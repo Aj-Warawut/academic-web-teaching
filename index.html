@@ -1,177 +1,139 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>อ.ดร.วราวุฒิ นาคบุญนำ · Academic Portfolio</title>
 <style>
-:root{
-  --navy:#111A3A; --navy2:#1B2A58; --blue:#2F5BD0; --teal:#2FA392; --gold:#E9A72C; --gold2:#F4C150;
-  --ink:#1D2340; --mute:#5C6B7A; --line:#E3E7F2; --bg:#F4F6FC; --card:#fff; --shadow:0 8px 26px rgba(20,30,70,.09);
-}
+:root{--navy:#0B1430;--navy2:#122048;--gold:#E9A72C;--gold2:#F6D26B;--goldd:#C98A16;--mute:#9DB0D6;--ink:#1D2340}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:#fff;min-height:100vh;position:relative;overflow-x:hidden;
+  background:radial-gradient(1100px 720px at 88% 6%,#20386f 0%,transparent 55%),linear-gradient(150deg,#0B1430 0%,#122048 60%,#0d1838 100%)}
 a{text-decoration:none;color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-
-/* hero */
-header{background:radial-gradient(1100px 520px at 82% -12%,#26407f 0%,transparent 58%),linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:56px 0 46px;position:relative;overflow:hidden}
-header::after{content:"";position:absolute;right:-70px;top:-70px;width:300px;height:300px;background:radial-gradient(circle,rgba(233,167,44,.30),transparent 66%);border-radius:50%}
-.hz{position:relative;z-index:2;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-.avatar{width:96px;height:96px;border-radius:24px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:800;flex:0 0 96px;box-shadow:var(--shadow)}
-.hero-txt .kick{font-size:12.5px;letter-spacing:2.5px;color:var(--gold2);font-weight:800;text-transform:uppercase}
-.hero-txt h1{font-size:34px;margin:6px 0 4px;font-weight:800}
-.hero-txt .role{font-size:16.5px;color:#c7cef2}
-.hero-txt .org{font-size:14.5px;color:#9DB0D6;margin-top:3px}
-.hero-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-.hero-links a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 15px;font-size:13px;font-weight:600;color:#eef1ff;transition:.15s}
-.hero-links a:hover{background:rgba(255,255,255,.22)}
-.tagline{position:relative;z-index:2;margin-top:26px;font-size:16px;color:#d7ddf5;max-width:70ch}
-
-/* mission nav */
-.mnav{position:sticky;top:0;z-index:20;background:rgba(244,246,252,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.mnav .wrap{display:flex;gap:8px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
-.mnav a{font-size:14px;font-weight:700;padding:8px 16px;border-radius:20px;color:var(--mute);transition:.15s}
-.mnav a:hover{background:#fff;color:var(--navy);box-shadow:var(--shadow)}
-
-/* section */
-.section{padding:44px 0 8px}
-.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
-.sec-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;flex:0 0 46px}
-.sec-head h2{font-size:24px;color:var(--navy)}
-.sec-head .en{font-size:13px;color:var(--mute);font-weight:600;letter-spacing:1px;text-transform:uppercase}
-.sec-desc{color:var(--mute);font-size:15px;margin:2px 0 20px;padding-left:60px}
-@media(max-width:640px){.sec-desc{padding-left:0}}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.wcard{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;transition:.18s}
-.wcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,30,70,.14)}
-.wcard .top{height:7px;background:var(--ac)}
-.wcard .body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
-.wcard .type{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--ac)}
-.wcard h3{font-size:18px;color:var(--navy);margin:6px 0 8px;line-height:1.35}
-.wcard p{font-size:14px;color:var(--mute);flex:1;margin-bottom:14px}
-.wcard .go{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;background:var(--ac);color:#fff;font-weight:700;font-size:14px;padding:9px 18px;border-radius:10px;transition:.15s}
-.wcard.soon{opacity:.75}
-.wcard.soon .go{background:var(--line);color:var(--mute);pointer-events:none}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.tags span{background:#f1f4fb;color:var(--mute);border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:600}
-
-footer{margin-top:48px;background:var(--navy);color:#9DB0D6;padding:26px 0;font-size:13px;text-align:center}
-footer b{color:#fff}
+/* decorative bg */
+.bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.dots{position:absolute;left:34px;top:34px;width:150px;height:120px;
+  background-image:radial-gradient(circle,rgba(233,167,44,.55) 1.4px,transparent 1.7px);background-size:20px 20px;opacity:.7}
+.arcs{position:absolute;right:-160px;top:-160px;width:640px;height:640px;opacity:.5}
+.silo{position:absolute;left:0;right:0;bottom:0;width:100%;height:230px;opacity:.5}
+.langtoggle{position:fixed;top:16px;right:18px;z-index:30;display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(233,167,44,.35);border-radius:22px;overflow:hidden}
+.langtoggle button{background:none;border:none;color:#e7d9b6;font-family:inherit;font-size:13px;font-weight:700;padding:7px 14px;cursor:pointer}
+.langtoggle button.on{background:var(--gold);color:var(--navy)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 34px;position:relative;z-index:2}
+.top{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;min-height:74vh;padding-top:40px}
+@media(max-width:900px){.top{grid-template-columns:1fr;text-align:center;min-height:auto;padding-top:70px}}
+.kick{font-size:14px;letter-spacing:5px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.left h1{font-size:44px;font-weight:800;margin:14px 0 12px;line-height:1.15}
+.left .role{font-size:19px;color:#e7ecff}
+.left .org{font-size:15.5px;color:var(--mute);margin-top:4px}
+.pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+@media(max-width:900px){.pills{justify-content:center}}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1.6px solid var(--gold);border-radius:30px;padding:11px 22px;font-size:15px;font-weight:700;color:var(--gold2);transition:.16s;background:transparent}
+.pill:hover{background:rgba(233,167,44,.14)}
+.pill.solid{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--navy);border-color:transparent;box-shadow:0 8px 22px rgba(233,167,44,.3)}
+.pill svg{width:18px;height:18px}
+/* emblem */
+.emblem{position:relative;width:420px;height:420px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+@media(max-width:900px){.emblem{width:330px;height:330px;margin-top:26px}}
+.ering{position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(233,167,44,.4);animation:spin 60s linear infinite}
+.ering.r2{inset:34px;border-style:solid;border-color:rgba(233,167,44,.16);animation:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core{position:relative;width:250px;height:250px;border-radius:50%;z-index:2;
+  background:radial-gradient(circle at 38% 32%,#17264f 0%,#0a1330 72%);border:4px solid var(--gold);box-shadow:0 0 40px rgba(233,167,44,.28),inset 0 0 30px rgba(0,0,0,.5);
+  display:flex;flex-direction:column;align-items:center;justify-content:center}
+@media(max-width:900px){.core{width:200px;height:200px}}
+.core .wn{font-family:Arial,'Segoe UI',sans-serif;font-weight:800;font-size:82px;letter-spacing:-3px;line-height:1;
+  background:linear-gradient(180deg,#F8DE8A 0%,#E9A72C 55%,#B9790F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.4))}
+@media(max-width:900px){.core .wn{font-size:64px}}
+.core .sub{font-size:11px;letter-spacing:3px;color:var(--gold2);font-weight:700;margin-top:6px;border-top:1px solid rgba(233,167,44,.4);padding-top:7px}
+.node{position:absolute;width:52px;height:52px;border-radius:50%;background:#0d1836;border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.node svg{width:24px;height:24px}
+.node.n-top{top:2px;left:50%;transform:translateX(-50%)}
+.node.n-right{top:50%;right:2px;transform:translateY(-50%)}
+.node.n-bl{bottom:34px;left:20px}
+.node.n-br{bottom:34px;right:20px}
+/* pillars */
+.pillars{position:relative;z-index:2;background:rgba(10,18,42,.66);border:1px solid rgba(233,167,44,.16);border-radius:20px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:6px 0 40px;backdrop-filter:blur(4px)}
+@media(max-width:860px){.pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.pillars{grid-template-columns:1fr}}
+.pil{padding:22px 22px;border-right:1px solid rgba(255,255,255,.07);display:flex;gap:13px;align-items:flex-start}
+.pillars .pil:last-child{border-right:none}
+@media(max-width:860px){.pil:nth-child(2){border-right:none}.pil:nth-child(1),.pil:nth-child(2){border-bottom:1px solid rgba(255,255,255,.07)}}
+.pil .pi{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(233,167,44,.14);display:flex;align-items:center;justify-content:center}
+.pil .pi svg{width:24px;height:24px}
+.pil h3{font-size:16px;color:#fff;margin-bottom:4px}
+.pil p{font-size:12.5px;color:var(--mute);line-height:1.5}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="hz">
-      <div class="avatar">ว</div>
-      <div class="hero-txt">
-        <div class="kick">Academic Portfolio</div>
-        <h1>อ.ดร.วราวุฒิ นาคบุญนำ</h1>
-        <div class="role">อาจารย์ประจำภาควิชาการจัดการ</div>
-        <div class="org">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
-        <div class="hero-links">
-          <a href="#teaching">การเรียนการสอน</a>
-          <a href="#research">งานวิจัย</a>
-          <a href="#service">บริการวิชาการ</a>
-        </div>
+<div class="bgfx">
+  <div class="dots"></div>
+  <svg class="arcs" viewBox="0 0 640 640"><g fill="none" stroke="#E9A72C" stroke-width="1">
+    <circle cx="320" cy="320" r="150" opacity=".5"/><circle cx="320" cy="320" r="220" opacity=".35"/>
+    <circle cx="320" cy="320" r="290" opacity=".22"/><circle cx="320" cy="320" r="360" opacity=".13"/></g></svg>
+  <svg class="silo" viewBox="0 0 1440 230" preserveAspectRatio="xMidYMax slice"><g fill="#0a1a3a">
+    <path d="M0 230 L0 180 L60 180 L60 150 L120 150 L140 130 L160 150 L160 180 L250 180 L250 140 L300 110 L350 140 L350 180 L470 180 L470 150 L520 150 L520 120 L560 120 L560 150 L640 150 L640 180 L780 180 L780 155 L840 155 L860 135 L880 155 L880 180 L1010 180 L1010 145 L1060 145 L1060 175 L1180 175 L1180 150 L1240 150 L1260 120 L1280 150 L1280 180 L1360 180 L1360 90 L1372 90 L1378 60 L1384 90 L1396 90 L1396 180 L1440 180 L1440 230 Z"/>
+  </g></svg>
+</div>
+
+<div class="langtoggle">
+  <button id="th-btn" class="on" onclick="setLang('th')">ไทย</button>
+  <button id="en-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="left">
+      <div class="kick">Academic Portfolio</div>
+      <h1 data-th="อ.ดร.วราวุฒิ นาคบุญนำ" data-en="Dr. Warawut Nakbunnum">อ.ดร.วราวุฒิ นาคบุญนำ</h1>
+      <div class="role" data-th="อาจารย์ประจำภาควิชาการจัดการ" data-en="Lecturer, Department of Management">อาจารย์ประจำภาควิชาการจัดการ</div>
+      <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
+      <div class="pills">
+        <a class="pill solid" data-href="teaching.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg>
+          <span data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</span>
+        </a>
+        <a class="pill" data-href="research.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+          <span data-th="งานวิจัย" data-en="Research">งานวิจัย</span>
+        </a>
+        <a class="pill" data-href="service.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <span data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</span>
+        </a>
       </div>
     </div>
-    <p class="tagline">แหล่งรวมสื่อการเรียนการสอน ผลงานวิจัย และบริการวิชาการแบบโต้ตอบ — จัดตามพันธกิจหลักของอาจารย์ในสถาบันอุดมศึกษา เปิดใช้งานได้ทุกอุปกรณ์</p>
+
+    <div class="emblem">
+      <div class="ering"></div><div class="ering r2"></div>
+      <div class="core"><div class="wn">WN</div><div class="sub">WARAWUT NAKBOONNUM</div></div>
+      <div class="node n-top"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></div>
+      <div class="node n-right"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></div>
+      <div class="node n-bl"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
+      <div class="node n-br"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 20c0-2.3 1.4-4 3.8-4"/></svg></div>
+    </div>
   </div>
-</header>
 
-<div class="mnav"><div class="wrap">
-  <a href="#teaching">🎓 การเรียนการสอน</a>
-  <a href="#research">🔬 งานวิจัย</a>
-  <a href="#service">🤝 บริการวิชาการ</a>
-</div></div>
-
-<main class="wrap">
-
-  <!-- TEACHING -->
-  <section class="section" id="teaching">
-    <div class="sec-head">
-      <div class="sec-ico" style="background:var(--blue)">🎓</div>
-      <div><h2>การเรียนการสอน</h2><div class="en">Teaching</div></div>
-    </div>
-    <p class="sec-desc">ตำราและสื่อการสอนแบบโต้ตอบสำหรับรายวิชาที่รับผิดชอบ</p>
-    <div class="cards">
-      <article class="wcard" style="--ac:var(--blue)">
-        <div class="top"></div>
-        <div class="body">
-          <div class="type">ตำราโต้ตอบ</div>
-          <h3>โครงงานพิเศษธุรกิจสมัยใหม่ (0903468)</h3>
-          <div class="tags"><span>12 บท</span><span>เครื่องมือคำนวณ</span><span>โหมดโปรเจกเตอร์</span></div>
-          <p>ตำราโต้ตอบครบ 12 บท พร้อมแบบฝึกคำนวณ (CPM/PERT/NPV/EVM) หน้าเปิดบทมาตรฐาน และภาคผนวก</p>
-          <a class="go" href="textbook_0903468.html">เปิดตำรา →</a>
-        </div>
-      </article>
-      <!-- เพิ่มการ์ดวิชาอื่นได้ที่นี่ (คัดลอกบล็อก .wcard) -->
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section class="section" id="research">
-    <div class="sec-head">
-      <div class="sec-ico" style="background:var(--teal)">🔬</div>
-      <div><h2>งานวิจัย</h2><div class="en">Research</div></div>
-    </div>
-    <p class="sec-desc">คอร์ส สื่อ และเครื่องมือสนับสนุนการทำและเผยแพร่งานวิจัย</p>
-    <div class="cards">
-      <article class="wcard" style="--ac:var(--teal)">
-        <div class="top"></div>
-        <div class="body">
-          <div class="type">คอร์สโต้ตอบ</div>
-          <h3>การเขียนบทความวิจัย (Research Writing)</h3>
-          <div class="tags"><span>วิชาการ</span><span>เขียนงานวิจัย</span></div>
-          <p>สื่อการเรียนรู้แบบโต้ตอบสำหรับกระบวนการเขียนและเผยแพร่บทความวิจัย</p>
-          <a class="go" href="Research_Writing_Course.html">เปิดคอร์ส →</a>
-        </div>
-      </article>
-      <!-- เพิ่มการ์ดผลงานวิจัยอื่นได้ที่นี่ -->
-    </div>
-  </section>
-
-  <!-- ACADEMIC SERVICE -->
-  <section class="section" id="service">
-    <div class="sec-head">
-      <div class="sec-ico" style="background:var(--gold)">🤝</div>
-      <div><h2>บริการวิชาการ</h2><div class="en">Academic Service</div></div>
-    </div>
-    <p class="sec-desc">การเป็นวิทยากร ที่ปรึกษา และสื่อบริการวิชาการแก่ชุมชนนักวิจัยและภายนอก</p>
-    <div class="cards">
-      <article class="wcard" style="--ac:var(--gold)">
-        <div class="top"></div>
-        <div class="body">
-          <div class="type">สื่อบรรยาย</div>
-          <h3>การนำผลงานวิจัยสู่เชิงพาณิชย์ (MSU IC Bootcamp)</h3>
-          <div class="tags"><span>TRL·MRL·CRL·BRL</span><span>Strategy Compass</span></div>
-          <p>ส่วนบรรยายแบบโต้ตอบ: กรอบความพร้อม หุบเหวแห่งความตาย การเลือกกลยุทธ์ และบทบาท UHC</p>
-          <a class="go" href="lecture_IC_commercialization.html">เปิดบทบรรยาย →</a>
-        </div>
-      </article>
-      <article class="wcard" style="--ac:var(--gold)">
-        <div class="top"></div>
-        <div class="body">
-          <div class="type">เครื่องมือ Workshop</div>
-          <h3>ประเมินความพร้อมสู่เชิงพาณิชย์ (Playbook)</h3>
-          <div class="tags"><span>ประเมินตนเอง</span><span>เรดาร์</span><span>การ์ดเฉพาะบุคคล</span></div>
-          <p>เครื่องมือประเมินโต้ตอบ ให้นักวิจัยประเมิน 4 มิติ แล้วได้กลยุทธ์และแผนปฏิบัติเฉพาะโครงการ</p>
-          <a class="go" href="researcher_commercialization_playbook.html">เปิดเครื่องมือ →</a>
-        </div>
-      </article>
-      <!-- เพิ่มงานบริการวิชาการ/วิทยากรอื่นได้ที่นี่ -->
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    © อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ <b>มหาวิทยาลัยมหาสารคาม</b><br>
-    <span style="font-size:12px">Academic Portfolio · เรียนการสอน · วิจัย · บริการวิชาการ</span>
+  <div class="pillars">
+    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></div>
+      <div><h3 data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</h3><p data-th="ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21" data-en="Curriculum design and 21st-century competency-based learning">ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21</p></div></div>
+    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div>
+      <div><h3 data-th="งานวิจัย" data-en="Research">งานวิจัย</h3><p data-th="วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ" data-en="Research creating management knowledge and innovation">วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ</p></div></div>
+    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="18" cy="9" r="2.5"/><path d="M16 20c0-2.8 1.8-5 4-5"/></svg></div>
+      <div><h3 data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</h3><p data-th="ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน" data-en="Transferring knowledge to society for sustainable community development">ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน</p></div></div>
+    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#E9A72C"/></svg></div>
+      <div><h3 data-th="วิสัยทัศน์" data-en="Vision">วิสัยทัศน์</h3><p data-th="สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน" data-en="Creating value and advancing management for balanced, sustainable development">สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน</p></div></div>
   </div>
-</footer>
+</div>
+
+<script>
+function setLang(l){document.documentElement.dataset.lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-th]').forEach(e=>{e.textContent=(l==='en'?e.dataset.en:e.dataset.th);});
+  document.getElementById('th-btn').classList.toggle('on',l==='th');document.getElementById('en-btn').classList.toggle('on',l==='en');
+  document.querySelectorAll('a[data-href]').forEach(a=>{a.href=a.dataset.href+(l==='en'?'?lang=en':'');});}
+setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
+</script>
 </body>
 </html>
