@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!-- Prototype · Business Model Canvas (Capstone) · สร้างจาก ResearchLab interactive lesson template · แก้ไขได้ ไม่พึ่ง Canva -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Model Canvas · Capstone · อ.ดร.วราวุฒิ นาคบุญนำ</title>
+<style>
+:root{
+  --navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold2:#F4C150;--purple:#8A56D6;--red:#C0392B;--green:#2E7D5B;
+  --ink:#1B2A3A;--mute:#5C6B7A;--line:#DCE3EC;--tint:#EEF3FB;--bg:#F5F7FC;--panel:#fff;--sidebar:#141D3F;--shadow:0 6px 22px rgba(17,34,51,.08);
+  --kp:#8A56D6;--ka:#2F5BD0;--kr:#3d7de0;--vp:#E9A72C;--cr:#d0632f;--ch:#c0392b;--cs:#2FA392;--cost:#5C6B7A;--rev:#2E7D5B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;display:flex;min-height:100vh;overflow:hidden}
+#sidebar{width:300px;flex:0 0 300px;background:var(--sidebar);color:#E8EEF7;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+#sidebar .brand{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1);cursor:pointer}
+#sidebar .brand .kick{font-size:11px;letter-spacing:2px;color:var(--amber);font-weight:700}
+#sidebar .brand h1{font-size:18px;color:#fff;margin-top:6px;line-height:1.35}
+#sidebar .brand .sub{font-size:12px;color:#9DB0D6;margin-top:6px}
+.nav-group{padding:14px 22px 4px;font-size:11px;letter-spacing:1px;color:#7E92BD;font-weight:700;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 22px;cursor:pointer;font-size:14.5px;color:#CBD6EC;border-left:3px solid transparent;transition:.15s}
+.nav-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.10);color:#fff;border-left-color:var(--amber);font-weight:600}
+.nav-item .dot{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.nav-item.active .dot{background:var(--amber);color:var(--navy)}
+#sidebar .foot{padding:14px 22px;font-size:11px;color:#7E92BD;border-top:1px solid rgba(255,255,255,.1)}
+#main{flex:1;height:100vh;overflow-y:auto;position:relative;scroll-behavior:smooth}
+#progress{position:sticky;top:0;z-index:20;height:4px;background:var(--line)}
+#progress .bar{height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));width:0;transition:.3s}
+.wrap{max-width:940px;margin:0 auto;padding:38px 46px 120px}
+section.page{display:none;animation:fade .35s ease}section.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--teal);text-transform:uppercase}
+h2.title{font-size:29px;color:var(--navy);margin:6px 0 4px;line-height:1.3}
+.lead{font-size:16px;color:var(--mute);margin-bottom:22px}
+p{margin:0 0 14px}h3{font-size:20px;color:var(--blue);margin:26px 0 12px}
+.grid{display:grid;gap:16px}.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:1fr 1fr 1fr}.grid.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h4{font-size:16px;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card p{font-size:14.5px;color:var(--ink);margin:0}
+.num{width:28px;height:28px;flex:0 0 28px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.num.t{background:var(--teal)}.num.a{background:var(--amber)}.num.p{background:var(--purple)}
+ul.clean{list-style:none;margin:0 0 14px}ul.clean li{position:relative;padding:6px 0 6px 26px;font-size:15px}
+ul.clean li::before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.callout{border-radius:12px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:5px solid}
+.callout.tip{background:#FBEFD8;border-color:var(--amber)}.callout.info{background:var(--tint);border-color:var(--blue)}.callout.ok{background:#E9F5EF;border-color:var(--green)}
+.callout b{color:var(--navy)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:18px;padding:38px 34px;margin-bottom:8px}
+.hero .kick{color:var(--amber);font-weight:700;letter-spacing:2px;font-size:13px}
+.hero h2{font-size:32px;margin:10px 0;line-height:1.25}.hero p{color:#CADCFC;font-size:16px;margin:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.stat{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0}
+.statc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);min-width:150px}
+.statc .n{font-size:30px;font-weight:800;color:var(--blue)}.statc .l{font-size:13px;color:var(--mute)}
+.srcline{font-size:12.5px;color:var(--mute)}
+/* stages diagram */
+.stages{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0}
+.stg{border-radius:12px;padding:16px;color:#fff;text-align:center}.stg b{font-size:17px;display:block}.stg span{font-size:13px;opacity:.95}
+/* BMC canvas */
+.bmc{display:grid;grid-template-columns:repeat(10,1fr);grid-auto-rows:minmax(74px,auto);gap:7px;margin:8px 0 14px}
+.bcell{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;background:#fff;padding:9px 10px;cursor:pointer;text-align:left;font-family:inherit;transition:.15s;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:3px}
+.bcell:hover{transform:translateY(-2px)}
+.bcell.on{background:var(--c);color:#fff}
+.bcell .bi{font-size:16px}
+.bcell b{font-size:13.5px;color:var(--navy);line-height:1.2}.bcell.on b{color:#fff}
+.bcell span{font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.5px}.bcell.on span{color:rgba(255,255,255,.85)}
+.b-kp{grid-column:1/3;grid-row:1/3;--c:var(--kp)}
+.b-ka{grid-column:3/5;grid-row:1/2;--c:var(--ka)}
+.b-kr{grid-column:3/5;grid-row:2/3;--c:var(--kr)}
+.b-vp{grid-column:5/7;grid-row:1/3;--c:var(--vp)}
+.b-cr{grid-column:7/9;grid-row:1/2;--c:var(--cr)}
+.b-ch{grid-column:7/9;grid-row:2/3;--c:var(--ch)}
+.b-cs{grid-column:9/11;grid-row:1/3;--c:var(--cs)}
+.b-cost{grid-column:1/6;grid-row:3/4;--c:var(--cost)}
+.b-rev{grid-column:6/11;grid-row:3/4;--c:var(--rev)}
+.bmcDetail{background:#fff;border:1px solid var(--line);border-left:5px solid var(--dc,var(--blue));border-radius:12px;padding:16px 20px;box-shadow:var(--shadow);min-height:80px}
+.bmcDetail h4{font-size:18px;color:var(--dc);margin-bottom:2px}.bmcDetail .en{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.bmcDetail .q{font-size:13px;color:var(--navy);font-weight:700;margin:8px 0 4px}
+.bmcDetail ul{margin:0 0 0 18px;font-size:14px}
+@media(max-width:760px){.bmc{grid-template-columns:1fr 1fr}.b-kp,.b-ka,.b-kr,.b-vp,.b-cr,.b-ch,.b-cs,.b-cost,.b-rev{grid-column:auto!important;grid-row:auto!important}}
+.navbtns{display:flex;justify-content:space-between;margin-top:40px;gap:12px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 20px;cursor:pointer;font-size:14.5px;font-family:inherit;color:var(--blue);font-weight:600;transition:.15s;display:flex;align-items:center;gap:8px}
+.btn:hover{background:var(--blue);color:#fff}.btn.primary{background:var(--blue);color:#fff}.btn:disabled{opacity:.35;cursor:default}
+#toolbar{position:fixed;top:12px;right:14px;z-index:60;display:flex;gap:6px;align-items:center}
+#toolbar button,#toolbar a{background:rgba(20,29,63,.92);color:#fff;border:none;border-radius:9px;height:38px;padding:0 12px;font-size:13.5px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);transition:.15s;text-decoration:none}
+#toolbar button:hover,#toolbar a:hover{background:var(--blue)}#toolbar button.on{background:var(--amber);color:var(--navy)}
+#toolbar .home{background:linear-gradient(135deg,#F4C150,#E9A72C);color:#111A3A;font-weight:800}
+#toolbar .az{width:38px;justify-content:center;padding:0;font-weight:700}
+#menuToggle{display:none}#backdrop{display:none}
+body.projector #sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}
+body.projector #sidebar.open{transform:none}
+body.projector #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+body.projector #menuToggle{display:flex}
+body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
+@media(max-width:820px){
+  body{overflow:auto}
+  #sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}#sidebar.open{transform:none}
+  #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  #menuToggle{display:flex;position:fixed;top:12px;left:12px;z-index:30;background:var(--navy);color:#fff;border:none;border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+  .wrap{padding:64px 20px 100px}.grid.c2,.grid.c3,.grid.c4,.stages{grid-template-columns:1fr}h2.title{font-size:23px}
+}
+.expset{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 6px}
+.exp{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:8px 16px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--mute);cursor:pointer;transition:.15s;box-shadow:var(--shadow)}
+.exp:hover{border-color:var(--blue);color:var(--blue)}
+.exp.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.exp-detail{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);margin-top:4px;font-size:14.5px;min-height:56px}
+.exp-detail h4{color:var(--blue);font-size:17px;margin-bottom:4px}
+.exp-detail .ex{font-size:13px;color:var(--mute);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.vpc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0}
+@media(max-width:760px){.vpc{grid-template-columns:1fr}}
+.vpc .side{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.vpc .side.map{border-top:4px solid var(--amber)}.vpc .side.prof{border-top:4px solid var(--teal)}
+.vpc .side h4{font-size:16px;margin-bottom:6px}.vpc .side.map h4{color:var(--amber)}.vpc .side.prof h4{color:var(--teal)}
+.vpc .side ul{margin:0 0 0 18px;font-size:14px}.vpc .side li{margin-bottom:4px}
+.bcell .fill{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;font-family:inherit;font-size:12px;color:var(--ink);resize:vertical;min-height:46px;background:#fff}
+@media print{#sidebar,#toolbar,#menuToggle,.navbtns{display:none!important}#main{height:auto;overflow:visible}.wrap{max-width:100%}}
+</style>
+</head>
+<body>
+<button id="menuToggle" aria-label="menu">☰</button>
+<div id="backdrop"></div>
+<div id="toolbar">
+  <a class="home" href="index.html" title="กลับหน้าแรกพอร์ตโฟลิโอ">🏠 หน้าแรก</a>
+  <button class="az" id="fsz-down" title="ตัวอักษรเล็กลง">A−</button>
+  <button class="az" id="fsz-up" title="ตัวอักษรใหญ่ขึ้น">A+</button>
+  <button id="fs-btn" title="เต็มจอ">⛶ เต็มจอ</button>
+  <button id="proj-btn" title="โหมดโปรเจกเตอร์">🖥 โปรเจกเตอร์</button>
+</div>
+<aside id="sidebar">
+  <div class="brand" onclick="go(0)">
+    <div class="kick">CAPSTONE · การจัดการสมัยใหม่</div>
+    <h1>Business Model Canvas</h1>
+    <div class="sub">การวิเคราะห์โครงการธุรกิจด้วย BMC (โต้ตอบ)</div>
+  </div>
+  <nav id="nav"></nav>
+  <div class="foot">กดหัวข้อทางซ้าย หรือ ◀ ▶ / ลูกศร · กดโลโก้กลับหน้าแรก<br><br>© อ.ดร.วราวุฒิ นาคบุญนำ<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+</aside>
+<main id="main"><div id="progress"><div class="bar"></div></div><div class="wrap" id="content"></div></main>
+<script>
+const S=[
+{ id:"cover", group:"บทนำ", nav:"หน้าปก & Capstone", icon:"0", html:`
+  <div class="hero"><div class="kick">CAPSTONE · ปีการศึกษา 2567–2568</div>
+    <h2>การวิเคราะห์โครงการธุรกิจด้วย Business Model Canvas</h2>
+    <p>หลักสูตรการจัดการสมัยใหม่ · คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</p>
+    <div class="pills"><span class="pill">BMC 9 องค์ประกอบ</span><span class="pill">Customer Profile & Value Map</span><span class="pill">โต้ตอบ · แก้ไขได้</span></div>
+    <p style="margin-top:14px;font-size:12.5px;color:#9DB0D6">© อ.ดร.วราวุฒิ นาคบุญนำ</p></div>
+  <h3>ความสำคัญของการบูรณาการองค์ความรู้</h3>
+  <p>การผสมผสานความรู้จากหลากหลายศาสตร์เพื่อแก้ปัญหาและพัฒนานวัตกรรมในโครงการธุรกิจ ท่ามกลาง<b>การเปลี่ยนแปลงทางเทคโนโลยี</b>และ<b>การแข่งขันที่รุนแรง</b> — เพื่อสร้างรูปแบบธุรกิจที่สร้างคุณค่าและเพิ่มความสามารถในการแข่งขัน</p>
+  <div class="grid c4">
+    <div class="card"><h4><span class="num">1</span>Strategic</h4></div>
+    <div class="card"><h4><span class="num t">2</span>Marketing</h4></div>
+    <div class="card"><h4><span class="num a">3</span>Financial</h4></div>
+    <div class="card"><h4><span class="num p">4</span>Operation / HR</h4></div>
+  </div>
+  <div class="callout info"><b>เครื่องมือบูรณาการ:</b> Business Model Canvas · Design Thinking · Disruptive Innovation · Lean Startup</div>
+`},
+{ id:"intro", group:"บทนำ", nav:"รู้จัก Business Model Canvas", icon:"1", html:`
+  <div class="eyebrow">บทที่ 2</div><h2 class="title">Business Model Canvas คืออะไร</h2>
+  <p class="lead">เครื่องมือมองภาพรวมธุรกิจใน 1 หน้า — คิดค้นโดย ดร.Alexander Osterwalder</p>
+  <div class="grid c2">
+    <div class="card"><h4>ที่มา</h4><p>คิดค้นโดย <b>Alexander Osterwalder</b> (มหาวิทยาลัยโลซานน์ สวิตเซอร์แลนด์) ผู้เขียน <i>Business Model Generation</i> ใช้เวลากว่า 9 ปี ร่วมกับชุมชนนักธุรกิจกว่า 470 คนจาก 45 ประเทศ</p></div>
+    <div class="card"><h4>จุดเด่น</h4><p>เห็นภาพรวมธุรกิจได้เร็ว ตัดข้อมูลไม่จำเป็น แก้ไข/brainstorm ง่าย ใช้ได้ตั้งแต่ Startup ถึงองค์กรใหญ่ (3M, Microsoft, Lego, Coca-Cola) และทำให้ทุกคนเข้าใจกลยุทธ์ตรงกัน</p></div>
+  </div>
+  <div class="stat">
+    <div class="statc"><div class="n">5 ล้าน+</div><div class="l">ผู้ใช้ BMC ทั่วโลก</div></div>
+    <div class="statc"><div class="n">36%</div><div class="l">ใช้พัฒนาธุรกิจใหม่</div></div>
+    <div class="statc"><div class="n">470 คน</div><div class="l">ร่วมพัฒนาแนวคิด · 45 ประเทศ</div></div>
+  </div>
+  <h3>3 ขั้นตอนของรูปแบบธุรกิจ</h3>
+  <div class="stages">
+    <div class="stg" style="background:var(--blue)"><b>Produce Value</b><span>สร้างสินค้า/บริการที่มีคุณค่าต่อกลุ่มลูกค้า</span></div>
+    <div class="stg" style="background:var(--teal)"><b>Deliver Value</b><span>ส่งมอบ/กระจายสู่ตลาดและขาย</span></div>
+    <div class="stg" style="background:var(--amber)"><b>Capture Value</b><span>ทำกำไรสุทธิหลังผลิตและขาย</span></div>
+  </div>
+  <div class="callout tip"><b>ข้อคิด:</b> ธุรกิจที่สำเร็จมักไม่สำเร็จด้วยไอเดียแรก แต่ผ่านการปรับปรุงหลายรอบ — การเชี่ยวชาญแต่ละช่องของ BMC ช่วยเปลี่ยนวิธีคิดและสร้างโมเดลธุรกิจที่หลากหลาย</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur, Business Model Generation (2010) · Strategyzer</p>
+`},
+{ id:"canvas", group:"ผืนผ้าใบ BMC", nav:"ภาพรวม 9 องค์ประกอบ (กดได้)", icon:"9", html:`
+  <div class="eyebrow">Interactive</div><h2 class="title">ผืนผ้าใบ BMC — กดแต่ละช่องเพื่อดูรายละเอียด</h2>
+  <p class="lead">โครงสร้างมาตรฐาน 9 ช่อง: ฝั่งขวา = ลูกค้า/คุณค่า · ฝั่งซ้าย = โครงสร้างภายใน · ล่าง = ต้นทุน/รายได้</p>
+  <div class="bmc" id="bmc">
+    <button class="bcell b-kp" data-b="kp"><span class="bi">🤝</span><b>พันธมิตรหลัก</b><span>Key Partnerships</span></button>
+    <button class="bcell b-ka" data-b="ka"><span class="bi">⚙️</span><b>กิจกรรมหลัก</b><span>Key Activities</span></button>
+    <button class="bcell b-kr" data-b="kr"><span class="bi">📦</span><b>ทรัพยากรหลัก</b><span>Key Resources</span></button>
+    <button class="bcell b-vp" data-b="vp"><span class="bi">💎</span><b>คุณค่าที่นำเสนอ</b><span>Value Propositions</span></button>
+    <button class="bcell b-cr" data-b="cr"><span class="bi">❤️</span><b>ความสัมพันธ์ลูกค้า</b><span>Customer Relationships</span></button>
+    <button class="bcell b-ch" data-b="ch"><span class="bi">🚚</span><b>ช่องทาง</b><span>Channels</span></button>
+    <button class="bcell b-cs" data-b="cs"><span class="bi">👥</span><b>กลุ่มลูกค้า</b><span>Customer Segments</span></button>
+    <button class="bcell b-cost" data-b="cost"><span class="bi">💰</span><b>โครงสร้างต้นทุน</b><span>Cost Structure</span></button>
+    <button class="bcell b-rev" data-b="rev"><span class="bi">📈</span><b>กระแสรายได้</b><span>Revenue Streams</span></button>
+  </div>
+  <div class="bmcDetail" id="bmcDetail"></div>
+`},
+{ id:"cs", group:"9 องค์ประกอบ", nav:"1 · Customer Segments", icon:"CS", html:`
+  <div class="eyebrow">องค์ประกอบที่ 1</div><h2 class="title">Customer Segments · กลุ่มลูกค้าเป้าหมาย</h2>
+  <p class="lead">"เราสร้างคุณค่าให้ใคร และใครคือลูกค้าที่สำคัญที่สุด"</p>
+  <p>การวิเคราะห์กลุ่มลูกค้าเป้าหมายช่วยให้ผู้ประกอบการระบุและเข้าใจลูกค้าที่ธุรกิจต้องการเข้าถึงและสร้างคุณค่าให้ การกำหนดกลุ่มที่ชัดเจนเป็นพื้นฐานของกลยุทธ์การตลาดและการสร้างข้อเสนอที่ตรงใจ</p>
+  <h3>ความสำคัญ</h3>
+  <ul class="clean">
+    <li>เข้าใจความต้องการและพฤติกรรมของลูกค้าชัดเจนขึ้น</li>
+    <li>จัดสรรทรัพยากรไปยังกลุ่มที่มีโอกาสทางธุรกิจสูง</li>
+    <li>พัฒนาสินค้า/บริการที่ตอบโจทย์ได้ตรงจุด</li>
+    <li>กำหนดกลยุทธ์การตลาดและการสื่อสารที่มีประสิทธิภาพ</li>
+    <li>วัดผลและปรับปรุงความพึงพอใจของลูกค้าได้อย่างเป็นระบบ</li>
+  </ul>
+  <h3>ประเภทของกลุ่มลูกค้า</h3>
+  <div class="grid c2">
+    <div class="card"><h4>Mass Market</h4><p>ตลาดมวลชน ไม่แบ่งกลุ่มชัด (เช่น สินค้าอุปโภคบริโภค)</p></div>
+    <div class="card"><h4>Niche Market</h4><p>ตลาดเฉพาะกลุ่ม ความต้องการจำเพาะ</p></div>
+    <div class="card"><h4>Segmented</h4><p>แบ่งหลายกลุ่มย่อยที่ความต้องการต่างกันเล็กน้อย</p></div>
+    <div class="card"><h4>Multi-sided</h4><p>สองฝั่งที่ต้องมีพร้อมกัน (เช่น แพลตฟอร์ม ผู้ซื้อ–ผู้ขาย)</p></div>
+  </div>
+  <h3>เครื่องมือ: Value Proposition Canvas</h3>
+  <div class="callout info"><b>Customer Profile</b> (โปรไฟล์ลูกค้า) จับคู่กับ <b>Value Map</b> (แผนที่คุณค่า) เพื่อออกแบบคุณค่าที่ตรงใจ — Customer Profile ประกอบด้วย งานที่ลูกค้าต้องทำ (Jobs) · ความเจ็บปวด (Pains) · สิ่งที่อยากได้ (Gains)</div>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> กลุ่มลูกค้าที่สำคัญที่สุดของโครงการคุณคือใคร? เขามีปัญหา/ความต้องการอะไร? และคุณจะเข้าถึงเขาได้อย่างไร?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010) · Value Proposition Design</p>
+`},
+{ id:"vp", group:"9 องค์ประกอบ", nav:"2 · Value Propositions", icon:"VP", html:`
+  <div class="eyebrow">องค์ประกอบที่ 2</div><h2 class="title">Value Propositions · คุณค่าที่นำเสนอ</h2>
+  <p class="lead">"เราแก้ปัญหาหรือตอบสนองความต้องการอะไรให้ลูกค้า"</p>
+  <p>คุณค่าที่มอบให้ลูกค้าคือคุณประโยชน์หรือมูลค่าที่ธุรกิจสัญญาว่าจะส่งมอบเพื่อตอบสนองความต้องการหรือแก้ปัญหาของลูกค้า เป็นเหตุผลสำคัญที่ทำให้ลูกค้าเลือกซื้อจากเรามากกว่าคู่แข่ง การสร้างและสื่อสารคุณค่าที่ <b>โดดเด่นและแตกต่าง</b> จึงเป็นหัวใจของความสำเร็จ</p>
+  <h3>องค์ประกอบของคุณค่า (Osterwalder et al., 2014)</h3>
+  <div class="expset" data-set="vp"><button class="exp" data-k="pain">Pain Relievers</button><button class="exp" data-k="gain">Gain Creators</button></div>
+  <div class="exp-detail" id="det-vp"></div>
+  <h3>เครื่องมือ: Value Proposition Canvas</h3>
+  <p>ออกแบบคุณค่าให้ตรงใจโดยจับคู่ "โปรไฟล์ลูกค้า" กับ "แผนที่คุณค่า" ให้พอดีกัน (Fit)</p>
+  <div class="vpc">
+    <div class="side prof"><h4>Customer Profile · โปรไฟล์ลูกค้า</h4><ul><li><b>Jobs</b> — งาน/สิ่งที่ลูกค้าต้องทำให้สำเร็จ</li><li><b>Pains</b> — ความเจ็บปวด อุปสรรค ความเสี่ยง</li><li><b>Gains</b> — ผลลัพธ์/ประโยชน์ที่ลูกค้าอยากได้</li></ul></div>
+    <div class="side map"><h4>Value Map · แผนที่คุณค่า</h4><ul><li><b>Products & Services</b> — สินค้า/บริการที่นำเสนอ</li><li><b>Pain Relievers</b> — ช่วยขจัด/ลดความเจ็บปวด</li><li><b>Gain Creators</b> — สร้างประโยชน์ที่ลูกค้าต้องการ</li></ul></div>
+  </div>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> คุณค่าหลักของโครงการคุณคืออะไร? มันช่วยลด Pain และสร้าง Gain ให้ลูกค้ากลุ่มเป้าหมายอย่างไร?</div>
+  <p class="srcline">อ้างอิง: Osterwalder et al. (2014), Value Proposition Design</p>
+`},
+{ id:"ch", group:"9 องค์ประกอบ", nav:"3 · Channels", icon:"CH", html:`
+  <div class="eyebrow">องค์ประกอบที่ 3</div><h2 class="title">Channels · ช่องทางเข้าถึงลูกค้า</h2>
+  <p class="lead">"เราจะเข้าถึงและส่งมอบคุณค่าให้ลูกค้าผ่านช่องทางใด"</p>
+  <p>ช่องทาง (Channels) คือจุดสัมผัสที่ธุรกิจใช้สื่อสารและส่งมอบคุณค่าให้ลูกค้า ตั้งแต่การสร้างการรับรู้ไปจนถึงบริการหลังการขาย ช่องทางที่ดีต้องเข้าถึงลูกค้าได้ตรงจุด คุ้มค่า และให้ประสบการณ์ที่ดี</p>
+  <h3>5 เฟสของช่องทาง (กดดูแต่ละเฟส)</h3>
+  <div class="expset" data-set="ch"><button class="exp" data-k="awareness">1 · การรับรู้</button><button class="exp" data-k="evaluation">2 · การประเมิน</button><button class="exp" data-k="purchase">3 · การซื้อ</button><button class="exp" data-k="delivery">4 · การส่งมอบ</button><button class="exp" data-k="aftersales">5 · หลังการขาย</button></div>
+  <div class="exp-detail" id="det-ch"></div>
+  <div class="callout info"><b>ประเภทช่องทาง:</b> ช่องทางของตนเอง (เว็บ/หน้าร้าน) · ช่องทางพันธมิตร (ตัวแทน/ค้าปลีก) · ช่องทางตรง vs ทางอ้อม — เลือกให้สมดุลระหว่างต้นทุนกับการเข้าถึง</div>
+`},
+{ id:"cr", group:"9 องค์ประกอบ", nav:"4 · Customer Relationships", icon:"CR", html:`
+  <div class="eyebrow">องค์ประกอบที่ 4</div><h2 class="title">Customer Relationships · ความสัมพันธ์กับลูกค้า</h2>
+  <p class="lead">"เราสร้างและรักษาความสัมพันธ์แบบใดกับลูกค้าแต่ละกลุ่ม"</p>
+  <p>รูปแบบความสัมพันธ์ส่งผลต่อประสบการณ์ลูกค้าและมีเป้าหมายเพื่อ <b>ได้ลูกค้าใหม่ · รักษาลูกค้าเดิม · เพิ่มยอดขาย</b> ควรเลือกให้เหมาะกับกลุ่มลูกค้าและคุณค่าที่นำเสนอ</p>
+  <h3>รูปแบบความสัมพันธ์ (กดเลือก)</h3>
+  <div class="expset" data-set="cr"><button class="exp" data-k="personal">ผู้ช่วยส่วนตัว</button><button class="exp" data-k="dedicated">ผู้ช่วยเฉพาะราย</button><button class="exp" data-k="self">บริการตนเอง</button><button class="exp" data-k="automated">อัตโนมัติ</button><button class="exp" data-k="community">ชุมชน</button><button class="exp" data-k="cocreation">ร่วมสร้าง</button></div>
+  <div class="exp-detail" id="det-cr"></div>
+`},
+{ id:"revcost", group:"9 องค์ประกอบ", nav:"5 · Revenue & Cost", icon:"$", html:`
+  <div class="eyebrow">องค์ประกอบที่ 5</div><h2 class="title">Revenue Streams & Cost Structure · รายได้และต้นทุน</h2>
+  <p class="lead">"ลูกค้ายอมจ่ายเพื่ออะไร และต้นทุนสำคัญของเราคืออะไร"</p>
+  <h3>กระแสรายได้ (Revenue Streams) — รูปแบบการหารายได้</h3>
+  <div class="expset" data-set="rev"><button class="exp" data-k="assetsale">ขายขาด</button><button class="exp" data-k="usage">ค่าใช้บริการ</button><button class="exp" data-k="subscription">สมาชิก</button><button class="exp" data-k="renting">ให้เช่า</button><button class="exp" data-k="licensing">ค่าลิขสิทธิ์</button><button class="exp" data-k="advertising">โฆษณา</button></div>
+  <div class="exp-detail" id="det-rev"></div>
+  <h3>โครงสร้างต้นทุน (Cost Structure)</h3>
+  <div class="expset" data-set="cost"><button class="exp" data-k="costdriven">เน้นต้นทุนต่ำ</button><button class="exp" data-k="valuedriven">เน้นคุณค่า</button><button class="exp" data-k="fixed">ต้นทุนคงที่</button><button class="exp" data-k="variable">ต้นทุนผันแปร</button><button class="exp" data-k="scale">Economies of Scale</button></div>
+  <div class="exp-detail" id="det-cost"></div>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> รายได้หลักของโครงการมาจากอะไร ราคาตั้งอย่างไร และต้นทุนก้อนใหญ่ที่สุดคืออะไร?</div>
+`},
+{ id:"kr", group:"9 องค์ประกอบ", nav:"6 · Key Resources", icon:"KR", html:`
+  <div class="eyebrow">องค์ประกอบที่ 6</div><h2 class="title">Key Resources · ทรัพยากรหลัก</h2>
+  <p class="lead">"ทรัพยากรสำคัญใดที่ทำให้โมเดลธุรกิจของเราทำงานได้"</p>
+  <p>ทรัพยากรหลักคือสินทรัพย์ที่จำเป็นในการสร้างคุณค่า เข้าถึงตลาด รักษาความสัมพันธ์ และสร้างรายได้ แบ่งได้ 4 ประเภท</p>
+  <div class="expset" data-set="kr"><button class="exp" data-k="physical">กายภาพ</button><button class="exp" data-k="intellectual">ทางปัญญา</button><button class="exp" data-k="human">บุคคล</button><button class="exp" data-k="financial">การเงิน</button></div>
+  <div class="exp-detail" id="det-kr"></div>
+`},
+{ id:"ka", group:"9 องค์ประกอบ", nav:"7 · Key Activities", icon:"KA", html:`
+  <div class="eyebrow">องค์ประกอบที่ 7</div><h2 class="title">Key Activities · กิจกรรมหลัก</h2>
+  <p class="lead">"กิจกรรมสำคัญที่สุดที่ทำให้ธุรกิจส่งมอบคุณค่าได้"</p>
+  <p>กิจกรรมหลักคือสิ่งที่ธุรกิจต้องทำให้ดีเพื่อให้โมเดลธุรกิจสำเร็จ แบ่งได้ 3 ประเภทหลัก</p>
+  <div class="expset" data-set="ka"><button class="exp" data-k="production">การผลิต</button><button class="exp" data-k="problemsolving">การแก้ปัญหา</button><button class="exp" data-k="platform">แพลตฟอร์ม/เครือข่าย</button></div>
+  <div class="exp-detail" id="det-ka"></div>
+`},
+{ id:"kp", group:"9 องค์ประกอบ", nav:"8 · Key Partnerships", icon:"KP", html:`
+  <div class="eyebrow">องค์ประกอบที่ 8</div><h2 class="title">Key Partnerships · พันธมิตรหลัก</h2>
+  <p class="lead">"ใครคือพันธมิตรที่ช่วยให้โมเดลธุรกิจของเราทำงานได้"</p>
+  <p>เครือข่ายพันธมิตรและซัพพลายเออร์ที่ช่วยลดความเสี่ยง ได้ทรัพยากร/กิจกรรมที่เราไม่มี และเพิ่มประสิทธิภาพ</p>
+  <h3>ประเภทพันธมิตร (กดเลือก)</h3>
+  <div class="expset" data-set="kp"><button class="exp" data-k="alliance">พันธมิตรเชิงกลยุทธ์</button><button class="exp" data-k="coopetition">คู่แข่งที่ร่วมมือ</button><button class="exp" data-k="jv">กิจการร่วมค้า</button><button class="exp" data-k="buyersupplier">ผู้ซื้อ–ผู้ขาย</button></div>
+  <div class="exp-detail" id="det-kp"></div>
+  <h3>แรงจูงใจในการมีพันธมิตร</h3>
+  <div class="expset" data-set="kpm"><button class="exp" data-k="optimization">ประหยัด/เพิ่มประสิทธิภาพ</button><button class="exp" data-k="risk">ลดความเสี่ยง</button><button class="exp" data-k="resource">ได้ทรัพยากร/ความสามารถ</button></div>
+  <div class="exp-detail" id="det-kpm"></div>
+`},
+{ id:"template", group:"สรุป & ปฏิบัติ", nav:"เทมเพลต BMC (กรอกได้)", icon:"✎", html:`
+  <div class="eyebrow">ปฏิบัติ</div><h2 class="title">ลงมือ: กรอกผืนผ้าใบ BMC ของโครงการคุณ</h2>
+  <p class="lead">พิมพ์คำตอบลงแต่ละช่อง แล้วกด "🖨 พิมพ์/บันทึก PDF" เพื่อเก็บผลงาน</p>
+  <div class="bmc" id="bmcFill">
+    <div class="bcell b-kp" style="cursor:default"><b>พันธมิตรหลัก</b><span>Key Partnerships</span><textarea class="fill" placeholder="ใคร?"></textarea></div>
+    <div class="bcell b-ka" style="cursor:default"><b>กิจกรรมหลัก</b><span>Key Activities</span><textarea class="fill" placeholder="ทำอะไร?"></textarea></div>
+    <div class="bcell b-kr" style="cursor:default"><b>ทรัพยากรหลัก</b><span>Key Resources</span><textarea class="fill" placeholder="ใช้อะไร?"></textarea></div>
+    <div class="bcell b-vp" style="cursor:default"><b>คุณค่าที่นำเสนอ</b><span>Value Propositions</span><textarea class="fill" placeholder="คุณค่าอะไร?"></textarea></div>
+    <div class="bcell b-cr" style="cursor:default"><b>ความสัมพันธ์ลูกค้า</b><span>Customer Relationships</span><textarea class="fill" placeholder="ความสัมพันธ์แบบใด?"></textarea></div>
+    <div class="bcell b-ch" style="cursor:default"><b>ช่องทาง</b><span>Channels</span><textarea class="fill" placeholder="ช่องทางใด?"></textarea></div>
+    <div class="bcell b-cs" style="cursor:default"><b>กลุ่มลูกค้า</b><span>Customer Segments</span><textarea class="fill" placeholder="ลูกค้าเป็นใคร?"></textarea></div>
+    <div class="bcell b-cost" style="cursor:default"><b>โครงสร้างต้นทุน</b><span>Cost Structure</span><textarea class="fill" placeholder="ต้นทุนอะไร?"></textarea></div>
+    <div class="bcell b-rev" style="cursor:default"><b>กระแสรายได้</b><span>Revenue Streams</span><textarea class="fill" placeholder="รายได้จากอะไร?"></textarea></div>
+  </div>
+  <button class="btn primary" style="margin-top:12px" onclick="window.print()">🖨 พิมพ์ / บันทึก PDF</button>
+  <div class="callout tip" style="margin-top:14px"><b>เคล็ดลับ:</b> เริ่มจากฝั่งขวา (ลูกค้า→คุณค่า→ช่องทาง→ความสัมพันธ์→รายได้) แล้วค่อยไปฝั่งซ้าย (ทรัพยากร→กิจกรรม→พันธมิตร→ต้นทุน)</div>
+`},
+];
+/* BMC detail data */
+const BMC={
+ kp:{n:'พันธมิตรหลัก',en:'Key Partnerships',c:'--kp',d:'เครือข่ายซัพพลายเออร์และพันธมิตรที่ทำให้โมเดลธุรกิจทำงานได้',q:['ใครคือพันธมิตร/ซัพพลายเออร์หลักของเรา?','เราได้ทรัพยากรหรือกิจกรรมใดจากพวกเขา?']},
+ ka:{n:'กิจกรรมหลัก',en:'Key Activities',c:'--ka',d:'กิจกรรมสำคัญที่สุดที่ทำให้ธุรกิจส่งมอบคุณค่าได้',q:['คุณค่าของเราต้องอาศัยกิจกรรมใดบ้าง?','ช่องทาง/ความสัมพันธ์/รายได้ ต้องทำกิจกรรมใด?']},
+ kr:{n:'ทรัพยากรหลัก',en:'Key Resources',c:'--kr',d:'สินทรัพย์สำคัญที่ทำให้ธุรกิจดำเนินได้ (กายภาพ/ปัญญา/บุคคล/การเงิน)',q:['คุณค่าของเราต้องใช้ทรัพยากรใด?','ทรัพยากรใดสำคัญต่อช่องทางและความสัมพันธ์ลูกค้า?']},
+ vp:{n:'คุณค่าที่นำเสนอ',en:'Value Propositions',c:'--vp',d:'สินค้า/บริการที่สร้างคุณค่าให้ลูกค้าแต่ละกลุ่ม',q:['เราแก้ปัญหาอะไรให้ลูกค้า?','เราส่งมอบคุณค่าอะไรที่ต่างจากคู่แข่ง?']},
+ cr:{n:'ความสัมพันธ์ลูกค้า',en:'Customer Relationships',c:'--cr',d:'รูปแบบความสัมพันธ์ที่สร้างและรักษากับลูกค้าแต่ละกลุ่ม',q:['ลูกค้าคาดหวังความสัมพันธ์แบบใด?','เราจะได้มา/รักษา/เพิ่มยอดลูกค้าอย่างไร?']},
+ ch:{n:'ช่องทาง',en:'Channels',c:'--ch',d:'วิธีที่ธุรกิจเข้าถึงและส่งมอบคุณค่าให้ลูกค้า',q:['ลูกค้าต้องการให้เข้าถึงผ่านช่องทางใด?','ช่องทางใดคุ้มค่าและได้ผลที่สุด?']},
+ cs:{n:'กลุ่มลูกค้า',en:'Customer Segments',c:'--cs',d:'กลุ่มคน/องค์กรที่ธุรกิจต้องการเข้าถึงและสร้างคุณค่าให้',q:['เราสร้างคุณค่าให้ใคร?','ลูกค้าที่สำคัญที่สุดของเราคือใคร?']},
+ cost:{n:'โครงสร้างต้นทุน',en:'Cost Structure',c:'--cost',d:'ต้นทุนสำคัญทั้งหมดในการดำเนินโมเดลธุรกิจ',q:['ต้นทุนสำคัญที่สุดคืออะไร?','ทรัพยากร/กิจกรรมใดแพงที่สุด?']},
+ rev:{n:'กระแสรายได้',en:'Revenue Streams',c:'--rev',d:'รายได้ที่ธุรกิจสร้างจากลูกค้าแต่ละกลุ่ม',q:['ลูกค้ายอมจ่ายเพื่ออะไร?','รายได้มาในรูปแบบใด (ขายขาด/สมาชิก/ค่าธรรมเนียม)?']}
+};
+/* engine */
+const nav=document.getElementById('nav'),content=document.getElementById('content');
+let cur=0,lastGroup=null;
+S.forEach((s,i)=>{
+  if(s.group!==lastGroup){lastGroup=s.group;const g=document.createElement('div');g.className='nav-group';g.textContent=s.group;nav.appendChild(g);}
+  const it=document.createElement('div');it.className='nav-item';it.dataset.i=i;it.innerHTML='<span class="dot">'+s.icon+'</span><span>'+s.nav+'</span>';it.onclick=()=>go(i);nav.appendChild(it);
+  const sec=document.createElement('section');sec.className='page';sec.id='pg-'+i;sec.innerHTML=s.html;
+  const bn=document.createElement('div');bn.className='navbtns';bn.innerHTML='<button class="btn" data-prev>◀ ก่อนหน้า</button><button class="btn primary" data-next>ถัดไป ▶</button>';
+  sec.appendChild(bn);content.appendChild(sec);
+});
+function go(i){if(i<0||i>=S.length)return;cur=i;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('pg-'+i).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',+n.dataset.i===i));
+  document.querySelector('#progress .bar').style.width=((i+1)/S.length*100)+'%';
+  document.getElementById('main').scrollTo({top:0,behavior:'auto'});
+  const nn=document.querySelector('#pg-'+i+' [data-next]'),pp=document.querySelector('#pg-'+i+' [data-prev]');
+  pp.disabled=(i===0);nn.disabled=(i===S.length-1);nn.textContent=(i===S.length-1)?'จบ prototype ✓':'ถัดไป ▶';
+  closeMenu();if(document.getElementById('bmcDetail')&&!document.getElementById('bmcDetail').innerHTML)bmcShow('cs');}
+content.addEventListener('click',e=>{
+  if(e.target.closest('[data-next]'))go(cur+1);
+  if(e.target.closest('[data-prev]'))go(cur-1);
+  const bc=e.target.closest('.bcell');if(bc&&bc.dataset.b)bmcShow(bc.dataset.b);
+  const ex=e.target.closest('.exp');if(ex)exShow(ex);
+});
+const EXPL={
+ vp:{pain:{n:'Pain Relievers · ตัวช่วยลดความเจ็บปวด',d:'คุณสมบัติที่ช่วยขจัดหรือลดความทุกข์ยาก ปัญหา อุปสรรค หรือความเสี่ยงของลูกค้า เช่น ลดต้นทุน ลดความเสี่ยง ทำให้งาน/ชีวิตง่ายขึ้น หรือแก้ข้อบกพร่องของสินค้าเดิมในตลาด',ex:'แอปจองคิวช่วยลดเวลารอและความหงุดหงิดของลูกค้า'},
+   gain:{n:'Gain Creators · ตัวสร้างประโยชน์',d:'คุณสมบัติที่สร้างผลลัพธ์หรือประโยชน์ที่ลูกค้าต้องการ ทั้งจับต้องได้และไม่ได้ เช่น บรรลุผลได้ดี/เร็ว/มากขึ้น เพิ่มความพึงพอใจ สร้างการยอมรับหรือสถานะทางสังคม หรือเพิ่มความสะดวกสบาย',ex:'ระบบสะสมแต้มที่ให้สิทธิพิเศษ สร้างความคุ้มค่าและความภักดี'}},
+ ch:{awareness:{n:'1 · การรับรู้ (Awareness)',d:'ทำให้ลูกค้ารู้จักสินค้า/บริการ',ex:'โฆษณา โซเชียลมีเดีย คอนเทนต์'},
+   evaluation:{n:'2 · การประเมิน (Evaluation)',d:'ช่วยให้ลูกค้าประเมินคุณค่า',ex:'รีวิว การทดลองใช้ การเปรียบเทียบ'},
+   purchase:{n:'3 · การซื้อ (Purchase)',d:'ช่องทางให้ลูกค้าซื้อได้สะดวก',ex:'เว็บไซต์ แอป หน้าร้าน ระบบชำระเงิน'},
+   delivery:{n:'4 · การส่งมอบ (Delivery)',d:'ส่งมอบคุณค่า/สินค้าถึงลูกค้า',ex:'จัดส่ง ดาวน์โหลด บริการ ณ จุด'},
+   aftersales:{n:'5 · หลังการขาย (After-sales)',d:'สนับสนุนลูกค้าหลังการขาย',ex:'บริการลูกค้า การรับประกัน คู่มือ ชุมชน'}},
+ cr:{personal:{n:'ผู้ช่วยส่วนตัว (Personal Assistance)',d:'ปฏิสัมพันธ์กับพนักงานจริงระหว่าง/หลังการขาย',ex:'พนักงานขายหน้าร้าน คอลเซ็นเตอร์'},
+   dedicated:{n:'ผู้ช่วยเฉพาะราย (Dedicated)',d:'พนักงานดูแลลูกค้าคนสำคัญแบบเจาะจงรายบุคคล',ex:'ผู้จัดการลูกค้าองค์กร (Key Account)'},
+   self:{n:'บริการตนเอง (Self-service)',d:'จัดเครื่องมือให้ลูกค้าช่วยเหลือตัวเอง',ex:'ตู้กดอัตโนมัติ ระบบ FAQ'},
+   automated:{n:'อัตโนมัติ (Automated)',d:'ผสานบริการตนเองกับระบบอัตโนมัติที่รู้จักลูกค้า',ex:'ระบบแนะนำสินค้าเฉพาะบุคคล'},
+   community:{n:'ชุมชน (Communities)',d:'สร้างชุมชนให้ลูกค้าแลกเปลี่ยนและช่วยกัน',ex:'ฟอรัม กลุ่มผู้ใช้'},
+   cocreation:{n:'ร่วมสร้าง (Co-creation)',d:'ให้ลูกค้ามีส่วนร่วมสร้างคุณค่า',ex:'รีวิว/คอนเทนต์จากผู้ใช้'}},
+ rev:{assetsale:{n:'ขายขาด (Asset Sale)',d:'ขายกรรมสิทธิ์ในสินค้า',ex:'ขายสินค้าทั่วไป'},
+   usage:{n:'ค่าใช้บริการ (Usage Fee)',d:'จ่ายตามปริมาณการใช้งาน',ex:'ค่าโทร ค่าส่งพัสดุ'},
+   subscription:{n:'สมาชิก (Subscription)',d:'จ่ายรายเดือน/ปีเพื่อเข้าถึงบริการต่อเนื่อง',ex:'สตรีมมิ่ง ฟิตเนส'},
+   renting:{n:'ให้เช่า (Renting/Leasing)',d:'ให้สิทธิใช้ชั่วคราวโดยเก็บค่าเช่า',ex:'เช่ารถ เช่าห้อง'},
+   licensing:{n:'ค่าลิขสิทธิ์ (Licensing)',d:'อนุญาตให้ใช้ทรัพย์สินทางปัญญาโดยเก็บค่าสิทธิ์',ex:'ลิขสิทธิ์เทคโนโลยี/แบรนด์'},
+   advertising:{n:'โฆษณา (Advertising)',d:'รายได้จากพื้นที่/การโฆษณา',ex:'แพลตฟอร์มสื่อ'}},
+ cost:{costdriven:{n:'เน้นต้นทุนต่ำ (Cost-driven)',d:'ลดต้นทุนให้มากที่สุด เน้นราคาถูก ใช้ระบบอัตโนมัติ/outsource',ex:'สายการบินโลว์คอสต์'},
+   valuedriven:{n:'เน้นคุณค่า (Value-driven)',d:'มุ่งสร้างคุณค่า/พรีเมียมมากกว่าลดต้นทุน',ex:'โรงแรมหรู'},
+   fixed:{n:'ต้นทุนคงที่ (Fixed)',d:'ไม่แปรตามปริมาณผลิต',ex:'เงินเดือน ค่าเช่า'},
+   variable:{n:'ต้นทุนผันแปร (Variable)',d:'แปรตามปริมาณผลิต/ขาย',ex:'วัตถุดิบ'},
+   scale:{n:'Economies of Scale',d:'ต้นทุนต่อหน่วยลดลงเมื่อผลิตปริมาณมากขึ้น'}},
+ kr:{physical:{n:'กายภาพ (Physical)',d:'สินทรัพย์จับต้องได้',ex:'อาคาร เครื่องจักร ระบบ คลังสินค้า'},
+   intellectual:{n:'ทางปัญญา (Intellectual)',d:'สินทรัพย์ทางความรู้',ex:'แบรนด์ สิทธิบัตร ลิขสิทธิ์ ฐานข้อมูล'},
+   human:{n:'บุคคล (Human)',d:'บุคลากรที่มีทักษะ/ความเชี่ยวชาญสำคัญ'},
+   financial:{n:'การเงิน (Financial)',d:'เงินทุน วงเงินสินเชื่อ กระแสเงินสด'}},
+ ka:{production:{n:'การผลิต (Production)',d:'ออกแบบ ผลิต และส่งมอบสินค้าปริมาณมาก/คุณภาพสูง',ex:'โรงงานผลิต'},
+   problemsolving:{n:'การแก้ปัญหา (Problem-solving)',d:'หาทางแก้เฉพาะรายให้ลูกค้า',ex:'ที่ปรึกษา โรงพยาบาล'},
+   platform:{n:'แพลตฟอร์ม/เครือข่าย (Platform/Network)',d:'บริหารแพลตฟอร์มที่เชื่อมผู้ใช้หลายฝ่าย',ex:'มาร์เก็ตเพลส แอปจับคู่'}},
+ kp:{alliance:{n:'พันธมิตรเชิงกลยุทธ์ (ไม่ใช่คู่แข่ง)',d:'ความร่วมมือระหว่างธุรกิจที่ไม่แข่งกันโดยตรงเพื่อประโยชน์ร่วม'},
+   coopetition:{n:'คู่แข่งที่ร่วมมือ (Coopetition)',d:'ร่วมมือกับคู่แข่งในบางเรื่องเพื่อขยายตลาด/ลดต้นทุน'},
+   jv:{n:'กิจการร่วมค้า (Joint Venture)',d:'ตั้งธุรกิจใหม่ร่วมกันเพื่อคว้าโอกาสเฉพาะ'},
+   buyersupplier:{n:'ผู้ซื้อ–ผู้ขาย (Buyer–Supplier)',d:'ความสัมพันธ์กับซัพพลายเออร์เพื่อความมั่นคงของอุปทาน'}},
+ kpm:{optimization:{n:'ประหยัด/เพิ่มประสิทธิภาพ',d:'ลดต้นทุนด้วยการแบ่งงานและใช้ทรัพยากรร่วมกัน เช่น outsource'},
+   risk:{n:'ลดความเสี่ยงและความไม่แน่นอน',d:'แบ่งเบาความเสี่ยงในสภาพแวดล้อมที่ไม่แน่นอน'},
+   resource:{n:'ได้ทรัพยากร/ความสามารถ',d:'เข้าถึงทรัพยากร ความรู้ ใบอนุญาต หรือลูกค้าที่เราไม่มีเอง'}}
+};
+function exShow(ex){const st=ex.closest('.expset').dataset.set,k=ex.dataset.k;const d=EXPL[st]&&EXPL[st][k];if(!d)return;
+  ex.closest('.expset').querySelectorAll('.exp').forEach(x=>x.classList.toggle('on',x===ex));
+  const el=document.getElementById('det-'+st);if(!el)return;
+  el.innerHTML='<h4>'+d.n+'</h4><p style="margin:0">'+d.d+'</p>'+(d.ex?'<div class="ex"><b>ตัวอย่าง:</b> '+d.ex+'</div>':'');}
+function bmcShow(k){const d=BMC[k];if(!d)return;
+  document.querySelectorAll('#bmc .bcell').forEach(c=>c.classList.toggle('on',c.dataset.b===k));
+  const el=document.getElementById('bmcDetail');if(!el)return;
+  el.style.setProperty('--dc','var('+d.c+')');
+  el.innerHTML='<h4 style="color:var('+d.c+')">'+d.n+'</h4><div class="en">'+d.en+'</div><p style="margin:0 0 4px">'+d.d+'</p><div class="q">คำถามที่ต้องตอบ:</div><ul>'+d.q.map(x=>'<li>'+x+'</li>').join('')+'</ul>';}
+const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
+document.getElementById('menuToggle').onclick=()=>{sb.classList.add('open');bd.classList.add('show');};
+bd.onclick=closeMenu;function closeMenu(){sb.classList.remove('open');bd.classList.remove('show');}
+let zoom=1;const zc=document.getElementById('content');function applyZoom(){zc.style.zoom=zoom;}
+document.getElementById('fsz-up').onclick=()=>{zoom=Math.min(2,+(zoom+0.1).toFixed(2));applyZoom();};
+document.getElementById('fsz-down').onclick=()=>{zoom=Math.max(0.7,+(zoom-0.1).toFixed(2));applyZoom();};
+document.getElementById('fs-btn').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}};
+const projBtn=document.getElementById('proj-btn');
+projBtn.onclick=()=>{const on=document.body.classList.toggle('projector');projBtn.classList.toggle('on',on);if(on){if(zoom<1.2){zoom=1.2;applyZoom();}}else{zoom=1;applyZoom();closeMenu();}};
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+go(0);
+</script>
+</body>
+</html>
