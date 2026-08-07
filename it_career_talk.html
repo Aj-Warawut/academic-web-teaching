@@ -137,6 +137,26 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 .kbar .fill{height:100%;background:linear-gradient(90deg,#F4C150,#E9A72C);width:0;transition:.4s}
 .kmap .msg{margin-top:8px;font-size:14px;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px}
 @media print{.rate button{border:1px solid #999}}
+
+.reslab{font-size:12.5px;font-weight:800;color:var(--navy);margin-top:14px}
+.reslist{margin:6px 0 0 0;padding:0;list-style:none}
+.reslist li{padding:5px 0 5px 20px;position:relative;font-size:14px}
+.reslist li::before{content:"";position:absolute;left:2px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.reslist a{color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid #cfe0ff}
+.reslist a:hover{border-bottom-color:var(--blue)}
+.planbtn{margin-top:14px;background:var(--teal);color:#fff;border:none;border-radius:9px;padding:9px 16px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.planbtn:hover{filter:brightness(1.08)}
+.planmsg{font-size:13px;color:var(--green);margin-left:10px;font-weight:700}
+.planmsg a{color:var(--blue)}
+.pipe{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.pstep{flex:1;min-width:120px;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px 10px;font-family:inherit;cursor:pointer;text-align:center;transition:.15s;box-shadow:var(--shadow);font-size:20px;font-weight:800;color:var(--mute)}
+.pstep span{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-top:2px}
+.pstep em{display:block;font-style:normal;font-size:10.5px;color:#B5810E;font-weight:800;margin-top:4px}
+.pstep:hover{border-color:var(--blue)}
+.pstep.here{border-color:var(--amber);background:#FFFBF2}
+.pstep.sel{border-color:var(--blue);background:var(--blue);color:#fff}
+.pstep.sel span{color:#eaf0ff}.pstep.sel em{color:#ffe6ad}
+.pdesc{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:13px 16px;box-shadow:var(--shadow);font-size:14.5px;margin-top:4px}
 </style>
 </head>
 <body>
@@ -233,7 +253,7 @@ const S=[
     <label>เพื่อ (ได้ประโยชน์อะไร)</label><input id="us-why" oninput="buildStory()" placeholder="เช่น แลกกาแฟฟรีและได้ส่วนลด">
     <div class="story-out" id="us-out">พิมพ์ในช่องด้านบน แล้ว User Story จะปรากฏที่นี่…</div>
   </div>
-  <div class="callout tip"><b>กิจกรรมในห้อง:</b> จับคู่ถอดโจทย์ "ร้านกาแฟอยากได้ระบบสมาชิกสะสมแต้ม" แล้วเขียน User Story 2 ถึง 3 ข้อ แล้ววาด flow สั้น ๆ ว่าลูกค้าสมัคร แล้วสะสมแต้ม และแลกรางวัลอย่างไร</div>
+    <h3>User Story อยู่ตรงไหนในภาพใหญ่</h3>\n  <p style="margin:0 0 8px;color:var(--mute);font-size:14px">การเขียน User Story คือ "ขั้นที่ 1" ของกระบวนการพัฒนาซอฟต์แวร์ (SDLC) สิ่งที่เราเขียนตรงนี้จะถูกส่งต่อไปออกแบบและพัฒนาในขั้นถัดไป</p>\n  <div class="pipe"><button class="pstep here sel" onclick="pipeStep(this,1)">1<span>เก็บความต้องการ</span><em>User Story อยู่ตรงนี้</em></button><button class="pstep" onclick="pipeStep(this,2)">2<span>ออกแบบ</span></button><button class="pstep" onclick="pipeStep(this,3)">3<span>พัฒนา</span></button><button class="pstep" onclick="pipeStep(this,4)">4<span>ทดสอบ</span></button><button class="pstep" onclick="pipeStep(this,5)">5<span>ใช้งานจริง</span></button><button class="pstep" onclick="pipeStep(this,6)">6<span>ดูแล/ปรับปรุง</span></button></div>\n  <div class="pdesc" id="pdesc"><b>ขั้นที่ 1 · เก็บความต้องการ:</b> รวบรวมสิ่งที่ผู้ใช้และธุรกิจต้องการ แล้วเขียนเป็น User Story นี่คือขั้นที่เรากำลังฝึกกันอยู่</div>\n  <div class="callout tip"><b>กิจกรรมในห้อง:</b> จับคู่ถอดโจทย์ "ร้านกาแฟอยากได้ระบบสมาชิกสะสมแต้ม" แล้วเขียน User Story 2 ถึง 3 ข้อ แล้ววาด flow สั้น ๆ ว่าลูกค้าสมัคร แล้วสะสมแต้ม และแลกรางวัลอย่างไร</div>
 `},
 { id:"hw", group:"2 · Hardware", nav:"เข้าใจเครื่องในโลกงานจริง", icon:"5", html:`
   <div class="eyebrow">Hardware</div><h2 class="title">Hardware ไม่ใช่แค่ประกอบคอม</h2>
@@ -277,7 +297,7 @@ const S=[
     <div class="stg" style="background:var(--green)"><b>5</b><span>ใช้งานจริง</span></div>
     <div class="stg" style="background:var(--mute)"><b>6</b><span>ดูแล/ปรับปรุง</span></div>
   </div>
-  <div class="callout info"><b>AI ช่วยเขียนโค้ด:</b> GitHub Copilot, ChatGPT, Claude ช่วยเขียนและแก้บั๊กได้เร็วขึ้นมาก แต่ต้อง <b>ตรวจสอบเสมอ</b> เพราะ AI สร้างข้อมูลผิดพลาดได้ (AI hallucination)</div>
+  <div class="callout ok"><b>เชื่อมโยง:</b> จำ User Story ที่เราลองเขียนตอนต้นได้ไหม นั่นคือ "ขั้นที่ 1 เก็บความต้องการ" ของภาพนี้ ทุกอย่างเริ่มจากเข้าใจความต้องการให้ชัดก่อน</div>\n  <div class="callout info"><b>AI ช่วยเขียนโค้ด:</b> GitHub Copilot, ChatGPT, Claude ช่วยเขียนและแก้บั๊กได้เร็วขึ้นมาก แต่ต้อง <b>ตรวจสอบเสมอ</b> เพราะ AI สร้างข้อมูลผิดพลาดได้ (AI hallucination)</div>
 `},
 { id:"sw2", group:"3 · Software", nav:"เช็กลิสต์: เชื่อ AI แค่ไหน", icon:"8", html:`
   <div class="eyebrow">Interactive · คิดวิเคราะห์</div><h2 class="title">ใช้ AI เขียนโค้ดอย่างมืออาชีพ</h2>
@@ -334,8 +354,8 @@ const S=[
   <div class="eyebrow">Interactive · วางแผนของตัวเอง</div><h2 class="title">แผน Upskill 90 วันของฉัน</h2>
   <p class="lead">เขียนแผนสั้น ๆ ของตัวเอง แล้วกดปุ่มพิมพ์หรือบันทึก PDF เก็บไว้เตือนตัวเอง</p>
   <div class="planner">
-    <div class="pcard"><h4>1) ทักษะที่จะพัฒนา (เลือก 1 อย่าง)</h4><textarea placeholder="เช่น พื้นฐาน Cloud (AWS Cloud Practitioner)"></textarea></div>
-    <div class="pcard"><h4>2) จะเรียนจากไหน (แหล่ง/คอร์ส)</h4><textarea placeholder="เช่น YouTube + Microsoft Learn สัปดาห์ละ 3 ชั่วโมง"></textarea></div>
+    <div class="pcard"><h4>1) ทักษะที่จะพัฒนา (เลือก 1 อย่าง)</h4><textarea id="plan-skill" placeholder="เช่น พื้นฐาน Cloud (AWS Cloud Practitioner)"></textarea></div>
+    <div class="pcard"><h4>2) จะเรียนจากไหน (แหล่ง/คอร์ส)</h4><textarea id="plan-where" placeholder="เช่น YouTube + Microsoft Learn สัปดาห์ละ 3 ชั่วโมง"></textarea></div>
     <div class="pcard"><h4>3) เป้าหมายที่วัดได้ใน 90 วัน</h4><textarea placeholder="เช่น สอบใบ Cloud Practitioner ผ่าน / ทำโปรเจกต์ลงคลาวด์ 1 ชิ้น"></textarea></div>
     <div class="pcard"><h4>4) ผลงานที่จะมีไว้อวดนายจ้าง</h4><textarea placeholder="เช่น เพิ่มโปรเจกต์ใน GitHub / ใบ certificate"></textarea></div>
   </div>
@@ -376,13 +396,13 @@ const S=[
 ];
 const EXPL={
  skills:{
-  ai:{n:'AI Literacy: ใช้ AI เป็น',d:'รู้จักใช้เครื่องมือ AI (ChatGPT / Claude / Copilot) ช่วยงาน เขียนและแก้โค้ด สรุปข้อมูล และเข้าใจข้อจำกัดของมัน',ex:'สัดส่วนประกาศงานที่ต้องการ AI โตจาก 5% เป็น 9%'},
-  python:{n:'Python',d:'ภาษาโปรแกรมยอดนิยม ใช้ได้ทั้งวิเคราะห์ข้อมูล ทำเว็บ และ AI/ML เรียนง่าย เหมาะกับผู้เริ่มต้น',ex:'จาก 15% เป็น 18% ของประกาศงาน'},
-  cloud:{n:'Cloud (AWS / Google Cloud)',d:'ระบบงานยุคใหม่อยู่บนคลาวด์ รู้พื้นฐานการติดตั้งและดูแลบนคลาวด์เป็นแต้มต่อสำคัญ',ex:'AWS 12% เป็น 14% และ Google Cloud 3% เป็น 5%'},
-  cyber:{n:'Cybersecurity',d:'ความปลอดภัยไซเบอร์สำคัญขึ้นเพราะพึ่งพา AI/ออนไลน์มากขึ้น รู้พื้นฐานการป้องกันภัยเป็นสิ่งจำเป็นทุกสายงาน',ex:'ความต้องการเพิ่มเท่าตัว จาก 2% เป็น 4%'},
-  analysis:{n:'ทักษะวิเคราะห์ (Analysis)',d:'มนุษย์ต้องคอยตรวจจับจุดที่ AI ทำผิดพลาด การคิดวิเคราะห์และตัดสินใจเป็นสิ่งที่ AI แทนได้ยาก',ex:'จาก 19% เป็น 21% เป็นทักษะที่ต้องการมากที่สุด'},
-  trouble:{n:'Troubleshooting',d:'แก้ปัญหาอย่างเป็นระบบ หาจุดบกพร่องของระบบและโค้ด (รวมถึงโค้ดที่ AI สร้าง)',ex:'จาก 9% เป็น 11% ของประกาศงาน'},
-  ml:{n:'Machine Learning พื้นฐาน',d:'เข้าใจหลักการเรียนรู้ของเครื่องเบื้องต้น รองรับงาน AI ในองค์กรที่กำลังเติบโต',ex:'จาก 3% เป็น 5%'}
+  ai:{n:'AI Literacy: ใช้ AI เป็น',d:'รู้จักใช้เครื่องมือ AI (ChatGPT / Claude / Copilot) ช่วยงาน เขียนและแก้โค้ด สรุปข้อมูล และเข้าใจข้อจำกัดของมัน',ex:'สัดส่วนประกาศงานที่ต้องการ AI โตจาก 5% เป็น 9%',res:[{n:'Elements of AI (ม.เฮลซิงกิ)',u:'https://www.elementsofai.com/'},{n:'Microsoft AI for Beginners',u:'https://microsoft.github.io/AI-For-Beginners/'}]},
+  python:{n:'Python',d:'ภาษาโปรแกรมยอดนิยม ใช้ได้ทั้งวิเคราะห์ข้อมูล ทำเว็บ และ AI/ML เรียนง่าย เหมาะกับผู้เริ่มต้น',ex:'จาก 15% เป็น 18% ของประกาศงาน',res:[{n:'Python for Everybody (Dr. Chuck)',u:'https://www.py4e.com/'},{n:'freeCodeCamp',u:'https://www.freecodecamp.org/'}]},
+  cloud:{n:'Cloud (AWS / Google Cloud)',d:'ระบบงานยุคใหม่อยู่บนคลาวด์ รู้พื้นฐานการติดตั้งและดูแลบนคลาวด์เป็นแต้มต่อสำคัญ',ex:'AWS 12% เป็น 14% และ Google Cloud 3% เป็น 5%',res:[{n:'AWS Cloud Practitioner Essentials (ฟรี)',u:'https://explore.skillbuilder.aws/learn/course/134/aws-cloud-practitioner-essentials'},{n:'Microsoft Learn',u:'https://learn.microsoft.com/training/'}]},
+  cyber:{n:'Cybersecurity',d:'ความปลอดภัยไซเบอร์สำคัญขึ้นเพราะพึ่งพา AI/ออนไลน์มากขึ้น รู้พื้นฐานการป้องกันภัยเป็นสิ่งจำเป็นทุกสายงาน',ex:'ความต้องการเพิ่มเท่าตัว จาก 2% เป็น 4%',res:[{n:'Google Cybersecurity Certificate',u:'https://www.coursera.org/professional-certificates/google-cybersecurity'},{n:'TryHackMe (ฝึกจริง)',u:'https://tryhackme.com/'}]},
+  analysis:{n:'ทักษะวิเคราะห์ (Analysis)',d:'มนุษย์ต้องคอยตรวจจับจุดที่ AI ทำผิดพลาด การคิดวิเคราะห์และตัดสินใจเป็นสิ่งที่ AI แทนได้ยาก',ex:'จาก 19% เป็น 21% เป็นทักษะที่ต้องการมากที่สุด',res:[{n:'Google Data Analytics Certificate',u:'https://www.coursera.org/professional-certificates/google-data-analytics'},{n:'Kaggle Learn',u:'https://www.kaggle.com/learn'}]},
+  trouble:{n:'Troubleshooting',d:'แก้ปัญหาอย่างเป็นระบบ หาจุดบกพร่องของระบบและโค้ด (รวมถึงโค้ดที่ AI สร้าง)',ex:'จาก 9% เป็น 11% ของประกาศงาน',res:[{n:'Google IT Support Certificate',u:'https://www.coursera.org/professional-certificates/google-it-support'},{n:'Professor Messer CompTIA A+ (ฟรี)',u:'https://www.professormesser.com/free-a-plus-training/a-plus-videos/professor-messers-free-comptia-a-certification-training-course/'}]},
+  ml:{n:'Machine Learning พื้นฐาน',d:'เข้าใจหลักการเรียนรู้ของเครื่องเบื้องต้น รองรับงาน AI ในองค์กรที่กำลังเติบโต',ex:'จาก 3% เป็น 5%',res:[{n:'Google ML Crash Course',u:'https://developers.google.com/machine-learning/crash-course'},{n:'Kaggle: Intro to ML',u:'https://www.kaggle.com/learn/intro-to-machine-learning'}]}
  }
 };
 /* engine */
@@ -411,7 +431,25 @@ content.addEventListener('click',e=>{
 function exShow(ex){const st=ex.closest('.expset').dataset.set,k=ex.dataset.k;const d=EXPL[st]&&EXPL[st][k];if(!d)return;
   ex.closest('.expset').querySelectorAll('.exp').forEach(x=>x.classList.toggle('on',x===ex));
   const el=document.getElementById('det-'+st);if(!el)return;
-  el.innerHTML='<h4>'+d.n+'</h4><p style="margin:0">'+d.d+'</p>'+(d.ex?'<div class="ex"><b>ความต้องการในตลาด:</b> '+d.ex+'</div>':'');}
+  let hh='<h4>'+d.n+'</h4><p style="margin:0">'+d.d+'</p>'+(d.ex?'<div class="ex"><b>ความต้องการในตลาด:</b> '+d.ex+'</div>':'');
+  if(d.res){hh+='<div class="reslab">เรียนได้จากที่ไหน (ฟรี/น่าเชื่อถือ)</div><ul class="reslist">'+d.res.map(r=>'<li><a href="'+r.u+'" target="_blank" rel="noopener">'+r.n+'</a></li>').join('')+'</ul>';
+    hh+='<button class="planbtn" onclick="addToPlan(\''+k+'\')">เพิ่มทักษะนี้ลงแผน 90 วัน</button><span class="planmsg" id="planmsg"></span>';}
+  el.innerHTML=hh;}
+function addToPlan(k){const d=EXPL.skills[k];if(!d)return;
+  const line=d.n.split(':')[0].trim();
+  const sk=document.getElementById('plan-skill'),wh=document.getElementById('plan-where');
+  if(sk&&!sk.value.includes(line)) sk.value=(sk.value?sk.value+'\n':'')+line;
+  if(wh&&d.res){const src=d.res.map(r=>r.n).join(', ');if(!wh.value.includes(d.res[0].n)) wh.value=(wh.value?wh.value+'\n':'')+line+': '+src;}
+  const m=document.getElementById('planmsg');if(m)m.innerHTML=' เพิ่มลงแผนแล้ว <a href="#" onclick="goById(\'planner\');return false;">เปิดแผน 90 วัน</a>';}
+function goById(id){const i=S.findIndex(x=>x.id===id);if(i>=0)go(i);}
+function pipeStep(btn,n){document.querySelectorAll('.pipe .pstep').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');
+  const d=PIPE[n];document.getElementById('pdesc').innerHTML='<b>ขั้นที่ '+n+' · '+d[0]+':</b> '+d[1];}
+const PIPE={1:['เก็บความต้องการ','รวบรวมสิ่งที่ผู้ใช้และธุรกิจต้องการ แล้วเขียนเป็น User Story นี่คือขั้นที่เรากำลังฝึกกันอยู่'],
+ 2:['ออกแบบ','วางโครงระบบ หน้าจอ และฐานข้อมูล จากความต้องการที่เก็บมา'],
+ 3:['พัฒนา','ลงมือเขียนโปรแกรมตามแบบที่ออกไว้'],
+ 4:['ทดสอบ','ตรวจว่าทำงานถูกต้อง ครบตามความต้องการ และไม่มีบั๊ก'],
+ 5:['ใช้งานจริง','ส่งมอบและติดตั้งให้ผู้ใช้ใช้งานจริง'],
+ 6:['ดูแล/ปรับปรุง','แก้ไขปัญหาและพัฒนาต่อเนื่องหลังการใช้งาน']};
 /* user story builder */
 function buildStory(){const r=val('us-role'),w=val('us-want'),y=val('us-why');const o=document.getElementById('us-out');
   if(!r&&!w&&!y){o.innerHTML='พิมพ์ในช่องด้านบน แล้ว User Story จะปรากฏที่นี่…';return;}
