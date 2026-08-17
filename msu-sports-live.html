@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>รายงานผลกีฬาสีสัมพันธ์ ครั้งที่ 1 — มมส. 2569</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c232c; --line:#2a333f;
+  --tx:#e6edf3; --tx2:#9aa7b4; --tx3:#6b7785;
+  --blue:#2f6fe0; --green:#22a04a; --red:#e0342c; --yellow:#f0b429;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'IBM Plex Sans Thai',system-ui,sans-serif;
+     -webkit-font-smoothing:antialiased;padding-bottom:64px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* header */
+header{background:linear-gradient(135deg,#101826 0%,#16233a 45%,#1a1230 100%);
+  border-bottom:1px solid var(--line);padding:26px 0 22px;position:relative;overflow:hidden}
+header:before{content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 200px at 12% 0%,rgba(47,111,224,.28),transparent 65%),
+             radial-gradient(600px 200px at 88% 100%,rgba(240,180,41,.20),transparent 65%)}
+header .wrap{position:relative}
+.kicker{font-size:12.5px;letter-spacing:.14em;color:#8fb4ff;font-weight:600;text-transform:uppercase}
+h1{font-size:clamp(23px,4.4vw,36px);font-weight:700;line-height:1.15;margin:6px 0 8px}
+.sub{color:var(--tx2);font-size:14px;line-height:1.6}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badge{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:999px;
+  padding:5px 13px;font-size:12.5px;color:var(--tx2)}
+.badge b{color:var(--tx);font-weight:600}
+.live{display:inline-flex;align-items:center;gap:7px;background:rgba(224,52,44,.16);
+  border:1px solid rgba(224,52,44,.5);color:#ff8880}
+.dot{width:7px;height:7px;border-radius:50%;background:#ff5a50;animation:p 1.4s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* standings */
+section{margin-top:26px}
+h2{font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+h2 .bar{width:4px;height:17px;border-radius:2px;background:var(--blue)}
+.stand{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 17px;position:relative;overflow:hidden}
+.card .stripe{position:absolute;left:0;top:0;bottom:0;width:5px}
+.card .rank{position:absolute;right:14px;top:12px;font-size:11px;color:var(--tx3);font-weight:600}
+.card .medal{position:absolute;right:12px;top:9px;font-size:19px}
+.cname{font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.chip{width:13px;height:13px;border-radius:4px}
+.pts{font-size:34px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.pts small{font-size:12.5px;color:var(--tx2);font-weight:500;margin-left:6px}
+.wdl{display:flex;gap:14px;margin-top:11px;font-size:12px;color:var(--tx2)}
+.wdl b{color:var(--tx);font-variant-numeric:tabular-nums}
+
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;
+  scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:var(--panel);border:1px solid var(--line);color:var(--tx2);border-radius:999px;
+  padding:8px 16px;font-size:13.5px;font-family:inherit;cursor:pointer;white-space:nowrap;font-weight:500}
+.tab:hover{border-color:#3d4a5a;color:var(--tx)}
+.tab.on{background:var(--tx);color:#0d1117;border-color:var(--tx);font-weight:600}
+
+/* match rows */
+.day{margin-bottom:22px}
+.dayhead{font-size:13px;font-weight:600;color:var(--tx2);padding:8px 2px;
+  border-bottom:1px solid var(--line);margin-bottom:8px;display:flex;justify-content:space-between}
+.m{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px 14px;margin-bottom:7px}
+.m.done{background:var(--panel2)}
+.m .time{font-size:12.5px;color:var(--tx2);font-variant-numeric:tabular-nums;font-weight:500}
+.m .meta{font-size:11px;color:var(--tx3);margin-top:3px}
+.teams{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:14px}
+.t{display:inline-flex;align-items:center;gap:7px;font-weight:500}
+.t.win{font-weight:700}
+.t.lose{color:var(--tx3)}
+.vs{color:var(--tx3);font-size:11.5px;margin:0 2px}
+.score{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;
+  background:#0d1117;border:1px solid var(--line);border-radius:8px;padding:4px 12px;white-space:nowrap}
+.score.pending{font-size:11.5px;font-weight:500;color:var(--tx3);background:transparent;border-style:dashed}
+.stat{font-size:10.5px;padding:3px 8px;border-radius:5px;font-weight:600;white-space:nowrap}
+.stat.live{background:rgba(224,52,44,.18);color:#ff8880}
+.stat.post{background:rgba(240,180,41,.15);color:#f0b429}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11.5px;color:var(--tx3);font-weight:600;padding:9px 10px;
+  border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid rgba(42,51,63,.55)}
+tr:hover td{background:rgba(255,255,255,.025)}
+.tblwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  overflow-x:auto;padding:2px 6px}
+
+/* units */
+.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.ucard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:15px 17px}
+.uhead{font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.ucard li{list-style:none;font-size:12.5px;color:var(--tx2);padding:3.5px 0 3.5px 14px;position:relative}
+.ucard li:before{content:"";position:absolute;left:0;top:11px;width:4px;height:4px;border-radius:50%;background:var(--tx3)}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--yellow);
+  border-radius:9px;padding:13px 16px;font-size:12.5px;color:var(--tx2);line-height:1.75}
+.note b{color:var(--tx)}
+code{background:#0d1117;border:1px solid var(--line);border-radius:5px;padding:1.5px 6px;font-size:11.5px;color:#8fb4ff}
+footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--tx3);line-height:1.8}
+.hide{display:none}
+@media(max-width:560px){
+  .m{grid-template-columns:1fr auto;gap:8px}
+  .m .time{grid-column:1/-1}
+  .pts{font-size:29px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">MSU Staff Games 2569</div>
+    <h1 id="title">การแข่งขันกีฬาสีสัมพันธ์ ครั้งที่ 1</h1>
+    <div class="sub" id="sub">งานกีฬาบุคลากรภายใน มหาวิทยาลัยมหาสารคาม ประจำปี พ.ศ. 2569</div>
+    <div class="badges">
+      <span class="badge">📅 <b>18–21 สิงหาคม 2569</b></span>
+      <span class="badge">🏟️ <b>มหาวิทยาลัยมหาสารคาม</b></span>
+      <span class="badge">🎽 <b>4 สี</b> · 6 ชนิดกีฬา</span>
+      <span class="badge" id="clock">🕐 —</span>
+      <span class="badge live" id="livebadge" style="display:none"><span class="dot"></span> กำลังแข่ง <b id="livecount">0</b> รายการ</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2><span class="bar"></span>ตารางคะแนนรวม</h2>
+    <div class="stand" id="stand"></div>
+    <div style="margin-top:10px;font-size:11.5px;color:var(--tx3)">
+      เกณฑ์: ชนะ 3 · เสมอ 1 · แพ้ 0 แต้ม · กรีฑา อันดับ 1/2/3 = 5/3/1 แต้ม
+      &nbsp;|&nbsp; อัปเดตล่าสุด <span id="updated">—</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="bar"></span>ตารางการแข่งขัน</h2>
+    <div class="tabs" id="tabs"></div>
+    <div id="list"></div>
+  </section>
+
+  <section id="athsec">
+    <h2><span class="bar"></span>กรีฑา · 20–21 สิงหาคม 2569</h2>
+    <div class="tblwrap">
+      <table><thead><tr>
+        <th>วันที่</th><th>รายการ</th><th>เพศ</th><th>รุ่นอายุ</th><th>เวลา</th>
+        <th>🥇 อันดับ 1</th><th>🥈 อันดับ 2</th><th>🥉 อันดับ 3</th>
+      </tr></thead><tbody id="athbody"></tbody></table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="bar"></span>หน่วยงานสังกัดแต่ละสี</h2>
+    <div class="units" id="units"></div>
+  </section>
+
+  <section>
+    <h2><span class="bar"></span>ผู้ประสานงานแต่ละสี</h2>
+    <div class="tblwrap">
+      <table><thead><tr><th>#</th><th>ชื่อ-สกุล</th><th>E-mail</th><th>หน่วยงาน</th><th>สี</th></tr></thead>
+      <tbody id="coord"></tbody></table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="bar"></span>วิธีต่อกับ Google Sheets เพื่อรายงานผลสด</h2>
+    <div class="note">
+      <b>1.</b> อัปโหลดไฟล์ <code>MSU_Staff_Games_2569_Schedule.xlsx</code> ขึ้น Google Drive → เปิดด้วย Google Sheets<br>
+      <b>2.</b> เมนู <code>ไฟล์ ▸ แชร์ ▸ เผยแพร่ไปยังเว็บ</code> → เลือกชีต <b>ตารางแข่งขัน (กรอกผล)</b> → รูปแบบ <b>CSV</b> → กด <b>เผยแพร่</b><br>
+      <b>3.</b> คัดลอกลิงก์ที่ได้ มาวางในไฟล์นี้ บรรทัด <code>const SHEET_CSV_URL = "";</code> (อยู่ในแท็ก &lt;script&gt; ท้ายไฟล์)<br>
+      <b>4.</b> ทำแบบเดียวกันกับชีต <b>กรีฑา (กรอกผล)</b> แล้ววางใน <code>const ATH_CSV_URL = "";</code><br>
+      <b>5.</b> หน้าเว็บจะดึงผลใหม่ทุก 60 วินาทีโดยอัตโนมัติ — กรรมการกรอกผลในมือถือ ผู้ชมเห็นทันที
+    </div>
+  </section>
+
+  <footer>
+    ข้อมูลตารางแข่งขันถอดจากโปสเตอร์ประชาสัมพันธ์ของสโมสรบุคลากร มหาวิทยาลัยมหาสารคาม<br>
+    หน้านี้เป็นไฟล์ HTML ไฟล์เดียว เปิดออฟไลน์ได้ · นำขึ้น GitHub Pages / Netlify / Cloudflare Pages ได้ฟรี
+  </footer>
+</div>
+
+<script>
+/* ====================== ตั้งค่าตรงนี้ ====================== */
+const SHEET_CSV_URL = "";   // ลิงก์ CSV ที่เผยแพร่จากชีต "ตารางแข่งขัน (กรอกผล)"
+const ATH_CSV_URL   = "";   // ลิงก์ CSV ที่เผยแพร่จากชีต "กรีฑา (กรอกผล)"
+const PTS = { win:3, draw:1, loss:0, gold:5, silver:3, bronze:1 };
+/* ========================================================== */
+
+const DATA = {"event":{"title":"กีฬาสีสัมพันธ์ ครั้งที่ 1","subtitle":"งานกีฬาบุคลากรภายใน มหาวิทยาลัยมหาสารคาม ประจำปี พ.ศ. 2569","dates":"18-21 สิงหาคม 2569"},"colors":["น้ำเงิน","เขียว","แดง","เหลือง"],"colorHex":{"น้ำเงิน":"1E4FA3","เขียว":"1B8B3A","แดง":"D32027","เหลือง":"F2B705"},"units":{"น้ำเงิน":["คณะแพทยศาสตร์","คณะศึกษาศาสตร์","รร.สาธิต (ฝ่ายประถม)","คณะสถาปัตยกรรมศาสตร์ฯ","คณะสาธารณสุขศาสตร์","คณะสิ่งแวดล้อมฯ","กองประชาสัมพันธ์ฯ","สำนักคอมพิวเตอร์","กองบริการการศึกษา"],"เขียว":["คณะวิทยาศาสตร์","รร.สาธิต (ฝ่ายมัธยม)","คณะวิทยาการสารสนเทศ","คณะเภสัชศาสตร์","วิทยาลัยการเมืองการปกครอง","วิทยาลัยดุริยางคศิลป์","สถาบันวิจัยวลัยรุกขเวช","กองกิจการนิสิต","กองทะเบียนและประมวลผล","ศูนย์วิจัยและการศึกษาบรรพชีวินวิทยา"],"แดง":["กองอาคารสถานที่","คณะเทคโนโลยี","คณะสัตวแพทยศาสตร์","คณะพยาบาลศาสตร์","คณะการท่องเที่ยวและการโรงแรม","สำนักวิทยบริการ","คณะนิติศาสตร์","กองการเจ้าหน้าที่","สถาบันวิจัยศิลปะและวัฒนธรรมอีสาน"],"เหลือง":["คณะการบัญชีและการจัดการ","คณะมนุษยศาสตร์และสังคมศาสตร์","คณะวิศวกรรมศาสตร์","คณะศิลปกรรมศาสตร์ฯ","กองส่งเสริมการวิจัยฯ","กองคลังและพัสดุ","สำนักศึกษาทั่วไป","กองกลาง","กองแผนงาน","บัณฑิตวิทยาลัย","สำนักตรวจสอบภายใน"]},"coordinators":[{"no":1,"name":"นายณัฐพล สุกพวงแก้ว","email":"nattapon.s@msu.ac.th","unit":"คณะแพทยศาสตร์","color":"น้ำเงิน"},{"no":2,"name":"นายจิรยุทธ์ สุดสังข์","email":"jirayut.su@msu.ac.th","unit":"คณะสาธารณสุขศาสตร์","color":"น้ำเงิน"},{"no":3,"name":"เสาวลักษณ์ รัตนะปัญญา","email":"saowaluk.r@msu.ac.th","unit":"กองทะเบียนฯ","color":"เขียว"},{"no":4,"name":"นายณัฐภัทร แสนกั้ง","email":"natthaphat.s@msu.ac.th","unit":"กองทะเบียนฯ","color":"เขียว"},{"no":5,"name":"นายณัฐนนท์ สุขเกษม","email":"natchanon.s@msu.ac.th","unit":"คณะมนุษย์ฯ","color":"เหลือง"},{"no":6,"name":"วัลภา บุญหล้า","email":"wanlapa.b@msu.ac.th","unit":"คณะมนุษย์ฯ","color":"เหลือง"},{"no":7,"name":"นายสมเกียรติ สรรพทรัพย์","email":"somkiat@msu.ac.th","unit":"กองอาคารฯ","color":"แดง"}],"matches":[{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"18 ส.ค. 2569","no":1,"start":"17:00","end":"17:30","venue":"สนามบาสเกตบอล","team_a":"น้ำเงิน","team_b":"เขียว"},{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"18 ส.ค. 2569","no":2,"start":"17:30","end":"18:00","venue":"สนามบาสเกตบอล","team_a":"แดง","team_b":"เหลือง"},{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"19 ส.ค. 2569","no":3,"start":"17:00","end":"17:30","venue":"สนามบาสเกตบอล","team_a":"น้ำเงิน","team_b":"แดง"},{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"19 ส.ค. 2569","no":4,"start":"17:30","end":"18:00","venue":"สนามบาสเกตบอล","team_a":"เขียว","team_b":"เหลือง"},{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"20 ส.ค. 2569","no":5,"start":"17:00","end":"17:30","venue":"สนามบาสเกตบอล","team_a":"น้ำเงิน","team_b":"เหลือง"},{"sport":"แชร์บอลหญิง","division":"ทีม 5 คน (ไม่จำกัดอายุ)","date":"20 ส.ค. 2569","no":6,"start":"17:30","end":"18:00","venue":"สนามบาสเกตบอล","team_a":"เขียว","team_b":"แดง"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"18 ส.ค. 2569","no":1,"start":"17:00","end":"18:00","venue":"อาคารพลศึกษา","team_a":"น้ำเงิน","team_b":"เขียว"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"18 ส.ค. 2569","no":2,"start":"18:00","end":"19:00","venue":"อาคารพลศึกษา","team_a":"แดง","team_b":"เหลือง"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"19 ส.ค. 2569","no":3,"start":"17:00","end":"18:00","venue":"อาคารพลศึกษา","team_a":"น้ำเงิน","team_b":"แดง"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"19 ส.ค. 2569","no":4,"start":"18:00","end":"19:00","venue":"อาคารพลศึกษา","team_a":"เขียว","team_b":"เหลือง"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"20 ส.ค. 2569","no":5,"start":"17:00","end":"18:00","venue":"อาคารพลศึกษา","team_a":"น้ำเงิน","team_b":"เหลือง"},{"sport":"วอลเลย์บอลชาย","division":"ทีม 6 คน (ไม่จำกัดอายุ)","date":"20 ส.ค. 2569","no":6,"start":"18:00","end":"19:00","venue":"อาคารพลศึกษา","team_a":"เขียว","team_b":"แดง"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"18 ส.ค. 2569","no":1,"start":"17:00","end":"18:30","venue":"สนามลู่แดง","team_a":"น้ำเงิน","team_b":"เขียว"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"18 ส.ค. 2569","no":2,"start":"18:30","end":"20:00","venue":"สนามลู่แดง","team_a":"แดง","team_b":"เหลือง"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"19 ส.ค. 2569","no":3,"start":"17:00","end":"18:30","venue":"สนามลู่แดง","team_a":"น้ำเงิน","team_b":"แดง"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"19 ส.ค. 2569","no":4,"start":"18:30","end":"20:00","venue":"สนามลู่แดง","team_a":"เขียว","team_b":"เหลือง"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"20 ส.ค. 2569","no":5,"start":"17:00","end":"18:30","venue":"สนามลู่แดง","team_a":"น้ำเงิน","team_b":"เหลือง"},{"sport":"ฟุตบอลชาย 11 คน","division":"ทีมใหญ่ (ส่งชื่อ ≤ 30 คน)","date":"20 ส.ค. 2569","no":6,"start":"18:30","end":"20:00","venue":"สนามลู่แดง","team_a":"เขียว","team_b":"แดง"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"18 ส.ค. 2569","no":1,"start":"17:00","end":"18:30","venue":"ศูนย์กีฬาฯ","team_a":"น้ำเงิน","team_b":"เขียว"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"18 ส.ค. 2569","no":2,"start":"18:30","end":"20:00","venue":"ศูนย์กีฬาฯ","team_a":"แดง","team_b":"เหลือง"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"19 ส.ค. 2569","no":3,"start":"17:00","end":"18:30","venue":"ศูนย์กีฬาฯ","team_a":"น้ำเงิน","team_b":"แดง"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"19 ส.ค. 2569","no":4,"start":"18:30","end":"20:00","venue":"ศูนย์กีฬาฯ","team_a":"เขียว","team_b":"เหลือง"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"20 ส.ค. 2569","no":5,"start":"17:00","end":"18:30","venue":"ศูนย์กีฬาฯ","team_a":"น้ำเงิน","team_b":"เหลือง"},{"sport":"บาสเกตบอลชาย","division":"ทีม (ส่งชื่อ ≤ 15 คน)","date":"20 ส.ค. 2569","no":6,"start":"18:30","end":"20:00","venue":"ศูนย์กีฬาฯ","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":1,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":2,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":3,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":4,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":5,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่นไม่เกิน 35 ปี","date":"18 ส.ค. 2569","no":6,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":7,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":8,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":9,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":10,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":11,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 36-49 ปี","date":"18 ส.ค. 2569","no":12,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":13,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":14,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":15,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":16,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":17,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"ชายคู่ · รุ่น 50 ปีขึ้นไป","date":"18 ส.ค. 2569","no":18,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":19,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":20,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":21,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":22,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":23,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่นไม่เกิน 35 ปี","date":"19 ส.ค. 2569","no":24,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":25,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":26,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":27,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":28,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":29,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 36-49 ปี","date":"19 ส.ค. 2569","no":30,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":31,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":32,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":33,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":34,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":35,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"คู่ผสม · รุ่น 50 ปีขึ้นไป","date":"19 ส.ค. 2569","no":36,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":37,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":38,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":39,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":40,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":41,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่นไม่เกิน 35 ปี","date":"20 ส.ค. 2569","no":42,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 1)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":43,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":44,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":45,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":46,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":47,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 36-49 ปี","date":"20 ส.ค. 2569","no":48,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 2)","team_a":"เขียว","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":49,"start":"17:00","end":"17:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"เขียว"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":50,"start":"17:30","end":"18:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"แดง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":51,"start":"18:00","end":"18:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"แดง"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":52,"start":"18:30","end":"19:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":53,"start":"19:00","end":"19:30","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เหลือง","team_b":"น้ำเงิน"},{"sport":"แบดมินตัน","division":"หญิงคู่ · รุ่น 50 ปีขึ้นไป","date":"20 ส.ค. 2569","no":54,"start":"19:30","end":"20:00","venue":"อาคารกีฬาและสุขภาพ (สนาม 3)","team_a":"เขียว","team_b":"แดง"}],"athletics":[{"no":1,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":2,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"ชาย","age":"30-39 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":3,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"ชาย","age":"40-49 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":4,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"ชาย","age":"50 ปีขึ้นไป","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":5,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":6,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"หญิง","age":"30-39 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":7,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"หญิง","age":"40-49 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":8,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"พุ่งแหลน","gender":"หญิง","age":"50 ปีขึ้นไป","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":9,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":10,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"ชาย","age":"30-39 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":11,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"ชาย","age":"40-49 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":12,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"ชาย","age":"50 ปีขึ้นไป","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":13,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":14,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"หญิง","age":"30-39 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":15,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"หญิง","age":"40-49 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":16,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ขว้างจักร","gender":"หญิง","age":"50 ปีขึ้นไป","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":17,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":18,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"ชาย","age":"30-39 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":19,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"ชาย","age":"40-49 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":20,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"ชาย","age":"50 ปีขึ้นไป","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":21,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":22,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"หญิง","age":"30-39 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":23,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"หญิง","age":"40-49 ปี","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":24,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"ทุ่มน้ำหนัก","gender":"หญิง","age":"50 ปีขึ้นไป","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":25,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":26,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"ชาย","age":"30-39 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":27,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"ชาย","age":"40-49 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":28,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"ชาย","age":"50 ปีขึ้นไป","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":29,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":30,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"หญิง","age":"30-39 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":31,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"หญิง","age":"40-49 ปี","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":32,"date":"20 ส.ค. 2569","group":"ประเภทลาน","event":"กระโดดไกล","gender":"หญิง","age":"50 ปีขึ้นไป","start":"17:00","end":"17:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":33,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":34,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"ชาย","age":"30-39 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":35,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"ชาย","age":"40-49 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":36,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"ชาย","age":"50 ปีขึ้นไป","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":37,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":38,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"หญิง","age":"30-39 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":39,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"หญิง","age":"40-49 ปี","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":40,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 100 เมตร","gender":"หญิง","age":"50 ปีขึ้นไป","start":"15:30","end":"16:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":41,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"ชาย","age":"ไม่เกิน 29 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":42,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"ชาย","age":"30-39 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":43,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"ชาย","age":"40-49 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":44,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"ชาย","age":"50 ปีขึ้นไป","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":45,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"หญิง","age":"ไม่เกิน 29 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":46,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"หญิง","age":"30-39 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":47,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"หญิง","age":"40-49 ปี","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":48,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่ง 1,500 เมตร","gender":"หญิง","age":"50 ปีขึ้นไป","start":"16:00","end":"16:30","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"},{"no":49,"date":"21 ส.ค. 2569","group":"ประเภทลู่","event":"วิ่งผลัดผสม 4x100 เมตร","gender":"ผสม (ชาย-หญิง)","age":"ไม่แบ่งรุ่น","start":"16:30","end":"17:00","venue":"สนามกีฬาอเนกประสงค์กลางแจ้ง (สนามแดง)"}]};
+const HEX  = DATA.colorHex;
+const SPORT_CODE = {"แชร์บอลหญิง":"CB","วอลเลย์บอลชาย":"VB","ฟุตบอลชาย 11 คน":"FB",
+                    "บาสเกตบอลชาย":"BB","แบดมินตัน":"BD"};
+DATA.matches.forEach(m => { m.code = SPORT_CODE[m.sport] + "-" + String(m.no).padStart(2,"0");
+  m.a = null; m.b = null; m.status = "รอแข่ง"; });
+DATA.athletics.forEach(e => { e.p1=null; e.p2=null; e.p3=null; });
+
+const DATES = ["18 ส.ค. 2569","19 ส.ค. 2569","20 ส.ค. 2569","21 ส.ค. 2569"];
+const SPORTS = ["แชร์บอลหญิง","วอลเลย์บอลชาย","ฟุตบอลชาย 11 คน","บาสเกตบอลชาย","แบดมินตัน"];
+const MEDALS = ["🥇","🥈","🥉",""];
+
+/* ---------- CSV ---------- */
+function parseCSV(t){
+  const rows=[]; let f="",row=[],q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){ row.push(f); f=""; }
+    else if(c==='\n'){ row.push(f); rows.push(row); row=[]; f=""; }
+    else if(c!=='\r') f+=c;
+  }
+  if(f||row.length){ row.push(f); rows.push(row); }
+  return rows;
+}
+const num = v => { const n = parseFloat(String(v??"").replace(/[^\d.-]/g,"")); return isNaN(n)?null:n; };
+
+async function pull(){
+  try{
+    if(SHEET_CSV_URL){
+      const rows = parseCSV(await (await fetch(SHEET_CSV_URL,{cache:"no-store"})).text());
+      const h = rows[0].map(s=>s.trim());
+      const ix = n => h.indexOf(n);
+      const [iC,iA,iB,iS] = [ix("รหัส"),ix("คะแนน A"),ix("คะแนน B"),ix("สถานะ")];
+      const by = {}; DATA.matches.forEach(m=>by[m.code]=m);
+      rows.slice(1).forEach(r=>{ const m = by[(r[iC]||"").trim()]; if(!m) return;
+        m.a = num(r[iA]); m.b = num(r[iB]); m.status = (r[iS]||"รอแข่ง").trim()||"รอแข่ง"; });
+    }
+    if(ATH_CSV_URL){
+      const rows = parseCSV(await (await fetch(ATH_CSV_URL,{cache:"no-store"})).text());
+      const h = rows[0].map(s=>s.trim());
+      const ix = n => h.indexOf(n);
+      const [iN,i1,i2,i3] = [ix("ลำดับ"),ix("อันดับ 1"),ix("อันดับ 2"),ix("อันดับ 3")];
+      const by = {}; DATA.athletics.forEach(e=>by[e.no]=e);
+      rows.slice(1).forEach(r=>{ const e = by[parseInt(r[iN])]; if(!e) return;
+        e.p1=(r[i1]||"").trim(); e.p2=(r[i2]||"").trim(); e.p3=(r[i3]||"").trim(); });
+    }
+  }catch(err){ console.warn("ดึงข้อมูลไม่สำเร็จ:", err); }
+  render();
+  document.getElementById("updated").textContent =
+    new Date().toLocaleTimeString("th-TH",{hour:"2-digit",minute:"2-digit"}) + " น.";
+}
+
+/* ---------- คำนวณคะแนน ---------- */
+function winner(m){
+  if(m.a==null||m.b==null) return null;
+  if(m.a>m.b) return m.team_a;
+  if(m.b>m.a) return m.team_b;
+  return "เสมอ";
+}
+function table(){
+  const t = {}; DATA.colors.forEach(c=>t[c]={c,p:0,w:0,d:0,l:0,g:0,s:0,b:0,ath:0,tot:0});
+  DATA.matches.forEach(m=>{
+    const wn = winner(m); if(!wn) return;
+    [m.team_a,m.team_b].forEach(c=>{ t[c].p++; });
+    if(wn==="เสมอ"){ t[m.team_a].d++; t[m.team_b].d++; }
+    else { t[wn].w++; t[wn===m.team_a?m.team_b:m.team_a].l++; }
+  });
+  DATA.athletics.forEach(e=>{
+    if(t[e.p1]) t[e.p1].g++; if(t[e.p2]) t[e.p2].s++; if(t[e.p3]) t[e.p3].b++;
+  });
+  Object.values(t).forEach(x=>{
+    x.ath = x.g*PTS.gold + x.s*PTS.silver + x.b*PTS.bronze;
+    x.tot = x.w*PTS.win + x.d*PTS.draw + x.ath;
+  });
+  return Object.values(t).sort((a,b)=>b.tot-a.tot || b.w-a.w || b.g-a.g);
+}
+
+/* ---------- render ---------- */
+function chip(c){ return `<span class="chip" style="background:#${HEX[c]}"></span>`; }
+
+function renderStand(){
+  const rows = table();
+  document.getElementById("stand").innerHTML = rows.map((r,i)=>`
+    <div class="card">
+      <div class="stripe" style="background:#${HEX[r.c]}"></div>
+      ${r.tot>0 && i<3 ? `<div class="medal">${MEDALS[i]}</div>` : `<div class="rank">อันดับ ${i+1}</div>`}
+      <div class="cname">${chip(r.c)}สี${r.c}</div>
+      <div class="pts">${r.tot}<small>แต้ม</small></div>
+      <div class="wdl">
+        <span>ชนะ <b>${r.w}</b></span><span>เสมอ <b>${r.d}</b></span><span>แพ้ <b>${r.l}</b></span>
+        <span>🥇<b>${r.g}</b> 🥈<b>${r.s}</b> 🥉<b>${r.b}</b></span>
+      </div>
+    </div>`).join("");
+}
+
+let view = "day:18 ส.ค. 2569";
+function renderTabs(){
+  const tabs = [...DATES.map(d=>["day:"+d, d.replace(" 2569","")]),
+                ...SPORTS.map(s=>["sport:"+s, s])];
+  document.getElementById("tabs").innerHTML = tabs.map(([k,l])=>
+    `<button class="tab ${k===view?"on":""}" data-k="${k}">${l}</button>`).join("");
+  document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{ view=b.dataset.k; renderTabs(); renderList(); });
+}
+
+function matchRow(m){
+  const wn = winner(m), done = wn!==null;
+  const cls = c => done ? (wn==="เสมอ" ? "" : (wn===c?"win":"lose")) : "";
+  const live = m.status==="กำลังแข่ง", post = m.status==="เลื่อน"||m.status==="ยกเลิก";
+  return `<div class="m ${done?"done":""}">
+    <div><div class="time">${m.start}</div></div>
+    <div>
+      <div class="teams">
+        <span class="t ${cls(m.team_a)}">${chip(m.team_a)}${m.team_a}</span>
+        <span class="vs">พบ</span>
+        <span class="t ${cls(m.team_b)}">${chip(m.team_b)}${m.team_b}</span>
+        ${live?'<span class="stat live">● กำลังแข่ง</span>':""}
+        ${post?`<span class="stat post">${m.status}</span>`:""}
+      </div>
+      <div class="meta">${m.sport} · ${m.division} · ${m.venue}</div>
+    </div>
+    ${done ? `<div class="score">${m.a} – ${m.b}</div>`
+           : `<div class="score pending">รอผล</div>`}
+  </div>`;
+}
+
+function renderList(){
+  const el = document.getElementById("list");
+  let items, groups;
+  if(view.startsWith("day:")){
+    const d = view.slice(4);
+    items = DATA.matches.filter(m=>m.date===d);
+    groups = SPORTS.filter(s=>items.some(m=>m.sport===s)).map(s=>[s, items.filter(m=>m.sport===s)]);
+    if(!items.length){
+      el.innerHTML = `<div class="note">วันที่ ${d} ไม่มีการแข่งขันประเภททีม/คู่ — มีเฉพาะ <b>กรีฑาประเภทลู่</b> (ดูตารางกรีฑาด้านล่าง)</div>`;
+      return;
+    }
+  } else {
+    const s = view.slice(6);
+    items = DATA.matches.filter(m=>m.sport===s);
+    groups = DATES.filter(d=>items.some(m=>m.date===d)).map(d=>[d, items.filter(m=>m.date===d)]);
+  }
+  el.innerHTML = groups.map(([g,ms])=>{
+    const fin = ms.filter(m=>winner(m)!==null).length;
+    return `<div class="day">
+      <div class="dayhead"><span>${g}</span><span>${fin}/${ms.length} แข่งจบ</span></div>
+      ${ms.sort((a,b)=>a.start.localeCompare(b.start)||a.no-b.no).map(matchRow).join("")}
+    </div>`;
+  }).join("");
+}
+
+function renderAth(){
+  document.getElementById("athbody").innerHTML = DATA.athletics.map(e=>`
+    <tr>
+      <td style="white-space:nowrap">${e.date.replace(" 2569","")}</td>
+      <td>${e.event}</td><td>${e.gender}</td><td style="white-space:nowrap">${e.age}</td>
+      <td style="white-space:nowrap;font-variant-numeric:tabular-nums">${e.start}–${e.end}</td>
+      <td>${e.p1?chip(e.p1)+" "+e.p1:'<span style="color:var(--tx3)">—</span>'}</td>
+      <td>${e.p2?chip(e.p2)+" "+e.p2:'<span style="color:var(--tx3)">—</span>'}</td>
+      <td>${e.p3?chip(e.p3)+" "+e.p3:'<span style="color:var(--tx3)">—</span>'}</td>
+    </tr>`).join("");
+}
+
+function renderStatic(){
+  document.getElementById("units").innerHTML = DATA.colors.map(c=>`
+    <div class="ucard">
+      <div class="uhead">${chip(c)}สี${c} <span style="color:var(--tx3);font-weight:500;font-size:12px">(${DATA.units[c].length} หน่วยงาน)</span></div>
+      <ul>${DATA.units[c].map(u=>`<li>${u}</li>`).join("")}</ul>
+    </div>`).join("");
+  document.getElementById("coord").innerHTML = DATA.coordinators.map(p=>`
+    <tr><td>${p.no}</td><td>${p.name}</td>
+      <td><a href="mailto:${p.email}" style="color:#8fb4ff">${p.email}</a></td>
+      <td>${p.unit}</td><td>${chip(p.color)} ${p.color}</td></tr>`).join("");
+}
+
+function renderLive(){
+  const n = DATA.matches.filter(m=>m.status==="กำลังแข่ง").length;
+  const b = document.getElementById("livebadge");
+  b.style.display = n ? "inline-flex" : "none";
+  document.getElementById("livecount").textContent = n;
+}
+
+function render(){ renderStand(); renderTabs(); renderList(); renderAth(); renderLive(); }
+
+function clock(){
+  document.getElementById("clock").innerHTML = "🕐 " +
+    new Date().toLocaleString("th-TH",{weekday:"short",day:"numeric",month:"short",
+      hour:"2-digit",minute:"2-digit"});
+}
+
+renderStatic(); render(); clock();
+setInterval(clock, 30000);
+pull();
+setInterval(pull, 60000);
+</script>
+</body>
+</html>
