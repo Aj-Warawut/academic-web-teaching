@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- ตำรา 0903468 · บทที่ 7 · ฉบับเผยแพร่ออนไลน์ (ฉบับละเอียด) · อ.ดร.วราวุฒิ นาคบุญนำ -->
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 7 การวางแผนขอบเขตโครงการและโครงสร้างจำแนกงาน (Scope & WBS) · ตำรา 0903468</title><meta name="author" content="วราวุฒิ นาคบุญนำ">
+<style>:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:768px;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:18px}
+a{color:var(--blue);text-decoration:none}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
+.tools{display:flex;gap:6px}.tools button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer}.tools button:hover{background:var(--blue)}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 80px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue)}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;text-transform:uppercase;color:var(--teal)}
+h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 8px}.meta b{color:var(--ink)}
+.lic{display:inline-block;background:var(--tint);color:var(--blue);border-radius:6px;padding:1px 8px;font-weight:600;font-size:12.5px}
+h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line)}
+h3{font-size:19px;color:var(--blue);margin:22px 0 8px}h4{font-size:16.5px;color:var(--navy);margin:16px 0 6px}
+p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.cite{color:var(--teal);font-weight:600;white-space:nowrap;cursor:pointer;border-bottom:1px dotted var(--teal)}.cite:hover{background:#E6F5F1}
+.lead{font-size:17px;color:#3a4654}
+.box{border-radius:14px;padding:18px 22px;margin:20px 0;box-shadow:var(--shadow)}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ul{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.expand{background:var(--tint);border:1px solid #CFDBF2}.expand .bt{color:var(--blue)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.worked .calc{font-family:'Sarabun',monospace;background:#fff;border:1px solid #EBD8A6;border-radius:8px;padding:12px 14px;margin:10px 0;font-size:15px;line-height:1.8}
+.tmpl{background:#fff;border:1px dashed var(--blue);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:14.5px}
+.tmpl .row{border-bottom:1px solid var(--line);padding:6px 0}.tmpl .row:last-child{border-bottom:none}.tmpl b{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line)}.keyterm .bt{color:var(--navy)}.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px}
+figure{margin:22px 0}figure figcaption{font-size:14px;color:var(--mute);margin-bottom:8px;font-weight:700}
+figure.fig figcaption{margin-top:10px;margin-bottom:0;text-align:center}
+table{border-collapse:collapse;width:100%;font-size:15.5px;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FafBfe}
+.tablewrap{overflow-x:auto}.svgfig{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+ol.ex{margin-left:22px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}.refs .r.hl{background:#FFF6DC;border-radius:6px}.refs em{font-style:italic}
+.citebox{background:var(--navy);color:#EAF0FB;border-radius:14px;padding:18px 22px;margin:22px 0}.citebox .bt{color:var(--gold);font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox button{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px}.navrow a:hover{background:var(--blue);color:#fff}
+footer{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;font-size:13.5px;color:var(--mute)}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}body{font-size:17px}}
+@media print{.topbar,#toc,.tools,.citebox button,.navrow{display:none!important}.shell{display:block;max-width:100%;padding:0}body{font-size:12pt}.box,table,.svgfig{box-shadow:none}}</style></head><body>
+<div class="topbar"><div class="in">
+<div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="textbook_0903468_สารบัญ.html">ตำรา 0903468</a> › บทที่ 7</div>
+<div class="tools"><button onclick="fs(-1)">ก−</button><button onclick="fs(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 7</div>
+<a href="#s71">7.1 บทนำ</a>
+<a href="#s72">7.2 การกำหนดขอบเขต (Scope Statement)</a>
+<a href="#s73">7.3 โครงสร้างจำแนกงาน (WBS)</a>
+<a href="#s74">7.4 ตารางเวลาและ Milestone</a>
+<a href="#s75">7.5 เส้นทางวิกฤต (Critical Path)</a>
+<a href="#s76">7.6 การจัดการการเปลี่ยนแปลง</a>
+<a href="#s77">7.7 ประยุกต์กับโครงงาน</a>
+<a href="#case">กรณีศึกษาประจำบท</a>
+<a href="#sum">บทสรุป</a>
+<a href="#ex">แบบฝึกหัดท้ายบท</a>
+<a href="#terms">ศัพท์สำคัญ</a>
+<a href="#refs">เอกสารอ้างอิง</a>
+</nav>
+<article>
+<div class="eyebrow">ตำราประกอบการสอน · รายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</div>
+<h1>บทที่ 7 การวางแผนขอบเขตโครงการและโครงสร้างจำแนกงาน (Scope & WBS)</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>ฉบับเผยแพร่ออนไลน์ <b>เวอร์ชัน 2.0 (ฉบับละเอียด)</b></span><span class="lic">CC BY-NC-SA 4.0 [ปรับได้]</span></div>
+
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div>
+<p style="margin:0 0 6px">เมื่อศึกษาบทนี้จบแล้ว ผู้เรียนสามารถ</p>
+<ul><li>กำหนดขอบเขตงานของโครงการ (Scope Statement) ได้</li>
+<li>จัดทำโครงสร้างจำแนกงาน (WBS) ตามหลัก 100% ได้</li>
+<li>จัดทำตารางเวลาและกำหนดจุดสำคัญ (Milestone) ได้</li>
+<li>อธิบายเส้นทางวิกฤต (Critical Path) เบื้องต้นได้</li>
+<li>ออกแบบกระบวนการจัดการการเปลี่ยนแปลงขอบเขต (Change Control) ได้</li></ul></div>
+
+<h2 id="s71">7.1 บทนำ</h2>
+<p class="lead">คำถามที่ทำให้โครงการล้มบ่อยที่สุดคือ "ตกลงเราต้องทำอะไรบ้าง" การวางแผนขอบเขตคือการตอบคำถามนี้ให้ชัดก่อนลงมือ</p>
+<p>การวางแผนขอบเขตเป็นหัวใจของการวางแผนโครงการ เพราะเป็นการกำหนดว่าต้องทำอะไรบ้างเพื่อบรรลุเป้าหมาย ขอบเขตที่ชัดเจนเป็นพื้นฐานของการประมาณเวลา ต้นทุน และการมอบหมายงาน <a class="cite" href="#ref-larson">(Larson &amp; Gray, 2021)</a> บทนี้อธิบายการกำหนดขอบเขต การจัดทำ WBS การวางตารางเวลาและเส้นทางวิกฤต และการจัดการการเปลี่ยนแปลงขอบเขต</p>
+
+<h2 id="s72">7.2 การกำหนดขอบเขตงาน (Scope Statement)</h2>
+<p>Scope Statement ระบุอย่างชัดเจนว่าโครงการจะส่งมอบอะไร (In-scope) และอะไรไม่อยู่ในขอบเขต (Out-of-scope) รวมถึงเกณฑ์การยอมรับผลงาน ข้อสมมติ และข้อจำกัด การระบุ "สิ่งที่ไม่ทำ" อย่างชัดเจนมีความสำคัญไม่น้อยกว่าการระบุสิ่งที่ทำ เพราะช่วยป้องกัน Scope Creep ซึ่งเป็นสาเหตุสำคัญที่ทำให้โครงการล่าช้าและเกินงบประมาณ <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
+
+<h2 id="s73">7.3 โครงสร้างจำแนกงาน (Work Breakdown Structure: WBS)</h2>
+<p>WBS คือ การแตกผลงานส่งมอบและงานของโครงการออกเป็นองค์ประกอบย่อยตามลำดับชั้น จนถึงระดับที่มอบหมาย ประเมินเวลาและต้นทุน และควบคุมได้ เรียกหน่วยย่อยที่สุดว่า Work Package หลักการสำคัญคือ <b>หลัก 100%</b> กล่าวคือ ผลรวมของงานย่อยทุกระดับต้องครอบคลุมงานทั้งหมดของโครงการพอดี ไม่ขาดและไม่ซ้ำซ้อน <a class="cite" href="#ref-kerzner">(Kerzner, 2022)</a></p>
+<figure class="fig"><div class="svgfig">
+<svg viewBox="0 0 520 250" width="100%" role="img" aria-label="ตัวอย่างโครงสร้าง WBS">
+<rect x="180" y="14" width="160" height="34" rx="6" fill="#141D3F"/><text x="260" y="35" text-anchor="middle" fill="#fff" font-size="13" font-family="Sarabun,sans-serif">โครงงานพัฒนาแอป</text>
+<line x1="260" y1="48" x2="260" y2="66" stroke="#B7C2D6"/>
+<line x1="70" y1="66" x2="450" y2="66" stroke="#B7C2D6"/>
+<g font-family="Sarabun,sans-serif" font-size="11.5" fill="#141D3F">
+<line x1="70" y1="66" x2="70" y2="84" stroke="#B7C2D6"/><rect x="18" y="84" width="104" height="40" rx="6" fill="#EAF1FB" stroke="#2F5BD0"/><text x="70" y="100" text-anchor="middle">1 วิเคราะห์</text><text x="70" y="116" text-anchor="middle">ความต้องการ</text>
+<line x1="197" y1="66" x2="197" y2="84" stroke="#B7C2D6"/><rect x="145" y="84" width="104" height="40" rx="6" fill="#EAF1FB" stroke="#2F5BD0"/><text x="197" y="100" text-anchor="middle">2 ออกแบบ</text><text x="197" y="116" text-anchor="middle">UX/UI · ฐานข้อมูล</text>
+<line x1="324" y1="66" x2="324" y2="84" stroke="#B7C2D6"/><rect x="272" y="84" width="104" height="40" rx="6" fill="#EAF1FB" stroke="#2F5BD0"/><text x="324" y="100" text-anchor="middle">3 พัฒนา</text><text x="324" y="116" text-anchor="middle">ฟังก์ชัน · เชื่อมระบบ</text>
+<line x1="450" y1="66" x2="450" y2="84" stroke="#B7C2D6"/><rect x="398" y="84" width="104" height="40" rx="6" fill="#EAF1FB" stroke="#2F5BD0"/><text x="450" y="100" text-anchor="middle">4 ทดสอบ</text><text x="450" y="116" text-anchor="middle">และนำเสนอ</text>
+<line x1="70" y1="124" x2="70" y2="142" stroke="#B7C2D6"/><rect x="20" y="142" width="100" height="34" rx="6" fill="#fff" stroke="#B7C2D6"/><text x="70" y="163" text-anchor="middle" font-size="10.5">สำรวจผู้ใช้ (WP)</text>
+<line x1="324" y1="124" x2="324" y2="142" stroke="#B7C2D6"/><rect x="274" y="142" width="100" height="34" rx="6" fill="#fff" stroke="#B7C2D6"/><text x="324" y="163" text-anchor="middle" font-size="10.5">เขียนโค้ด (WP)</text>
+</g></svg></div>
+<figcaption>ภาพที่ 7.1 ตัวอย่างโครงสร้าง WBS แบบลำดับชั้น (WP = Work Package)</figcaption></figure>
+<figure><figcaption>ตารางที่ 7.1 ตัวอย่าง WBS ของโครงงานพัฒนาแอป</figcaption><div class="tablewrap"><table>
+<thead><tr><th>ระดับ 1 (งานหลัก)</th><th>ระดับ 2 (งานย่อย / Work Package)</th></tr></thead>
+<tbody><tr><td>1. วิเคราะห์ความต้องการ</td><td>สำรวจผู้ใช้ / สรุปความต้องการ</td></tr>
+<tr><td>2. ออกแบบ</td><td>ออกแบบ UX/UI / ออกแบบฐานข้อมูล</td></tr>
+<tr><td>3. พัฒนา</td><td>พัฒนาฟังก์ชัน / เชื่อมต่อระบบ</td></tr>
+<tr><td>4. ทดสอบและนำเสนอ</td><td>ทดสอบกับผู้ใช้ / จัดทำรายงาน / นำเสนอ</td></tr></tbody></table></div></figure>
+
+<h2 id="s74">7.4 การจัดทำตารางเวลาและ Milestone</h2>
+<p>จากงานย่อยใน WBS สามารถกำหนดลำดับงาน ความสัมพันธ์ระหว่างงาน ระยะเวลา และจุดสำคัญ (Milestone) แล้วแสดงด้วยแผนภูมิแกนต์ (Gantt Chart) เพื่อให้เห็นภาพรวมของกำหนดการ Milestone เป็นจุดสำคัญที่ใช้ติดตามความก้าวหน้า เช่น วันส่งมอบต้นแบบหรือวันนำเสนอความก้าวหน้า โดยตัว Milestone เองไม่มีระยะเวลา (duration = 0) ต่างจากงานทั่วไป</p>
+
+<h2 id="s75">7.5 เส้นทางวิกฤต (Critical Path) เบื้องต้น</h2>
+<p>เส้นทางวิกฤตคือลำดับของงานที่มีระยะเวลารวมยาวที่สุด ซึ่งเป็นตัวกำหนดระยะเวลาสั้นที่สุดที่โครงการจะเสร็จได้ งานบนเส้นทางวิกฤตหากล่าช้าจะทำให้โครงการทั้งหมดล่าช้า (ไม่มีเวลาหยุนหรือ float) ผู้บริหารจึงต้องเฝ้าระวังงานเหล่านี้เป็นพิเศษ ส่วนงานที่ไม่อยู่บนเส้นทางวิกฤตมีเวลาหยุน สามารถยืดหยุ่นได้บ้างโดยไม่กระทบกำหนดเสร็จ <a class="cite" href="#ref-larson">(Larson &amp; Gray, 2021)</a></p>
+
+<h2 id="s76">7.6 การจัดการการเปลี่ยนแปลงขอบเขต</h2>
+<p>เมื่อมีการร้องขอเปลี่ยนแปลงขอบเขต ควรมีกระบวนการพิจารณาผลกระทบต่อเวลา ต้นทุน และคุณภาพ ก่อนตัดสินใจอนุมัติ การควบคุมการเปลี่ยนแปลงอย่างเป็นระบบ (Change Control) เช่น การใช้แบบคำขอเปลี่ยนแปลงและการอนุมัติโดยผู้มีอำนาจ ช่วยรักษาสมดุลของข้อจำกัดโครงการและป้องกัน Scope Creep <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
+
+<h2 id="s77">7.7 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</h2>
+<p>สำหรับโครงงานนิสิต ควรกำหนดขอบเขตให้พอดีกับเวลา 1 ภาคการศึกษา จัดทำ WBS 2 ระดับ และ Gantt Chart พร้อม Milestone รายสัปดาห์ เพื่อให้ติดตามความก้าวหน้าและบริหารเวลาได้ และเมื่อมีคำขอเพิ่มงาน ให้ผ่านกระบวนการ Change Control อย่างง่ายก่อนรับเข้ามาทำ</p>
+
+<div class="box case" id="case"><div class="bt">กรอบกรณีศึกษาประจำบท</div>
+<p style="margin:0">ทีมแตก WBS ของโครงงานแอปจองคิวออกเป็น 4 งานหลัก ได้แก่ การวิเคราะห์ความต้องการ การออกแบบ การพัฒนา และการทดสอบ/นำเสนอ จากนั้นแตกแต่ละงานหลักเป็นงานย่อย กำหนดผู้รับผิดชอบและระยะเวลา แล้วจัดทำ Gantt Chart พร้อม Milestone รายสัปดาห์ ทำให้ทีมเห็นภาพงานทั้งหมด ระบุเส้นทางวิกฤต (วิเคราะห์ → ออกแบบ → พัฒนา → ทดสอบ) และติดตามความก้าวหน้าได้ เมื่อมีคำขอเพิ่มฟังก์ชันใหม่ ทีมใช้กระบวนการ Change Control ประเมินผลกระทบต่อกำหนดเสร็จก่อนตัดสินใจ</p></div>
+
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p style="margin:0">การกำหนดขอบเขต (Scope Statement) และการจัดทำ WBS ตามหลัก 100% เป็นพื้นฐานของการวางแผนโครงการที่ดี ช่วยให้ประเมินเวลาและทรัพยากรได้แม่นยำ มอบหมายงานชัดเจน วางตารางเวลาและระบุเส้นทางวิกฤตได้ และจัดการการเปลี่ยนแปลงผ่าน Change Control อย่างเป็นระบบ ทั้งหมดนี้ช่วยลดความเสี่ยงจาก Scope Creep</p></div>
+
+<h2 id="ex">คำถามทบทวนและแบบฝึกหัดท้ายบท</h2>
+<ol class="ex">
+<li>Scope Statement ช่วยป้องกัน Scope Creep อย่างไร และเหตุใดการระบุ Out-of-scope จึงสำคัญ</li>
+<li>จงจัดทำ WBS ของโครงงานกลุ่มท่านอย่างน้อย 2 ระดับ และระบุ Work Package</li>
+<li>อธิบายความหมายของ "หลัก 100%" ใน WBS พร้อมตัวอย่าง</li>
+<li>อธิบายความแตกต่างระหว่าง Milestone กับงานทั่วไป และระหว่าง Milestone กับ Gantt Chart</li>
+<li>เส้นทางวิกฤต (Critical Path) มีความสำคัญต่อการบริหารเวลาอย่างไร</li>
+<li>ยกตัวอย่าง Milestone สำคัญของโครงงานกลุ่มท่าน 3 จุด</li>
+<li>ออกแบบกระบวนการจัดการการเปลี่ยนแปลงขอบเขต (Change Control) สำหรับโครงงานของท่าน</li></ol>
+
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div><dl>
+<dt>Scope Statement</dt><dd>เอกสารระบุขอบเขตงานที่อยู่ในและนอกโครงการ</dd>
+<dt>WBS</dt><dd>โครงสร้างจำแนกงานเป็นองค์ประกอบย่อยตามลำดับชั้น</dd>
+<dt>Work Package</dt><dd>หน่วยงานย่อยที่สุดใน WBS ที่มอบหมายและประเมินได้</dd>
+<dt>หลัก 100%</dt><dd>ผลรวมของงานย่อยต้องครอบคลุมงานทั้งหมดพอดี ไม่ขาดไม่ซ้ำ</dd>
+<dt>Milestone</dt><dd>จุดสำคัญที่ใช้ติดตามความก้าวหน้า (ไม่มีระยะเวลา)</dd>
+<dt>Critical Path</dt><dd>เส้นทางของงานที่กำหนดระยะเวลารวมสั้นที่สุดของโครงการ</dd>
+<dt>Change Control</dt><dd>กระบวนการควบคุมการเปลี่ยนแปลงอย่างเป็นระบบ</dd></dl></div>
+
+<h2 id="refs">เอกสารอ้างอิงประจำบท</h2>
+<div class="refs"><div class="r" id="ref-kerzner">Kerzner, H. (2022). <em>Project management: A systems approach to planning, scheduling, and controlling</em> (13th ed.). Wiley.</div><div class="r" id="ref-kloppenborg">Kloppenborg, T. J., Anantatmula, V., &amp; Wells, K. N. (2019). <em>Contemporary project management</em> (4th ed.). Cengage Learning.</div><div class="r" id="ref-larson">Larson, E. W., &amp; Gray, C. F. (2021). <em>Project management: The managerial process</em> (8th ed.). McGraw-Hill Education.</div><div class="r" id="ref-pinto">Pinto, J. K. (2019). <em>Project management: Achieving competitive advantage</em> (5th ed.). Pearson.</div><div class="r" id="ref-pmi">Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (7th ed.) and <em>The standard for project management.</em> PMI.</div><div class="r" id="ref-wisut">วิสูตร จิระดำเกิง. ([ปี]). <em>การบริหารโครงการ: แนวทางปฏิบัติจริง.</em> กรุงเทพฯ: ซีเอ็ดยูเคชั่น. <span style="color:#C0392B">[ตรวจสอบปีที่พิมพ์]</span></div><div class="r" id="ref-bamrung">บรรจง อมรชีวิน. ([ปี]). <em>การวางแผนและการบริหารโครงการ.</em> กรุงเทพฯ: อมรินทร์. <span style="color:#C0392B">[ตรวจสอบปีที่พิมพ์]</span></div></div>
+<div class="navrow"><a href="textbook_0903468_บทที่6_เผยแพร่.html">◀ บทก่อนหน้า</a><a href="textbook_0903468_สารบัญ.html">สารบัญ</a><a href="textbook_0903468_บทที่8_เผยแพร่.html">บทถัดไป ▶</a></div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div>
+<code id="citetext">วราวุฒิ นาคบุญนำ. ([ปี]). การวางแผนขอบเขตโครงการและโครงสร้างจำแนกงาน (Scope & WBS). ใน <em>ตำราประกอบการสอนรายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</em> (บทที่ 7). คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม.</code>
+<button onclick="cc()">คัดลอกรูปแบบอ้างอิง</button></div>
+<footer>© อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำรารายวิชา 0903468 · ฉบับเผยแพร่ออนไลน์ เวอร์ชัน 2.0 (ฉบับละเอียด) · CC BY-NC-SA 4.0 [ปรับได้]</footer>
+</article></div>
+<script>
+let fsz=18;function fs(d){fsz=Math.max(15,Math.min(24,fsz+d));document.body.style.fontSize=fsz+'px';}
+const bar=document.querySelector('#progress .bar');const links=[...document.querySelectorAll('#toc a')];const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function os(){const h=document.documentElement;const st=h.scrollTop;const mx=h.scrollHeight-h.clientHeight;bar.style.width=(mx>0?st/mx*100:0)+'%';let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k;});links.forEach((a,k)=>a.classList.toggle('active',k===i));}
+document.addEventListener('scroll',os,{passive:true});os();
+document.querySelectorAll('a.cite').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;document.querySelectorAll('.refs .r').forEach(r=>r.classList.remove('hl'));t.classList.add('hl');setTimeout(()=>t.classList.remove('hl'),2600);}));
+function cc(){const t=document.getElementById('citetext').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=event.target;const o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>b.textContent=o,1600);});}
+</script></body></html>
