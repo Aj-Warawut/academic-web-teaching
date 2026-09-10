@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- Teaching insight one-pager · BMC คือสถาปัตยกรรม ไม่ใช่แบบฟอร์ม · อ.ดร.วราวุฒิ นาคบุญนำ -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMC คือสถาปัตยกรรม ไม่ใช่แบบฟอร์ม · หลักคิดการสอน</title>
+<style>
+:root{
+  --navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;
+  --purple:#8A56D6;--red:#C0392B;--green:#2E7D5B;
+  --ink:#1B2A3A;--mute:#5C6B7A;--line:#DCE3EC;--tint:#EEF3FB;--bg:#F5F7FC;--panel:#fff;
+  --shadow:0 6px 22px rgba(17,34,51,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+a{color:var(--blue);text-decoration:none}
+/* top toolbar */
+#toolbar{position:fixed;top:12px;right:14px;z-index:60;display:flex;gap:6px}
+#toolbar a,#toolbar button{background:rgba(20,29,63,.92);color:#fff;border:none;border-radius:9px;height:36px;padding:0 13px;font-size:13px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);text-decoration:none}
+#toolbar a:hover,#toolbar button:hover{background:var(--blue)}
+/* hero */
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:60px 0 46px}
+.hero .kick{color:var(--gold);font-weight:700;letter-spacing:3px;font-size:13px;text-transform:uppercase}
+.hero h1{font-size:34px;line-height:1.25;margin:12px 0 10px;max-width:760px}
+.hero p{color:#CADCFC;font-size:17px;max-width:720px}
+.hero .pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.hero .pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+/* sections */
+section{padding:40px 0}
+.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--teal);text-transform:uppercase}
+h2{font-size:26px;color:var(--navy);margin:6px 0 6px;line-height:1.3}
+h2.lead-h{margin-bottom:18px}
+.lead{font-size:16px;color:var(--mute);margin-bottom:22px;max-width:760px}
+h3{font-size:19px;color:var(--blue);margin:24px 0 12px}
+p{margin:0 0 14px}
+.grid{display:grid;gap:16px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.card .tag{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--blue)}
+.card h4{font-size:17px;color:var(--navy);margin:6px 0 8px}
+.card p{font-size:14.5px;color:var(--ink);margin:0}
+.card .src{font-size:12px;color:var(--mute);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-right:8px;flex:0 0 30px}
+/* two-metaphor compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare .col{border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+.compare .bad{background:#FCEEEC;border:1px solid #F1C9C2}
+.compare .good{background:#E9F5EF;border:1px solid #BFE3D3}
+.compare .col .hd{font-size:14px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.compare .bad .hd{color:var(--red)}.compare .good .hd{color:var(--green)}
+.compare .col h4{font-size:20px;color:var(--navy);margin-bottom:8px}
+.compare .col p{font-size:15px;margin:0 0 8px}
+.compare .col ul{margin:0 0 0 18px;font-size:14.5px;color:var(--ink)}
+.compare .col li{margin-bottom:5px}
+/* callouts */
+.callout{border-radius:12px;padding:16px 20px;margin:16px 0;font-size:15px;border-left:5px solid}
+.callout.tip{background:#FBEFD8;border-color:var(--amber)}
+.callout.info{background:var(--tint);border-color:var(--blue)}
+.callout.ok{background:#E9F5EF;border-color:var(--green)}
+.callout b{color:var(--navy)}
+/* 3-5-1 block */
+.rule{background:var(--navy);color:#fff;border-radius:18px;padding:30px 32px;box-shadow:var(--shadow)}
+.rule h3{color:var(--gold);margin:0 0 6px;font-size:20px}
+.rule .r351{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 6px}
+.rule .r351 .rc{background:rgba(255,255,255,.08);border-radius:12px;padding:16px;text-align:center}
+.rule .r351 .rc .big{font-size:40px;font-weight:800;color:var(--gold);line-height:1}
+.rule .r351 .rc .lb{font-size:14px;color:#CADCFC;margin-top:6px}
+.rule .note{font-size:13px;color:#9DB0D6;margin-top:14px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px}
+/* before/after example */
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+.ba .arrow{font-size:26px;color:var(--amber);text-align:center;font-weight:800}
+.ba .box{border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.ba .before{background:#fff;border:1px solid var(--line)}
+.ba .after{background:#EAF1FB;border:1px solid #C3D6F2}
+.ba .box .lb{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.ba .after .lb{color:var(--blue)}
+.ba .box .txt{font-size:15px;color:var(--ink)}
+.ba .after .txt{font-weight:700;color:var(--navy)}
+/* case cards */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.case .top{padding:14px 18px;color:#fff;font-weight:800;font-size:17px}
+.case.n1 .top{background:#B4141B}.case.n2 .top{background:#E9515B}.case.n3 .top{background:#111}
+.case .body{padding:14px 18px}
+.case .row{display:flex;gap:8px;margin-bottom:9px;font-size:14px}
+.case .row .k{flex:0 0 78px;font-size:11px;font-weight:800;text-transform:uppercase;color:var(--mute);padding-top:2px}
+.case .row .v{color:var(--ink)}
+/* references */
+.refs{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);font-size:13.5px;color:var(--mute)}
+.refs b{color:var(--navy)}
+.refs a{word-break:break-word}
+footer{background:var(--navy);color:#9DB0D6;padding:26px 0;font-size:12.5px;text-align:center;margin-top:20px}
+@media(max-width:820px){
+  .c2,.c3,.compare,.cases,.rule .r351{grid-template-columns:1fr}
+  .ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg)}
+  .hero h1{font-size:27px}h2{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <a href="bmc_course.html" title="ไปบทเรียน BMC เต็ม">📘 บทเรียน BMC</a>
+  <button onclick="window.print()" title="พิมพ์ / บันทึก PDF">🖨 พิมพ์</button>
+</div>
+
+<div class="hero"><div class="wrap">
+  <div class="kick">หลักคิดการสอน · Business Model Canvas</div>
+  <h1>Business Model Canvas คือ "สถาปัตยกรรมของธุรกิจ" ไม่ใช่แบบฟอร์มให้เติมข้อมูล</h1>
+  <p>บันทึกแนวคิดสำหรับใช้สอน กลั่นจากบทความและตรวจทานกับต้นตำรับ Osterwalder/Strategyzer เพื่อเปลี่ยนวิธีที่นักศึกษาเข้าใจ BMC จาก "การกรอกให้ครบ" เป็น "การออกแบบให้เข้าใจ"</p>
+  <div class="pills">
+    <span class="pill">สถาปัตยกรรม ไม่ใช่แบบฟอร์ม</span>
+    <span class="pill">เทคนิค 3-5-1</span>
+    <span class="pill">บททดสอบ 30 วินาที</span>
+    <span class="pill">เคส Netflix · Airbnb · Uber</span>
+  </div>
+</div></div>
+
+<!-- 1. THE REFRAME -->
+<section><div class="wrap">
+  <div class="eyebrow">แก่นความคิด</div>
+  <h2 class="lead-h">ทำไม Canvas ที่ "ข้อมูลครบ" กลับสื่อ "โมเดล" ไม่ได้</h2>
+  <p class="lead">เอา Canvas ที่ทีมเขียนละเอียดไปถามคนอื่นว่า "โมเดลธุรกิจนี้คืออะไร" มักตอบไม่ได้ ทั้งที่ข้อมูลครบ เพราะเราเห็นชิ้นส่วน แต่ไม่เห็นกลไกที่ทำให้มันทำงานเป็นหนึ่งเดียว ความต่างอยู่ตรงนี้:</p>
+  <div class="compare">
+    <div class="col bad">
+      <div class="hd">การถ่ายรูป = แบบฟอร์ม</div>
+      <h4>บันทึกรายละเอียดทุกอย่าง</h4>
+      <p>เขียนให้ครบ ให้ละเอียด ให้ดูดี วางโพสต์อิทเต็มช่อง ถ่ายรูป แล้วเก็บเข้าแฟ้ม</p>
+      <ul>
+        <li>ตัวอักษรเบียดกันเต็มช่อง</li>
+        <li>อ่านเหมือนรายการสิ่งที่ต้องทำรายวัน</li>
+        <li>เห็นส่วนประกอบ แต่ไม่เห็นกลยุทธ์</li>
+      </ul>
+    </div>
+    <div class="col good">
+      <div class="hd">การวาดภาพ = สถาปัตยกรรม</div>
+      <h4>สื่อสารแก่นแท้ที่เชื่อมโยงกัน</h4>
+      <p>เขียนให้เข้าใจ ให้เชื่อมโยง ให้เป็นระบบ เลือกเฉพาะสิ่งที่สำคัญที่สุดต่อธุรกิจ</p>
+      <ul>
+        <li>แต่ละช่องคือ "ส่วนประกอบสำคัญ" (Building Block)</li>
+        <li>มองเห็นกลไกที่เชื่อมช่องเข้าด้วยกัน</li>
+        <li>อ่านครั้งเดียวก็เข้าใจว่าธุรกิจนี้ทำงานอย่างไร</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout info"><b>ภาพเปรียบ:</b> ถ้าสถาปนิกยื่นแบบบ้านที่เขียนว่า "ห้องนอนใหญ่ หน้าต่างสามบาน แอร์ 18,000 BTU พื้นกระเบื้องขาว ตู้เสื้อผ้าน้ำตาล 2 เมตร" คุณก็ยังไม่รู้ว่าบ้านสวยหรืออยู่สบายแค่ไหน เพราะเห็น "ส่วนประกอบ" แต่ไม่เห็น "สถาปัตยกรรม" Canvas ที่เขียนแบบฟอร์มก็เป็นแบบนั้น</div>
+</div></section>
+
+<!-- 2. SIX PRINCIPLES -->
+<section style="background:linear-gradient(180deg,#fff, var(--bg))"><div class="wrap">
+  <div class="eyebrow">6 หลักที่ตรวจแล้วตรงกับต้นตำรับ</div>
+  <h2 class="lead-h">หลักคิดหลักที่นักศึกษาต้องจับให้ได้</h2>
+  <div class="grid c2">
+    <div class="card"><span class="tag"><span class="num">1</span>สถาปัตยกรรม ไม่ใช่แบบฟอร์ม</span>
+      <h4>ใช้เป็นเครื่องมือคิด/ถกเถียง</h4>
+      <p>Canvas ไม่ใช่ Information Sheet แต่ละช่องคือ "ส่วนประกอบสำคัญ" ของธุรกิจ ไม่ใช่ "ข้อมูลทั้งหมด" เกี่ยวกับธุรกิจ</p>
+      <div class="src">ตรงกับข้อผิดพลาดอันดับ 1 ที่ทีมส่วนใหญ่ทำ และหลัก "สื่อแก่น" ของ Strategyzer</div>
+    </div>
+    <div class="card"><span class="tag"><span class="num">2</span>เขียนน้อยแต่คม</span>
+      <h4>ถ้าทุกอย่างสำคัญ ก็ไม่มีอะไรสำคัญ</h4>
+      <p>เหลือ 3-5 สิ่งที่สำคัญจริงต่อช่อง ตัดรายละเอียดที่ไม่จำเป็นออก ให้แต่ละช่องคมและจดจำได้ (ดูเทคนิค 3-5-1 ด้านล่าง)</p>
+      <div class="src">ตรงกับหลัก "proper granularity" ของ Strategyzer</div>
+    </div>
+    <div class="card"><span class="tag"><span class="num">3</span>เห็น "กลไก" จากการเชื่อมช่อง</span>
+      <h4>ห้ามมีช่องที่อยู่โดดเดี่ยว</h4>
+      <p>ทุกช่องต้องโยงกับช่องอื่นได้เป็นเรื่องราว: กลุ่มลูกค้า -> คุณค่า -> ช่องทาง -> รายได้ เมื่อเชื่อมได้ โมเดลจะกลายเป็นเรื่องที่สมเหตุสมผล</p>
+      <div class="src">ตรงกับกฎ "no orphan building block" ของ Strategyzer</div>
+    </div>
+    <div class="card"><span class="tag"><span class="num">4</span>กลุ่มลูกค้าต้องเฉพาะเจาะจง</span>
+      <h4>นิยามด้วย "งาน/ปัญหาของลูกค้า"</h4>
+      <p>อย่าเขียนกว้าง ๆ อย่าง "SME" หรือ "คนทั่วไป" แต่นิยามด้วยคนที่มีงานเฉพาะ บริบทเฉพาะ และความเจ็บปวดเฉพาะ ไม่ใช่หมวดสินค้าของเรา</p>
+      <div class="src">Job + Context + Pain (Value Proposition Design)</div>
+    </div>
+    <div class="card"><span class="tag"><span class="num">5</span>บททดสอบ 30 วินาที</span>
+      <h4>คนนอกอ่านแล้วต้องเข้าใจ</h4>
+      <p>เอา Canvas ให้คนที่ไม่รู้จักธุรกิจอ่าน 30 วินาที แล้วถาม "ทำอะไร ใครคือลูกค้า ทำเงินอย่างไร" ตอบถูก = ผ่าน ตอบไม่ได้ = กลับไปทำใหม่</p>
+      <div class="src">เครื่องมือทดสอบความชัดเจนของโมเดล</div>
+    </div>
+    <div class="card"><span class="tag"><span class="num">6</span>พลังมาจากความเรียบง่ายที่ลึกซึ้ง</span>
+      <h4>ทำสิ่งเฉพาะเจาะจงให้ดีมาก</h4>
+      <p>โมเดลที่ทรงพลังไม่ได้มาจากการทำทุกอย่าง แต่มาจากการทำสิ่งเฉพาะให้ดีมาก จนคนอื่นจดจำได้ เข้าใจได้ และอยากร่วมงานด้วย</p>
+      <div class="src">รูปแบบร่วมของธุรกิจที่สำเร็จ</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 3. THE 3-5-1 RULE -->
+<section><div class="wrap">
+  <div class="rule">
+    <div class="eyebrow" style="color:var(--gold)">เครื่องมือช่วยจำ</div>
+    <h3>เทคนิค 3-5-1 : กติกาเขียนแต่ละช่องให้คม</h3>
+    <p style="color:#CADCFC;margin:0">ในแต่ละช่องของ Canvas ให้จำกัดตัวเองด้วยกติกานี้ เพื่อบังคับให้เลือกเฉพาะแก่น</p>
+    <div class="r351">
+      <div class="rc"><div class="big">3</div><div class="lb">ไม่เกิน 3 บรรทัดต่อช่อง</div></div>
+      <div class="rc"><div class="big">5</div><div class="lb">ไม่เกิน 5 คำต่อแนวคิด</div></div>
+      <div class="rc"><div class="big">1</div><div class="lb">1 แนวคิดหลักที่ชัดเจน</div></div>
+    </div>
+    <div class="note"><b style="color:#fff">หมายเหตุเชิงวิชาการ:</b> "3-5-1" เป็นกติกาช่วยจำที่ต่อยอดจากหลักการ granularity ของ Osterwalder/Strategyzer (เหลือ 3-5 สิ่งสำคัญต่อช่อง) ไม่ใช่ศัพท์ทางการในตำราต้นฉบับ ใช้เป็นวินัยในการเขียน ไม่ใช่กฎตายตัว</div>
+  </div>
+</div></section>
+
+<!-- 4. BEFORE / AFTER -->
+<section style="background:#fff"><div class="wrap">
+  <div class="eyebrow">ตัวอย่างเปลี่ยนวิธีเขียน</div>
+  <h2 class="lead-h">Value Proposition : จากยาว ๆ สู่ประโยคที่จำได้</h2>
+  <div class="ba">
+    <div class="box before">
+      <div class="lb">ก่อน (แบบฟอร์ม)</div>
+      <div class="txt">"เราให้บริการจัดส่งอาหารที่รวดเร็ว สะดวก ในราคาเหมาะสม มีอาหารหลากหลาย มีระบบติดตามแบบเรียลไทม์ และบริการลูกค้าที่ดีเยี่ยม"</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="box after">
+      <div class="lb">หลัง (สถาปัตยกรรม)</div>
+      <div class="txt">"อาหารร้อน ๆ ถึงบ้านใน 30 นาที"</div>
+    </div>
+  </div>
+  <div class="callout tip"><b>สังเกต:</b> แบบแรกบอกรายละเอียดมาก แต่ไม่รู้ว่าพิเศษตรงไหน แบบที่สองบอกประโยคเดียว แต่เข้าใจทันทีว่าแข่งด้วย "ความเร็ว" และจำได้ว่าสัญญาอะไรกับลูกค้า เหมือนที่ Steve Jobs สรุป iPhone ว่า "iPod + โทรศัพท์ + อินเทอร์เน็ต ในเครื่องเดียว"</div>
+</div></section>
+
+<!-- 5. RESEARCH ADD-ONS -->
+<section><div class="wrap">
+  <div class="eyebrow">เสริมจากการค้นคว้า (ต้นตำรับเน้น แต่บทความยังไม่พูด)</div>
+  <h2 class="lead-h">2 หลักที่ทำให้ asset แข็งขึ้นในเชิงวิชาการ</h2>
+  <div class="grid c2">
+    <div class="card"><span class="tag">As-is vs To-be</span>
+      <h4>แยก "ที่เป็นอยู่จริง" กับ "ที่อยากให้เป็น"</h4>
+      <p>อย่าปนสิ่งที่ทำอยู่จริงกับสิ่งที่อยากทำบน Canvas เดียวกัน ไม่งั้นกลายเป็น "ความเพ้อฝันที่แต่งตัวเป็นกลยุทธ์" ทำ Canvas ปัจจุบันหนึ่งใบ อนาคตอีกหนึ่งใบ แล้วดูช่องว่างระหว่างกัน นั่นคือวาระเชิงกลยุทธ์</p>
+      <div class="src">Strategyzer · Linden Innovation</div>
+    </div>
+    <div class="card"><span class="tag">Fact vs Assumption</span>
+      <h4>แยก "ข้อเท็จจริง" กับ "ข้อสมมติ"</h4>
+      <p>ทำเครื่องหมายว่าช่องไหนคือข้อเท็จจริงที่รู้แล้ว ช่องไหนคือข้อสมมติที่ยังไม่ทดสอบ จะได้รู้ว่าอะไรต้องออกไปทดสอบกับตลาดจริงต่อ โดยเฉพาะตอนออกแบบโมเดลใหม่</p>
+      <div class="src">Strategyzer · หลักการออกแบบโมเดลใหม่</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 6. CASES -->
+<section style="background:linear-gradient(180deg,#fff,var(--bg))"><div class="wrap">
+  <div class="eyebrow">คลังเคสสำหรับยกในห้องเรียน</div>
+  <h2 class="lead-h">โมเดลที่ทรงพลังเขียนแบบ Building Blocks ได้สั้น ๆ</h2>
+  <p class="lead">สังเกตรูปแบบร่วม: กลุ่มลูกค้าชัด คุณค่าคมประโยคเดียว รายได้จาก commission/สมาชิก ทุกช่องเชื่อมเป็นเรื่องเดียวกัน</p>
+  <div class="cases">
+    <div class="case n1">
+      <div class="top">Netflix</div>
+      <div class="body">
+        <div class="row"><div class="k">ลูกค้า</div><div class="v">คนที่ชอบดูหนังที่บ้าน</div></div>
+        <div class="row"><div class="k">คุณค่า</div><div class="v">หนังไม่จำกัด ราคาเดียว</div></div>
+        <div class="row"><div class="k">ช่องทาง</div><div class="v">อินเทอร์เน็ต / แอป</div></div>
+        <div class="row"><div class="k">รายได้</div><div class="v">ค่าสมาชิกรายเดือน</div></div>
+      </div>
+    </div>
+    <div class="case n2">
+      <div class="top">Airbnb</div>
+      <div class="body">
+        <div class="row"><div class="k">ลูกค้า</div><div class="v">นักเดินทางประหยัด + เจ้าของบ้านที่อยากมีรายได้เสริม</div></div>
+        <div class="row"><div class="k">คุณค่า</div><div class="v">ที่พักถูกกว่า + รายได้จากห้องว่าง</div></div>
+        <div class="row"><div class="k">ช่องทาง</div><div class="v">เว็บไซต์และแอป</div></div>
+        <div class="row"><div class="k">รายได้</div><div class="v">ค่าคอมมิชชั่น</div></div>
+      </div>
+    </div>
+    <div class="case n3">
+      <div class="top">Uber</div>
+      <div class="body">
+        <div class="row"><div class="k">ลูกค้า</div><div class="v">คนที่ต้องการเรียกรถ + คนที่อยากขับรถหาเงิน</div></div>
+        <div class="row"><div class="k">คุณค่า</div><div class="v">เรียกรถง่ายกว่า + งานพาร์ทไทม์ยืดหยุ่น</div></div>
+        <div class="row"><div class="k">ช่องทาง</div><div class="v">แอปพลิเคชัน</div></div>
+        <div class="row"><div class="k">รายได้</div><div class="v">ค่าคอมมิชชั่น</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout ok"><b>จุดร่วม:</b> Airbnb และ Uber เป็นแพลตฟอร์มสองฝั่ง (multi-sided) ที่ต้องมีลูกค้าทั้งสองด้านพร้อมกัน โมเดลถึงทำงาน นี่คือ "กลไก" ที่มองเห็นได้เมื่อเขียนแบบสถาปัตยกรรม</div>
+</div></section>
+
+<!-- REFERENCES -->
+<section style="padding-top:10px"><div class="wrap">
+  <div class="refs">
+    <p style="margin:0 0 8px"><b>ที่มาและการอ้างอิง</b></p>
+    <p style="margin:0 0 6px">Osterwalder, A. &amp; Pigneur, Y. (2010). <i>Business Model Generation</i>. Osterwalder et al. (2014). <i>Value Proposition Design</i>.</p>
+    <p style="margin:0 0 6px">Strategyzer — How to Design a Crystal Clear Business Model Canvas · The Business Model Canvas Instruction Manual (strategyzer.com/library)</p>
+    <p style="margin:0 0 6px">Linden Innovation — Business Model Canvas: what teams get wrong (lindeninnovation.com/business-model-canvas)</p>
+    <p style="margin:0">เนื้อหากลั่นจากบทความ "BMC ไม่ใช่แบบฟอร์มให้เติมข้อมูล" และตรวจทานกับแหล่งข้างต้น · เทคนิค 3-5-1 เป็นกติกาช่วยจำที่ต่อยอดจากหลักการ granularity</p>
+  </div>
+</div></section>
+
+<footer>© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · หลักคิดการสอน Business Model Canvas</footer>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- gc-visitcount -->
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

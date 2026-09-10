@@ -416,5 +416,8 @@ go(0);document.querySelectorAll('.wfmap').forEach(function(m){wfRender(m,0)});
  if(clvlOpts)clvlOpts.addEventListener('click',function(e){var b=e.target.closest('.opt2');if(!b)return;clvlOpts.querySelectorAll('.opt2').forEach(x=>x.classList.remove('on'));b.classList.add('on');var g=CLV[b.dataset.g],out=document.getElementById('clvlOut');out.innerHTML='<span class="t th"><span class="big">'+g[0]+'</span><br>'+g[2]+'</span><span class="t en"><span class="big">'+g[1]+'</span><br>'+g[3]+'</span>';out.classList.add('show');});
 })();
 </script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- gc-visitcount -->
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
 </body>
 </html>

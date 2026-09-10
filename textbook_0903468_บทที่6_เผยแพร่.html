@@ -216,4 +216,7 @@ function os(){const h=document.documentElement;const st=h.scrollTop;const mx=h.s
 document.addEventListener('scroll',os,{passive:true});os();
 document.querySelectorAll('a.cite').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;document.querySelectorAll('.refs .r').forEach(r=>r.classList.remove('hl'));t.classList.add('hl');setTimeout(()=>t.classList.remove('hl'),2600);}));
 function cc(){const t=document.getElementById('citetext').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=event.target;const o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>b.textContent=o,1600);});}
-</script></body></html>
+</script><script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- gc-visitcount -->
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body></html>
