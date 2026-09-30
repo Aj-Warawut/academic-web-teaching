@@ -115,6 +115,8 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 .vpc .side h4{font-size:16px;margin-bottom:6px}.vpc .side.map h4{color:var(--amber)}.vpc .side.prof h4{color:var(--teal)}
 .vpc .side ul{margin:0 0 0 18px;font-size:14px}.vpc .side li{margin-bottom:4px}
 .bcell .fill{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;font-family:inherit;font-size:12px;color:var(--ink);resize:vertical;min-height:46px;background:#fff}
+.vbox{background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.vbox video{width:100%;height:auto;display:block;aspect-ratio:16/9}
 @media print{#sidebar,#toolbar,#menuToggle,.navbtns{display:none!important}#main{height:auto;overflow:visible}.wrap{max-width:100%}}
 </style>
 </head>
@@ -330,6 +332,13 @@ const S=[
   <div class="expset" data-set="kpm"><button class="exp" data-k="optimization">ประหยัด/เพิ่มประสิทธิภาพ</button><button class="exp" data-k="risk">ลดความเสี่ยง</button><button class="exp" data-k="resource">ได้ทรัพยากร/ความสามารถ</button></div>
   <div class="exp-detail" id="det-kpm"></div>
 `},
+{ id:"video", group:"สรุป & ปฏิบัติ", nav:"วิดีโอสรุป 1:30 นาที", icon:"▶", html:`
+  <div class="eyebrow">สื่อประกอบ</div><h2 class="title">วิดีโอสรุป: Business Model Canvas ใน 90 วินาที</h2>
+  <p class="lead">ตอนที่ 1 ของชุด BMC Workshop · มีคำบรรยายภาษาไทย</p>
+  <div class="vbox"><video controls preload="metadata" playsinline src="bmc_video.mp4">เบราว์เซอร์นี้เล่นวิดีโอไม่ได้</video></div>
+  <p class="srcline" id="bmcVidNote" style="margin-top:8px">ภาพและดนตรีสร้างด้วยโค้ดทั้งหมด</p>
+  <div class="callout info"><b>ดูต่อ ตอนที่ 2:</b> ซูมเข้าไปในช่อง Customer Segments กับ Value Propositions ด้วย <a href="vpc_course.html#video" style="color:var(--blue);font-weight:700">วิดีโอและบทเรียน Value Proposition Canvas →</a></div>
+`},
 { id:"template", group:"สรุป & ปฏิบัติ", nav:"เทมเพลต BMC (กรอกได้)", icon:"✎", html:`
   <div class="eyebrow">ปฏิบัติ</div><h2 class="title">ลงมือ: กรอกผืนผ้าใบ BMC ของโครงการคุณ</h2>
   <p class="lead">พิมพ์คำตอบลงแต่ละช่อง แล้วกด "🖨 พิมพ์/บันทึก PDF" เพื่อเก็บผลงาน</p>
@@ -443,6 +452,7 @@ document.getElementById('fs-btn').onclick=()=>{if(!document.fullscreenElement){d
 const projBtn=document.getElementById('proj-btn');
 projBtn.onclick=()=>{const on=document.body.classList.toggle('projector');projBtn.classList.toggle('on',on);if(on){if(zoom<1.2){zoom=1.2;applyZoom();}}else{zoom=1;applyZoom();closeMenu();}};
 document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+{const v=document.querySelector('#pg-'+S.findIndex(s=>s.id==='video')+' video');if(v)v.addEventListener('error',()=>{const n=document.getElementById('bmcVidNote');if(n)n.textContent='เล่นวิดีโอไม่ได้ ตรวจว่ามีไฟล์ bmc_video.mp4 อยู่ในโฟลเดอร์เดียวกับหน้านี้';},true);}
 go(0);
 </script>
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
