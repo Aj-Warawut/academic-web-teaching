@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- Value Proposition Canvas · บทเรียนโต้ตอบ · ใช้แม่แบบเดียวกับ bmc_course.html (ResearchLab interactive lesson template) -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Proposition Canvas · อ.ดร.วราวุฒิ นาคบุญนำ</title>
+<style>
+:root{
+  --navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold2:#F4C150;--purple:#8A56D6;--red:#C0392B;--green:#2E7D5B;
+  --ink:#1B2A3A;--mute:#5C6B7A;--line:#DCE3EC;--tint:#EEF3FB;--bg:#F5F7FC;--panel:#fff;--sidebar:#141D3F;--shadow:0 6px 22px rgba(17,34,51,.08);
+  --jobs:#2F5BD0;--pains:#C0392B;--gains:#2E7D5B;--map:#E9A72C;--prof:#2FA392;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;display:flex;min-height:100vh;overflow:hidden}
+#sidebar{width:300px;flex:0 0 300px;background:var(--sidebar);color:#E8EEF7;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+#sidebar .brand{padding:22px 22px 16px;border-bottom:1px solid rgba(255,255,255,.1);cursor:pointer}
+#sidebar .brand .kick{font-size:11px;letter-spacing:2px;color:var(--amber);font-weight:700}
+#sidebar .brand h1{font-size:18px;color:#fff;margin-top:6px;line-height:1.35}
+#sidebar .brand .sub{font-size:12px;color:#9DB0D6;margin-top:6px}
+.nav-group{padding:14px 22px 4px;font-size:11px;letter-spacing:1px;color:#7E92BD;font-weight:700;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 22px;cursor:pointer;font-size:14.5px;color:#CBD6EC;border-left:3px solid transparent;transition:.15s}
+.nav-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.10);color:#fff;border-left-color:var(--amber);font-weight:600}
+.nav-item .dot{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.nav-item.active .dot{background:var(--amber);color:var(--navy)}
+#sidebar .foot{padding:14px 22px;font-size:11px;color:#7E92BD;border-top:1px solid rgba(255,255,255,.1)}
+#main{flex:1;height:100vh;overflow-y:auto;position:relative;scroll-behavior:smooth}
+#progress{position:sticky;top:0;z-index:20;height:4px;background:var(--line)}
+#progress .bar{height:100%;background:linear-gradient(90deg,var(--amber),var(--teal));width:0;transition:.3s}
+.wrap{max-width:940px;margin:0 auto;padding:38px 46px 120px}
+section.page{display:none;animation:fade .35s ease}section.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:2px;font-weight:700;color:var(--teal);text-transform:uppercase}
+h2.title{font-size:29px;color:var(--navy);margin:6px 0 4px;line-height:1.3}
+.lead{font-size:16px;color:var(--mute);margin-bottom:22px}
+p{margin:0 0 14px}h3{font-size:20px;color:var(--blue);margin:26px 0 12px}
+.grid{display:grid;gap:16px}.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:1fr 1fr 1fr}.grid.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h4{font-size:16px;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card p{font-size:14.5px;color:var(--ink);margin:0}
+.num{width:28px;height:28px;flex:0 0 28px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.num.t{background:var(--teal)}.num.a{background:var(--amber)}.num.r{background:var(--red)}.num.g{background:var(--green)}
+ul.clean{list-style:none;margin:0 0 14px}ul.clean li{position:relative;padding:6px 0 6px 26px;font-size:15px}
+ul.clean li::before{content:"";position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.callout{border-radius:12px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:5px solid}
+.callout.tip{background:#FBEFD8;border-color:var(--amber)}.callout.info{background:var(--tint);border-color:var(--blue)}.callout.ok{background:#E9F5EF;border-color:var(--green)}.callout.warn{background:#FBE9E7;border-color:var(--red)}
+.callout b{color:var(--navy)}
+.callout a{color:var(--blue);font-weight:700}
+.hero{background:linear-gradient(135deg,var(--navy),#1F6F66);color:#fff;border-radius:18px;padding:38px 34px;margin-bottom:8px}
+.hero .kick{color:var(--amber);font-weight:700;letter-spacing:2px;font-size:13px}
+.hero h2{font-size:32px;margin:10px 0;line-height:1.25}.hero p{color:#CFEAE4;font-size:16px;margin:0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.stat{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0}
+.statc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);min-width:150px;flex:1}
+.statc .n{font-size:26px;font-weight:800;color:var(--blue)}.statc .l{font-size:13px;color:var(--mute)}
+.srcline{font-size:12.5px;color:var(--mute)}
+.navbtns{display:flex;justify-content:space-between;margin-top:40px;gap:12px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 20px;cursor:pointer;font-size:14.5px;font-family:inherit;color:var(--blue);font-weight:600;transition:.15s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{background:var(--blue);color:#fff}.btn.primary{background:var(--blue);color:#fff}.btn:disabled{opacity:.35;cursor:default}
+.btn.ghost{color:var(--mute)}
+#toolbar{position:fixed;top:12px;right:14px;z-index:60;display:flex;gap:6px;align-items:center}
+#toolbar button,#toolbar a{background:rgba(20,29,63,.92);color:#fff;border:none;border-radius:9px;height:38px;padding:0 12px;font-size:13.5px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow);transition:.15s;text-decoration:none}
+#toolbar button:hover,#toolbar a:hover{background:var(--blue)}#toolbar button.on{background:var(--amber);color:var(--navy)}
+#toolbar .home{background:linear-gradient(135deg,#F4C150,#E9A72C);color:#111A3A;font-weight:800}
+#toolbar .az{width:38px;justify-content:center;padding:0;font-weight:700}
+#menuToggle{display:none}#backdrop{display:none}
+body.projector #sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}
+body.projector #sidebar.open{transform:none}
+body.projector #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+body.projector #menuToggle{display:flex}
+body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
+@media(max-width:820px){
+  body{overflow:auto}
+  #sidebar{position:fixed;left:0;top:0;z-index:50;transform:translateX(-100%);transition:.25s}#sidebar.open{transform:none}
+  #backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  #menuToggle{display:flex;position:fixed;top:12px;left:12px;z-index:30;background:var(--navy);color:#fff;border:none;border-radius:10px;width:44px;height:44px;font-size:20px;cursor:pointer;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+  .wrap{padding:64px 20px 100px}.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}h2.title{font-size:23px}
+  #toolbar .lbl{display:none}
+}
+.expset{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 6px}
+.exp{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:8px 16px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--mute);cursor:pointer;transition:.15s;box-shadow:var(--shadow)}
+.exp:hover{border-color:var(--blue);color:var(--blue)}
+.exp.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.exp-detail{background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);margin-top:4px;font-size:14.5px;min-height:56px}
+.exp-detail h4{color:var(--blue);font-size:17px;margin-bottom:4px}
+.exp-detail .ex{font-size:13px;color:var(--mute);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.exp-detail .hint{color:var(--mute)}
+/* interactive VPC diagram */
+.vpcsvg{width:100%;height:auto;display:block;margin:6px 0 10px}
+.vpcsvg .zone{cursor:pointer;transition:opacity .15s;stroke:#fff;stroke-width:3}
+.vpcsvg .zone:hover{opacity:.85}
+.vpcsvg .zone.dim{opacity:.35}
+.vpcsvg .zone:focus{outline:none;stroke:var(--navy);stroke-width:5}
+.vpcsvg text{font-family:inherit;pointer-events:none;fill:#fff;font-weight:700}
+.vpcsvg .cap{fill:var(--navy);font-size:15px;letter-spacing:1px}
+.zDetail{background:#fff;border:1px solid var(--line);border-left:5px solid var(--dc,var(--blue));border-radius:12px;padding:16px 20px;box-shadow:var(--shadow);min-height:80px}
+.zDetail h4{font-size:18px;color:var(--dc);margin-bottom:2px}.zDetail .en{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.zDetail .q{font-size:13px;color:var(--navy);font-weight:700;margin:8px 0 4px}
+.zDetail ul{margin:0 0 0 18px;font-size:14px}
+.zDetail .pair{margin-top:10px;font-size:13.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px}
+/* ranking */
+.rank{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.rrow{display:grid;grid-template-columns:1fr 150px 44px;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;box-shadow:var(--shadow);transition:transform .25s}
+.rrow b{font-size:14.5px;font-weight:600;color:var(--ink)}
+.rrow input[type=range]{width:100%;accent-color:var(--red)}
+.rrow .v{font-weight:800;color:var(--red);text-align:center;font-variant-numeric:tabular-nums}
+.rrow.top{border-color:var(--red);box-shadow:0 0 0 2px rgba(192,57,43,.18)}
+@media(max-width:560px){.rrow{grid-template-columns:1fr 44px}.rrow input[type=range]{grid-column:1/-1;grid-row:2}}
+/* fit checker */
+.fitwrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0}
+@media(max-width:760px){.fitwrap{grid-template-columns:1fr}}
+.fcol{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.fcol h4{font-size:15px;margin-bottom:8px}
+.fcol.map{border-top:4px solid var(--map)}.fcol.prof{border-top:4px solid var(--prof)}
+.fitem{display:block;width:100%;text-align:left;font-family:inherit;font-size:14px;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:8px 12px;margin:6px 0;color:var(--ink);cursor:pointer;transition:.15s}
+.fitem.k-pains{border-left:5px solid var(--pains)}.fitem.k-gains{border-left:5px solid var(--gains)}
+.fitem:hover{border-color:var(--navy)}
+.fitem.hl{background:#FFF6E0;border-color:var(--amber)}
+.fitem.gap{background:#FBE9E7}
+.fitem .sev{float:right;font-size:12px;color:var(--mute)}
+.fsum{margin-top:10px;font-size:14.5px}
+/* quiz */
+.qcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin:10px 0}
+.qcard .qt{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.qopts{display:flex;flex-wrap:wrap;gap:8px}
+.qopt{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:7px 14px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--mute);cursor:pointer}
+.qopt:hover{border-color:var(--blue);color:var(--blue)}
+.qopt.ok{background:var(--green);border-color:var(--green);color:#fff}
+.qopt.no{background:#FBE9E7;border-color:var(--red);color:var(--red)}
+.qfb{font-size:14px;margin-top:8px;min-height:22px}
+.qscore{font-weight:800;color:var(--blue)}
+/* video */
+.vbox{background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.vbox video{width:100%;height:auto;display:block;aspect-ratio:16/9}
+/* template */
+.tpl{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0}
+@media(max-width:760px){.tpl{grid-template-columns:1fr}}
+.tside{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.tside.map{border-top:5px solid var(--map)}.tside.prof{border-top:5px solid var(--prof)}
+.tside h4{font-size:16px;margin-bottom:6px}.tside.map h4{color:var(--map)}.tside.prof h4{color:var(--prof)}
+.tfield{margin:10px 0}
+.tfield label{display:block;font-size:13.5px;font-weight:700;margin-bottom:4px}
+.tfield textarea,.tfield input[type=text]{width:100%;border:1px solid var(--line);border-left:5px solid var(--fc);border-radius:8px;padding:8px 10px;font-family:inherit;font-size:14px;color:var(--ink);resize:vertical;min-height:70px;background:#fff}
+.tfield input[type=text]{min-height:auto}
+.checks{list-style:none;margin:6px 0}
+.checks li{margin:6px 0;font-size:14.5px}.checks input{margin-right:8px;transform:scale(1.15);accent-color:var(--green)}
+.saved{font-size:12.5px;color:var(--mute);margin-left:10px}
+.confirm{display:inline-flex;gap:8px;align-items:center;font-size:13.5px;margin-left:8px}
+@media print{#sidebar,#toolbar,#menuToggle,.navbtns,.noprint{display:none!important}#main{height:auto;overflow:visible}.wrap{max-width:100%}body{display:block;overflow:visible}}
+</style>
+</head>
+<body>
+<button id="menuToggle" aria-label="menu">☰</button>
+<div id="backdrop"></div>
+<div id="toolbar">
+  <a class="home" href="index.html" title="กลับหน้าแรกพอร์ตโฟลิโอ">🏠 <span class="lbl">หน้าแรก</span></a>
+  <button class="az" id="fsz-down" title="ตัวอักษรเล็กลง">A−</button>
+  <button class="az" id="fsz-up" title="ตัวอักษรใหญ่ขึ้น">A+</button>
+  <button id="fs-btn" title="เต็มจอ">⛶ <span class="lbl">เต็มจอ</span></button>
+  <button id="proj-btn" title="โหมดโปรเจกเตอร์">🖥 <span class="lbl">โปรเจกเตอร์</span></button>
+</div>
+<aside id="sidebar">
+  <div class="brand" onclick="go(0)">
+    <div class="kick">CAPSTONE · ต่อยอดจาก BMC</div>
+    <h1>Value Proposition Canvas</h1>
+    <div class="sub">ออกแบบคุณค่าที่ลูกค้าต้องการจริง (โต้ตอบ)</div>
+  </div>
+  <nav id="nav"></nav>
+  <div class="foot">กดหัวข้อทางซ้าย หรือ ◀ ▶ / ลูกศร · กดโลโก้กลับหน้าแรก<br><a href="bmc_course.html" style="color:#F4C150">← บทเรียน Business Model Canvas</a><br><br>© อ.ดร.วราวุฒิ นาคบุญนำ<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+</aside>
+<main id="main"><div id="progress"><div class="bar"></div></div><div class="wrap" id="content"></div></main>
+<script>
+/* ---------- zone data (Osterwalder, Pigneur, Bernarda & Smith, 2014) ---------- */
+const Z={
+ jobs:{side:'prof',c:'--jobs',n:'งานของลูกค้า',en:'Customer Jobs',d:'สิ่งที่ลูกค้าพยายามทำให้สำเร็จในงานหรือชีวิต ทั้งงานด้านการใช้งาน ด้านสังคม และด้านอารมณ์ รวมถึงงานสนับสนุน เช่น การเลือกซื้อ',q:['ลูกค้าพยายามทำงานอะไรให้สำเร็จ?','ในบริบทไหน และทำไมงานนั้นจึงสำคัญกับเขา?'],pair:'คู่กับ Products & Services ฝั่ง Value Map'},
+ pains:{side:'prof',c:'--pains',n:'ความเจ็บปวด',en:'Pains',d:'สิ่งที่รบกวนลูกค้าก่อน ระหว่าง หรือหลังทำงาน ได้แก่ ผลลัพธ์ที่ไม่ต้องการ อุปสรรค และความเสี่ยง',q:['อะไรทำให้ลูกค้าหงุดหงิด เสียเวลา หรือเสียเงิน?','ลูกค้ากลัวความเสี่ยงอะไร?'],pair:'คู่กับ Pain Relievers ฝั่ง Value Map'},
+ gains:{side:'prof',c:'--gains',n:'ผลที่อยากได้',en:'Gains',d:'ผลลัพธ์และประโยชน์ที่ลูกค้าต้องการ ตั้งแต่สิ่งที่ขาดไม่ได้ สิ่งที่คาดหวัง สิ่งที่ปรารถนา ไปจนถึงสิ่งที่เกินคาด',q:['อะไรจะทำให้ลูกค้าพอใจหรือรู้สึกคุ้ม?','ลูกค้าวัดความสำเร็จของงานจากอะไร?'],pair:'คู่กับ Gain Creators ฝั่ง Value Map'},
+ prod:{side:'map',c:'--jobs',n:'สินค้าและบริการ',en:'Products & Services',d:'รายการสิ่งที่เรานำเสนอ ซึ่งคุณค่าทั้งหมดสร้างขึ้นบนสิ่งเหล่านี้ อาจเป็นของจับต้องได้ จับต้องไม่ได้ ดิจิทัล หรือบริการทางการเงิน',q:['เรานำเสนออะไรบ้างเพื่อช่วยลูกค้าทำงานสำเร็จ?','ชิ้นไหนจำเป็น ชิ้นไหนแค่มีก็ดี?'],pair:'ตอบ Customer Jobs'},
+ rel:{side:'map',c:'--pains',n:'ตัวลดความเจ็บ',en:'Pain Relievers',d:'อธิบายว่าสินค้าและบริการของเรา ลดหรือขจัด Pain ข้อใดของลูกค้าอย่างไร ควรเจาะจงทีละ Pain ไม่ใช่คุณสมบัติทั่วไป',q:['สินค้าของเราช่วยลด Pain ข้อไหน?','Pain ที่รุนแรงที่สุดได้รับการแก้แล้วหรือยัง?'],pair:'ชี้ไปที่ Pains ฝั่ง Customer Profile'},
+ cre:{side:'map',c:'--gains',n:'ตัวสร้างประโยชน์',en:'Gain Creators',d:'อธิบายว่าสินค้าและบริการของเรา สร้าง Gain ข้อใดให้ลูกค้าอย่างไร ทั้งสิ่งที่ลูกค้าคาดหวังและสิ่งที่ทำให้ประทับใจเกินคาด',q:['เราสร้างผลลัพธ์อะไรที่ลูกค้าอยากได้?','มี Gain ที่ลูกค้าคาดไม่ถึงแต่เราให้ได้ไหม?'],pair:'ชี้ไปที่ Gains ฝั่ง Customer Profile'}
+};
+/* ---------- hypothetical teaching case: rapid shrimp-pond water test ---------- */
+const CASE={
+ pains:[['กุ้งตายยกบ่อโดยไม่ทันรู้ตัว',5],['ส่งน้ำไปแล็บ รอผลหลายวัน',4],['ค่าตรวจแล็บแพง',3],['ขาดความรู้การปรับสภาพน้ำ',3],['อ่านค่าจากชุดตรวจแบบเดิมยาก',2]],
+ gains:[['มั่นใจว่ากุ้งแข็งแรงทุกวัน','จำเป็น'],['ขายกุ้งได้ราคาดี','จำเป็น'],['มีข้อมูลย้อนหลังไว้คุยกับผู้รับซื้อ','ปรารถนา'],['ได้คำเตือนก่อนเกิดปัญหา','เกินคาด']],
+ rel:[['เตือนก่อนค่าน้ำถึงจุดอันตราย',0],['รู้ผลในไม่กี่นาทีที่ขอบบ่อ',1],['ต้นทุนต่อครั้งต่ำกว่าส่งแล็บ',2],['แอปแปลผลเป็นสีเขียว เหลือง แดง',4]],
+ cre:[['ภาพรวมสุขภาพบ่อรายวัน',0],['รายงานคุณภาพบ่อสำหรับผู้รับซื้อ',1],['กราฟค่าน้ำย้อนหลัง',2],['แจ้งเตือนแนวโน้มล่วงหน้า',3]]
+};
+const svgVPC=(id)=>`<svg class="vpcsvg" id="${id}" viewBox="0 0 900 430" role="group" aria-label="Value Proposition Canvas">
+  <text class="cap" x="210" y="24" text-anchor="middle">VALUE MAP · สิ่งที่เรานำเสนอ</text>
+  <text class="cap" x="672" y="24" text-anchor="middle">CUSTOMER PROFILE · สิ่งที่ลูกค้าต้องการ</text>
+  <path class="zone" data-z="prod" tabindex="0" fill="var(--jobs)" d="M210 225 L40 55 L40 395 Z"/>
+  <path class="zone" data-z="cre" tabindex="0" fill="var(--gains)" d="M210 225 L40 55 L380 55 L380 225 Z"/>
+  <path class="zone" data-z="rel" tabindex="0" fill="var(--pains)" d="M210 225 L380 225 L380 395 L40 395 Z"/>
+  <path class="zone" data-z="jobs" tabindex="0" fill="var(--jobs)" d="M672 225 L757 77.8 A170 170 0 0 1 757 372.2 Z"/>
+  <path class="zone" data-z="gains" tabindex="0" fill="var(--gains)" d="M672 225 L502 225 A170 170 0 0 1 757 77.8 Z"/>
+  <path class="zone" data-z="pains" tabindex="0" fill="var(--pains)" d="M672 225 L757 372.2 A170 170 0 0 1 502 225 Z"/>
+  <text x="95" y="232" font-size="15" text-anchor="middle">Products &amp;</text><text x="95" y="252" font-size="15" text-anchor="middle">Services</text>
+  <text x="275" y="140" font-size="17" text-anchor="middle">Gain Creators</text>
+  <text x="275" y="320" font-size="17" text-anchor="middle">Pain Relievers</text>
+  <text x="770" y="231" font-size="17" text-anchor="middle">Customer Jobs</text>
+  <text x="615" y="160" font-size="17" text-anchor="middle">Gains</text>
+  <text x="615" y="300" font-size="17" text-anchor="middle">Pains</text>
+  <path d="M430 225 L462 225" stroke="var(--navy)" stroke-width="4"/><path d="M462 225 l-12 -9 v18 z" fill="var(--navy)"/><path d="M430 225 l12 -9 v18 z" fill="var(--navy)"/>
+  <text x="446" y="206" font-size="15" text-anchor="middle" style="fill:var(--navy)">FIT</text>
+</svg>`;
+
+const S=[
+{ id:"cover", group:"บทนำ", nav:"หน้าปก", icon:"0", html:`
+  <div class="hero"><div class="kick">CAPSTONE · ต่อยอดจาก BUSINESS MODEL CANVAS</div>
+    <h2>Value Proposition Canvas<br>ออกแบบคุณค่าที่ลูกค้าต้องการจริง</h2>
+    <p>หลักสูตรการจัดการสมัยใหม่ · คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</p>
+    <div class="pills"><span class="pill">Customer Profile</span><span class="pill">Value Map</span><span class="pill">Fit</span><span class="pill">โต้ตอบ · กรอกได้</span></div>
+    <p style="margin-top:14px;font-size:12.5px;color:#9FC9C0">© อ.ดร.วราวุฒิ นาคบุญนำ</p></div>
+  <h3>บทเรียนนี้ช่วยให้คุณ</h3>
+  <div class="grid c3">
+    <div class="card"><h4><span class="num t">1</span>เข้าใจลูกค้าลึกขึ้น</h4><p>เขียนงาน ความเจ็บปวด และผลที่ลูกค้าอยากได้ ให้เฉพาะเจาะจงและจัดลำดับได้</p></div>
+    <div class="card"><h4><span class="num a">2</span>ออกแบบคุณค่าให้ตรง</h4><p>เชื่อมสินค้าและบริการของเราเข้ากับ Pain และ Gain ที่สำคัญที่สุดทีละข้อ</p></div>
+    <div class="card"><h4><span class="num g">3</span>ตรวจความพอดี (Fit)</h4><p>รู้ว่าเมื่อไรคุณค่าที่เสนอ "ประกบ" กับลูกค้าพอดี และต้องทดสอบอะไรต่อ</p></div>
+  </div>
+  <div class="callout info"><b>ต่อจากบทเรียน BMC:</b> Value Proposition Canvas คือการซูมเข้าไปในสองช่องที่เป็นแกนหัวใจของ BMC คือ Customer Segments กับ Value Propositions — <a href="bmc_course.html">ทบทวนบทเรียน Business Model Canvas</a></div>
+`},
+{ id:"intro", group:"บทนำ", nav:"รู้จัก Value Proposition Canvas", icon:"1", html:`
+  <div class="eyebrow">บทนำ</div><h2 class="title">Value Proposition Canvas คืออะไร</h2>
+  <p class="lead">เครื่องมือออกแบบและทดสอบคุณค่าที่นำเสนอ จากหนังสือ <i>Value Proposition Design</i> (Osterwalder, Pigneur, Bernarda & Smith, 2014)</p>
+  <p>ใน BMC ช่อง Customer Segments ตอบว่า "เราสร้างคุณค่าให้ใคร" และช่อง Value Propositions ตอบว่า "ทำไมลูกค้าจึงเลือกเรา" แต่ทั้งสองช่องมีพื้นที่เล็ก จึงมักถูกเขียนแบบกว้าง ๆ Value Proposition Canvas ขยายสองช่องนี้ออกมาเป็นผืนผ้าใบของตัวเอง เพื่อให้เห็นว่าคุณค่าที่เราเสนอ ตอบความต้องการของลูกค้าข้อไหน และยังไม่ตอบข้อไหน</p>
+  <div class="grid c2">
+    <div class="card" style="border-top:4px solid var(--prof)"><h4 style="color:var(--prof)">Customer Profile (วงกลม)</h4><p>มองจากมุมลูกค้า: <b>Customer Jobs</b> งานที่ลูกค้าพยายามทำ · <b>Pains</b> สิ่งที่ทำให้เจ็บ · <b>Gains</b> ผลที่อยากได้</p></div>
+    <div class="card" style="border-top:4px solid var(--map)"><h4 style="color:var(--map)">Value Map (สี่เหลี่ยม)</h4><p>มองจากมุมเรา: <b>Products & Services</b> สิ่งที่เสนอ · <b>Pain Relievers</b> ตัวลดความเจ็บ · <b>Gain Creators</b> ตัวสร้างประโยชน์</p></div>
+  </div>
+  <div class="callout ok"><b>Fit (ความพอดี)</b> เกิดขึ้นเมื่อตัวลดความเจ็บและตัวสร้างประโยชน์ของเรา ตอบ Pains และ Gains ที่สำคัญของลูกค้าได้จริง จนลูกค้ารู้สึกอยากได้</div>
+  <h3>ใช้ตอนไหน</h3>
+  <ul class="clean">
+    <li>ก่อนเขียนช่อง Customer Segments และ Value Propositions ใน BMC ให้คม</li>
+    <li>ตอนเปลี่ยนงานวิจัยหรือต้นแบบให้เป็นผลิตภัณฑ์ เพื่อเช็กว่าแก้ปัญหาที่ลูกค้าเจ็บจริงหรือไม่</li>
+    <li>ตอนวางแผนทดสอบตลาด ว่าควรทดสอบข้อสมมติเรื่องใดก่อน</li>
+  </ul>
+  <p class="srcline">อ้างอิง: Osterwalder, A., Pigneur, Y., Bernarda, G., & Smith, A. (2014). <i>Value Proposition Design</i>. Wiley.</p>
+`},
+{ id:"principles", group:"บทนำ", nav:"หลักคิด: เริ่มจากลูกค้าเสมอ", icon:"✦", html:`
+  <div class="eyebrow">หลักคิดก่อนลงมือ</div><h2 class="title">ลูกค้าไม่ได้ซื้อสินค้า แต่ซื้อสิ่งที่สินค้าช่วยให้เขาทำได้สำเร็จ</h2>
+  <p class="lead">"คนไม่ได้อยากได้สว่าน แต่อยากได้รูบนผนัง" — ประโยคที่มักอ้างถึง Theodore Levitt</p>
+  <div class="grid c2">
+    <div class="card"><h4><span class="num t">1</span>เริ่มที่วงกลมก่อนสี่เหลี่ยม</h4><p>เขียน Customer Profile ให้เสร็จก่อน แล้วจึงออกแบบ Value Map เพื่อไม่ให้เอาสินค้าที่เรามีไปตั้งโจทย์แทนลูกค้า</p></div>
+    <div class="card"><h4><span class="num t">2</span>หนึ่งโปรไฟล์ต่อหนึ่งกลุ่มลูกค้า</h4><p>ลูกค้าต่างกลุ่มมีงานและความเจ็บต่างกัน ถ้ารวมไว้ในวงเดียว คุณค่าที่ออกแบบจะไม่ตรงใครเลย</p></div>
+    <div class="card"><h4><span class="num r">3</span>จัดลำดับ ไม่ใช่แค่ระบุ</h4><p>งานเรียงตามความสำคัญ Pain เรียงตามความรุนแรง Gain เรียงตามความจำเป็น แล้วโฟกัสที่อันดับต้น</p></div>
+    <div class="card"><h4><span class="num r">4</span>ไม่ต้องแก้ทุกปัญหา</h4><p>คุณค่าที่ดีไม่ได้ตอบทุก Pain และทุก Gain แต่ตอบข้อที่สำคัญที่สุดได้ดีกว่าทางเลือกอื่น</p></div>
+    <div class="card"><h4><span class="num g">5</span>เจาะจงทีละข้อ</h4><p>เขียน Pain Reliever ว่า "ลด Pain ข้อไหน อย่างไร" เช่น "รู้ผลในไม่กี่นาที" แทนคำกว้างอย่าง "สะดวก รวดเร็ว"</p></div>
+    <div class="card"><h4><span class="num g">6</span>ทุกช่องคือข้อสมมติจนกว่าจะทดสอบ</h4><p>แยก Fact กับ Assumption เหมือนใน BMC แล้วออกไปคุยหรือทดสอบกับลูกค้าจริง</p></div>
+  </div>
+  <div class="callout tip"><b>เชื่อมกับบทเรียน BMC:</b> หลัก "กลุ่มลูกค้าต้องเฉพาะเจาะจง (Job + Context + Pain)" ในบทเรียน BMC ก็คือการเขียน Customer Profile แบบย่อนั่นเอง</div>
+`},
+{ id:"canvas", group:"ผืนผ้าใบ VPC", nav:"ผืนผ้าใบ VPC (กดได้)", icon:"◐", html:`
+  <div class="eyebrow">Interactive</div><h2 class="title">ผืนผ้าใบ Value Proposition Canvas — กดแต่ละส่วน</h2>
+  <p class="lead">สี่เหลี่ยมซ้าย = สิ่งที่เรานำเสนอ · วงกลมขวา = สิ่งที่ลูกค้าต้องการ · สีเดียวกัน = ส่วนที่ต้องประกบกัน</p>
+  ${svgVPC('vpcMain')}
+  <div class="zDetail" id="zDetail"></div>
+  <div class="callout info"><b>อ่านสีให้เป็น:</b> ฟ้า Products & Services ตอบ Customer Jobs · แดง Pain Relievers ตอบ Pains · เขียว Gain Creators ตอบ Gains</div>
+`},
+{ id:"jobs", group:"Customer Profile", nav:"1 · Customer Jobs", icon:"J", html:`
+  <div class="eyebrow">Customer Profile · ส่วนที่ 1</div><h2 class="title">Customer Jobs · งานที่ลูกค้าพยายามทำให้สำเร็จ</h2>
+  <p class="lead">"ลูกค้ากำลังพยายามทำอะไรให้สำเร็จ ในบริบทไหน"</p>
+  <p>งานของลูกค้าไม่ใช่สิ่งที่เราขาย แต่เป็นสิ่งที่ลูกค้าอยากทำให้เสร็จอยู่แล้ว ไม่ว่าจะมีสินค้าของเราหรือไม่ก็ตาม งานเดียวกันในบริบทต่างกันอาจต้องการคุณค่าต่างกัน เช่น กินข้าวกลางวันคนเดียวรีบ ๆ กับเลี้ยงลูกค้าสำคัญ</p>
+  <h3>ประเภทของงาน (กดดูแต่ละประเภท)</h3>
+  <div class="expset" data-set="jobs"><button class="exp" data-k="functional">งานด้านการใช้งาน</button><button class="exp" data-k="social">งานด้านสังคม</button><button class="exp" data-k="emotional">งานด้านอารมณ์</button><button class="exp" data-k="supporting">งานสนับสนุน</button></div>
+  <div class="exp-detail" id="det-jobs"><span class="hint">กดปุ่มด้านบนเพื่อดูคำอธิบายและตัวอย่าง</span></div>
+  <h3>จัดลำดับความสำคัญ</h3>
+  <p>เรียงงานจาก <b>สำคัญมาก</b> ไปถึง <b>ไม่ค่อยสำคัญ</b> ในสายตาลูกค้า งานที่สำคัญและเกิดบ่อย คือจุดที่คุณค่าของเราควรเข้าไปช่วย</p>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> งานที่สำคัญที่สุดของลูกค้ากลุ่มเป้าหมายในโครงการคุณคืออะไร และเขาทำงานนั้นในบริบทไหน?</div>
+`},
+{ id:"pains", group:"Customer Profile", nav:"2 · Pains", icon:"P", html:`
+  <div class="eyebrow">Customer Profile · ส่วนที่ 2</div><h2 class="title">Pains · สิ่งที่ทำให้ลูกค้าเจ็บ กังวล หรือติดขัด</h2>
+  <p class="lead">"อะไรทำให้ลูกค้าหงุดหงิด เสียเวลา เสียเงิน หรือไม่กล้าลงมือ"</p>
+  <p>Pain คือทุกอย่างที่รบกวนลูกค้าก่อน ระหว่าง หรือหลังทำงาน ยิ่งเขียนได้ชัดเท่าไร ยิ่งออกแบบตัวลดความเจ็บได้ตรงเท่านั้น เช่น แทนที่จะเขียนว่า "รอนาน" ให้เขียนว่า "รอผลตรวจเกิน 3 วัน จนแก้ปัญหาไม่ทัน"</p>
+  <h3>ประเภทของ Pain (กดดูแต่ละประเภท)</h3>
+  <div class="expset" data-set="pains"><button class="exp" data-k="outcome">ผลลัพธ์ที่ไม่ต้องการ</button><button class="exp" data-k="obstacle">อุปสรรค</button><button class="exp" data-k="risk">ความเสี่ยง</button></div>
+  <div class="exp-detail" id="det-pains" style="border-left-color:var(--pains)"><span class="hint">กดปุ่มด้านบนเพื่อดูคำอธิบายและตัวอย่าง</span></div>
+  <h3>จัดลำดับความรุนแรง</h3>
+  <p>เรียง Pain จาก <b>รุนแรงมาก</b> ไปถึง <b>รุนแรงน้อย</b> ลองจัดลำดับเองได้ในหน้า "จัดลำดับ (ลองเอง)"</p>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> Pain ข้อไหนที่ถ้าแก้ได้ ลูกค้ายอมเปลี่ยนมาใช้ของเราทันที?</div>
+`},
+{ id:"gains", group:"Customer Profile", nav:"3 · Gains", icon:"G", html:`
+  <div class="eyebrow">Customer Profile · ส่วนที่ 3</div><h2 class="title">Gains · ผลลัพธ์และประโยชน์ที่ลูกค้าอยากได้</h2>
+  <p class="lead">"อะไรจะทำให้ลูกค้าพอใจ รู้สึกคุ้ม หรือประทับใจ"</p>
+  <p>Gain ไม่ใช่แค่ด้านกลับของ Pain แต่รวมผลลัพธ์ที่ลูกค้าต้องการ ใช้วัดความสำเร็จ หรือทำให้ชีวิตดีขึ้น บางอย่างลูกค้าบอกได้ บางอย่างลูกค้าไม่เคยคิดว่าจะมีคนให้ได้</p>
+  <h3>ระดับของ Gain (กดดูแต่ละระดับ)</h3>
+  <div class="expset" data-set="gains"><button class="exp" data-k="required">จำเป็น</button><button class="exp" data-k="expected">คาดหวัง</button><button class="exp" data-k="desired">ปรารถนา</button><button class="exp" data-k="unexpected">เกินคาด</button></div>
+  <div class="exp-detail" id="det-gains" style="border-left-color:var(--gains)"><span class="hint">กดปุ่มด้านบนเพื่อดูคำอธิบายและตัวอย่าง</span></div>
+  <h3>จัดลำดับความจำเป็น</h3>
+  <p>เรียง Gain จาก <b>ขาดไม่ได้</b> ไปถึง <b>มีก็ดี</b> Gain ระดับจำเป็นที่ยังไม่มีใครให้ได้ดี คือโอกาสสร้างความแตกต่าง</p>
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ลูกค้าของคุณวัดว่า "งานสำเร็จดี" จากอะไร และมีอะไรที่เขาไม่กล้าขอแต่ถ้าได้จะดีใจมาก?</div>
+`},
+{ id:"prod", group:"Value Map", nav:"4 · Products & Services", icon:"PS", html:`
+  <div class="eyebrow">Value Map · ส่วนที่ 1</div><h2 class="title">Products & Services · สินค้าและบริการที่เรานำเสนอ</h2>
+  <p class="lead">"เรานำเสนออะไรบ้าง เพื่อช่วยลูกค้าทำงานให้สำเร็จ"</p>
+  <p>ช่องนี้เป็นรายการของสิ่งที่เราเสนอ ตัวมันเองยังไม่ใช่คุณค่า คุณค่าจะเกิดขึ้นเมื่อสิ่งเหล่านี้ลด Pain หรือสร้าง Gain ให้ลูกค้าได้ ซึ่งเขียนในอีกสองช่องถัดไป</p>
+  <h3>ประเภทของสิ่งที่นำเสนอ (กดดูแต่ละประเภท)</h3>
+  <div class="expset" data-set="prod"><button class="exp" data-k="physical">จับต้องได้</button><button class="exp" data-k="intangible">จับต้องไม่ได้</button><button class="exp" data-k="digital">ดิจิทัล</button><button class="exp" data-k="financial">การเงิน</button></div>
+  <div class="exp-detail" id="det-prod"><span class="hint">กดปุ่มด้านบนเพื่อดูคำอธิบายและตัวอย่าง</span></div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย:</b> ยัดรายการคุณสมบัติทั้งหมดลงช่องนี้ แล้วเรียกว่า Value Proposition ทั้งที่ยังไม่ได้บอกว่าช่วยลูกค้าอย่างไร</div>
+`},
+{ id:"rel", group:"Value Map", nav:"5 · Pain Relievers", icon:"PR", html:`
+  <div class="eyebrow">Value Map · ส่วนที่ 2</div><h2 class="title">Pain Relievers · ตัวลดความเจ็บ</h2>
+  <p class="lead">"สินค้าของเราลดหรือขจัด Pain ข้อไหนของลูกค้า อย่างไร"</p>
+  <p>ตัวลดความเจ็บที่ดีชี้ไปที่ Pain ในวงกลมได้ทีละข้อ และควรโฟกัสที่ Pain ที่รุนแรงที่สุดก่อน ไม่จำเป็นต้องครบทุก Pain</p>
+  <div class="grid c2">
+    <div class="card" style="border-top:4px solid var(--red)"><h4 style="color:var(--red)">เขียนกว้าง</h4><p>"บริการสะดวก รวดเร็ว คุณภาพสูง"</p></div>
+    <div class="card" style="border-top:4px solid var(--green)"><h4 style="color:var(--green)">เขียนเจาะจง</h4><p>"รู้ผลตรวจน้ำในไม่กี่นาทีที่ขอบบ่อ แทนการรอแล็บหลายวัน"</p></div>
+  </div>
+  <h3>คำถามช่วยคิด</h3>
+  <ul class="clean"><li>ช่วยให้ลูกค้าประหยัดเวลา เงิน หรือแรงได้ไหม?</li><li>ทำให้ลูกค้ารู้สึกดีขึ้น หายกังวล หรือกล้าลงมือได้ไหม?</li><li>ลดความเสี่ยงที่ลูกค้ากลัวได้ไหม?</li><li>แก้จุดด้อยของทางเลือกที่ลูกค้าใช้อยู่ได้ไหม?</li></ul>
+`},
+{ id:"cre", group:"Value Map", nav:"6 · Gain Creators", icon:"GC", html:`
+  <div class="eyebrow">Value Map · ส่วนที่ 3</div><h2 class="title">Gain Creators · ตัวสร้างประโยชน์</h2>
+  <p class="lead">"สินค้าของเราสร้างผลลัพธ์ที่ลูกค้าอยากได้ข้อไหน อย่างไร"</p>
+  <p>ตัวสร้างประโยชน์บอกว่าเราทำให้ลูกค้าได้ Gain ข้อใด ทั้ง Gain ที่ลูกค้าคาดหวังอยู่แล้ว และ Gain ที่เกินคาดซึ่งมักกลายเป็นจุดที่ทำให้ลูกค้าบอกต่อ</p>
+  <h3>คำถามช่วยคิด</h3>
+  <ul class="clean"><li>ให้ผลลัพธ์ที่ลูกค้าคาดหวังได้ดีกว่าหรือเร็วกว่าทางเลือกเดิมไหม?</li><li>ทำให้งานของลูกค้าง่ายขึ้นหรือได้ผลดีขึ้นไหม?</li><li>สร้างผลดีทางสังคม เช่น ดูเป็นมืออาชีพ ได้รับการยอมรับ ได้ไหม?</li><li>มีสิ่งที่ลูกค้าไม่เคยขอ แต่ถ้าได้จะประทับใจไหม?</li></ul>
+  <div class="callout tip"><b>จำง่าย ๆ:</b> Pain Reliever ตอบว่า "ลดอะไรที่ไม่อยากเจอ" ส่วน Gain Creator ตอบว่า "เพิ่มอะไรที่อยากได้"</div>
+`},
+{ id:"rank", group:"Fit & การใช้งาน", nav:"จัดลำดับ Pains (ลองเอง)", icon:"≡", html:`
+  <div class="eyebrow">Interactive · เคสสมมติเพื่อการสอน</div><h2 class="title">จัดลำดับ Pains: เจ็บที่สุดก่อน</h2>
+  <p class="lead">เคส: ชุดตรวจคุณภาพน้ำบ่อกุ้งแบบเร็ว สำหรับเกษตรกรเลี้ยงกุ้งรายย่อย · เลื่อนแถบเพื่อให้คะแนนความรุนแรง 1–5 รายการจะเรียงใหม่ทันที</p>
+  <div class="rank" id="rankList"></div>
+  <div class="callout ok" id="rankNote"></div>
+  <p class="srcline">หมายเหตุ: เคสและคะแนนเป็นตัวอย่างสมมติสำหรับการสอน ในงานจริงต้องได้จากการสัมภาษณ์หรือสำรวจลูกค้า</p>
+`},
+{ id:"fit", group:"Fit & การใช้งาน", nav:"Fit: ตรวจความพอดี (กดได้)", icon:"✓", html:`
+  <div class="eyebrow">Interactive · เคสสมมติเพื่อการสอน</div><h2 class="title">Fit: คุณค่าที่เสนอ ประกบกับลูกค้าหรือยัง</h2>
+  <p class="lead">กดรายการฝั่ง Value Map เพื่อดูว่าชี้ไปที่ Pain/Gain ข้อไหน · รายการสีชมพูฝั่งลูกค้า = ยังไม่มีอะไรตอบ</p>
+  <div class="fitwrap">
+    <div class="fcol map"><h4 style="color:var(--map)">Value Map · สิ่งที่เรานำเสนอ</h4><div id="fitMap"></div></div>
+    <div class="fcol prof"><h4 style="color:var(--prof)">Customer Profile · เกษตรกรเลี้ยงกุ้งรายย่อย</h4><div id="fitProf"></div></div>
+  </div>
+  <div class="callout info fsum" id="fitSum"></div>
+  <h3>Fit มี 3 ระดับ</h3>
+  <div class="grid c3">
+    <div class="card"><h4><span class="num t">1</span>Problem–Solution Fit</h4><p>บนกระดาษ: มีหลักฐานว่าลูกค้าสนใจงาน Pain และ Gain เหล่านี้จริง และออกแบบคุณค่าตอบได้</p></div>
+    <div class="card"><h4><span class="num a">2</span>Product–Market Fit</h4><p>ในตลาด: ลูกค้าจริงใช้และตอบรับคุณค่าที่เสนอ</p></div>
+    <div class="card"><h4><span class="num g">3</span>Business Model Fit</h4><p>ในโมเดลธุรกิจ: คุณค่านั้นอยู่ในโมเดลที่ทำรายได้ได้มากกว่าต้นทุน</p></div>
+  </div>
+  <p class="srcline">อ้างอิงระดับของ Fit: Osterwalder et al. (2014)</p>
+`},
+{ id:"quiz", group:"Fit & การใช้งาน", nav:"แบบฝึก: จัดหมวดให้ถูก", icon:"?", html:`
+  <div class="eyebrow">แบบฝึก</div><h2 class="title">ข้อความนี้ควรอยู่ส่วนไหนของ Canvas</h2>
+  <p class="lead">เคสชุดตรวจน้ำบ่อกุ้ง · เลือกคำตอบแล้วดูคำอธิบาย · คะแนน <span class="qscore" id="qScore">0 / 8</span></p>
+  <div id="quizBox"></div>
+  <button class="btn ghost noprint" id="qReset">↺ เริ่มใหม่</button>
+`},
+{ id:"video", group:"Fit & การใช้งาน", nav:"วิดีโอสรุป 1:30 นาที", icon:"▶", html:`
+  <div class="eyebrow">สื่อประกอบ</div><h2 class="title">วิดีโอสรุป: Value Proposition Canvas ใน 90 วินาที</h2>
+  <p class="lead">ตอนที่ 2 ของชุด BMC Workshop · มีคำบรรยายภาษาไทย</p>
+  <div class="vbox"><video controls preload="metadata" playsinline src="vpc_video.mp4">เบราว์เซอร์นี้เล่นวิดีโอไม่ได้</video></div>
+  <p class="srcline" id="vidNote" style="margin-top:8px">ภาพและดนตรีสร้างด้วยโค้ดทั้งหมด · เคสในวิดีโอเป็นเคสสมมติเพื่อการสอน</p>
+`},
+{ id:"template", group:"ปฏิบัติ", nav:"เทมเพลต VPC (กรอกได้)", icon:"✎", html:`
+  <div class="eyebrow">ปฏิบัติ</div><h2 class="title">ลงมือ: กรอก Value Proposition Canvas ของโครงการคุณ</h2>
+  <p class="lead">เริ่มจากฝั่ง Customer Profile ก่อน · ข้อความบันทึกอัตโนมัติในเบราว์เซอร์นี้ · กด "พิมพ์/บันทึก PDF" เพื่อเก็บผลงาน</p>
+  <div class="tfield"><label for="t-seg">กลุ่มลูกค้าที่ทำโปรไฟล์ (1 กลุ่มต่อ 1 โปรไฟล์)</label><input type="text" id="t-seg" style="--fc:var(--prof)" placeholder="เช่น เกษตรกรเลี้ยงกุ้งรายย่อยที่มีบ่อ 1–3 บ่อ"></div>
+  <div class="tpl">
+    <div class="tside prof"><h4>① Customer Profile</h4>
+      <div class="tfield"><label for="t-jobs" style="color:var(--jobs)">Customer Jobs · งานของลูกค้า</label><textarea id="t-jobs" style="--fc:var(--jobs)" placeholder="เรียงจากสำคัญมากไปน้อย"></textarea></div>
+      <div class="tfield"><label for="t-pains" style="color:var(--pains)">Pains · ความเจ็บปวด</label><textarea id="t-pains" style="--fc:var(--pains)" placeholder="เรียงจากรุนแรงมากไปน้อย"></textarea></div>
+      <div class="tfield"><label for="t-gains" style="color:var(--gains)">Gains · ผลที่อยากได้</label><textarea id="t-gains" style="--fc:var(--gains)" placeholder="เรียงจากจำเป็นไปถึงมีก็ดี"></textarea></div>
+    </div>
+    <div class="tside map"><h4>② Value Map</h4>
+      <div class="tfield"><label for="t-prod" style="color:var(--jobs)">Products & Services · สินค้าและบริการ</label><textarea id="t-prod" style="--fc:var(--jobs)" placeholder="สิ่งที่เรานำเสนอ"></textarea></div>
+      <div class="tfield"><label for="t-rel" style="color:var(--pains)">Pain Relievers · ตัวลดความเจ็บ</label><textarea id="t-rel" style="--fc:var(--pains)" placeholder="ลด Pain ข้อไหน อย่างไร"></textarea></div>
+      <div class="tfield"><label for="t-cre" style="color:var(--gains)">Gain Creators · ตัวสร้างประโยชน์</label><textarea id="t-cre" style="--fc:var(--gains)" placeholder="สร้าง Gain ข้อไหน อย่างไร"></textarea></div>
+    </div>
+  </div>
+  <h3>③ ตรวจความพอดี (Fit Checklist)</h3>
+  <ul class="checks">
+    <li><label><input type="checkbox" id="c1">โปรไฟล์นี้เป็นลูกค้ากลุ่มเดียว</label></li>
+    <li><label><input type="checkbox" id="c2">Jobs, Pains, Gains จัดลำดับแล้ว</label></li>
+    <li><label><input type="checkbox" id="c3">Pain Reliever ทุกข้อชี้ไปที่ Pain ที่เขียนไว้</label></li>
+    <li><label><input type="checkbox" id="c4">Pain ที่รุนแรงที่สุดอย่างน้อย 1 ข้อได้รับการแก้</label></li>
+    <li><label><input type="checkbox" id="c5">Gain Creator ตอบ Gain ระดับจำเป็นอย่างน้อย 1 ข้อ</label></li>
+  </ul>
+  <div class="tfield"><label for="t-test">④ ข้อสมมติที่เสี่ยงที่สุด ที่ต้องทดสอบกับลูกค้าก่อน</label><textarea id="t-test" style="--fc:var(--amber)" placeholder="ถ้าข้อนี้ผิด คุณค่าที่เสนอทั้งหมดจะใช้ไม่ได้"></textarea></div>
+  <div class="noprint" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px">
+    <button class="btn primary" onclick="window.print()">🖨 พิมพ์ / บันทึก PDF</button>
+    <button class="btn ghost" id="tClear">ล้างข้อมูล</button><span class="confirm" id="tConfirm" hidden>ล้างทั้งหมด? <button class="btn" id="tYes">ใช่ ล้าง</button><button class="btn ghost" id="tNo">ยกเลิก</button></span>
+    <span class="saved" id="tSaved"></span>
+  </div>
+  <div class="callout tip" style="margin-top:14px"><b>ขั้นต่อไป:</b> นำ Value Map ที่ได้ไปเขียนช่อง Value Propositions และ Customer Profile ไปเขียนช่อง Customer Segments ใน <a href="bmc_course.html">เทมเพลต BMC</a> ให้สั้นและคมตามเทคนิค 3-5-1</div>
+`},
+];
+
+/* ---------- explanations for chip buttons ---------- */
+const EXPL={
+ jobs:{functional:{n:'งานด้านการใช้งาน (Functional)',d:'งานที่ต้องทำให้เสร็จเป็นรูปธรรม หรือปัญหาที่ต้องแก้',ex:'เลี้ยงกุ้งให้รอดจนจับขาย · ส่งรายงานให้ทันกำหนด'},
+   social:{n:'งานด้านสังคม (Social)',d:'อยากให้คนอื่นมองตัวเองอย่างไร เช่น ดูเป็นมืออาชีพ ได้รับการยอมรับ',ex:'ดูเป็นฟาร์มมาตรฐานในสายตาผู้รับซื้อ'},
+   emotional:{n:'งานด้านอารมณ์ (Emotional)',d:'อยากรู้สึกอย่างไร เช่น สบายใจ มั่นใจ ปลอดภัย',ex:'นอนหลับได้โดยไม่กังวลเรื่องบ่อ'},
+   supporting:{n:'งานสนับสนุน (Supporting)',d:'งานรอบ ๆ การใช้คุณค่า เช่น การเลือกซื้อ การมีส่วนร่วมสร้าง และการส่งต่อหรือเลิกใช้',ex:'เปรียบเทียบชุดตรวจหลายยี่ห้อก่อนซื้อ'}},
+ pains:{outcome:{n:'ผลลัพธ์ที่ไม่ต้องการ (Undesired outcomes)',d:'ผลที่เกิดขึ้นแล้วลูกค้าไม่พอใจ ทั้งด้านการใช้งาน สังคม และอารมณ์',ex:'กุ้งโตช้า ขนาดไม่ได้ตามที่ตลาดต้องการ'},
+   obstacle:{n:'อุปสรรค (Obstacles)',d:'สิ่งที่ขวางไม่ให้ลูกค้าเริ่มหรือทำงานได้ดี หรือทำให้ช้าลง',ex:'ต้องเดินทางไกลเพื่อส่งตัวอย่างน้ำไปแล็บ'},
+   risk:{n:'ความเสี่ยง (Risks)',d:'สิ่งที่อาจผิดพลาดและส่งผลร้ายแรง แม้ยังไม่เกิดขึ้น',ex:'กลัวโรคระบาดทำให้ขาดทุนทั้งรอบ'}},
+ gains:{required:{n:'จำเป็น (Required)',d:'ถ้าไม่มี คุณค่านั้นใช้ไม่ได้เลย',ex:'ผลตรวจค่าน้ำต้องถูกต้อง'},
+   expected:{n:'คาดหวัง (Expected)',d:'ลูกค้าคาดว่าต้องมีอยู่แล้ว แม้ไม่ถึงขั้นขาดไม่ได้',ex:'ใช้งานง่ายโดยไม่ต้องอ่านคู่มือยาว'},
+   desired:{n:'ปรารถนา (Desired)',d:'เกินกว่าที่คาดหวัง ลูกค้าจะดีใจถ้าได้ และมักบอกได้ถ้าถาม',ex:'มีข้อมูลย้อนหลังไว้คุยต่อรองกับผู้รับซื้อ'},
+   unexpected:{n:'เกินคาด (Unexpected)',d:'สิ่งที่ลูกค้าไม่เคยคิดว่าจะมีใครให้ได้ ถ้าได้จะประทับใจมาก',ex:'ได้คำเตือนแนวโน้มล่วงหน้าก่อนน้ำเสีย'}},
+ prod:{physical:{n:'จับต้องได้ (Physical/Tangible)',d:'สินค้าที่เป็นวัตถุ',ex:'ชุดทดสอบน้ำ อุปกรณ์วัด'},
+   intangible:{n:'จับต้องไม่ได้ (Intangible)',d:'บริการ ลิขสิทธิ์ หรือความรู้',ex:'บริการที่ปรึกษาการปรับสภาพน้ำ'},
+   digital:{n:'ดิจิทัล (Digital)',d:'ซอฟต์แวร์ แอป ข้อมูล หรือบริการออนไลน์',ex:'แอปอ่านผลและบันทึกข้อมูลบ่อ'},
+   financial:{n:'การเงิน (Financial)',d:'บริการทางการเงินที่ช่วยให้ลูกค้าเข้าถึงคุณค่า',ex:'ผ่อนชำระ ประกัน หรือเช่าใช้แทนซื้อขาด'}}
+};
+
+/* ---------- engine (same pattern as bmc_course.html) ---------- */
+const nav=document.getElementById('nav'),content=document.getElementById('content');
+let cur=0,lastGroup=null;
+S.forEach((s,i)=>{
+  if(s.group!==lastGroup){lastGroup=s.group;const g=document.createElement('div');g.className='nav-group';g.textContent=s.group;nav.appendChild(g);}
+  const it=document.createElement('div');it.className='nav-item';it.dataset.i=i;it.innerHTML='<span class="dot">'+s.icon+'</span><span>'+s.nav+'</span>';it.onclick=()=>go(i);nav.appendChild(it);
+  const sec=document.createElement('section');sec.className='page';sec.id='pg-'+i;sec.innerHTML=s.html;
+  const bn=document.createElement('div');bn.className='navbtns';bn.innerHTML='<button class="btn" data-prev>◀ ก่อนหน้า</button><button class="btn primary" data-next>ถัดไป ▶</button>';
+  sec.appendChild(bn);content.appendChild(sec);
+});
+function go(i){if(i<0||i>=S.length)return;cur=i;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('pg-'+i).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',+n.dataset.i===i));
+  document.querySelector('#progress .bar').style.width=((i+1)/S.length*100)+'%';
+  document.getElementById('main').scrollTo({top:0,behavior:'auto'});
+  const nn=document.querySelector('#pg-'+i+' [data-next]'),pp=document.querySelector('#pg-'+i+' [data-prev]');
+  pp.disabled=(i===0);nn.disabled=(i===S.length-1);nn.textContent=(i===S.length-1)?'จบบทเรียน ✓':'ถัดไป ▶';
+  closeMenu();if(S[i].id==='canvas'&&!document.getElementById('zDetail').innerHTML)zShow('jobs');
+  try{history.replaceState(null,'','#'+S[i].id);}catch(e){}}
+content.addEventListener('click',e=>{
+  if(e.target.closest('[data-next]'))go(cur+1);
+  if(e.target.closest('[data-prev]'))go(cur-1);
+  const z=e.target.closest('.zone');if(z)zShow(z.dataset.z);
+  const ex=e.target.closest('.exp');if(ex)exShow(ex);
+});
+content.addEventListener('keydown',e=>{const z=e.target.closest&&e.target.closest('.zone');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();zShow(z.dataset.z);}});
+function exShow(ex){const st=ex.closest('.expset').dataset.set,k=ex.dataset.k;const d=EXPL[st]&&EXPL[st][k];if(!d)return;
+  ex.closest('.expset').querySelectorAll('.exp').forEach(x=>x.classList.toggle('on',x===ex));
+  const el=document.getElementById('det-'+st);if(!el)return;
+  el.innerHTML='<h4>'+d.n+'</h4><p style="margin:0">'+d.d+'</p>'+(d.ex?'<div class="ex"><b>ตัวอย่าง:</b> '+d.ex+'</div>':'');}
+function zShow(k){const d=Z[k];if(!d)return;
+  document.querySelectorAll('#vpcMain .zone').forEach(c=>c.classList.toggle('dim',c.dataset.z!==k));
+  const el=document.getElementById('zDetail');if(!el)return;
+  el.style.setProperty('--dc','var('+d.c+')');
+  el.innerHTML='<h4 style="color:var('+d.c+')">'+d.n+'</h4><div class="en">'+d.en+' · '+(d.side==='prof'?'Customer Profile':'Value Map')+'</div><p style="margin:0 0 4px">'+d.d+'</p><div class="q">คำถามที่ต้องตอบ:</div><ul>'+d.q.map(x=>'<li>'+x+'</li>').join('')+'</ul><div class="pair">↔ '+d.pair+'</div>';}
+
+/* ---------- ranking ---------- */
+const rankState=CASE.pains.map(p=>({t:p[0],v:p[1]}));
+function renderRank(){const box=document.getElementById('rankList');if(!box)return;
+  const order=rankState.map((r,i)=>i).sort((a,b)=>rankState[b].v-rankState[a].v||a-b);
+  box.innerHTML=order.map((i,pos)=>`<div class="rrow${pos===0?' top':''}"><b>${pos+1}. ${rankState[i].t}</b><input type="range" min="1" max="5" step="1" value="${rankState[i].v}" data-r="${i}" aria-label="ความรุนแรงของ ${rankState[i].t}"><span class="v">${rankState[i].v}</span></div>`).join('');
+  const top=rankState[order[0]];document.getElementById('rankNote').innerHTML='<b>โฟกัสก่อน:</b> "'+top.t+'" (ความรุนแรง '+top.v+'/5) — ตรวจว่ามี Pain Reliever ตอบข้อนี้หรือยังในหน้า Fit';}
+content.addEventListener('change',e=>{if(e.target.matches('input[type=range][data-r]')){rankState[+e.target.dataset.r].v=+e.target.value;renderRank();}});
+content.addEventListener('input',e=>{if(e.target.matches('input[type=range][data-r]')){e.target.nextElementSibling.textContent=e.target.value;}});
+
+/* ---------- fit checker ---------- */
+function renderFit(){const m=document.getElementById('fitMap'),p=document.getElementById('fitProf');if(!m)return;
+  m.innerHTML=CASE.rel.map((r,i)=>`<button class="fitem k-pains" data-kind="rel" data-i="${i}">${r[0]}</button>`).join('')+CASE.cre.map((r,i)=>`<button class="fitem k-gains" data-kind="cre" data-i="${i}">${r[0]}</button>`).join('');
+  const relT=new Set(CASE.rel.map(r=>r[1])),creT=new Set(CASE.cre.map(r=>r[1]));
+  p.innerHTML=CASE.pains.map((r,i)=>`<button class="fitem k-pains${relT.has(i)?'':' gap'}" data-kind="pain" data-i="${i}">${r[0]}<span class="sev">รุนแรง ${r[1]}/5</span></button>`).join('')+CASE.gains.map((r,i)=>`<button class="fitem k-gains${creT.has(i)?'':' gap'}" data-kind="gain" data-i="${i}">${r[0]}<span class="sev">${r[1]}</span></button>`).join('');
+  const sev=CASE.pains.map((r,i)=>({i,s:r[1]})).filter(x=>x.s>=4),hit=sev.filter(x=>relT.has(x.i)).length,gap=CASE.pains.filter((r,i)=>!relT.has(i));
+  document.getElementById('fitSum').innerHTML='<b>สรุป:</b> Pain ที่รุนแรงระดับ 4–5 ได้รับการตอบ '+hit+' จาก '+sev.length+' ข้อ · Pain ที่ยังไม่มีตัวลด: '+(gap.length?gap.map(g=>'"'+g[0]+'"').join(', '):'ไม่มี')+' — Fit ไม่จำเป็นต้องครบทุกข้อ แต่ต้องครอบ Pain ที่รุนแรงที่สุด';}
+content.addEventListener('click',e=>{const b=e.target.closest('.fitem');if(!b)return;
+  document.querySelectorAll('.fitem').forEach(x=>x.classList.remove('hl'));b.classList.add('hl');
+  const k=b.dataset.kind,i=+b.dataset.i;
+  if(k==='rel')document.querySelector('.fitem[data-kind="pain"][data-i="'+CASE.rel[i][1]+'"]').classList.add('hl');
+  if(k==='cre')document.querySelector('.fitem[data-kind="gain"][data-i="'+CASE.cre[i][1]+'"]').classList.add('hl');
+  if(k==='pain')CASE.rel.forEach((r,j)=>{if(r[1]===i)document.querySelector('.fitem[data-kind="rel"][data-i="'+j+'"]').classList.add('hl');});
+  if(k==='gain')CASE.cre.forEach((r,j)=>{if(r[1]===i)document.querySelector('.fitem[data-kind="cre"][data-i="'+j+'"]').classList.add('hl');});});
+
+/* ---------- quiz ---------- */
+const OPTS=['Customer Jobs','Pains','Gains','Products & Services','Pain Relievers','Gain Creators'];
+const QUIZ=[
+ ['เลี้ยงกุ้งให้ได้ขนาดตามที่ตลาดต้องการ',0,'เป็นงานที่ลูกค้าพยายามทำให้สำเร็จ (งานด้านการใช้งาน)'],
+ ['กลัวโรคระบาดทำให้ขาดทุนทั้งรอบ',1,'เป็นความเสี่ยงที่ลูกค้ากังวล จึงเป็น Pain ประเภทความเสี่ยง'],
+ ['ขายกุ้งได้ราคาสูงกว่าเดิม',2,'เป็นผลลัพธ์ที่ลูกค้าอยากได้ จึงเป็น Gain'],
+ ['ชุดทดสอบน้ำแบบเร็ว',3,'เป็นสิ่งที่เรานำเสนอ ตัวมันเองยังไม่ได้บอกว่าช่วยลูกค้าอย่างไร'],
+ ['รู้ผลที่ขอบบ่อภายในไม่กี่นาที แทนการรอแล็บ',4,'ลด Pain เรื่องรอผลนาน จึงเป็น Pain Reliever'],
+ ['กราฟแนวโน้มค่าน้ำ ให้วางแผนล่วงหน้าได้',5,'สร้างผลลัพธ์ที่ลูกค้าอยากได้ จึงเป็น Gain Creator'],
+ ['ต้องเดินทางไกลเพื่อส่งตัวอย่างน้ำ',1,'เป็นอุปสรรคที่ทำให้ลูกค้าทำงานได้ยาก จึงเป็น Pain ประเภทอุปสรรค'],
+ ['อยากดูเป็นฟาร์มมาตรฐานในสายตาผู้รับซื้อ',0,'เป็นงานด้านสังคม คือสิ่งที่ลูกค้าอยากให้คนอื่นมองตัวเอง']
+];
+let qDone={};
+function renderQuiz(){const box=document.getElementById('quizBox');if(!box)return;qDone={};
+  box.innerHTML=QUIZ.map((q,i)=>`<div class="qcard"><div class="qt">${i+1}. "${q[0]}"</div><div class="qopts">${OPTS.map((o,j)=>`<button class="qopt" data-q="${i}" data-a="${j}">${o}</button>`).join('')}</div><div class="qfb" id="qfb-${i}"></div></div>`).join('');
+  updScore();}
+function updScore(){const s=Object.values(qDone).filter(Boolean).length;const el=document.getElementById('qScore');if(el)el.textContent=s+' / '+QUIZ.length;}
+content.addEventListener('click',e=>{const b=e.target.closest('.qopt');if(!b)return;const i=+b.dataset.q,a=+b.dataset.a;if(i in qDone)return;
+  const ok=a===QUIZ[i][1];qDone[i]=ok;b.classList.add(ok?'ok':'no');
+  if(!ok)b.parentElement.querySelector('[data-a="'+QUIZ[i][1]+'"]').classList.add('ok');
+  document.getElementById('qfb-'+i).innerHTML=(ok?'✓ ถูกต้อง · ':'✗ คำตอบคือ <b>'+OPTS[QUIZ[i][1]]+'</b> · ')+QUIZ[i][2];updScore();});
+content.addEventListener('click',e=>{if(e.target.closest('#qReset'))renderQuiz();});
+
+/* ---------- template autosave (per-browser convenience only) ---------- */
+const TKEY='vpc_template_v1',TIDS=['t-seg','t-jobs','t-pains','t-gains','t-prod','t-rel','t-cre','t-test','c1','c2','c3','c4','c5'];
+function tLoad(){let d={};try{d=JSON.parse(localStorage.getItem(TKEY)||'{}');}catch(e){}
+  TIDS.forEach(id=>{const el=document.getElementById(id);if(!el||!(id in d))return;if(el.type==='checkbox')el.checked=!!d[id];else el.value=d[id];});}
+let tTimer=null;
+function tSave(){const d={};TIDS.forEach(id=>{const el=document.getElementById(id);if(el)d[id]=el.type==='checkbox'?el.checked:el.value;});
+  try{localStorage.setItem(TKEY,JSON.stringify(d));document.getElementById('tSaved').textContent='บันทึกในเบราว์เซอร์นี้แล้ว '+new Date().toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'});}
+  catch(e){document.getElementById('tSaved').textContent='เบราว์เซอร์นี้บันทึกอัตโนมัติไม่ได้ กรุณาพิมพ์หรือบันทึก PDF ก่อนปิดหน้า';}}
+content.addEventListener('input',e=>{if(TIDS.includes(e.target.id)){clearTimeout(tTimer);tTimer=setTimeout(tSave,500);}});
+content.addEventListener('change',e=>{if(TIDS.includes(e.target.id))tSave();});
+content.addEventListener('click',e=>{
+  if(e.target.closest('#tClear'))document.getElementById('tConfirm').hidden=false;
+  if(e.target.closest('#tNo'))document.getElementById('tConfirm').hidden=true;
+  if(e.target.closest('#tYes')){TIDS.forEach(id=>{const el=document.getElementById(id);if(!el)return;if(el.type==='checkbox')el.checked=false;else el.value='';});
+    try{localStorage.removeItem(TKEY);}catch(err){}document.getElementById('tConfirm').hidden=true;document.getElementById('tSaved').textContent='ล้างข้อมูลแล้ว';}
+});
+
+/* ---------- video fallback ---------- */
+const vid=document.querySelector('#pg-'+S.findIndex(s=>s.id==='video')+' video');
+if(vid)vid.addEventListener('error',()=>{document.getElementById('vidNote').textContent='ยังไม่พบไฟล์วิดีโอ vpc_video.mp4 ในโฟลเดอร์เดียวกับหน้านี้';},true);
+
+/* ---------- toolbar (same as bmc_course.html) ---------- */
+const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
+document.getElementById('menuToggle').onclick=()=>{sb.classList.add('open');bd.classList.add('show');};
+bd.onclick=closeMenu;function closeMenu(){sb.classList.remove('open');bd.classList.remove('show');}
+let zoom=1;const zc=document.getElementById('content');function applyZoom(){zc.style.zoom=zoom;}
+document.getElementById('fsz-up').onclick=()=>{zoom=Math.min(2,+(zoom+0.1).toFixed(2));applyZoom();};
+document.getElementById('fsz-down').onclick=()=>{zoom=Math.max(0.7,+(zoom-0.1).toFixed(2));applyZoom();};
+document.getElementById('fs-btn').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}};
+const projBtn=document.getElementById('proj-btn');
+projBtn.onclick=()=>{const on=document.body.classList.toggle('projector');projBtn.classList.toggle('on',on);if(on){if(zoom<1.2){zoom=1.2;applyZoom();}}else{zoom=1;applyZoom();closeMenu();}};
+document.addEventListener('keydown',e=>{const t=e.target.tagName;if(t==='INPUT'||t==='TEXTAREA')return;if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+renderRank();renderFit();renderQuiz();tLoad();
+const start=S.findIndex(s=>'#'+s.id===location.hash);go(start>0?start:0);
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- gc-visitcount -->
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>
