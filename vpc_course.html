@@ -510,7 +510,7 @@ content.addEventListener('click',e=>{
 
 /* ---------- video fallback ---------- */
 const vid=document.querySelector('#pg-'+S.findIndex(s=>s.id==='video')+' video');
-if(vid)vid.addEventListener('error',()=>{document.getElementById('vidNote').textContent='ยังไม่พบไฟล์วิดีโอ vpc_video.mp4 ในโฟลเดอร์เดียวกับหน้านี้';},true);
+if(vid)vid.addEventListener('error',()=>{document.getElementById('vidNote').textContent='เล่นวิดีโอไม่ได้ ตรวจว่ามีไฟล์ vpc_video.mp4 อยู่ในโฟลเดอร์เดียวกับหน้านี้';},true);
 
 /* ---------- toolbar (same as bmc_course.html) ---------- */
 const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
