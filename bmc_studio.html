@@ -174,7 +174,7 @@ footer.foot a{color:var(--blue)}
     <div class="tools">
       <a class="home" href="index.html">🏠 หน้าแรก</a>
       <a href="bmc_course.html">📘 บทเรียน BMC</a>
-      <select id="caseSel" title="โหลดเคสตัวอย่าง"><option value="">📂 เคสตัวอย่าง…</option><option value="netflix">Netflix</option><option value="airbnb">Airbnb (สองฝั่ง)</option><option value="uber">Uber (สองฝั่ง)</option></select>
+      <select id="caseSel" title="โหลดเคสตัวอย่าง"><option value="">📂 เคสตัวอย่าง…</option><option value="moping">หมูปิ้งอาจารย์ตั้ม (เคสสอน)</option><option value="netflix">Netflix</option><option value="airbnb">Airbnb (สองฝั่ง)</option><option value="uber">Uber (สองฝั่ง)</option></select>
       <button id="btnExport" title="บันทึกเป็นไฟล์ JSON">⬇ ส่งออก</button>
       <button id="btnImport" title="เปิดไฟล์ JSON">⬆ นำเข้า</button>
       <button id="btnNew" title="เริ่มแคนวาสใหม่">✚ ใหม่</button>
@@ -436,7 +436,7 @@ function renderDetail(){
   }
   detail.style.display='block';detail.style.removeProperty('--dc');
   const ci=st.caseInfo;
-  detail.innerHTML=(ci?`<h4>เกี่ยวกับเคสนี้</h4><p style="font-size:14px">${esc(ci.note)}</p><p class="q">ที่มาของไอเท็ม: ${ci.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')} (เรียบเรียงและย่อเป็นภาษาไทย) · <b>เส้นเชื่อมและระดับ 0–3 เป็นการตีความเพื่อการสอน</b> ไม่ได้มาจากเอกสารของบริษัท</p><hr style="border:none;border-top:1px solid var(--line);margin:10px 0">`:'')+`<h4>เริ่มอย่างไร</h4><p style="font-size:14px">1) เพิ่มไอเท็มฝั่งขวาก่อน (กลุ่มลูกค้า → คุณค่า → ช่องทาง → ความสัมพันธ์ → รายได้) แล้วค่อยฝั่งซ้าย · 2) กดไอเท็ม แล้วกด 🔗 เพื่อผูกกับไอเท็มในช่องที่เกี่ยวข้อง · 3) ดูแท็บ ② และ ③ ว่าตรงไหนยังขาด · 4) ใช้แท็บ ④ ให้ AI ช่วยทวน</p><p class="q">ข้อมูลบันทึกในเบราว์เซอร์นี้อัตโนมัติ · ใช้ "⬇ ส่งออก" เพื่อเก็บเป็นไฟล์หรือส่งให้ผู้สอน</p>`;
+  detail.innerHTML=(ci?`<h4>เกี่ยวกับเคสนี้</h4><p style="font-size:14px">${esc(ci.note)}</p><p class="q">${(ci.src||[]).length?`ที่มาของไอเท็ม: ${ci.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')} (เรียบเรียงและย่อเป็นภาษาไทย) · <b>เส้นเชื่อมและระดับ 0–3 เป็นการตีความเพื่อการสอน</b> ไม่ได้มาจากเอกสารของบริษัท`:esc(ci.srcNote||'')}</p><hr style="border:none;border-top:1px solid var(--line);margin:10px 0">`:'')+`<h4>เริ่มอย่างไร</h4><p style="font-size:14px">1) เพิ่มไอเท็มฝั่งขวาก่อน (กลุ่มลูกค้า → คุณค่า → ช่องทาง → ความสัมพันธ์ → รายได้) แล้วค่อยฝั่งซ้าย · 2) กดไอเท็ม แล้วกด 🔗 เพื่อผูกกับไอเท็มในช่องที่เกี่ยวข้อง · 3) ดูแท็บ ② และ ③ ว่าตรงไหนยังขาด · 4) ใช้แท็บ ④ ให้ AI ช่วยทวน</p><p class="q">ข้อมูลบันทึกในเบราว์เซอร์นี้อัตโนมัติ · ใช้ "⬇ ส่งออก" เพื่อเก็บเป็นไฟล์หรือส่งให้ผู้สอน</p>`;
 }
 
 /* ---------- canvas events ---------- */
@@ -683,6 +683,27 @@ document.getElementById('aiOut').addEventListener('click',e=>{
    ไอเท็ม: เรียบเรียงจากรายงานประจำปี Form 10-K ปี 2024 ที่บริษัทยื่นต่อ SEC (ค้นเมื่อ 2 ต.ค. 2569) + เคสเดิมใน BMC_คือสถาปัตยกรรมไม่ใช่แบบฟอร์ม.md §6
    เส้นเชื่อมและระดับ 0–3: เป็นการตีความเพื่อการสอน ไม่ได้มาจากเอกสารของบริษัท */
 const CASES={
+ moping:{title:'หมูปิ้งอาจารย์ตั้ม (เคสสอน)',
+  srcNote:'เคสสอนสมมติ — คุณค่า 4 ข้อกำหนดโดยผู้สอน (ติดป้าย Fact = สิ่งที่ร้านประกาศ) ช่องอื่นเป็นตัวอย่างประกอบการสอน (ติดป้าย Assumption = ต้องออกไปตรวจกับลูกค้า/ร้านจริง) ไม่ได้อ้างถึงร้านจริง',
+  note:'ทุกคนรู้จักหมูปิ้ง จึงเห็นกลไกได้ชัด: คุณค่า "มาตรฐานเดียวกัน" ต้องมีสูตรหมัก ครัวกลาง และขั้นตอนปิ้งค้ำ ส่วน "เข้าถึงได้ง่าย" ต้องมีทำเลค้ำ — ลองกดแต่ละคุณค่าดูว่ามีอะไรค้ำอยู่ · คำถามชวนคิด: คุณค่ามี 4 บรรทัด เกินกติกา 3 ควรรวมหรือตัดข้อไหน? และ "สูตรหมักเฉพาะ" ไม่มีต้นทุนจริงหรือ?',
+  fact:['vp'],
+  cs:['นักเรียนรีบไปโรงเรียน','คนทำงานซื้อมื้อเช้า'],
+  vp:['อร่อย','สะอาด','เข้าถึงได้ง่าย','มาตรฐานเดียวกัน'],
+  ch:['ร้านหน้าโรงเรียน','สั่งล่วงหน้าทาง LINE'],
+  cr:['สมาชิกสะสมแต้ม','จำลูกค้าประจำ'],
+  rev:['ขายรายไม้และชุดข้าวเหนียว','ออเดอร์ล่วงหน้าแบบกลุ่ม'],
+  ka:['หมักตามสูตรมาตรฐาน','ปิ้งตามขั้นตอน SOP','ตรวจความสะอาดทุกวัน'],
+  kr:['สูตรหมักเฉพาะ','ครัวกลางและเตาปิ้ง','ทำเลใกล้โรงเรียน'],
+  kp:['ร้านเนื้อหมูประจำ','เจ้าของพื้นที่ทำเล'],
+  cost:['ค่าวัตถุดิบ','ค่าแรงพนักงาน','ค่าเช่าทำเลและครัว'],
+  links:[['vp0','cs0',3],['vp0','cs1',3],['vp1','cs0',2],['vp1','cs1',3],['vp2','cs0',3],['vp2','cs1',3],['vp3','cs0',2],['vp3','cs1',2],
+   ['ch0','cs0',3],['ch0','cs1',3],['ch1','cs1',3],['vp0','ch0',2],['vp1','ch0',2],['vp2','ch0',3],['vp2','ch1',2],['vp3','ch0',2],
+   ['cr0','cs0',3],['cr0','cs1',2],['cr1','cs0',2],['cr1','cs1',2],
+   ['rev0','cs0',3],['rev0','cs1',3],['vp0','rev0',3],['vp2','rev0',2],['rev1','cs1',3],['vp3','rev1',2],
+   ['ka0','vp0',3],['ka0','vp3',3],['ka1','vp3',3],['ka1','vp0',2],['ka1','ch0',2],['ka2','vp1',3],
+   ['kr0','vp0',3],['kr0','vp3',3],['kr1','vp3',3],['kr1','vp1',2],['kr2','vp2',3],['kr2','ch0',3],
+   ['kp0','ka0',3],['kp1','kr2',3],
+   ['ka0','cost0',3],['kp0','cost0',3],['ka1','cost1',3],['ka2','cost1',2],['kr2','cost2',3],['kr1','cost2',2],['kp1','cost2',3]]},
  netflix:{title:'Netflix (เคสตัวอย่าง)',
   src:[['Netflix Form 10-K ปี 2024','https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm'],['Netflix Form 10-K ปี 2022 (นิยามค่าใช้จ่าย)','https://www.sec.gov/Archives/edgar/data/1065280/000106528023000035/nflx-20221231.htm']],
   note:'โมเดลสมาชิกฝั่งเดียว: รายได้หลักมาจากค่าสมาชิกรายเดือน ต้นทุนก้อนใหญ่ที่สุดคือค่าตัดจำหน่ายคอนเทนต์ — ลองไล่เส้น "คลังคอนเทนต์" ดูว่าค้ำทั้งคุณค่าและต้นทุนอย่างไร',
@@ -738,8 +759,8 @@ const CASES={
 document.getElementById('caseSel').onchange=e=>{
   const k=e.target.value;e.target.value='';if(!k)return;
   if(st.items.length&&!confirm('โหลดเคสตัวอย่างจะแทนที่แคนวาสปัจจุบัน (ส่งออกเก็บไว้ก่อนได้) — ดำเนินการต่อ?'))return;
-  const c=CASES[k];st=blank();st.title=c.title;st.caseInfo={src:c.src,note:c.note};const map={};
-  ORDER.forEach(b=>(c[b]||[]).forEach((t,i)=>{map[b+i]=addItem(b,t,'F').id;}));
+  const c=CASES[k];st=blank();st.title=c.title;st.caseInfo={src:c.src||[],srcNote:c.srcNote||'',note:c.note};const map={};
+  ORDER.forEach(b=>(c[b]||[]).forEach((t,i)=>{map[b+i]=addItem(b,t,(c.fact||ORDER).includes(b)?'F':'A').id;}));
   c.links.forEach(([x,y,s])=>setLink(map[x],map[y],s,'user'));
   sel=null;selBlock=null;save();showPane('canvas');
   flash('กดไอเท็มใดก็ได้เพื่อดูเส้นเชื่อม · ติ๊ก "แสดงเส้นทั้งหมด" เพื่อดูภาพรวม');
