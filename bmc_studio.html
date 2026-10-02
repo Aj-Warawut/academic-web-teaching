@@ -244,6 +244,7 @@ table.plk td.sc{text-align:center;font-weight:700;width:46px}
     <svg id="lines"></svg>
   </div>
   <div class="legend" id="legend"></div>
+  <p class="q" style="margin:-4px 0 8px">Business Model Canvas โดย Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">Strategyzer.com</a> · CC BY-SA 3.0</p>
   <div class="detail" id="detail"></div>
 </section>
 
@@ -293,7 +294,8 @@ table.plk td.sc{text-align:center;font-weight:700;width:46px}
 </section>
 </main>
 <footer class="foot">
-  © 2569 อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum) · สงวนลิขสิทธิ์<br>
+  © 2569 อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum) · สงวนลิขสิทธิ์เครื่องมือ เนื้อหา และเคสประกอบการสอน<br>
+  Business Model Canvas โดย Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">Strategyzer.com</a> · เผยแพร่ภายใต้ <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a><br>
   คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · <a href="bmc_course.html">บทเรียน Business Model Canvas</a>
 </footer>
 <div id="tip"></div>
@@ -906,9 +908,9 @@ document.getElementById('btnPdf').onclick=()=>{
   const head=sub=>`<div class="phead"><span><b>${esc(st.title||'Business Model Canvas')}</b> · ${sub}</span><span>${date} · BMC Studio · © อ.ดร.วราวุฒิ นาคบุญนำ</span></div>`;
   const L=st.links.filter(l=>l.s>0&&item(l.a)&&item(l.b));
   const cs=itemsOf('cs');
-  let h=`<div class="ppage">${head('Business Model Canvas')}<div class="pwrap">${printGrid(null)}<svg></svg></div><p class="q" style="margin-top:6px">รหัสไอเท็ม (เช่น VP1) ใช้อ้างอิงกับตารางเส้นเชื่อม · หน้าถัดไปแสดงเส้นเชื่อมแยกตามสายของกลุ่มลูกค้า</p></div>`;
+  let h=`<div class="ppage">${head('Business Model Canvas')}<div class="pwrap">${printGrid(null)}<svg></svg></div><p class="q" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · Strategyzer.com · CC BY-SA 3.0 · รหัสไอเท็ม (เช่น VP1) ใช้อ้างอิงกับตารางเส้นเชื่อม · หน้าถัดไปแสดงเส้นเชื่อมแยกตามสายของกลุ่มลูกค้า</p></div>`;
   const segPages=cs.map(c=>{const M=segMembers(c.id);return {c,M,links:L.filter(l=>M.has(l.a)&&M.has(l.b))};});
-  segPages.forEach((p,k)=>{h+=`<div class="ppage" data-seg="${k}">${head('สายของกลุ่มลูกค้า')}<p class="psub"><b>${codeOf(p.c.id)} ${esc(p.c.t)}</b> — ไอเท็มที่จางคือไม่อยู่ในสายของกลุ่มนี้ · เส้นหนา = ระดับความสอดคล้องสูง (${p.links.length} เส้น)</p><div class="pwrap">${printGrid(p.M)}<svg></svg></div></div>`;});
+  segPages.forEach((p,k)=>{h+=`<div class="ppage" data-seg="${k}">${head('สายของกลุ่มลูกค้า')}<p class="psub"><b>${codeOf(p.c.id)} ${esc(p.c.t)}</b> — ไอเท็มที่จางคือไม่อยู่ในสายของกลุ่มนี้ · เส้นหนา = ระดับความสอดคล้องสูง (${p.links.length} เส้น)</p><div class="pwrap">${printGrid(p.M)}<svg></svg></div><p class="q" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · Strategyzer.com · CC BY-SA 3.0</p></div>`;});
   const rows=PAIRS.map((pr,pi)=>L.filter(l=>pairOf(item(l.a).b,item(l.b).b)===pi).map(l=>{const a=item(l.a).b===pr[0]?l.a:l.b,b=a===l.a?l.b:l.a;
     return `<tr><td>${codeOf(a)} ${esc(item(a).t)}</td><td>${codeOf(b)} ${esc(item(b).t)}</td><td class="sc">${l.s}</td></tr>`;}).join('')).join('');
   h+=`<div class="ppage">${head('ตารางเส้นเชื่อม')}<p class="psub">ทั้งหมด ${L.length} เส้น · ระดับ 1 = อ่อน · 2 = ชัด · 3 = แกนหลัก</p><div class="plkcols"><table class="plk"><tr><th>ไอเท็ม</th><th>เชื่อมกับ</th><th>ระดับ</th></tr>${rows||'<tr><td colspan="3">ยังไม่มีเส้นเชื่อม</td></tr>'}</table></div></div>`;

@@ -148,6 +148,16 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 .checks li{margin:6px 0;font-size:14.5px}.checks input{margin-right:8px;transform:scale(1.15);accent-color:var(--green)}
 .saved{font-size:12.5px;color:var(--mute);margin-left:10px}
 .confirm{display:inline-flex;gap:8px;align-items:center;font-size:13.5px;margin-left:8px}
+.printonly{display:none}
+@media print{
+  @page{margin:12mm}
+  body{display:block!important;overflow:visible!important;background:#fff}
+  .printonly{display:block!important}
+  .gc-views{display:none!important}
+  .pcopy{font-size:9pt;color:#5C6B7A;line-height:1.5}
+  #printTop{border-bottom:1px solid #DCE3EC;padding-bottom:4px;margin-bottom:10px;display:flex!important;justify-content:space-between;gap:10px}
+  #printFoot{border-top:1px solid #DCE3EC;padding-top:6px;margin-top:18px;break-inside:avoid}
+}
 @media print{#sidebar,#toolbar,#menuToggle,.navbtns,.noprint{display:none!important}#main{height:auto;overflow:visible}.wrap{max-width:100%}body{display:block;overflow:visible}}
 </style>
 </head>
@@ -163,14 +173,14 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 </div>
 <aside id="sidebar">
   <div class="brand" onclick="go(0)">
-    <div class="kick">CAPSTONE · ต่อยอดจาก BMC</div>
+    <div class="kick">สื่อการสอนโต้ตอบ · ต่อยอดจาก BMC</div>
     <h1>Value Proposition Canvas</h1>
     <div class="sub">ออกแบบคุณค่าที่ลูกค้าต้องการจริง (โต้ตอบ)</div>
   </div>
   <nav id="nav"></nav>
   <div class="foot">กดหัวข้อทางซ้าย หรือ ◀ ▶ / ลูกศร · กดโลโก้กลับหน้าแรก<br><a href="bmc_course.html" style="color:#F4C150">← บทเรียน Business Model Canvas</a><br><br>© อ.ดร.วราวุฒิ นาคบุญนำ<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
 </aside>
-<main id="main"><div id="progress"><div class="bar"></div></div><div class="wrap" id="content"></div></main>
+<main id="main"><div id="progress"><div class="bar"></div></div><div id="printTop" class="printonly pcopy"><span>© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</span><span class="psrc"></span></div><div class="wrap" id="content"></div><div id="printFoot" class="printonly pcopy">© 2569 อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum) · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · สงวนลิขสิทธิ์เนื้อหาและเคสประกอบการสอน<br>Value Proposition Canvas © Strategyzer AG · Strategyzer.com · Business Model Canvas โดย Strategyzer AG (CC BY-SA 3.0)<br><span class="psrc"></span></div></main>
 <script>
 /* ---------- zone data (Osterwalder, Pigneur, Bernarda & Smith, 2014) ---------- */
 const Z={
@@ -209,7 +219,7 @@ const svgVPC=(id)=>`<svg class="vpcsvg" id="${id}" viewBox="0 0 900 430" role="g
 
 const S=[
 { id:"cover", group:"บทนำ", nav:"หน้าปก", icon:"0", html:`
-  <div class="hero"><div class="kick">CAPSTONE · ต่อยอดจาก BUSINESS MODEL CANVAS</div>
+  <div class="hero"><div class="kick">ต่อยอดจาก BUSINESS MODEL CANVAS</div>
     <h2>Value Proposition Canvas<br>ออกแบบคุณค่าที่ลูกค้าต้องการจริง</h2>
     <p>หลักสูตรการจัดการสมัยใหม่ · คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</p>
     <div class="pills"><span class="pill">Customer Profile</span><span class="pill">Value Map</span><span class="pill">Fit</span><span class="pill">โต้ตอบ · กรอกได้</span></div>
@@ -529,5 +539,6 @@ const start=S.findIndex(s=>'#'+s.id===location.hash);go(start>0?start:0);
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+<script>(function(){if(/^https?:/.test(location.protocol)){var u=location.origin+location.pathname;document.querySelectorAll(".psrc").forEach(function(e){e.textContent="ที่มา: "+u;});}})();</script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- Prototype · Business Model Canvas (Capstone) · สร้างจาก ResearchLab interactive lesson template · แก้ไขได้ ไม่พึ่ง Canva -->
+<!-- Prototype · Business Model Canvas · สร้างจาก ResearchLab interactive lesson template · แก้ไขได้ ไม่พึ่ง Canva -->
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Model Canvas · Capstone · อ.ดร.วราวุฒิ นาคบุญนำ</title>
+<title>Business Model Canvas · อ.ดร.วราวุฒิ นาคบุญนำ</title>
 <style>
 :root{
   --navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold2:#F4C150;--purple:#8A56D6;--red:#C0392B;--green:#2E7D5B;
@@ -47,6 +47,33 @@ ul.clean li::before{content:"";position:absolute;left:4px;top:14px;width:8px;hei
 .callout{border-radius:12px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:5px solid}
 .callout.tip{background:#FBEFD8;border-color:var(--amber)}.callout.info{background:var(--tint);border-color:var(--blue)}.callout.ok{background:#E9F5EF;border-color:var(--green)}
 .callout b{color:var(--navy)}
+.callout.warn{background:#FBE9E7;border-color:var(--red)}
+.callout.link{background:#fff;border-color:var(--teal)}
+.callout.case{background:#FFF8EC;border-color:#d0632f}
+.callout ul{margin:6px 0 0 20px}.callout li{margin:2px 0}
+ul.lnk{list-style:none;margin:8px 0 0!important}ul.lnk li{display:flex;gap:8px;align-items:baseline;margin:5px 0!important}
+.bk{flex:0 0 auto;display:inline-block;background:var(--c);color:#fff;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:700;white-space:nowrap}
+@media(max-width:560px){ul.lnk li{flex-direction:column;gap:2px}}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 10px}
+.rung{border-radius:12px;padding:12px 14px;color:#fff}.rung b{display:block;font-size:15px}.rung span{font-size:13.5px;opacity:.95}
+.rung.r1{background:#86b6ef;color:#0d366b}.rung.r2{background:#3987e5}.rung.r3{background:#1c5cab}
+.faq{background:#fff;border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;box-shadow:var(--shadow)}
+.faq.ok{border-left-color:var(--green)}.faq.no{border-left-color:var(--red)}
+.faq-s{font-size:15px;font-weight:600;color:var(--navy)}.faq-b{display:flex;gap:8px;margin:8px 0 4px;flex-wrap:wrap}.faq-b .btn{padding:6px 14px;font-size:13.5px}
+.faq-r{font-size:14px;color:var(--ink)}
+.amap{display:grid;grid-template-columns:28px 1fr 1fr;grid-template-rows:auto auto auto;gap:8px;margin:10px 0}
+.amap .ax-y{grid-row:1/3;grid-column:1;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-size:13px;color:var(--mute);font-weight:700}
+.amap .ax-x{grid-column:2/4;text-align:center;font-size:13px;color:var(--mute);font-weight:700}
+.amap .q{border-radius:12px;padding:10px 12px;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;gap:5px;min-height:110px}
+.amap .q b{font-size:15px;color:var(--navy)}.amap .q small{font-size:12px;color:var(--mute);margin-top:-4px}
+.amap .q1{grid-column:2;grid-row:1;background:#FBE9E7;border-color:var(--red)}.amap .q2{grid-column:3;grid-row:1;background:#E9F5EF}
+.amap .q3{grid-column:2;grid-row:2}.amap .q4{grid-column:3;grid-row:2}
+.amap .it{background:#fff;border:1px dashed var(--line);border-radius:7px;padding:3px 8px;font-size:13px}
+@media(max-width:760px){.ladder{grid-template-columns:1fr}}
+.tblwrap{overflow-x:auto}
+table.tbl{border-collapse:collapse;width:100%;font-size:14px;background:#fff;box-shadow:var(--shadow);border-radius:12px;overflow:hidden}
+table.tbl th,table.tbl td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+table.tbl tr:first-child th{background:var(--tint);color:var(--navy)}
 .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:18px;padding:38px 34px;margin-bottom:8px}
 .hero .kick{color:var(--amber);font-weight:700;letter-spacing:2px;font-size:13px}
 .hero h2{font-size:32px;margin:10px 0;line-height:1.25}.hero p{color:#CADCFC;font-size:16px;margin:0}
@@ -117,6 +144,16 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 .bcell .fill{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;font-family:inherit;font-size:12px;color:var(--ink);resize:vertical;min-height:46px;background:#fff}
 .vbox{background:#000;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
 .vbox video{width:100%;height:auto;display:block;aspect-ratio:16/9}
+.printonly{display:none}
+@media print{
+  @page{margin:12mm}
+  body{display:block!important;overflow:visible!important;background:#fff}
+  .printonly{display:block!important}
+  .gc-views{display:none!important}
+  .pcopy{font-size:9pt;color:#5C6B7A;line-height:1.5}
+  #printTop{border-bottom:1px solid #DCE3EC;padding-bottom:4px;margin-bottom:10px;display:flex!important;justify-content:space-between;gap:10px}
+  #printFoot{border-top:1px solid #DCE3EC;padding-top:6px;margin-top:18px;break-inside:avoid}
+}
 @media print{#sidebar,#toolbar,#menuToggle,.navbtns{display:none!important}#main{height:auto;overflow:visible}.wrap{max-width:100%}}
 </style>
 </head>
@@ -132,22 +169,50 @@ body.projector .wrap{max-width:1180px;padding:70px 60px 120px}
 </div>
 <aside id="sidebar">
   <div class="brand" onclick="go(0)">
-    <div class="kick">CAPSTONE · การจัดการสมัยใหม่</div>
+    <div class="kick">สื่อการสอนโต้ตอบ</div>
     <h1>Business Model Canvas</h1>
-    <div class="sub">การวิเคราะห์โครงการธุรกิจด้วย BMC (โต้ตอบ)</div>
+    <div class="sub">ออกแบบและวิเคราะห์โมเดลธุรกิจด้วย BMC</div>
   </div>
   <nav id="nav"></nav>
-  <div class="foot">กดหัวข้อทางซ้าย หรือ ◀ ▶ / ลูกศร · กดโลโก้กลับหน้าแรก<br><br>© อ.ดร.วราวุฒิ นาคบุญนำ<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+  <div class="foot">กดหัวข้อทางซ้าย หรือ ◀ ▶ / ลูกศร · กดโลโก้กลับหน้าแรก<br><br>© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · สงวนลิขสิทธิ์<br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
 </aside>
-<main id="main"><div id="progress"><div class="bar"></div></div><div class="wrap" id="content"></div></main>
+<main id="main"><div id="progress"><div class="bar"></div></div><div id="printTop" class="printonly pcopy"><span>© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</span><span class="psrc"></span></div><div class="wrap" id="content"></div><div id="printFoot" class="printonly pcopy">© 2569 อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum) · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · สงวนลิขสิทธิ์เนื้อหาและเคสประกอบการสอน<br>Business Model Canvas โดย Strategyzer AG · Strategyzer.com · เผยแพร่ภายใต้ CC BY-SA 3.0<br><span class="psrc"></span></div></main>
 <script>
+/* ช่องที่ต้องเชื่อมกัน — ชุดเดียวกับ PAIRS ใน bmc_studio.html (กรอบช่วยสอน อิงตรรกะ Osterwalder & Pigneur, 2010) */
+const BKN={cs:'กลุ่มลูกค้า',vp:'คุณค่าที่นำเสนอ',ch:'ช่องทาง',cr:'ความสัมพันธ์ลูกค้า',rev:'กระแสรายได้',kr:'ทรัพยากรหลัก',ka:'กิจกรรมหลัก',kp:'พันธมิตรหลัก',cost:'โครงสร้างต้นทุน'};
+const LINKQ={
+ cs:[['vp','ลูกค้ากลุ่มนี้ได้คุณค่าข้อไหน (ทุกกลุ่มต้องมีคุณค่าของตัวเอง)'],['ch','เข้าถึงกลุ่มนี้ผ่านช่องทางใด'],['cr','กลุ่มนี้คาดหวังความสัมพันธ์แบบใด'],['rev','กลุ่มนี้จ่ายรายได้ก้อนใด หรือเป็นฝั่งที่ไม่จ่าย']],
+ vp:[['cs','คุณค่านี้ตอบงาน/ปัญหาของลูกค้ากลุ่มไหน'],['ch','ส่งมอบคุณค่านี้ผ่านช่องทางใด'],['cr','ความสัมพันธ์สอดคล้องกับคุณค่าที่สัญญาไว้ไหม'],['rev','ลูกค้ายอมจ่ายเพื่อคุณค่านี้หรือไม่'],['ka','ต้องมีกิจกรรมใดค้ำ'],['kr','ต้องมีทรัพยากรใดค้ำ']],
+ ch:[['cs','ช่องทางนี้เข้าถึงกลุ่มลูกค้านั้นได้จริงไหม'],['vp','ส่งมอบคุณค่าใด'],['ka','ต้องมีกิจกรรมใดทำให้ช่องทางทำงาน'],['kr','ต้องมีทรัพยากรใดค้ำช่องทาง']],
+ cr:[['cs','ความสัมพันธ์นี้สำหรับลูกค้ากลุ่มไหน'],['vp','สอดคล้องกับคุณค่าที่สัญญาไว้ไหม'],['ka','ต้องมีกิจกรรมใดสร้าง/รักษาความสัมพันธ์'],['kr','ต้องมีทรัพยากรใดค้ำ']],
+ rev:[['cs','กลุ่มไหนเป็นผู้จ่าย'],['vp','จ่ายเพื่อคุณค่าข้อไหน'],['cost','รายได้รวมครอบคลุมต้นทุนรวมไหม (ตรรกะกำไร)']],
+ kr:[['vp','ค้ำคุณค่าข้อไหน'],['ch','ค้ำช่องทางใด'],['cr','ค้ำความสัมพันธ์ใด'],['kp','ได้มาจากพันธมิตรหรือไม่'],['cost','ทำให้เกิดต้นทุนก้อนใด']],
+ ka:[['vp','ทำเพื่อสร้างคุณค่าข้อไหน'],['ch','ทำให้ช่องทางใดทำงาน'],['cr','สร้าง/รักษาความสัมพันธ์ใด'],['kp','พันธมิตรทำแทนหรือร่วมทำไหม'],['cost','ทำให้เกิดต้นทุนก้อนใด']],
+ kp:[['ka','ทำกิจกรรมใดแทนหรือร่วมกับเรา'],['kr','จัดหาทรัพยากรใดให้'],['cost','มีต้นทุนหรือข้อผูกมัดอะไร']],
+ cost:[['ka','มาจากกิจกรรมใด'],['kr','มาจากทรัพยากรใด'],['kp','มาจากพันธมิตรใด'],['rev','รายได้ครอบคลุมต้นทุนนี้ไหม (ตรรกะกำไร)']]
+};
+function LINKS(b){return `<div class="callout link"><b>ช่องนี้ต้องเชื่อมกับ</b> (ห้ามเป็นช่องโดดเดี่ยว)<ul class="lnk">${LINKQ[b].map(([o,q])=>`<li><span class="bk" style="--c:var(--${o})">${BKN[o]}</span><span>${q}</span></li>`).join('')}</ul><div class="srcline" style="margin-top:6px">ลองผูกเส้นและตรวจความสอดคล้องจริงได้ใน <a href="bmc_studio.html" style="color:var(--blue);font-weight:700">BMC Studio →</a></div></div>`;}
+function CASE(t){return `<div class="callout case"><b>🍢 ตัวอย่าง: หมูปิ้งอาจารย์ตั้ม</b> <span class="srcline">(เคสสอนสมมติ)</span><p style="margin:6px 0 0">${t}</p></div>`;}
+/* แบบฝึก Fact/Assumption — [ข้อความ, คำตอบ, คำอธิบาย] (เคสสอนสมมติ) */
+const FAQ=[
+ ['ถามเพื่อน 5 คน ทุกคนบอกว่าหมูปิ้งเราอร่อย','A','เป็น<b>ความเห็น</b>ของคนใกล้ตัว — หลักฐานอ่อนที่สุด ยังเป็นข้อสมมติ'],
+ ['สมุดบัญชีร้านเดือนที่แล้ว ขายได้เฉลี่ยวันละ 300 ไม้','F','เป็น<b>การกระทำจริง</b>ของลูกค้า (ยอดขายที่บันทึกไว้) — หลักฐานแข็ง'],
+ ['คนทำงานแถวนี้ต้องสั่งล่วงหน้าทาง LINE แน่นอน','A','เป็นความ<b>มั่นใจ</b>ของทีม ยังไม่มีหลักฐาน — ต้องเปิดรับออเดอร์จริงก่อน'],
+ ['สัปดาห์ทดลองเปิด LINE มีลูกค้า 40 คนสั่งและมารับจริง','F','ลูกค้า<b>ลงมือสั่งและจ่ายจริง</b> — หลักฐานแข็ง'],
+ ['ลูกค้า 8 ใน 10 ตอบแบบสอบถามว่า ถ้ามีบัตรอิ่มรายเดือนจะซื้อ','A','เป็น<b>ความตั้งใจ</b> ("ถ้ามี จะซื้อ") — หลักฐานปานกลาง ยังไม่ใช่การซื้อจริง ลองขายจริงแบบจำกัดจำนวนก่อน'],
+ ['ร้านเนื้อหมูประจำส่งของตรงเวลาทุกวันตลอด 3 เดือนที่ผ่านมา','F','เป็น<b>ข้อมูลที่เกิดขึ้นจริง</b>ต่อเนื่อง — แต่อย่าลืมว่า Fact หมดอายุได้ ต้องติดตามต่อ']
+];
+function faAns(btn,a){const box=btn.closest('.faq'),q=FAQ[+box.dataset.i],ok=q[1]===a;
+  box.querySelectorAll('.faq-b .btn').forEach(b=>b.classList.remove('primary'));btn.classList.add('primary');
+  box.querySelector('.faq-r').innerHTML=(ok?'<b style="color:var(--green)">✓ ถูกต้อง</b> — ':'<b style="color:var(--red)">✗ ยังไม่ใช่</b> — คำตอบคือ <b>'+(q[1]==='F'?'Fact':'Assumption')+'</b> · ')+q[2];
+  box.classList.toggle('ok',ok);box.classList.toggle('no',!ok);}
 const S=[
-{ id:"cover", group:"บทนำ", nav:"หน้าปก & Capstone", icon:"0", html:`
-  <div class="hero"><div class="kick">CAPSTONE · ปีการศึกษา 2567–2568</div>
-    <h2>การวิเคราะห์โครงการธุรกิจด้วย Business Model Canvas</h2>
-    <p>หลักสูตรการจัดการสมัยใหม่ · คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</p>
+{ id:"cover", group:"บทนำ", nav:"หน้าปก", icon:"0", html:`
+  <div class="hero"><div class="kick">BUSINESS MODEL CANVAS · สื่อการสอนโต้ตอบ</div>
+    <h2>ออกแบบและวิเคราะห์โมเดลธุรกิจด้วย Business Model Canvas</h2>
+    <p>คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</p>
     <div class="pills"><span class="pill">BMC 9 องค์ประกอบ</span><span class="pill">Customer Profile & Value Map</span><span class="pill">โต้ตอบ · แก้ไขได้</span></div>
-    <p style="margin-top:14px;font-size:12.5px;color:#9DB0D6">© อ.ดร.วราวุฒิ นาคบุญนำ</p></div>
+    <p style="margin-top:14px;font-size:12.5px;color:#9DB0D6">© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · สงวนลิขสิทธิ์เนื้อหาและเคสประกอบการสอน · Business Model Canvas โดย Strategyzer AG (CC BY-SA 3.0)</p></div>
   <h3>ความสำคัญของการบูรณาการองค์ความรู้</h3>
   <p>การผสมผสานความรู้จากหลากหลายศาสตร์เพื่อแก้ปัญหาและพัฒนานวัตกรรมในโครงการธุรกิจ ท่ามกลาง<b>การเปลี่ยนแปลงทางเทคโนโลยี</b>และ<b>การแข่งขันที่รุนแรง</b> — เพื่อสร้างรูปแบบธุรกิจที่สร้างคุณค่าและเพิ่มความสามารถในการแข่งขัน</p>
   <div class="grid c4">
@@ -159,25 +224,25 @@ const S=[
   <div class="callout info"><b>เครื่องมือบูรณาการ:</b> Business Model Canvas · Design Thinking · Disruptive Innovation · Lean Startup</div>
 `},
 { id:"intro", group:"บทนำ", nav:"รู้จัก Business Model Canvas", icon:"1", html:`
-  <div class="eyebrow">บทที่ 2</div><h2 class="title">Business Model Canvas คืออะไร</h2>
+  <div class="eyebrow">บทนำ</div><h2 class="title">Business Model Canvas คืออะไร</h2>
   <p class="lead">เครื่องมือมองภาพรวมธุรกิจใน 1 หน้า — คิดค้นโดย ดร.Alexander Osterwalder</p>
   <div class="grid c2">
-    <div class="card"><h4>ที่มา</h4><p>คิดค้นโดย <b>Alexander Osterwalder</b> (มหาวิทยาลัยโลซานน์ สวิตเซอร์แลนด์) ผู้เขียน <i>Business Model Generation</i> ใช้เวลากว่า 9 ปี ร่วมกับชุมชนนักธุรกิจกว่า 470 คนจาก 45 ประเทศ</p></div>
-    <div class="card"><h4>จุดเด่น</h4><p>เห็นภาพรวมธุรกิจได้เร็ว ตัดข้อมูลไม่จำเป็น แก้ไข/brainstorm ง่าย ใช้ได้ตั้งแต่ Startup ถึงองค์กรใหญ่ (3M, Microsoft, Lego, Coca-Cola) และทำให้ทุกคนเข้าใจกลยุทธ์ตรงกัน</p></div>
+    <div class="card"><h4>ที่มา</h4><p>พัฒนาโดย <b>Alexander Osterwalder</b> ร่วมกับ <b>Yves Pigneur</b> เผยแพร่ในหนังสือ <i>Business Model Generation</i> (2010) ซึ่งร่วมสร้างกับผู้ปฏิบัติงานจริง 470 คนจาก 45 ประเทศ</p></div>
+    <div class="card"><h4>จุดเด่น</h4><p>เห็นภาพรวมธุรกิจได้เร็ว ตัดข้อมูลไม่จำเป็น แก้ไข/brainstorm ง่าย ใช้ได้ตั้งแต่ Startup กิจการเพื่อสังคม ไปจนถึงองค์กรระดับ Fortune 500 และหน่วยงานรัฐ และทำให้ทุกคนเข้าใจกลยุทธ์ตรงกัน</p></div>
   </div>
   <div class="stat">
-    <div class="statc"><div class="n">5 ล้าน+</div><div class="l">ผู้ใช้ BMC ทั่วโลก</div></div>
-    <div class="statc"><div class="n">36%</div><div class="l">ใช้พัฒนาธุรกิจใหม่</div></div>
-    <div class="statc"><div class="n">470 คน</div><div class="l">ร่วมพัฒนาแนวคิด · 45 ประเทศ</div></div>
+    <div class="statc"><div class="n">5 ล้าน+</div><div class="l">ครั้งที่ดาวน์โหลดแคนวาส (Strategyzer, 2015)</div></div>
+    <div class="statc"><div class="n">1,300+</div><div class="l">ผู้ใช้ที่ตอบแบบสำรวจ — ส่วนใหญ่ใช้สร้างธุรกิจใหม่/สินค้าใหม่</div></div>
+    <div class="statc"><div class="n">470 คน</div><div class="l">ร่วมสร้างหนังสือ · 45 ประเทศ</div></div>
   </div>
   <h3>3 ขั้นตอนของรูปแบบธุรกิจ</h3>
   <div class="stages">
-    <div class="stg" style="background:var(--blue)"><b>Produce Value</b><span>สร้างสินค้า/บริการที่มีคุณค่าต่อกลุ่มลูกค้า</span></div>
+    <div class="stg" style="background:var(--blue)"><b>Create Value</b><span>สร้างสินค้า/บริการที่มีคุณค่าต่อกลุ่มลูกค้า</span></div>
     <div class="stg" style="background:var(--teal)"><b>Deliver Value</b><span>ส่งมอบ/กระจายสู่ตลาดและขาย</span></div>
-    <div class="stg" style="background:var(--amber)"><b>Capture Value</b><span>ทำกำไรสุทธิหลังผลิตและขาย</span></div>
+    <div class="stg" style="background:var(--amber)"><b>Capture Value</b><span>เก็บคุณค่ากลับมาเป็นรายได้และกำไร</span></div>
   </div>
   <div class="callout tip"><b>ข้อคิด:</b> ธุรกิจที่สำเร็จมักไม่สำเร็จด้วยไอเดียแรก แต่ผ่านการปรับปรุงหลายรอบ — การเชี่ยวชาญแต่ละช่องของ BMC ช่วยเปลี่ยนวิธีคิดและสร้างโมเดลธุรกิจที่หลากหลาย</div>
-  <p class="srcline">อ้างอิง: Osterwalder & Pigneur, Business Model Generation (2010) · Strategyzer</p>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · Strategyzer (2015), <a href="https://www.strategyzer.com/library/why-and-how-organizations-around-the-world-apply-the-business-model-canvas" target="_blank" rel="noopener">Why and How Organizations Around the World Apply the Business Model Canvas</a> — สถิติการดาวน์โหลดและการสำรวจผู้ใช้ ณ ปี 2015</p>
 `},
 { id:"architecture", group:"บทนำ", nav:"หลักคิด: สถาปัตยกรรม ไม่ใช่แบบฟอร์ม", icon:"✦", html:`
   <div class="eyebrow">หลักคิดก่อนลงมือ</div><h2 class="title">BMC คือ "สถาปัตยกรรมของธุรกิจ" ไม่ใช่แบบฟอร์มให้เติมข้อมูล</h2>
@@ -237,100 +302,191 @@ const S=[
     <button class="bcell b-rev" data-b="rev"><span class="bi">📈</span><b>กระแสรายได้</b><span>Revenue Streams</span></button>
   </div>
   <div class="bmcDetail" id="bmcDetail"></div>
+  <p class="srcline" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">Strategyzer.com</a> · เผยแพร่ภายใต้ <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></p>
 `},
 { id:"cs", group:"9 องค์ประกอบ", nav:"1 · Customer Segments", icon:"CS", html:`
-  <div class="eyebrow">องค์ประกอบที่ 1</div><h2 class="title">Customer Segments · กลุ่มลูกค้าเป้าหมาย</h2>
+  <div class="eyebrow">องค์ประกอบที่ 1 / 9</div><h2 class="title">Customer Segments · กลุ่มลูกค้าเป้าหมาย</h2>
   <p class="lead">"เราสร้างคุณค่าให้ใคร และใครคือลูกค้าที่สำคัญที่สุด"</p>
-  <p>การวิเคราะห์กลุ่มลูกค้าเป้าหมายช่วยให้ผู้ประกอบการระบุและเข้าใจลูกค้าที่ธุรกิจต้องการเข้าถึงและสร้างคุณค่าให้ การกำหนดกลุ่มที่ชัดเจนเป็นพื้นฐานของกลยุทธ์การตลาดและการสร้างข้อเสนอที่ตรงใจ</p>
-  <h3>ความสำคัญ</h3>
-  <ul class="clean">
-    <li>เข้าใจความต้องการและพฤติกรรมของลูกค้าชัดเจนขึ้น</li>
-    <li>จัดสรรทรัพยากรไปยังกลุ่มที่มีโอกาสทางธุรกิจสูง</li>
-    <li>พัฒนาสินค้า/บริการที่ตอบโจทย์ได้ตรงจุด</li>
-    <li>กำหนดกลยุทธ์การตลาดและการสื่อสารที่มีประสิทธิภาพ</li>
-    <li>วัดผลและปรับปรุงความพึงพอใจของลูกค้าได้อย่างเป็นระบบ</li>
-  </ul>
+  <p>กลุ่มลูกค้าคือกลุ่มคนหรือองค์กรที่ธุรกิจต้องการเข้าถึงและสร้างคุณค่าให้ เป็น<b>จุดเริ่มต้นของทุกช่อง</b> — คุณค่า ช่องทาง ความสัมพันธ์ และรายได้ ล้วนออกแบบ "ให้กลุ่มใดกลุ่มหนึ่ง" เสมอ ไม่มีโมเดลธุรกิจใดอยู่ได้โดยไม่มีลูกค้าที่ทำกำไร</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>เราสร้างคุณค่าให้ใคร?</li><li>ใครคือลูกค้าที่สำคัญที่สุดของเรา?</li></ul>
+  <h3>เมื่อไรต้องแยกเป็น "กลุ่มใหม่"</h3>
+  <p>ลูกค้าสองกลุ่มควรแยกเป็นคนละ segment เมื่อ (Osterwalder & Pigneur, 2010):</p>
+  <div class="grid c2">
+    <div class="card"><h4><span class="num">1</span>ต้องการข้อเสนอต่างกัน</h4><p>ความต้องการต่างจนต้องมีคุณค่า/สินค้าแยก</p></div>
+    <div class="card"><h4><span class="num">2</span>เข้าถึงคนละช่องทาง</h4><p>ต้องใช้ช่องทางจัดจำหน่าย/สื่อสารต่างกัน</p></div>
+    <div class="card"><h4><span class="num">3</span>ต้องการความสัมพันธ์ต่างกัน</h4><p>กลุ่มหนึ่งอยากบริการตนเอง อีกกลุ่มต้องมีคนดูแล</p></div>
+    <div class="card"><h4><span class="num">4</span>ทำกำไรต่างกันมาก</h4><p>กำไรต่อรายหรือต่อครั้งต่างกันอย่างมีนัยสำคัญ</p></div>
+    <div class="card"><h4><span class="num">5</span>ยอมจ่ายเพื่อคนละสิ่ง</h4><p>จ่ายเพื่อแง่มุมต่างกันของข้อเสนอเดียวกัน</p></div>
+  </div>
   <h3>ประเภทของกลุ่มลูกค้า</h3>
   <div class="grid c2">
-    <div class="card"><h4>Mass Market</h4><p>ตลาดมวลชน ไม่แบ่งกลุ่มชัด (เช่น สินค้าอุปโภคบริโภค)</p></div>
-    <div class="card"><h4>Niche Market</h4><p>ตลาดเฉพาะกลุ่ม ความต้องการจำเพาะ</p></div>
-    <div class="card"><h4>Segmented</h4><p>แบ่งหลายกลุ่มย่อยที่ความต้องการต่างกันเล็กน้อย</p></div>
-    <div class="card"><h4>Multi-sided</h4><p>สองฝั่งที่ต้องมีพร้อมกัน (เช่น แพลตฟอร์ม ผู้ซื้อ–ผู้ขาย)</p></div>
+    <div class="card"><h4>Mass Market · ตลาดมวลชน</h4><p>ไม่แยกกลุ่ม ทุกคนมีความต้องการคล้ายกัน คุณค่า ช่องทาง และความสัมพันธ์ออกแบบชุดเดียว (เช่น เครื่องใช้ไฟฟ้าทั่วไป)</p></div>
+    <div class="card"><h4>Niche Market · ตลาดเฉพาะกลุ่ม</h4><p>เจาะกลุ่มเล็กที่มีความต้องการจำเพาะ ทุกช่องออกแบบให้กลุ่มนี้โดยเฉพาะ (เช่น ผู้ผลิตชิ้นส่วนให้ผู้ผลิตรถยนต์รายใหญ่)</p></div>
+    <div class="card"><h4>Segmented · แบ่งกลุ่มย่อย</h4><p>หลายกลุ่มที่ความต้องการต่างกัน<b>เล็กน้อย</b> (เช่น ธนาคารแยกลูกค้าทั่วไปกับลูกค้าสินทรัพย์สูง)</p></div>
+    <div class="card"><h4>Diversified · หลากหลาย</h4><p>หลายกลุ่มที่<b>ไม่เกี่ยวข้องกันเลย</b> ความต้องการต่างกันมาก (เช่น บริษัทที่ขายทั้งสินค้าปลีกและบริการคลาวด์ให้ธุรกิจ)</p></div>
+    <div class="card"><h4>Multi-sided · หลายฝั่ง</h4><p>สองกลุ่มขึ้นไปที่<b>ต้องพึ่งพากัน</b> ขาดฝั่งใดโมเดลไม่ทำงาน (เช่น บัตรเครดิต ต้องมีทั้งผู้ถือบัตรและร้านค้าที่รับบัตร)</p></div>
   </div>
-  <h3>เครื่องมือ: Value Proposition Canvas</h3>
-  <div class="callout info"><b>Customer Profile</b> (โปรไฟล์ลูกค้า) จับคู่กับ <b>Value Map</b> (แผนที่คุณค่า) เพื่อออกแบบคุณค่าที่ตรงใจ — Customer Profile ประกอบด้วย งานที่ลูกค้าต้องทำ (Jobs) · ความเจ็บปวด (Pains) · สิ่งที่อยากได้ (Gains) — <a href="vpc_course.html" style="color:var(--blue);font-weight:700">เปิดบทเรียน VPC</a></div>
-  <div class="callout ok"><b>คำถามชวนคิด:</b> กลุ่มลูกค้าที่สำคัญที่สุดของโครงการคุณคือใคร? เขามีปัญหา/ความต้องการอะไร? และคุณจะเข้าถึงเขาได้อย่างไร?</div>
-  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010) · Value Proposition Design</p>
+  <div class="callout info"><b>ผู้ใช้ ≠ ผู้จ่าย:</b> โดยเฉพาะในแพลตฟอร์มหลายฝั่ง คนที่ใช้บริการอาจไม่ใช่คนที่จ่ายเงิน ต้องระบุให้ชัดว่ากลุ่มไหน "ใช้" กลุ่มไหน "จ่าย" — โยงตรงไปที่ช่องกระแสรายได้</div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนกว้างเกินไป เช่น "SME" "คนทั่วไป" "วัยรุ่น" — ให้นิยามด้วย <b>งาน + บริบท + ปัญหา</b> ของลูกค้า แทนหมวดสินค้าของเรา</li><li>ใส่หลายกลุ่มแต่ไม่มีคุณค่าแยกให้แต่ละกลุ่ม — ถ้าไม่ต่างกันตามเกณฑ์ 5 ข้อ อาจเป็นกลุ่มเดียวกัน</li><li>ลืมฝั่งที่สองของแพลตฟอร์ม หรือลืมว่าใครเป็นคนจ่าย</li></ul></div>
+  ${LINKS('cs')}
+  ${CASE(`แยกเป็น 2 กลุ่ม: <b>นักเรียนรีบไปโรงเรียน</b> กับ <b>คนทำงานซื้อมื้อเช้า</b> — แยกได้จริงตามเกณฑ์ข้อ 2 (นักเรียนซื้อหน้าร้าน คนทำงานสั่งล่วงหน้าทาง LINE) และข้อ 5 (นักเรียนจ่ายรายไม้ คนทำงานสั่งเป็นชุดให้ทั้งออฟฟิศ) ถ้าเขียนแค่ "คนทั่วไปที่ชอบหมูปิ้ง" จะออกแบบช่องอื่นต่อไม่ได้เลย`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> กลุ่มลูกค้าที่สำคัญที่สุดของโครงการคุณคือใคร — นิยามด้วยงาน บริบท และปัญหาได้ไหม? ถ้ามีหลายกลุ่ม แต่ละกลุ่มต่างกันตามเกณฑ์ข้อใด?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · Osterwalder et al. (2014), Value Proposition Design · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอนเพื่อการสอน</p>
 `},
 { id:"vp", group:"9 องค์ประกอบ", nav:"2 · Value Propositions", icon:"VP", html:`
-  <div class="eyebrow">องค์ประกอบที่ 2</div><h2 class="title">Value Propositions · คุณค่าที่นำเสนอ</h2>
+  <div class="eyebrow">องค์ประกอบที่ 2 / 9</div><h2 class="title">Value Propositions · คุณค่าที่นำเสนอ</h2>
   <p class="lead">"เราแก้ปัญหาหรือตอบสนองความต้องการอะไรให้ลูกค้า"</p>
-  <p>คุณค่าที่มอบให้ลูกค้าคือคุณประโยชน์หรือมูลค่าที่ธุรกิจสัญญาว่าจะส่งมอบเพื่อตอบสนองความต้องการหรือแก้ปัญหาของลูกค้า เป็นเหตุผลสำคัญที่ทำให้ลูกค้าเลือกซื้อจากเรามากกว่าคู่แข่ง การสร้างและสื่อสารคุณค่าที่ <b>โดดเด่นและแตกต่าง</b> จึงเป็นหัวใจของความสำเร็จ</p>
-  <h3>องค์ประกอบของคุณค่า (Osterwalder et al., 2014)</h3>
+  <p>คุณค่าที่นำเสนอคือ<b>ชุดของสินค้าและบริการที่สร้างคุณค่าให้กลุ่มลูกค้าที่ระบุ</b> เป็นเหตุผลที่ลูกค้าเลือกเราแทนคู่แข่ง คุณค่าอาจเป็นเชิงปริมาณ (ราคา ความเร็ว) หรือเชิงคุณภาพ (ดีไซน์ ประสบการณ์) และ<b>ต้องผูกกับกลุ่มลูกค้าเสมอ</b> — คุณค่าที่ไม่ได้ตอบกลุ่มใดเลยคือช่องโดดเดี่ยว</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>เราส่งมอบคุณค่าอะไรให้ลูกค้า?</li><li>เราช่วยแก้ปัญหาใดของลูกค้า และตอบความต้องการใด?</li><li>เรานำเสนอชุดสินค้า/บริการอะไรให้ลูกค้าแต่ละกลุ่ม?</li></ul>
+  <h3>องค์ประกอบของคุณค่า 11 ข้อ (กดดูแต่ละข้อ)</h3>
+  <p style="font-size:14.5px;color:var(--mute)">รายการจาก Business Model Generation — ใช้เป็นคลังคำถามว่า "คุณค่าของเราอยู่ในรูปแบบไหน" (รายการไม่ใช่ข้อจำกัด คุณค่าหนึ่งอาจเข้าได้หลายข้อ)</p>
+  <div class="expset" data-set="vpe"><button class="exp" data-k="newness">ความใหม่</button><button class="exp" data-k="performance">สมรรถนะ</button><button class="exp" data-k="customization">ปรับตามลูกค้า</button><button class="exp" data-k="jobdone">ทำงานให้สำเร็จ</button><button class="exp" data-k="design">ดีไซน์</button><button class="exp" data-k="brand">แบรนด์/สถานะ</button><button class="exp" data-k="price">ราคา</button><button class="exp" data-k="costred">ลดต้นทุน</button><button class="exp" data-k="riskred">ลดความเสี่ยง</button><button class="exp" data-k="access">การเข้าถึง</button><button class="exp" data-k="convenience">สะดวก/ใช้ง่าย</button></div>
+  <div class="exp-detail" id="det-vpe"></div>
+  <h3>ออกแบบให้ตรงใจด้วย Value Proposition Canvas</h3>
+  <p>จับคู่ "โปรไฟล์ลูกค้า" กับ "แผนที่คุณค่า" ให้พอดีกัน (Fit) — กดดูรายละเอียดตัวช่วยสองแบบ</p>
   <div class="expset" data-set="vp"><button class="exp" data-k="pain">Pain Relievers</button><button class="exp" data-k="gain">Gain Creators</button></div>
   <div class="exp-detail" id="det-vp"></div>
-  <h3>เครื่องมือ: Value Proposition Canvas</h3>
-  <p>ออกแบบคุณค่าให้ตรงใจโดยจับคู่ "โปรไฟล์ลูกค้า" กับ "แผนที่คุณค่า" ให้พอดีกัน (Fit)</p>
   <div class="vpc">
     <div class="side prof"><h4>Customer Profile · โปรไฟล์ลูกค้า</h4><ul><li><b>Jobs</b> — งาน/สิ่งที่ลูกค้าต้องทำให้สำเร็จ</li><li><b>Pains</b> — ความเจ็บปวด อุปสรรค ความเสี่ยง</li><li><b>Gains</b> — ผลลัพธ์/ประโยชน์ที่ลูกค้าอยากได้</li></ul></div>
     <div class="side map"><h4>Value Map · แผนที่คุณค่า</h4><ul><li><b>Products & Services</b> — สินค้า/บริการที่นำเสนอ</li><li><b>Pain Relievers</b> — ช่วยขจัด/ลดความเจ็บปวด</li><li><b>Gain Creators</b> — สร้างประโยชน์ที่ลูกค้าต้องการ</li></ul></div>
   </div>
-  <div class="callout ok"><b>คำถามชวนคิด:</b> คุณค่าหลักของโครงการคุณคืออะไร? มันช่วยลด Pain และสร้าง Gain ให้ลูกค้ากลุ่มเป้าหมายอย่างไร?</div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนเป็นรายการคุณสมบัติสินค้ายาว ๆ แทนประโยชน์ที่ลูกค้าได้ — "ดีกว่า/เร็วกว่า/ถูกกว่า" อะไร สำหรับใคร?</li><li>คำกว้างที่ใครก็พูดได้ เช่น "คุณภาพดี บริการดี" — ไม่ได้บอกว่าต่างจากคู่แข่งอย่างไร</li><li>ไม่ระบุว่าคุณค่าแต่ละข้อเป็นของลูกค้ากลุ่มไหน</li><li>ใส่มากเกินไป — ถ้าทุกอย่างสำคัญ ก็ไม่มีอะไรสำคัญ (กติกา 3-5-1)</li></ul></div>
+  ${LINKS('vp')}
+  ${CASE(`ร้านประกาศคุณค่า 4 ข้อ: <b>อร่อย · สะอาด · เข้าถึงได้ง่าย · มาตรฐานเดียวกัน</b> ลองจับเข้ากับ 11 ข้อ: อร่อย → สมรรถนะ (คุณภาพรสชาติ) · สะอาด → ลดความเสี่ยง (กินแล้วไม่ท้องเสีย) · เข้าถึงได้ง่าย → <b>สะดวก/ใช้ง่าย</b> (ไม่ใช่ "การเข้าถึง" ตามนิยามของ BMG — กดดูความต่างด้านบน) · มาตรฐานเดียวกัน → ลดความเสี่ยงเช่นกัน <br><b>ชวนคิด:</b> "สะอาด" กับ "มาตรฐานเดียวกัน" ตกอยู่ข้อเดียวกัน — ควรรวมเป็นคุณค่าเดียวเพื่อให้เหลือ 3 บรรทัดไหม?`)}
+  <div class="callout ok"><b>คุณค่าหลักของโครงการคุณคืออะไร?</b> อยู่ในองค์ประกอบข้อใดของ 11 ข้อ และช่วยลด Pain หรือสร้าง Gain ให้ลูกค้ากลุ่มไหน?</div>
   <div class="callout tip"><b>เรียนต่อเชิงลึก:</b> ฝึกเขียน Customer Profile และ Value Map ทีละส่วน ตรวจความพอดี (Fit) และกรอกเทมเพลตได้ใน <a href="vpc_course.html" style="color:var(--blue);font-weight:700">บทเรียน Value Proposition Canvas (โต้ตอบ) →</a></div>
-  <p class="srcline">อ้างอิง: Osterwalder et al. (2014), Value Proposition Design</p>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · Osterwalder et al. (2014), Value Proposition Design · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"ch", group:"9 องค์ประกอบ", nav:"3 · Channels", icon:"CH", html:`
-  <div class="eyebrow">องค์ประกอบที่ 3</div><h2 class="title">Channels · ช่องทางเข้าถึงลูกค้า</h2>
-  <p class="lead">"เราจะเข้าถึงและส่งมอบคุณค่าให้ลูกค้าผ่านช่องทางใด"</p>
-  <p>ช่องทาง (Channels) คือจุดสัมผัสที่ธุรกิจใช้สื่อสารและส่งมอบคุณค่าให้ลูกค้า ตั้งแต่การสร้างการรับรู้ไปจนถึงบริการหลังการขาย ช่องทางที่ดีต้องเข้าถึงลูกค้าได้ตรงจุด คุ้มค่า และให้ประสบการณ์ที่ดี</p>
+  <div class="eyebrow">องค์ประกอบที่ 3 / 9</div><h2 class="title">Channels · ช่องทางเข้าถึงลูกค้า</h2>
+  <p class="lead">"เราจะสื่อสาร เข้าถึง และส่งมอบคุณค่าให้ลูกค้าผ่านช่องทางใด"</p>
+  <p>ช่องทางคือ<b>จุดสัมผัสระหว่างธุรกิจกับลูกค้า</b> ครอบคลุมทั้ง <b>การสื่อสาร + การจัดจำหน่าย + การขาย</b> — ไม่ใช่แค่ "ขายที่ไหน" แต่รวมตั้งแต่ลูกค้ารู้จักเราจนถึงบริการหลังการขาย</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>ลูกค้าแต่ละกลุ่มอยากให้เราเข้าถึงผ่านช่องทางใด และตอนนี้เราเข้าถึงอย่างไร?</li><li>ช่องทางต่าง ๆ ของเราเชื่อมกันอย่างไร ช่องทางไหนได้ผลที่สุด คุ้มต้นทุนที่สุด?</li><li>ช่องทางของเราเข้ากับกิจวัตรของลูกค้าแค่ไหน?</li></ul>
   <h3>5 เฟสของช่องทาง (กดดูแต่ละเฟส)</h3>
   <div class="expset" data-set="ch"><button class="exp" data-k="awareness">1 · การรับรู้</button><button class="exp" data-k="evaluation">2 · การประเมิน</button><button class="exp" data-k="purchase">3 · การซื้อ</button><button class="exp" data-k="delivery">4 · การส่งมอบ</button><button class="exp" data-k="aftersales">5 · หลังการขาย</button></div>
   <div class="exp-detail" id="det-ch"></div>
-  <div class="callout info"><b>ประเภทช่องทาง:</b> ช่องทางของตนเอง (เว็บ/หน้าร้าน) · ช่องทางพันธมิตร (ตัวแทน/ค้าปลีก) · ช่องทางตรง vs ทางอ้อม — เลือกให้สมดุลระหว่างต้นทุนกับการเข้าถึง</div>
+  <h3>ประเภทช่องทาง และข้อแลกเปลี่ยน</h3>
+  <div class="tblwrap"><table class="tbl"><tr><th></th><th>ทางตรง</th><th>ทางอ้อม</th></tr>
+    <tr><th>ของตนเอง</th><td>ทีมขาย · ขายผ่านเว็บ/แอปของเรา</td><td>หน้าร้านของเราเอง</td></tr>
+    <tr><th>ของพันธมิตร</th><td>—</td><td>ร้านค้าของพันธมิตร · ผู้ค้าส่ง · แพลตฟอร์มของคนอื่น</td></tr></table></div>
+  <div class="grid c2" style="margin-top:12px">
+    <div class="card"><h4>ช่องทางของตนเอง</h4><p>✓ กำไรต่อหน่วยสูงกว่า ควบคุมประสบการณ์ได้<br>✗ ต้นทุนตั้งต้นและดำเนินการสูง ขยายช้า</p></div>
+    <div class="card"><h4>ช่องทางของพันธมิตร</h4><p>✓ เข้าถึงลูกค้าได้กว้างและเร็ว ใช้จุดแข็งของพันธมิตร<br>✗ กำไรต่อหน่วยต่ำกว่า ควบคุมประสบการณ์ได้น้อย</p></div>
+  </div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนแค่ "ออนไลน์" หรือ "โซเชียลมีเดีย" — ต้องระบุช่องทางจริงและเฟสที่ใช้ เช่น "TikTok เพื่อการรับรู้"</li><li>คิดแค่เฟสการซื้อ ลืมการรับรู้ การประเมิน และหลังการขาย</li><li>เลือกช่องทางที่เราถนัด แทนช่องทางที่ลูกค้ากลุ่มนั้นใช้จริง</li><li>สับสนกับความสัมพันธ์ลูกค้า: ช่องทาง = "ผ่านทางไหน" · ความสัมพันธ์ = "ดูแลแบบไหน"</li></ul></div>
+  ${LINKS('ch')}
+  ${CASE(`ไล่ 5 เฟส: <b>รับรู้</b> — กลิ่นควันและป้ายหน้าร้านตอนเช้า · <b>ประเมิน</b> — เห็นเตาและการปิ้งที่สะอาดตรงหน้า · <b>ซื้อ</b> — หน้าร้าน หรือสั่งล่วงหน้าทาง LINE · <b>ส่งมอบ</b> — รับที่ร้านทันที · <b>หลังการขาย</b> — สะสมแต้ม <br>ประเภท: "ร้านหน้าโรงเรียน" = ของตนเอง ทางอ้อม · "LINE" = ของตนเอง ทางตรง · ถ้าวันหนึ่งไปขายผ่านแอปส่งอาหาร = ช่องทางของพันธมิตร เข้าถึงกว้างขึ้นแต่ต้องแบ่งค่าธรรมเนียม`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ลูกค้ากลุ่มหลักของคุณรู้จัก ประเมิน ซื้อ รับของ และได้รับการดูแลหลังซื้อผ่านทางไหน — ครบทั้ง 5 เฟสหรือยัง?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"cr", group:"9 องค์ประกอบ", nav:"4 · Customer Relationships", icon:"CR", html:`
-  <div class="eyebrow">องค์ประกอบที่ 4</div><h2 class="title">Customer Relationships · ความสัมพันธ์กับลูกค้า</h2>
+  <div class="eyebrow">องค์ประกอบที่ 4 / 9</div><h2 class="title">Customer Relationships · ความสัมพันธ์กับลูกค้า</h2>
   <p class="lead">"เราสร้างและรักษาความสัมพันธ์แบบใดกับลูกค้าแต่ละกลุ่ม"</p>
-  <p>รูปแบบความสัมพันธ์ส่งผลต่อประสบการณ์ลูกค้าและมีเป้าหมายเพื่อ <b>ได้ลูกค้าใหม่ · รักษาลูกค้าเดิม · เพิ่มยอดขาย</b> ควรเลือกให้เหมาะกับกลุ่มลูกค้าและคุณค่าที่นำเสนอ</p>
+  <p>ความสัมพันธ์ลูกค้าคือ<b>รูปแบบการดูแลลูกค้าแต่ละกลุ่ม</b> มีตั้งแต่ใช้คนดูแลตัวต่อตัวไปจนถึงระบบอัตโนมัติ เลือกให้เหมาะกับกลุ่มลูกค้าและคุณค่าที่สัญญาไว้ โดยมีแรงจูงใจ 3 ข้อ:</p>
+  <div class="grid c3"><div class="card"><h4><span class="num">1</span>ได้ลูกค้าใหม่</h4><p>Customer acquisition</p></div><div class="card"><h4><span class="num t">2</span>รักษาลูกค้าเดิม</h4><p>Customer retention</p></div><div class="card"><h4><span class="num a">3</span>เพิ่มยอดขาย</h4><p>Boosting sales (upselling)</p></div></div>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>ลูกค้าแต่ละกลุ่มคาดหวังความสัมพันธ์แบบใด และตอนนี้เราสร้างแบบไหนไว้แล้ว?</li><li>ความสัมพันธ์แต่ละแบบ<b>มีต้นทุนเท่าไร</b>?</li><li>ความสัมพันธ์นั้นเชื่อมกับส่วนอื่นของโมเดลธุรกิจอย่างไร?</li></ul>
   <h3>รูปแบบความสัมพันธ์ (กดเลือก)</h3>
   <div class="expset" data-set="cr"><button class="exp" data-k="personal">ผู้ช่วยส่วนตัว</button><button class="exp" data-k="dedicated">ผู้ช่วยเฉพาะราย</button><button class="exp" data-k="self">บริการตนเอง</button><button class="exp" data-k="automated">อัตโนมัติ</button><button class="exp" data-k="community">ชุมชน</button><button class="exp" data-k="cocreation">ร่วมสร้าง</button></div>
   <div class="exp-detail" id="det-cr"></div>
+  <div class="callout info"><b>ความสัมพันธ์มีต้นทุน:</b> ยิ่งใช้คนดูแลมาก (ผู้ช่วยเฉพาะราย) ยิ่งแพง ยิ่งใช้ระบบ (บริการตนเอง/อัตโนมัติ) ยิ่งถูกต่อราย — ต้องสอดคล้องกับกำไรที่ได้จากลูกค้ากลุ่มนั้น และโยงไปที่ช่องโครงสร้างต้นทุน</div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนโปรโมชันหรือส่วนลดเป็นความสัมพันธ์ — โปรโมชันเป็นเครื่องมือ ไม่ใช่รูปแบบความสัมพันธ์</li><li>สับสนกับช่องทาง เช่น "LINE" คือช่องทาง ส่วน "ตอบแชตด้วยคนจริง" คือความสัมพันธ์</li><li>ใช้รูปแบบเดียวกับทุกกลุ่ม ทั้งที่แต่ละกลุ่มคาดหวังไม่เท่ากัน</li><li>เลือกแบบที่ต้นทุนสูงเกินกว่ากำไรจากลูกค้ากลุ่มนั้น</li></ul></div>
+  ${LINKS('cr')}
+  ${CASE(`<b>สมาชิกสะสมแต้ม</b> = อัตโนมัติ/บริการตนเอง เป้าหมายคือรักษาลูกค้าเดิม ต้นทุนต่ำต่อราย · <b>จำลูกค้าประจำ</b> (ทักทาย จำได้ว่าชอบไม้ไหน) = ผู้ช่วยส่วนตัว สร้างความผูกพันแต่ใช้เวลาพนักงาน <br><b>ชวนคิด:</b> ช่วงเช้าที่คิวยาว การ "จำลูกค้าประจำ" ขัดกับคุณค่า "เข้าถึงได้ง่าย/เร็ว" ไหม?`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ลูกค้ากลุ่มหลักของคุณอยากให้ดูแลแบบไหน — และคุณจ่ายต้นทุนของความสัมพันธ์แบบนั้นไหวไหม?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
-{ id:"revcost", group:"9 องค์ประกอบ", nav:"5 · Revenue & Cost", icon:"$", html:`
-  <div class="eyebrow">องค์ประกอบที่ 5</div><h2 class="title">Revenue Streams & Cost Structure · รายได้และต้นทุน</h2>
-  <p class="lead">"ลูกค้ายอมจ่ายเพื่ออะไร และต้นทุนสำคัญของเราคืออะไร"</p>
-  <h3>กระแสรายได้ (Revenue Streams) — รูปแบบการหารายได้</h3>
-  <div class="expset" data-set="rev"><button class="exp" data-k="assetsale">ขายขาด</button><button class="exp" data-k="usage">ค่าใช้บริการ</button><button class="exp" data-k="subscription">สมาชิก</button><button class="exp" data-k="renting">ให้เช่า</button><button class="exp" data-k="licensing">ค่าลิขสิทธิ์</button><button class="exp" data-k="advertising">โฆษณา</button></div>
+{ id:"rev", group:"9 องค์ประกอบ", nav:"5 · Revenue Streams", icon:"R$", html:`
+  <div class="eyebrow">องค์ประกอบที่ 5 / 9</div><h2 class="title">Revenue Streams · กระแสรายได้</h2>
+  <p class="lead">"ลูกค้ายอมจ่ายเพื่อคุณค่าอะไร และจ่ายอย่างไร"</p>
+  <p>กระแสรายได้คือ<b>เงินที่ได้จากลูกค้าแต่ละกลุ่ม</b> ถ้ากลุ่มลูกค้าคือหัวใจ รายได้ก็คือเส้นเลือด — แต่ละกลุ่มอาจมีรายได้หลายสาย และแต่ละสายอาจใช้กลไกตั้งราคาต่างกัน</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>ลูกค้ายอมจ่ายเพื่อคุณค่าอะไร<b>จริง ๆ</b>? ตอนนี้จ่ายเพื่ออะไร?</li><li>ตอนนี้จ่ายอย่างไร และ<b>อยากจ่ายแบบไหน</b>?</li><li>รายได้แต่ละสายคิดเป็นสัดส่วนเท่าไรของรายได้ทั้งหมด?</li></ul>
+  <h3>รายได้ 2 แบบ</h3>
+  <div class="grid c2"><div class="card"><h4>รายได้ต่อธุรกรรม (Transaction)</h4><p>ลูกค้าจ่ายครั้งเดียวต่อการซื้อ</p></div><div class="card"><h4>รายได้ต่อเนื่อง (Recurring)</h4><p>ลูกค้าจ่ายต่อเนื่องเพื่อรับคุณค่าหรือบริการหลังการขาย</p></div></div>
+  <h3>รูปแบบการหารายได้ 7 แบบ (กดเลือก)</h3>
+  <div class="expset" data-set="rev"><button class="exp" data-k="assetsale">ขายขาด</button><button class="exp" data-k="usage">ค่าใช้บริการ</button><button class="exp" data-k="subscription">สมาชิก</button><button class="exp" data-k="renting">ให้เช่า</button><button class="exp" data-k="licensing">ค่าลิขสิทธิ์</button><button class="exp" data-k="brokerage">ค่านายหน้า</button><button class="exp" data-k="advertising">โฆษณา</button></div>
   <div class="exp-detail" id="det-rev"></div>
-  <h3>โครงสร้างต้นทุน (Cost Structure)</h3>
-  <div class="expset" data-set="cost"><button class="exp" data-k="costdriven">เน้นต้นทุนต่ำ</button><button class="exp" data-k="valuedriven">เน้นคุณค่า</button><button class="exp" data-k="fixed">ต้นทุนคงที่</button><button class="exp" data-k="variable">ต้นทุนผันแปร</button><button class="exp" data-k="scale">Economies of Scale</button></div>
-  <div class="exp-detail" id="det-cost"></div>
-  <div class="callout ok"><b>คำถามชวนคิด:</b> รายได้หลักของโครงการมาจากอะไร ราคาตั้งอย่างไร และต้นทุนก้อนใหญ่ที่สุดคืออะไร?</div>
+  <h3>กลไกตั้งราคา (กดเลือก)</h3>
+  <div class="grid c2">
+    <div class="card"><h4>ราคาคงที่ (Fixed)</h4><p>ตั้งราคาไว้ล่วงหน้าตามตัวแปรที่คงที่</p></div>
+    <div class="card"><h4>ราคาเปลี่ยนตามสถานการณ์ (Dynamic)</h4><p>ราคาเปลี่ยนตามสภาพตลาดหรือการต่อรอง</p></div>
+  </div>
+  <div class="expset" data-set="price"><button class="exp" data-k="list">ราคาตั้ง</button><button class="exp" data-k="feature">ตามคุณสมบัติ</button><button class="exp" data-k="segment">ตามกลุ่มลูกค้า</button><button class="exp" data-k="volume">ตามปริมาณ</button><button class="exp" data-k="negotiation">ต่อรอง</button><button class="exp" data-k="yield">Yield management</button><button class="exp" data-k="realtime">ตลาดเรียลไทม์</button></div>
+  <div class="exp-detail" id="det-price"></div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนแค่ "ขายสินค้า" — ต้องบอกว่าขายอะไร ให้ใคร แบบไหน (ครั้งเดียวหรือต่อเนื่อง)</li><li>ไม่ระบุว่ากลุ่มไหนเป็นคนจ่าย (สำคัญมากในแพลตฟอร์มหลายฝั่ง)</li><li>ตั้งราคาจากต้นทุนอย่างเดียว ไม่ได้ถามว่าลูกค้ายอมจ่ายเพื่อคุณค่าไหน</li><li>ลืมว่ารายได้ต้องครอบคลุมโครงสร้างต้นทุน (ตรรกะกำไร R$ ⇄ C$)</li></ul></div>
+  ${LINKS('rev')}
+  ${CASE(`<b>ขายรายไม้และชุดข้าวเหนียว</b> = ขายขาด · รายได้ต่อธุรกรรม · ราคาตั้ง (คงที่) — จ่ายโดยนักเรียนและคนทำงาน · <b>ออเดอร์ล่วงหน้าแบบกลุ่ม</b> = ขายขาด · ราคาตามปริมาณ (สั่งเยอะได้ราคาดีกว่า) — จ่ายโดยคนทำงาน <br><b>ชวนคิด:</b> ถ้าเพิ่ม "บัตรอิ่มรายเดือน" จะเปลี่ยนเป็นรายได้ต่อเนื่อง (สมาชิก) — ลูกค้ากลุ่มไหนน่าจะยอมจ่าย? นี่คือข้อสมมติที่ต้องออกไปทดสอบ`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ลูกค้าของคุณยอมจ่ายเพื่อคุณค่าข้อไหน จ่ายแบบไหน และรายได้สายหลักคิดเป็นกี่ส่วนของทั้งหมด?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"kr", group:"9 องค์ประกอบ", nav:"6 · Key Resources", icon:"KR", html:`
-  <div class="eyebrow">องค์ประกอบที่ 6</div><h2 class="title">Key Resources · ทรัพยากรหลัก</h2>
-  <p class="lead">"ทรัพยากรสำคัญใดที่ทำให้โมเดลธุรกิจของเราทำงานได้"</p>
-  <p>ทรัพยากรหลักคือสินทรัพย์ที่จำเป็นในการสร้างคุณค่า เข้าถึงตลาด รักษาความสัมพันธ์ และสร้างรายได้ แบ่งได้ 4 ประเภท</p>
+  <div class="eyebrow">องค์ประกอบที่ 6 / 9</div><h2 class="title">Key Resources · ทรัพยากรหลัก</h2>
+  <p class="lead">"ทรัพยากรสำคัญใดที่ขาดไม่ได้ เพื่อให้โมเดลธุรกิจทำงาน"</p>
+  <p>ทรัพยากรหลักคือ<b>สินทรัพย์ที่จำเป็นที่สุด</b>ในการสร้างและส่งมอบคุณค่า เข้าถึงตลาด รักษาความสัมพันธ์ และสร้างรายได้ ทรัพยากรไม่จำเป็นต้องเป็นของเราเอง — อาจ<b>เป็นเจ้าของ เช่า หรือได้มาจากพันธมิตร</b>ก็ได้</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>คุณค่าที่นำเสนอของเราต้องใช้ทรัพยากรอะไร?</li><li>ช่องทาง ความสัมพันธ์ลูกค้า และกระแสรายได้ ต้องใช้ทรัพยากรอะไร?</li></ul>
+  <h3>4 ประเภท (กดเลือก)</h3>
   <div class="expset" data-set="kr"><button class="exp" data-k="physical">กายภาพ</button><button class="exp" data-k="intellectual">ทางปัญญา</button><button class="exp" data-k="human">บุคคล</button><button class="exp" data-k="financial">การเงิน</button></div>
   <div class="exp-detail" id="det-kr"></div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนทุกอย่างที่มี เช่น "โต๊ะ เก้าอี้ คอมพิวเตอร์" — ใส่เฉพาะสิ่งที่<b>ถ้าไม่มี คุณค่าหรือช่องทางพังทันที</b></li><li>ลืมทรัพยากรที่จับต้องไม่ได้ เช่น สูตร แบรนด์ ข้อมูลลูกค้า ซึ่งมักเป็นจุดที่คู่แข่งลอกยากที่สุด</li><li>ทรัพยากรไม่ได้ค้ำคุณค่า/ช่องทาง/ความสัมพันธ์ใดเลย (ช่องโดดเดี่ยว)</li><li>ไม่คิดว่าทรัพยากรนั้นได้มาอย่างไร (ซื้อ เช่า หรือจากพันธมิตร) และมีต้นทุนเท่าไร</li></ul></div>
+  ${LINKS('kr')}
+  ${CASE(`<b>กายภาพ:</b> ครัวกลางและเตาปิ้ง · ทำเลใกล้โรงเรียน (<i>เช่า</i>จากเจ้าของพื้นที่ — โยงไปพันธมิตร) · <b>ทางปัญญา:</b> สูตรหมักเฉพาะ · ชื่อร้าน "อาจารย์ตั้ม" · <b>บุคคล:</b> พนักงานที่ผ่านการฝึกตามขั้นตอนมาตรฐาน · <b>การเงิน:</b> เงินหมุนเวียนสำหรับซื้อหมูล่วงหน้า <br>สังเกต: คุณค่า "มาตรฐานเดียวกัน" พังทันทีถ้าไม่มี <b>สูตรหมัก + ครัวกลาง</b> — สองตัวนี้จึงเป็นทรัพยากร "หลัก" จริง`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ทรัพยากรไหนของคุณที่ถ้าหายไปพรุ่งนี้ ธุรกิจจะส่งมอบคุณค่าไม่ได้ทันที? และอันไหนที่คู่แข่งลอกได้ยากที่สุด?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"ka", group:"9 องค์ประกอบ", nav:"7 · Key Activities", icon:"KA", html:`
-  <div class="eyebrow">องค์ประกอบที่ 7</div><h2 class="title">Key Activities · กิจกรรมหลัก</h2>
-  <p class="lead">"กิจกรรมสำคัญที่สุดที่ทำให้ธุรกิจส่งมอบคุณค่าได้"</p>
-  <p>กิจกรรมหลักคือสิ่งที่ธุรกิจต้องทำให้ดีเพื่อให้โมเดลธุรกิจสำเร็จ แบ่งได้ 3 ประเภทหลัก</p>
+  <div class="eyebrow">องค์ประกอบที่ 7 / 9</div><h2 class="title">Key Activities · กิจกรรมหลัก</h2>
+  <p class="lead">"กิจกรรมใดที่เราต้องทำให้ดีที่สุด เพื่อให้โมเดลธุรกิจทำงาน"</p>
+  <p>กิจกรรมหลักคือ<b>สิ่งสำคัญที่สุดที่ธุรกิจต้องทำได้ดี</b>เพื่อสร้างและส่งมอบคุณค่า เข้าถึงตลาด รักษาความสัมพันธ์ และสร้างรายได้ — เหมือนทรัพยากรหลัก แต่เป็น "สิ่งที่ทำ" แทน "สิ่งที่มี"</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>คุณค่าที่นำเสนอของเราต้องอาศัยกิจกรรมอะไร?</li><li>ช่องทาง ความสัมพันธ์ลูกค้า และกระแสรายได้ ต้องอาศัยกิจกรรมอะไร?</li></ul>
+  <h3>3 ประเภท (กดเลือก)</h3>
   <div class="expset" data-set="ka"><button class="exp" data-k="production">การผลิต</button><button class="exp" data-k="problemsolving">การแก้ปัญหา</button><button class="exp" data-k="platform">แพลตฟอร์ม/เครือข่าย</button></div>
   <div class="exp-detail" id="det-ka"></div>
+  <div class="callout info"><b>กิจกรรมหลัก ≠ รายการงานประจำวัน:</b> "เปิดร้าน 6 โมง · ล้างจาน · นับเงิน" เป็นงานประจำที่ทุกร้านทำ ส่วนกิจกรรมหลักคือสิ่งที่<b>ถ้าทำไม่ดี คุณค่าที่สัญญาไว้จะไม่เกิด</b> และมักเป็นสิ่งที่ทำให้เราต่างจากคู่แข่ง</div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนเป็นรายการงานประจำวันยาว ๆ (ผิดหลัก "เขียนน้อยแต่คม")</li><li>กิจกรรมไม่ได้โยงกับคุณค่า/ช่องทาง/ความสัมพันธ์ใดเลย</li><li>ลืมกิจกรรมที่ช่องทางและความสัมพันธ์ต้องการ เช่น ตอบแชต รับออเดอร์ ดูแลสมาชิก</li><li>ใส่กิจกรรมที่พันธมิตรทำให้ไว้ปนกัน — กิจกรรมที่ให้คนอื่นทำ ควรอยู่ที่ช่องพันธมิตร</li></ul></div>
+  ${LINKS('ka')}
+  ${CASE(`ประเภท <b>การผลิต</b>: <b>หมักตามสูตรมาตรฐาน</b> (ค้ำ "อร่อย" และ "มาตรฐานเดียวกัน") · <b>ปิ้งตามขั้นตอน SOP</b> (ค้ำ "มาตรฐานเดียวกัน") · <b>ตรวจความสะอาดทุกวัน</b> (ค้ำ "สะอาด") <br>เทียบกับ <i>"ตื่นตี 5 ตั้งเตา ขาย เก็บร้าน"</i> — เป็นงานประจำ ไม่บอกว่าร้านนี้ต่างจากร้านหมูปิ้งอื่นอย่างไร`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ถ้าต้องเลือกแค่ 3 กิจกรรมที่ทำพลาดไม่ได้เลย คุณจะเลือกอะไร — และแต่ละกิจกรรมค้ำคุณค่าข้อไหน?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"kp", group:"9 องค์ประกอบ", nav:"8 · Key Partnerships", icon:"KP", html:`
-  <div class="eyebrow">องค์ประกอบที่ 8</div><h2 class="title">Key Partnerships · พันธมิตรหลัก</h2>
-  <p class="lead">"ใครคือพันธมิตรที่ช่วยให้โมเดลธุรกิจของเราทำงานได้"</p>
-  <p>เครือข่ายพันธมิตรและซัพพลายเออร์ที่ช่วยลดความเสี่ยง ได้ทรัพยากร/กิจกรรมที่เราไม่มี และเพิ่มประสิทธิภาพ</p>
+  <div class="eyebrow">องค์ประกอบที่ 8 / 9</div><h2 class="title">Key Partnerships · พันธมิตรหลัก</h2>
+  <p class="lead">"ใครคือพันธมิตรและซัพพลายเออร์ที่ทำให้โมเดลธุรกิจทำงานได้"</p>
+  <p>พันธมิตรหลักคือ<b>เครือข่ายซัพพลายเออร์และพันธมิตร</b>ที่ช่วยให้เราได้ทรัพยากรหรือกิจกรรมที่ไม่ได้ทำเอง ลดความเสี่ยง และเพิ่มประสิทธิภาพ — ธุรกิจส่วนใหญ่ไม่ได้ทำทุกอย่างเอง</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>ใครคือพันธมิตรหลักและซัพพลายเออร์หลักของเรา?</li><li>เราได้<b>ทรัพยากรหลัก</b>ใดจากพันธมิตร?</li><li>พันธมิตรทำ<b>กิจกรรมหลัก</b>ใดให้เรา?</li></ul>
   <h3>ประเภทพันธมิตร (กดเลือก)</h3>
   <div class="expset" data-set="kp"><button class="exp" data-k="alliance">พันธมิตรเชิงกลยุทธ์</button><button class="exp" data-k="coopetition">คู่แข่งที่ร่วมมือ</button><button class="exp" data-k="jv">กิจการร่วมค้า</button><button class="exp" data-k="buyersupplier">ผู้ซื้อ–ผู้ขาย</button></div>
   <div class="exp-detail" id="det-kp"></div>
-  <h3>แรงจูงใจในการมีพันธมิตร</h3>
+  <h3>แรงจูงใจในการมีพันธมิตร (กดเลือก)</h3>
   <div class="expset" data-set="kpm"><button class="exp" data-k="optimization">ประหยัด/เพิ่มประสิทธิภาพ</button><button class="exp" data-k="risk">ลดความเสี่ยง</button><button class="exp" data-k="resource">ได้ทรัพยากร/ความสามารถ</button></div>
   <div class="exp-detail" id="det-kpm"></div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>ใส่ลูกค้ารายใหญ่เป็นพันธมิตร — ลูกค้าอยู่ที่ช่องกลุ่มลูกค้า</li><li>ใส่ทุกร้านที่เคยซื้อของ — พันธมิตร "หลัก" คือรายที่ถ้าหายไป กิจกรรมหรือทรัพยากรหลักจะสะดุด</li><li>ไม่ระบุว่าพันธมิตรให้อะไร (ทรัพยากรหรือกิจกรรมใด) และเราได้อะไร (แรงจูงใจข้อไหน)</li><li>ลืมต้นทุนหรือข้อผูกมัดที่มากับพันธมิตร</li></ul></div>
+  ${LINKS('kp')}
+  ${CASE(`<b>ร้านเนื้อหมูประจำ</b> = ผู้ซื้อ–ผู้ขาย · แรงจูงใจ: ลดความเสี่ยง (ได้หมูคุณภาพเดิมทุกวัน → ค้ำ "มาตรฐานเดียวกัน") · <b>เจ้าของพื้นที่ทำเล</b> = ผู้ซื้อ–ผู้ขาย · แรงจูงใจ: ได้ทรัพยากร (ทำเลหน้าโรงเรียน) <br><b>ชวนคิด:</b> ถ้าร่วมมือกับร้านข้าวเหนียวหรือร้านน้ำเต้าหู้ข้าง ๆ ทำ "ชุดอิ่มเช้า" ขายด้วยกัน — เป็นพันธมิตรประเภทไหน?`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ถ้าพันธมิตรรายสำคัญที่สุดของคุณเลิกร่วมงานพรุ่งนี้ กิจกรรมหรือทรัพยากรหลักข้อไหนจะสะดุด — และคุณมีแผนสำรองไหม?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
+`},
+{ id:"cost", group:"9 องค์ประกอบ", nav:"9 · Cost Structure", icon:"C$", html:`
+  <div class="eyebrow">องค์ประกอบที่ 9 / 9</div><h2 class="title">Cost Structure · โครงสร้างต้นทุน</h2>
+  <p class="lead">"ต้นทุนสำคัญที่สุดที่เกิดจากการดำเนินโมเดลธุรกิจนี้คืออะไร"</p>
+  <p>โครงสร้างต้นทุนคือ<b>ต้นทุนสำคัญทั้งหมดที่เกิดจากการดำเนินโมเดลธุรกิจ</b> — สร้างคุณค่า รักษาความสัมพันธ์ และสร้างรายได้ล้วนมีต้นทุน ช่องนี้ทำเป็นช่องสุดท้ายเพราะต้นทุน<b>เกิดจาก</b>ทรัพยากร กิจกรรม และพันธมิตรที่ออกแบบไว้แล้ว</p>
+  <h3>คำถามหลัก</h3>
+  <ul class="clean"><li>ต้นทุนที่สำคัญที่สุดในโมเดลธุรกิจของเราคืออะไร?</li><li>ทรัพยากรหลักใด<b>แพงที่สุด</b>? กิจกรรมหลักใด<b>แพงที่สุด</b>?</li></ul>
+  <h3>แนวทางของโครงสร้างต้นทุน และคุณลักษณะ (กดเลือก)</h3>
+  <div class="expset" data-set="cost"><button class="exp" data-k="costdriven">เน้นต้นทุนต่ำ</button><button class="exp" data-k="valuedriven">เน้นคุณค่า</button><button class="exp" data-k="fixed">ต้นทุนคงที่</button><button class="exp" data-k="variable">ต้นทุนผันแปร</button><button class="exp" data-k="scale">Economies of Scale</button><button class="exp" data-k="scope">Economies of Scope</button></div>
+  <div class="exp-detail" id="det-cost"></div>
+  <div class="callout info"><b>ตรรกะกำไร (R$ ⇄ C$):</b> ต้นทุนแต่ละก้อนต้องชี้กลับได้ว่ามาจากทรัพยากร กิจกรรม หรือพันธมิตรใด และรายได้รวมต้องครอบคลุมต้นทุนรวม — นี่คือจุดที่ BMC ส่งต่อไปสู่การทำแผนการเงินและความเป็นไปได้ทางธุรกิจ</div>
+  <div class="callout warn"><b>ข้อผิดพลาดที่พบบ่อย</b><ul><li>เขียนรายการค่าใช้จ่ายทั้งหมดเหมือนบัญชี — ใส่เฉพาะก้อนที่สำคัญที่สุด</li><li>ต้นทุนไม่โยงกลับไปหาทรัพยากร/กิจกรรม/พันธมิตร (ไม่รู้ว่าเกิดจากอะไร)</li><li>ไม่แยกต้นทุนคงที่กับผันแปร ทำให้ประเมินจุดคุ้มทุนไม่ได้</li><li>แนวทางต้นทุนขัดกับคุณค่า เช่น สัญญาว่าพรีเมียม แต่ตัดต้นทุนทุกจุด</li></ul></div>
+  ${LINKS('cost')}
+  ${CASE(`<b>ค่าวัตถุดิบ</b> (หมู ข้าวเหนียว ถ่าน) = ผันแปร ← จากกิจกรรมหมัก/ปิ้ง และร้านเนื้อหมู · <b>ค่าแรงพนักงาน</b> = ส่วนใหญ่คงที่ ← จากกิจกรรมปิ้งและตรวจความสะอาด · <b>ค่าเช่าทำเลและครัว</b> = คงที่ ← จากทรัพยากรทำเลและครัวกลาง <br>แนวทาง: หมูปิ้งเป็นสินค้าราคาย่อมเยาจึงต้อง<b>คุมต้นทุน</b> แต่คุณค่า "สะอาด มาตรฐานเดียวกัน" ต้องลงทุนเพิ่ม — เป็นการผสมสองแนวทาง · <b>Scale:</b> ครัวกลางหมักครั้งละมาก ต้นทุนต่อไม้ลดลง · <b>Scope:</b> ใช้ครัวกลางเดียวกันทำลูกชิ้นหรือไส้กรอกเพิ่ม (ข้อสมมติที่ต้องทดสอบ)`)}
+  <div class="callout ok"><b>คำถามชวนคิด:</b> ต้นทุนก้อนใหญ่ที่สุด 3 ก้อนของคุณมาจากทรัพยากรหรือกิจกรรมไหน — เป็นต้นทุนคงที่หรือผันแปร และขายได้เท่าไรจึงจะคุ้มทุน?</div>
+  <p class="srcline">อ้างอิง: Osterwalder & Pigneur (2010), Business Model Generation · ข้อผิดพลาดที่พบบ่อยและเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
 `},
 { id:"video", group:"สรุป & ปฏิบัติ", nav:"วิดีโอสรุป 1:30 นาที", icon:"▶", html:`
   <div class="eyebrow">สื่อประกอบ</div><h2 class="title">วิดีโอสรุป: Business Model Canvas ใน 90 วินาที</h2>
@@ -354,9 +510,63 @@ const S=[
     <div class="bcell b-rev" style="cursor:default"><b>กระแสรายได้</b><span>Revenue Streams</span><textarea class="fill" placeholder="รายได้จากอะไร?"></textarea></div>
   </div>
   <button class="btn primary" style="margin-top:12px" onclick="window.print()">🖨 พิมพ์ / บันทึก PDF</button>
+  <p class="srcline" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">Strategyzer.com</a> · เผยแพร่ภายใต้ <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></p>
   <div class="callout tip" style="margin-top:14px"><b>เคล็ดลับ:</b> เริ่มจากฝั่งขวา (ลูกค้า→คุณค่า→ช่องทาง→ความสัมพันธ์→รายได้) แล้วค่อยไปฝั่งซ้าย (ทรัพยากร→กิจกรรม→พันธมิตร→ต้นทุน)</div>
-  <div class="callout info"><b>ขั้นต่อไป:</b> กรอกครบแล้ว ลองตรวจว่าทุกช่อง "เชื่อมกันเป็นเรื่องเดียว" หรือยัง ด้วย <a href="bmc_studio.html" style="color:var(--blue);font-weight:700">BMC Studio — ผูกเส้นเชื่อม ตรวจความสอดคล้อง และให้ AI ช่วยทวน →</a></div>
+  <div class="callout info"><b>ขั้นต่อไป:</b> ① แยกว่าไอเท็มไหนเป็น Fact / Assumption (หน้าถัดไป) ② ตรวจว่าทุกช่อง "เชื่อมกันเป็นเรื่องเดียว" หรือยัง ด้วย <a href="bmc_studio.html" style="color:var(--blue);font-weight:700">BMC Studio — ผูกเส้นเชื่อม ตรวจความสอดคล้อง และให้ AI ช่วยทวน →</a></div>
 `},
+{ id:"factassume", group:"สรุป & ปฏิบัติ", nav:"Fact หรือ Assumption?", icon:"?", html:`
+  <div class="eyebrow">ตรวจคุณภาพ Canvas</div><h2 class="title">Fact หรือ Assumption? — แยกสิ่งที่รู้ ออกจากสิ่งที่เดา</h2>
+  <p class="lead">Canvas ของธุรกิจใหม่คือ "แผนที่ของข้อสมมติ" — งานต่อไปคือรู้ว่าข้อไหนรู้แล้ว ข้อไหนยังเดา และควรพิสูจน์ข้อไหนก่อน</p>
+  <div class="grid c2">
+    <div class="card" style="border-top:4px solid var(--green)"><h4>✅ Fact · ข้อเท็จจริง</h4><p>มี<b>หลักฐานจากโลกจริง</b>ยืนยันแล้ว ถามว่า "รู้ได้อย่างไร?" แล้วชี้หลักฐานได้</p></div>
+    <div class="card" style="border-top:4px solid var(--amber)"><h4>❓ Assumption · ข้อสมมติ</h4><p>เชื่อว่าจริง แต่<b>ยังไม่ได้พิสูจน์</b> ถามว่า "รู้ได้อย่างไร?" แล้วตอบได้แค่ "คิดว่า…"</p></div>
+  </div>
+  <div class="callout info"><b>เกณฑ์ตัดสินคือ "หลักฐาน" ไม่ใช่ "ความมั่นใจ"</b> — ทีมมั่นใจมากแค่ไหนก็ยังเป็น Assumption ถ้ายังไม่มีหลักฐาน · Canvas ใหม่ที่ส่วนใหญ่เป็น Assumption เป็น<b>เรื่องปกติ</b> สิ่งที่อันตรายคือติดป้าย Fact ให้สิ่งที่ยังไม่ได้ทดสอบ</div>
+
+  <h3>หลักฐานแข็งแค่ไหน: สิ่งที่ลูกค้า "ทำ" แข็งกว่าสิ่งที่ลูกค้า "พูด"</h3>
+  <div class="ladder">
+    <div class="rung r1"><b>อ่อน · ความเห็น</b><span>"ชอบนะ" "น่าสนใจ" "อร่อยดี"</span></div>
+    <div class="rung r2"><b>ปานกลาง · ความตั้งใจ</b><span>"ถ้ามี จะซื้อ" · ตอบแบบสอบถามว่าสนใจ</span></div>
+    <div class="rung r3"><b>แข็ง · การกระทำ</b><span>จ่ายเงินจริง · วางมัดจำ · สั่งล่วงหน้า · กลับมาซื้อซ้ำ</span></div>
+  </div>
+  <p style="font-size:14.5px">ยิ่งลูกค้า<b>ลงทุน</b>มาก (เวลา เงิน ข้อมูลส่วนตัว) หลักฐานยิ่งแข็ง — เช่น การขอมัดจำ แข็งกว่าการขอแค่อีเมล</p>
+
+  <h3>ลองแยกดู: เคสหมูปิ้งอาจารย์ตั้ม (กดเลือกคำตอบ)</h3>
+  <div id="faQuiz">${FAQ.map((q,i)=>`<div class="faq" data-i="${i}"><div class="faq-s">${i+1}. ${q[0]}</div><div class="faq-b"><button class="btn" onclick="faAns(this,'F')">✅ Fact</button><button class="btn" onclick="faAns(this,'A')">❓ Assumption</button></div><div class="faq-r"></div></div>`).join('')}</div>
+  <p class="srcline">ตัวเลขในข้อความเป็นตัวเลขสมมติของเคสสอน</p>
+
+  <h3>ควรพิสูจน์ข้อไหนก่อน: Assumptions Mapping</h3>
+  <p style="font-size:14.5px">นำข้อสมมติทั้งหมดมาวางบน 2 แกน — <b>ความสำคัญ</b> (ถ้าข้อนี้ผิด โมเดลพังไหม) และ <b>หลักฐาน</b> (ตอนนี้มีมากหรือน้อย) แล้ว<b>ทดสอบข้อที่สำคัญมากแต่หลักฐานน้อยก่อน</b> (Bland & Osterwalder, 2019)</p>
+  <div class="amap">
+    <div class="ax-y">ความสำคัญ ↑</div>
+    <div class="q q1"><b>🎯 ทดสอบก่อน</b><small>สำคัญมาก · หลักฐานน้อย</small><span class="it">ลูกค้ากลุ่มนี้มาที่ทำเลนี้จริง</span><span class="it">คนทำงานจะสั่งล่วงหน้าทาง LINE</span></div>
+    <div class="q q2"><b>ติดตามต่อ</b><small>สำคัญมาก · หลักฐานมาก</small><span class="it">ร้านเนื้อหมูส่งของตรงเวลา</span></div>
+    <div class="q q3"><b>ไว้ทีหลัง</b><small>สำคัญน้อย · หลักฐานน้อย</small><span class="it">ลูกค้าอยากได้บัตรอิ่มรายเดือน</span></div>
+    <div class="q q4"><b>ไม่ต้องกังวล</b><small>สำคัญน้อย · หลักฐานมาก</small><span class="it">ลูกค้าชอบซื้อพร้อมข้าวเหนียว</span></div>
+    <div class="ax-x">หลักฐาน → (น้อย ⟶ มาก)</div>
+  </div>
+  <div class="grid c3" style="margin-top:12px">
+    <div class="card"><h4>Desirability</h4><p>ลูกค้า<b>อยากได้</b>ไหม? — ข้อสมมติในช่อง CS · VP · CH · CR</p></div>
+    <div class="card"><h4>Feasibility</h4><p>เรา<b>ทำได้</b>ไหม? — ข้อสมมติในช่อง KA · KR · KP</p></div>
+    <div class="card"><h4>Viability</h4><p><b>คุ้มไหม</b> รายได้มากกว่าต้นทุนไหม? — ข้อสมมติในช่อง R$ · C$</p></div>
+  </div>
+
+  <h3>เปลี่ยน Assumption ให้เป็น Fact: ออกแบบการทดสอบ</h3>
+  <div class="tblwrap"><table class="tbl"><tr><th>ข้อสมมติ</th><th>ทดสอบอย่างไร</th><th>ผ่านเมื่อ (ตั้งไว้ก่อนทดสอบ)</th></tr>
+    <tr><td>นักเรียนเป็นลูกค้าหลักช่วงเช้า</td><td>นับลูกค้าหน้าร้าน 6:30–7:30 น. 5 วัน</td><td>นักเรียนเกินครึ่งของลูกค้า</td></tr>
+    <tr><td>คนทำงานจะสั่งล่วงหน้าทาง LINE</td><td>เปิดรับออเดอร์จริง 2 สัปดาห์</td><td>มีออเดอร์ซ้ำจากอย่างน้อย 5 ออฟฟิศ</td></tr>
+    <tr><td>ทำเลหน้าโรงเรียนคือเหตุผลที่ขายได้</td><td>เทียบยอดขายวันเปิดเรียนกับวันหยุด</td><td>วันเปิดเรียนขายได้มากกว่าชัดเจน</td></tr>
+    <tr><td>สูตรหมักทำให้ต่างจากร้านอื่น</td><td>ให้ชิมโดยไม่บอกว่าไม้ไหนของร้านไหน</td><td>ส่วนใหญ่เลือกของเราและแยกออก</td></tr></table></div>
+  <div class="callout tip"><b>เคล็ดลับ:</b> ตั้ง "เกณฑ์ผ่าน" ไว้<b>ก่อน</b>ทดสอบเสมอ — ถ้าตั้งหลังเห็นผล เราจะตีความให้ผ่านทุกครั้ง · เริ่มจากการทดสอบที่ถูกและเร็ว เมื่อมั่นใจขึ้นจึงลงทุนกับการทดสอบที่ให้หลักฐานแข็งขึ้น</div>
+
+  <div class="callout warn"><b>ระวัง 3 กับดัก</b><ul>
+    <li><b>สิ่งที่ร้านสัญญา ≠ สิ่งที่ลูกค้ารับรู้</b> — "ร้านประกาศว่าอร่อย" เป็น Fact ว่าร้านประกาศจริง แต่ "ลูกค้ารู้สึกว่าอร่อย" ยังต้องพิสูจน์</li>
+    <li><b>ความเห็นของคนใกล้ตัว</b> — เพื่อนและครอบครัวมักพูดให้กำลังใจ เป็นหลักฐานที่อ่อนที่สุด</li>
+    <li><b>Fact หมดอายุได้</b> — สิ่งที่เคยจริงอาจเปลี่ยน เช่น โรงเรียนย้ายประตูทางเข้า ต้องทบทวนเป็นระยะ</li></ul></div>
+  <div class="callout ok"><b>ลงมือ:</b> ใน <a href="bmc_studio.html" style="color:var(--blue);font-weight:700">BMC Studio</a> กดป้ายใต้ไอเท็มเพื่อสลับ Fact/Assumption — แท็บรายงานจะบอกว่ายังเหลือ Assumption กี่เปอร์เซ็นต์ · เลือกข้อที่ "ถ้าผิดแล้วเจ๊ง" มา 1 ข้อ แล้วออกแบบการทดสอบตามตารางด้านบน</div>
+  <p class="srcline">อ้างอิง: Bland, D. J., & Osterwalder, A. (2019). Testing Business Ideas · Strategyzer, <a href="https://www.strategyzer.com/library/business-testing-is-your-hypothesis-really-validated" target="_blank" rel="noopener">Business Testing: Is your Hypothesis Really Validated?</a> · ชื่อช่องในแผนภาพ 2 แกน (ยกเว้น "ทดสอบก่อน") การจับคู่ D/F/V กับช่อง BMC แบบฝึก และเคสหมูปิ้ง: เรียบเรียงโดยผู้สอน</p>
+`},
+
 ];
 /* BMC detail data */
 const BMC={
@@ -397,6 +607,17 @@ content.addEventListener('click',e=>{
 const EXPL={
  vp:{pain:{n:'Pain Relievers · ตัวช่วยลดความเจ็บปวด',d:'คุณสมบัติที่ช่วยขจัดหรือลดความทุกข์ยาก ปัญหา อุปสรรค หรือความเสี่ยงของลูกค้า เช่น ลดต้นทุน ลดความเสี่ยง ทำให้งาน/ชีวิตง่ายขึ้น หรือแก้ข้อบกพร่องของสินค้าเดิมในตลาด',ex:'แอปจองคิวช่วยลดเวลารอและความหงุดหงิดของลูกค้า'},
    gain:{n:'Gain Creators · ตัวสร้างประโยชน์',d:'คุณสมบัติที่สร้างผลลัพธ์หรือประโยชน์ที่ลูกค้าต้องการ ทั้งจับต้องได้และไม่ได้ เช่น บรรลุผลได้ดี/เร็ว/มากขึ้น เพิ่มความพึงพอใจ สร้างการยอมรับหรือสถานะทางสังคม หรือเพิ่มความสะดวกสบาย',ex:'ระบบสะสมแต้มที่ให้สิทธิพิเศษ สร้างความคุ้มค่าและความภักดี'}},
+ vpe:{newness:{n:'ความใหม่ (Newness)',d:'ตอบความต้องการที่ลูกค้าไม่เคยรู้ตัวว่ามี เพราะไม่เคยมีข้อเสนอแบบนี้มาก่อน มักมาจากเทคโนโลยีใหม่',ex:'สมาร์ตโฟนรุ่นแรก ๆ ที่สร้างหมวดสินค้าใหม่'},
+   performance:{n:'สมรรถนะ (Performance)',d:'ทำได้ดีกว่าเดิม เร็วกว่า แรงกว่า คุณภาพสูงกว่า',ex:'คอมพิวเตอร์ที่เร็วขึ้น · อาหารที่รสชาติดีกว่า'},
+   customization:{n:'ปรับตามลูกค้า (Customization)',d:'ปรับสินค้า/บริการให้ตรงกับลูกค้าแต่ละรายหรือแต่ละกลุ่มย่อย',ex:'สั่งทำตามขนาด · เลือกส่วนผสมเอง'},
+   jobdone:{n:'ทำงานให้สำเร็จ (Getting the job done)',d:'ช่วยให้ลูกค้าทำงานบางอย่างสำเร็จโดยไม่ต้องทำเอง',ex:'บริการดูแลระบบไอทีให้ธุรกิจ'},
+   design:{n:'ดีไซน์ (Design)',d:'ออกแบบได้โดดเด่นจนเป็นเหตุผลให้เลือกซื้อ วัดได้ยากแต่สำคัญมากในบางอุตสาหกรรม',ex:'แฟชั่น · เครื่องใช้ไฟฟ้าที่ดีไซน์สวย'},
+   brand:{n:'แบรนด์/สถานะ (Brand/Status)',d:'ลูกค้าได้คุณค่าจากการได้ใช้หรือแสดงว่าใช้แบรนด์นั้น',ex:'นาฬิกาหรู · แบรนด์ที่สะท้อนตัวตน'},
+   price:{n:'ราคา (Price)',d:'ให้คุณค่าใกล้เคียงกันในราคาที่ต่ำกว่า เหมาะกับลูกค้าที่อ่อนไหวต่อราคา',ex:'สายการบินต้นทุนต่ำ'},
+   costred:{n:'ลดต้นทุน (Cost reduction)',d:'ช่วยให้ลูกค้าลดต้นทุนของตัวเอง',ex:'ซอฟต์แวร์บนคลาวด์ที่ลูกค้าไม่ต้องซื้อเซิร์ฟเวอร์เอง'},
+   riskred:{n:'ลดความเสี่ยง (Risk reduction)',d:'ลดความเสี่ยงที่ลูกค้าต้องเจอเมื่อซื้อหรือใช้',ex:'รับประกันสินค้า · มาตรฐานความสะอาดที่ตรวจสอบได้'},
+   access:{n:'การเข้าถึง (Accessibility)',d:'ทำให้ลูกค้าที่<b>เคยเข้าไม่ถึง</b>สินค้า/บริการ ได้เข้าถึง ผ่านโมเดลธุรกิจหรือเทคโนโลยีใหม่ — ไม่ได้หมายถึง "อยู่ใกล้/ไปง่าย"',ex:'การแบ่งความเป็นเจ้าของเครื่องบินส่วนตัว (fractional ownership) ทำให้คนที่ซื้อทั้งลำไม่ไหวได้ใช้ · กองทุนรวมที่ให้รายย่อยลงทุนได้'},
+   convenience:{n:'สะดวก/ใช้ง่าย (Convenience/Usability)',d:'ทำให้ใช้ง่ายขึ้น ได้เร็วขึ้น สะดวกขึ้น — "อยู่ใกล้ ซื้อง่าย ไม่ต้องรอ" อยู่ที่ข้อนี้',ex:'ร้านใกล้บ้านเปิดเช้า · สั่งล่วงหน้าแล้วมารับได้ทันที'}},
  ch:{awareness:{n:'1 · การรับรู้ (Awareness)',d:'ทำให้ลูกค้ารู้จักสินค้า/บริการ',ex:'โฆษณา โซเชียลมีเดีย คอนเทนต์'},
    evaluation:{n:'2 · การประเมิน (Evaluation)',d:'ช่วยให้ลูกค้าประเมินคุณค่า',ex:'รีวิว การทดลองใช้ การเปรียบเทียบ'},
    purchase:{n:'3 · การซื้อ (Purchase)',d:'ช่องทางให้ลูกค้าซื้อได้สะดวก',ex:'เว็บไซต์ แอป หน้าร้าน ระบบชำระเงิน'},
@@ -413,16 +634,25 @@ const EXPL={
    subscription:{n:'สมาชิก (Subscription)',d:'จ่ายรายเดือน/ปีเพื่อเข้าถึงบริการต่อเนื่อง',ex:'สตรีมมิ่ง ฟิตเนส'},
    renting:{n:'ให้เช่า (Renting/Leasing)',d:'ให้สิทธิใช้ชั่วคราวโดยเก็บค่าเช่า',ex:'เช่ารถ เช่าห้อง'},
    licensing:{n:'ค่าลิขสิทธิ์ (Licensing)',d:'อนุญาตให้ใช้ทรัพย์สินทางปัญญาโดยเก็บค่าสิทธิ์',ex:'ลิขสิทธิ์เทคโนโลยี/แบรนด์'},
-   advertising:{n:'โฆษณา (Advertising)',d:'รายได้จากพื้นที่/การโฆษณา',ex:'แพลตฟอร์มสื่อ'}},
+   brokerage:{n:'ค่านายหน้า (Brokerage fees)',d:'รายได้จากการเป็นตัวกลางเชื่อมผู้ซื้อกับผู้ขาย มักเก็บเป็นเปอร์เซ็นต์ของมูลค่าธุรกรรม',ex:'นายหน้าอสังหาริมทรัพย์ · แพลตฟอร์มจองที่พัก/เรียกรถ · ผู้ให้บริการรับชำระเงิน'},
+   advertising:{n:'โฆษณา (Advertising)',d:'รายได้จากการขายพื้นที่หรือการเข้าถึงผู้ชมให้ผู้ลงโฆษณา',ex:'สื่อออนไลน์ · แอปฟรีที่มีโฆษณา'}},
+ price:{list:{n:'ราคาตั้ง (List price) — คงที่',d:'ราคาเดียวสำหรับสินค้า/บริการแต่ละรายการ',ex:'เมนูที่ติดราคาไว้'},
+   feature:{n:'ตามคุณสมบัติ (Product feature dependent) — คงที่',d:'ราคาขึ้นกับจำนวนหรือคุณภาพของคุณสมบัติที่เลือก',ex:'แพ็กเกจพื้นฐาน/พรีเมียม'},
+   segment:{n:'ตามกลุ่มลูกค้า (Customer segment dependent) — คงที่',d:'ราคาต่างกันตามลักษณะของกลุ่มลูกค้า',ex:'ราคานักเรียน/นักศึกษา'},
+   volume:{n:'ตามปริมาณ (Volume dependent) — คงที่',d:'ราคาขึ้นกับปริมาณที่ซื้อ',ex:'ซื้อยกโหลถูกกว่า · ออเดอร์กลุ่ม'},
+   negotiation:{n:'ต่อรอง (Negotiation) — เปลี่ยนตามสถานการณ์',d:'ราคาตกลงกันระหว่างคู่ค้า ขึ้นกับอำนาจต่อรองและทักษะการเจรจา',ex:'สัญญาซื้อขายระหว่างธุรกิจ'},
+   yield:{n:'Yield management — เปลี่ยนตามสถานการณ์',d:'ราคาขึ้นกับสินค้าคงเหลือและช่วงเวลาที่ซื้อ ใช้กับทรัพยากรที่เก็บไว้ขายทีหลังไม่ได้',ex:'ห้องพักโรงแรม · ที่นั่งเครื่องบิน'},
+   realtime:{n:'ตลาดเรียลไทม์ (Real-time market) — เปลี่ยนตามสถานการณ์',d:'ราคาเปลี่ยนตามอุปสงค์และอุปทาน ณ ขณะนั้น รวมถึงการประมูล',ex:'ราคาเรียกรถช่วงเร่งด่วน · การประมูลออนไลน์'}},
  cost:{costdriven:{n:'เน้นต้นทุนต่ำ (Cost-driven)',d:'ลดต้นทุนให้มากที่สุด เน้นราคาถูก ใช้ระบบอัตโนมัติ/outsource',ex:'สายการบินโลว์คอสต์'},
    valuedriven:{n:'เน้นคุณค่า (Value-driven)',d:'มุ่งสร้างคุณค่า/พรีเมียมมากกว่าลดต้นทุน',ex:'โรงแรมหรู'},
    fixed:{n:'ต้นทุนคงที่ (Fixed)',d:'ไม่แปรตามปริมาณผลิต',ex:'เงินเดือน ค่าเช่า'},
    variable:{n:'ต้นทุนผันแปร (Variable)',d:'แปรตามปริมาณผลิต/ขาย',ex:'วัตถุดิบ'},
-   scale:{n:'Economies of Scale',d:'ต้นทุนต่อหน่วยลดลงเมื่อผลิตปริมาณมากขึ้น'}},
+   scale:{n:'Economies of Scale',d:'ต้นทุนต่อหน่วยลดลงเมื่อผลิตปริมาณมากขึ้น',ex:'สั่งวัตถุดิบล็อตใหญ่ได้ราคาต่อหน่วยถูกลง'},
+   scope:{n:'Economies of Scope',d:'ต้นทุนลดลงเพราะใช้ทรัพยากร/กิจกรรมเดียวกันกับสินค้าหรือธุรกิจหลายอย่าง',ex:'ใช้ช่องทางจัดจำหน่ายหรือครัวเดียวกันกับสินค้าหลายรายการ'}},
  kr:{physical:{n:'กายภาพ (Physical)',d:'สินทรัพย์จับต้องได้',ex:'อาคาร เครื่องจักร ระบบ คลังสินค้า'},
    intellectual:{n:'ทางปัญญา (Intellectual)',d:'สินทรัพย์ทางความรู้',ex:'แบรนด์ สิทธิบัตร ลิขสิทธิ์ ฐานข้อมูล'},
-   human:{n:'บุคคล (Human)',d:'บุคลากรที่มีทักษะ/ความเชี่ยวชาญสำคัญ'},
-   financial:{n:'การเงิน (Financial)',d:'เงินทุน วงเงินสินเชื่อ กระแสเงินสด'}},
+   human:{n:'บุคคล (Human)',d:'บุคลากรที่มีทักษะ/ความเชี่ยวชาญสำคัญ สำคัญมากในธุรกิจที่ใช้ความรู้และความคิดสร้างสรรค์',ex:'ทีมวิจัยและพัฒนา · พนักงานขายที่เชี่ยวชาญ · พนักงานที่ผ่านการฝึกตามมาตรฐาน'},
+   financial:{n:'การเงิน (Financial)',d:'เงินสด วงเงินสินเชื่อ หรือหลักประกันทางการเงินที่โมเดลธุรกิจต้องใช้',ex:'เงินหมุนเวียนซื้อวัตถุดิบล่วงหน้า · วงเงินที่ใช้ให้ลูกค้าผ่อนชำระ'}},
  ka:{production:{n:'การผลิต (Production)',d:'ออกแบบ ผลิต และส่งมอบสินค้าปริมาณมาก/คุณภาพสูง',ex:'โรงงานผลิต'},
    problemsolving:{n:'การแก้ปัญหา (Problem-solving)',d:'หาทางแก้เฉพาะรายให้ลูกค้า',ex:'ที่ปรึกษา โรงพยาบาล'},
    platform:{n:'แพลตฟอร์ม/เครือข่าย (Platform/Network)',d:'บริหารแพลตฟอร์มที่เชื่อมผู้ใช้หลายฝ่าย',ex:'มาร์เก็ตเพลส แอปจับคู่'}},
@@ -442,7 +672,8 @@ function bmcShow(k){const d=BMC[k];if(!d)return;
   document.querySelectorAll('#bmc .bcell').forEach(c=>c.classList.toggle('on',c.dataset.b===k));
   const el=document.getElementById('bmcDetail');if(!el)return;
   el.style.setProperty('--dc','var('+d.c+')');
-  el.innerHTML='<h4 style="color:var('+d.c+')">'+d.n+'</h4><div class="en">'+d.en+'</div><p style="margin:0 0 4px">'+d.d+'</p><div class="q">คำถามที่ต้องตอบ:</div><ul>'+d.q.map(x=>'<li>'+x+'</li>').join('')+'</ul>';}
+  el.innerHTML='<h4 style="color:var('+d.c+')">'+d.n+'</h4><div class="en">'+d.en+'</div><p style="margin:0 0 4px">'+d.d+'</p><div class="q">คำถามที่ต้องตอบ:</div><ul>'+d.q.map(x=>'<li>'+x+'</li>').join('')+'</ul>'+
+    (S.findIndex(s=>s.id===k)>=0?'<button class="btn" style="margin-top:10px" onclick="go('+S.findIndex(s=>s.id===k)+')">อ่านบทเรียนช่องนี้แบบละเอียด →</button>':'');}
 const sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
 document.getElementById('menuToggle').onclick=()=>{sb.classList.add('open');bd.classList.add('show');};
 bd.onclick=closeMenu;function closeMenu(){sb.classList.remove('open');bd.classList.remove('show');}
@@ -459,5 +690,6 @@ go(0);
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+<script>(function(){if(/^https?:/.test(location.protocol)){var u=location.origin+location.pathname;document.querySelectorAll(".psrc").forEach(function(e){e.textContent="ที่มา: "+u;});}})();</script>
 </body>
 </html>
