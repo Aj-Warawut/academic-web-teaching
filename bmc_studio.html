@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!-- BMC Studio · ความเชื่อมโยงและความสอดคล้องของ Business Model Canvas · ไฟล์เดียว ไม่พึ่งไลบรารีภายนอก -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum)">
+<meta name="copyright" content="© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · สงวนลิขสิทธิ์">
+<title>BMC Studio · ความเชื่อมโยงของ Business Model Canvas · อ.ดร.วราวุฒิ นาคบุญนำ</title>
+<style>
+:root{
+  --navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--purple:#8A56D6;--red:#C0392B;--green:#2E7D5B;
+  --ink:#1B2A3A;--mute:#5C6B7A;--line:#DCE3EC;--tint:#EEF3FB;--bg:#F5F7FC;--panel:#fff;--shadow:0 6px 22px rgba(17,34,51,.08);
+  --kp:#8A56D6;--ka:#2F5BD0;--kr:#3d7de0;--vp:#E9A72C;--cr:#d0632f;--ch:#c0392b;--cs:#2FA392;--cost:#5C6B7A;--rev:#2E7D5B;
+  /* sequential ramp (ระดับความสอดคล้อง 1–3) */
+  --s0:#F5F7FC;--s1:#86b6ef;--s2:#3987e5;--s3:#1c5cab;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+.nb{white-space:nowrap}
+header.top{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:18px 20px 0}
+header.top .row{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+header.top .kick{color:var(--amber);font-weight:700;letter-spacing:2px;font-size:12px}
+header.top h1{font-size:24px;line-height:1.3}
+header.top .sub{color:#CADCFC;font-size:14px}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.tools a,.tools button,.tools select{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:9px;height:36px;padding:0 12px;font-size:13.5px;font-family:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.tools select option{color:var(--ink)}
+.tools a.home{background:linear-gradient(135deg,#F4C150,#E9A72C);color:#111A3A;font-weight:800;border:none}
+.tools button:hover,.tools a:hover{background:rgba(255,255,255,.26)}
+.tabs{max-width:1180px;margin:14px auto 0;display:flex;gap:4px;overflow-x:auto}
+.tab{background:transparent;border:none;color:#CADCFC;font-family:inherit;font-size:15px;padding:10px 16px;border-radius:10px 10px 0 0;cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--bg);color:var(--navy);font-weight:700}
+#content{max-width:1180px;margin:0 auto;padding:22px 20px 80px}
+.pane{display:none}.pane.on{display:block}
+h2{font-size:22px;color:var(--navy);margin:4px 0 6px;line-height:1.35}
+h3{font-size:17px;color:var(--blue);margin:18px 0 8px}
+.lead{color:var(--mute);font-size:15px;margin-bottom:14px}
+.callout{border-radius:12px;padding:12px 16px;margin:12px 0;font-size:14px;border-left:5px solid}
+.callout.tip{background:#FBEFD8;border-color:var(--amber)}.callout.info{background:var(--tint);border-color:var(--blue)}.callout.warn{background:#FBE9E7;border-color:var(--red)}
+.btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 14px;cursor:pointer;font-size:14px;font-family:inherit;color:var(--blue);font-weight:600}
+.btn:hover{background:var(--blue);color:#fff}.btn.primary{background:var(--blue);color:#fff}.btn.sm{padding:3px 9px;font-size:12.5px}
+.btn.danger{color:var(--red)}.btn.danger:hover{background:var(--red);color:#fff}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px}
+.bar label{font-size:13.5px;color:var(--mute);display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+
+/* ===== canvas ===== */
+.canvasWrap{position:relative}
+.bmc{display:grid;grid-template-columns:repeat(10,1fr);grid-auto-rows:minmax(170px,auto);gap:8px}
+.bcell{border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;background:#fff;padding:8px 9px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px;transition:opacity .15s,box-shadow .15s;min-width:0}
+.bcell .hd{display:flex;justify-content:space-between;align-items:baseline;gap:4px;cursor:pointer}
+.bcell .hd b{font-size:13.5px;color:var(--navy);line-height:1.25}
+.bcell .hd span{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.4px}
+.bcell .cnt{font-size:11px;color:var(--mute)}.bcell .cnt.over{color:var(--red);font-weight:700}
+.bcell.dim{opacity:.35}.bcell.target{box-shadow:0 0 0 3px var(--c)}
+.items{display:flex;flex-direction:column;gap:5px;flex:1}
+.chip{position:relative;background:var(--tint);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:5px 7px 5px 8px;font-size:13px;line-height:1.45;cursor:pointer;word-break:break-word;transition:opacity .15s,transform .15s}
+.chip:hover{transform:translateY(-1px)}
+.chip.sel{background:var(--c);color:#fff;border-color:var(--c)}
+.chip.linked{background:#fff;box-shadow:0 0 0 2px var(--c)}
+.chip.dim{opacity:.3}
+.chip.orphan{border-style:dashed}
+.chip .meta{display:flex;gap:4px;align-items:center;margin-top:2px;flex-wrap:wrap}
+.tagFA{font-size:10px;font-weight:700;border-radius:4px;padding:0 4px;border:1px solid}
+.tagFA.F{color:var(--green);border-color:var(--green)}.tagFA.A{color:#9A6400;border-color:var(--amber);background:#FFF6E0}
+.chip.sel .tagFA{color:#fff;border-color:#fff;background:transparent}
+.segdot{width:10px;height:10px;border-radius:50%;display:inline-block;box-shadow:0 0 0 2px #fff}
+.addIn{width:100%;border:1px dashed var(--line);border-radius:7px;padding:4px 7px;font-family:inherit;font-size:12.5px;background:transparent}
+.addIn:focus{outline:none;border-color:var(--blue);background:#fff}
+.b-kp{grid-column:1/3;grid-row:1/3;--c:var(--kp)}
+.b-ka{grid-column:3/5;grid-row:1/2;--c:var(--ka)}
+.b-kr{grid-column:3/5;grid-row:2/3;--c:var(--kr)}
+.b-vp{grid-column:5/7;grid-row:1/3;--c:var(--vp)}
+.b-cr{grid-column:7/9;grid-row:1/2;--c:var(--cr)}
+.b-ch{grid-column:7/9;grid-row:2/3;--c:var(--ch)}
+.b-cs{grid-column:9/11;grid-row:1/3;--c:var(--cs)}
+.b-cost{grid-column:1/6;grid-row:3/4;--c:var(--cost)}
+.b-rev{grid-column:6/11;grid-row:3/4;--c:var(--rev)}
+.b-cost,.b-rev{min-height:120px}
+#lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#lines text{font-size:11px;font-weight:700;font-family:inherit}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--mute);margin:8px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.sw{display:inline-block;width:22px;height:0;border-top:3px solid var(--s2)}
+.sw.d{border-top-style:dashed;border-color:var(--purple)}
+
+/* detail panel */
+.detail{margin-top:14px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--dc,var(--blue));border-radius:12px;padding:14px 18px;box-shadow:var(--shadow)}
+.detail h4{font-size:16px;color:var(--navy);margin-bottom:4px}
+.detail .en{font-size:11.5px;color:var(--mute);text-transform:uppercase;letter-spacing:1px}
+.edit{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.edit input{flex:1;min-width:200px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-family:inherit;font-size:14px}
+table.lk{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+table.lk th,table.lk td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
+table.lk th{color:var(--mute);font-weight:600;font-size:12.5px}
+table.lk select{font-family:inherit;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:2px 4px}
+.q{color:var(--mute);font-size:12.5px}
+.miss{color:var(--red);font-size:13px;margin-top:6px}
+.linkmode{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;border-radius:10px;padding:8px 14px;margin-bottom:8px;display:none;align-items:center;justify-content:space-between;gap:8px;font-size:14px}
+.linkmode.on{display:flex}
+
+/* ===== matrix ===== */
+.hm{border-collapse:separate;border-spacing:2px;font-size:13px;margin-top:6px}
+.hm th{font-weight:600;color:var(--ink);padding:4px 6px;text-align:left;max-width:180px;vertical-align:bottom}
+.hm thead th{font-size:12.5px}
+.hm td.c{width:58px;min-width:58px;height:40px;text-align:center;border-radius:4px;cursor:pointer;font-weight:700;position:relative}
+.hm td.c:hover{outline:2px solid var(--navy)}
+.hm td.c.ai{outline:2px dashed var(--purple);outline-offset:-3px}
+.hm td.c small{display:block;font-size:10px;font-weight:600;color:var(--purple)}
+.hmwrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;box-shadow:var(--shadow)}
+.scale{display:flex;gap:4px;align-items:center;font-size:12.5px;color:var(--mute);flex-wrap:wrap}
+.scale i{display:inline-block;width:26px;height:16px;border-radius:3px;border:1px solid var(--line)}
+table.cov{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.cov th,table.cov td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left}
+table.cov tr:hover td{background:var(--tint);cursor:pointer}
+.meter{height:8px;border-radius:4px;background:var(--line);min-width:80px;position:relative;overflow:hidden}
+.meter i{position:absolute;left:0;top:0;bottom:0;background:var(--s2);border-radius:4px}
+#tip{position:fixed;z-index:99;background:var(--navy);color:#fff;font-size:12.5px;padding:7px 10px;border-radius:8px;max-width:300px;pointer-events:none;display:none;line-height:1.5}
+
+/* ===== report ===== */
+.score{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 12px}
+.statc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:var(--shadow);min-width:150px}
+.statc .n{font-size:28px;font-weight:800;color:var(--navy)}.statc .l{font-size:13px;color:var(--mute)}
+ul.chk{list-style:none}
+ul.chk li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:6px;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+ul.chk li .ic{flex:0 0 auto;font-weight:700;font-size:12.5px;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.ic.r{background:#FBE9E7;color:var(--red)}.ic.y{background:#FFF3D6;color:#8A5A00}.ic.g{background:#E3F4EA;color:var(--green)}
+ul.chk li .go{color:var(--blue);cursor:pointer;text-decoration:underline;font-size:13px}
+.sentence{background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:12px;padding:14px 18px;font-size:16px;box-shadow:var(--shadow)}
+
+/* ===== AI ===== */
+textarea.big{width:100%;min-height:160px;border:1px solid var(--line);border-radius:10px;padding:10px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.steps{counter-reset:s;list-style:none;margin:6px 0 12px}
+.steps li{counter-increment:s;position:relative;padding:4px 0 4px 34px;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:5px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.sug{background:#fff;border:1px solid var(--line);border-left:4px solid var(--purple);border-radius:10px;padding:9px 12px;margin-bottom:6px;font-size:14px}
+.sug .ev{color:var(--mute);font-size:13px;margin-top:3px}
+.sug .acts{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.sug .pair{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sug .why{margin-top:4px}
+.sug.decided{background:#F7F8FB;border-left-color:var(--line)}
+.sug.decided .why,.sug.decided .ev{opacity:.7}
+.chg{font-size:12px;font-weight:700;border-radius:6px;padding:1px 8px;margin-left:auto}
+.chg.up{background:#E3EEFC;color:#1c5cab}.chg.down{background:#FBE9E7;color:var(--red)}
+.done{font-size:13px;font-weight:700}.done.ok{color:var(--green)}.done.no{color:var(--mute)}
+h4.grpH{font-size:15px;color:var(--navy);margin:14px 0 4px}
+.seg{display:inline-flex;gap:4px}
+.obsItems{display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:4px}
+.pillB{display:inline-block;border-radius:6px;padding:0 6px;font-size:12px;font-weight:700;color:#fff}
+.rubric{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+.rubric td,.rubric th{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.rubric td:first-child{text-align:center;font-weight:800;width:44px}
+
+footer.foot{text-align:center;font-size:13px;color:var(--mute);padding:18px 16px 28px;border-top:1px solid var(--line);line-height:1.8}
+footer.foot a{color:var(--blue)}
+@media(max-width:860px){
+  .bmc{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .b-kp,.b-ka,.b-kr,.b-vp,.b-cr,.b-ch,.b-cs,.b-cost,.b-rev{grid-column:auto!important;grid-row:auto!important;min-height:120px}
+  .b-cost,.b-rev{grid-column:1/-1!important}
+  header.top h1{font-size:20px}
+}
+@media(max-width:560px){.bmc{grid-template-columns:1fr}#content{padding:16px 12px 60px}}
+@media print{header.top .tools,.tabs,.addIn,.bar,.linkmode,#tip{display:none!important}.pane{display:block!important;page-break-after:always}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="row">
+    <div>
+      <div class="kick">BMC STUDIO · ความเชื่อมโยงและความสอดคล้อง · © อ.ดร.วราวุฒิ นาคบุญนำ</div>
+      <h1>ผืนผ้าใบที่มองเห็น "กลไก" ของธุรกิจ</h1>
+      <div class="sub">ผูกไอเท็มข้ามช่อง · ตรวจว่าทุกช่องสอดคล้องกันเป็นระบบ · ให้ AI ช่วยทวนสอบ</div>
+    </div>
+    <div class="tools">
+      <a class="home" href="index.html">🏠 หน้าแรก</a>
+      <a href="bmc_course.html">📘 บทเรียน BMC</a>
+      <select id="caseSel" title="โหลดเคสตัวอย่าง"><option value="">📂 เคสตัวอย่าง…</option><option value="netflix">Netflix</option><option value="airbnb">Airbnb (สองฝั่ง)</option><option value="uber">Uber (สองฝั่ง)</option></select>
+      <button id="btnExport" title="บันทึกเป็นไฟล์ JSON">⬇ ส่งออก</button>
+      <button id="btnImport" title="เปิดไฟล์ JSON">⬆ นำเข้า</button>
+      <button id="btnNew" title="เริ่มแคนวาสใหม่">✚ ใหม่</button>
+      <button class="az" id="fszDown" title="ตัวอักษรเล็กลง">A−</button>
+      <button class="az" id="fszUp" title="ตัวอักษรใหญ่ขึ้น">A+</button>
+      <input type="file" id="fileIn" accept=".json,application/json" hidden>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab on" data-p="canvas">① แคนวาส & เส้นเชื่อม</button>
+    <button class="tab" data-p="matrix">② ตาราง Alignment</button>
+    <button class="tab" data-p="report">③ รายงานความสอดคล้อง</button>
+    <button class="tab" data-p="ai">④ ตรวจด้วย AI</button>
+  </nav>
+</header>
+
+<main id="content">
+
+<!-- ① CANVAS -->
+<section class="pane on" id="p-canvas">
+  <div class="bar">
+    <input id="title" class="addIn" style="max-width:360px;font-size:15px;border-style:solid" placeholder="ชื่อโครงการ / ธุรกิจ">
+    <label><input type="checkbox" id="showAll"> แสดงเส้นทั้งหมด</label>
+    <label><input type="checkbox" id="showAI" checked> แสดงข้อเสนอ AI (เส้นประ)</label>
+    <span class="q">พิมพ์ในช่อง "+ เพิ่ม" แล้วกด Enter · กดไอเท็มเพื่อดูเส้นเชื่อม · กดหัวช่องเพื่อดูว่าช่องนี้ควรเชื่อมกับช่องใด</span>
+  </div>
+  <div class="linkmode" id="linkBar"><span id="linkMsg"></span><button class="btn sm" id="linkDone">เสร็จ (Esc)</button></div>
+  <div class="canvasWrap" id="cwrap">
+    <div class="bmc" id="bmc"></div>
+    <svg id="lines"></svg>
+  </div>
+  <div class="legend" id="legend"></div>
+  <div class="detail" id="detail"></div>
+</section>
+
+<!-- ② MATRIX -->
+<section class="pane" id="p-matrix">
+  <h2>ตาราง Alignment</h2>
+  <p class="lead">จับคู่ไอเท็มของสองช่องแบบตารางไขว้ — แต่ละช่องคือระดับความสอดคล้องระหว่างไอเท็มสองตัว (0–3) กดที่ช่องเพื่อเปลี่ยนระดับ 0→1→2→3→0</p>
+  <h3>ภาพรวม: คู่ช่องที่ควรเชื่อมกัน (Coverage)</h3>
+  <table class="cov" id="covTbl"></table>
+  <h3 id="hmTitle">ตารางรายคู่</h3>
+  <div class="bar"><select id="pairSel" class="btn"></select><span class="scale" id="scaleLegend"></span></div>
+  <div class="hmwrap"><table class="hm" id="hm"></table></div>
+  <p class="q" id="pairQ" style="margin-top:8px"></p>
+</section>
+
+<!-- ③ REPORT -->
+<section class="pane" id="p-report">
+  <h2>รายงานความสอดคล้อง</h2>
+  <p class="lead">ตรวจตามกติกาโครงสร้าง (ไม่ใช้ AI) — บอกได้ว่า "เชื่อมครบไหม" แต่ไม่ได้บอกว่า "เนื้อหาสมเหตุสมผลไหม" ส่วนนั้นใช้แท็บ ④</p>
+  <div class="score" id="scoreRow"></div>
+  <ul class="chk" id="chkList"></ul>
+  <h3>บททดสอบ 30 วินาที</h3>
+  <p class="q">ประโยคนี้ประกอบจากไอเท็มแรกของแต่ละช่องในสายของกลุ่มลูกค้า — ถ้าอ่านแล้วคนนอกตอบไม่ได้ว่า "ทำอะไร ใครคือลูกค้า ทำเงินอย่างไร" ให้กลับไปแก้แคนวาส</p>
+  <div id="sentences"></div>
+  <div class="callout info"><b>หมายเหตุ:</b> คะแนนในหน้านี้เป็น <b>ดัชนีช่วยสอน</b> ไม่ใช่มาตรวัดทางวิชาการ · กติกา 3-5-1 เป็นกติกาช่วยจำที่ต่อยอดจากหลัก granularity ของ Osterwalder/Strategyzer ไม่ใช่ศัพท์ในตำราต้นฉบับ</div>
+</section>
+
+<!-- ④ AI -->
+<section class="pane" id="p-ai">
+  <h2>ตรวจความสอดคล้องด้วย AI</h2>
+  <p class="lead">AI ทำหน้าที่เป็น "ผู้ทวนสอบคนที่สอง": AI <b>เสนอ</b> ระดับความสอดคล้องพร้อมหลักฐาน — <b>คน</b>เป็นผู้ยอมรับหรือปฏิเสธเสมอ</p>
+  <ol class="steps">
+    <li>กด <b>"คัดลอก prompt ตรวจ"</b> (มีแคนวาส + เกณฑ์ + รูปแบบคำตอบอยู่ครบ)</li>
+    <li>วางใน Claude (หรือ AI ที่ใช้) แล้วรอคำตอบที่เป็น JSON</li>
+    <li>คัดลอกคำตอบทั้งหมดมาวางในช่องด้านล่าง แล้วกด <b>"นำผลเข้า"</b></li>
+    <li>ทวนข้อเสนอทีละข้อ: ✓ ยอมรับ / ✕ ปฏิเสธ — ข้อที่ยังไม่ตัดสินจะแสดงเป็นเส้นประในแคนวาส</li>
+  </ol>
+  <div class="callout warn"><b>ก่อนส่งให้ AI:</b> ห้ามใส่ข้อมูลส่วนบุคคล ชื่อลูกค้าจริง หรือความลับทางการค้า — ข้อความในแคนวาสจะถูกส่งไปยังผู้ให้บริการ AI</div>
+  <div class="bar"><button class="btn primary" id="btnPrompt">📋 คัดลอก prompt ตรวจ</button><button class="btn" id="btnShowPrompt">👁 ดู prompt</button><span class="q" id="copyMsg"></span></div>
+  <textarea class="big" id="promptView" readonly style="display:none"></textarea>
+  <h3>วางคำตอบจาก AI</h3>
+  <textarea class="big" id="aiIn" placeholder='วางคำตอบ JSON ที่นี่ เช่น {"links":[...], "conflicts":[...], ...}'></textarea>
+  <div class="bar"><button class="btn primary" id="btnParse">⤵ นำผลเข้า</button><button class="btn danger" id="btnClearAI">ล้างผล AI</button><span class="q" id="parseMsg"></span></div>
+  <div id="aiOut"></div>
+  <h3>เกณฑ์ระดับความสอดคล้อง (ร่าง — รอผู้สอนทวน)</h3>
+  <table class="rubric" id="rubricTbl"></table>
+</section>
+</main>
+<footer class="foot">
+  © 2569 อ.ดร.วราวุฒิ นาคบุญนำ (Dr. Warawut Narkbunnum) · สงวนลิขสิทธิ์<br>
+  คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · <a href="bmc_course.html">บทเรียน Business Model Canvas</a>
+</footer>
+<div id="tip"></div>
+
+<script>
+/* ---------- นิยามช่องและคู่เส้นเชื่อม ---------- */
+const B={
+ kp:{n:'พันธมิตรหลัก',en:'Key Partnerships',ph:'ใครช่วยเรา?'},
+ ka:{n:'กิจกรรมหลัก',en:'Key Activities',ph:'ต้องทำอะไร?'},
+ kr:{n:'ทรัพยากรหลัก',en:'Key Resources',ph:'ต้องมีอะไร?'},
+ vp:{n:'คุณค่าที่นำเสนอ',en:'Value Propositions',ph:'ให้คุณค่าอะไร?'},
+ cr:{n:'ความสัมพันธ์ลูกค้า',en:'Customer Relationships',ph:'สัมพันธ์แบบใด?'},
+ ch:{n:'ช่องทาง',en:'Channels',ph:'ผ่านช่องทางใด?'},
+ cs:{n:'กลุ่มลูกค้า',en:'Customer Segments',ph:'ลูกค้าคือใคร?'},
+ cost:{n:'โครงสร้างต้นทุน',en:'Cost Structure',ph:'ต้นทุนหลักคือ?'},
+ rev:{n:'กระแสรายได้',en:'Revenue Streams',ph:'ทำเงินจากอะไร?'}
+};
+const ORDER=['kp','ka','kr','vp','cr','ch','cs','cost','rev'];
+/* คู่ที่อนุญาตให้ผูก + คำถามตรวจ — ร่างกรอบช่วยสอน อิงตรรกะ Osterwalder & Pigneur (2010) รอผู้สอนทวน */
+const PAIRS=[
+ ['vp','cs','คุณค่านี้ตอบงาน/ปัญหาของลูกค้ากลุ่มนี้หรือไม่'],
+ ['vp','ch','คุณค่านี้ถูกส่งถึงลูกค้าผ่านช่องทางนี้หรือไม่'],
+ ['ch','cs','ช่องทางนี้เข้าถึงลูกค้ากลุ่มนี้ได้จริงหรือไม่'],
+ ['cr','cs','ลูกค้ากลุ่มนี้คาดหวังความสัมพันธ์แบบนี้หรือไม่'],
+ ['vp','cr','รูปแบบความสัมพันธ์นี้สอดคล้องกับคุณค่าที่สัญญาไว้หรือไม่'],
+ ['rev','cs','ลูกค้ากลุ่มนี้เป็นผู้จ่ายรายได้ก้อนนี้หรือไม่'],
+ ['vp','rev','ลูกค้ายอมจ่ายรายได้ก้อนนี้เพื่อคุณค่านี้หรือไม่'],
+ ['ka','vp','กิจกรรมนี้จำเป็นต่อการสร้างคุณค่านี้หรือไม่'],
+ ['ka','ch','กิจกรรมนี้ทำให้ช่องทางนี้ทำงานหรือไม่'],
+ ['ka','cr','กิจกรรมนี้สร้าง/รักษาความสัมพันธ์นี้หรือไม่'],
+ ['kr','vp','ทรัพยากรนี้ค้ำคุณค่านี้หรือไม่'],
+ ['kr','ch','ทรัพยากรนี้ค้ำช่องทางนี้หรือไม่'],
+ ['kr','cr','ทรัพยากรนี้ค้ำความสัมพันธ์นี้หรือไม่'],
+ ['kp','ka','พันธมิตรนี้ทำกิจกรรมนี้แทน/ร่วมกับเราหรือไม่'],
+ ['kp','kr','พันธมิตรนี้จัดหาทรัพยากรนี้ให้หรือไม่'],
+ ['ka','cost','กิจกรรมนี้ก่อให้เกิดต้นทุนก้อนนี้หรือไม่'],
+ ['kr','cost','ทรัพยากรนี้ก่อให้เกิดต้นทุนก้อนนี้หรือไม่'],
+ ['kp','cost','การมีพันธมิตรนี้ก่อให้เกิดต้นทุนก้อนนี้หรือไม่']
+];
+const RUBRIC=[
+ [0,'ไม่เกี่ยวข้อง หรือขัดแย้งกัน','ลบเส้นทิ้ง หรือแก้ไอเท็มใดไอเท็มหนึ่ง'],
+ [1,'อ่อน — เกี่ยวกันแบบอ้อม ต้องตีความเพิ่ม','อธิบายความเชื่อมโยงไม่ได้ในประโยคเดียว'],
+ [2,'ชัด — เชื่อมกันตรง อธิบายได้ในประโยคเดียว','เช่น "ช่องทาง LINE OA เข้าถึงเจ้าของฟาร์มที่ใช้มือถือทุกวัน"'],
+ [3,'แกนหลัก — ถ้าตัดตัวใดออก อีกตัวทำงานไม่ได้','เช่น คุณค่า "ผลตรวจใน 10 นาที" กับกิจกรรม "พัฒนาชุดตรวจ"']
+];
+const SEG=['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300','#4a3aa7','#e34948']; /* categorical fixed order */
+const SEQ=['var(--s0)','var(--s1)','var(--s2)','var(--s3)'];
+const KEY='bmcStudio.v1';
+
+/* ---------- state ---------- */
+let st=blank(), sel=null, selBlock=null, linkFrom=null, pairIdx=0, fsz=100;
+function blank(){return {title:'',items:[],links:[],ai:null,seq:1};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.items)st=Object.assign(blank(),s);}catch(e){}}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const item=id=>st.items.find(i=>i.id===id);
+const itemsOf=b=>st.items.filter(i=>i.b===b);
+function pairOf(a,b){return PAIRS.findIndex(p=>(p[0]===a&&p[1]===b)||(p[0]===b&&p[1]===a));}
+function findLink(x,y){return st.links.find(l=>(l.a===x&&l.b===y)||(l.a===y&&l.b===x));}
+function linksOf(id){return st.links.filter(l=>(l.a===id||l.b===id)&&l.s>0);}
+function other(l,id){return l.a===id?l.b:l.a;}
+function newId(b){return b+(st.seq++);}
+function addItem(b,t,tag){
+  const it={id:newId(b),b,t:t.trim(),tag:tag||'A'};
+  if(b==='cs'){const used=itemsOf('cs').map(i=>i.c);let c=0;while(used.includes(c)&&c<SEG.length)c++;it.c=c%SEG.length;}
+  st.items.push(it);return it;
+}
+function setLink(x,y,s,src){
+  const A=item(x),Bi=item(y);if(!A||!Bi)return;
+  const pi=pairOf(A.b,Bi.b);if(pi<0)return;
+  let l=findLink(x,y);
+  if(s<=0){st.links=st.links.filter(k=>k!==l);return;}
+  if(!l){const p=PAIRS[pi];l=A.b===p[0]?{a:x,b:y}:{a:y,b:x};st.links.push(l);}
+  l.s=s;l.src=src||'user';
+}
+function delItem(id){st.items=st.items.filter(i=>i.id!==id);st.links=st.links.filter(l=>l.a!==id&&l.b!==id);if(st.ai&&st.ai.links)st.ai.links=st.ai.links.filter(l=>l.a!==id&&l.b!==id);}
+
+/* คำไทย: ใช้ Intl.Segmenter ถ้ามี */
+const seg=(typeof Intl!=='undefined'&&Intl.Segmenter)?new Intl.Segmenter('th',{granularity:'word'}):null;
+function words(t){if(seg){let n=0;for(const s of seg.segment(t))if(s.isWordLike)n++;return n;}return t.split(/\s+/).filter(Boolean).length;}
+/* ตัวตัดคำแยกคำประสมไทยละเอียดกว่าที่คนนับ (ค่า|บริการ, ผู้|ผลิต) ราว 1.5 เท่า
+   ข้อความที่มีอักษรไทยจึงเตือนเมื่อเกิน 8 หน่วย ≈ 5 คำตามความรู้สึกผู้อ่าน; ภาษาอื่นใช้ 5 */
+function tooLong(t){return words(t)>(/[฀-๿]/.test(t)?8:5);}
+
+/* กลุ่มลูกค้าที่ไอเท็มอยู่ในสาย (เดินตามเส้น ไม่ผ่าน CS อื่น) */
+function segmentsOf(id){
+  const out=[];
+  itemsOf('cs').forEach(cs=>{
+    const seen=new Set([cs.id]);let fr=[cs.id];
+    for(let d=0;d<4&&fr.length;d++){const nx=[];fr.forEach(f=>linksOf(f).forEach(l=>{const o=other(l,f);if(seen.has(o))return;seen.add(o);if(item(o)&&item(o).b!=='cs')nx.push(o);}));fr=nx;}
+    if(seen.has(id))out.push(cs);
+  });
+  return out;
+}
+
+/* ---------- render canvas ---------- */
+const bmcEl=document.getElementById('bmc'),svg=document.getElementById('lines'),detail=document.getElementById('detail');
+function renderCanvas(){
+  document.getElementById('title').value=st.title||'';
+  const rel=new Set(), relB=new Set();
+  if(sel){linksOf(sel).forEach(l=>rel.add(other(l,sel)));pending().filter(p=>p.a===sel||p.b===sel).forEach(p=>rel.add(p.a===sel?p.b:p.a));}
+  const focusB=linkFrom?item(linkFrom).b:selBlock;
+  if(focusB)PAIRS.forEach(p=>{if(p[0]===focusB)relB.add(p[1]);if(p[1]===focusB)relB.add(p[0]);});
+  bmcEl.innerHTML=ORDER.map(b=>{
+    const its=itemsOf(b),over=its.length>3;
+    const dimB=focusB&&b!==focusB&&!relB.has(b);
+    const tgt=(linkFrom&&relB.has(b))||(!linkFrom&&selBlock&&relB.has(b));
+    return `<div class="bcell b-${b}${dimB?' dim':''}${tgt?' target':''}" data-b="${b}">
+      <div class="hd" data-hb="${b}"><b>${B[b].n}</b><span class="cnt${over?' over':''}" title="กติกา 3-5-1: ไม่เกิน 3 บรรทัดต่อช่อง">${its.length}/3</span></div>
+      <span style="font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.4px;margin-top:-6px">${B[b].en}</span>
+      <div class="items">${its.map(chip).join('')}</div>
+      <input class="addIn" data-add="${b}" placeholder="+ เพิ่ม (${B[b].ph})">
+    </div>`;
+    function chip(i){
+      const cls=['chip'];
+      if(i.id===sel||i.id===linkFrom)cls.push('sel');else if(rel.has(i.id))cls.push('linked');else if(sel)cls.push('dim');
+      if(!linksOf(i.id).length)cls.push('orphan');
+      const segs=i.b==='cs'?[i]:segmentsOf(i.id);
+      const dots=segs.map(s=>`<span class="segdot" style="background:${SEG[s.c]}" title="สายของ: ${esc(s.t)}"></span>`).join('');
+      const wl=tooLong(i.t)?`<span class="tagFA" style="color:var(--red);border-color:var(--red)" title="ยาวเกินไป (กติกา 3-5-1: ราว 5 คำต่อแนวคิด)">ยาวไป</span>`:'';
+      return `<div class="${cls.join(' ')}" data-id="${i.id}">${esc(i.t)}<div class="meta">${dots}<span class="tagFA ${i.tag}" data-fa="${i.id}" title="กดสลับ Fact / Assumption">${i.tag==='F'?'Fact':'Assumption'}</span>${wl}</div></div>`;
+    }
+  }).join('');
+  renderLegend();renderDetail();requestAnimationFrame(drawLines);
+}
+function renderLegend(){
+  const cs=itemsOf('cs');
+  document.getElementById('legend').innerHTML=
+    (cs.length?'<b style="color:var(--ink)">สายของกลุ่มลูกค้า:</b> '+cs.map(s=>`<span><i class="segdot" style="background:${SEG[s.c]}"></i>${esc(s.t)}</span>`).join(''):'<span>เพิ่มกลุ่มลูกค้าก่อน แล้วจุดสีจะบอกว่าไอเท็มแต่ละตัวอยู่ใน "สาย" ของลูกค้ากลุ่มไหน</span>')+
+    `<span><i class="sw" style="border-color:var(--s1)"></i>1 อ่อน</span><span><i class="sw"></i>2 ชัด</span><span><i class="sw" style="border-color:var(--s3);border-top-width:5px"></i>3 แกนหลัก</span><span><i class="sw d"></i>ข้อเสนอ AI รอทวน</span><span>ขอบประ = ไอเท็มโดดเดี่ยว</span>`;
+}
+function center(id){
+  const el=bmcEl.querySelector(`[data-id="${id}"]`);if(!el)return null;
+  const r=el.getBoundingClientRect(),wEl=document.getElementById('cwrap'),w=wEl.getBoundingClientRect();
+  const k=wEl.offsetWidth?w.width/wEl.offsetWidth:1; /* ชดเชย CSS zoom */
+  return {x:(r.left-w.left+r.width/2)/k,y:(r.top-w.top+r.height/2)/k};
+}
+function drawLines(){
+  const segs=[];
+  const all=document.getElementById('showAll').checked, ai=document.getElementById('showAI').checked;
+  /* โหมดเส้นทั้งหมด: เส้นที่ไม่เกี่ยวกับไอเท็มที่เลือกจะจางและไม่มีป้ายตัวเลข กันบังข้อความ */
+  const focus=sel||linkFrom;
+  st.links.forEach(l=>{if(l.s>0&&(all||l.a===focus||l.b===focus))segs.push({a:l.a,b:l.b,s:l.s,ai:false,faint:all&&l.a!==focus&&l.b!==focus});});
+  if(ai)pending().forEach(p=>{if(all||p.a===sel||p.b===sel)segs.push({a:p.a,b:p.b,s:p.score,ai:true});});
+  let h='';
+  segs.forEach(g=>{
+    const p=center(g.a),q=center(g.b);if(!p||!q)return;
+    const mx=(p.x+q.x)/2,my=(p.y+q.y)/2-Math.min(40,Math.abs(p.x-q.x)*.12);
+    const col=g.ai?'#8A56D6':['','#86b6ef','#3987e5','#1c5cab'][g.s]||'#3987e5';
+    const w=g.ai?2:[0,1.5,2.5,4][g.s];
+    h+=`<path d="M${p.x},${p.y} Q${mx},${my} ${q.x},${q.y}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round" ${g.ai?'stroke-dasharray="6 5"':''} opacity="${g.faint?(focus?.15:.35):.9}"/>`;
+    if(!g.faint){h+=`<circle cx="${mx}" cy="${(p.y+q.y)/2-Math.min(20,Math.abs(p.x-q.x)*.06)}" r="9" fill="#fff" stroke="${col}" stroke-width="1.5"/><text x="${mx}" y="${(p.y+q.y)/2-Math.min(20,Math.abs(p.x-q.x)*.06)+4}" text-anchor="middle" fill="#1B2A3A">${g.ai?'AI':g.s}</text>`;}
+  });
+  svg.innerHTML=h;
+}
+function renderDetail(){
+  if(linkFrom){detail.style.display='none';return;}
+  if(sel&&item(sel)){
+    const it=item(sel);detail.style.display='block';detail.style.setProperty('--dc',`var(--${it.b})`);
+    const ls=linksOf(sel);
+    const partners=[...new Set(PAIRS.filter(p=>p[0]===it.b||p[1]===it.b).map(p=>p[0]===it.b?p[1]:p[0]))];
+    const linkedB=new Set(ls.map(l=>item(other(l,sel)).b));
+    const missing=partners.filter(b=>!linkedB.has(b)&&itemsOf(b).length);
+    detail.innerHTML=`<div class="en">${B[it.b].en}</div><h4>${B[it.b].n}</h4>
+      <div class="edit"><input id="edText" value="${esc(it.t)}"><button class="btn sm" id="edSave">บันทึกข้อความ</button><button class="btn sm primary" id="edLink">🔗 เชื่อมกับไอเท็มอื่น</button><button class="btn sm danger" id="edDel">ลบ</button></div>
+      ${ls.length?`<table class="lk"><tr><th>เชื่อมกับ</th><th>คำถามตรวจ</th><th>ระดับ</th><th>ที่มา</th></tr>${ls.map(l=>{const o=item(other(l,sel));return `<tr><td><b style="color:var(--${o.b})">${B[o.b].n}</b><br>${esc(o.t)}</td><td class="q">${PAIRS[pairOf(it.b,o.b)][2]}</td><td><select data-ls="${o.id}">${[0,1,2,3].map(v=>`<option value="${v}"${v===l.s?' selected':''}>${v}${v===0?' (ลบ)':''}</option>`).join('')}</select></td><td class="q">${l.src==='ai'?'AI (ยอมรับแล้ว)':'ผู้เรียน'}</td></tr>`;}).join('')}</table>`:'<p class="miss">ไอเท็มนี้ยังโดดเดี่ยว — กด 🔗 เพื่อเชื่อมกับช่องที่เกี่ยวข้อง</p>'}
+      ${missing.length?`<p class="miss">ยังไม่ได้เชื่อมกับ: ${missing.map(b=>B[b].n).join(' · ')}</p>`:''}`;
+    return;
+  }
+  if(selBlock){
+    detail.style.display='block';detail.style.setProperty('--dc',`var(--${selBlock})`);
+    const ps=PAIRS.filter(p=>p[0]===selBlock||p[1]===selBlock);
+    detail.innerHTML=`<div class="en">${B[selBlock].en}</div><h4>${B[selBlock].n} เชื่อมกับช่องใดบ้าง</h4>
+      <table class="lk"><tr><th>ช่องคู่</th><th>คำถามตรวจความสอดคล้อง</th><th>ผูกแล้ว</th></tr>${ps.map(p=>{const o=p[0]===selBlock?p[1]:p[0];const n=st.links.filter(l=>l.s>0&&pairOf(item(l.a).b,item(l.b).b)===PAIRS.indexOf(p)).length;return `<tr><td><b style="color:var(--${o})">${B[o].n}</b></td><td>${p[2]}</td><td>${n} เส้น</td></tr>`;}).join('')}</table>
+      <p class="q" style="margin-top:8px">ชุดเส้นนี้เป็นกรอบช่วยสอน อิงตรรกะของ Osterwalder &amp; Pigneur (2010)</p>`;
+    return;
+  }
+  detail.style.display='block';detail.style.removeProperty('--dc');
+  const ci=st.caseInfo;
+  detail.innerHTML=(ci?`<h4>เกี่ยวกับเคสนี้</h4><p style="font-size:14px">${esc(ci.note)}</p><p class="q">ที่มาของไอเท็ม: ${ci.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')} (เรียบเรียงและย่อเป็นภาษาไทย) · <b>เส้นเชื่อมและระดับ 0–3 เป็นการตีความเพื่อการสอน</b> ไม่ได้มาจากเอกสารของบริษัท</p><hr style="border:none;border-top:1px solid var(--line);margin:10px 0">`:'')+`<h4>เริ่มอย่างไร</h4><p style="font-size:14px">1) เพิ่มไอเท็มฝั่งขวาก่อน (กลุ่มลูกค้า → คุณค่า → ช่องทาง → ความสัมพันธ์ → รายได้) แล้วค่อยฝั่งซ้าย · 2) กดไอเท็ม แล้วกด 🔗 เพื่อผูกกับไอเท็มในช่องที่เกี่ยวข้อง · 3) ดูแท็บ ② และ ③ ว่าตรงไหนยังขาด · 4) ใช้แท็บ ④ ให้ AI ช่วยทวน</p><p class="q">ข้อมูลบันทึกในเบราว์เซอร์นี้อัตโนมัติ · ใช้ "⬇ ส่งออก" เพื่อเก็บเป็นไฟล์หรือส่งให้ผู้สอน</p>`;
+}
+
+/* ---------- canvas events ---------- */
+bmcEl.addEventListener('click',e=>{
+  const fa=e.target.closest('[data-fa]');
+  if(fa){const it=item(fa.dataset.fa);it.tag=it.tag==='F'?'A':'F';save();renderCanvas();return;}
+  const c=e.target.closest('.chip');
+  if(c){
+    const id=c.dataset.id;
+    if(linkFrom){
+      if(id===linkFrom)return endLink();
+      const a=item(linkFrom),b=item(id);
+      if(pairOf(a.b,b.b)<0){flash(`${B[a.b].n} ไม่ได้เชื่อมกับ ${B[b.b].n} โดยตรงในกรอบนี้`);return;}
+      const l=findLink(linkFrom,id);setLink(linkFrom,id,l&&l.s>0?0:2,'user');save();renderCanvas();return;
+    }
+    sel=sel===id?null:id;selBlock=null;renderCanvas();return;
+  }
+  const hb=e.target.closest('[data-hb]');
+  if(hb&&!linkFrom){selBlock=selBlock===hb.dataset.hb?null:hb.dataset.hb;sel=null;renderCanvas();}
+});
+bmcEl.addEventListener('keydown',e=>{
+  const inp=e.target.closest('[data-add]');
+  if(inp&&e.key==='Enter'&&inp.value.trim()){const b=inp.dataset.add;const it=addItem(b,inp.value);save();sel=it.id;selBlock=null;renderCanvas();const n=bmcEl.querySelector(`[data-add="${b}"]`);n&&n.focus();}
+});
+detail.addEventListener('click',e=>{
+  if(e.target.id==='edSave'){const v=document.getElementById('edText').value.trim();if(v){item(sel).t=v;save();renderCanvas();}}
+  if(e.target.id==='edDel'){if(confirm('ลบไอเท็มนี้และเส้นเชื่อมทั้งหมดของมัน?')){delItem(sel);sel=null;save();renderCanvas();}}
+  if(e.target.id==='edLink'){startLink(sel);}
+});
+detail.addEventListener('change',e=>{const s=e.target.closest('[data-ls]');if(s){setLink(sel,s.dataset.ls,+s.value,'user');save();renderCanvas();}});
+detail.addEventListener('keydown',e=>{if(e.target.id==='edText'&&e.key==='Enter')document.getElementById('edSave').click();});
+function startLink(id){linkFrom=id;sel=null;selBlock=null;const it=item(id);
+  document.getElementById('linkMsg').innerHTML=`🔗 กำลังเชื่อม <b>${esc(it.t)}</b> — กดไอเท็มในช่องที่ไฮไลต์เพื่อผูก/ยกเลิก (ระดับเริ่มต้น = 2 แก้ได้ภายหลัง)`;
+  document.getElementById('linkBar').classList.add('on');renderCanvas();}
+function endLink(){const id=linkFrom;linkFrom=null;sel=id;document.getElementById('linkBar').classList.remove('on');renderCanvas();}
+document.getElementById('linkDone').onclick=endLink;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(linkFrom)endLink();else{sel=null;selBlock=null;renderCanvas();}}});
+document.getElementById('title').addEventListener('input',e=>{st.title=e.target.value;save();});
+['showAll','showAI'].forEach(i=>document.getElementById(i).addEventListener('change',drawLines));
+window.addEventListener('resize',()=>requestAnimationFrame(drawLines));
+function flash(m){const t=document.getElementById('tip');t.textContent=m;t.style.display='block';t.style.left='50%';t.style.top='80px';t.style.transform='translateX(-50%)';clearTimeout(flash.t);flash.t=setTimeout(()=>{t.style.display='none';t.style.transform='';},2200);}
+
+/* ---------- matrix ---------- */
+function covRows(){
+  return PAIRS.map((p,i)=>{const A=itemsOf(p[0]),Bs=itemsOf(p[1]);
+    const lk=st.links.filter(l=>l.s>0&&pairOf(item(l.a).b,item(l.b).b)===i);
+    const cA=A.filter(a=>lk.some(l=>l.a===a.id||l.b===a.id)).length;
+    const avg=lk.length?(lk.reduce((s,l)=>s+l.s,0)/lk.length):0;
+    return {i,p,nA:A.length,nB:Bs.length,cA,avg,n:lk.length};});
+}
+function renderMatrix(){
+  const ps=document.getElementById('pairSel');
+  ps.innerHTML=PAIRS.map((p,i)=>`<option value="${i}"${i===pairIdx?' selected':''}>${B[p[0]].n} × ${B[p[1]].n}</option>`).join('');
+  document.getElementById('scaleLegend').innerHTML='ระดับ: '+[0,1,2,3].map(v=>`<i style="background:${SEQ[v]}"></i>${v}`).join(' ')+' · <i style="outline:2px dashed var(--purple);outline-offset:-3px;background:#fff"></i> ข้อเสนอ AI';
+  document.getElementById('covTbl').innerHTML='<tr><th>คู่ช่อง</th><th>ไอเท็มฝั่งแรกที่ผูกแล้ว</th><th>Coverage</th><th>จำนวนเส้น</th><th>ระดับเฉลี่ย</th></tr>'+
+    covRows().map(r=>{const pct=r.nA?Math.round(r.cA/r.nA*100):0;
+      return `<tr data-pi="${r.i}"><td><b style="color:var(--${r.p[0]})">${B[r.p[0]].n}</b> × <b style="color:var(--${r.p[1]})">${B[r.p[1]].n}</b></td><td>${r.cA}/${r.nA}</td><td><div class="meter" title="${pct}%"><i style="width:${pct}%"></i></div></td><td>${r.n}</td><td>${r.n?r.avg.toFixed(1):'—'}</td></tr>`;}).join('');
+  const p=PAIRS[pairIdx],rows=itemsOf(p[0]),cols=itemsOf(p[1]);
+  document.getElementById('hmTitle').textContent=`ตารางรายคู่: ${B[p[0]].n} × ${B[p[1]].n}`;
+  document.getElementById('pairQ').innerHTML=`<b>คำถามตรวจ:</b> ${p[2]}`;
+  const hm=document.getElementById('hm');
+  if(!rows.length||!cols.length){hm.innerHTML=`<tr><td class="q" style="padding:12px">ยังไม่มีไอเท็มใน${!rows.length?B[p[0]].n:B[p[1]].n} — เพิ่มที่แท็บ ①</td></tr>`;return;}
+  const pend=pending();
+  hm.innerHTML=`<thead><tr><th></th>${cols.map(c=>`<th>${esc(c.t)}</th>`).join('')}</tr></thead><tbody>`+
+    rows.map(r=>`<tr><th>${esc(r.t)}</th>${cols.map(c=>{const l=findLink(r.id,c.id);const v=l?l.s:0;const pa=pend.find(x=>(x.a===r.id&&x.b===c.id)||(x.a===c.id&&x.b===r.id));
+      return `<td class="c${pa?' ai':''}" data-r="${r.id}" data-c="${c.id}" style="background:${SEQ[v]};color:${v>=2?'#fff':'#1B2A3A'}">${v}${pa?`<small>AI:${pa.score}</small>`:''}</td>`;}).join('')}</tr>`).join('')+'</tbody>';
+}
+document.getElementById('pairSel').onchange=e=>{pairIdx=+e.target.value;renderMatrix();};
+document.getElementById('covTbl').addEventListener('click',e=>{const tr=e.target.closest('[data-pi]');if(tr){pairIdx=+tr.dataset.pi;renderMatrix();document.getElementById('hmTitle').scrollIntoView({behavior:'smooth'});}});
+const hmEl=document.getElementById('hm');
+hmEl.addEventListener('click',e=>{const td=e.target.closest('td.c');if(!td)return;const l=findLink(td.dataset.r,td.dataset.c);setLink(td.dataset.r,td.dataset.c,((l?l.s:0)+1)%4,'user');save();renderMatrix();});
+const tip=document.getElementById('tip');
+hmEl.addEventListener('mousemove',e=>{const td=e.target.closest('td.c');if(!td){tip.style.display='none';return;}
+  const a=item(td.dataset.r),b=item(td.dataset.c),l=findLink(a.id,b.id),pa=pending().find(x=>(x.a===a.id&&x.b===b.id)||(x.a===b.id&&x.b===a.id));
+  tip.innerHTML=`<b>${esc(a.t)}</b> × <b>${esc(b.t)}</b><br>ระดับ: ${l?l.s:0} — ${RUBRIC[l?l.s:0][1]}${pa?`<br><span style="color:#E3D4FF">AI เสนอ ${pa.score}: ${esc(pa.reason||'')}</span>`:''}<br><span style="opacity:.75">กดเพื่อเปลี่ยนระดับ</span>`;
+  tip.style.display='block';tip.style.left=Math.min(e.clientX+14,innerWidth-310)+'px';tip.style.top=(e.clientY+14)+'px';});
+hmEl.addEventListener('mouseleave',()=>tip.style.display='none');
+
+/* ---------- report (rule-based) ---------- */
+function checks(){
+  const R=[];const add=(lv,msg,id)=>R.push({lv,msg,id});
+  const has=(id,b)=>linksOf(id).some(l=>item(other(l,id)).b===b);
+  const cs=itemsOf('cs');
+  if(!cs.length)add('r','ยังไม่มีกลุ่มลูกค้า — โมเดลธุรกิจเริ่มจากลูกค้าเสมอ');
+  cs.forEach(c=>{
+    if(!has(c.id,'vp'))add('r',`กลุ่มลูกค้า "${c.t}" ยังไม่มีคุณค่าที่นำเสนอของตัวเอง`,c.id);
+    if(!has(c.id,'rev'))add('r',`ยังไม่ระบุว่ากลุ่ม "${c.t}" จ่ายรายได้ก้อนใด (หรือเป็นฝั่งที่ไม่จ่าย — ระบุให้ชัด)`,c.id);
+    if(!has(c.id,'ch'))add('y',`กลุ่ม "${c.t}" ยังไม่มีช่องทางเข้าถึง`,c.id);
+    if(!has(c.id,'cr'))add('y',`กลุ่ม "${c.t}" ยังไม่มีรูปแบบความสัมพันธ์`,c.id);
+  });
+  itemsOf('vp').forEach(v=>{
+    if(!has(v.id,'cs'))add('r',`คุณค่า "${v.t}" ไม่ได้ตอบลูกค้ากลุ่มใดเลย`,v.id);
+    if(!has(v.id,'ch'))add('y',`คุณค่า "${v.t}" ยังไม่มีช่องทางส่งมอบ`,v.id);
+    if(!has(v.id,'ka')&&!has(v.id,'kr'))add('y',`คุณค่า "${v.t}" ยังไม่มีกิจกรรม/ทรัพยากรค้ำ — ทำได้จริงหรือไม่?`,v.id);
+  });
+  [...itemsOf('ka'),...itemsOf('kr')].forEach(k=>{if(!has(k.id,'vp')&&!has(k.id,'ch')&&!has(k.id,'cr'))add('y',`${B[k.b].n} "${k.t}" ไม่ได้ค้ำคุณค่า/ช่องทาง/ความสัมพันธ์ใด — จำเป็นหรือไม่?`,k.id);});
+  itemsOf('kp').forEach(k=>{if(!has(k.id,'ka')&&!has(k.id,'kr'))add('y',`พันธมิตร "${k.t}" ไม่ได้จัดหากิจกรรม/ทรัพยากรใด`,k.id);});
+  itemsOf('cost').forEach(k=>{if(!has(k.id,'ka')&&!has(k.id,'kr')&&!has(k.id,'kp'))add('y',`ต้นทุน "${k.t}" ไม่รู้ว่ามาจากกิจกรรม/ทรัพยากร/พันธมิตรใด`,k.id);});
+  [...itemsOf('ka'),...itemsOf('kr')].forEach(k=>{if(!has(k.id,'cost'))add('y',`${B[k.b].n} "${k.t}" ยังไม่ได้ผูกกับต้นทุน — ไม่มีค่าใช้จ่ายจริงหรือ?`,k.id);});
+  if(!itemsOf('rev').length||!itemsOf('cost').length)add('r','ต้องมีทั้งกระแสรายได้และโครงสร้างต้นทุน จึงจะเห็นตรรกะกำไร (R$ ⇄ C$)');
+  st.items.forEach(i=>{if(!linksOf(i.id).length)add('r',`ไอเท็มโดดเดี่ยว: ${B[i.b].n} "${i.t}" (no orphan)`,i.id);});
+  ORDER.forEach(b=>{if(itemsOf(b).length>3)add('y',`${B[b].n} มี ${itemsOf(b).length} บรรทัด — เกินกติกา 3 บรรทัดต่อช่อง`);});
+  st.items.forEach(i=>{if(tooLong(i.t))add('y',`"${i.t}" ยาวเกินไป — กติกา 3-5-1 ให้เขียนราว 5 คำต่อแนวคิด`,i.id);});
+  return R;
+}
+function renderReport(){
+  const R=checks(),n=st.items.length,orph=st.items.filter(i=>!linksOf(i.id).length).length;
+  const asm=n?Math.round(st.items.filter(i=>i.tag==='A').length/n*100):0;
+  const red=R.filter(r=>r.lv==='r').length,yel=R.filter(r=>r.lv==='y').length;
+  const linked=n?Math.round((n-orph)/n*100):0;
+  document.getElementById('scoreRow').innerHTML=
+    `<div class="statc"><div class="n">${linked}%</div><div class="l">ไอเท็มที่มีเส้นเชื่อม</div></div>
+     <div class="statc"><div class="n">${st.links.filter(l=>l.s>0).length}</div><div class="l">เส้นเชื่อม (เฉลี่ยระดับ ${st.links.length?(st.links.reduce((s,l)=>s+l.s,0)/st.links.length).toFixed(1):'—'})</div></div>
+     <div class="statc"><div class="n">🔴 ${red} · 🟡 ${yel}</div><div class="l">ต้องแก้ · ควรทบทวน</div></div>
+     <div class="statc"><div class="n">${asm}%</div><div class="l">ไอเท็มที่ยังเป็น Assumption (ต้องไปทดสอบ)</div></div>`;
+  document.getElementById('chkList').innerHTML=R.length?R.map(r=>`<li><span class="ic ${r.lv}">${r.lv==='r'?'🔴 ต้องแก้':'🟡 ทบทวน'}</span><span style="flex:1">${esc(r.msg)}</span>${r.id?`<span class="go" data-goto="${r.id}">ไปที่ไอเท็ม</span>`:''}</li>`).join(''):
+    (n?'<li><span class="ic g">🟢 ผ่าน</span><span>โครงสร้างเชื่อมโยงครบตามกติกา — ไปให้ AI/เพื่อนตรวจความสมเหตุสมผลของเนื้อหาต่อ</span></li>':'<li><span class="ic y">🟡</span><span>ยังไม่มีไอเท็มในแคนวาส</span></li>');
+  const first=(id,b)=>{const l=linksOf(id).filter(l=>item(other(l,id)).b===b).sort((x,y)=>y.s-x.s)[0];return l?item(other(l,id)).t:null;};
+  const cs=itemsOf('cs');
+  document.getElementById('sentences').innerHTML=cs.length?cs.map(c=>{const vp=first(c.id,'vp'),ch=first(c.id,'ch'),rv=first(c.id,'rev');
+    const hole=s=>s?`<b>${esc(s)}</b>`:'<b style="color:var(--red)">[ยังไม่ผูก]</b>';
+    return `<div class="sentence" style="border-left-color:${SEG[c.c]};margin-bottom:8px">เราให้ ${hole(vp)} แก่ <b>${esc(c.t)}</b> ผ่าน ${hole(ch)} และทำเงินจาก ${hole(rv)}</div>`;}).join(''):'<p class="q">ยังไม่มีกลุ่มลูกค้า</p>';
+}
+document.getElementById('chkList').addEventListener('click',e=>{const g=e.target.closest('[data-goto]');if(g){sel=g.dataset.goto;selBlock=null;showPane('canvas');}});
+
+/* ---------- AI ---------- */
+/* ระดับเดิมของผู้เรียน ณ ตอนนำผล AI เข้า (prev) — ใช้ตัดสินว่าเป็นข้อเสนอที่ต้องทวนหรือไม่ */
+function prevOf(l){if(l.prev===undefined){const ex=findLink(l.a,l.b);l.prev=ex?ex.s:0;}return l.prev;}
+function needsReview(l){return item(l.a)&&item(l.b)&&prevOf(l)!==l.score&&!(l.isNew&&l.score===0);}
+function pending(){return (st.ai&&st.ai.links||[]).filter(l=>l.status==='pending'&&needsReview(l));}
+let aiFilter='pending';
+function buildPrompt(){
+  const data={project:st.title||'(ไม่ระบุชื่อ)',items:ORDER.map(b=>({block:b,block_name:B[b].en,items:itemsOf(b).map(i=>({id:i.id,text:i.t,tag:i.tag==='F'?'fact':'assumption'}))})).filter(x=>x.items.length),
+    existing_links:st.links.filter(l=>l.s>0).map(l=>({a:l.a,b:l.b,score:l.s}))};
+  return `คุณเป็นผู้ทวนสอบความสอดคล้องของ Business Model Canvas (BMC) ของนักศึกษาปริญญาตรีสาขาธุรกิจ
+หน้าที่: ประเมิน "ความสอดคล้องระหว่างไอเท็ม" ในแคนวาสด้านล่าง ในกรอบ BMC 9 ช่องเท่านั้น โดยใช้เฉพาะข้อความในแคนวาสเป็นหลักฐาน ห้ามเติมข้อเท็จจริงจากภายนอก
+
+## เกณฑ์ระดับความสอดคล้อง (0–3)
+${RUBRIC.map(r=>`${r[0]} = ${r[1]}`).join('\n')}
+
+## คู่ช่องที่อนุญาตให้เชื่อม (ห้ามเสนอคู่นอกรายการนี้)
+${PAIRS.map(p=>`- ${p[0]} ↔ ${p[1]}: ${p[2]}`).join('\n')}
+(รหัสช่อง: kp=Key Partnerships, ka=Key Activities, kr=Key Resources, vp=Value Propositions, cr=Customer Relationships, ch=Channels, cs=Customer Segments, cost=Cost Structure, rev=Revenue Streams)
+
+## สิ่งที่ต้องทำ
+1. ให้คะแนนเส้นที่มีอยู่แล้วทุกเส้น (existing_links) ตามเกณฑ์
+2. เสนอเส้นใหม่ที่ควรมีแต่ยังไม่ได้ผูก (ไม่เกิน 15 เส้น เฉพาะคะแนน ≥ 2)
+3. ระบุข้อสังเกต (ไม่เกิน 5 ข้อ) แยกประเภทให้ถูก:
+   - conflict = ไอเท็มขัดกันจริง เช่น คุณค่าระดับพรีเมียมแต่ความสัมพันธ์แบบบริการตนเองราคาถูก
+   - gap = มีสิ่งหนึ่งแต่ขาดสิ่งที่ต้องรองรับ เช่น รายได้แบบสมาชิกแต่ไม่มีกิจกรรมรักษาลูกค้า
+   - weak_evidence = ผูกเส้นไว้แต่ข้อความในแคนวาสไม่พอยืนยันว่าเชื่อมกันจริง
+4. ตรวจว่ากลุ่มลูกค้าแต่ละกลุ่ม "เฉพาะเจาะจง" พอหรือไม่ (นิยามด้วยงาน/บริบท/ปัญหา ไม่ใช่คำกว้างอย่าง "SME" หรือ "คนทั่วไป")
+5. สรุปข้อควรแก้สำคัญที่สุด 3 ข้อ และเขียนโมเดลธุรกิจเป็นประโยคเดียว (บททดสอบ 30 วินาที)
+
+## กติกาคำตอบ
+- ตอบเป็น JSON อย่างเดียว ไม่มีข้อความอื่น ใช้ภาษาไทยในช่องข้อความ
+- ใช้ id เฉพาะในช่อง "a", "b", "items", "id" เท่านั้น
+- ในช่องข้อความ (reason, evidence, issue, suggestion, note, top_fixes, one_sentence) ห้ามเขียน id เช่น cs1 หรือ vp2 ให้อ้างไอเท็มด้วยข้อความของมันในเครื่องหมาย "..." แทน
+- เขียนภาษาง่าย ประโยคสั้น ให้นักศึกษาปริญญาตรีอ่านแล้วรู้ทันทีว่าต้องแก้อะไร (reason ไม่เกิน 1 ประโยค)
+- evidence ให้ยกข้อความของไอเท็มสองตัวที่เกี่ยวข้องมาตรง ๆ
+
+รูปแบบ:
+{"links":[{"a":"<id>","b":"<id>","score":0,"reason":"<เหตุผล 1 ประโยค>","evidence":"<ข้อความไอเท็มที่ยกมา>"}],
+ "observations":[{"type":"conflict|gap|weak_evidence","items":["<id>","<id>"],"issue":"<ปัญหา>","suggestion":"<ข้อเสนอแก้>"}],
+ "segment_specificity":[{"id":"<cs id>","ok":true,"note":"<หมายเหตุ>"}],
+ "top_fixes":["<ข้อ 1>","<ข้อ 2>","<ข้อ 3>"],
+ "one_sentence":"<ประโยคเดียว>"}
+
+## แคนวาส
+${JSON.stringify(data,null,1)}`;
+}
+document.getElementById('btnPrompt').onclick=async()=>{const t=buildPrompt();const m=document.getElementById('copyMsg');
+  if(!st.items.length){m.textContent='ยังไม่มีไอเท็มในแคนวาส';return;}
+  try{await navigator.clipboard.writeText(t);m.textContent='✓ คัดลอกแล้ว — นำไปวางใน Claude ได้เลย';}
+  catch(e){const v=document.getElementById('promptView');v.style.display='block';v.value=t;v.select();m.textContent='คัดลอกอัตโนมัติไม่ได้ — กด Ctrl/Cmd+C ที่กล่องด้านล่าง';}};
+document.getElementById('btnShowPrompt').onclick=()=>{const v=document.getElementById('promptView');v.style.display=v.style.display==='none'?'block':'none';v.value=buildPrompt();};
+document.getElementById('btnParse').onclick=()=>{
+  const raw=document.getElementById('aiIn').value,m=document.getElementById('parseMsg');
+  const i=raw.indexOf('{'),j=raw.lastIndexOf('}');
+  let o;try{o=JSON.parse(raw.slice(i,j+1));}catch(e){m.textContent='❌ อ่าน JSON ไม่ได้ — ตรวจว่าคัดลอกคำตอบมาครบ';return;}
+  let ok=0,bad=0;const links=[];
+  (o.links||[]).forEach(l=>{const A=item(l.a),Bi=item(l.b),s=Math.round(+l.score);
+    if(!A||!Bi||pairOf(A.b,Bi.b)<0||!(s>=0&&s<=3)){bad++;return;}
+    const ex=findLink(l.a,l.b);links.push({a:l.a,b:l.b,score:s,prev:ex?ex.s:0,reason:l.reason||'',evidence:l.evidence||'',isNew:!(ex&&ex.s>0),status:'pending'});ok++;});
+  const obs=(o.observations||o.conflicts||[]).filter(c=>Array.isArray(c.items));
+  st.ai={links,conflicts:obs,spec:o.segment_specificity||[],fixes:o.top_fixes||[],sentence:o.one_sentence||'',at:new Date().toISOString()};
+  aiFilter='pending';save();m.textContent=`✓ นำเข้า ${ok} เส้น${bad?` · ข้าม ${bad} รายการที่ id/คู่ช่อง/คะแนนไม่ถูกต้อง`:''}`;renderAI();
+};
+document.getElementById('btnClearAI').onclick=()=>{if(confirm('ล้างผลตรวจจาก AI ทั้งหมด? (เส้นที่ยอมรับแล้วจะยังอยู่)')){st.ai=null;save();renderAI();}};
+function renderAI(){
+  document.getElementById('rubricTbl').innerHTML='<tr><th>ระดับ</th><th>ความหมาย</th><th>ตัวอย่าง/สังเกต</th></tr>'+RUBRIC.map(r=>`<tr><td style="background:${SEQ[r[0]]};color:${r[0]>=2?'#fff':'#1B2A3A'}">${r[0]}</td><td>${r[1]}</td><td class="q">${r[2]}</td></tr>`).join('');
+  const out=document.getElementById('aiOut'),a=st.ai;
+  if(!a){out.innerHTML='';return;}
+  const nm=id=>{const i=item(id);return i?`<span class="pillB" style="background:var(--${i.b})">${B[i.b].n}</span> ${esc(i.t)}`:'<span class="q">(ไอเท็มถูกลบแล้ว)</span>';};
+  /* แทนรหัสไอเท็ม (เช่น cs1, vp2) ที่ AI เผลอเขียนในข้อความ ด้วยข้อความของไอเท็ม */
+  const pretty=s=>esc(s).replace(/\b(kp|ka|kr|vp|cr|ch|cs|cost|rev)\d+\b/g,m=>{const i=item(m);return i?`<b>"${esc(i.t)}"</b>`:m;});
+  const all=a.links.map((l,k)=>({l,k})).filter(x=>needsReview(x.l));
+  const same=a.links.filter(l=>item(l.a)&&item(l.b)&&prevOf(l)===l.score).length;
+  const nPend=all.filter(x=>x.l.status==='pending').length,nDone=all.length-nPend;
+  const shown=all.filter(x=>aiFilter==='all'||(aiFilter==='pending'?x.l.status==='pending':x.l.status!=='pending'));
+  const grp={add:[],up:[],down:[]};
+  shown.forEach(x=>{const p=prevOf(x.l);grp[p===0?'add':x.l.score>p?'up':'down'].push(x);});
+  const card=({l,k})=>{
+    const p=prevOf(l),cut=l.score===0,done=l.status!=='pending';
+    const chg=p===0?`<span class="chg up">เส้นใหม่ · ระดับ ${l.score}</span>`:cut?`<span class="chg down">ระดับ ${p} → ตัดเส้น</span>`:`<span class="chg ${l.score>p?'up':'down'}">ระดับ ${p} → ${l.score}</span>`;
+    const accTxt=p===0?`✓ เพิ่มเส้นนี้ (ระดับ ${l.score})`:cut?'✓ ตัดเส้นนี้':`✓ ปรับเป็นระดับ ${l.score}`;
+    const rejTxt=p===0?'✕ ไม่เพิ่ม':`✕ คงระดับ ${p} ไว้`;
+    const res=l.status==='accepted'?`<span class="done ok">✓ ${p===0?`เพิ่มเส้นแล้ว (ระดับ ${l.score})`:cut?'ตัดเส้นแล้ว':`ปรับเป็นระดับ ${l.score} แล้ว`}</span>`:`<span class="done no">✕ ${p===0?'ไม่เพิ่มเส้นนี้':`คงระดับ ${p} ไว้`}</span>`;
+    return `<div class="sug${done?' decided':''}"><div class="pair">${nm(l.a)} <span class="q">↔</span> ${nm(l.b)} ${chg}</div>
+      <div class="why">${pretty(l.reason)}</div>${l.evidence?`<div class="ev">หลักฐานจากแคนวาส: ${pretty(l.evidence)}</div>`:''}
+      <div class="acts">${done?`${res}<button class="btn sm" data-undo="${k}">↶ ย้อน</button>`:`<button class="btn sm primary" data-acc="${k}">${accTxt}</button><button class="btn sm" data-rej="${k}">${rejTxt}</button>`}</div></div>`;};
+  const sec=(t,h,xs)=>xs.length?`<h4 class="grpH">${t} <span class="q">(${xs.length})</span></h4><p class="q" style="margin:-2px 0 6px">${h}</p>${xs.map(card).join('')}`:'';
+  const OT={conflict:['r','ขัดกัน'],gap:['y','ขาดตัวรองรับ'],weak_evidence:['y','หลักฐานไม่พอ']};
+  out.innerHTML=`<div class="score">
+      <div class="statc"><div class="n">${same}</div><div class="l">เส้นที่ AI เห็นตรงกับผู้เรียน</div></div>
+      <div class="statc"><div class="n">${nPend}</div><div class="l">ข้อเสนอที่รอตัดสิน</div></div>
+      <div class="statc"><div class="n">${nDone}</div><div class="l">ตัดสินแล้ว</div></div></div>
+    <p class="q">ผลตรวจเมื่อ ${new Date(a.at).toLocaleString('th-TH')} · ผลจาก AI เป็นข้อเสนอเบื้องต้น ต้องให้คนทวนก่อนใช้</p>
+    ${a.sentence?`<h3>① โมเดลธุรกิจในประโยคเดียว (มุมมอง AI)</h3><p class="q" style="margin-bottom:6px">อ่านแล้วตรงกับที่ตั้งใจไหม? ถ้าไม่ตรง แปลว่าแคนวาสยังสื่อไม่ชัด</p><div class="sentence">${pretty(a.sentence)}</div>`:''}
+    ${a.fixes.length?`<h3>② สิ่งที่ควรแก้ก่อน</h3><ul class="chk">${a.fixes.map((f,i)=>`<li><span class="ic y">${i+1}</span><span>${pretty(f)}</span></li>`).join('')}</ul>`:''}
+    <h3>③ ข้อเสนอเรื่องเส้นเชื่อม</h3>
+    <div class="bar"><span class="seg">${[['pending',`รอตัดสิน (${nPend})`],['done',`ตัดสินแล้ว (${nDone})`],['all','ทั้งหมด']].map(([v,t])=>`<button class="btn sm${aiFilter===v?' primary':''}" data-flt="${v}">${t}</button>`).join('')}</span>
+      ${nPend?`<button class="btn sm" data-accall>✓ ยอมรับที่รอทั้งหมด (${nPend})</button>`:''}</div>
+    ${sec('เส้นใหม่ที่ AI เสนอให้เพิ่ม','ไอเท็มคู่นี้ควรเชื่อมกัน แต่ยังไม่ได้ผูก',grp.add)}
+    ${sec('AI ให้ระดับสูงกว่าผู้เรียน','ความเชื่อมโยงแน่นกว่าที่ให้ไว้',grp.up)}
+    ${sec('AI ให้ระดับต่ำกว่าผู้เรียน / เสนอให้ตัดเส้น','ข้อความในแคนวาสยังไม่พอยืนยันว่าเชื่อมกันแน่นขนาดนั้น',grp.down)}
+    ${shown.length?'':`<p class="q">${aiFilter==='pending'?'✓ ตัดสินครบทุกข้อแล้ว — ดูผลที่แท็บ ① และ ②':'ไม่มีรายการ'}</p>`}
+    ${a.conflicts.length?`<h3>④ ข้อสังเกตอื่นจาก AI</h3><ul class="chk">${a.conflicts.map(c=>{const t=OT[c.type]||['y','ข้อสังเกต'];return `<li><span class="ic ${t[0]}">${t[1]}</span><span style="flex:1"><span class="obsItems">${c.items.map(id=>`<span>${nm(id)}</span>`).join('')}</span>${pretty(c.issue)}${c.suggestion?`<br><span class="q">ควรทำ: ${pretty(c.suggestion)}</span>`:''}</span></li>`;}).join('')}</ul>`:''}
+    ${a.spec.length?`<h3>⑤ กลุ่มลูกค้าเฉพาะเจาะจงพอหรือยัง</h3><ul class="chk">${a.spec.filter(s=>item(s.id)).map(s=>`<li><span class="ic ${s.ok?'g':'y'}">${s.ok?'ชัดแล้ว':'กว้างไป'}</span><span><b>${esc(item(s.id).t)}</b> — ${pretty(s.note||'')}</span></li>`).join('')}</ul>`:''}`;
+}
+document.getElementById('aiOut').addEventListener('click',e=>{
+  const g=s=>e.target.closest(s);let x;
+  const acc=l=>{l.prevSrc=(findLink(l.a,l.b)||{}).src;setLink(l.a,l.b,l.score,'ai');l.status='accepted';};
+  if(x=g('[data-acc]'))acc(st.ai.links[+x.dataset.acc]);
+  else if(x=g('[data-rej]'))st.ai.links[+x.dataset.rej].status='rejected';
+  else if(x=g('[data-undo]')){const l=st.ai.links[+x.dataset.undo];if(l.status==='accepted')setLink(l.a,l.b,prevOf(l),l.prevSrc||'user');l.status='pending';}
+  else if(x=g('[data-flt]'))aiFilter=x.dataset.flt;
+  else if(g('[data-accall]')){if(!confirm('ยอมรับข้อเสนอที่รออยู่ทั้งหมด? (ย้อนทีละข้อได้ภายหลัง)'))return;st.ai.links.filter(l=>l.status==='pending'&&needsReview(l)).forEach(acc);}
+  else return;
+  save();renderAI();
+});
+
+/* ---------- เคสตัวอย่าง ครบ 9 ช่อง ----------
+   ไอเท็ม: เรียบเรียงจากรายงานประจำปี Form 10-K ปี 2024 ที่บริษัทยื่นต่อ SEC (ค้นเมื่อ 2 ต.ค. 2569) + เคสเดิมใน BMC_คือสถาปัตยกรรมไม่ใช่แบบฟอร์ม.md §6
+   เส้นเชื่อมและระดับ 0–3: เป็นการตีความเพื่อการสอน ไม่ได้มาจากเอกสารของบริษัท */
+const CASES={
+ netflix:{title:'Netflix (เคสตัวอย่าง)',
+  src:[['Netflix Form 10-K ปี 2024','https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/nflx-20241231.htm'],['Netflix Form 10-K ปี 2022 (นิยามค่าใช้จ่าย)','https://www.sec.gov/Archives/edgar/data/1065280/000106528023000035/nflx-20221231.htm']],
+  note:'โมเดลสมาชิกฝั่งเดียว: รายได้หลักมาจากค่าสมาชิกรายเดือน ต้นทุนก้อนใหญ่ที่สุดคือค่าตัดจำหน่ายคอนเทนต์ — ลองไล่เส้น "คลังคอนเทนต์" ดูว่าค้ำทั้งคุณค่าและต้นทุนอย่างไร',
+  cs:['คนที่ชอบดูหนังที่บ้าน'],
+  vp:['หนังไม่จำกัด ราคาเดียว','ซีรีส์ หนัง และเกม'],
+  ch:['แอปบนทีวีและมือถือ'],
+  cr:['แนะนำเรื่องเฉพาะบุคคล'],
+  rev:['ค่าสมาชิกรายเดือน'],
+  ka:['สร้างและจัดหาคอนเทนต์','ส่งสตรีมคุณภาพสูง','พัฒนาระบบแนะนำ'],
+  kr:['คลังคอนเทนต์','เครือข่าย Open Connect','เทคโนโลยีแนะนำเรื่อง'],
+  kp:['สตูดิโอและผู้ผลิตคอนเทนต์','ผู้ผลิตอุปกรณ์และโอเปอเรเตอร์'],
+  cost:['ค่าตัดจำหน่ายคอนเทนต์','ค่าส่งสตรีม','ค่าเทคโนโลยีและพัฒนา'],
+  links:[['vp0','cs0',3],['vp1','cs0',2],['ch0','cs0',3],['vp0','ch0',2],['vp1','ch0',2],['cr0','cs0',2],['vp1','cr0',2],['rev0','cs0',3],['vp0','rev0',3],
+   ['ka0','vp1',3],['ka0','vp0',2],['ka1','ch0',3],['ka2','cr0',3],['kr0','vp1',3],['kr1','ch0',3],['kr2','cr0',3],
+   ['kp0','kr0',3],['kp0','ka0',2],['kp1','ka1',2],
+   ['ka0','cost0',3],['kr0','cost0',3],['kp0','cost0',2],['ka1','cost1',3],['kr1','cost1',3],['ka2','cost2',3],['kr2','cost2',2]]},
+ airbnb:{title:'Airbnb (เคสตัวอย่าง · แพลตฟอร์มสองฝั่ง)',
+  src:[['Airbnb Form 10-K ปี 2024','https://www.sec.gov/Archives/edgar/data/1559720/000155972025000010/abnb-20241231.htm']],
+  note:'แพลตฟอร์มสองฝั่ง: ผู้เข้าพักและโฮสต์ต่างมีคุณค่า และต่างจ่ายค่าบริการของตัวเอง — สังเกตจุดสีสองสีว่าไอเท็มไหนรับใช้ทั้งสองฝั่ง ("เครือข่ายที่พักทั่วโลก" ไม่ได้ผูกกับต้นทุน รายงาน ③ จะถามว่าจริงไหม)',
+  cs:['นักเดินทาง (ผู้เข้าพัก)','เจ้าของบ้านอยากมีรายได้เสริม'],
+  vp:['ที่พักหลากหลาย จองง่าย','รายได้จากห้องว่าง','ความคุ้มครอง AirCover'],
+  ch:['เว็บไซต์และแอป'],
+  cr:['รีวิวจากทั้งสองฝั่ง','ทีมช่วยเหลือชุมชน'],
+  rev:['ค่าบริการจากผู้เข้าพัก','ค่าบริการจากโฮสต์'],
+  ka:['ดูแลความปลอดภัยและความเชื่อใจ','ประมวลผลการชำระเงิน','ช่วยเหลือผู้ใช้ทางแชต/โทร'],
+  kr:['เทคโนโลยีแพลตฟอร์ม','เครือข่ายที่พักทั่วโลก'],
+  kp:['ผู้ให้บริการชำระเงิน','บริษัทประกันภัย','ดาต้าเซ็นเตอร์ภายนอก'],
+  cost:['ค่าธรรมเนียมชำระเงิน','ค่าทีมช่วยเหลือและความคุ้มครอง','ค่าพัฒนาแพลตฟอร์ม'],
+  links:[['vp0','cs0',3],['vp1','cs1',3],['vp2','cs0',2],['vp2','cs1',2],['ch0','cs0',3],['ch0','cs1',3],['vp0','ch0',2],['vp1','ch0',2],['vp2','ch0',1],
+   ['cr0','cs0',2],['cr0','cs1',2],['cr1','cs0',2],['cr1','cs1',2],['vp2','cr1',2],['rev0','cs0',3],['rev1','cs1',3],['vp0','rev0',3],['vp1','rev1',3],
+   ['ka0','vp2',2],['ka0','cr0',2],['ka1','vp0',2],['ka1','vp1',3],['ka1','ch0',2],['ka2','cr1',3],['kr0','ch0',3],['kr0','vp0',2],['kr1','vp0',3],
+   ['kp0','ka1',3],['kp1','ka0',2],['kp2','kr0',3],
+   ['ka1','cost0',3],['kp0','cost0',3],['ka2','cost1',3],['ka0','cost1',2],['kr0','cost2',3]]},
+ uber:{title:'Uber (เคสตัวอย่าง · แพลตฟอร์มสองฝั่ง)',
+  src:[['Uber Form 10-K ปี 2024','https://www.sec.gov/Archives/edgar/data/1543151/000154315125000008/uber-20241231.htm']],
+  note:'แพลตฟอร์มสองฝั่ง: ตามรายงาน 10-K รายได้หลักของ Mobility คือค่าบริการที่คนขับจ่ายให้แพลตฟอร์ม — คนขับจึงเป็นทั้ง "ลูกค้า" และส่วนหนึ่งของคุณค่าที่ส่งให้ผู้โดยสาร ("เครือข่ายผู้ใช้ขนาดใหญ่" ไม่ได้ผูกกับต้นทุน รายงาน ③ จะถามว่าจริงไหม)',
+  cs:['คนที่ต้องการเรียกรถ','คนที่อยากขับรถหาเงิน'],
+  vp:['เดินทางจุดต่อจุดง่าย','หารายได้ เวลายืดหยุ่น','ความคุ้มครองสำหรับคนขับ'],
+  ch:['แอปพลิเคชันมือถือ'],
+  cr:['ทีมช่วยเหลือผู้ใช้'],
+  rev:['ค่าบริการที่คนขับจ่าย','ค่าธรรมเนียมผู้โดยสาร (บางตลาด)'],
+  ka:['จับคู่ผู้โดยสารกับคนขับ','ประมวลผลการชำระเงิน','ดูแลความปลอดภัย'],
+  kr:['เทคโนโลยีแพลตฟอร์ม','เครือข่ายผู้ใช้ขนาดใหญ่'],
+  kp:['บริษัทประกันภัย','ผู้ให้บริการชำระเงิน','ดาต้าเซ็นเตอร์ภายนอก'],
+  cost:['ค่าประกันภัย','ค่าธรรมเนียมบัตรเครดิต','ค่าโฮสติ้งและดาต้าเซ็นเตอร์'],
+  links:[['vp0','cs0',3],['vp1','cs1',3],['vp2','cs1',2],['ch0','cs0',3],['ch0','cs1',3],['vp0','ch0',3],['vp1','ch0',2],['vp2','ch0',1],
+   ['cr0','cs0',2],['cr0','cs1',2],['rev0','cs1',3],['rev1','cs0',2],['vp1','rev0',2],['vp0','rev1',2],
+   ['ka0','vp0',3],['ka0','vp1',3],['ka0','ch0',2],['ka1','ch0',2],['ka2','cr0',2],['ka2','vp2',2],['ka2','vp0',1],
+   ['kr0','ch0',3],['kr0','vp0',2],['kr1','vp0',3],['kr1','vp1',3],
+   ['kp0','ka2',2],['kp1','ka1',3],['kp2','kr0',3],
+   ['kp0','cost0',3],['ka2','cost0',2],['ka1','cost1',3],['kp1','cost1',3],['kr0','cost2',3],['kp2','cost2',3],['ka0','cost2',2]]}
+};
+document.getElementById('caseSel').onchange=e=>{
+  const k=e.target.value;e.target.value='';if(!k)return;
+  if(st.items.length&&!confirm('โหลดเคสตัวอย่างจะแทนที่แคนวาสปัจจุบัน (ส่งออกเก็บไว้ก่อนได้) — ดำเนินการต่อ?'))return;
+  const c=CASES[k];st=blank();st.title=c.title;st.caseInfo={src:c.src,note:c.note};const map={};
+  ORDER.forEach(b=>(c[b]||[]).forEach((t,i)=>{map[b+i]=addItem(b,t,'F').id;}));
+  c.links.forEach(([x,y,s])=>setLink(map[x],map[y],s,'user'));
+  sel=null;selBlock=null;save();showPane('canvas');
+  flash('กดไอเท็มใดก็ได้เพื่อดูเส้นเชื่อม · ติ๊ก "แสดงเส้นทั้งหมด" เพื่อดูภาพรวม');
+};
+
+/* ---------- export / import / new ---------- */
+document.getElementById('btnExport').onclick=()=>{const b=new Blob([JSON.stringify(st,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=(st.title||'bmc').replace(/[\\/:*?"<>|]/g,'_')+'.bmc.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
+document.getElementById('btnImport').onclick=()=>document.getElementById('fileIn').click();
+document.getElementById('fileIn').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!Array.isArray(o.items))throw 0;st=Object.assign(blank(),o);sel=null;selBlock=null;save();showPane('canvas');}catch(_){alert('ไฟล์ไม่ใช่รูปแบบ BMC Studio');}};r.readAsText(f);e.target.value='';};
+document.getElementById('btnNew').onclick=()=>{if(confirm('เริ่มแคนวาสใหม่? ข้อมูลปัจจุบันจะถูกล้าง (ส่งออกเก็บไว้ก่อนได้)')){st=blank();sel=null;selBlock=null;save();showPane('canvas');}};
+
+/* ---------- zoom (ปรับที่ #content) ---------- */
+/* ใช้ zoom ที่ #content ตามแบบของเว็บ; พิกัดเส้นคำนวณในหน่วยก่อนซูม */
+function applyZoom(){document.getElementById('content').style.zoom=fsz/100;requestAnimationFrame(drawLines);}
+document.getElementById('fszUp').onclick=()=>{fsz=Math.min(150,fsz+10);applyZoom();};
+document.getElementById('fszDown').onclick=()=>{fsz=Math.max(70,fsz-10);applyZoom();};
+
+/* ---------- tabs ---------- */
+function showPane(p){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.p===p));
+  document.querySelectorAll('.pane').forEach(x=>x.classList.toggle('on',x.id==='p-'+p));
+  if(p==='canvas')renderCanvas();if(p==='matrix')renderMatrix();if(p==='report')renderReport();if(p==='ai')renderAI();
+}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>showPane(t.dataset.p));
+
+load();showPane('canvas');
+</script>
+</body>
+</html>
