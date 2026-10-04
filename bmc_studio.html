@@ -481,7 +481,7 @@ function renderDetail(){
   }
   detail.style.display='block';detail.style.removeProperty('--dc');
   const ci=st.caseInfo;
-  detail.innerHTML=(ci?`<h4>เกี่ยวกับเคสนี้</h4><p style="font-size:14px">${esc(ci.note)}</p><p class="q">${(ci.src||[]).length?`ที่มาของไอเท็ม: ${ci.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')} (เรียบเรียงและย่อเป็นภาษาไทย) · <b>เส้นเชื่อมและระดับ 0–3 เป็นการตีความเพื่อการสอน</b> ไม่ได้มาจากเอกสารของบริษัท`:esc(ci.srcNote||'')}</p><hr style="border:none;border-top:1px solid var(--line);margin:10px 0">`:'')+`<h4>เริ่มอย่างไร</h4><p style="font-size:14px">1) เพิ่มไอเท็มฝั่งขวาก่อน (กลุ่มลูกค้า → คุณค่า → ช่องทาง → ความสัมพันธ์ → รายได้) แล้วค่อยฝั่งซ้าย · 2) กดไอเท็ม แล้วกด 🔗 เพื่อผูกกับไอเท็มในช่องที่เกี่ยวข้อง · 3) ดูแท็บ ② และ ③ ว่าตรงไหนยังขาด · 4) ใช้แท็บ ④ ให้ AI ช่วยทวน</p><p class="q">ข้อมูลบันทึกในเบราว์เซอร์นี้อัตโนมัติ · ใช้ "⬇ ส่งออก" เพื่อเก็บเป็นไฟล์หรือส่งให้ผู้สอน</p>`;
+  detail.innerHTML=(ci?`<h4>เกี่ยวกับเคสนี้</h4><p style="font-size:14px">${esc(ci.note)}</p><p class="q">${(ci.src||[]).length?`ที่มาของไอเท็ม: ${ci.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')} (เรียบเรียงและย่อเป็นภาษาไทย) · <b>เส้นเชื่อมและระดับ 0–3 เป็นการตีความเพื่อการสอน</b> ไม่ได้มาจากเอกสารของบริษัท`:esc(ci.srcNote||'')}</p><hr style="border:none;border-top:1px solid var(--line);margin:10px 0">`:'')+`<h4>เริ่มอย่างไร</h4><p style="font-size:14px">1) เพิ่มไอเท็มฝั่งขวาก่อน (กลุ่มลูกค้า → คุณค่า → ช่องทาง → ความสัมพันธ์ → รายได้) แล้วค่อยฝั่งซ้าย · 2) กดไอเท็ม แล้วกด 🔗 เพื่อผูกกับไอเท็มในช่องที่เกี่ยวข้อง · 3) ดูแท็บ ② และ ③ ว่าตรงไหนยังขาด · 4) ใช้แท็บ ④ ให้ AI ช่วยทวน</p><p class="q">ข้อมูลบันทึกในเบราว์เซอร์นี้อัตโนมัติ · ใช้ "💾 บันทึกงาน" เพื่อเก็บเป็นไฟล์หรือส่งให้ผู้สอน</p><p class="q">เขียน BMC ใน Word มาแล้ว? ดาวน์โหลด <a href="BMC_แม่แบบนำเข้า.docx" download>แม่แบบ Word</a> หรือ <a href="BMC_ตัวอย่างนำเข้า_ร้านกาแฟ.docx" download>ตัวอย่างที่กรอกแล้ว</a> แล้วกด "📂 เปิดงาน / Word"</p>`;
 }
 
 /* ---------- canvas events ---------- */
@@ -869,12 +869,15 @@ async function importDocx(f){
     let t='';const walk=n=>{for(const c of n.childNodes){if(c.namespaceURI===W){if(c.localName==='t')t+=c.textContent;else if(c.localName==='tab')t+=' ';else if(c.localName==='br'||c.localName==='cr')t+='\n';else walk(c);}}};
     walk(p);t.split('\n').forEach(x=>{if(x.trim())lines.push(x);});
   }
-  const got={};ORDER.forEach(b=>got[b]=[]);let cur=null,skipped=0;
-  lines.forEach(l=>{const lb=labelOf(l);
-    if(lb){cur=lb[0];if(lb[1])got[cur].push(lb[1]);return;}
+  const got={};ORDER.forEach(b=>got[b]=[]);let cur=null,skipped=0,seen=0;
+  lines.forEach(l=>{
+    if(/^\s*(©|\(c\)|copyright)/i.test(l)){cur=null;return;} /* บรรทัดลิขสิทธิ์/เครดิต ไม่ใช่ไอเท็ม */
+    const lb=labelOf(l);
+    if(lb){cur=lb[0];seen++;if(lb[1])got[cur].push(lb[1]);return;}
     const c=clean(l);if(!c)return;
     if(cur){if(!got[cur].includes(c))got[cur].push(c);}else skipped++;});
   const n=ORDER.reduce((s,b)=>s+got[b].length,0);
+  if(!n&&seen){alert('พบหัวช่องของ BMC แต่ยังไม่มีไอเท็ม — พิมพ์ไอเท็มใต้หัวช่อง บรรทัดละ 1 ข้อ แล้วบันทึกไฟล์ก่อนนำเข้า');return;}
   if(!n){alert('ไม่พบชื่อช่องของ BMC ในไฟล์นี้\n\nรูปแบบที่อ่านได้: พิมพ์ชื่อช่อง เช่น "กลุ่มลูกค้า" หรือ "Customer Segments" เป็นบรรทัดของตัวเอง แล้วใส่ไอเท็มบรรทัดละ 1 ข้อด้านล่าง (ใช้ตาราง 9 ช่องก็ได้) หรือเขียน "กลุ่มลูกค้า: นักเรียน"');return;}
   const summary=ORDER.filter(b=>got[b].length).map(b=>`${B[b].n} ${got[b].length}`).join(' · ');
   const miss=ORDER.filter(b=>!got[b].length).map(b=>B[b].n);
