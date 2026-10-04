@@ -1,0 +1,627 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMC สู่แผนธุรกิจ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: full-viewport slide stage, one slide shown at a time; navy "ink" panels mark section dividers; amber accent = startup energy */
+:root{
+  --bg:#f7f5f0; --fg:#1b1d2a; --muted:#5a5d70; --surface:#ffffff; --border:#e4e1d8;
+  --accent:#e07b1a; --accent-soft:#fbe9d3; --accent-2:#1f6f7a;
+  --ink:#101733; --ink-fg:#f3f4fb; --ink-muted:#9aa2c8; --ink-border:#2a3358;
+  --warn:#c0392b; --ok:#2e7d52;
+  --f-display:"IBM Plex Sans Thai", "Sarabun", system-ui, sans-serif;
+  --f-body:"Sarabun", system-ui, sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1120; --fg:#ececf4; --muted:#a2a5bd; --surface:#191c30; --border:#2c3050;
+  --accent:#f5a524; --accent-soft:#33270f; --accent-2:#4bc0cf;
+  --ink:#070b1e; --ink-fg:#f3f4fb; --ink-muted:#9aa2c8; --ink-border:#242c4e;
+  --warn:#ff6b5e; --ok:#5ed69a; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f1120; --fg:#ececf4; --muted:#a2a5bd; --surface:#191c30; --border:#2c3050;
+  --accent:#f5a524; --accent-soft:#33270f; --accent-2:#4bc0cf;
+  --ink:#070b1e; --ink-fg:#f3f4fb; --ink-muted:#9aa2c8; --ink-border:#242c4e;
+  --warn:#ff6b5e; --ok:#5ed69a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);line-height:1.55}
+#stage{position:fixed;inset:0;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;padding:clamp(20px,4.5vw,64px);padding-top:clamp(30px,5vw,70px);padding-bottom:clamp(56px,7vw,84px);overflow-y:auto}
+.slide[data-active]{display:flex}
+.wrap{max-width:1040px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column;justify-content:center}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;font-weight:700;line-height:1.15}
+h1{font-size:clamp(2rem,5.6vw,3.7rem)}
+h2{font-size:clamp(1.5rem,3.8vw,2.6rem)}
+h3{font-size:clamp(1.1rem,2.3vw,1.45rem)}
+p{margin:.5em 0}
+.eyebrow{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.14em;font-size:clamp(.7rem,1.5vw,.82rem);font-weight:600;color:var(--accent)}
+.lead{font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--muted)}
+.big{font-size:clamp(1.15rem,2.5vw,1.55rem)}
+ul{margin:.6em 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.6em}
+ul li{position:relative;padding-left:1.6em;font-size:clamp(1rem,2vw,1.22rem)}
+ul li::before{content:"";position:absolute;left:.1em;top:.62em;width:.55em;height:.55em;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+ul.plain li::before{background:var(--accent-2)}
+.muted{color:var(--muted)}
+strong{font-weight:700}
+.accent{color:var(--accent)}
+/* section divider */
+.divider .wrap{justify-content:center}
+.divider{background:var(--ink);color:var(--ink-fg)}
+.divider .eyebrow{color:var(--accent)}
+.divider h1{color:var(--ink-fg);margin-top:.2em}
+.divider .lead{color:var(--ink-muted)}
+.divider .tag{color:var(--ink-fg);border-color:var(--ink-border);background:rgba(255,255,255,.05)}
+/* tags / badges */
+.tag{display:inline-flex;align-items:center;gap:.4em;font-family:var(--f-display);font-weight:600;font-size:.8rem;padding:.3em .8em;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--muted)}
+.tag.time::before{content:"⏱";font-size:.9em}
+.tag.act{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tag.act::before{content:"✎"}
+.row{display:flex;flex-wrap:wrap;gap:.6em;align-items:center;margin-bottom:.5em}
+/* cards grid */
+.grid{display:grid;gap:clamp(.6em,1.4vw,1em);margin-top:1em}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:clamp(.9em,1.8vw,1.3em);min-width:0}
+.card h3{font-size:clamp(1rem,1.9vw,1.2rem);margin-bottom:.2em}
+.card p{margin:.15em 0;color:var(--muted);font-size:clamp(.9rem,1.7vw,1.02rem)}
+.card .k{font-family:var(--f-display);font-weight:700;color:var(--accent);font-size:.82rem;letter-spacing:.04em}
+.card.warn{border-color:var(--warn)}.card.warn .k{color:var(--warn)}
+.card.ok{border-color:var(--ok)}.card.ok .k{color:var(--ok)}
+/* BMC canvas grid */
+.canvas{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto auto auto;gap:6px;margin-top:1em;font-size:clamp(.62rem,1.25vw,.86rem)}
+.cell{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.55em .6em;min-width:0;display:flex;flex-direction:column;gap:.15em}
+.cell .n{font-family:var(--f-display);font-weight:700;font-size:.9em;color:var(--accent)}
+.cell small{color:var(--muted);line-height:1.3}
+.kp{grid-column:1;grid-row:1/3}.ka{grid-column:2;grid-row:1}.kr{grid-column:2;grid-row:2}
+.vp{grid-column:3;grid-row:1/3;border-color:var(--accent)}.vp .n{color:var(--accent)}
+.cr{grid-column:4;grid-row:1}.ch{grid-column:4;grid-row:2}
+.cs{grid-column:5;grid-row:1/3;border-color:var(--accent-2)}.cs .n{color:var(--accent-2)}
+.cost{grid-column:1/4;grid-row:3}.rev{grid-column:4/6;grid-row:3}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1em,3vw,2.4em);align-items:center}
+.quote{font-family:var(--f-display);font-weight:600;font-size:clamp(1.4rem,3.4vw,2.3rem);line-height:1.25;text-wrap:balance}
+.step{display:flex;gap:.7em;align-items:baseline;font-size:clamp(1rem,2vw,1.2rem);padding:.35em 0;border-bottom:1px dashed var(--border)}
+.step b{font-family:var(--f-display);color:var(--accent);min-width:2.4em}
+/* chrome */
+#bar{position:fixed;top:0;left:0;height:4px;background:var(--accent);width:0;z-index:20;transition:width .25s ease}
+#foot{position:fixed;left:0;right:0;bottom:0;height:auto;padding:.5em clamp(14px,3vw,28px);padding-bottom:calc(.5em + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:1em;background:var(--surface);border-top:1px solid var(--border);font-family:var(--f-display);font-size:.78rem;z-index:15}
+#foot .sec{color:var(--muted);font-weight:600;letter-spacing:.03em;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#foot .nav{display:flex;align-items:center;gap:.5em;flex:none}
+#foot button{font-family:var(--f-display);font-weight:600;font-size:.82rem;border:1px solid var(--border);background:var(--bg);color:var(--fg);border-radius:8px;padding:.35em .7em;cursor:pointer}
+#foot button:hover{border-color:var(--accent);color:var(--accent)}
+#foot .count{color:var(--muted);font-variant-numeric:tabular-nums;min-width:3.4em;text-align:center}
+.notes{margin-top:1.1em;padding:.8em 1em;border-left:3px solid var(--accent-2);background:var(--accent-soft);border-radius:0 10px 10px 0;font-size:clamp(.86rem,1.6vw,1rem);color:var(--fg)}
+.notes b{color:var(--accent-2);font-family:var(--f-display)}
+.notes[hidden]{display:none}
+.hint{font-size:.82rem;color:var(--muted);margin-top:1.4em}
+kbd{font-family:var(--f-display);font-size:.85em;border:1px solid var(--border);border-bottom-width:2px;border-radius:5px;padding:.05em .45em;background:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:640px){
+  .g2,.g3,.two{grid-template-columns:1fr}
+  .canvas{grid-template-columns:1fr 1fr;font-size:.78rem}
+  .canvas>*{grid-column:auto!important;grid-row:auto!important}
+  .cost,.rev{grid-column:1/3!important}
+}
+@media (prefers-reduced-motion:reduce){#bar{transition:none}}
+
+/* ===== 16:9 — เวทีขนาดคงที่ 1920×1080 ย่อ/ขยายให้พอดีจอ (เพิ่ม 2026-10-04) ตัวอักษรเป็น px ของเวที ไม่ขึ้นกับความกว้างจอ ===== */
+html,body{overflow:hidden;background:#0b0f1f}
+#stage{position:fixed;inset:auto;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:translate(var(--ox,0px),var(--oy,0px)) scale(var(--k,1));background:var(--bg);overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.slide{padding:72px 120px 70px}
+.wrap{max-width:1680px}
+h1{font-size:112px}
+h2{font-size:76px;margin-bottom:.15em}
+h3{font-size:44px}
+.eyebrow{font-size:28px}
+.lead{font-size:44px}
+.big{font-size:48px}
+p{font-size:38px}
+ul{gap:.45em}
+ul li{font-size:42px}
+.tag{font-size:27px}
+.grid{gap:26px;margin-top:.8em}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr 1fr;gap:60px}
+.card{padding:30px 34px;border-radius:20px}
+.card h3{font-size:42px}
+.card p{font-size:34px}
+.card .k{font-size:27px}
+.canvas{grid-template-columns:repeat(5,1fr);font-size:29px;gap:10px}
+.cell{padding:.55em .65em;border-radius:12px}
+.quote{font-size:70px}
+.step{font-size:40px;padding:.3em 0}
+.notes{font-size:28px}
+.hint{font-size:24px}
+</style>
+
+<div id="bar"></div>
+<div id="stage">
+
+<!-- ===== TITLE ===== -->
+<section class="slide divider" data-sec="ภาพรวม" data-time="">
+  <div class="wrap">
+    <p class="eyebrow">Workshop · 4 ตุลาคม 2569</p>
+    <h1>Business Model Canvas<br>สู่แผนความเป็นไปได้ทางธุรกิจ</h1>
+    <p class="lead" style="margin-top:.6em">จากแรงบันดาลใจ Startup สู่การออกแบบโมเดลธุรกิจจากงานวิจัยและผลิตภัณฑ์</p>
+    <div class="row" style="margin-top:1.4em">
+      <span class="tag time">ช่วงที่รับผิดชอบ 09.30–15.00 น.</span>
+      <span class="tag">วิทยากร: อาจารย์ ดร.วราวุฒิ นาคบุญนำ</span>
+    </div>
+    <p class="hint">เลื่อนสไลด์: <kbd>→</kbd> <kbd>←</kbd> หรือ <kbd>Space</kbd> · เต็มจอ <kbd>F</kbd> · โน้ตวิทยากร <kbd>N</kbd> · สลับธีมสว่าง/มืด <kbd>T</kbd></p>
+  </div>
+</section>
+
+<!-- ===== AGENDA ===== -->
+<section class="slide" data-sec="ภาพรวม" data-time="09.30–15.00">
+  <div class="wrap">
+    <p class="eyebrow">แผนการเรียนรู้ของช่วงนี้</p>
+    <h2>เส้นทางวันนี้ ออกแบบให้ทุกช่วงต่อยอดกัน</h2>
+    <div class="grid g2" style="margin-top:1.1em">
+      <div class="card"><span class="k">09.30–10.30</span><h3>แรงบันดาลใจ Startup</h3><p>ทำไมต้องมีโมเดลธุรกิจ และ mindset ของผู้ก่อตั้งที่เริ่มจากปัญหาจริง</p></div>
+      <div class="card"><span class="k">10.30–12.00</span><h3>BMC ช่วงที่ 1</h3><p>เข้าใจโมเดล 9 ช่อง และเริ่มลงมือที่แกนลูกค้า–คุณค่า (CS↔VP)</p></div>
+      <div class="card"><span class="k">13.00–15.00</span><h3>BMC ช่วงที่ 2</h3><p>สร้าง Canvas ให้ครบ ตรวจคุณภาพ และเชื่อมสู่แผนการเงิน/Feasibility</p></div>
+      <div class="card ok"><span class="k">ผลลัพธ์ที่ได้</span><h3>Canvas ร่างของแต่ละกลุ่ม</h3><p>พร้อมส่งต่อไปช่วงวิเคราะห์การเงินและการทำ Feasibility plan ตอนบ่าย</p></div>
+    </div>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ย้ำกับผู้เข้าอบรมว่า "ทุกช่วงจะให้ลงมือกับงานวิจัย/ผลิตภัณฑ์ของกลุ่มตัวเอง" ไม่ใช่ฟังเฉย ๆ — สร้างความคาดหวังว่าจะได้ชิ้นงานกลับไป</div>
+  </div>
+</section>
+
+<!-- ===== SECTION A DIVIDER ===== -->
+<section class="slide divider" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <p class="eyebrow">ช่วงที่ 1 · 09.30–10.30 น.</p>
+    <h1>แรงบันดาลใจ<br>ในเส้นทางการเป็น Startup</h1>
+    <p class="lead">เริ่มจาก "ทำไม" ก่อนจะไปถึง "ทำอย่างไร"</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <p class="eyebrow">Startup ต่างจากธุรกิจทั่วไปอย่างไร</p>
+    <h2>Startup คือธุรกิจที่ค้นหาโมเดลที่ทำซ้ำและขยายได้</h2>
+    <div class="grid g3" style="margin-top:1em">
+      <div class="card"><span class="k">ค้นหา ไม่ใช่ทำตามสูตร</span><p>ยังไม่รู้คำตอบแน่ชัด ต้องทดลองเพื่อค้นหาโมเดลที่ใช่</p></div>
+      <div class="card"><span class="k">ขยายได้ (Scalable)</span><p>ออกแบบให้โตได้เร็วโดยต้นทุนไม่โตตามเป็นเส้นตรง</p></div>
+      <div class="card"><span class="k">แก้ปัญหาด้วยนวัตกรรม</span><p>สร้างคุณค่าใหม่ มักอยู่บนเทคโนโลยีหรือความรู้เฉพาะ</p></div>
+    </div>
+    <p class="big" style="margin-top:1em">ธุรกิจ SME ทั่วไป <em>ดำเนินโมเดลที่รู้แล้ว</em> ส่วน Startup <em>ค้นหาโมเดลที่ยังไม่รู้</em> ความไม่แน่นอนจึงสูงกว่า และการทดลองเรียนรู้จึงสำคัญกว่า</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ถามผู้เข้าอบรมสั้น ๆ ว่าใครมองว่างานวิจัยของตัวเองมีโอกาสขยายได้ (scalable) เก็บชื่อไว้ยกเป็นตัวอย่างช่วง BMC</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <p class="eyebrow">บทเรียนสำคัญที่สุด</p>
+    <h2>สาเหตุอันดับต้นที่สตาร์ทอัพล้ม คือ<span class="accent"> สร้างสิ่งที่ไม่มีคนต้องการ</span></h2>
+    <p class="big" style="margin-top:.6em">ไม่ใช่เพราะเทคโนโลยีไม่เก่งพอ แต่เพราะเริ่มจาก "ของที่เรามี" แทนที่จะเริ่มจาก "ปัญหาที่ลูกค้ามี"</p>
+    <div class="grid g2" style="margin-top:1em">
+      <div class="card warn"><span class="k">กับดักของนักวิจัย</span><p>หลงรักเทคโนโลยีหรือผลงานของตัวเอง จนลืมถามว่าใครเดือดร้อนพอที่จะจ่าย</p></div>
+      <div class="card ok"><span class="k">ทางออก</span><p>เริ่มจากปัญหาและลูกค้าที่เฉพาะเจาะจง แล้วค่อยออกแบบคุณค่าให้ตรง — ซึ่งคือหัวใจของ BMC</p></div>
+    </div>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> นี่คือสะพานสำคัญเข้าสู่ BMC — ย้ำว่าเครื่องมือ BMC ถูกออกแบบมาเพื่อกันไม่ให้เราตกกับดักนี้ เพราะบังคับให้เริ่มคิดจากลูกค้า</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <p class="eyebrow">บริบทของผู้เข้าอบรม</p>
+    <h2>จากงานวิจัยสู่ธุรกิจ: ข้ามหุบเหวแห่งความตาย</h2>
+    <div class="grid" style="grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;margin-top:1.2em">
+      <div class="card"><span class="k">งานวิจัย/ผลงาน</span><p>ความรู้ ต้นแบบ สิทธิบัตร</p></div>
+      <div style="text-align:center;color:var(--warn);font-weight:700">→</div>
+      <div class="card warn"><span class="k">Valley of Death</span><p>ช่วงที่ยังไม่มีรายได้และยังพิสูจน์ตลาดไม่ได้</p></div>
+      <div style="text-align:center;color:var(--ok);font-weight:700">→</div>
+      <div class="card ok"><span class="k">ผลิตภัณฑ์ที่ตลาดต้องการ</span><p>มีลูกค้าจริงและโมเดลที่เลี้ยงตัวเองได้</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em">สิ่งที่พาข้ามหุบเหวไม่ใช่เทคโนโลยีที่ดีกว่า แต่คือ <strong>โมเดลธุรกิจที่ชัดและได้รับการทดสอบ</strong></p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> เชื่อมกับผู้เข้าอบรมที่เป็นนักวิจัย/เจ้าของผลิตภัณฑ์โดยตรง ถามว่าตอนนี้ผลงานของแต่ละกลุ่มอยู่ตรงไหนของเส้นนี้</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <p class="eyebrow">วิธีคิดแบบผู้ก่อตั้ง</p>
+    <h2>Lean Startup: สร้าง–วัดผล–เรียนรู้</h2>
+    <div class="grid g3" style="margin-top:1em">
+      <div class="card"><span class="k">1 · สร้าง (Build)</span><p>ทำผลิตภัณฑ์ที่เล็กที่สุดที่ทดสอบสมมติฐานได้ (MVP) ไม่ต้องสมบูรณ์แบบ</p></div>
+      <div class="card"><span class="k">2 · วัดผล (Measure)</span><p>นำไปให้ลูกค้าจริงใช้ แล้วเก็บข้อมูลว่าเกิดอะไรขึ้น</p></div>
+      <div class="card"><span class="k">3 · เรียนรู้ (Learn)</span><p>ถ้าสมมติฐานผิด ก็ปรับทิศ (Pivot) เร็ว ๆ ก่อนเสียทรัพยากรมาก</p></div>
+    </div>
+    <p class="big" style="margin-top:1em">ความล้มเหลวเล็ก ๆ ที่เกิดเร็วคือ <strong>ข้อมูล</strong> ไม่ใช่ความพ่ายแพ้ — ยิ่งเรียนรู้เร็ว ยิ่งรอด</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> โยงว่า BMC คือแผนที่ของสมมติฐานทั้งหมด และการทำเครื่องหมาย Fact/Assumption (ช่วงบ่าย) คือการเลือกว่าจะเอาสมมติฐานไหนไปทดสอบก่อน</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <p class="eyebrow">เรื่องเล่าสร้างแรงบันดาลใจ</p>
+        <p class="quote">ธุรกิจที่ยิ่งใหญ่ เริ่มจากปัญหาเล็ก ๆ ที่มีคนเดือดร้อนจริง</p>
+      </div>
+      <div>
+        <ul>
+          <li>แพลตฟอร์มเรียกรถ เริ่มจากปัญหาเรียกแท็กซี่ไม่ได้ในคืนหนาว</li>
+          <li>บริการที่พัก เริ่มจากคนสองคนที่ต้องหาเงินจ่ายค่าเช่าห้อง</li>
+          <li>สตรีมมิ่ง เริ่มจากความหงุดหงิดกับค่าปรับคืนแผนหนังช้า</li>
+        </ul>
+        <p class="muted" style="margin-top:.6em">จุดร่วม: ผู้ก่อตั้งเจอปัญหาด้วยตัวเอง เข้าใจลูกค้าลึก แล้วค่อยขยายโมเดล</p>
+      </div>
+    </div>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ช่องนี้เว้นไว้ให้ อ.เล่า "เรื่องจริงของตัวเอง" หรือเคสไทยที่ใกล้ตัวผู้เข้าอบรม 1–2 เรื่อง จะทรงพลังกว่าเคสต่างประเทศ</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="A · แรงบันดาลใจ Startup" data-time="09.30–10.30">
+  <div class="wrap">
+    <div class="row"><span class="tag act">กิจกรรม · คิด–คู่–แชร์</span><span class="tag time">7 นาที</span></div>
+    <h2>ปัญหาของคุณคืออะไร และใครเดือดร้อน</h2>
+    <div class="grid g2" style="margin-top:1em">
+      <div class="card"><span class="k">คิดคนเดียว (2 นาที)</span><p>เขียนสั้น ๆ: งานวิจัย/ผลิตภัณฑ์ของคุณแก้ปัญหาอะไร และ "ใคร" คือคนที่เดือดร้อนกับปัญหานั้นที่สุด</p></div>
+      <div class="card"><span class="k">คุยเป็นคู่/กลุ่ม (5 นาที)</span><p>เล่าให้เพื่อนฟัง แล้วช่วยกันตรวจ: ปัญหานั้นชัดและเฉพาะพอหรือยัง หรือยังกว้างเกินไป</p></div>
+    </div>
+    <p class="big accent" style="margin-top:1em">เก็บคำตอบนี้ไว้ เพราะมันคือจุดเริ่มของ Canvas ในช่วงต่อไป</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> เดินดูรอบห้อง จับ 1–2 กลุ่มที่ปัญหายังกว้าง ("คนทั่วไป") มาใช้เป็นตัวอย่างสอนเรื่องความเฉพาะเจาะจงในช่วง BMC</div>
+  </div>
+</section>
+
+<!-- ===== SECTION B DIVIDER ===== -->
+<section class="slide divider" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">ช่วงที่ 2 · 10.30–12.00 น.</p>
+    <h1>Business Model Canvas<br>เข้าใจโมเดล + เริ่มแกนลูกค้า–คุณค่า</h1>
+    <p class="lead">โมเดลธุรกิจทั้งหมดบนกระดาษแผ่นเดียว</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">โมเดลธุรกิจคืออะไร</p>
+    <h2>โมเดลธุรกิจ = วิธีที่ธุรกิจ <span class="accent">สร้าง · ส่งมอบ · เก็บ</span> คุณค่า</h2>
+    <div class="grid g3" style="margin-top:1.1em">
+      <div class="card"><span class="k">สร้างคุณค่า</span><p>ทำอะไรให้ลูกค้า และต้องใช้ทรัพยากร กิจกรรม พันธมิตรอะไรบ้าง</p></div>
+      <div class="card"><span class="k">ส่งมอบคุณค่า</span><p>เข้าถึงและดูแลลูกค้ากลุ่มไหน ผ่านช่องทางใด</p></div>
+      <div class="card"><span class="k">เก็บคุณค่า</span><p>สร้างรายได้อย่างไร และมีต้นทุนอะไรบ้าง</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em">BMC คือเครื่องมือที่ทำให้สามส่วนนี้เห็นพร้อมกันในหน้าเดียว และเห็นว่ามันเชื่อมกันอย่างไร</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">แก่นคิดที่ต้องจำ</p>
+    <p class="quote">BMC คือ <span class="accent">สถาปัตยกรรมของธุรกิจ</span><br>ไม่ใช่แบบฟอร์มให้กรอกข้อมูล</p>
+    <div class="grid g2" style="margin-top:1.2em">
+      <div class="card warn"><span class="k">✕ มองเป็นแบบฟอร์ม</span><p>กรอกทุกช่องให้ครบ ยิ่งเยอะยิ่งดี แต่ละช่องไม่เกี่ยวกัน</p></div>
+      <div class="card ok"><span class="k">✓ มองเป็นสถาปัตยกรรม</span><p>เห็นว่าทุกช่องประกอบกันเป็นระบบเดียวที่ทำงานสอดคล้องกัน</p></div>
+    </div>
+    <p class="big" style="margin-top:1em">เหมือน <strong>การวาดภาพ</strong> ที่สื่อแก่น ไม่ใช่ <strong>การถ่ายรูป</strong> ที่บันทึกทุกรายละเอียด</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> นี่คือประโยคหลักของทั้งวัน ย้ำซ้ำเป็นระยะ ทุกครั้งที่กลุ่มเริ่มกรอกยาว ๆ ให้ดึงกลับมาที่ "สถาปัตยกรรม ไม่ใช่แบบฟอร์ม"</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">ภาพรวม 9 ช่อง</p>
+    <h2 style="margin-bottom:.2em">โครงสร้าง Business Model Canvas</h2>
+    <div class="canvas">
+      <div class="cell kp"><span class="n">8 · Key Partnerships</span><small>พันธมิตรหลัก</small></div>
+      <div class="cell ka"><span class="n">7 · Key Activities</span><small>กิจกรรมหลัก</small></div>
+      <div class="cell kr"><span class="n">6 · Key Resources</span><small>ทรัพยากรหลัก</small></div>
+      <div class="cell vp"><span class="n">2 · Value Propositions</span><small>คุณค่าที่นำเสนอ</small></div>
+      <div class="cell cr"><span class="n">4 · Customer Relationships</span><small>ความสัมพันธ์กับลูกค้า</small></div>
+      <div class="cell ch"><span class="n">3 · Channels</span><small>ช่องทาง</small></div>
+      <div class="cell cs"><span class="n">1 · Customer Segments</span><small>กลุ่มลูกค้า</small></div>
+      <div class="cell cost"><span class="n">9 · Cost Structure</span><small>โครงสร้างต้นทุน</small></div>
+      <div class="cell rev"><span class="n">5 · Revenue Streams</span><small>กระแสรายได้</small></div>
+    </div>
+    <p class="muted" style="margin-top:.8em">ซ้าย = ประสิทธิภาพ (หลังบ้าน) · กลาง = คุณค่า · ขวา = ลูกค้า (หน้าบ้าน) · ล่าง = เงิน</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">แกนหัวใจ · เริ่มที่นี่เสมอ</p>
+    <h2>กลุ่มลูกค้า (CS) ↔ คุณค่า (VP)</h2>
+    <div class="two" style="margin-top:1em">
+      <div class="card" style="border-color:var(--accent-2)"><span class="k" style="color:var(--accent-2)">Customer Segments</span><p style="color:var(--fg)">เราสร้างคุณค่าให้ <strong>ใคร</strong> — ต้องเฉพาะเจาะจง ระบุด้วย งาน (Job) + บริบท (Context) + ปัญหา (Pain)</p></div>
+      <div class="card" style="border-color:var(--accent)"><span class="k">Value Propositions</span><p style="color:var(--fg)"><strong>ทำไม</strong>ลูกค้าถึงเลือกเรา — คุณค่าที่แก้ปัญหาหรือตอบความต้องการของกลุ่มนั้นได้จริง</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em"><span class="warn" style="color:var(--warn)">เลี่ยง</span> การเขียนลูกค้าแบบกว้าง เช่น "คนทั่วไป" หรือ "SME" — กว้างเกินไปจนออกแบบคุณค่าให้ตรงไม่ได้</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ยกตัวอย่างเทียบ: "คนรักสุขภาพ" (กว้าง) เทียบกับ "พนักงานออฟฟิศวัย 25–35 ที่ไม่มีเวลาทำอาหารเช้าแต่ใส่ใจสุขภาพ" (คม) ให้กลุ่มลองปรับของตัวเอง</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">อ่าน Canvas ให้เป็นระบบ · เคสแพลตฟอร์มเรียกรถ</p>
+    <h2 style="margin-bottom:.1em">9 ช่องที่เชื่อมกันเป็นเรื่องเดียว</h2>
+    <div class="grid g3" style="margin-top:.8em">
+      <div class="card"><span class="k">ลูกค้า (CS)</span><p>ผู้โดยสารที่อยากเรียกรถสะดวก + ผู้ขับที่อยากมีรายได้ (สองฝั่ง)</p></div>
+      <div class="card"><span class="k">คุณค่า (VP)</span><p>เรียกรถได้ใน 1 นาที ราคาโปร่งใส ปลอดภัย</p></div>
+      <div class="card"><span class="k">ช่องทาง (CH)</span><p>แอปพลิเคชันบนมือถือ</p></div>
+      <div class="card"><span class="k">ความสัมพันธ์ (CR)</span><p>ระบบให้คะแนน รีวิว และสมาชิกสะสมแต้ม</p></div>
+      <div class="card"><span class="k">รายได้ (R$)</span><p>ค่าคอมมิชชันต่อการเดินทางสำเร็จ</p></div>
+      <div class="card"><span class="k">ทรัพยากร/กิจกรรม/พันธมิตร</span><p>แพลตฟอร์ม + จับคู่คนขับ-ผู้โดยสาร + เครือข่ายผู้ขับ</p></div>
+    </div>
+    <p class="big" style="margin-top:.9em">สังเกต: ถ้าเปลี่ยน "ลูกค้า" ช่องอื่นต้องเปลี่ยนตาม — นั่นคือความเป็นสถาปัตยกรรม</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <div class="row"><span class="tag act">กิจกรรมกลุ่ม</span><span class="tag time">25 นาที</span></div>
+    <h2>เริ่มสร้าง Canvas: เติมแกน CS + VP ของคุณ</h2>
+    <div class="grid" style="margin-top:1em">
+      <div class="step"><b>1</b><span>เขียน <strong>Customer Segments</strong> ให้เฉพาะเจาะจง — ใครคือลูกค้ากลุ่มแรกที่เดือดร้อนที่สุด (Job + Context + Pain)</span></div>
+      <div class="step"><b>2</b><span>เขียน <strong>Value Propositions</strong> — คุณค่าอะไรที่ตอบปัญหาของกลุ่มนั้นตรงที่สุด (เขียนสั้น คม)</span></div>
+      <div class="step"><b>3</b><span>ตรวจคู่กัน: VP ของคุณแก้ Pain ของ CS ได้จริงไหม ถ้ายังไม่ตรง ปรับข้อใดข้อหนึ่ง</span></div>
+    </div>
+    <p class="big accent" style="margin-top:1em">เขียนลงกระดาษ/โพสต์อิต ยังไม่ต้องสวย ขอให้ "คม" และ "ตรง"</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> คุมเวลาเข้ม 25 นาที · เดินโต๊ะให้ครบทุกกลุ่ม · เตือน 5 นาทีสุดท้าย · ปิดท้ายด้วยให้ 2 กลุ่มอ่าน CS+VP ให้ห้องฟังสั้น ๆ</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="B · BMC ช่วงที่ 1" data-time="10.30–12.00">
+  <div class="wrap">
+    <p class="eyebrow">สรุปช่วงเช้า</p>
+    <h2>ก่อนพักกลางวัน</h2>
+    <ul style="margin-top:.8em">
+      <li>Startup ที่รอดเริ่มจาก <strong>ปัญหาและลูกค้า</strong> ไม่ใช่จากเทคโนโลยี</li>
+      <li>BMC คือ <strong>สถาปัตยกรรม</strong> ไม่ใช่แบบฟอร์ม — ทุกช่องต้องเชื่อมกัน</li>
+      <li>แกนเริ่มที่ <strong>CS ↔ VP</strong> และลูกค้าต้องเฉพาะเจาะจง</li>
+    </ul>
+    <p class="big" style="margin-top:1em">ช่วงบ่าย: เติม Canvas ให้ครบทั้ง 9 ช่อง แล้วตรวจคุณภาพ ก่อนส่งต่อสู่แผนการเงินและ Feasibility plan</p>
+  </div>
+</section>
+
+<!-- ===== LUNCH ===== -->
+<section class="slide divider" data-sec="พักกลางวัน" data-time="12.00–13.00">
+  <div class="wrap">
+    <p class="eyebrow">12.00–13.00 น.</p>
+    <h1>พักรับประทานอาหารกลางวัน</h1>
+    <p class="lead">ช่วงบ่ายเราจะลงมือสร้าง Canvas ของกลุ่มให้ครบ — เตรียมพลังไว้ทำงานจริง</p>
+  </div>
+</section>
+
+<!-- ===== SECTION C DIVIDER ===== -->
+<section class="slide divider" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">ช่วงที่ 3 · 13.00–15.00 น.</p>
+    <h1>สร้าง Canvas ให้ครบ<br>และตรวจคุณภาพ</h1>
+    <p class="lead">จากแกนลูกค้า–คุณค่า สู่ระบบธุรกิจที่สมบูรณ์</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">รีสตาร์ตหลังอาหาร</p>
+    <h2>ทวนเร็ว: เราอยู่ตรงไหน</h2>
+    <p class="big" style="margin-top:.6em">ตอนเช้าแต่ละกลุ่มมี <strong>CS + VP</strong> แล้ว — บ่ายนี้เติมอีก 7 ช่องที่เหลือให้เชื่อมกับแกนนี้</p>
+    <div class="grid g2" style="margin-top:1em">
+      <div class="card"><span class="k">ฝั่งขวา (หน้าบ้าน)</span><p>Channels · Customer Relationships · Revenue Streams — เข้าถึง ดูแล และเก็บเงินจากลูกค้า</p></div>
+      <div class="card"><span class="k">ฝั่งซ้าย (หลังบ้าน)</span><p>Key Resources · Key Activities · Key Partnerships · Cost Structure — สิ่งที่ต้องมีเพื่อส่งมอบคุณค่า</p></div>
+    </div>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> เริ่มด้วย re-energizer สั้น 2–3 นาที (ยืดเส้น/ถามคำถามสนุก) เพราะเป็นช่วงง่วง อย่าเข้าบรรยายยาวทันที</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">เติม 7 ช่องที่เหลือ · ระวังการวางผิดช่อง</p>
+    <h2 style="margin-bottom:.3em">จุดที่คนสับสนบ่อย</h2>
+    <div class="grid g2" style="margin-top:.6em">
+      <div class="card"><span class="k">Channels ≠ Customer Relationships</span><p>Channels = ช่องทาง <em>เข้าถึง/ส่งมอบ</em> (เว็บ แอป หน้าร้าน) · CR = <em>รูปแบบความสัมพันธ์</em> ที่รักษาลูกค้า (สมาชิก ดูแลรายบุคคล)</p></div>
+      <div class="card"><span class="k">Key Resources ≠ Key Activities</span><p>Resources = <em>สิ่งที่มี</em> (คน แพลตฟอร์ม) · Activities = <em>สิ่งที่ทำ</em> (พัฒนา ตรวจสอบ การตลาด)</p></div>
+      <div class="card"><span class="k">รายได้ ≠ ต้นทุน</span><p>ค่าคอมมิชชันที่ <em>ได้รับ</em> = Revenue · ค่าเซิร์ฟเวอร์ เงินเดือน = Cost</p></div>
+      <div class="card"><span class="k">Key Partnerships</span><p>พันธมิตรภายนอกที่ทำให้โมเดลเดินได้ เช่น ซัพพลายเออร์ ร้านค้าพันธมิตร</p></div>
+    </div>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ใช้ตัวอย่างของกลุ่มในห้องมาจับผิดช่องแบบสนุก ๆ ช่วยให้จำได้มากกว่าท่องนิยาม</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">เทคนิคการเขียนให้คม</p>
+    <h2>เขียนน้อยแต่คม: กติกา 3–5–1 และ no-orphan</h2>
+    <div class="grid g2" style="margin-top:1em">
+      <div class="card"><span class="k">กติกา 3–5–1</span><p>ไม่เกิน <strong>3 บรรทัด</strong>/ช่อง · ไม่เกิน <strong>5 คำ</strong>/แนวคิด · เหลือ <strong>1 แนวคิดหลัก</strong>ที่ชัด</p><p class="muted" style="font-size:.82rem">เป็นกติกาช่วยจำที่ต่อยอดจากหลัก proper granularity (ไม่ใช่ศัพท์ทางการของต้นฉบับ)</p></div>
+      <div class="card"><span class="k">No Orphan Building Block</span><p>ห้ามมีช่องที่อยู่โดดเดี่ยว ทุกช่องต้องเชื่อมโยงกับช่องอื่นเป็นเรื่องเดียวกัน</p></div>
+    </div>
+    <p class="big" style="margin-top:1em">ถ้าทุกอย่างสำคัญ ก็เท่ากับไม่มีอะไรสำคัญ — คัดเหลือแต่สิ่งที่สำคัญจริง</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <div class="row"><span class="tag act">กิจกรรมกลุ่ม · ลงมือหลัก</span><span class="tag time">35 นาที</span></div>
+    <h2>เติม Canvas ให้ครบทั้ง 9 ช่อง</h2>
+    <div class="grid" style="margin-top:.8em">
+      <div class="step"><b>1</b><span>ต่อจากแกน CS+VP เติมฝั่งขวา (Channels, CR, Revenue) ให้สอดคล้องกับลูกค้า</span></div>
+      <div class="step"><b>2</b><span>เติมฝั่งซ้าย (Key Resources, Activities, Partnerships, Cost) ให้รองรับการส่งมอบคุณค่า</span></div>
+      <div class="step"><b>3</b><span>ใช้กติกา 3–5–1 ทุกช่อง และตรวจว่าไม่มีช่องโดดเดี่ยว</span></div>
+    </div>
+    <p class="big accent" style="margin-top:.9em">เป้าหมาย: ได้ Canvas ร่างที่ "เล่าเป็นเรื่องเดียว" ได้ตั้งแต่ลูกค้าไปจนถึงเงิน</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ให้เวลาจริง 35 นาที · เปิดเพลงเบา ๆ · เดินให้คำปรึกษาเป็นรายกลุ่ม · เตือนเวลาเหลือ 10 และ 5 นาที</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">ตรวจคุณภาพ Canvas · เครื่องมือที่ 1</p>
+    <h2>บททดสอบ 30 วินาที</h2>
+    <p class="big" style="margin-top:.6em">ให้คนที่ไม่รู้จักธุรกิจอ่าน Canvas ของคุณ 30 วินาที แล้วต้องตอบได้ว่า:</p>
+    <div class="grid g3" style="margin-top:1em">
+      <div class="card"><span class="k">ทำอะไร</span><p>ธุรกิจนี้เสนอคุณค่าอะไร</p></div>
+      <div class="card"><span class="k">ให้ใคร</span><p>ลูกค้าคือใคร</p></div>
+      <div class="card"><span class="k">ได้เงินอย่างไร</span><p>โมเดลรายได้คืออะไร</p></div>
+    </div>
+    <p class="big" style="margin-top:1em">ถ้าตอบไม่ได้ ไม่ใช่เพิ่มข้อมูล แต่ต้อง <strong>ตัดให้คมและทำให้ช่องเชื่อมกัน</strong></p>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">ตรวจคุณภาพ Canvas · เครื่องมือที่ 2</p>
+    <h2>ทำเครื่องหมาย Fact กับ Assumption</h2>
+    <div class="two" style="margin-top:1em">
+      <div class="card ok"><span class="k">Fact · ข้อเท็จจริง</span><p style="color:var(--fg)">สิ่งที่รู้แน่แล้ว มีหลักฐาน/ข้อมูลจริงรองรับ</p></div>
+      <div class="card warn"><span class="k">Assumption · ข้อสมมติ</span><p style="color:var(--fg)">สิ่งที่ยังเดา ยังไม่ได้พิสูจน์ — ต้องออกไปทดสอบกับตลาดจริง</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em">ช่องที่เป็น <span style="color:var(--warn)">Assumption</span> ที่เสี่ยงที่สุด คือสิ่งที่ควรออกไปทดสอบก่อน (โยงกลับ Lean Startup)</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ให้แต่ละกลุ่มใช้ปากกาสองสี/สัญลักษณ์ทำเครื่องหมายบน Canvas จริง แล้ววงข้อสมมติที่ "ถ้าผิดแล้วเจ๊ง" ไว้ 1 ข้อ</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">ตรวจคุณภาพ Canvas · เครื่องมือที่ 3</p>
+    <h2>แยก As-is กับ To-be</h2>
+    <div class="two" style="margin-top:1em">
+      <div class="card"><span class="k">As-is · ที่เป็นอยู่จริง</span><p>โมเดลที่ทำได้จริงตอนนี้ด้วยทรัพยากรที่มี</p></div>
+      <div class="card"><span class="k">To-be · ที่มุ่งหวัง</span><p>โมเดลที่อยากไปให้ถึงในอนาคต</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em">อย่าปนกัน มิฉะนั้นความหวังจะถูกเข้าใจผิดว่าเป็นกลยุทธ์ — <strong>ช่องว่างระหว่างสองใบคือวาระเชิงกลยุทธ์</strong>ที่ต้องวางแผน</p>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <div class="row"><span class="tag act">กิจกรรม · Gallery Walk</span><span class="tag time">20 นาที</span></div>
+    <h2>ติดผลงาน แล้วเดินดู–ให้ฟีดแบ็ก</h2>
+    <div class="grid" style="margin-top:.8em">
+      <div class="step"><b>1</b><span>แต่ละกลุ่มติด Canvas ไว้ที่ผนัง</span></div>
+      <div class="step"><b>2</b><span>เดินดูของกลุ่มอื่น ใช้บททดสอบ 30 วินาที แล้วแปะโน้ต: 1 จุดที่ชอบ + 1 คำถาม</span></div>
+      <div class="step"><b>3</b><span>กลับกลุ่มตัวเอง อ่านฟีดแบ็ก เลือก 1 อย่างที่จะปรับ</span></div>
+    </div>
+    <p class="big accent" style="margin-top:.9em">การได้เห็นของกลุ่มอื่นและถูกถาม คือการเรียนรู้ที่ดีที่สุด</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> แจกโพสต์อิต 2 สี (ชอบ/คำถาม) · คุมเวลาเดิน 12 นาที + กลับปรับ 8 นาที · เก็บ Canvas ที่ดีไว้ยกตัวอย่างช่วงปิด</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">สะพานสู่ช่วงบ่าย</p>
+    <h2>จาก Canvas สู่แผนความเป็นไปได้ทางธุรกิจ</h2>
+    <div class="grid" style="grid-template-columns:1fr auto 1fr;align-items:center;margin-top:1.1em">
+      <div class="card" style="border-color:var(--accent)"><span class="k">Value Propositions + Customer</span><p>คุณค่าและลูกค้าที่คุณเพิ่งออกแบบ</p></div>
+      <div style="text-align:center;color:var(--accent);font-weight:700;font-size:1.4rem">→</div>
+      <div class="card"><span class="k">แผนการเงิน (15.00–16.00)</span><p>VP กลายเป็นแหล่งรายได้ · Cost Structure กลายเป็นตัวเลขต้นทุน</p></div>
+    </div>
+    <p class="big" style="margin-top:1.1em">Canvas ที่คมและเชื่อมกัน จะทำให้การประเมินความคุ้มค่าและการทำ <strong>Feasibility plan</strong> ตอนเย็นง่ายขึ้นมาก</p>
+    <div class="notes" hidden><b>โน้ตวิทยากร:</b> ส่งไม้ต่อให้วิทยากรช่วงการเงินอย่างชัดเจน — บอกผู้เข้าอบรมให้ถือ Canvas ติดตัวไปใช้ทุกช่วงที่เหลือ</div>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="13.00–15.00">
+  <div class="wrap">
+    <p class="eyebrow">สรุปสิ่งที่ต้องจำ</p>
+    <h2>5 ข้อคิดติดตัว</h2>
+    <ul style="margin-top:.8em">
+      <li>เริ่มจาก <strong>ปัญหาและลูกค้า</strong> ไม่ใช่จากของที่เรามี</li>
+      <li>BMC คือ <strong>สถาปัตยกรรม</strong> ไม่ใช่แบบฟอร์ม — ทุกช่องเชื่อมกัน</li>
+      <li>ลูกค้าต้อง <strong>เฉพาะเจาะจง</strong> และ VP ต้องแก้ Pain ได้จริง</li>
+      <li>เขียน <strong>น้อยแต่คม</strong> (3–5–1) และไม่มีช่องโดดเดี่ยว</li>
+      <li>แยก <strong>Fact/Assumption</strong> แล้วออกไปทดสอบข้อสมมติที่เสี่ยงที่สุด</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-sec="C · BMC ช่วงที่ 2" data-time="เทมเพลต">
+  <div class="wrap">
+    <p class="eyebrow">เทมเพลตสำหรับพิมพ์/ทำงานกลุ่ม</p>
+    <h2 style="margin-bottom:.1em">Business Model Canvas เปล่า</h2>
+    <div class="canvas">
+      <div class="cell kp"><span class="n">Key Partnerships</span><small>พันธมิตรหลัก</small></div>
+      <div class="cell ka"><span class="n">Key Activities</span><small>กิจกรรมหลัก</small></div>
+      <div class="cell kr"><span class="n">Key Resources</span><small>ทรัพยากรหลัก</small></div>
+      <div class="cell vp"><span class="n">Value Propositions</span><small>คุณค่าที่นำเสนอ</small></div>
+      <div class="cell cr"><span class="n">Customer Relationships</span><small>ความสัมพันธ์</small></div>
+      <div class="cell ch"><span class="n">Channels</span><small>ช่องทาง</small></div>
+      <div class="cell cs"><span class="n">Customer Segments</span><small>กลุ่มลูกค้า</small></div>
+      <div class="cell cost"><span class="n">Cost Structure</span><small>โครงสร้างต้นทุน</small></div>
+      <div class="cell rev"><span class="n">Revenue Streams</span><small>กระแสรายได้</small></div>
+    </div>
+    <p class="muted" style="margin-top:.8em">แนะนำ: พิมพ์ขนาด A1/A2 ต่อกลุ่ม หรือวาดบนกระดาษปรู๊ฟ แล้วใช้โพสต์อิตเติมเพื่อขยับแก้ได้ง่าย</p>
+  </div>
+</section>
+
+<!-- ===== CLOSE ===== -->
+<section class="slide divider" data-sec="ปิดช่วง" data-time="15.00">
+  <div class="wrap">
+    <p class="eyebrow">ส่งต่อสู่ช่วงถัดไป</p>
+    <h1>ขอบคุณครับ</h1>
+    <p class="lead">ถือ Canvas ของกลุ่มติดตัวไป แล้วเปลี่ยนมันให้เป็นตัวเลขและแผนที่นำเสนอได้</p>
+    <p class="hint">อาจารย์ ดร.วราวุฒิ นาคบุญนำ · รายวิชา/โครงการ อบรม BMC · 4 ตุลาคม 2569</p>
+  </div>
+</section>
+
+</div>
+
+<footer id="foot">
+  <span class="sec" id="secLabel"></span>
+  <div class="nav">
+    <button id="prev" aria-label="สไลด์ก่อนหน้า">‹ ก่อนหน้า</button>
+    <span class="count" id="count">1 / 1</span>
+    <button id="next" aria-label="สไลด์ถัดไป">ถัดไป ›</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=0, notesOn=false;
+  var bar=document.getElementById('bar'), count=document.getElementById('count'),
+      secLabel=document.getElementById('secLabel');
+  function clamp(n){return Math.max(0,Math.min(slides.length-1,n));}
+  function render(){
+    slides.forEach(function(s,idx){ if(idx===i){s.setAttribute('data-active','');} else {s.removeAttribute('data-active');} });
+    var s=slides[i];
+    var sec=s.getAttribute('data-sec')||'', t=s.getAttribute('data-time')||'';
+    secLabel.textContent= sec + (t? '  ·  '+t : '');
+    count.textContent=(i+1)+' / '+slides.length;
+    bar.style.width=((i)/(slides.length-1)*100)+'%';
+    s.scrollTop=0;
+  }
+  function go(n){ i=clamp(n); render(); }
+  function next(){ go(i+1); } function prev(){ go(i-1); }
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  function applyNotes(){ document.querySelectorAll('.notes').forEach(function(n){ n.hidden=!notesOn; }); }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'){next();e.preventDefault();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){prev();e.preventDefault();}
+    else if(e.key===' '){ if(e.shiftKey){prev();}else{next();} e.preventDefault(); }
+    else if(e.key==='Home'){go(0);}
+    else if(e.key==='End'){go(slides.length-1);}
+    else if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement){ (document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()); } else { document.exitFullscreen&&document.exitFullscreen(); } }
+    else if(e.key==='n'||e.key==='N'){ notesOn=!notesOn; applyNotes(); }
+    else if(e.key==='t'||e.key==='T'){ var cur=document.documentElement.getAttribute('data-theme'); var dark = cur? cur==='dark' : window.matchMedia('(prefers-color-scheme:dark)').matches; document.documentElement.setAttribute('data-theme', dark?'light':'dark'); }
+  });
+  // click on right/left third of stage to navigate (ignore buttons/links)
+  document.getElementById('stage').addEventListener('click',function(e){
+    if(e.target.closest('a,button')) return;
+    var x=e.clientX/window.innerWidth;
+    if(x>0.72){next();} else if(x<0.28){prev();}
+  });
+  // deep-link via #<n>
+  var h=parseInt((location.hash||'').replace('#',''),10);
+  if(!isNaN(h)) i=clamp(h-1);
+  applyNotes(); render();
+})();
+</script>
+<script>
+/* ย่อ/ขยายเวที 16:9 ให้พอดีพื้นที่เหนือแถบควบคุมด้านล่าง */
+(function(){
+  var st=document.getElementById('stage'),ft=document.getElementById('foot');
+  function fit(){
+    var W=window.innerWidth,H=window.innerHeight-(ft?ft.offsetHeight:0);
+    var k=Math.min(W/1920,H/1080);
+    st.style.setProperty('--k',k);
+    st.style.setProperty('--ox',((W-1920*k)/2)+'px');
+    st.style.setProperty('--oy',((H-1080*k)/2)+'px');
+  }
+  window.addEventListener('resize',fit);document.addEventListener('fullscreenchange',fit);fit();
+})();
+</script>
+
