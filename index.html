@@ -4,231 +4,484 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>อ.ดร.วราวุฒิ นาคบุญนำ · Academic Portfolio</title>
+<meta name="description" content="Academic portfolio of Dr. Warawut Narkbunnum, Mahasarakham University: teaching, research and academic service.">
 <style>
-:root{--navy:#0B1430;--navy2:#122048;--gold:#E9A72C;--gold2:#F6D26B;--goldd:#C98A16;--mute:#9DB0D6;--ink:#1D2340}
+:root{--navy:#0B1430;--navy2:#122048;--gold:#E9A72C;--gold2:#F6D26B;--goldd:#B9790F;--ink:#1D2340;--mute:#5C6B7A;--line:#E3E7F0;--bg:#F4F6FB;--card:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:#fff;min-height:100vh;position:relative;overflow-x:hidden;
-  background:radial-gradient(1100px 720px at 88% 8%,#20386f 0%,transparent 55%),linear-gradient(150deg,#0B1430 0%,#122048 60%,#0d1838 100%)}
+html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-.bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.dots{position:absolute;left:34px;top:96px;width:150px;height:120px;background-image:radial-gradient(circle,rgba(233,167,44,.5) 1.4px,transparent 1.7px);background-size:20px 20px;opacity:.65}
-.arcs{position:absolute;right:-160px;top:-120px;width:640px;height:640px;opacity:.45}
-.silo{position:absolute;left:0;right:0;bottom:0;width:100%;height:230px;opacity:.5}
+img{max-width:100%;display:block}
+.nb{white-space:nowrap}
+.lg-en{display:none}
+html[data-lang="en"] .lg-th{display:none}
+html[data-lang="en"] .lg-en{display:inline}
+section{scroll-margin-top:66px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
 
-/* navbar */
-.nav{position:sticky;top:0;z-index:40;background:rgba(11,20,48,.88);backdrop-filter:blur(8px);border-bottom:1px solid rgba(233,167,44,.18)}
-.nav .inner{max-width:1240px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative}
-.menubtn{display:none;background:none;border:1.4px solid rgba(233,167,44,.5);color:#F6D26B;border-radius:9px;width:42px;height:36px;font-size:19px;cursor:pointer;margin-left:auto}
-.brand{display:flex;align-items:center;gap:10px}
+/* ---------- navbar ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,20,48,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(233,167,44,.18);transition:box-shadow .2s}
+.nav.sh{box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.nav .inner{max-width:1240px;margin:0 auto;padding:10px 28px;display:flex;align-items:center;gap:18px;position:relative}
+.brand{display:flex;align-items:center;gap:10px;color:#fff}
 .wnmini{width:38px;height:38px;border-radius:50%;border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-weight:800;font-size:15px;color:var(--gold2);letter-spacing:-1px}
 .brand b{font-size:14px;letter-spacing:2px;color:var(--gold);font-weight:800}
-.navlinks{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap;align-items:center}
-.navlinks a{font-size:13.5px;font-weight:700;color:#cdd7f0;letter-spacing:.4px;padding-bottom:3px;border-bottom:2px solid transparent;transition:.15s}
+.menubtn{display:none;background:none;border:1.4px solid rgba(233,167,44,.5);color:var(--gold2);border-radius:9px;width:42px;height:36px;font-size:19px;cursor:pointer;margin-left:auto}
+.navlinks{display:flex;gap:20px;margin-left:auto;align-items:center}
+.navlinks a{font-size:13.5px;font-weight:700;color:#cdd7f0;padding-bottom:3px;border-bottom:2px solid transparent;transition:.15s}
 .navlinks a:hover{color:#fff}
 .navlinks a.active{color:var(--gold2);border-bottom-color:var(--gold)}
 .langtoggle{display:flex;background:rgba(255,255,255,.1);border:1px solid rgba(233,167,44,.35);border-radius:22px;overflow:hidden}
 .langtoggle button{background:none;border:none;color:#e7d9b6;font-family:inherit;font-size:12.5px;font-weight:700;padding:6px 12px;cursor:pointer}
 .langtoggle button.on{background:var(--gold);color:var(--navy)}
-.profilebtn{border:1.4px solid var(--gold);border-radius:24px;padding:7px 16px;color:var(--gold2);font-weight:700;font-size:13px;display:flex;gap:7px;align-items:center}
-.profilebtn:hover{background:rgba(233,167,44,.14)}
-@media(max-width:960px){.navlinks{gap:13px}.navlinks a{font-size:12.5px}}
+.navlinks a.profilebtn{border:1.4px solid var(--gold);border-radius:24px;padding:6px 15px;color:var(--gold2);display:flex;gap:7px;align-items:center}
+.navlinks a.profilebtn:hover{background:rgba(233,167,44,.14)}
+@media(max-width:1020px){.navlinks{gap:13px}.navlinks a{font-size:12.5px}}
 @media(max-width:840px){
   .nav .inner{padding:10px 18px}
   .menubtn{display:flex;align-items:center;justify-content:center}
   .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(11,20,48,.98);border-bottom:1px solid rgba(233,167,44,.22);flex-direction:column;align-items:stretch;gap:0;padding:8px 18px 16px;margin:0}
   .navlinks.open{display:flex}
   .navlinks a{font-size:15px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)}
-  .navlinks a.active{color:var(--gold2)}
-  .langtoggle{align-self:flex-start;margin-top:10px}
-  .profilebtn{align-self:flex-start;margin-top:10px}
+  .navlinks a.active{border-bottom-color:rgba(255,255,255,.06)}
+  .langtoggle,.navlinks a.profilebtn{align-self:flex-start;margin-top:12px}
+  .navlinks a.profilebtn{padding:7px 16px;border-bottom:1.4px solid var(--gold)}
 }
-@media(max-width:560px){
-  .wrap{padding:0 20px}
-  .kick{letter-spacing:2px;font-size:13px}
-  .left h1{font-size:29px}
-  .left .role{font-size:14.5px}
-  .heroavatar{width:72px;height:72px}
-  .top{padding-top:22px;gap:6px}
-  .emblem{width:278px;height:278px;margin-top:20px}
-  .core{width:184px;height:184px}
-  .core .wn{font-size:56px}
-  .pill{padding:10px 16px}
-}
-@media(max-width:380px){.left h1{font-size:25px}.emblem{width:250px;height:250px}.core{width:168px;height:168px}.core .wn{font-size:50px}}
 
-.wrap{max-width:1240px;margin:0 auto;padding:0 34px;position:relative;z-index:2}
-.top{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;padding:44px 0 30px}
-@media(max-width:920px){.top{grid-template-columns:1fr;text-align:center}}
-.kick{font-size:15px;letter-spacing:5px;color:var(--gold);font-weight:800;text-transform:uppercase}
-html[data-lang="th"] .kick{letter-spacing:normal;text-transform:none}
-.left h1{font-size:40px;font-weight:800;margin:14px 0 8px;line-height:1.3}
-.left h1 .nb{white-space:nowrap}
-.lg-en{display:none}
-html[data-lang="en"] .lg-th{display:none}
-html[data-lang="en"] .lg-en{display:inline}
-.heroavatar{width:82px;height:82px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid var(--gold);box-shadow:0 8px 20px rgba(233,167,44,.32);margin-bottom:14px}
-@media(max-width:920px){.heroavatar{margin-left:auto;margin-right:auto;display:block}}
-.left .role{font-size:19px;color:var(--gold2);font-weight:700;line-height:1.45}
-.left .org{font-size:15px;color:#cdd7f0;margin-top:8px;line-height:1.5}
-.left .desc{font-size:15px;color:var(--mute);margin-top:14px;max-width:56ch;line-height:1.6}
-@media(max-width:920px){.left .desc{margin-left:auto;margin-right:auto}}
-.pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-@media(max-width:920px){.pills{justify-content:center}}
-.pill{display:inline-flex;align-items:center;gap:11px;border:1.6px solid var(--gold);border-radius:14px;padding:11px 20px;transition:.16s;background:transparent}
-.pill:hover{background:rgba(233,167,44,.14)}
-.pill.solid{background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:transparent;box-shadow:0 8px 22px rgba(233,167,44,.3)}
-.pill svg{width:22px;height:22px;flex:0 0 22px}
-.pill .pt{display:flex;flex-direction:column;line-height:1.2;text-align:left}
-.pill .pt b{font-size:14.5px;font-weight:800;color:var(--gold2)}
-.pill .pt span{font-size:11.5px;color:#c9d2ea}
-.pill.solid svg{stroke:var(--navy)}.pill.solid .pt b{color:var(--navy)}.pill.solid .pt span{color:#3a2a00}
-
-/* emblem */
-.emblem{position:relative;width:430px;height:430px;margin:0 auto;display:flex;align-items:center;justify-content:center}
-@media(max-width:920px){.emblem{width:330px;height:330px;margin-top:26px}}
-.ering{position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(233,167,44,.4);animation:spin 70s linear infinite}
-.ering.r2{inset:38px;border-style:solid;border-color:rgba(233,167,44,.16);animation:none}
+/* ---------- hero ---------- */
+.hero{position:relative;color:#fff;text-align:center;padding:64px 0 140px;overflow:hidden;
+  background:radial-gradient(900px 600px at 85% 0%,#20386f 0%,transparent 60%),radial-gradient(700px 500px at 5% 100%,#1a2c5c 0%,transparent 60%),linear-gradient(160deg,#0B1430 0%,#122048 60%,#0d1838 100%)}
+.hero .dots{position:absolute;left:4%;top:40px;width:150px;height:120px;background-image:radial-gradient(circle,rgba(233,167,44,.55) 1.4px,transparent 1.7px);background-size:20px 20px;opacity:.6}
+.hero .dots.d2{left:auto;right:6%;top:auto;bottom:110px}
+.hero .arcs{position:absolute;right:-180px;top:-160px;width:620px;height:620px;opacity:.4;pointer-events:none}
+.hero .arcs.a2{right:auto;left:-260px;top:auto;bottom:-330px;opacity:.25}
+.hero .wrap{position:relative;z-index:2}
+.avatar{position:relative;width:170px;height:170px;margin:0 auto 22px}
+.avatar img{width:170px;height:170px;border-radius:50%;object-fit:cover;object-position:top center;border:4px solid var(--gold);box-shadow:0 12px 34px rgba(233,167,44,.32)}
+.avatar::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:1.5px dashed rgba(233,167,44,.45);animation:spin 60s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.core{position:relative;width:258px;height:258px;border-radius:50%;z-index:2;
-  background:radial-gradient(circle at 38% 30%,#17264f 0%,#0a1330 72%);border:4px solid var(--gold);box-shadow:0 0 44px rgba(233,167,44,.3),inset 0 0 30px rgba(0,0,0,.5);
-  display:flex;flex-direction:column;align-items:center;justify-content:center}
-@media(max-width:920px){.core{width:200px;height:200px}}
-.core .wn{font-family:'Georgia','Times New Roman',serif;font-weight:800;font-size:80px;letter-spacing:1px;line-height:1;
-  background:linear-gradient(180deg,#F8DE8A 0%,#E9A72C 55%,#B9790F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 2px rgba(0,0,0,.4))}
-@media(max-width:920px){.core .wn{font-size:62px}}
-.core .nm{font-size:11px;letter-spacing:1.6px;color:var(--gold2);font-weight:800;margin-top:8px;border-top:1px solid rgba(233,167,44,.4);padding-top:8px;max-width:180px;text-align:center;line-height:1.3}
-.core .tl{font-size:8px;letter-spacing:.7px;color:#c9d2ea;font-weight:700;margin-top:5px;max-width:180px;text-align:center;line-height:1.4}
-@media(max-width:920px){.core .nm{font-size:9.5px;max-width:150px}.core .tl{font-size:7.5px;max-width:150px}}
-.node{position:absolute;width:54px;height:54px;border-radius:50%;background:#0d1836;border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 6px 16px rgba(0,0,0,.4)}
-.node svg{width:25px;height:25px}
-.node.n-top{top:0;left:50%;transform:translateX(-50%)}
-.node.n-tr{top:74px;right:4px}
-.node.n-br{bottom:74px;right:4px}
-.node.n-bot{bottom:0;left:50%;transform:translateX(-50%)}
-.node.n-bl{bottom:74px;left:4px}
-.node.n-tl{top:74px;left:4px}
+.kick{font-size:14px;letter-spacing:4px;color:var(--gold);font-weight:800;text-transform:uppercase}
+html[data-lang="th"] .kick{letter-spacing:.5px;text-transform:none;font-size:15px}
+.hero h1{font-size:42px;font-weight:800;line-height:1.3;margin:10px 0 8px}
+.hero .role{font-size:18.5px;color:var(--gold2);font-weight:700;line-height:1.5;max-width:780px;margin:0 auto}
+.hero .org{font-size:15px;color:#cdd7f0;margin-top:6px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:30px;padding:11px 24px;font-weight:800;font-size:14.5px;transition:.16s;border:1.6px solid var(--gold)}
+.btn svg{width:18px;height:18px}
+.btn.solid{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--navy);border-color:transparent;box-shadow:0 8px 22px rgba(233,167,44,.32)}
+.btn.solid:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(233,167,44,.42)}
+.btn.ghost{color:var(--gold2)}
+.btn.ghost:hover{background:rgba(233,167,44,.14)}
+.pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.pill{display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(233,167,44,.4);background:rgba(255,255,255,.05);border-radius:14px;padding:10px 18px;transition:.16s;text-align:left}
+.pill:hover{background:rgba(233,167,44,.14);border-color:var(--gold)}
+.pill svg{width:22px;height:22px;flex:0 0 22px}
+.pill b{display:block;font-size:14px;color:var(--gold2);line-height:1.2}
+.pill span{display:block;font-size:11.5px;color:#c9d2ea;line-height:1.3}
 
-/* pillars */
-.pillars{position:relative;z-index:2;background:rgba(10,18,42,.66);border:1px solid rgba(233,167,44,.16);border-radius:20px;display:grid;grid-template-columns:repeat(4,1fr);margin:8px 0 34px;backdrop-filter:blur(4px)}
-@media(max-width:860px){.pillars{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.pillars{grid-template-columns:1fr}}
-.pil{padding:22px;border-right:1px solid rgba(255,255,255,.07);display:flex;gap:13px;align-items:flex-start}
-.pillars .pil:last-child{border-right:none}
-.pil .pi{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(233,167,44,.14);display:flex;align-items:center;justify-content:center}
-.pil .pi svg{width:24px;height:24px}
-.pil h3{font-size:16px;color:var(--gold2);margin-bottom:5px}
-.pil p{font-size:12.5px;color:var(--mute);line-height:1.5}
+/* ---------- generic section ---------- */
+.sec{padding:70px 0 10px}
+.sec-h{text-align:center;margin-bottom:34px}
+.sec-h .eyebrow{font-size:12.5px;letter-spacing:3px;color:var(--goldd);font-weight:800;text-transform:uppercase}
+.sec-h h2{font-size:30px;font-weight:800;color:var(--navy);margin-top:4px;line-height:1.3}
+.sec-h h2::after{content:"";display:block;width:54px;height:3px;border-radius:2px;background:var(--gold);margin:12px auto 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(16,30,70,.06)}
 
-/* contact + pubs */
-.band{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:44px}
-@media(max-width:720px){.band{grid-template-columns:1fr}}
-.box{background:rgba(10,18,42,.6);border:1px solid rgba(233,167,44,.16);border-radius:18px;padding:24px 26px}
-.box h2{font-size:20px;color:var(--gold2);margin-bottom:12px}
-.box .btnrow{display:flex;gap:10px;flex-wrap:wrap}
-.lnk{border:1.4px solid var(--gold);border-radius:11px;padding:10px 18px;color:var(--gold2);font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center}
-.lnk:hover{background:rgba(233,167,44,.14)}
-.box p{color:#cdd7f0;font-size:14.5px;line-height:1.7}
-.box p a{color:var(--gold2);font-weight:700}
+/* ---------- about (overlap card) ---------- */
+#about{position:relative;z-index:5;margin-top:-92px;padding-top:0}
+.about{display:grid;grid-template-columns:1.35fr 1fr;overflow:hidden}
+.about .bio{padding:34px 36px}
+.about .bio h2{font-size:24px;color:var(--navy);margin-bottom:12px}
+.about .bio p{font-size:15.5px;color:#3a4566;line-height:1.85}
+.about .info{background:linear-gradient(160deg,#0f1b3d,#16295a);color:#fff;padding:30px 32px}
+.about .info h3{font-size:15px;color:var(--gold2);letter-spacing:1px;margin-bottom:14px}
+.info dl{display:grid;grid-template-columns:auto 1fr;gap:12px 16px;font-size:14px}
+.info dt{color:var(--gold);font-weight:800;white-space:nowrap}
+.info dd{color:#dfe6f7;line-height:1.5;word-break:break-word}
+.info dd a{color:var(--gold2);font-weight:700}
+.info dd a:hover{text-decoration:underline}
+@media(max-width:860px){.about{grid-template-columns:1fr}.about .bio{padding:28px 24px}.about .info{padding:26px 24px}}
+
+/* ---------- missions ---------- */
+.missions{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mis{padding:24px 22px;transition:.2s}
+.mis:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(16,30,70,.1)}
+.mis .ic{width:48px;height:48px;border-radius:13px;background:rgba(233,167,44,.14);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.mis .ic svg{width:25px;height:25px}
+.mis h3{font-size:17px;color:var(--navy);margin-bottom:6px}
+.mis p{font-size:13.5px;color:var(--mute);line-height:1.6}
+@media(max-width:960px){.missions{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.missions{grid-template-columns:1fr}}
+
+/* ---------- expertise ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:900px;margin:0 auto}
+.chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:10px 18px;font-weight:700;font-size:14.5px;color:var(--navy);box-shadow:0 4px 14px rgba(16,30,70,.05);transition:.16s}
+.chip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);flex:0 0 9px}
+.chip:hover{border-color:var(--gold);transform:translateY(-2px)}
+
+/* ---------- portfolio ---------- */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.tab{font-family:inherit;font-size:14.5px;font-weight:800;border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:30px;padding:9px 22px;cursor:pointer;transition:.15s}
+.tab:hover{border-color:var(--gold)}
+.tab.on{background:var(--navy);color:var(--gold2);border-color:var(--navy)}
+.tab .n{display:inline-block;min-width:22px;margin-left:6px;padding:0 6px;border-radius:10px;background:rgba(233,167,44,.2);font-size:12px}
+.panel{display:none}
+.panel.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.grid.g2{grid-template-columns:1fr 1fr;max-width:760px;margin:0 auto}
+@media(max-width:600px){.grid.g2{grid-template-columns:1fr}}
+.work{display:flex;flex-direction:column;overflow:hidden;transition:.2s}
+.work:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(16,30,70,.13)}
+.work .th{position:relative;aspect-ratio:16/10;background:#e9edf6;overflow:hidden;border-bottom:1px solid var(--line)}
+.work .th img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .4s}
+.work:hover .th img{transform:scale(1.05)}
+.work .th .tag{position:absolute;left:12px;top:12px;background:rgba(11,20,48,.88);color:var(--gold2);font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:20px}
+.work .bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.work h3{font-size:16.5px;color:var(--navy);line-height:1.45;margin-bottom:8px}
+.work p{font-size:13.5px;color:var(--mute);line-height:1.6;flex:1}
+.work .go{margin-top:14px;font-weight:800;font-size:13.5px;color:var(--goldd);display:inline-flex;gap:6px;align-items:center}
+.work:hover .go{color:var(--navy)}
+.more{text-align:center;margin-top:26px}
+.more a{font-weight:800;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px}
+.more a:hover{color:var(--goldd)}
+/* supervision stat card */
+.stat{padding:22px 22px 20px;background:linear-gradient(160deg,#0f1b3d,#16295a);color:#fff;border:none;display:flex;flex-direction:column}
+.stat .lab{font-size:11.5px;letter-spacing:2px;color:var(--gold);font-weight:800;text-transform:uppercase}
+.stat h3{font-size:17px;color:#fff;margin:6px 0 6px;line-height:1.4}
+.stat p{font-size:13px;color:#c9d2ea;line-height:1.6}
+.stat .nums{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 4px}
+.stat .num{background:rgba(255,255,255,.06);border:1px solid rgba(233,167,44,.25);border-radius:12px;padding:10px 12px}
+.stat .num b{display:block;font-size:26px;color:var(--gold2);line-height:1.1}
+.stat .num span{font-size:12px;color:#c9d2ea}
+.stat .go{margin-top:12px;font-weight:800;font-size:13.5px;color:var(--gold2)}
+
+/* ---------- timelines ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+.tl{padding:28px 28px 16px}
+.tl h3.tt{display:flex;align-items:center;gap:11px;font-size:19px;color:var(--navy);margin-bottom:20px}
+.tl h3.tt .ic{width:40px;height:40px;border-radius:11px;background:rgba(233,167,44,.14);display:flex;align-items:center;justify-content:center}
+.tl h3.tt svg{width:22px;height:22px}
+.tl ol{list-style:none;position:relative;margin-left:8px}
+.tl ol::before{content:"";position:absolute;left:0;top:6px;bottom:16px;width:2px;background:linear-gradient(var(--gold),rgba(233,167,44,.15))}
+.tl li{position:relative;padding:0 0 20px 26px}
+.tl li::before{content:"";position:absolute;left:-6px;top:5px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+.tl .lv{display:inline-block;font-size:11.5px;font-weight:800;color:var(--navy);background:rgba(233,167,44,.2);border-radius:20px;padding:2px 10px;margin-bottom:5px}
+.tl .t{display:block;font-weight:800;font-size:15px;color:var(--navy);line-height:1.5}
+.tl .s{display:block;font-size:13.5px;color:var(--mute);margin-top:2px}
+
+/* ---------- profiles + contact ---------- */
+.band{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:860px){.band{grid-template-columns:1fr}}
+.box{padding:28px}
+.box h3{font-size:19px;color:var(--navy);margin-bottom:10px}
+.box p{font-size:14.5px;color:#3a4566;line-height:1.7}
+.idrow{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.idbtn{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:12px 16px;transition:.15s}
+.idbtn:hover{border-color:var(--gold);background:#fffaf0}
+.idbtn .lg{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-family:Arial,sans-serif;font-size:15px;flex:0 0 42px}
+.idbtn b{display:block;color:var(--navy);font-size:15px}
+.idbtn span{display:block;font-size:12.5px;color:var(--mute)}
+.ct{display:flex;gap:14px;align-items:flex-start;margin-top:14px}
+.ct .ic{width:42px;height:42px;border-radius:12px;background:rgba(233,167,44,.14);display:flex;align-items:center;justify-content:center;flex:0 0 42px}
+.ct .ic svg{width:21px;height:21px}
+.ct b{display:block;font-size:13px;color:var(--goldd);letter-spacing:.5px}
+.ct a,.ct span.v{font-size:15px;color:var(--navy);font-weight:700;word-break:break-word}
+.ct a:hover{color:var(--goldd)}
+
+/* ---------- footer ---------- */
+footer{margin-top:70px;background:var(--navy);color:#9DB0D6;text-align:center;padding:26px 20px 8px;font-size:13.5px;border-top:3px solid var(--gold)}
+footer .fl{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+footer .fl a{color:#cdd7f0;font-weight:700}
+footer .fl a:hover{color:var(--gold2)}
+footer .gc-views{color:#7f90b5!important}
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s;z-index:40}
+.totop.show{opacity:1;pointer-events:auto}
+
+/* ---------- reveal on scroll ---------- */
+html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+html.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}html.js .rv{opacity:1;transform:none;transition:none}.avatar::before{animation:none}}
+
+/* ---------- small screens ---------- */
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .hero{padding:44px 0 120px}
+  .hero h1{font-size:30px}
+  .hero .role{font-size:15.5px}
+  .avatar,.avatar img{width:136px;height:136px}
+  .sec{padding:56px 0 6px}
+  .sec-h h2{font-size:25px}
+  .pill{width:100%;max-width:330px}
+  .tl{padding:24px 20px 10px}
+  .box{padding:24px 20px}
+}
+@media print{.nav,.totop{display:none}.hero{padding:30px 0 40px}#about{margin-top:0}html.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="bgfx">
-  <div class="dots"></div>
-  <svg class="arcs" viewBox="0 0 640 640"><g fill="none" stroke="#E9A72C" stroke-width="1">
-    <circle cx="320" cy="320" r="150" opacity=".5"/><circle cx="320" cy="320" r="220" opacity=".35"/><circle cx="320" cy="320" r="290" opacity=".22"/><circle cx="320" cy="320" r="360" opacity=".13"/></g></svg>
-  <svg class="silo" viewBox="0 0 1440 230" preserveAspectRatio="xMidYMax slice"><g fill="#0a1a3a">
-    <path d="M0 230 L0 180 L60 180 L60 150 L120 150 L140 130 L160 150 L160 180 L250 180 L250 140 L300 110 L350 140 L350 180 L470 180 L470 150 L520 150 L520 120 L560 120 L560 150 L640 150 L640 180 L780 180 L780 155 L840 155 L860 135 L880 155 L880 180 L1010 180 L1010 145 L1060 145 L1060 175 L1180 175 L1180 150 L1240 150 L1260 120 L1280 150 L1280 180 L1360 180 L1360 90 L1372 90 L1378 60 L1384 90 L1396 90 L1396 180 L1440 180 L1440 230 Z"/></g></svg>
-</div>
 
-<div class="nav"><div class="inner">
-  <div class="brand"><div class="wnmini">WN</div><b>ACADEMIC PORTFOLIO</b></div>
+<!-- ============ NAV ============ -->
+<div class="nav" id="nav"><div class="inner">
+  <a class="brand" href="#top"><div class="wnmini">WN</div><b>ACADEMIC PORTFOLIO</b></a>
   <button class="menubtn" id="menubtn" aria-label="menu">☰</button>
-  <div class="navlinks">
-    <a class="active" href="#top" data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
-    <a data-href="teaching.html" data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</a>
-    <a data-href="research.html" data-th="งานวิจัย" data-en="Research">งานวิจัย</a>
-    <a data-href="service.html" data-th="บริการวิชาการ" data-en="Service">บริการวิชาการ</a>
-    <a href="#pubs" data-th="ผลงานตีพิมพ์" data-en="Publications">ผลงานตีพิมพ์</a>
+  <div class="navlinks" id="navlinks">
+    <a href="#about" data-th="เกี่ยวกับ" data-en="About">เกี่ยวกับ</a>
+    <a href="#expertise" data-th="ความเชี่ยวชาญ" data-en="Expertise">ความเชี่ยวชาญ</a>
+    <a href="#portfolio" data-th="ผลงาน" data-en="Portfolio">ผลงาน</a>
+    <a href="#experience" data-th="บทบาทและการศึกษา" data-en="Roles &amp; Education">บทบาทและการศึกษา</a>
     <a href="#contact" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
     <div class="langtoggle"><button id="th-btn" class="on" onclick="setLang('th')">ไทย</button><button id="en-btn" onclick="setLang('en')">EN</button></div>
     <a class="profilebtn" data-href="profile.html"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span data-th="โปรไฟล์" data-en="Profile">โปรไฟล์</span></a>
   </div>
 </div></div>
 
-<div class="wrap" id="top">
-  <div class="top">
-    <div class="left">
-      <img class="heroavatar" src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ">
-      <div class="kick" data-th="ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ" data-en="Welcome to my Academic Portfolio">ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ</div>
-      <h1><span class="lg-th"><span class="nb">อ.ดร.วราวุฒิ</span> <span class="nb">นาคบุญนำ</span></span><span class="lg-en">Dr. Warawut Narkbunnum</span></h1>
-      <div class="role" data-th="อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Lecturer · Program Chair &amp; Coordinator, Business Administration and Digital Innovation">อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล</div>
-      <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Faculty of Accountancy and Management · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
-      <div class="desc" data-th="พอร์ตโฟลิโอนี้รวบรวมผลงานด้านการเรียนการสอน การวิจัย และบริการวิชาการ ด้วยความมุ่งมั่นในการสร้างองค์ความรู้และสร้างผลกระทบเชิงบวกต่อสังคมและองค์กร" data-en="This portfolio showcases my work in teaching, research, and academic service, with a commitment to creating knowledge and driving positive impact for society and organizations.">พอร์ตโฟลิโอนี้รวบรวมผลงานด้านการเรียนการสอน การวิจัย และบริการวิชาการ ด้วยความมุ่งมั่นในการสร้างองค์ความรู้และสร้างผลกระทบเชิงบวกต่อสังคมและองค์กร</div>
-      <div class="pills">
-        <a class="pill solid" data-href="teaching.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg>
-          <span class="pt"><b data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</b><span data-th="รายวิชาและสื่อ" data-en="Courses & Materials">รายวิชาและสื่อ</span></span>
-        </a>
-        <a class="pill" data-href="research.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
-          <span class="pt"><b data-th="งานวิจัย" data-en="Research">งานวิจัย</b><span data-th="โครงการและบทความ" data-en="Projects & Articles">โครงการและบทความ</span></span>
-        </a>
-        <a class="pill" data-href="service.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-          <span class="pt"><b data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</b><span data-th="วิทยากรและที่ปรึกษา" data-en="Talks & Advisory">วิทยากรและที่ปรึกษา</span></span>
-        </a>
-      </div>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="dots"></div><div class="dots d2"></div>
+  <svg class="arcs" viewBox="0 0 640 640" aria-hidden="true"><g fill="none" stroke="#E9A72C" stroke-width="1"><circle cx="320" cy="320" r="150" opacity=".5"/><circle cx="320" cy="320" r="220" opacity=".35"/><circle cx="320" cy="320" r="290" opacity=".22"/></g></svg>
+  <svg class="arcs a2" viewBox="0 0 640 640" aria-hidden="true"><g fill="none" stroke="#E9A72C" stroke-width="1"><circle cx="320" cy="320" r="180" opacity=".5"/><circle cx="320" cy="320" r="260" opacity=".3"/></g></svg>
+  <div class="wrap">
+    <div class="avatar"><img src="warawut.jpg" alt="อ.ดร.วราวุฒิ นาคบุญนำ" width="170" height="170"></div>
+    <div class="kick" data-th="ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ" data-en="Welcome to my Academic Portfolio">ยินดีต้อนรับสู่พอร์ตโฟลิโอวิชาการ</div>
+    <h1><span class="lg-th"><span class="nb">อ.ดร.วราวุฒิ</span> <span class="nb">นาคบุญนำ</span></span><span class="lg-en">Dr. Warawut Narkbunnum</span></h1>
+    <div class="role" data-th="อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Lecturer · Program Chair &amp; Coordinator, Business Administration and Digital Innovation">อาจารย์ · ประธาน/ผู้รับผิดชอบหลักสูตรบริหารธุรกิจและนวัตกรรมดิจิทัล</div>
+    <div class="org" data-th="คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School · Mahasarakham University">คณะการบัญชีและการจัดการ · มหาวิทยาลัยมหาสารคาม</div>
+    <div class="cta">
+      <a class="btn solid" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span data-th="ติดต่อ" data-en="Contact Me">ติดต่อ</span></a>
+      <a class="btn ghost" data-href="profile.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg><span data-th="ประวัติฉบับเต็ม" data-en="Full Profile">ประวัติฉบับเต็ม</span></a>
     </div>
-
-    <div class="emblem">
-      <div class="ering"></div><div class="ering r2"></div>
-      <div class="core"><div class="wn">WN</div><div class="nm">WARAWUT NARKBUNNUM</div><div class="tl">KNOWLEDGE · INNOVATION · IMPACT</div></div>
-      <div class="node n-top"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></div>
-      <div class="node n-tl"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div>
-      <div class="node n-tr"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.2 1 2.5h6c0-1.3.3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></div>
-      <div class="node n-bl"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
-      <div class="node n-br"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 20c0-2.3 1.4-4 3.8-4"/></svg></div>
-      <div class="node n-bot"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#F6D26B"/></svg></div>
+    <div class="pills">
+      <a class="pill" data-href="teaching.html"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg><span><b data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</b><span data-th="รายวิชาและสื่อ" data-en="Courses &amp; Materials">รายวิชาและสื่อ</span></span></a>
+      <a class="pill" data-href="research.html"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg><span><b data-th="งานวิจัย" data-en="Research">งานวิจัย</b><span data-th="โครงการและบทความ" data-en="Projects &amp; Articles">โครงการและบทความ</span></span></a>
+      <a class="pill" data-href="service.html"><svg viewBox="0 0 24 24" fill="none" stroke="#F6D26B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span><b data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</b><span data-th="วิทยากรและที่ปรึกษา" data-en="Talks &amp; Advisory">วิทยากรและที่ปรึกษา</span></span></a>
     </div>
   </div>
+</header>
 
-  <div class="pillars">
-    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></div>
-      <div><h3 data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</h3><p data-th="ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21" data-en="Designing engaging learning that develops 21st-century critical thinking and skills">ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21</p></div></div>
-    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div>
-      <div><h3 data-th="งานวิจัย" data-en="Research">งานวิจัย</h3><p data-th="วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ" data-en="High-quality research generating knowledge and management innovation">วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ</p></div></div>
-    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="18" cy="9" r="2.5"/><path d="M16 20c0-2.8 1.8-5 4-5"/></svg></div>
-      <div><h3 data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</h3><p data-th="ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน" data-en="Providing expertise that adds value to organizations and communities">ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน</p></div></div>
-    <div class="pil"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#E9A72C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#E9A72C"/></svg></div>
-      <div><h3 data-th="วิสัยทัศน์" data-en="Vision">วิสัยทัศน์</h3><p data-th="สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน" data-en="Building a sustainable future through innovation, collaboration and continuous improvement">สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน</p></div></div>
+<main>
+<!-- ============ ABOUT ============ -->
+<section id="about"><div class="wrap">
+  <div class="card about rv">
+    <div class="bio">
+      <h2 data-th="เกี่ยวกับ" data-en="About">เกี่ยวกับ</h2>
+      <p data-th="ดร.วราวุฒิ นาคบุญนำ เป็นอาจารย์ประจำสาขาการจัดการสมัยใหม่ คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม และดำรงตำแหน่งรองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม มีความเชี่ยวชาญด้านการประยุกต์ใช้การวิเคราะห์ข้อมูลและการเรียนรู้ของเครื่องในงานธุรกิจและนวัตกรรมเพื่อสนับสนุนการตัดสินใจ มีผลงานตีพิมพ์ในวารสารระดับนานาชาติ และมีบทบาทเป็นผู้ทรงคุณวุฒิ ผู้ประเมิน และวิทยากรด้านการจัดการนวัตกรรม การเปลี่ยนผ่านสู่ดิจิทัล และการพัฒนาองค์กรตามเกณฑ์ EdPEx" data-en="Dr. Warawut Narkbunnum is a lecturer in the Department of Management, Faculty of Accountancy and Management, Mahasarakham University, and serves as Deputy Director for Organizational Development and Digital Innovation at the University's Computer Center. His work focuses on applying data analytics and machine learning to business and innovation for decision support. He has published in international journals and actively contributes as a reviewer, academic committee member, and invited speaker in business innovation, digital transformation, and quality frameworks such as EdPEx.">ดร.วราวุฒิ นาคบุญนำ เป็นอาจารย์ประจำสาขาการจัดการสมัยใหม่ คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม และดำรงตำแหน่งรองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม มีความเชี่ยวชาญด้านการประยุกต์ใช้การวิเคราะห์ข้อมูลและการเรียนรู้ของเครื่องในงานธุรกิจและนวัตกรรมเพื่อสนับสนุนการตัดสินใจ มีผลงานตีพิมพ์ในวารสารระดับนานาชาติ และมีบทบาทเป็นผู้ทรงคุณวุฒิ ผู้ประเมิน และวิทยากรด้านการจัดการนวัตกรรม การเปลี่ยนผ่านสู่ดิจิทัล และการพัฒนาองค์กรตามเกณฑ์ EdPEx</p>
+    </div>
+    <div class="info">
+      <h3 data-th="ข้อมูลโดยสรุป" data-en="AT A GLANCE">ข้อมูลโดยสรุป</h3>
+      <dl>
+        <dt data-th="ตำแหน่ง" data-en="Position">ตำแหน่ง</dt><dd data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่" data-en="Lecturer, Modern Management">อาจารย์ประจำสาขาการจัดการสมัยใหม่</dd>
+        <dt data-th="บริหาร" data-en="Admin">บริหาร</dt><dd data-th="รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์" data-en="Deputy Director for Organizational Development and Digital Innovation, Computer Center">รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล สำนักคอมพิวเตอร์</dd>
+        <dt data-th="สังกัด" data-en="Affiliation">สังกัด</dt><dd data-th="คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School, Mahasarakham University">คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</dd>
+        <dt data-th="อีเมล" data-en="Email">อีเมล</dt><dd><a href="mailto:warawut.n@acc.msu.ac.th">warawut.n@acc.msu.ac.th</a></dd>
+        <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0002-9820-4196" target="_blank" rel="noopener">0000-0002-9820-4196</a></dd>
+        <dt>Scopus</dt><dd><a href="https://www.scopus.com/authid/detail.uri?authorId=57207568681" target="_blank" rel="noopener">57207568681</a></dd>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ MISSIONS ============ -->
+<section class="sec" id="missions"><div class="wrap">
+  <div class="sec-h rv"><div class="eyebrow">Missions</div><h2 data-th="พันธกิจทางวิชาการ" data-en="Academic Missions">พันธกิจทางวิชาการ</h2></div>
+  <div class="missions">
+    <div class="card mis rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></div>
+      <h3 data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</h3><p data-th="ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21" data-en="Designing engaging learning that develops 21st-century critical thinking and skills">ออกแบบรายวิชาและพัฒนาการเรียนรู้สู่สมรรถนะในศตวรรษที่ 21</p></div>
+    <div class="card mis rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div>
+      <h3 data-th="งานวิจัย" data-en="Research">งานวิจัย</h3><p data-th="วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ" data-en="High-quality research generating knowledge and management innovation">วิจัยเพื่อสร้างองค์ความรู้และนวัตกรรมทางการจัดการ</p></div>
+    <div class="card mis rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="18" cy="9" r="2.5"/><path d="M16 20c0-2.8 1.8-5 4-5"/></svg></div>
+      <h3 data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</h3><p data-th="ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน" data-en="Providing expertise that adds value to organizations and communities">ถ่ายทอดความรู้สู่สังคมและพัฒนาชุมชนอย่างยั่งยืน</p></div>
+    <div class="card mis rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#C98A16"/></svg></div>
+      <h3 data-th="วิสัยทัศน์" data-en="Vision">วิสัยทัศน์</h3><p data-th="สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน" data-en="Building a sustainable future through innovation, collaboration and continuous improvement">สร้างคุณค่าและยกระดับการจัดการเพื่อการพัฒนาที่สมดุลและยั่งยืน</p></div>
+  </div>
+</div></section>
+
+<!-- ============ EXPERTISE ============ -->
+<section class="sec" id="expertise"><div class="wrap">
+  <div class="sec-h rv"><div class="eyebrow">Expertise</div><h2 data-th="ความเชี่ยวชาญ" data-en="Areas of Expertise">ความเชี่ยวชาญ</h2></div>
+  <div class="chips rv">
+    <span class="chip">Machine Learning &amp; Data Analytics</span>
+    <span class="chip" data-th="การจัดการนวัตกรรม" data-en="Innovation Management">การจัดการนวัตกรรม</span>
+    <span class="chip" data-th="การเปลี่ยนผ่านสู่ดิจิทัล" data-en="Digital Transformation">การเปลี่ยนผ่านสู่ดิจิทัล</span>
+    <span class="chip">EdPEx</span>
+  </div>
+</div></section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="sec" id="portfolio"><div class="wrap">
+  <div class="sec-h rv"><div class="eyebrow">Portfolio</div><h2 data-th="ผลงานและสื่อวิชาการ" data-en="Works &amp; Academic Resources">ผลงานและสื่อวิชาการ</h2></div>
+  <div class="tabs rv" role="tablist">
+    <button class="tab on" data-tab="p-teach" role="tab"><span data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</span><span class="n">6</span></button>
+    <button class="tab" data-tab="p-research" role="tab"><span data-th="งานวิจัย" data-en="Research">งานวิจัย</span><span class="n">2</span></button>
+    <button class="tab" data-tab="p-service" role="tab"><span data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</span><span class="n">3</span></button>
   </div>
 
+  <!-- teaching -->
+  <div class="panel on" id="p-teach" role="tabpanel">
+    <div class="grid">
+      <a class="card work" data-href="textbook_0903468_สารบัญ.html"><div class="th"><img src="thumbs/tb_online.jpg" alt="" loading="lazy"><span class="tag" data-th="ตำราออนไลน์" data-en="Open Textbook">ตำราออนไลน์</span></div>
+        <div class="bd"><h3 data-th="การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่ (0903468)" data-en="Project Management for Modern Business Projects (0903468)">การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่ (0903468)</h3>
+        <p data-th="ตำราฉบับเผยแพร่ออนไลน์ครบ 12 บท พร้อมสารบัญ การอ้างอิงและบรรณานุกรม APA และระบบพิมพ์/อ้างอิงบท" data-en="A 12-chapter open online textbook with a table of contents, APA citations and references, and print/cite features (in Thai)">ตำราฉบับเผยแพร่ออนไลน์ครบ 12 บท พร้อมสารบัญ การอ้างอิงและบรรณานุกรม APA และระบบพิมพ์/อ้างอิงบท</p>
+        <span class="go"><span data-th="เปิดตำรา" data-en="Open">เปิดตำรา</span> →</span></div></a>
+      <a class="card work" data-href="textbook_0903468.html"><div class="th"><img src="thumbs/tb_interactive.jpg" alt="" loading="lazy"><span class="tag" data-th="ตำราโต้ตอบ" data-en="Interactive Textbook">ตำราโต้ตอบ</span></div>
+        <div class="bd"><h3 data-th="โครงงานพิเศษธุรกิจสมัยใหม่ (0903468)" data-en="Special Project in Modern Business (0903468)">โครงงานพิเศษธุรกิจสมัยใหม่ (0903468)</h3>
+        <p data-th="ตำราโต้ตอบครบ 12 บท พร้อมแบบฝึกคำนวณ CPM/PERT/NPV/EVM และภาคผนวก" data-en="A 12-chapter interactive textbook with CPM/PERT/NPV/EVM calculators and appendices (in Thai)">ตำราโต้ตอบครบ 12 บท พร้อมแบบฝึกคำนวณ CPM/PERT/NPV/EVM และภาคผนวก</p>
+        <span class="go"><span data-th="เปิดตำรา" data-en="Open">เปิดตำรา</span> →</span></div></a>
+      <a class="card work" data-href="bmc_course.html"><div class="th"><img src="thumbs/bmc.jpg" alt="" loading="lazy"><span class="tag" data-th="บทเรียนโต้ตอบ" data-en="Courseware">บทเรียนโต้ตอบ</span></div>
+        <div class="bd"><h3 data-th="Business Model Canvas — โมเดลธุรกิจ 9 องค์ประกอบ" data-en="Business Model Canvas — 9 Building Blocks">Business Model Canvas — โมเดลธุรกิจ 9 องค์ประกอบ</h3>
+        <p data-th="ครบทั้ง 9 องค์ประกอบ พร้อมวิดีโอสรุป 1:30 นาที และแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง" data-en="All 9 building blocks with a 1:30 summary video and a fillable blank canvas (in Thai)">ครบทั้ง 9 องค์ประกอบ พร้อมวิดีโอสรุป 1:30 นาที และแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง</p>
+        <span class="go"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</span></div></a>
+      <a class="card work" data-href="bmc_studio.html"><div class="th"><img src="thumbs/bmc_studio.jpg" alt="" loading="lazy"><span class="tag" data-th="เครื่องมือวิเคราะห์" data-en="Analysis Tool">เครื่องมือวิเคราะห์</span></div>
+        <div class="bd"><h3 data-th="BMC Studio — ความเชื่อมโยงและความสอดคล้องของ 9 องค์ประกอบ" data-en="BMC Studio — Linking and Aligning the 9 Building Blocks">BMC Studio — ความเชื่อมโยงและความสอดคล้องของ 9 องค์ประกอบ</h3>
+        <p data-th="ผูกไอเท็มข้ามช่อง ตรวจความสอดคล้องด้วยตาราง Alignment พร้อมเคส Netflix, Airbnb และ Uber จากรายงาน 10-K" data-en="Link items across blocks, check alignment with a matrix view, and explore Netflix, Airbnb and Uber cases based on their 10-K reports (in Thai)">ผูกไอเท็มข้ามช่อง ตรวจความสอดคล้องด้วยตาราง Alignment พร้อมเคส Netflix, Airbnb และ Uber จากรายงาน 10-K</p>
+        <span class="go"><span data-th="เปิดเครื่องมือ" data-en="Open">เปิดเครื่องมือ</span> →</span></div></a>
+      <a class="card work" data-href="bmc_workshop_slides.html"><div class="th"><img src="thumbs/bmc_slides.jpg" alt="" loading="lazy"><span class="tag" data-th="สไลด์เวิร์กช็อป" data-en="Workshop Slides">สไลด์เวิร์กช็อป</span></div>
+        <div class="bd"><h3 data-th="Business Model Canvas สู่แผนความเป็นไปได้ทางธุรกิจ" data-en="From Business Model Canvas to a Business Feasibility Plan">Business Model Canvas สู่แผนความเป็นไปได้ทางธุรกิจ</h3>
+        <p data-th="สไลด์เวิร์กช็อปเต็มวัน ตั้งแต่แกนลูกค้า–คุณค่า การตรวจคุณภาพแคนวาส จนถึงการส่งต่อสู่แผนการเงิน" data-en="A full-day workshop deck from the customer–value core and canvas quality checks to the bridge to financial planning (in Thai)">สไลด์เวิร์กช็อปเต็มวัน ตั้งแต่แกนลูกค้า–คุณค่า การตรวจคุณภาพแคนวาส จนถึงการส่งต่อสู่แผนการเงิน</p>
+        <span class="go"><span data-th="เปิดสไลด์" data-en="Open">เปิดสไลด์</span> →</span></div></a>
+      <a class="card work" data-href="vpc_course.html"><div class="th"><img src="thumbs/vpc.jpg" alt="" loading="lazy"><span class="tag" data-th="บทเรียนโต้ตอบ" data-en="Courseware">บทเรียนโต้ตอบ</span></div>
+        <div class="bd"><h3 data-th="Value Proposition Canvas — ออกแบบคุณค่าที่ลูกค้าต้องการจริง" data-en="Value Proposition Canvas — Designing Value Customers Want">Value Proposition Canvas — ออกแบบคุณค่าที่ลูกค้าต้องการจริง</h3>
+        <p data-th="Customer Profile และ Value Map พร้อมไดอะแกรมกดได้ แบบฝึกตรวจความพอดี (Fit) วิดีโอสรุป และเทมเพลตกรอกได้" data-en="Customer Profile and Value Map with a clickable diagram, fit exercises, a summary video and a fillable template (in Thai)">Customer Profile และ Value Map พร้อมไดอะแกรมกดได้ แบบฝึกตรวจความพอดี (Fit) วิดีโอสรุป และเทมเพลตกรอกได้</p>
+        <span class="go"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</span></div></a>
+    </div>
+    <div class="more"><a data-href="teaching.html"><span data-th="ดูทั้งหมดในหน้าการเรียนการสอน" data-en="See all in Teaching">ดูทั้งหมดในหน้าการเรียนการสอน</span> →</a></div>
+  </div>
+
+  <!-- research -->
+  <div class="panel" id="p-research" role="tabpanel">
+    <div class="grid g2">
+      <a class="card work" data-href="Research_Writing_Course.html"><div class="th"><img src="thumbs/rwriting.jpg" alt="" loading="lazy"><span class="tag" data-th="คอร์สโต้ตอบ" data-en="Interactive Course">คอร์สโต้ตอบ</span></div>
+        <div class="bd"><h3 data-th="การเขียนบทความวิจัย (Research Writing)" data-en="Research Writing">การเขียนบทความวิจัย (Research Writing)</h3>
+        <p data-th="สื่อการเรียนรู้แบบโต้ตอบสำหรับกระบวนการเขียนและเผยแพร่บทความวิจัย" data-en="An interactive resource for the research writing and publication process (in Thai)">สื่อการเรียนรู้แบบโต้ตอบสำหรับกระบวนการเขียนและเผยแพร่บทความวิจัย</p>
+        <span class="go"><span data-th="เปิดคอร์ส" data-en="Open">เปิดคอร์ส</span> →</span></div></a>
+      <a class="card stat" data-href="research.html">
+        <span class="lab">Thesis Supervision</span>
+        <h3 data-th="การเป็นที่ปรึกษาวิทยานิพนธ์" data-en="Graduate Thesis Supervision">การเป็นที่ปรึกษาวิทยานิพนธ์</h3>
+        <p data-th="นิสิต บธ.ม. สาขาบริหารธุรกิจและนวัตกรรมดิจิทัล ตีพิมพ์ในวารสารนานาชาติฐาน Scopus และสำเร็จการศึกษาในปีเดียวกัน" data-en="M.B.A. (Business Administration and Digital Innovation) advisees who published in Scopus-indexed journals and graduated within the same year">นิสิต บธ.ม. สาขาบริหารธุรกิจและนวัตกรรมดิจิทัล ตีพิมพ์ในวารสารนานาชาติฐาน Scopus และสำเร็จการศึกษาในปีเดียวกัน</p>
+        <div class="nums">
+          <div class="num"><b>5</b><span data-th="นิสิตสำเร็จการศึกษา" data-en="graduates">นิสิตสำเร็จการศึกษา</span></div>
+          <div class="num"><b>5</b><span data-th="บทความ Scopus" data-en="Scopus articles">บทความ Scopus</span></div>
+          <div class="num"><b>1</b><span data-th="ระดับ Q1" data-en="Q1">ระดับ Q1</span></div>
+          <div class="num"><b>4</b><span data-th="ระดับ Q2" data-en="Q2">ระดับ Q2</span></div>
+        </div>
+        <span class="go"><span data-th="ดูรายละเอียด" data-en="View details">ดูรายละเอียด</span> →</span></a>
+    </div>
+    <div class="more"><a data-href="research.html"><span data-th="ดูทั้งหมดในหน้างานวิจัย" data-en="See all in Research">ดูทั้งหมดในหน้างานวิจัย</span> →</a></div>
+  </div>
+
+  <!-- service -->
+  <div class="panel" id="p-service" role="tabpanel">
+    <div class="grid">
+      <a class="card work" data-href="lecture_IC_commercialization.html"><div class="th"><img src="thumbs/ic_lecture.jpg" alt="" loading="lazy"><span class="tag" data-th="สื่อบรรยาย" data-en="Lecture">สื่อบรรยาย</span></div>
+        <div class="bd"><h3 data-th="การนำผลงานวิจัยสู่เชิงพาณิชย์ (MSU IC Bootcamp)" data-en="Research Commercialization (MSU IC Bootcamp)">การนำผลงานวิจัยสู่เชิงพาณิชย์ (MSU IC Bootcamp)</h3>
+        <p data-th="บรรยายแบบโต้ตอบ: กรอบความพร้อม หุบเหวแห่งความตาย การเลือกกลยุทธ์ และบทบาท UHC" data-en="Interactive lecture: readiness framework, the valley of death, strategy selection, and the role of UHC (in Thai)">บรรยายแบบโต้ตอบ: กรอบความพร้อม หุบเหวแห่งความตาย การเลือกกลยุทธ์ และบทบาท UHC</p>
+        <span class="go"><span data-th="เปิดบทบรรยาย" data-en="Open">เปิดบทบรรยาย</span> →</span></div></a>
+      <a class="card work" data-href="researcher_commercialization_playbook.html"><div class="th"><img src="thumbs/ic_playbook.jpg" alt="" loading="lazy"><span class="tag" data-th="เครื่องมือ Workshop" data-en="Workshop Tool">เครื่องมือ Workshop</span></div>
+        <div class="bd"><h3 data-th="ประเมินความพร้อมสู่เชิงพาณิชย์ (Playbook)" data-en="Commercialization Readiness (Playbook)">ประเมินความพร้อมสู่เชิงพาณิชย์ (Playbook)</h3>
+        <p data-th="ให้นักวิจัยประเมิน 4 มิติ แล้วได้กลยุทธ์และแผนปฏิบัติเฉพาะโครงการ" data-en="Assess four readiness dimensions and receive a project-specific strategy and action plan (in Thai)">ให้นักวิจัยประเมิน 4 มิติ แล้วได้กลยุทธ์และแผนปฏิบัติเฉพาะโครงการ</p>
+        <span class="go"><span data-th="เปิดเครื่องมือ" data-en="Open">เปิดเครื่องมือ</span> →</span></div></a>
+      <a class="card work" data-href="it_career_talk.html"><div class="th"><img src="thumbs/it_talk.jpg" alt="" loading="lazy"><span class="tag" data-th="บรรยายพิเศษ" data-en="Guest Lecture">บรรยายพิเศษ</span></div>
+        <div class="bd"><h3 data-th="ทักษะสายไอทีสู่โลกการทำงาน (สำหรับ ปวส.)" data-en="IT Skills for the Workplace (for Vocational Students)">ทักษะสายไอทีสู่โลกการทำงาน (สำหรับ ปวส.)</h3>
+        <p data-th="การวิเคราะห์ธุรกิจ ฮาร์ดแวร์ ซอฟต์แวร์ และการพัฒนาทักษะในยุค AI พร้อมแบบประเมินก่อนเรียน" data-en="Business analysis, hardware, software and upskilling in the AI era, with a pre-assessment (in Thai)">การวิเคราะห์ธุรกิจ ฮาร์ดแวร์ ซอฟต์แวร์ และการพัฒนาทักษะในยุค AI พร้อมแบบประเมินก่อนเรียน</p>
+        <span class="go"><span data-th="เปิดบทบรรยาย" data-en="Open">เปิดบทบรรยาย</span> →</span></div></a>
+    </div>
+    <div class="more"><a data-href="service.html"><span data-th="ดูทั้งหมดในหน้าบริการวิชาการ" data-en="See all in Academic Service">ดูทั้งหมดในหน้าบริการวิชาการ</span> →</a></div>
+  </div>
+</div></section>
+
+<!-- ============ ROLES + EDUCATION ============ -->
+<section class="sec" id="experience"><div class="wrap">
+  <div class="sec-h rv"><div class="eyebrow">Experience &amp; Education</div><h2 data-th="บทบาทและการศึกษา" data-en="Roles &amp; Education">บทบาทและการศึกษา</h2></div>
+  <div class="two">
+    <div class="card tl rv">
+      <h3 class="tt"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><span data-th="บทบาททางวิชาการ" data-en="Academic Roles">บทบาททางวิชาการ</span></h3>
+      <ol>
+        <li><span class="lv" data-th="บริหาร" data-en="Admin">บริหาร</span><span class="t" data-th="รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล" data-en="Deputy Director for Organizational Development and Digital Innovation">รองผู้อำนวยการฝ่ายพัฒนาองค์กรและนวัตกรรมดิจิทัล</span><span class="s" data-th="สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม" data-en="Computer Center, Mahasarakham University">สำนักคอมพิวเตอร์ มหาวิทยาลัยมหาสารคาม</span></li>
+        <li><span class="lv" data-th="ป.เอก" data-en="Doctoral">ป.เอก</span><span class="t" data-th="ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Coordinator, Ph.D. (Business Administration and Digital Innovation)">ผู้รับผิดชอบหลักสูตร ปร.ด. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</span></li>
+        <li><span class="lv" data-th="ป.โท" data-en="Master">ป.โท</span><span class="t" data-th="ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)" data-en="Program Chair, M.B.A. (Business Administration and Digital Innovation)">ประธานหลักสูตร บธ.ม. (บริหารธุรกิจและนวัตกรรมดิจิทัล)</span></li>
+        <li><span class="lv" data-th="ป.ตรี" data-en="Bachelor">ป.ตรี</span><span class="t" data-th="อาจารย์ประจำสาขาการจัดการสมัยใหม่" data-en="Lecturer, Modern Management Program">อาจารย์ประจำสาขาการจัดการสมัยใหม่</span><span class="s" data-th="คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham Business School, Mahasarakham University">คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</span></li>
+      </ol>
+    </div>
+    <div class="card tl rv">
+      <h3 class="tt"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-4.5"/></svg></span><span data-th="การศึกษา" data-en="Education">การศึกษา</span></h3>
+      <ol>
+        <li><span class="lv" data-th="ป.เอก" data-en="Ph.D.">ป.เอก</span><span class="t" data-th="ปร.ด. บริหารธุรกิจและนวัตกรรมดิจิทัล" data-en="Ph.D. in Business Administration and Digital Innovation">ปร.ด. บริหารธุรกิจและนวัตกรรมดิจิทัล</span><span class="s" data-th="มหาวิทยาลัยมหาสารคาม" data-en="Mahasarakham University">มหาวิทยาลัยมหาสารคาม</span></li>
+        <li><span class="lv" data-th="ป.โท" data-en="M.S.">ป.โท</span><span class="t" data-th="วิทยาศาสตรมหาบัณฑิต การบริหารเทคโนโลยี" data-en="M.S. in Technology Management">วิทยาศาสตรมหาบัณฑิต การบริหารเทคโนโลยี</span><span class="s" data-th="มหาวิทยาลัยธรรมศาสตร์" data-en="Thammasat University">มหาวิทยาลัยธรรมศาสตร์</span></li>
+        <li><span class="lv" data-th="ป.ตรี" data-en="B.S.">ป.ตรี</span><span class="t" data-th="วิทยาศาสตรบัณฑิต" data-en="Bachelor of Science">วิทยาศาสตรบัณฑิต</span><span class="s" data-th="มหาวิทยาลัยมหิดล" data-en="Mahidol University">มหาวิทยาลัยมหิดล</span></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PROFILES + CONTACT ============ -->
+<section class="sec" id="contact"><div class="wrap">
+  <div class="sec-h rv"><div class="eyebrow">Contact</div><h2 data-th="ฐานข้อมูลนักวิจัยและการติดต่อ" data-en="Researcher Profiles &amp; Contact">ฐานข้อมูลนักวิจัยและการติดต่อ</h2></div>
   <div class="band">
-    <div class="box" id="pubs">
-      <h2 data-th="ผลงานตีพิมพ์" data-en="Publications">ผลงานตีพิมพ์</h2>
-      <p data-th="ดูรายการผลงานวิจัยและบทความวิชาการได้จากฐานข้อมูลด้านล่าง" data-en="Browse research output and academic articles via the databases below">ดูรายการผลงานวิจัยและบทความวิชาการได้จากฐานข้อมูลด้านล่าง</p>
-      <div class="btnrow" style="margin-top:12px">
-        <a class="lnk" href="https://orcid.org/0000-0002-9820-4196" target="_blank" rel="noopener">ORCID</a>
-        <a class="lnk" href="https://www.scopus.com/authid/detail.uri?authorId=57207568681" target="_blank" rel="noopener">Scopus</a>
+    <div class="card box rv" id="pubs">
+      <h3 data-th="ผลงานตีพิมพ์" data-en="Publications">ผลงานตีพิมพ์</h3>
+      <p data-th="ดูรายการผลงานวิจัยและบทความวิชาการได้จากฐานข้อมูลนักวิจัย" data-en="Browse research output and academic articles via the researcher databases">ดูรายการผลงานวิจัยและบทความวิชาการได้จากฐานข้อมูลนักวิจัย</p>
+      <div class="idrow">
+        <a class="idbtn" href="https://orcid.org/0000-0002-9820-4196" target="_blank" rel="noopener"><span class="lg" style="background:#A6CE39">iD</span><span><b>ORCID</b><span>0000-0002-9820-4196</span></span></a>
+        <a class="idbtn" href="https://www.scopus.com/authid/detail.uri?authorId=57207568681" target="_blank" rel="noopener"><span class="lg" style="background:#E9711C">Sc</span><span><b>Scopus</b><span>Author ID 57207568681</span></span></a>
       </div>
     </div>
-    <div class="box" id="contact">
-      <h2 data-th="ติดต่อ" data-en="Contact">ติดต่อ</h2>
-      <p><span data-th="อีเมล:" data-en="Email:">อีเมล:</span> <a href="mailto:warawut.n@acc.msu.ac.th">warawut.n@acc.msu.ac.th</a></p>
-      <p data-th="คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม" data-en="Faculty of Accountancy and Management, Mahasarakham University">คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</p>
+    <div class="card box rv">
+      <h3 data-th="ติดต่อ" data-en="Contact">ติดต่อ</h3>
+      <div class="ct"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b data-th="อีเมล" data-en="EMAIL">อีเมล</b><a href="mailto:warawut.n@acc.msu.ac.th">warawut.n@acc.msu.ac.th</a></span></div>
+      <div class="ct"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C98A16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><b data-th="ที่ทำงาน" data-en="OFFICE">ที่ทำงาน</b><span class="v" data-th="คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150" data-en="Mahasarakham Business School, Mahasarakham University, Mahasarakham 44150, Thailand">คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม 44150</span></span></div>
+      <div class="cta" style="justify-content:flex-start;margin-top:22px"><a class="btn solid" href="mailto:warawut.n@acc.msu.ac.th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg><span data-th="ส่งอีเมล" data-en="Send Email">ส่งอีเมล</span></a></div>
     </div>
   </div>
-</div>
+</div></section>
+</main>
+
+<footer>
+  <div class="fl">
+    <a data-href="profile.html" data-th="โปรไฟล์" data-en="Profile">โปรไฟล์</a>
+    <a data-href="teaching.html" data-th="การเรียนการสอน" data-en="Teaching">การเรียนการสอน</a>
+    <a data-href="research.html" data-th="งานวิจัย" data-en="Research">งานวิจัย</a>
+    <a data-href="service.html" data-th="บริการวิชาการ" data-en="Academic Service">บริการวิชาการ</a>
+  </div>
+  <div data-th="© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม" data-en="© Dr. Warawut Narkbunnum · Mahasarakham Business School, Mahasarakham University">© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+</footer>
+<a class="totop" id="totop" href="#top" aria-label="top">↑</a>
 
 <script>
-function setLang(l){document.documentElement.dataset.lang=l;document.documentElement.lang=l;
-  document.querySelectorAll('[data-th]').forEach(e=>{e.textContent=(l==='en'?e.dataset.en:e.dataset.th);});
+document.documentElement.classList.add('js');
+function setLang(l){var h=document.documentElement;h.dataset.lang=l;h.lang=l;
+  document.querySelectorAll('[data-th]').forEach(function(e){e.textContent=(l==='en'?e.dataset.en:e.dataset.th);});
   document.getElementById('th-btn').classList.toggle('on',l==='th');document.getElementById('en-btn').classList.toggle('on',l==='en');
-  document.querySelectorAll('a[data-href]').forEach(a=>{a.href=a.dataset.href+(l==='en'?'?lang=en':'');});}
+  document.querySelectorAll('a[data-href]').forEach(function(a){a.href=a.dataset.href+(l==='en'?'?lang=en':'');});}
 setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
-const mb=document.getElementById('menubtn'),nl=document.querySelector('.navlinks');
-mb.onclick=()=>nl.classList.toggle('open');
-nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+/* mobile menu */
+var mb=document.getElementById('menubtn'),nl=document.getElementById('navlinks');
+mb.onclick=function(){nl.classList.toggle('open');};
+nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');});});
+
+/* portfolio tabs */
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===t);});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===t.dataset.tab);});
+});});
+
+/* nav shadow + back-to-top + active link */
+var nav=document.getElementById('nav'),tt=document.getElementById('totop');
+var links=[].slice.call(nl.querySelectorAll('a[href^="#"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+function onScroll(){var y=window.scrollY;nav.classList.toggle('sh',y>10);tt.classList.toggle('show',y>600);
+  var cur=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<120)cur=i;});
+  links.forEach(function(a,i){a.classList.toggle('active',i===cur);});}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* reveal on scroll */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+}else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
 </script>
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
