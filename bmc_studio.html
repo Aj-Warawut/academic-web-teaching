@@ -288,6 +288,7 @@ table.plk td.sc{text-align:center;font-weight:700;width:46px}
   <h3>วางคำตอบจาก AI</h3>
   <textarea class="big" id="aiIn" placeholder='วางคำตอบ JSON ที่นี่ เช่น {"links":[...], "conflicts":[...], ...}'></textarea>
   <div class="bar"><button class="btn primary" id="btnParse">⤵ นำผลเข้า</button><button class="btn danger" id="btnClearAI">ล้างผล AI</button><span class="q" id="parseMsg"></span></div>
+  <div class="bar" id="fixBar" style="display:none"><button class="btn" id="btnFixPrompt">📋 คัดลอกข้อความขอให้ AI ส่งคำตอบใหม่</button><span class="q" id="fixMsg"></span></div>
   <div id="aiOut"></div>
   <h3>เกณฑ์ระดับความสอดคล้อง (ร่าง — รอผู้สอนทวน)</h3>
   <table class="rubric" id="rubricTbl"></table>
@@ -628,7 +629,7 @@ ${PAIRS.map(p=>`- ${p[0]} ↔ ${p[1]}: ${p[2]}`).join('\n')}
 
 ## สิ่งที่ต้องทำ
 1. ให้คะแนนเส้นที่มีอยู่แล้วทุกเส้น (existing_links) ตามเกณฑ์
-2. เสนอเส้นใหม่ที่ควรมีแต่ยังไม่ได้ผูก (ไม่เกิน 15 เส้น เฉพาะคะแนน ≥ 2)
+2. เสนอเส้นใหม่ที่ควรมีแต่ยังไม่ได้ผูก (ไม่เกิน 10 เส้น เฉพาะคะแนน ≥ 2)
 3. ระบุข้อสังเกต (ไม่เกิน 5 ข้อ) แยกประเภทให้ถูก:
    - conflict = ไอเท็มขัดกันจริง เช่น คุณค่าระดับพรีเมียมแต่ความสัมพันธ์แบบบริการตนเองราคาถูก
    - gap = มีสิ่งหนึ่งแต่ขาดสิ่งที่ต้องรองรับ เช่น รายได้แบบสมาชิกแต่ไม่มีกิจกรรมรักษาลูกค้า
@@ -637,11 +638,13 @@ ${PAIRS.map(p=>`- ${p[0]} ↔ ${p[1]}: ${p[2]}`).join('\n')}
 5. สรุปข้อควรแก้สำคัญที่สุด 3 ข้อ และเขียนโมเดลธุรกิจเป็นประโยคเดียว (บททดสอบ 30 วินาที)
 
 ## กติกาคำตอบ
-- ตอบเป็น JSON อย่างเดียว ไม่มีข้อความอื่น ใช้ภาษาไทยในช่องข้อความ
+- ตอบเป็น JSON ก้อนเดียวใน code block (\`\`\`json ... \`\`\`) ไม่มีคำอธิบายก่อนหรือหลัง ใช้ภาษาไทยในช่องข้อความ
+- JSON ต้องถูกต้องตามมาตรฐาน: ห้ามมีคอมเมนต์ ห้ามมีจุลภาคเกินท้ายรายการ และต้องปิดวงเล็บให้ครบเสมอ ถ้าคำตอบยาวเกิน ให้ลดจำนวนเส้นใหม่ลงแทนการตัดกลางทาง
 - ใช้ id เฉพาะในช่อง "a", "b", "items", "id" เท่านั้น
-- ในช่องข้อความ (reason, evidence, issue, suggestion, note, top_fixes, one_sentence) ห้ามเขียน id เช่น cs1 หรือ vp2 ให้อ้างไอเท็มด้วยข้อความของมันในเครื่องหมาย "..." แทน
+- ในช่องข้อความ (reason, evidence, issue, suggestion, note, top_fixes, one_sentence) ห้ามเขียน id เช่น cs1 หรือ vp2 ให้อ้างไอเท็มด้วยข้อความของมันในวงเล็บ 「...」 แทน
+- ห้ามใช้เครื่องหมายอัญประกาศ (\") ภายในช่องข้อความเด็ดขาด เพราะจะทำให้ JSON เสีย ให้ใช้ 「...」 แทนทุกครั้ง
 - เขียนภาษาง่าย ประโยคสั้น ให้นักศึกษาปริญญาตรีอ่านแล้วรู้ทันทีว่าต้องแก้อะไร (reason ไม่เกิน 1 ประโยค)
-- evidence ให้ยกข้อความของไอเท็มสองตัวที่เกี่ยวข้องมาตรง ๆ
+- evidence ให้ยกข้อความของไอเท็มสองตัวที่เกี่ยวข้องมาตรง ๆ ในรูปแบบ 「ข้อความไอเท็มแรก」 ↔ 「ข้อความไอเท็มที่สอง」
 
 รูปแบบ:
 {"links":[{"a":"<id>","b":"<id>","score":0,"reason":"<เหตุผล 1 ประโยค>","evidence":"<ข้อความไอเท็มที่ยกมา>"}],
@@ -658,17 +661,115 @@ document.getElementById('btnPrompt').onclick=async()=>{const t=buildPrompt();con
   try{await navigator.clipboard.writeText(t);m.textContent='✓ คัดลอกแล้ว — นำไปวางใน Claude ได้เลย';}
   catch(e){const v=document.getElementById('promptView');v.style.display='block';v.value=t;v.select();m.textContent='คัดลอกอัตโนมัติไม่ได้ — กด Ctrl/Cmd+C ที่กล่องด้านล่าง';}};
 document.getElementById('btnShowPrompt').onclick=()=>{const v=document.getElementById('promptView');v.style.display=v.style.display==='none'?'block':'none';v.value=buildPrompt();};
+/* ---------- อ่านคำตอบ AI แบบทนทาน: รองรับ code fence, “ ”, จุลภาคเกิน, " ซ้อนในข้อความ, คำตอบถูกตัดท้าย ---------- */
+function aiNormalize(t){
+  return String(t||'').replace(/^﻿/,'').replace(/[​-‍⁠]/g,'').replace(/ /g,' ')
+    .replace(/[“”„‟″＂]/g,'"').replace(/```[a-zA-Z]*\s*/g,'').replace(/\r\n?/g,'\n');
+}
+/* แยกก้อน {...} ระดับบนสุดทั้งหมด (นับวงเล็บแบบไม่สนสตริง) — ก้อนสุดท้ายที่ไม่ปิด = คำตอบถูกตัด */
+function aiChunks(t){
+  const out=[];let d=0,st=-1;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(c==='{'){if(d===0)st=i;d++;}
+    else if(c==='}'&&d>0){d--;if(d===0){out.push({s:t.slice(st,i+1),open:false});st=-1;}}}
+  if(d>0&&st>=0)out.push({s:t.slice(st),open:true});
+  return out;
+}
+/* ซ่อมสตริง: " ที่ไม่ใช่ตัวปิดจริง → “ ” · ขึ้นบรรทัดใหม่ในสตริง → \n */
+function aiFixStrings(t){
+  let o='',i=0,inS=false,isKey=false,q=0,exKey=false;const stk=[];
+  while(i<t.length){const c=t[i];
+    if(!inS){
+      if(c==='"'){inS=true;isKey=(stk[stk.length-1]==='{'&&exKey);q=0;o+=c;i++;continue;}
+      if(c==='{'){stk.push('{');exKey=true;}else if(c==='['){stk.push('[');exKey=false;}
+      else if(c==='}'||c===']'){stk.pop();exKey=false;}else if(c===':')exKey=false;
+      else if(c===',')exKey=stk[stk.length-1]==='{';
+      o+=c;i++;continue;}
+    if(c==='\\'){o+=c+(t[i+1]||'');i+=2;continue;}
+    if(c==='\n'){o+='\\n';i++;continue;}
+    if(c==='\t'){o+='\\t';i++;continue;}
+    if(c==='"'){
+      const rest=t.slice(i+1),m=rest.match(/^\s*(\S)/),nx=m?m[1]:'',top=stk[stk.length-1];let close;
+      if(isKey)close=nx===':';
+      else if(nx===''||nx==='}'||nx===']')close=true;
+      else if(nx===',')close=top==='{'?/^\s*,\s*("[A-Za-z_]\w*"\s*:|\})/.test(rest)
+        :/^\s*,\s*([{\[\-\d\]]|true|false|null|"(?:[^"\\\n]|\\.)*"\s*[,\]])/.test(rest);
+      else close=false;
+      if(close){inS=false;o+='"';i++;continue;}
+      o+=(q++%2===0)?'“':'”';i++;continue;}
+    o+=c;i++;}
+  return o;
+}
+function aiRepair(t){
+  t=t.replace(/^\s*\/\/[^\n]*$/gm,'').replace(/,\s*\/\/[^\n"]*$/gm,',');
+  t=aiFixStrings(t);
+  return t.replace(/,(\s*[}\]])/g,'$1').replace(/:\s*True\b/g,':true').replace(/:\s*False\b/g,':false').replace(/:\s*None\b/g,':null');
+}
+/* คำตอบถูกตัด: ถอยหาวงเล็บปิดล่าสุดที่ตัดแล้วปิดวงเล็บที่ค้างได้ */
+function aiSalvage(t){
+  const s=aiFixStrings(t);let tries=0;
+  for(let p=s.length-1;p>0&&tries<600;p--){const c=s[p];if(c!=='}'&&c!==']')continue;tries++;
+    let pre=s.slice(0,p+1),inS=false;const stk=[];
+    for(let k=0;k<pre.length;k++){const ch=pre[k];
+      if(inS){if(ch==='\\')k++;else if(ch==='"')inS=false;continue;}
+      if(ch==='"')inS=true;else if(ch==='{'||ch==='[')stk.push(ch);else if(ch==='}'||ch===']')stk.pop();}
+    if(inS||!stk.length)continue;
+    pre=pre.replace(/,\s*$/,'')+stk.reverse().map(x=>x==='{'?'}':']').join('');
+    try{return JSON.parse(pre.replace(/,(\s*[}\]])/g,'$1'));}catch(e){}}
+  return null;
+}
+const aiLooksRight=o=>o&&typeof o==='object'&&!Array.isArray(o)&&['links','observations','conflicts','top_fixes','one_sentence','segment_specificity'].some(k=>k in o);
+function parseAI(raw){
+  if(!String(raw||'').trim())return{error:'empty'};
+  const t=aiNormalize(raw);
+  if(/##\s*แคนวาส/.test(t)&&/##\s*กติกาคำตอบ/.test(t))return{error:'prompt'};
+  const ch=aiChunks(t);
+  if(!ch.length)return{error:'nojson'};
+  let lastErr='',firstBad=null;
+  for(let k=ch.length-1;k>=0;k--){const c=ch[k];if(c.open)continue;
+    let o=null,rep=false;
+    try{o=JSON.parse(c.s);}catch(e){try{o=JSON.parse(aiRepair(c.s));rep=true;}catch(e2){if(!firstBad){firstBad=aiRepair(c.s);lastErr=e2.message;}}}
+    if(o&&aiLooksRight(o))return{obj:o,repaired:rep};}
+  const op=ch.find(c=>c.open);
+  if(op){const o=aiSalvage(op.s);if(o&&aiLooksRight(o)&&(o.links||[]).length)return{obj:o,partial:true,repaired:true};return{error:'truncated'};}
+  if(firstBad){const m=/position (\d+)/.exec(lastErr);let where='';
+    if(m){const pos=+m[1];where=` (บรรทัดที่ ${firstBad.slice(0,pos).split('\n').length}: …${firstBad.slice(Math.max(0,pos-25),pos+15).replace(/\s+/g,' ')}…)`;}
+    return{error:'syntax',where};}
+  return{error:'shape'};
+}
+const AI_ERR={
+  empty:'ยังไม่ได้วางคำตอบจาก AI',
+  prompt:'❌ ข้อความที่วางคือ prompt ไม่ใช่คำตอบ — ให้คัดลอก "คำตอบของ AI" มาวางแทน',
+  nojson:'❌ ไม่พบ JSON ในข้อความที่วาง — ตรวจว่าคัดลอกคำตอบของ AI มาครบ (บางตัวต้องกดปุ่มคัดลอกในกรอบ code)',
+  truncated:'❌ คำตอบของ AI ถูกตัดก่อนจบ (วงเล็บปิดไม่ครบ) — ให้ AI ส่งใหม่แบบสั้นลงด้วยปุ่มด้านล่าง',
+  syntax:'❌ รูปแบบ JSON เสียจนซ่อมอัตโนมัติไม่ได้',
+  shape:'❌ อ่าน JSON ได้ แต่ไม่ใช่รูปแบบคำตอบตรวจ BMC (ไม่มี links / observations)'};
+const AI_FIX={
+  truncated:'คำตอบก่อนหน้าถูกตัดก่อนจบ กรุณาส่ง JSON ใหม่ทั้งหมดตามรูปแบบเดิมแบบสั้นลง: เส้นใหม่ไม่เกิน 6 เส้น observations ไม่เกิน 3 ข้อ reason และ evidence สั้น ๆ ส่งเป็น JSON ก้อนเดียวใน code block และปิดวงเล็บให้ครบ ห้ามใช้เครื่องหมาย " ภายในข้อความ ให้ใช้ 「...」 แทน',
+  syntax:'คำตอบก่อนหน้าไม่ใช่ JSON ที่ถูกต้อง กรุณาส่งคำตอบใหม่ทั้งหมดตามรูปแบบเดิม เป็น JSON ก้อนเดียวใน code block ไม่มีคำอธิบายก่อนหรือหลัง ห้ามใช้เครื่องหมาย " ภายในข้อความ ให้ใช้ 「...」 แทน ห้ามมีคอมเมนต์และจุลภาคเกินท้ายรายการ',
+  shape:'กรุณาส่งคำตอบใหม่เป็น JSON ตามรูปแบบที่กำหนดใน prompt (มี links, observations, segment_specificity, top_fixes, one_sentence) เป็นก้อนเดียวใน code block'};
+let fixKind='syntax';
+function showFix(kind){fixKind=AI_FIX[kind]?kind:'syntax';document.getElementById('fixBar').style.display='flex';document.getElementById('fixMsg').textContent='';}
+document.getElementById('btnFixPrompt').onclick=async()=>{const t=AI_FIX[fixKind],fm=document.getElementById('fixMsg');
+  try{await navigator.clipboard.writeText(t);fm.textContent='✓ คัดลอกแล้ว — วางในแชตเดิมกับ AI แล้วคัดลอกคำตอบใหม่มาวาง';}
+  catch(e){const v=document.getElementById('aiIn');v.value=t;v.select();fm.textContent='คัดลอกอัตโนมัติไม่ได้ — ข้อความอยู่ในช่องด้านบนแล้ว กด Ctrl/Cmd+C';}};
+const aiId=x=>String(x==null?'':x).trim().toLowerCase();
 document.getElementById('btnParse').onclick=()=>{
   const raw=document.getElementById('aiIn').value,m=document.getElementById('parseMsg');
-  const i=raw.indexOf('{'),j=raw.lastIndexOf('}');
-  let o;try{o=JSON.parse(raw.slice(i,j+1));}catch(e){m.textContent='❌ อ่าน JSON ไม่ได้ — ตรวจว่าคัดลอกคำตอบมาครบ';return;}
+  document.getElementById('fixBar').style.display='none';
+  const r=parseAI(raw);
+  if(r.error){m.textContent=AI_ERR[r.error]+(r.where||'');if(r.error!=='empty'&&r.error!=='prompt'&&r.error!=='nojson')showFix(r.error);return;}
+  const o=r.obj;
   let ok=0,bad=0;const links=[];
-  (o.links||[]).forEach(l=>{const A=item(l.a),Bi=item(l.b),s=Math.round(+l.score);
+  (Array.isArray(o.links)?o.links:[]).forEach(l=>{const la=aiId(l&&l.a),lb=aiId(l&&l.b),A=item(la),Bi=item(lb),s=Math.round(+(l&&l.score));
     if(!A||!Bi||pairOf(A.b,Bi.b)<0||!(s>=0&&s<=3)){bad++;return;}
-    const ex=findLink(l.a,l.b);links.push({a:l.a,b:l.b,score:s,prev:ex?ex.s:0,reason:l.reason||'',evidence:l.evidence||'',isNew:!(ex&&ex.s>0),status:'pending'});ok++;});
+    const ex=findLink(la,lb);links.push({a:la,b:lb,score:s,prev:ex?ex.s:0,reason:l.reason||'',evidence:l.evidence||'',isNew:!(ex&&ex.s>0),status:'pending'});ok++;});
+  if(Array.isArray(o.observations))o.observations.forEach(c=>{if(Array.isArray(c.items))c.items=c.items.map(aiId);});
+  if(Array.isArray(o.segment_specificity))o.segment_specificity.forEach(c=>{if(c)c.id=aiId(c.id);});
   const obs=(o.observations||o.conflicts||[]).filter(c=>Array.isArray(c.items));
   st.ai={links,conflicts:obs,spec:o.segment_specificity||[],fixes:o.top_fixes||[],sentence:o.one_sentence||'',at:new Date().toISOString()};
-  aiFilter='pending';save();m.textContent=`✓ นำเข้า ${ok} เส้น${bad?` · ข้าม ${bad} รายการที่ id/คู่ช่อง/คะแนนไม่ถูกต้อง`:''}`;renderAI();
+  aiFilter='pending';save();m.textContent=`✓ นำเข้า ${ok} เส้น${bad?` · ข้าม ${bad} รายการที่ id/คู่ช่อง/คะแนนไม่ถูกต้อง`:''}${r.repaired?' · ซ่อมรูปแบบ JSON ให้อัตโนมัติแล้ว':''}${r.partial?' · ⚠ คำตอบของ AI ถูกตัดท้าย จึงนำเข้าได้เพียงบางส่วน':''}`;
+  if(r.partial)showFix('truncated');renderAI();
 };
 document.getElementById('btnClearAI').onclick=()=>{if(confirm('ล้างผลตรวจจาก AI ทั้งหมด? (เส้นที่ยอมรับแล้วจะยังอยู่)')){st.ai=null;save();renderAI();}};
 function renderAI(){
