@@ -1,201 +1,214 @@
 <!DOCTYPE html>
-<!-- ตำรา 0903468 · บทที่ 11 · ฉบับเผยแพร่ออนไลน์ (ฉบับละเอียด) · อ.ดร.วราวุฒิ นาคบุญนำ -->
-<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 11 การบริหารการสื่อสารและการปิดโครงการ · ตำรา 0903468</title><meta name="author" content="วราวุฒิ นาคบุญนำ">
-<style>:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:768px;}
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 11 การบริหารการสื่อสารและการปิดโครงการ · วิชา 0903468</title>
+<meta name="description" content="บทเรียนบทที่ 11 วิชา 0903468 การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:18px}
-a{color:var(--blue);text-decoration:none}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
-.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
-.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
-.tools{display:flex;gap:6px}.tools button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer}.tools button:hover{background:var(--blue)}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
 #progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
-.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 80px}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
 #toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
-#toc .h{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);font-weight:800;margin-bottom:10px}
-#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue)}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
 #toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
-article{max-width:var(--maxread);min-width:0}
-.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;text-transform:uppercase;color:var(--teal)}
-h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
-.meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 8px}.meta b{color:var(--ink)}
-.lic{display:inline-block;background:var(--tint);color:var(--blue);border-radius:6px;padding:1px 8px;font-weight:600;font-size:12.5px}
-h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line)}
-h3{font-size:19px;color:var(--blue);margin:22px 0 8px}h4{font-size:16.5px;color:var(--navy);margin:16px 0 6px}
-p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
-.cite{color:var(--teal);font-weight:600;white-space:nowrap;cursor:pointer;border-bottom:1px dotted var(--teal)}.cite:hover{background:#E6F5F1}
-.lead{font-size:17px;color:#3a4654}
-.box{border-radius:14px;padding:18px 22px;margin:20px 0;box-shadow:var(--shadow)}
-.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ul{margin:6px 0 0 22px}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
 .case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
-.expand{background:var(--tint);border:1px solid #CFDBF2}.expand .bt{color:var(--blue)}
 .worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
-.worked .calc{font-family:'Sarabun',monospace;background:#fff;border:1px solid #EBD8A6;border-radius:8px;padding:12px 14px;margin:10px 0;font-size:15px;line-height:1.8}
-.tmpl{background:#fff;border:1px dashed var(--blue);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:14.5px}
-.tmpl .row{border-bottom:1px solid var(--line);padding:6px 0}.tmpl .row:last-child{border-bottom:none}.tmpl b{color:var(--navy)}
-.summary{background:#FBF3DF;border:1px solid #EBD8A6}.summary .bt{color:#9A6B00}
-.keyterm{background:#fff;border:1px solid var(--line)}.keyterm .bt{color:var(--navy)}.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px}
-figure{margin:22px 0}figure figcaption{font-size:14px;color:var(--mute);margin-bottom:8px;font-weight:700}
-figure.fig figcaption{margin-top:10px;margin-bottom:0;text-align:center}
-table{border-collapse:collapse;width:100%;font-size:15.5px;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
 th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
-td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FafBfe}
-.tablewrap{overflow-x:auto}.svgfig{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-ol.ex{margin-left:22px}ol.ex li{margin-bottom:10px}
-.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}.refs .r.hl{background:#FFF6DC;border-radius:6px}.refs em{font-style:italic}
-.citebox{background:var(--navy);color:#EAF0FB;border-radius:14px;padding:18px 22px;margin:22px 0}.citebox .bt{color:var(--gold);font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
-.citebox button{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
 .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
-.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px}.navrow a:hover{background:var(--blue);color:#fff}
-footer{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;font-size:13.5px;color:var(--mute)}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}body{font-size:17px}}
-@media print{.topbar,#toc,.tools,.citebox button,.navrow{display:none!important}.shell{display:block;max-width:100%;padding:0}body{font-size:12pt}.box,table,.svgfig{box-shadow:none}}</style></head><body>
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
 <div class="topbar"><div class="in">
-<div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="textbook_0903468_สารบัญ.html">ตำรา 0903468</a> › บทที่ 11</div>
-<div class="tools"><button onclick="fs(-1)">ก−</button><button onclick="fs(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+  <a class="brandname" href="textbook_0903468_สารบัญ.html">ตำรา 0903468 การบริหารโครงการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="textbook_0903468_สารบัญ.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
 </div><div id="progress"><div class="bar"></div></div></div>
 <div class="shell">
-<nav id="toc"><div class="h">สารบัญบทที่ 11</div>
-<a href="#s111">11.1 บทนำ</a>
-<a href="#s112">11.2 การวางแผนการสื่อสาร</a>
-<a href="#s113">11.3 วิธีและช่องทางการสื่อสาร</a>
-<a href="#s114">11.4 การรายงานความก้าวหน้าและการประชุม</a>
-<a href="#s115">11.5 การส่งมอบงานและการปิดโครงการ</a>
-<a href="#s116">11.6 การเปลี่ยนผ่านสู่งานประจำ</a>
-<a href="#s117">11.7 การถอดบทเรียน</a>
-<a href="#s118">11.8 การเฉลิมฉลองและการยอมรับทีม</a>
-<a href="#s119">11.9 การประยุกต์กับโครงงาน</a>
-<a href="#case">กรณีศึกษาประจำบท</a>
-<a href="#sum">บทสรุป</a>
-<a href="#ex">แบบฝึกหัดท้ายบท</a>
-<a href="#terms">ศัพท์สำคัญ</a>
-<a href="#refs">เอกสารอ้างอิง</a>
-</nav>
+<nav id="toc"><div class="h">สารบัญบทที่ 11</div><a href="#s-11-1">11.1 บทนำ</a><a href="#s-11-2">11.2 การวางแผนการสื่อสาร (Communication Planning)</a><a href="#s-11-3">11.3 วิธีและช่องทางการสื่อสาร</a><a href="#s-11-4">11.4 การรายงานความก้าวหน้าและการประชุม</a><a href="#s-11-5">11.5 การส่งมอบงานและการปิดโครงการ (Closing)</a><a href="#s-11-6">11.6 การเปลี่ยนผ่านสู่งานประจำ</a><a href="#s-11-7">11.7 การถอดบทเรียน (Lessons Learned)</a><a href="#s-11-8">11.8 การเฉลิมฉลองและการยอมรับทีม</a><a href="#s-11-9">11.9 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</a><a href="#sum">บทสรุป</a><a href="#review">คำถามทบทวน</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#refs">เอกสารอ้างอิง</a><a href="#further">แหล่งอ่านเพิ่มเติม</a></nav>
 <article>
 <div class="eyebrow">ตำรา · รายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</div>
 <h1>บทที่ 11 การบริหารการสื่อสารและการปิดโครงการ</h1>
-<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>ฉบับเผยแพร่ออนไลน์ <b>เวอร์ชัน 3.0 (ฉบับตำรา)</b></span><span class="lic">CC BY-NC-SA 4.0 [ปรับได้]</span></div>
-
-<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div>
-<p style="margin:0 0 6px">เมื่อศึกษาบทนี้จบแล้ว ผู้เรียนสามารถ</p>
-<ul>
-<li>จัดทำแผนการสื่อสารของโครงการที่ระบุผู้รับ เนื้อหา ช่องทาง และความถี่ได้</li>
-<li>เลือกวิธีการสื่อสารที่เหมาะสมและคำนวณจำนวนช่องทางการสื่อสารได้</li>
-<li>จัดทำรายงานความก้าวหน้าและอำนวยการประชุมอย่างมีประสิทธิภาพได้</li>
-<li>ดำเนินกระบวนการส่งมอบงานและปิดโครงการทั้งด้านผลงานและด้านบริหารได้</li>
-<li>อธิบายการเปลี่ยนผ่านผลงานสู่งานประจำได้</li>
-<li>จัดทำการถอดบทเรียนเพื่อสะสมองค์ความรู้ได้</li>
-<li>อธิบายความสำคัญของการยอมรับและเฉลิมฉลองความสำเร็จของทีมได้</li>
-</ul></div>
-
-<h2 id="s111">11.1 บทนำ</h2>
-<p class="lead">งานวิจัยด้านการบริหารโครงการชี้ตรงกันว่า ผู้จัดการโครงการใช้เวลาส่วนใหญ่ไปกับการสื่อสาร และปัญหาส่วนใหญ่ของโครงการมีรากมาจากการสื่อสารที่ล้มเหลว การสื่อสารที่ดีจึงเป็นทักษะที่สำคัญที่สุดอย่างหนึ่งของผู้บริหารโครงการ</p>
-<p>บทนี้กล่าวถึงการบริหารการสื่อสารตลอดโครงการ และการปิดโครงการอย่างเป็นระบบ ซึ่งเป็นเฟสสุดท้ายของวงจรชีวิตที่มักถูกละเลย ทั้งการส่งมอบงาน การเปลี่ยนผ่านสู่งานประจำ การถอดบทเรียน และการยอมรับทีม ล้วนสำคัญต่อการสะสมองค์ความรู้และการปิดโครงการอย่างสมบูรณ์ <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
-
-<h2 id="s112">11.2 การวางแผนการสื่อสาร (Communication Planning)</h2>
-<p>แผนการสื่อสารกำหนดว่าใครต้องได้รับข้อมูลอะไร เมื่อใด ผ่านช่องทางใด และโดยใคร แผนที่ดีเชื่อมโยงกับการวิเคราะห์ผู้มีส่วนได้ส่วนเสีย (บทที่ 4) เพราะผู้มีส่วนได้ส่วนเสียแต่ละกลุ่มต้องการข้อมูลต่างกันทั้งด้านเนื้อหา ความถี่ และรูปแบบ ดังตัวอย่างในตารางที่ 11.1 <a class="cite" href="#ref-kloppenborg">(Kloppenborg et al., 2019)</a></p>
-<figure><figcaption>ตารางที่ 11.1 องค์ประกอบของแผนการสื่อสาร</figcaption><div class="tablewrap"><table>
-<thead><tr><th>ผู้รับ</th><th>เนื้อหา</th><th>ช่องทาง</th><th>ความถี่</th></tr></thead>
-<tbody>
-<tr><td>อาจารย์ที่ปรึกษา</td><td>ความก้าวหน้าและปัญหา</td><td>ประชุม/รายงาน</td><td>รายสัปดาห์</td></tr>
-<tr><td>สมาชิกในทีม</td><td>งานและการประสานงาน</td><td>แชตกลุ่ม/ประชุมสั้น</td><td>ทุกวัน/สัปดาห์</td></tr>
-<tr><td>ผู้ใช้เป้าหมาย</td><td>ผลทดสอบและการปรับปรุง</td><td>อีเมล/แบบสอบถาม</td><td>ตามรอบทดสอบ</td></tr>
-<tr><td>ธุรกิจพันธมิตร</td><td>ผลลัพธ์และความร่วมมือ</td><td>รายงานสรุป</td><td>รายเดือน</td></tr>
-</tbody></table></div></figure>
-<h3>11.2.1 แบบจำลองการสื่อสารและอุปสรรค</h3>
-<p>แบบจำลองการสื่อสารพื้นฐานอธิบายว่า การสื่อสารประกอบด้วยผู้ส่ง (sender) ที่เข้ารหัสสาร (encode) ส่งผ่านช่องทาง ไปยังผู้รับ (receiver) ที่ถอดรหัส (decode) แล้วให้ข้อมูลป้อนกลับ (feedback) ระหว่างทางมักมี "สิ่งรบกวน" (noise) ที่บิดเบือนสาร เช่น เสียงรบกวน อคติ ความแตกต่างทางภาษาและวัฒนธรรม หรืออารมณ์ ความเข้าใจแบบจำลองนี้ช่วยให้ผู้สื่อสารออกแบบสารให้ชัด เลือกช่องทางเหมาะสม และตรวจสอบความเข้าใจของผู้รับด้วยการขอข้อมูลป้อนกลับ การสื่อสารที่ดีจึงไม่ใช่แค่ "ส่งออกไป" แต่ต้องยืนยันว่าผู้รับเข้าใจตรงตามที่ตั้งใจ <a class="cite" href="#ref-kerzner">(Kerzner, 2022)</a></p>
-
-<h2 id="s113">11.3 วิธีและช่องทางการสื่อสาร</h2>
-<p>วิธีการสื่อสารในโครงการจำแนกได้เป็นสามแบบ ได้แก่ การสื่อสารแบบโต้ตอบ (Interactive) เช่น การประชุมและการโทร ที่เหมาะกับเรื่องซับซ้อนหรือต้องแลกเปลี่ยนทันที การสื่อสารแบบผลัก (Push) เช่น อีเมลและรายงาน ที่ส่งข้อมูลไปยังผู้รับเฉพาะกลุ่มแต่ไม่รับประกันว่าอ่าน และการสื่อสารแบบดึง (Pull) เช่น ฐานข้อมูลและเว็บไซต์ ที่ผู้รับเข้ามาดึงข้อมูลเอง เหมาะกับข้อมูลปริมาณมากและผู้รับจำนวนมาก การเลือกวิธีให้เหมาะกับเนื้อหาและผู้รับช่วยให้การสื่อสารมีประสิทธิภาพ <a class="cite" href="#ref-pmi6">(PMI, 2017)</a></p>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>14</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>จัดทำแผนการสื่อสารของโครงการที่ระบุผู้รับ เนื้อหา ช่องทาง และความถี่ได้</li><li>เลือกวิธีการสื่อสารที่เหมาะสมและคำนวณจำนวนช่องทางการสื่อสารได้</li><li>จัดทำรายงานความก้าวหน้าและอำนวยการประชุมอย่างมีประสิทธิภาพได้</li><li>ดำเนินกระบวนการส่งมอบงานและปิดโครงการทั้งด้านผลงานและด้านบริหารได้</li><li>อธิบายการเปลี่ยนผ่านผลงานสู่งานประจำได้</li><li>จัดทำการถอดบทเรียนเพื่อสะสมองค์ความรู้ได้</li><li>อธิบายความสำคัญของการยอมรับและเฉลิมฉลองความสำเร็จของทีมได้</li></ol></div>
+<h2 id="s-11-1">11.1 บทนำ</h2>
+<p>งานวิจัยด้านการบริหารโครงการชี้ตรงกันว่า ผู้จัดการโครงการใช้เวลาส่วนใหญ่ไปกับการสื่อสาร และปัญหาส่วนใหญ่ของโครงการมีรากมาจากการสื่อสารที่ล้มเหลว การสื่อสารที่ดีจึงเป็นทักษะที่สำคัญที่สุดอย่างหนึ่งของผู้บริหารโครงการ</p>
+<p>บทนี้กล่าวถึงการบริหารการสื่อสารตลอดโครงการ และการปิดโครงการอย่างเป็นระบบ ซึ่งเป็นเฟสสุดท้ายของวงจรชีวิตที่มักถูกละเลย ทั้งการส่งมอบงาน การเปลี่ยนผ่านสู่งานประจำ การถอดบทเรียน และการยอมรับทีม ล้วนสำคัญต่อการสะสมองค์ความรู้และการปิดโครงการอย่างสมบูรณ์ (PMI, 2021)</p>
+<h2 id="s-11-2">11.2 การวางแผนการสื่อสาร (Communication Planning)</h2>
+<p>แผนการสื่อสารกำหนดว่าใครต้องได้รับข้อมูลอะไร เมื่อใด ผ่านช่องทางใด และโดยใคร แผนที่ดีเชื่อมโยงกับการวิเคราะห์ผู้มีส่วนได้ส่วนเสีย (บทที่ 4) เพราะผู้มีส่วนได้ส่วนเสียแต่ละกลุ่มต้องการข้อมูลต่างกันทั้งด้านเนื้อหา ความถี่ และรูปแบบ ดังตัวอย่างในตารางที่ 11.1 (Kloppenborg et al., 2019)</p>
+<p class="tcap"><b>ตารางที่ 11.1</b> องค์ประกอบของแผนการสื่อสาร</p>
+<div class="tablewrap"><table><thead><tr><th>ผู้รับ</th><th>เนื้อหา</th><th>ช่องทาง</th><th>ความถี่</th></tr></thead><tbody><tr><td>อาจารย์ที่ปรึกษา</td><td>ความก้าวหน้าและปัญหา</td><td>ประชุม/รายงาน</td><td>รายสัปดาห์</td></tr><tr><td>สมาชิกในทีม</td><td>งานและการประสานงาน</td><td>แชตกลุ่ม/ประชุมสั้น</td><td>ทุกวัน/สัปดาห์</td></tr><tr><td>ผู้ใช้เป้าหมาย</td><td>ผลทดสอบและการปรับปรุง</td><td>อีเมล/แบบสอบถาม</td><td>ตามรอบทดสอบ</td></tr><tr><td>ธุรกิจพันธมิตร</td><td>ผลลัพธ์และความร่วมมือ</td><td>รายงานสรุป</td><td>รายเดือน</td></tr></tbody></table></div>
+<h3 id="s-11-2-1">11.2.1 แบบจำลองการสื่อสารและอุปสรรค</h3>
+<p>แบบจำลองการสื่อสารพื้นฐานอธิบายว่า การสื่อสารประกอบด้วยผู้ส่ง (sender) ที่เข้ารหัสสาร (encode) ส่งผ่านช่องทาง ไปยังผู้รับ (receiver) ที่ถอดรหัส (decode) แล้วให้ข้อมูลป้อนกลับ (feedback) ระหว่างทางมักมี "สิ่งรบกวน" (noise) ที่บิดเบือนสาร เช่น เสียงรบกวน อคติ ความแตกต่างทางภาษาและวัฒนธรรม หรืออารมณ์ ความเข้าใจแบบจำลองนี้ช่วยให้ผู้สื่อสารออกแบบสารให้ชัด เลือกช่องทางเหมาะสม และตรวจสอบความเข้าใจของผู้รับด้วยการขอข้อมูลป้อนกลับ การสื่อสารที่ดีจึงไม่ใช่แค่ "ส่งออกไป" แต่ต้องยืนยันว่าผู้รับเข้าใจตรงตามที่ตั้งใจ (Kerzner, 2022)</p>
+<h2 id="s-11-3">11.3 วิธีและช่องทางการสื่อสาร</h2>
+<p>วิธีการสื่อสารในโครงการจำแนกได้เป็นสามแบบ ได้แก่ การสื่อสารแบบโต้ตอบ (Interactive) เช่น การประชุมและการโทร ที่เหมาะกับเรื่องซับซ้อนหรือต้องแลกเปลี่ยนทันที การสื่อสารแบบผลัก (Push) เช่น อีเมลและรายงาน ที่ส่งข้อมูลไปยังผู้รับเฉพาะกลุ่มแต่ไม่รับประกันว่าอ่าน และการสื่อสารแบบดึง (Pull) เช่น ฐานข้อมูลและเว็บไซต์ ที่ผู้รับเข้ามาดึงข้อมูลเอง เหมาะกับข้อมูลปริมาณมากและผู้รับจำนวนมาก การเลือกวิธีให้เหมาะกับเนื้อหาและผู้รับช่วยให้การสื่อสารมีประสิทธิภาพ (PMI, 2017)</p>
 <p>เมื่อทีมมีขนาดใหญ่ขึ้น ความซับซ้อนของการสื่อสารเพิ่มขึ้นอย่างรวดเร็ว จำนวนช่องทางการสื่อสารที่เป็นไปได้ระหว่างสมาชิกคำนวณได้จากสูตร n(n−1)÷2 เมื่อ n คือจำนวนสมาชิก</p>
-<div class="box worked"><div class="bt">ตัวอย่างการคำนวณ · จำนวนช่องทางการสื่อสาร</div>
-<p style="margin:0 0 8px">เปรียบเทียบทีม 4 คน กับทีม 8 คน</p>
-<div class="calc">ทีม 4 คน: n(n−1)÷2 = 4×3÷2 = <b>6 ช่องทาง</b><br>
-ทีม 8 คน: n(n−1)÷2 = 8×7÷2 = <b>28 ช่องทาง</b></div>
-<p style="margin:8px 0 0">ตีความ: เพิ่มสมาชิกจาก 4 เป็น 8 คน (สองเท่า) แต่ช่องทางการสื่อสารเพิ่มจาก 6 เป็น 28 (เกือบห้าเท่า) นี่คือเหตุผลที่ทีมใหญ่ต้องมีกติกาและโครงสร้างการสื่อสารที่ชัดเจน เพื่อป้องกันความสับสนและข้อมูลตกหล่น</p></div>
-<p>การสื่อสารที่มีประสิทธิภาพต้องเป็นแบบสองทาง ชัดเจน และเหมาะกับผู้รับ ผู้จัดการโครงการควรระวังอุปสรรคการสื่อสาร เช่น ศัพท์เทคนิคที่ผู้รับไม่เข้าใจ ข้อมูลมากเกินไป และการตีความผิด <a class="cite" href="#ref-larson">(Larson &amp; Gray, 2021)</a></p>
-
-<h2 id="s114">11.4 การรายงานความก้าวหน้าและการประชุม</h2>
-<p>การรายงานความก้าวหน้าเป็นการสื่อสารสถานะโครงการเทียบกับแผน รายงานที่ดีควรกระชับ เน้นข้อมูลที่ผู้รับต้องใช้ตัดสินใจ และใช้หลักไฟจราจร (เขียว-เหลือง-แดง) เพื่อสื่อสถานะอย่างรวดเร็ว (บทที่ 8) การประชุมเป็นอีกช่องทางสำคัญ แต่ต้องบริหารให้มีประสิทธิภาพด้วยการกำหนดวาระล่วงหน้า ควบคุมเวลา สรุปการตัดสินใจและผู้รับผิดชอบ และติดตามผล <a class="cite" href="#ref-kerzner">(Kerzner, 2022)</a></p>
+<div class="box worked"><div class="bt">ตัวอย่างการคำนวณ: จำนวนช่องทางการสื่อสาร</div><p>เปรียบเทียบทีม 4 คน กับทีม 8 คน</p><p>ทีม 4 คน: n(n−1)÷2 = 4×3÷2 = <strong>6 ช่องทาง</strong></p><p>ทีม 8 คน: n(n−1)÷2 = 8×7÷2 = <strong>28 ช่องทาง</strong></p><p>ตีความ: เพิ่มสมาชิกจาก 4 เป็น 8 คน (สองเท่า) แต่ช่องทางการสื่อสารเพิ่มจาก 6 เป็น 28 (เกือบห้าเท่า) นี่คือเหตุผลที่ทีมใหญ่ต้องมีกติกาและโครงสร้างการสื่อสารที่ชัดเจน เพื่อป้องกันความสับสนและข้อมูลตกหล่น</p></div>
+<p>การสื่อสารที่มีประสิทธิภาพต้องเป็นแบบสองทาง ชัดเจน และเหมาะกับผู้รับ ผู้จัดการโครงการควรระวังอุปสรรคการสื่อสาร เช่น ศัพท์เทคนิคที่ผู้รับไม่เข้าใจ ข้อมูลมากเกินไป และการตีความผิด (Larson &amp; Gray, 2021)</p>
+<h2 id="s-11-4">11.4 การรายงานความก้าวหน้าและการประชุม</h2>
+<p>การรายงานความก้าวหน้าเป็นการสื่อสารสถานะโครงการเทียบกับแผน รายงานที่ดีควรกระชับ เน้นข้อมูลที่ผู้รับต้องใช้ตัดสินใจ และใช้หลักไฟจราจร (เขียว-เหลือง-แดง) เพื่อสื่อสถานะอย่างรวดเร็ว (บทที่ 8) การประชุมเป็นอีกช่องทางสำคัญ แต่ต้องบริหารให้มีประสิทธิภาพด้วยการกำหนดวาระล่วงหน้า ควบคุมเวลา สรุปการตัดสินใจและผู้รับผิดชอบ และติดตามผล (Kerzner, 2022)</p>
 <p>ทักษะการอำนวยการประชุม (Facilitation) ช่วยให้การประชุมเกิดผล ผู้อำนวยการประชุมที่ดีเปิดโอกาสให้ทุกคนมีส่วนร่วม ควบคุมไม่ให้บางคนครอบงำ ดึงประเด็นกลับเข้าเรื่องเมื่อออกนอกทาง และสรุปข้อสรุปให้ชัดเจน การประชุมสั้นประจำวันหรือสัปดาห์แบบ Agile ช่วยให้ทีมประสานงานได้เร็วโดยไม่เสียเวลามาก โดยเน้นสามคำถาม คือ เมื่อวานทำอะไร วันนี้จะทำอะไร และมีอุปสรรคอะไร</p>
-
-<h2 id="s115">11.5 การส่งมอบงานและการปิดโครงการ (Closing)</h2>
-<p>การปิดโครงการเป็นเฟสสุดท้ายที่ทำให้โครงการสมบูรณ์อย่างเป็นทางการ ประกอบด้วยสองด้านหลัก ด้านแรกคือการปิดด้านผลงาน (product/deliverable closure) คือการส่งมอบผลงานให้ผู้รับและได้รับการยอมรับตามเกณฑ์ที่ตกลง ด้านที่สองคือการปิดด้านบริหาร (administrative closure) คือการปิดสัญญาและงบประมาณ การจัดเก็บเอกสาร การถอดบทเรียน และการยุบทีม การปิดโครงการที่ดีช่วยให้ผลงานถูกส่งต่ออย่างราบรื่นและองค์กรได้เรียนรู้จากประสบการณ์ <a class="cite" href="#ref-pmi6">(PMI, 2017)</a></p>
-<div class="tmpl"><div class="row"><b>รายการตรวจสอบการปิดโครงการ (Closing Checklist)</b></div>
-<div class="row">☐ ผลงานส่งมอบครบและได้รับการยอมรับตามเกณฑ์</div>
-<div class="row">☐ เอกสารและคู่มือส่งมอบให้ผู้ใช้/ผู้ดูแลต่อ</div>
-<div class="row">☐ ปิดงบประมาณและสรุปค่าใช้จ่ายจริง</div>
-<div class="row">☐ ปิดสัญญากับคู่ค้า/พันธมิตร (ถ้ามี)</div>
-<div class="row">☐ จัดทำรายงานปิดโครงการและการถอดบทเรียน</div>
-<div class="row">☐ จัดเก็บเอกสารโครงการอย่างเป็นระบบ</div>
-<div class="row">☐ ยอมรับผลงานของทีมและเฉลิมฉลองความสำเร็จ</div></div>
-<p>โครงการอาจปิดได้ทั้งเพราะสำเร็จตามเป้าหมาย หรือเพราะถูกยุติก่อนกำหนด (เช่น ไม่คุ้มค่าอีกต่อไป) ไม่ว่ากรณีใด การปิดอย่างเป็นระบบยังคงจำเป็น เพื่อสรุปสถานะ จัดเก็บสิ่งที่ทำไปแล้ว และถอดบทเรียน <a class="cite" href="#ref-meredith">(Meredith et al., 2021)</a></p>
-
-<h2 id="s116">11.6 การเปลี่ยนผ่านสู่งานประจำ</h2>
-<p>ดังที่กล่าวในบทที่ 1 ผลลัพธ์ของโครงการมักถูกส่งมอบเข้าสู่งานประจำเพื่อสร้างคุณค่าต่อเนื่อง การเปลี่ยนผ่านสู่งานประจำ (Transition to Operations) จึงเป็นขั้นตอนสำคัญที่มักถูกละเลย การเปลี่ยนผ่านที่ดีต้องเตรียมผู้ที่จะดูแลผลงานต่อ ทั้งการส่งมอบเอกสารและคู่มือ การฝึกอบรม การกำหนดผู้รับผิดชอบดูแลต่อ และการวางแผนสนับสนุนในช่วงแรก หากละเลยขั้นตอนนี้ ผลงานที่ดีอาจไม่ถูกใช้หรือเสื่อมสภาพเพราะไม่มีผู้ดูแล <a class="cite" href="#ref-pakorn">(ปกรณ์ ปรียากร, 2553)</a> สำหรับโครงงานของนิสิตที่ส่งมอบให้ธุรกิจพันธมิตรใช้ต่อ การเตรียมคู่มือและอบรมผู้ใช้เป็นส่วนสำคัญที่ทำให้ผลงานสร้างคุณค่าจริงหลังจบรายวิชา</p>
-
-<h2 id="s117">11.7 การถอดบทเรียน (Lessons Learned)</h2>
-<p>การถอดบทเรียนคือการทบทวนว่าอะไรทำได้ดี อะไรควรปรับปรุง และมีข้อค้นพบใดที่จะเป็นประโยชน์ต่อโครงการในอนาคต การถอดบทเรียนที่ดีควรทำอย่างเปิดกว้างและปราศจากการกล่าวโทษ เน้นการเรียนรู้จากทั้งความสำเร็จและความผิดพลาด แล้วบันทึกไว้เป็นสินทรัพย์กระบวนการองค์กร (บทที่ 5) เพื่อให้โครงการต่อไปไม่ต้องเรียนรู้ด้วยความผิดพลาดเดิมซ้ำ ๆ <a class="cite" href="#ref-kloppenborg">(Kloppenborg et al., 2019)</a> แม้แนวทาง Agile จะทำการทบทวน (retrospective) เป็นรอบ ๆ ระหว่างทาง แต่การถอดบทเรียนเมื่อจบโครงการยังคงมีคุณค่าในการสรุปภาพรวม การถอดบทเรียนที่มีประสิทธิภาพควรได้ข้อสรุปที่นำไปปฏิบัติได้จริง ไม่ใช่เพียงรายการปัญหา แต่รวมถึงข้อเสนอว่าครั้งหน้าควรทำต่างจากเดิมอย่างไร</p>
-
-<h2 id="s118">11.8 การเฉลิมฉลองและการยอมรับทีม</h2>
-<p>การยอมรับความพยายามและเฉลิมฉลองความสำเร็จของทีมเป็นสิ่งที่มักถูกละเลย แต่มีความสำคัญต่อขวัญกำลังใจและแรงจูงใจ (บทที่ 5) การขอบคุณอย่างจริงใจ การยกย่องผลงานที่โดดเด่น และการฉลองการบรรลุหมุดหมายสำคัญ ช่วยปิดโครงการด้วยความรู้สึกที่ดี สร้างความผูกพัน และเป็นพลังบวกสำหรับการทำงานร่วมกันในอนาคต สำหรับทีมโครงงาน การเฉลิมฉลองเมื่อนำเสนอผลงานเสร็จเป็นการปิดประสบการณ์การเรียนรู้อย่างมีความหมาย <a class="cite" href="#ref-pinto">(Pinto, 2019)</a></p>
-
-<h2 id="s119">11.9 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</h2>
+<h2 id="s-11-5">11.5 การส่งมอบงานและการปิดโครงการ (Closing)</h2>
+<p>การปิดโครงการเป็นเฟสสุดท้ายที่ทำให้โครงการสมบูรณ์อย่างเป็นทางการ ประกอบด้วยสองด้านหลัก ด้านแรกคือการปิดด้านผลงาน (product/deliverable closure) คือการส่งมอบผลงานให้ผู้รับและได้รับการยอมรับตามเกณฑ์ที่ตกลง ด้านที่สองคือการปิดด้านบริหาร (administrative closure) คือการปิดสัญญาและงบประมาณ การจัดเก็บเอกสาร การถอดบทเรียน และการยุบทีม การปิดโครงการที่ดีช่วยให้ผลงานถูกส่งต่ออย่างราบรื่นและองค์กรได้เรียนรู้จากประสบการณ์ (PMI, 2017)</p>
+<div class="box worked"><div class="bt">แม่แบบ: รายการตรวจสอบการปิดโครงการ (Closing Checklist)</div><p>☐ ผลงานส่งมอบครบและได้รับการยอมรับตามเกณฑ์</p><p>☐ เอกสารและคู่มือส่งมอบให้ผู้ใช้/ผู้ดูแลต่อ</p><p>☐ ปิดงบประมาณและสรุปค่าใช้จ่ายจริง</p><p>☐ ปิดสัญญากับคู่ค้า/พันธมิตร (ถ้ามี)</p><p>☐ จัดทำรายงานปิดโครงการและการถอดบทเรียน</p><p>☐ จัดเก็บเอกสารโครงการอย่างเป็นระบบ</p><p>☐ ยอมรับผลงานของทีมและเฉลิมฉลองความสำเร็จ</p></div>
+<p>โครงการอาจปิดได้ทั้งเพราะสำเร็จตามเป้าหมาย หรือเพราะถูกยุติก่อนกำหนด (เช่น ไม่คุ้มค่าอีกต่อไป) ไม่ว่ากรณีใด การปิดอย่างเป็นระบบยังคงจำเป็น เพื่อสรุปสถานะ จัดเก็บสิ่งที่ทำไปแล้ว และถอดบทเรียน (Meredith et al., 2021)</p>
+<h2 id="s-11-6">11.6 การเปลี่ยนผ่านสู่งานประจำ</h2>
+<p>ดังที่กล่าวในบทที่ 1 ผลลัพธ์ของโครงการมักถูกส่งมอบเข้าสู่งานประจำเพื่อสร้างคุณค่าต่อเนื่อง การเปลี่ยนผ่านสู่งานประจำ (Transition to Operations) จึงเป็นขั้นตอนสำคัญที่มักถูกละเลย การเปลี่ยนผ่านที่ดีต้องเตรียมผู้ที่จะดูแลผลงานต่อ ทั้งการส่งมอบเอกสารและคู่มือ การฝึกอบรม การกำหนดผู้รับผิดชอบดูแลต่อ และการวางแผนสนับสนุนในช่วงแรก หากละเลยขั้นตอนนี้ ผลงานที่ดีอาจไม่ถูกใช้หรือเสื่อมสภาพเพราะไม่มีผู้ดูแล (ปกรณ์ ปรียากร, 2553) สำหรับโครงงานของนิสิตที่ส่งมอบให้ธุรกิจพันธมิตรใช้ต่อ การเตรียมคู่มือและอบรมผู้ใช้เป็นส่วนสำคัญที่ทำให้ผลงานสร้างคุณค่าจริงหลังจบรายวิชา</p>
+<h2 id="s-11-7">11.7 การถอดบทเรียน (Lessons Learned)</h2>
+<p>การถอดบทเรียนคือการทบทวนว่าอะไรทำได้ดี อะไรควรปรับปรุง และมีข้อค้นพบใดที่จะเป็นประโยชน์ต่อโครงการในอนาคต การถอดบทเรียนที่ดีควรทำอย่างเปิดกว้างและปราศจากการกล่าวโทษ เน้นการเรียนรู้จากทั้งความสำเร็จและความผิดพลาด แล้วบันทึกไว้เป็นสินทรัพย์กระบวนการองค์กร (บทที่ 5) เพื่อให้โครงการต่อไปไม่ต้องเรียนรู้ด้วยความผิดพลาดเดิมซ้ำ ๆ (Kloppenborg et al., 2019) แม้แนวทาง Agile จะทำการทบทวน (retrospective) เป็นรอบ ๆ ระหว่างทาง แต่การถอดบทเรียนเมื่อจบโครงการยังคงมีคุณค่าในการสรุปภาพรวม การถอดบทเรียนที่มีประสิทธิภาพควรได้ข้อสรุปที่นำไปปฏิบัติได้จริง ไม่ใช่เพียงรายการปัญหา แต่รวมถึงข้อเสนอว่าครั้งหน้าควรทำต่างจากเดิมอย่างไร</p>
+<h2 id="s-11-8">11.8 การเฉลิมฉลองและการยอมรับทีม</h2>
+<p>การยอมรับความพยายามและเฉลิมฉลองความสำเร็จของทีมเป็นสิ่งที่มักถูกละเลย แต่มีความสำคัญต่อขวัญกำลังใจและแรงจูงใจ (บทที่ 5) การขอบคุณอย่างจริงใจ การยกย่องผลงานที่โดดเด่น และการฉลองการบรรลุหมุดหมายสำคัญ ช่วยปิดโครงการด้วยความรู้สึกที่ดี สร้างความผูกพัน และเป็นพลังบวกสำหรับการทำงานร่วมกันในอนาคต สำหรับทีมโครงงาน การเฉลิมฉลองเมื่อนำเสนอผลงานเสร็จเป็นการปิดประสบการณ์การเรียนรู้อย่างมีความหมาย (Pinto, 2019)</p>
+<h2 id="s-11-9">11.9 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</h2>
 <p>ทีมโครงงานควรจัดทำแผนการสื่อสารที่ระบุการรายงานต่ออาจารย์ที่ปรึกษา การประสานงานภายในทีม และการสื่อสารกับผู้ใช้ เลือกวิธีการสื่อสารให้เหมาะกับเนื้อหา ตระหนักว่าทีมยิ่งใหญ่ยิ่งต้องมีกติกาการสื่อสารชัดเจน ประชุมอย่างมีประสิทธิภาพด้วยวาระและการอำนวยการประชุมที่ดี เมื่อจบโครงงานควรปิดโครงการอย่างเป็นระบบด้วยรายการตรวจสอบ ส่งมอบผลงานและเอกสาร เตรียมการเปลี่ยนผ่านให้ผู้ใช้ดูแลต่อได้ ถอดบทเรียนร่วมกันอย่างเปิดกว้างให้ได้ข้อสรุปที่นำไปใช้ได้ และเฉลิมฉลองความสำเร็จของทีม เพื่อปิดประสบการณ์การเรียนรู้อย่างสมบูรณ์</p>
-
-<div class="box case" id="case"><div class="bt">กรอบกรณีศึกษาประจำบท</div>
-<p style="margin:0 0 10px"><b>กรณีศึกษา "โครงงานพัฒนาสื่อการเรียนรู้ดิจิทัลสำหรับโรงเรียน":</b> ทีมนิสิต 6 คนพัฒนาสื่อการเรียนรู้ให้โรงเรียนพันธมิตร และให้ความสำคัญกับการสื่อสารและการปิดโครงการ</p>
-<p style="margin:0 0 10px">ด้วยทีม 6 คน ช่องทางการสื่อสารมีถึง 15 ช่องทาง ทีมจึงตั้งกติกาชัดเจน ใช้การสื่อสารแบบดึงด้วยพื้นที่เก็บเอกสารส่วนกลางสำหรับข้อมูลอ้างอิง การสื่อสารแบบผลักด้วยสรุปรายสัปดาห์ และการสื่อสารแบบโต้ตอบด้วยประชุมสั้นทุกสัปดาห์ พร้อมรายงานความก้าวหน้าต่ออาจารย์ที่ปรึกษาแบบไฟจราจร ทำให้ทุกคนเห็นสถานะตรงกันและปัญหาถูกหยิบยกได้เร็ว</p>
-<p style="margin:0 0 10px">เมื่อส่งมอบสื่อให้โรงเรียน ทีมใช้รายการตรวจสอบการปิดโครงการ ส่งมอบไฟล์และคู่มือ พร้อมอบรมครูผู้ใช้และกำหนดผู้ดูแลต่อ เพื่อให้การเปลี่ยนผ่านสู่การใช้งานจริงราบรื่น</p>
-<p style="margin:0">จากนั้นทีมจัดประชุมถอดบทเรียนอย่างเปิดกว้างว่าอะไรทำได้ดีและควรปรับปรุง พร้อมข้อเสนอว่าครั้งหน้าควรทำต่างอย่างไร บันทึกไว้เป็นข้อมูลสำหรับรุ่นต่อไป และเฉลิมฉลองความสำเร็จร่วมกัน จะเห็นว่าการสื่อสารที่เป็นระบบและการปิดโครงการที่สมบูรณ์ช่วยให้ผลงานถูกส่งต่อและทีมได้เรียนรู้อย่างเต็มที่</p></div>
-
+<div class="box case"><div class="bt">กรณีศึกษาประจำบท</div><p><strong>กรณีศึกษา "โครงงานพัฒนาสื่อการเรียนรู้ดิจิทัลสำหรับโรงเรียน":</strong> ทีมนิสิต 6 คนพัฒนาสื่อการเรียนรู้ให้โรงเรียนพันธมิตร และให้ความสำคัญกับการสื่อสารและการปิดโครงการ</p><p>ด้วยทีม 6 คน ช่องทางการสื่อสารมีถึง 15 ช่องทาง ทีมจึงตั้งกติกาชัดเจน ใช้การสื่อสารแบบดึงด้วยพื้นที่เก็บเอกสารส่วนกลางสำหรับข้อมูลอ้างอิง การสื่อสารแบบผลักด้วยสรุปรายสัปดาห์ และการสื่อสารแบบโต้ตอบด้วยประชุมสั้นทุกสัปดาห์ พร้อมรายงานความก้าวหน้าต่ออาจารย์ที่ปรึกษาแบบไฟจราจร ทำให้ทุกคนเห็นสถานะตรงกันและปัญหาถูกหยิบยกได้เร็ว</p><p>เมื่อส่งมอบสื่อให้โรงเรียน ทีมใช้รายการตรวจสอบการปิดโครงการ ส่งมอบไฟล์และคู่มือ พร้อมอบรมครูผู้ใช้และกำหนดผู้ดูแลต่อ เพื่อให้การเปลี่ยนผ่านสู่การใช้งานจริงราบรื่น</p><p>จากนั้นทีมจัดประชุมถอดบทเรียนอย่างเปิดกว้างว่าอะไรทำได้ดีและควรปรับปรุง พร้อมข้อเสนอว่าครั้งหน้าควรทำต่างอย่างไร บันทึกไว้เป็นข้อมูลสำหรับรุ่นต่อไป และเฉลิมฉลองความสำเร็จร่วมกัน จะเห็นว่าการสื่อสารที่เป็นระบบและการปิดโครงการที่สมบูรณ์ช่วยให้ผลงานถูกส่งต่อและทีมได้เรียนรู้อย่างเต็มที่</p></div>
 <div class="box summary" id="sum"><div class="bt">บทสรุป</div>
-<p style="margin:0">การสื่อสารเป็นงานที่ผู้จัดการโครงการใช้เวลามากที่สุดและเป็นรากของปัญหาส่วนใหญ่ แผนการสื่อสารกำหนดผู้รับ เนื้อหา ช่องทาง และความถี่ให้เหมาะกับผู้มีส่วนได้ส่วนเสียแต่ละกลุ่ม วิธีการสื่อสารมีแบบโต้ตอบ ผลัก และดึง ที่เลือกตามเนื้อหาและผู้รับ จำนวนช่องทางเพิ่มตามสูตร n(n−1)÷2 ทำให้ทีมใหญ่ต้องมีกติกาชัดเจน การรายงานและการประชุมต้องกระชับ มีประสิทธิภาพ และอาศัยทักษะการอำนวยการประชุม การปิดโครงการครอบคลุมทั้งการปิดด้านผลงานและด้านบริหาร ตามด้วยการเปลี่ยนผ่านสู่งานประจำที่เตรียมผู้ดูแลต่อ การถอดบทเรียนที่ได้ข้อสรุปนำไปปฏิบัติได้ช่วยสะสมองค์ความรู้ และการเฉลิมฉลองช่วยสร้างขวัญกำลังใจ ทั้งหมดนี้ช่วยให้โครงงานธุรกิจสมัยใหม่สื่อสารได้ดีและปิดงานอย่างสมบูรณ์</p></div>
-
-<h2 id="ex">คำถามทบทวนและแบบฝึกหัดท้ายบท</h2>
-<ol class="ex">
-<li>เหตุใดการสื่อสารจึงเป็นทักษะที่สำคัญที่สุดอย่างหนึ่งของผู้จัดการโครงการ</li>
-<li>แผนการสื่อสารประกอบด้วยองค์ประกอบใดบ้าง จงจัดทำแผนการสื่อสารของโครงงานกลุ่มท่าน</li>
-<li>เปรียบเทียบวิธีการสื่อสารแบบโต้ตอบ ผลัก และดึง พร้อมยกตัวอย่างการใช้</li>
-<li>ทีม 5 คน และทีม 10 คน มีจำนวนช่องทางการสื่อสารเท่าใด และมีนัยอย่างไร</li>
-<li>ทักษะการอำนวยการประชุมช่วยให้การประชุมเกิดผลอย่างไร</li>
-<li>การปิดโครงการด้านผลงานและด้านบริหารต่างกันอย่างไร</li>
-<li>เหตุใดการเปลี่ยนผ่านสู่งานประจำจึงสำคัญ และควรเตรียมอะไรบ้าง</li>
-<li>เหตุใดการถอดบทเรียนจึงควรทำโดยปราศจากการกล่าวโทษ และควรได้ผลลัพธ์แบบใด</li>
-<li>เหตุใดการยอมรับและเฉลิมฉลองความสำเร็จของทีมจึงสำคัญ</li>
-<li>จัดทำรายการตรวจสอบการปิดโครงการสำหรับโครงงานของกลุ่มท่าน</li>
-<li>เปรียบเทียบการทบทวนแบบ Agile (retrospective) กับการถอดบทเรียนเมื่อจบโครงการ</li>
-</ol>
-
-<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div><dl>
-<dt>แผนการสื่อสาร (Communication Plan)</dt><dd>เอกสารกำหนดผู้รับ เนื้อหา ช่องทาง และความถี่การสื่อสาร</dd>
-<dt>วิธีสื่อสารแบบโต้ตอบ/ผลัก/ดึง</dt><dd>การประชุม / อีเมล-รายงาน / ฐานข้อมูลที่ผู้รับเข้ามาดึงเอง</dd>
-<dt>จำนวนช่องทางการสื่อสาร</dt><dd>คำนวณจาก n(n−1)÷2 เพิ่มเร็วตามขนาดทีม</dd>
-<dt>การอำนวยการประชุม (Facilitation)</dt><dd>ทักษะทำให้การประชุมมีส่วนร่วมและเกิดผล</dd>
-<dt>การปิดโครงการ (Closing)</dt><dd>การปิดด้านผลงานและด้านบริหารอย่างเป็นทางการ</dd>
-<dt>การเปลี่ยนผ่านสู่งานประจำ</dt><dd>การส่งมอบผลงานให้ผู้ดูแลใช้งานต่อเนื่อง</dd>
-<dt>การถอดบทเรียน (Lessons Learned)</dt><dd>การทบทวนสิ่งที่ทำได้ดีและควรปรับปรุงเพื่อสะสมความรู้</dd>
-<dt>การยอมรับทีม (Recognition)</dt><dd>การยกย่องความพยายามและเฉลิมฉลองความสำเร็จ</dd></dl></div>
-
-<h2 id="refs">เอกสารอ้างอิงประจำบท</h2>
-<div class="refs"><div class="r" id="ref-kerzner">Kerzner, H. (2022). <em>Project management: A systems approach to planning, scheduling, and controlling</em> (13th ed.). Wiley.</div><div class="r" id="ref-kloppenborg">Kloppenborg, T. J., Anantatmula, V., &amp; Wells, K. N. (2019). <em>Contemporary project management</em> (4th ed.). Cengage Learning.</div><div class="r" id="ref-larson">Larson, E. W., &amp; Gray, C. F. (2021). <em>Project management: The managerial process</em> (8th ed.). McGraw-Hill Education.</div><div class="r" id="ref-meredith">Meredith, J. R., Shafer, S. M., &amp; Mantel, S. J., Jr. (2021). <em>Project management: A managerial approach</em> (11th ed.). Wiley.</div><div class="r" id="ref-pakorn">ปกรณ์ ปรียากร. (2553). <em>การบริหารโครงการ: แนวคิดและแนวทางในการสร้างความสำเร็จ.</em> กรุงเทพฯ: ศูนย์หนังสือจุฬาลงกรณ์มหาวิทยาลัย.</div><div class="r" id="ref-pinto">Pinto, J. K. (2019). <em>Project management: Achieving competitive advantage</em> (5th ed.). Pearson.</div><div class="r" id="ref-pmi">Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (7th ed.) and <em>The standard for project management.</em> PMI.</div><div class="r" id="ref-pmi6">Project Management Institute. (2017). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (6th ed.). PMI.</div><div class="r" id="ref-wisut">วิสูตร จิระดำเกิง. (2560). <em>การบริหารโครงการ: แนวทางปฏิบัติจริง</em> (ฉบับปรับปรุงครั้งที่ 3). กรุงเทพฯ: สำนักพิมพ์วรรณกวี.</div><div class="r" id="ref-bamrung">บรรจง อมรชีวิน. (2557). <em>การวางแผนและการบริหารโครงการ (Project Planning and Management).</em> กรุงเทพฯ: สำนักพิมพ์บรรจง อมรชีวิน.</div></div>
-<div class="navrow"><a href="textbook_0903468_บทที่10_เผยแพร่.html">◀ บทก่อนหน้า</a><a href="textbook_0903468_สารบัญ.html">สารบัญ</a><a href="textbook_0903468_บทที่12_เผยแพร่.html">บทถัดไป ▶</a></div>
-<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div>
-<code id="citetext">วราวุฒิ นาคบุญนำ. ([ปี]). การบริหารการสื่อสารและการปิดโครงการ. ใน <em>ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</em> (บทที่ 11). คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม.</code>
-<button onclick="cc()">คัดลอกรูปแบบอ้างอิง</button></div>
-<footer>© อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำรารายวิชา 0903468 · ฉบับเผยแพร่ออนไลน์ เวอร์ชัน 3.0 (ฉบับตำรา) · CC BY-NC-SA 4.0 [ปรับได้]</footer>
-</article></div>
-<script>
-let fsz=18;function fs(d){fsz=Math.max(15,Math.min(24,fsz+d));document.body.style.fontSize=fsz+'px';}
-const bar=document.querySelector('#progress .bar');const links=[...document.querySelectorAll('#toc a')];const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-function os(){const h=document.documentElement;const st=h.scrollTop;const mx=h.scrollHeight-h.clientHeight;bar.style.width=(mx>0?st/mx*100:0)+'%';let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k;});links.forEach((a,k)=>a.classList.toggle('active',k===i));}
-document.addEventListener('scroll',os,{passive:true});os();
-document.querySelectorAll('a.cite').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;document.querySelectorAll('.refs .r').forEach(r=>r.classList.remove('hl'));t.classList.add('hl');setTimeout(()=>t.classList.remove('hl'),2600);}));
-function cc(){const t=document.getElementById('citetext').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=event.target;const o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>b.textContent=o,1600);});}
-</script><script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<!-- gc-visitcount -->
-<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
-</body></html>
+<p>การสื่อสารเป็นงานที่ผู้จัดการโครงการใช้เวลามากที่สุดและเป็นรากของปัญหาส่วนใหญ่ แผนการสื่อสารกำหนดผู้รับ เนื้อหา ช่องทาง และความถี่ให้เหมาะกับผู้มีส่วนได้ส่วนเสียแต่ละกลุ่ม วิธีการสื่อสารมีแบบโต้ตอบ ผลัก และดึง ที่เลือกตามเนื้อหาและผู้รับ จำนวนช่องทางเพิ่มตามสูตร n(n−1)÷2 ทำให้ทีมใหญ่ต้องมีกติกาชัดเจน การรายงานและการประชุมต้องกระชับ มีประสิทธิภาพ และอาศัยทักษะการอำนวยการประชุม การปิดโครงการครอบคลุมทั้งการปิดด้านผลงานและด้านบริหาร ตามด้วยการเปลี่ยนผ่านสู่งานประจำที่เตรียมผู้ดูแลต่อ การถอดบทเรียนที่ได้ข้อสรุปนำไปปฏิบัติได้ช่วยสะสมองค์ความรู้ และการเฉลิมฉลองช่วยสร้างขวัญกำลังใจ ทั้งหมดนี้ช่วยให้โครงงานธุรกิจสมัยใหม่สื่อสารได้ดีและปิดงานอย่างสมบูรณ์</p>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>เหตุใดการสื่อสารจึงเป็นทักษะที่สำคัญที่สุดอย่างหนึ่งของผู้จัดการโครงการ</li><li>แผนการสื่อสารประกอบด้วยองค์ประกอบใดบ้าง จงจัดทำแผนการสื่อสารของโครงงานกลุ่มท่าน</li><li>เปรียบเทียบวิธีการสื่อสารแบบโต้ตอบ ผลัก และดึง พร้อมยกตัวอย่างการใช้</li><li>ทีม 5 คน และทีม 10 คน มีจำนวนช่องทางการสื่อสารเท่าใด และมีนัยอย่างไร</li><li>ทักษะการอำนวยการประชุมช่วยให้การประชุมเกิดผลอย่างไร</li><li>การปิดโครงการด้านผลงานและด้านบริหารต่างกันอย่างไร</li><li>เหตุใดการเปลี่ยนผ่านสู่งานประจำจึงสำคัญ และควรเตรียมอะไรบ้าง</li><li>เหตุใดการถอดบทเรียนจึงควรทำโดยปราศจากการกล่าวโทษ และควรได้ผลลัพธ์แบบใด</li><li>เหตุใดการยอมรับและเฉลิมฉลองความสำเร็จของทีมจึงสำคัญ</li><li>จัดทำรายการตรวจสอบการปิดโครงการสำหรับโครงงานของกลุ่มท่าน</li><li>เปรียบเทียบการทบทวนแบบ Agile (retrospective) กับการถอดบทเรียนเมื่อจบโครงการ</li></ol>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<dl><dt>แผนการสื่อสาร (Communication Plan)</dt><dd>เอกสารกำหนดผู้รับ เนื้อหา ช่องทาง และความถี่การสื่อสาร</dd><dt>วิธีสื่อสารแบบโต้ตอบ/ผลัก/ดึง</dt><dd>การประชุม / อีเมล-รายงาน / ฐานข้อมูลที่ผู้รับเข้ามาดึงเอง</dd><dt>จำนวนช่องทางการสื่อสาร</dt><dd>คำนวณจาก n(n−1)÷2 เพิ่มเร็วตามขนาดทีม</dd><dt>การอำนวยการประชุม (Facilitation)</dt><dd>ทักษะทำให้การประชุมมีส่วนร่วมและเกิดผล</dd><dt>การปิดโครงการ (Closing)</dt><dd>การปิดด้านผลงานและด้านบริหารอย่างเป็นทางการ</dd><dt>การเปลี่ยนผ่านสู่งานประจำ</dt><dd>การส่งมอบผลงานให้ผู้ดูแลใช้งานต่อเนื่อง</dd><dt>การถอดบทเรียน (Lessons Learned)</dt><dd>การทบทวนสิ่งที่ทำได้ดีและควรปรับปรุงเพื่อสะสมความรู้</dd><dt>การยอมรับทีม (Recognition)</dt><dd>การยกย่องความพยายามและเฉลิมฉลองความสำเร็จ</dd></dl>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Kerzner, H. (2022). <em>Project management: A systems approach to planning, scheduling, and controlling</em> (13th ed.). Wiley.</div>
+<div class="r">Kloppenborg, T. J., Anantatmula, V., &amp; Wells, K. N. (2019). <em>Contemporary project management</em> (4th ed.). Cengage Learning.</div>
+<div class="r">Larson, E. W., &amp; Gray, C. F. (2021). <em>Project management: The managerial process</em> (8th ed.). McGraw-Hill Education.</div>
+<div class="r">Meredith, J. R., Shafer, S. M., &amp; Mantel, S. J., Jr. (2021). <em>Project management: A managerial approach</em> (11th ed.). Wiley.</div>
+<div class="r">ปกรณ์ ปรียากร. (2553). <em>การบริหารโครงการ: แนวคิดและแนวทางในการสร้างความสำเร็จ.</em> กรุงเทพฯ: ศูนย์หนังสือจุฬาลงกรณ์มหาวิทยาลัย.</div>
+<div class="r">Pinto, J. K. (2019). <em>Project management: Achieving competitive advantage</em> (5th ed.). Pearson.</div>
+<div class="r">Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (7th ed.) and <em>The standard for project management.</em> PMI.</div>
+<div class="r">Project Management Institute. (2017). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (6th ed.). PMI.</div>
+</div>
+<h2 id="further">แหล่งอ่านเพิ่มเติม</h2>
+<div class="refs">
+<div class="r">บรรจง อมรชีวิน. (2557). <em>การวางแผนและการบริหารโครงการ (Project Planning and Management).</em> กรุงเทพฯ: สำนักพิมพ์บรรจง อมรชีวิน.</div>
+<div class="r">วิสูตร จิระดำเกิง. (2560). <em>การบริหารโครงการ: แนวทางปฏิบัติจริง</em> (ฉบับปรับปรุงครั้งที่ 3). กรุงเทพฯ: สำนักพิมพ์วรรณกวี.</div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 11 การบริหารการสื่อสารและการปิดโครงการ. ใน <em>การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่</em> (ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่). คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/textbook_0903468_บทที่11_เผยแพร่.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="textbook_0903468_บทที่10_เผยแพร่.html"><small>◀ บทก่อนหน้า</small>บทที่ 10 การบริหารคุณภาพและการดำเนินโครงการ</a><a href="textbook_0903468_บทที่12_เผยแพร่.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 12 การจัดทำและนำเสนอโครงงานธุรกิจสมัยใหม่</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

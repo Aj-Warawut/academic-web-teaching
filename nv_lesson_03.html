@@ -12,11 +12,11 @@
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
-.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
-.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
-.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
 .tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
 #progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
 /* ปก */
@@ -48,6 +48,7 @@ section.sec{padding:30px 0 4px}
 .lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
 .cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
 .cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
 .cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
 .path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
 .st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
@@ -66,7 +67,7 @@ details.plan .tablewrap{padding:0 14px 14px}
 .wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
 .wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
 /* หน้าบท */
-.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
 #toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
 #toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
 #toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
@@ -87,6 +88,7 @@ article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{
 .summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
 .keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
 ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
 .ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
 p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
 .tablewrap{overflow-x:auto;margin:0 0 18px}
@@ -110,15 +112,15 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 #deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
 @media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
- .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.navrow{flex-direction:column}.navrow a{max-width:none}}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
 @media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
  body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="in">
-  <div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="nv_0900304.html">วิชา 0900304</a> › บทที่ 3</div>
-  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+  <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
 </div><div id="progress"><div class="bar"></div></div></div>
 <div class="shell">
 <nav id="toc"><div class="h">สารบัญบทที่ 3</div><a href="#x6">ความนำ</a><a href="#s-3-1">3.1 ทำไมธุรกิจใหม่ต้องใช้โมเดลหน้าเดียว</a><a href="#s-3-2">3.2 โครงสร้าง Lean Canvas 9 ช่อง</a><a href="#s-3-3">3.3 ปัญหา กลุ่มลูกค้า และผู้ใช้กลุ่มแรก</a><a href="#s-3-4">3.4 คุณค่าเฉพาะตัว ทางแก้ และความได้เปรียบที่ลอกเลียนยาก</a><a href="#s-3-5">3.5 ช่องทาง กระแสรายได้ โครงสร้างต้นทุน และตัวชี้วัดหลัก</a><a href="#s-3-6">3.6 Lean Canvas คือชุดข้อสมมติ</a><a href="#s-3-7">3.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-3-8">3.8 ข้อผิดพลาดที่พบบ่อยในการเขียน Lean Canvas</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: ร่าง Lean Canvas ของกลุ่ม</a><a href="#refs">เอกสารอ้างอิง</a></nav>
@@ -127,7 +129,7 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <h1>บทที่ 3 แม่แบบโมเดลธุรกิจ Lean Canvas</h1>
 <div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>4</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
 <div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (30 สไลด์)</button><a class="btn line" href="nv/files/nv_0900304_บทที่03_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 กิจกรรมท้ายบท</a></div>
-<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายเหตุผลที่ธุรกิจใหม่ใช้โมเดลธุรกิจหน้าเดียวในระยะเริ่มต้นแทนแผนธุรกิจฉบับเต็มได้</li><li>ระบุองค์ประกอบ 9 ช่องของ Lean Canvas คำถามหลัก และลำดับการเขียนของแต่ละช่องได้</li><li>เปรียบเทียบ Lean Canvas กับ Business Model Canvas ได้</li><li>เขียนช่องปัญหา ทางเลือกที่มีอยู่ กลุ่มลูกค้า และผู้ใช้กลุ่มแรก จากผลงานด่าน 1 ของกลุ่มได้</li><li>เขียนคุณค่าเฉพาะตัวเป็นประโยคเดียว และจำแนกความได้เปรียบที่ลอกเลียนยากออกจากจุดเด่นที่คู่แข่งลอกได้</li><li>ใช้ความเสี่ยง 3 ด้านระบุข้อสมมติที่ต้องทดสอบก่อนใน Lean Canvas ของกลุ่มได้</li><li>จัดทำ Lean Canvas ฉบับร่างของกลุ่มได้ (กิจกรรมท้ายบท)</li></ol></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายเหตุผลที่ธุรกิจใหม่ใช้โมเดลธุรกิจหน้าเดียวในระยะเริ่มต้นแทนแผนธุรกิจฉบับเต็มได้</li><li>ระบุองค์ประกอบ 9 ช่องของ Lean Canvas คำถามหลัก และลำดับการเขียนของแต่ละช่องได้</li><li>เปรียบเทียบ Lean Canvas กับ Business Model Canvas ได้</li><li>เขียนช่องปัญหา ทางเลือกที่มีอยู่ กลุ่มลูกค้า และผู้ใช้กลุ่มแรก จากผลงานกลุ่มครั้งที่ 1 ของกลุ่มได้</li><li>เขียนคุณค่าเฉพาะตัวเป็นประโยคเดียว และจำแนกความได้เปรียบที่ลอกเลียนยากออกจากจุดเด่นที่คู่แข่งลอกได้</li><li>ใช้ความเสี่ยง 3 ด้านระบุข้อสมมติที่ต้องทดสอบก่อนใน Lean Canvas ของกลุ่มได้</li><li>จัดทำ Lean Canvas ฉบับร่างของกลุ่มได้ (กิจกรรมท้ายบท)</li></ol></div>
 <h2 id="x6">ความนำ</h2>
 <p class="lead">เมื่อจบบทที่ 2 แต่ละกลุ่มมีไอเดียหนึ่งไอเดียที่ผ่านการประเมินด้วยเกณฑ์ 5 ด้าน พร้อมข้อความปัญหาและหลักฐานเบื้องต้น คำถามต่อมาคือไอเดียนี้จะกลายเป็นธุรกิจได้อย่างไร ใครจะเป็นลูกค้ากลุ่มแรก ลูกค้าจะรู้จักธุรกิจทางใด จะจ่ายเงินเท่าไร และทีมต้องใช้ต้นทุนอะไรบ้าง คำตอบรวมของคำถามเหล่านี้คือ <strong>โมเดลธุรกิจ (Business model)</strong> ซึ่งอธิบายว่าธุรกิจสร้างคุณค่า ส่งมอบคุณค่า และได้รับคุณค่ากลับมาอย่างไร (Osterwalder &amp; Pigneur, 2010)</p>
 <p class="lead">ในระยะเริ่มต้น ผู้ประกอบการยังไม่รู้คำตอบเหล่านี้แน่ชัด การเขียนแผนธุรกิจหลายสิบหน้าจึงมักเป็นการเขียนสิ่งที่ยังไม่มีใครพิสูจน์ บทนี้แนะนำ <strong>Lean Canvas</strong> ซึ่งเป็นแม่แบบโมเดลธุรกิจหน้าเดียวที่ออกแบบมาสำหรับธุรกิจใหม่โดยเฉพาะ Lean Canvas ช่วยให้ทีมเขียนโมเดลธุรกิจฉบับแรกได้ในเวลาไม่นาน มองเห็นส่วนที่ยังไม่รู้ และรู้ว่าต้องทดสอบอะไรก่อน</p>
@@ -150,7 +152,7 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <p class="tcap"><b>ตารางที่ 3.3</b> ช่องที่ Lean Canvas เปลี่ยนจาก Business Model Canvas</p>
 <div class="tablewrap"><table><thead><tr><th>ช่องใน Business Model Canvas</th><th>ช่องที่ใช้แทนใน Lean Canvas</th><th>เหตุผลที่เปลี่ยน</th></tr></thead><tbody><tr><td>พันธมิตรหลัก (Key partners)</td><td>ปัญหา</td><td>ธุรกิจใหม่ต้องแน่ใจก่อนว่าแก้ปัญหาที่มีอยู่จริง ส่วนพันธมิตรค่อยหาเมื่อรู้ว่าจะทำอะไร</td></tr><tr><td>กิจกรรมหลัก (Key activities)</td><td>ทางแก้</td><td>เน้นสิ่งที่ลูกค้าได้รับ ไม่ใช่งานภายในที่ทีมต้องทำ</td></tr><tr><td>ทรัพยากรหลัก (Key resources)</td><td>ตัวชี้วัดหลัก</td><td>ธุรกิจใหม่ต้องรู้ว่าวัดความก้าวหน้าด้วยตัวเลขใด</td></tr><tr><td>ความสัมพันธ์กับลูกค้า (Customer relationships)</td><td>ความได้เปรียบที่ลอกเลียนยาก</td><td>ธุรกิจใหม่ต้องคิดว่าจะป้องกันการลอกเลียนได้อย่างไร</td></tr></tbody></table></div>
 <h2 id="s-3-3">3.3 ปัญหา กลุ่มลูกค้า และผู้ใช้กลุ่มแรก</h2>
-<p>ช่องปัญหาและช่องกลุ่มลูกค้าต้องเขียนคู่กันเสมอ เพราะปัญหาเดียวกันอาจรุนแรงมากกับลูกค้ากลุ่มหนึ่ง แต่แทบไม่สำคัญกับอีกกลุ่ม ข้อความปัญหาจากงานด่าน 1 คือจุดเริ่มต้นที่ดีที่สุดของสองช่องนี้</p>
+<p>ช่องปัญหาและช่องกลุ่มลูกค้าต้องเขียนคู่กันเสมอ เพราะปัญหาเดียวกันอาจรุนแรงมากกับลูกค้ากลุ่มหนึ่ง แต่แทบไม่สำคัญกับอีกกลุ่ม ข้อความปัญหาจากงานกลุ่มครั้งที่ 1 คือจุดเริ่มต้นที่ดีที่สุดของสองช่องนี้</p>
 <h3 id="s-3-3-1">3.3.1 ช่องปัญหาและทางเลือกที่มีอยู่</h3>
 <p>ช่องปัญหาควรมี 1–3 ปัญหาที่สำคัญที่สุด เรียงจากปัญหาที่รุนแรงที่สุด การเขียนมากกว่า 3 ปัญหามักแปลว่าทีมยังไม่รู้ว่าปัญหาใดสำคัญจริง ใต้ช่องปัญหาให้เขียน <strong>ทางเลือกที่มีอยู่ (Existing alternatives)</strong> คือวิธีที่ลูกค้าแก้ปัญหานี้อยู่ในวันนี้ ซึ่งอาจเป็นสินค้าของคู่แข่ง การทำเอง การขอความช่วยเหลือจากคนรู้จัก หรือการอดทนอยู่กับปัญหา ทางเลือกที่มีอยู่คือคู่แข่งที่แท้จริงของธุรกิจใหม่ ถ้าทีมเขียนช่องนี้ไม่ได้ อาจแปลว่าปัญหาไม่รุนแรงพอที่ลูกค้าจะพยายามแก้</p>
 <h3 id="s-3-3-2">3.3.2 กลุ่มลูกค้าและผู้ใช้กลุ่มแรก</h3>
@@ -211,7 +213,7 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <ol class="ex"><li>เพราะเหตุใดธุรกิจใหม่จึงควรใช้โมเดลธุรกิจหน้าเดียวก่อนเขียนแผนธุรกิจฉบับเต็ม และเมื่อใดที่แผนฉบับเต็มจำเป็น</li><li>จงระบุช่องทั้ง 9 ของ Lean Canvas ตามลำดับการเขียน และอธิบายว่าทำไมจึงเริ่มจากปัญหาและกลุ่มลูกค้า</li><li>Lean Canvas เปลี่ยนช่องใดของ Business Model Canvas บ้าง และเพราะเหตุใด</li><li>ทางเลือกที่มีอยู่คืออะไร และถ้าทีมหาทางเลือกที่มีอยู่ของปัญหาไม่ได้เลย แปลว่าอะไร</li><li>จงยกตัวอย่างผู้ใช้กลุ่มแรกของธุรกิจหนึ่ง และระบุลักษณะในตารางที่ 3.4 ที่ผู้ใช้กลุ่มนั้นมี</li><li>จงปรับคุณค่าเฉพาะตัว "ร้านเสื้อผ้าแฟชั่นทันสมัย ราคาดี" ให้เป็นข้อความที่ดีขึ้น และเขียนแนวคิดระดับสูงในรูป "X สำหรับ Y"</li><li>"ทีมของเราขยันกว่าคู่แข่ง" เป็นความได้เปรียบที่ลอกเลียนยากหรือไม่ จงอธิบายโดยใช้ตารางที่ 3.6</li><li>จากตัวอย่างร้านเช่าชุดรับปริญญา ถ้าค่าซักรีดต่อการเช่าเพิ่มเป็น 100 บาท ต้องให้เช่าอย่างน้อยกี่ครั้งจึงคุ้มทุน จงแสดงการคำนวณ</li><li>เพราะเหตุใดจำนวนคนกดถูกใจโพสต์จึงไม่ใช่ตัวชี้วัดหลักที่ดี และควรใช้ตัวชี้วัดใดแทน</li><li>จากกรณีศึกษาบริการรับฝากของ จงระบุข้อสมมติ 1 ข้อของความเสี่ยงแต่ละด้าน และบอกว่าควรทดสอบข้อใดก่อน</li></ol>
 <div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: ร่าง Lean Canvas ของกลุ่ม</h2>
 <p>ให้แต่ละกลุ่มเริ่มทำ Lean Canvas ในชั้นเรียน และส่งฉบับร่างเป็นไฟล์ PDF ใน Google Classroom ก่อนเริ่มเรียนสัปดาห์ที่ 5 ฉบับร่างนี้จะได้ความเห็นจากผู้สอน แล้วปรับเป็นฉบับนำเสนอในการนำเสนอครั้งที่ 2 สัปดาห์ที่ 7</p>
-<ol><li>เขียน Lean Canvas ครบ 9 ช่องตามลำดับในภาพที่ 3.1 โดยใช้ไอเดียและข้อความปัญหาจากงานด่าน 1</li><li>ช่องปัญหามีไม่เกิน 3 ปัญหา และระบุทางเลือกที่มีอยู่อย่างน้อย 2 ทาง</li><li>ช่องกลุ่มลูกค้าระบุผู้ใช้กลุ่มแรก พร้อมเหตุผลตามลักษณะในตารางที่ 3.4</li><li>คุณค่าเฉพาะตัวเป็นประโยคเดียว และมีแนวคิดระดับสูงในรูป "X สำหรับ Y"</li><li>คำนวณจำนวนที่ต้องขายเพื่อคุ้มทุนอย่างคร่าว ๆ จากช่องรายได้และต้นทุน แบบตัวอย่างในหัวข้อ 3.5.2</li><li>ติดป้ายทุกรายการว่าเป็นข้อเท็จจริงที่มีหลักฐาน หรือเป็นข้อสมมติ</li><li>ระบุข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ ข้อละหนึ่งด้านของความเสี่ยงในตารางที่ 3.8</li><li>ตรวจ Canvas กับรายการในตารางที่ 3.11 ก่อนส่ง</li></ol>
+<ol><li>เขียน Lean Canvas ครบ 9 ช่องตามลำดับในภาพที่ 3.1 โดยใช้ไอเดียและข้อความปัญหาจากงานกลุ่มครั้งที่ 1</li><li>ช่องปัญหามีไม่เกิน 3 ปัญหา และระบุทางเลือกที่มีอยู่อย่างน้อย 2 ทาง</li><li>ช่องกลุ่มลูกค้าระบุผู้ใช้กลุ่มแรก พร้อมเหตุผลตามลักษณะในตารางที่ 3.4</li><li>คุณค่าเฉพาะตัวเป็นประโยคเดียว และมีแนวคิดระดับสูงในรูป "X สำหรับ Y"</li><li>คำนวณจำนวนที่ต้องขายเพื่อคุ้มทุนอย่างคร่าว ๆ จากช่องรายได้และต้นทุน แบบตัวอย่างในหัวข้อ 3.5.2</li><li>ติดป้ายทุกรายการว่าเป็นข้อเท็จจริงที่มีหลักฐาน หรือเป็นข้อสมมติ</li><li>ระบุข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ ข้อละหนึ่งด้านของความเสี่ยงในตารางที่ 3.8</li><li>ตรวจ Canvas กับรายการในตารางที่ 3.11 ก่อนส่ง</li></ol>
 <p class="tcap"><b>ตารางที่ 3.11</b> รายการตรวจ Lean Canvas ก่อนส่ง</p>
 <div class="tablewrap"><table><thead><tr><th>ข้อ</th><th>รายการตรวจ</th><th>ผ่าน</th></tr></thead><tbody><tr><td>1</td><td>ปัญหาเขียนจากมุมของลูกค้า ไม่ใช่การขาดสินค้าของเรา</td><td></td></tr><tr><td>2</td><td>กลุ่มลูกค้าเฉพาะเจาะจงพอที่จะออกไปหาและพูดคุยได้</td><td></td></tr><tr><td>3</td><td>คุณค่าเฉพาะตัวบอกผลลัพธ์ที่ลูกค้าได้รับและต่างจากทางเลือกที่มีอยู่</td><td></td></tr><tr><td>4</td><td>ทางแก้เป็นทางแก้ที่เล็กที่สุดของแต่ละปัญหา</td><td></td></tr><tr><td>5</td><td>ช่องทางเข้าถึงผู้ใช้กลุ่มแรกได้จริงด้วยต้นทุนต่ำ</td><td></td></tr><tr><td>6</td><td>รายได้ระบุว่าใครจ่าย จ่ายเพื่ออะไร และราคาประมาณเท่าไร</td><td></td></tr><tr><td>7</td><td>ตัวชี้วัดหลักนำไปสู่การตัดสินใจได้</td><td></td></tr><tr><td>8</td><td>ช่องความได้เปรียบไม่ใช่จุดเด่นที่คู่แข่งลอกได้</td><td></td></tr><tr><td>9</td><td>ทุกรายการติดป้ายข้อเท็จจริงหรือข้อสมมติ</td><td></td></tr><tr><td>10</td><td>อ่านทวนจากปัญหาถึงรายได้แล้วเป็นเรื่องเดียวกัน</td><td></td></tr></tbody></table></div>
 </div>

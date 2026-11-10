@@ -1,211 +1,221 @@
 <!DOCTYPE html>
-<!-- ตำรา 0903468 · บทที่ 8 · ฉบับเผยแพร่ออนไลน์ (ฉบับละเอียด) · อ.ดร.วราวุฒิ นาคบุญนำ -->
-<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 8 เครื่องมือและโปรแกรมบริหารโครงการ · ตำรา 0903468</title><meta name="author" content="วราวุฒิ นาคบุญนำ">
-<style>:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:768px;}
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 8 เครื่องมือและโปรแกรมบริหารโครงการ · วิชา 0903468</title>
+<meta name="description" content="บทเรียนบทที่ 8 วิชา 0903468 การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:18px}
-a{color:var(--blue);text-decoration:none}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
-.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
-.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
-.tools{display:flex;gap:6px}.tools button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer}.tools button:hover{background:var(--blue)}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
 #progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
-.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 80px}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
 #toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
-#toc .h{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);font-weight:800;margin-bottom:10px}
-#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue)}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
 #toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
-article{max-width:var(--maxread);min-width:0}
-.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;text-transform:uppercase;color:var(--teal)}
-h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
-.meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 8px}.meta b{color:var(--ink)}
-.lic{display:inline-block;background:var(--tint);color:var(--blue);border-radius:6px;padding:1px 8px;font-weight:600;font-size:12.5px}
-h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line)}
-h3{font-size:19px;color:var(--blue);margin:22px 0 8px}h4{font-size:16.5px;color:var(--navy);margin:16px 0 6px}
-p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
-.cite{color:var(--teal);font-weight:600;white-space:nowrap;cursor:pointer;border-bottom:1px dotted var(--teal)}.cite:hover{background:#E6F5F1}
-.lead{font-size:17px;color:#3a4654}
-.box{border-radius:14px;padding:18px 22px;margin:20px 0;box-shadow:var(--shadow)}
-.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ul{margin:6px 0 0 22px}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
 .case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
-.expand{background:var(--tint);border:1px solid #CFDBF2}.expand .bt{color:var(--blue)}
 .worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
-.worked .calc{font-family:'Sarabun',monospace;background:#fff;border:1px solid #EBD8A6;border-radius:8px;padding:12px 14px;margin:10px 0;font-size:15px;line-height:1.8}
-.tmpl{background:#fff;border:1px dashed var(--blue);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:14.5px}
-.tmpl .row{border-bottom:1px solid var(--line);padding:6px 0}.tmpl .row:last-child{border-bottom:none}.tmpl b{color:var(--navy)}
-.summary{background:#FBF3DF;border:1px solid #EBD8A6}.summary .bt{color:#9A6B00}
-.keyterm{background:#fff;border:1px solid var(--line)}.keyterm .bt{color:var(--navy)}.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px}
-figure{margin:22px 0}figure figcaption{font-size:14px;color:var(--mute);margin-bottom:8px;font-weight:700}
-figure.fig figcaption{margin-top:10px;margin-bottom:0;text-align:center}
-table{border-collapse:collapse;width:100%;font-size:15.5px;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
 th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
-td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FafBfe}
-.tablewrap{overflow-x:auto}.svgfig{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-ol.ex{margin-left:22px}ol.ex li{margin-bottom:10px}
-.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}.refs .r.hl{background:#FFF6DC;border-radius:6px}.refs em{font-style:italic}
-.citebox{background:var(--navy);color:#EAF0FB;border-radius:14px;padding:18px 22px;margin:22px 0}.citebox .bt{color:var(--gold);font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
-.citebox button{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
 .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
-.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px}.navrow a:hover{background:var(--blue);color:#fff}
-footer{border-top:1px solid var(--line);margin-top:24px;padding-top:18px;font-size:13.5px;color:var(--mute)}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}body{font-size:17px}}
-@media print{.topbar,#toc,.tools,.citebox button,.navrow{display:none!important}.shell{display:block;max-width:100%;padding:0}body{font-size:12pt}.box,table,.svgfig{box-shadow:none}}</style></head><body>
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
 <div class="topbar"><div class="in">
-<div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="textbook_0903468_สารบัญ.html">ตำรา 0903468</a> › บทที่ 8</div>
-<div class="tools"><button onclick="fs(-1)">ก−</button><button onclick="fs(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+  <a class="brandname" href="textbook_0903468_สารบัญ.html">ตำรา 0903468 การบริหารโครงการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="textbook_0903468_สารบัญ.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
 </div><div id="progress"><div class="bar"></div></div></div>
 <div class="shell">
-<nav id="toc"><div class="h">สารบัญบทที่ 8</div>
-<a href="#s81">8.1 บทนำ</a>
-<a href="#s82">8.2 ภาพรวมและประเภทของเครื่องมือ</a>
-<a href="#s83">8.3 ตารางงาน หมุดหมาย และ Gantt Chart</a>
-<a href="#s84">8.4 การจัดสรรทรัพยากรและต้นทุน</a>
-<a href="#s85">8.5 การติดตามความก้าวหน้าด้วย Baseline</a>
-<a href="#s86">8.6 การทำงานร่วมกันแบบดิจิทัลและ Agile Board</a>
-<a href="#s87">8.7 การจัดการเอกสารและองค์ความรู้</a>
-<a href="#s88">8.8 ความปลอดภัยข้อมูลและความเป็นส่วนตัว</a>
-<a href="#s89">8.9 ปัญญาประดิษฐ์และระบบอัตโนมัติ</a>
-<a href="#s810">8.10 เกณฑ์การเลือกและการนำเครื่องมือไปใช้</a>
-<a href="#s811">8.11 การประยุกต์กับโครงงาน</a>
-<a href="#case">กรณีศึกษาประจำบท</a>
-<a href="#sum">บทสรุป</a>
-<a href="#ex">แบบฝึกหัดท้ายบท</a>
-<a href="#terms">ศัพท์สำคัญ</a>
-<a href="#refs">เอกสารอ้างอิง</a>
-</nav>
+<nav id="toc"><div class="h">สารบัญบทที่ 8</div><a href="#s-8-1">8.1 บทนำ</a><a href="#s-8-2">8.2 ภาพรวมและประเภทของเครื่องมือบริหารโครงการ</a><a href="#s-8-3">8.3 การสร้างตารางงาน หมุดหมาย และแผนภูมิแกนต์</a><a href="#s-8-4">8.4 การจัดสรรทรัพยากรและต้นทุน</a><a href="#s-8-5">8.5 การติดตามความก้าวหน้าด้วยเส้นฐาน (Baseline)</a><a href="#s-8-6">8.6 การทำงานร่วมกันแบบดิจิทัลและกระดาน Agile</a><a href="#s-8-7">8.7 การจัดการเอกสารและองค์ความรู้</a><a href="#s-8-8">8.8 ความปลอดภัยข้อมูลและความเป็นส่วนตัว</a><a href="#s-8-9">8.9 ปัญญาประดิษฐ์และระบบอัตโนมัติในการบริหารโครงการ</a><a href="#s-8-10">8.10 เกณฑ์การเลือกและการนำเครื่องมือไปใช้ให้เกิดผล</a><a href="#s-8-11">8.11 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</a><a href="#sum">บทสรุป</a><a href="#review">คำถามทบทวน</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#refs">เอกสารอ้างอิง</a><a href="#further">แหล่งอ่านเพิ่มเติม</a></nav>
 <article>
 <div class="eyebrow">ตำรา · รายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</div>
 <h1>บทที่ 8 เครื่องมือและโปรแกรมบริหารโครงการ</h1>
-<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>ฉบับเผยแพร่ออนไลน์ <b>เวอร์ชัน 3.0 (ฉบับตำรา)</b></span><span class="lic">CC BY-NC-SA 4.0 [ปรับได้]</span></div>
-
-<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div>
-<p style="margin:0 0 6px">เมื่อศึกษาบทนี้จบแล้ว ผู้เรียนสามารถ</p>
-<ul>
-<li>อธิบายประเภทและบทบาทของเครื่องมือบริหารโครงการได้</li>
-<li>สร้างตารางงาน หมุดหมาย และแผนภูมิแกนต์เพื่อวางแผนและติดตามงานได้</li>
-<li>ใช้เครื่องมือจัดสรรทรัพยากรและต้นทุน และเข้าใจการปรับสมดุลทรัพยากรได้</li>
-<li>ใช้เส้นฐาน (Baseline) แดชบอร์ด และ PMIS ในการติดตามความก้าวหน้าได้</li>
-<li>ใช้เครื่องมือทำงานร่วมกัน จัดการเอกสารและองค์ความรู้ได้อย่างเป็นระบบ</li>
-<li>อธิบายประเด็นความปลอดภัยข้อมูล ความเป็นส่วนตัว และบทบาทของ AI ในการบริหารโครงการได้</li>
-<li>เลือกและนำเครื่องมือไปใช้ให้เกิดผลกับโครงงานธุรกิจสมัยใหม่ได้</li>
-</ul></div>
-
-<h2 id="s81">8.1 บทนำ</h2>
-<p class="lead">เครื่องมือที่ดีไม่ได้ทำให้โครงการที่วางแผนแย่กลายเป็นดี แต่ช่วยให้โครงการที่วางแผนดีดำเนินไปได้อย่างมีประสิทธิภาพและมองเห็นได้ชัดเจน ในยุคดิจิทัล เครื่องมือบริหารโครงการได้กลายเป็นผู้ช่วยที่ขาดไม่ได้ของทีม</p>
-<p>บทนี้กล่าวถึงเครื่องมือและโปรแกรมบริหารโครงการ ตั้งแต่การสร้างตารางงานและแผนภูมิแกนต์ การจัดสรรทรัพยากร การติดตามด้วยเส้นฐาน การทำงานร่วมกันแบบดิจิทัล การจัดการเอกสารและองค์ความรู้ ความปลอดภัยข้อมูล ไปจนถึงบทบาทของปัญญาประดิษฐ์ โดยเน้นหลักการเลือกและใช้เครื่องมือให้เหมาะกับงาน มากกว่าการยึดติดกับโปรแกรมใดโปรแกรมหนึ่ง <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
-
-<h2 id="s82">8.2 ภาพรวมและประเภทของเครื่องมือบริหารโครงการ</h2>
-<p>เครื่องมือบริหารโครงการมีหลากหลายตั้งแต่แบบเรียบง่ายไปจนถึงระบบระดับองค์กร อาจจำแนกตามหน้าที่หลักได้ดังตารางที่ 8.1 <a class="cite" href="#ref-larson">(Larson &amp; Gray, 2021)</a></p>
-<figure><figcaption>ตารางที่ 8.1 ตัวอย่างประเภทเครื่องมือบริหารโครงการ</figcaption><div class="tablewrap"><table>
-<thead><tr><th>ประเภท</th><th>หน้าที่หลัก</th><th>เหมาะกับ</th></tr></thead>
-<tbody>
-<tr><td>ตารางคำนวณ (Spreadsheet)</td><td>ตารางงาน งบประมาณ อย่างยืดหยุ่น</td><td>โครงการเล็ก ทรัพยากรจำกัด</td></tr>
-<tr><td>เครื่องมือจัดการงาน (Task Board)</td><td>กระดานงานแบบ Kanban มอบหมายและติดตาม</td><td>ทีมที่ทำงานแบบปรับตัว</td></tr>
-<tr><td>โปรแกรมบริหารโครงการ (PM Software)</td><td>Gantt เส้นทางวิกฤต ทรัพยากร Baseline</td><td>โครงการที่มีลำดับงานซับซ้อน</td></tr>
-<tr><td>เครื่องมือทำงานร่วมกัน (Collaboration)</td><td>สื่อสาร แชร์ไฟล์ ประชุมออนไลน์</td><td>ทีมกระจายตัว</td></tr>
-</tbody></table></div></figure>
-<p>สำหรับโครงงานของนิสิต เครื่องมือฟรีหรือรุ่นการศึกษาที่ใช้งานง่ายมักเพียงพอ สิ่งสำคัญคือทีมเลือกเครื่องมือที่ทุกคนเข้าถึงและใช้ร่วมกันได้จริง มากกว่าเครื่องมือที่มีฟีเจอร์มากแต่ซับซ้อนเกินความจำเป็น <a class="cite" href="#ref-schwalbe">(Schwalbe, 2019)</a></p>
-
-<h2 id="s83">8.3 การสร้างตารางงาน หมุดหมาย และแผนภูมิแกนต์</h2>
-<p>แผนภูมิแกนต์ (Gantt Chart) เป็นเครื่องมือแสดงงาน ระยะเวลา และลำดับในรูปแบบแท่งตามแกนเวลา ทำให้เห็นภาพรวมของแผนงานและความก้าวหน้าได้ทันที แต่ละแท่งแทนงานหนึ่งงาน ความยาวแทนระยะเวลา และตำแหน่งแทนช่วงเวลาที่ทำ ดังภาพที่ 8.1 <a class="cite" href="#ref-kerzner">(Kerzner, 2022)</a></p>
-<figure class="fig"><div class="svgfig">
-<svg viewBox="0 0 480 210" width="100%" role="img" aria-label="ตัวอย่างแผนภูมิแกนต์">
-<line x1="150" y1="24" x2="150" y2="180" stroke="#E2E7F0"/><line x1="216" y1="24" x2="216" y2="180" stroke="#E2E7F0"/><line x1="282" y1="24" x2="282" y2="180" stroke="#E2E7F0"/><line x1="348" y1="24" x2="348" y2="180" stroke="#E2E7F0"/><line x1="414" y1="24" x2="414" y2="180" stroke="#E2E7F0"/>
-<g font-family="Sarabun,sans-serif" font-size="11" fill="#5C6B7A"><text x="150" y="18">สัปดาห์ 1</text><text x="216" y="18">2</text><text x="282" y="18">3</text><text x="348" y="18">4</text><text x="414" y="18">5</text></g>
-<g font-family="Sarabun,sans-serif" font-size="11.5" fill="#141D3F">
-<text x="10" y="46">วิเคราะห์</text><rect x="150" y="36" width="66" height="16" rx="4" fill="#2F5BD0"/>
-<text x="10" y="76">ออกแบบ</text><rect x="216" y="66" width="66" height="16" rx="4" fill="#2F5BD0"/>
-<text x="10" y="106">พัฒนา</text><rect x="282" y="96" width="132" height="16" rx="4" fill="#2FA392"/>
-<text x="10" y="136">ทดสอบ</text><rect x="348" y="126" width="66" height="16" rx="4" fill="#E9A72C"/>
-<text x="10" y="166">นำเสนอ</text><polygon points="414,156 422,164 414,172 406,164" fill="#141D3F"/><text x="428" y="168" font-size="10.5" fill="#5C6B7A">หมุดหมาย</text>
-</g></svg></div><figcaption>ภาพที่ 8.1 ตัวอย่างแผนภูมิแกนต์แสดงงาน ระยะเวลา และหมุดหมาย</figcaption></figure>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>10–11</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายประเภทและบทบาทของเครื่องมือบริหารโครงการได้</li><li>จัดทำตารางงาน หมุดหมาย และแผนภูมิแกนต์สำหรับติดตามงานได้</li><li>ใช้เครื่องมือจัดสรรทรัพยากรและต้นทุน และอธิบายการปรับสมดุลทรัพยากรได้</li><li>ใช้เส้นฐาน (Baseline) แดชบอร์ด และ PMIS ในการติดตามความก้าวหน้าได้</li><li>ใช้เครื่องมือทำงานร่วมกัน จัดการเอกสารและองค์ความรู้ได้อย่างเป็นระบบ</li><li>อธิบายประเด็นความปลอดภัยข้อมูล ความเป็นส่วนตัว และบทบาทของ AI ในการบริหารโครงการได้</li><li>เลือกและนำเครื่องมือไปใช้ให้เกิดผลกับโครงงานธุรกิจสมัยใหม่ได้</li></ol></div>
+<h2 id="s-8-1">8.1 บทนำ</h2>
+<p>เครื่องมือที่ดีไม่ได้ทำให้โครงการที่วางแผนแย่กลายเป็นดี แต่ช่วยให้โครงการที่วางแผนดีดำเนินไปได้อย่างมีประสิทธิภาพและมองเห็นได้ชัดเจน ในยุคดิจิทัล เครื่องมือบริหารโครงการได้กลายเป็นผู้ช่วยที่ขาดไม่ได้ของทีม</p>
+<p>บทนี้กล่าวถึงเครื่องมือและโปรแกรมบริหารโครงการ ตั้งแต่การสร้างตารางงานและแผนภูมิแกนต์ การจัดสรรทรัพยากร การติดตามด้วยเส้นฐาน การทำงานร่วมกันแบบดิจิทัล การจัดการเอกสารและองค์ความรู้ ความปลอดภัยข้อมูล ไปจนถึงบทบาทของปัญญาประดิษฐ์ โดยเน้นหลักการเลือกและใช้เครื่องมือให้เหมาะกับงาน มากกว่าการยึดติดกับโปรแกรมใดโปรแกรมหนึ่ง (PMI, 2021)</p>
+<h2 id="s-8-2">8.2 ภาพรวมและประเภทของเครื่องมือบริหารโครงการ</h2>
+<p>เครื่องมือบริหารโครงการมีหลากหลายตั้งแต่แบบเรียบง่ายไปจนถึงระบบระดับองค์กร อาจจำแนกตามหน้าที่หลักได้ดังตารางที่ 8.1 (Larson &amp; Gray, 2021)</p>
+<p class="tcap"><b>ตารางที่ 8.1</b> ตัวอย่างประเภทเครื่องมือบริหารโครงการ</p>
+<div class="tablewrap"><table><thead><tr><th>ประเภท</th><th>หน้าที่หลัก</th><th>เหมาะกับ</th></tr></thead><tbody><tr><td>ตารางคำนวณ (Spreadsheet)</td><td>ตารางงาน งบประมาณ อย่างยืดหยุ่น</td><td>โครงการเล็ก ทรัพยากรจำกัด</td></tr><tr><td>เครื่องมือจัดการงาน (Task Board)</td><td>กระดานงานแบบ Kanban มอบหมายและติดตาม</td><td>ทีมที่ทำงานแบบปรับตัว</td></tr><tr><td>โปรแกรมบริหารโครงการ (PM Software)</td><td>Gantt เส้นทางวิกฤต ทรัพยากร Baseline</td><td>โครงการที่มีลำดับงานซับซ้อน</td></tr><tr><td>เครื่องมือทำงานร่วมกัน (Collaboration)</td><td>สื่อสาร แชร์ไฟล์ ประชุมออนไลน์</td><td>ทีมกระจายตัว</td></tr></tbody></table></div>
+<p>สำหรับโครงงานของนิสิต เครื่องมือฟรีหรือรุ่นการศึกษาที่ใช้งานง่ายมักเพียงพอ สิ่งสำคัญคือทีมเลือกเครื่องมือที่ทุกคนเข้าถึงและใช้ร่วมกันได้จริง มากกว่าเครื่องมือที่มีฟีเจอร์มากแต่ซับซ้อนเกินความจำเป็น (Schwalbe, 2019)</p>
+<h2 id="s-8-3">8.3 การสร้างตารางงาน หมุดหมาย และแผนภูมิแกนต์</h2>
+<p>แผนภูมิแกนต์ (Gantt Chart) เป็นเครื่องมือแสดงงาน ระยะเวลา และลำดับในรูปแบบแท่งตามแกนเวลา ทำให้เห็นภาพรวมของแผนงานและความก้าวหน้าได้ทันที แต่ละแท่งแทนงานหนึ่งงาน ความยาวแทนระยะเวลา และตำแหน่งแทนช่วงเวลาที่ทำ ดังภาพที่ 8.1 (Kerzner, 2022)</p>
+<figure class="fig"><img src="tb468/fig/fig8_1.png" alt="ตัวอย่างแผนภูมิแกนต์แสดงงาน ระยะเวลา และหมุดหมาย" loading="lazy"><figcaption>ภาพที่ 8.1 ตัวอย่างแผนภูมิแกนต์แสดงงาน ระยะเวลา และหมุดหมาย</figcaption></figure>
 <p>ในการสร้างแผนภูมิแกนต์ ทีมนำงานจาก WBS (บทที่ 7) มากำหนดระยะเวลาและความสัมพันธ์ แล้วเครื่องมือจะแสดงเป็นแท่งพร้อมเส้นเชื่อมความสัมพันธ์ เครื่องมือสมัยใหม่ยังคำนวณเส้นทางวิกฤตและแสดงความก้าวหน้าของแต่ละงานให้อัตโนมัติ ช่วยลดภาระการคำนวณด้วยมือและลดข้อผิดพลาด</p>
-
-<h2 id="s84">8.4 การจัดสรรทรัพยากรและต้นทุน</h2>
-<p>เครื่องมือบริหารโครงการช่วยกำหนดว่าใครรับผิดชอบงานใดและใช้ทรัพยากรเท่าใด เมื่อมอบหมายงานแล้ว เครื่องมือสามารถแสดงภาระงานของแต่ละคนในรูปแผนภูมิภาระงาน หากพบว่ามีผู้ที่ถูกมอบหมายงานเกินกำลังในช่วงเวลาเดียวกัน จะต้องทำการปรับสมดุลทรัพยากร (Resource Leveling) โดยเลื่อนงานที่ไม่วิกฤตหรือกระจายงานใหม่ เพื่อไม่ให้เกิดคอขวด นอกจากนี้ การผูกต้นทุนกับงานยังช่วยประมาณงบประมาณรวมและติดตามค่าใช้จ่ายจริงเทียบกับแผน (เชื่อมโยงกับบทที่ 9) <a class="cite" href="#ref-kloppenborg">(Kloppenborg et al., 2019)</a></p>
-
-<h2 id="s85">8.5 การติดตามความก้าวหน้าด้วยเส้นฐาน (Baseline)</h2>
-<p>เส้นฐาน (Baseline) คือ แผนที่ได้รับอนุมัติซึ่งใช้เป็นเกณฑ์เปรียบเทียบกับผลจริง เมื่อบันทึกเส้นฐานของขอบเขต กำหนดการ และงบประมาณไว้แล้ว การติดตามความก้าวหน้าคือการเปรียบเทียบผลจริงกับเส้นฐานเพื่อหาความเบี่ยงเบน (variance) หากงานล่าช้าหรือต้นทุนเกิน ทีมสามารถวิเคราะห์สาเหตุและดำเนินการแก้ไขได้ทันเวลา การมีเส้นฐานที่ชัดเจนเป็นพื้นฐานของการควบคุมโครงการอย่างมีวินัยและการวิเคราะห์มูลค่าที่ได้รับ (Earned Value) ในบทที่ 9 <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
-<h3>8.5.1 แดชบอร์ดและการรายงานสถานะ</h3>
-<p>เครื่องมือสมัยใหม่มักมีแดชบอร์ด (Dashboard) ที่รวบรวมตัวชี้วัดสำคัญของโครงการไว้ในหน้าเดียว เช่น ความก้าวหน้าโดยรวม งานที่ล่าช้า งบประมาณที่ใช้ไป และความเสี่ยงที่เปิดอยู่ แดชบอร์ดช่วยให้ทีมและผู้มีส่วนได้ส่วนเสียเห็นสถานะได้ทันทีโดยไม่ต้องอ่านรายงานยาว การออกแบบรายงานสถานะที่ดีควรใช้หลัก "ไฟจราจร" (เขียว-เหลือง-แดง) เพื่อสื่อสถานะอย่างรวดเร็ว และเน้นข้อมูลที่ผู้รับต้องใช้ตัดสินใจ มากกว่าการรายงานทุกรายละเอียด <a class="cite" href="#ref-kloppenborg">(Kloppenborg et al., 2019)</a></p>
-<h3>8.5.2 ระบบสารสนเทศเพื่อการบริหารโครงการ (PMIS)</h3>
-<p>ในระดับองค์กร ระบบสารสนเทศเพื่อการบริหารโครงการ (Project Management Information System: PMIS) รวมข้อมูลของหลายโครงการไว้ในระบบเดียว ช่วยให้ผู้บริหารเห็นภาพรวมของพอร์ตโฟลิโอ จัดสรรทรัพยากรข้ามโครงการ และสะสมบทเรียนเพื่อใช้ในโครงการต่อไป แม้โครงงานของนิสิตจะไม่จำเป็นต้องใช้ระบบซับซ้อนเช่นนี้ แต่การเข้าใจแนวคิด PMIS ช่วยให้ผู้เรียนเห็นว่าเครื่องมือดิจิทัลสามารถขยายจากการบริหารโครงการเดี่ยวสู่การบริหารทั้งองค์กรได้อย่างไร <a class="cite" href="#ref-schwalbe">(Schwalbe, 2019)</a></p>
-
-<h2 id="s86">8.6 การทำงานร่วมกันแบบดิจิทัลและกระดาน Agile</h2>
-<p>เครื่องมือทำงานร่วมกันช่วยให้ทีมสื่อสาร แชร์เอกสาร และประชุมออนไลน์ได้อย่างราบรื่น โดยเฉพาะทีมที่ทำงานแบบกระจายตัว สำหรับทีมที่ใช้แนวทางแบบปรับตัว กระดานงานแบบ Kanban เป็นเครื่องมือยอดนิยม โดยแบ่งงานเป็นคอลัมน์ตามสถานะ เช่น "รอทำ" "กำลังทำ" "เสร็จแล้ว" ทำให้เห็นสถานะงานและคอขวดได้ทันที แนวคิดนี้สอดคล้องกับหลักการ Agile ที่เน้นความโปร่งใสและการปรับตัว <a class="cite" href="#ref-agile">(Beck et al., 2001)</a> การจัดประชุมสั้นประจำวันหรือประจำสัปดาห์ควบคู่กับกระดานงานช่วยให้ทีมประสานงานและแก้ปัญหาได้เร็ว หลักสำคัญคือการจำกัดงานที่ทำพร้อมกัน (Work In Progress) เพื่อให้ทีมโฟกัสและงานไหลลื่นแทนที่จะค้างอยู่หลายงานพร้อมกัน</p>
-
-<h2 id="s87">8.7 การจัดการเอกสารและองค์ความรู้</h2>
-<p>โครงการสร้างเอกสารจำนวนมาก ตั้งแต่ใบอนุมัติโครงการ แผนงาน รายงานความก้าวหน้า ไปจนถึงบทเรียน การจัดการเอกสารที่ดีช่วยให้ทีมค้นหาและใช้ข้อมูลได้สะดวก ป้องกันการทำงานจากเอกสารเวอร์ชันเก่า และรักษาความต่อเนื่องเมื่อมีการเปลี่ยนแปลงสมาชิก แนวปฏิบัติที่ดี ได้แก่ การจัดเก็บเอกสารไว้ในที่ส่วนกลางที่ทุกคนเข้าถึง การตั้งชื่อไฟล์และควบคุมเวอร์ชันอย่างเป็นระบบ และการกำหนดสิทธิ์การเข้าถึงที่เหมาะสม <a class="cite" href="#ref-meredith">(Meredith et al., 2021)</a></p>
+<h2 id="s-8-4">8.4 การจัดสรรทรัพยากรและต้นทุน</h2>
+<p>เครื่องมือบริหารโครงการช่วยกำหนดว่าใครรับผิดชอบงานใดและใช้ทรัพยากรเท่าใด เมื่อมอบหมายงานแล้ว เครื่องมือสามารถแสดงภาระงานของแต่ละคนในรูปแผนภูมิภาระงาน หากพบว่ามีผู้ที่ถูกมอบหมายงานเกินกำลังในช่วงเวลาเดียวกัน จะต้องทำการปรับสมดุลทรัพยากร (Resource Leveling) โดยเลื่อนงานที่ไม่วิกฤตหรือกระจายงานใหม่ เพื่อไม่ให้เกิดคอขวด นอกจากนี้ การผูกต้นทุนกับงานยังช่วยประมาณงบประมาณรวมและติดตามค่าใช้จ่ายจริงเทียบกับแผน (เชื่อมโยงกับบทที่ 9) (Kloppenborg et al., 2019)</p>
+<h2 id="s-8-5">8.5 การติดตามความก้าวหน้าด้วยเส้นฐาน (Baseline)</h2>
+<p>เส้นฐาน (Baseline) คือ แผนที่ได้รับอนุมัติซึ่งใช้เป็นเกณฑ์เปรียบเทียบกับผลจริง เมื่อบันทึกเส้นฐานของขอบเขต กำหนดการ และงบประมาณไว้แล้ว การติดตามความก้าวหน้าคือการเปรียบเทียบผลจริงกับเส้นฐานเพื่อหาความเบี่ยงเบน (variance) หากงานล่าช้าหรือต้นทุนเกิน ทีมสามารถวิเคราะห์สาเหตุและดำเนินการแก้ไขได้ทันเวลา การมีเส้นฐานที่ชัดเจนเป็นพื้นฐานของการควบคุมโครงการอย่างมีวินัยและการวิเคราะห์มูลค่าที่ได้รับ (Earned Value) ในบทที่ 9 (PMI, 2021)</p>
+<h3 id="s-8-5-1">8.5.1 แดชบอร์ดและการรายงานสถานะ</h3>
+<p>เครื่องมือสมัยใหม่มักมีแดชบอร์ด (Dashboard) ที่รวบรวมตัวชี้วัดสำคัญของโครงการไว้ในหน้าเดียว เช่น ความก้าวหน้าโดยรวม งานที่ล่าช้า งบประมาณที่ใช้ไป และความเสี่ยงที่เปิดอยู่ แดชบอร์ดช่วยให้ทีมและผู้มีส่วนได้ส่วนเสียเห็นสถานะได้ทันทีโดยไม่ต้องอ่านรายงานยาว การออกแบบรายงานสถานะที่ดีควรใช้หลัก "ไฟจราจร" (เขียว-เหลือง-แดง) เพื่อสื่อสถานะอย่างรวดเร็ว และเน้นข้อมูลที่ผู้รับต้องใช้ตัดสินใจ มากกว่าการรายงานทุกรายละเอียด (Kloppenborg et al., 2019)</p>
+<h3 id="s-8-5-2">8.5.2 ระบบสารสนเทศเพื่อการบริหารโครงการ (PMIS)</h3>
+<p>ในระดับองค์กร ระบบสารสนเทศเพื่อการบริหารโครงการ (Project Management Information System: PMIS) รวมข้อมูลของหลายโครงการไว้ในระบบเดียว ช่วยให้ผู้บริหารเห็นภาพรวมของพอร์ตโฟลิโอ จัดสรรทรัพยากรข้ามโครงการ และสะสมบทเรียนเพื่อใช้ในโครงการต่อไป แม้โครงงานของนิสิตจะไม่จำเป็นต้องใช้ระบบซับซ้อนเช่นนี้ แต่การเข้าใจแนวคิด PMIS ช่วยให้ผู้เรียนเห็นว่าเครื่องมือดิจิทัลสามารถขยายจากการบริหารโครงการเดี่ยวสู่การบริหารทั้งองค์กรได้อย่างไร (Schwalbe, 2019)</p>
+<h2 id="s-8-6">8.6 การทำงานร่วมกันแบบดิจิทัลและกระดาน Agile</h2>
+<p>เครื่องมือทำงานร่วมกันช่วยให้ทีมสื่อสาร แชร์เอกสาร และประชุมออนไลน์ได้อย่างราบรื่น โดยเฉพาะทีมที่ทำงานแบบกระจายตัว สำหรับทีมที่ใช้แนวทางแบบปรับตัว กระดานงานแบบ Kanban เป็นเครื่องมือยอดนิยม โดยแบ่งงานเป็นคอลัมน์ตามสถานะ เช่น "รอทำ" "กำลังทำ" "เสร็จแล้ว" ทำให้เห็นสถานะงานและคอขวดได้ทันที แนวคิดนี้สอดคล้องกับหลักการ Agile ที่เน้นความโปร่งใสและการปรับตัว (Beck et al., 2001) การจัดประชุมสั้นประจำวันหรือประจำสัปดาห์ควบคู่กับกระดานงานช่วยให้ทีมประสานงานและแก้ปัญหาได้เร็ว หลักสำคัญคือการจำกัดงานที่ทำพร้อมกัน (Work In Progress) เพื่อให้ทีมโฟกัสและงานไหลลื่นแทนที่จะค้างอยู่หลายงานพร้อมกัน</p>
+<h2 id="s-8-7">8.7 การจัดการเอกสารและองค์ความรู้</h2>
+<p>โครงการสร้างเอกสารจำนวนมาก ตั้งแต่ใบอนุมัติโครงการ แผนงาน รายงานความก้าวหน้า ไปจนถึงบทเรียน การจัดการเอกสารที่ดีช่วยให้ทีมค้นหาและใช้ข้อมูลได้สะดวก ป้องกันการทำงานจากเอกสารเวอร์ชันเก่า และรักษาความต่อเนื่องเมื่อมีการเปลี่ยนแปลงสมาชิก แนวปฏิบัติที่ดี ได้แก่ การจัดเก็บเอกสารไว้ในที่ส่วนกลางที่ทุกคนเข้าถึง การตั้งชื่อไฟล์และควบคุมเวอร์ชันอย่างเป็นระบบ และการกำหนดสิทธิ์การเข้าถึงที่เหมาะสม (Meredith et al., 2021)</p>
 <p>ในมุมกว้างขึ้น การจัดการองค์ความรู้ (Knowledge Management) คือการเปลี่ยนประสบการณ์และบทเรียนของโครงการให้เป็นสินทรัพย์ที่องค์กรใช้ซ้ำได้ การบันทึกบทเรียน การจัดทำแม่แบบ และการแบ่งปันความรู้ระหว่างทีม ช่วยให้โครงการต่อไปทำงานได้ดีขึ้นโดยไม่ต้องเรียนรู้ด้วยความผิดพลาดเดิมซ้ำ ๆ สำหรับทีมโครงงาน การจัดเก็บเอกสารและบันทึกการตัดสินใจสำคัญไว้อย่างเป็นระบบช่วยทั้งการทำงานปัจจุบันและการจัดทำเล่มรายงานในบทที่ 12</p>
-
-<h2 id="s88">8.8 ความปลอดภัยข้อมูลและความเป็นส่วนตัว</h2>
-<p>เมื่อโครงงานธุรกิจสมัยใหม่มักเกี่ยวข้องกับข้อมูลผู้ใช้และข้อมูลทางธุรกิจ ความปลอดภัยข้อมูลและความเป็นส่วนตัวจึงเป็นประเด็นที่ต้องใส่ใจ ทีมควรจัดเก็บข้อมูลสำคัญอย่างปลอดภัย จำกัดการเข้าถึงเฉพาะผู้ที่จำเป็น สำรองข้อมูลอย่างสม่ำเสมอ และระมัดระวังในการใช้เครื่องมือบนคลาวด์ที่อาจมีความเสี่ยงด้านความปลอดภัย <a class="cite" href="#ref-schwalbe">(Schwalbe, 2019)</a></p>
+<h2 id="s-8-8">8.8 ความปลอดภัยข้อมูลและความเป็นส่วนตัว</h2>
+<p>เมื่อโครงงานธุรกิจสมัยใหม่มักเกี่ยวข้องกับข้อมูลผู้ใช้และข้อมูลทางธุรกิจ ความปลอดภัยข้อมูลและความเป็นส่วนตัวจึงเป็นประเด็นที่ต้องใส่ใจ ทีมควรจัดเก็บข้อมูลสำคัญอย่างปลอดภัย จำกัดการเข้าถึงเฉพาะผู้ที่จำเป็น สำรองข้อมูลอย่างสม่ำเสมอ และระมัดระวังในการใช้เครื่องมือบนคลาวด์ที่อาจมีความเสี่ยงด้านความปลอดภัย (Schwalbe, 2019)</p>
 <p>ในด้านความเป็นส่วนตัว การเก็บและใช้ข้อมูลส่วนบุคคลของผู้ใช้ต้องเป็นไปตามกฎหมายคุ้มครองข้อมูลส่วนบุคคลและหลักจริยธรรม เช่น การขอความยินยอม การเก็บเท่าที่จำเป็น และการแจ้งวัตถุประสงค์การใช้ ประเด็นนี้เชื่อมโยงกับแนวคิดจริยธรรมในบทที่ 1 และเป็นสิ่งที่ผู้เรียนควรออกแบบเข้าไปในโครงงานตั้งแต่ต้น ไม่ใช่คิดเพิ่มภายหลัง</p>
-
-<h2 id="s89">8.9 ปัญญาประดิษฐ์และระบบอัตโนมัติในการบริหารโครงการ</h2>
-<p>ปัญญาประดิษฐ์ (AI) และระบบอัตโนมัติกำลังเปลี่ยนวิธีทำงานของทีมโครงการ AI ช่วยงานหลายอย่าง เช่น การช่วยร่างเอกสารและสรุปการประชุม การวิเคราะห์ข้อมูลเพื่อประมาณการที่แม่นยำขึ้น การแจ้งเตือนความเสี่ยงจากรูปแบบข้อมูล และการตอบคำถามพื้นฐานของทีม ระบบอัตโนมัติยังช่วยลดงานประจำ เช่น การอัปเดตสถานะและการส่งการแจ้งเตือน <a class="cite" href="#ref-pmi">(PMI, 2021)</a></p>
+<h2 id="s-8-9">8.9 ปัญญาประดิษฐ์และระบบอัตโนมัติในการบริหารโครงการ</h2>
+<p>ปัญญาประดิษฐ์ (AI) และระบบอัตโนมัติกำลังเปลี่ยนวิธีทำงานของทีมโครงการ AI ช่วยงานหลายอย่าง เช่น การช่วยร่างเอกสารและสรุปการประชุม การวิเคราะห์ข้อมูลเพื่อประมาณการที่แม่นยำขึ้น การแจ้งเตือนความเสี่ยงจากรูปแบบข้อมูล และการตอบคำถามพื้นฐานของทีม ระบบอัตโนมัติยังช่วยลดงานประจำ เช่น การอัปเดตสถานะและการส่งการแจ้งเตือน (PMI, 2021)</p>
 <p>อย่างไรก็ตาม พึงระลึกว่า AI เป็น "ผู้ช่วย" ไม่ใช่ผู้ตัดสินใจแทน ผลลัพธ์ของ AI อาจมีข้อผิดพลาดหรืออคติ จึงต้องตรวจสอบด้วยวิจารณญาณเสมอ และต้องระวังเรื่องความเป็นส่วนตัวของข้อมูลที่ป้อนให้ AI การตัดสินใจเชิงคุณค่า การนำทีม และความรับผิดชอบทางจริยธรรมยังคงเป็นบทบาทของมนุษย์ ผู้เรียนควรฝึกใช้ AI อย่างมีวิจารณญาณ ควบคู่กับความเข้าใจหลักการพื้นฐานที่กล่าวตลอดเล่มนี้</p>
-
-<h2 id="s810">8.10 เกณฑ์การเลือกและการนำเครื่องมือไปใช้ให้เกิดผล</h2>
-<p>การเลือกเครื่องมือควรพิจารณาความเหมาะสมกับงานมากกว่าความนิยม เกณฑ์สำคัญ ได้แก่ ความสอดคล้องกับขนาดและความซับซ้อนของโครงการ ความง่ายในการใช้และการเรียนรู้ ความสามารถทำงานร่วมกันของทีม ต้นทุน (โดยเฉพาะรุ่นฟรีหรือการศึกษา) การเข้าถึงบนอุปกรณ์ต่าง ๆ และความปลอดภัยของข้อมูล หลักคือ "ใช้เครื่องมือที่เรียบง่ายที่สุดที่เพียงพอต่องาน" <a class="cite" href="#ref-larson">(Larson &amp; Gray, 2021)</a></p>
+<h2 id="s-8-10">8.10 เกณฑ์การเลือกและการนำเครื่องมือไปใช้ให้เกิดผล</h2>
+<p>การเลือกเครื่องมือควรพิจารณาความเหมาะสมกับงานมากกว่าความนิยม เกณฑ์สำคัญ ได้แก่ ความสอดคล้องกับขนาดและความซับซ้อนของโครงการ ความง่ายในการใช้และการเรียนรู้ ความสามารถทำงานร่วมกันของทีม ต้นทุน (โดยเฉพาะรุ่นฟรีหรือการศึกษา) การเข้าถึงบนอุปกรณ์ต่าง ๆ และความปลอดภัยของข้อมูล หลักคือ "ใช้เครื่องมือที่เรียบง่ายที่สุดที่เพียงพอต่องาน" (Larson &amp; Gray, 2021)</p>
 <p>สิ่งที่สำคัญไม่น้อยกว่าการเลือกคือ การทำให้ทีม "ใช้จริง" เครื่องมือที่ดีที่สุดจะไร้ค่าหากทีมไม่อัปเดตข้อมูลให้เป็นปัจจุบัน ปัจจัยที่ช่วยให้การนำเครื่องมือไปใช้เกิดผล ได้แก่ การเลือกเครื่องมือที่ใช้ง่าย การตกลงกติกาการใช้ร่วมกัน การทำให้การอัปเดตเป็นส่วนหนึ่งของงานประจำวัน และการที่หัวหน้าทีมเป็นแบบอย่างในการใช้ การนำเครื่องมือมาใช้จึงเป็นทั้งเรื่องเทคโนโลยีและเรื่องพฤติกรรมของทีม</p>
-
-<h2 id="s811">8.11 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</h2>
+<h2 id="s-8-11">8.11 การประยุกต์กับโครงงานธุรกิจสมัยใหม่</h2>
 <p>ทีมโครงงานควรเลือกชุดเครื่องมือที่เหมาะกับทีม เช่น ใช้กระดาน Kanban ฟรีสำหรับจัดการงานประจำวัน ใช้แผนภูมิแกนต์อย่างง่ายวางแผนภาพรวมตลอดภาคการศึกษาและกำหนดหมุดหมาย ใช้เครื่องมือทำงานร่วมกันสำหรับสื่อสารและแชร์ไฟล์ จัดเก็บเอกสารไว้ที่ส่วนกลางพร้อมควบคุมเวอร์ชัน และบันทึกเส้นฐานของแผนเพื่อติดตามความก้าวหน้า ทีมควรใส่ใจความปลอดภัยและความเป็นส่วนตัวของข้อมูลผู้ใช้ และอาจใช้ AI เป็นผู้ช่วยร่างเอกสารและสรุปประชุมอย่างมีวิจารณญาณ สิ่งสำคัญที่สุดคือทุกคนในทีมใช้เครื่องมือร่วมกันอย่างสม่ำเสมอ เพื่อให้ข้อมูลเป็นปัจจุบันและมองเห็นภาพงานตรงกัน</p>
-
-<div class="box case" id="case"><div class="bt">กรอบกรณีศึกษาประจำบท</div>
-<p style="margin:0 0 10px"><b>กรณีศึกษา "ทีมพัฒนาระบบร้านค้าออนไลน์สำหรับวิสาหกิจชุมชน":</b> ทีมนิสิต 4 คนต้องบริหารงานหลายด้านตลอดภาคการศึกษาโดยมีเวลาจำกัด</p>
-<p style="margin:0 0 10px">ทีมเลือกใช้เครื่องมือแบบผสม โดยวางแผนภาพรวมด้วยแผนภูมิแกนต์อย่างง่าย กำหนดหมุดหมาย "ต้นแบบเสร็จ" และ "ทดสอบเสร็จ" บันทึกเป็นเส้นฐาน จากนั้นจัดการงานประจำวันด้วยกระดาน Kanban แบ่งเป็น "รอทำ กำลังทำ เสร็จแล้ว" จำกัดงานที่ทำพร้อมกัน และประชุมสั้นทุกสัปดาห์เพื่อทบทวนสถานะผ่านแดชบอร์ดอย่างง่าย</p>
-<p style="margin:0 0 10px">ทีมจัดเก็บเอกสารทั้งหมดไว้บนพื้นที่ส่วนกลางพร้อมตั้งชื่อไฟล์เป็นระบบและควบคุมเวอร์ชัน เมื่อพบว่าสมาชิกคนหนึ่งถูกมอบหมายงานเกินกำลังในสัปดาห์ที่ 3 ทีมปรับสมดุลด้วยการเลื่อนงานที่ไม่วิกฤตและกระจายงานใหม่</p>
-<p style="margin:0">เนื่องจากระบบเก็บข้อมูลลูกค้า ทีมใส่ใจความปลอดภัยด้วยการจำกัดสิทธิ์เข้าถึงและสำรองข้อมูล และใช้ AI ช่วยร่างเอกสารข้อเสนอและสรุปประชุม แล้วตรวจทานก่อนใช้จริง ผลคือทีมทำงานเป็นระบบ มองเห็นความก้าวหน้าตรงกัน และส่งมอบงานได้ตามแผน</p></div>
-
+<div class="box case"><div class="bt">กรณีศึกษาประจำบท</div><p><strong>กรณีศึกษา "ทีมพัฒนาระบบร้านค้าออนไลน์สำหรับวิสาหกิจชุมชน":</strong> ทีมนิสิต 4 คนต้องบริหารงานหลายด้านตลอดภาคการศึกษาโดยมีเวลาจำกัด</p><p>ทีมเลือกใช้เครื่องมือแบบผสม โดยวางแผนภาพรวมด้วยแผนภูมิแกนต์อย่างง่าย กำหนดหมุดหมาย "ต้นแบบเสร็จ" และ "ทดสอบเสร็จ" บันทึกเป็นเส้นฐาน จากนั้นจัดการงานประจำวันด้วยกระดาน Kanban แบ่งเป็น "รอทำ กำลังทำ เสร็จแล้ว" จำกัดงานที่ทำพร้อมกัน และประชุมสั้นทุกสัปดาห์เพื่อทบทวนสถานะผ่านแดชบอร์ดอย่างง่าย</p><p>ทีมจัดเก็บเอกสารทั้งหมดไว้บนพื้นที่ส่วนกลางพร้อมตั้งชื่อไฟล์เป็นระบบและควบคุมเวอร์ชัน เมื่อพบว่าสมาชิกคนหนึ่งถูกมอบหมายงานเกินกำลังในสัปดาห์ที่ 3 ทีมปรับสมดุลด้วยการเลื่อนงานที่ไม่วิกฤตและกระจายงานใหม่</p><p>เนื่องจากระบบเก็บข้อมูลลูกค้า ทีมใส่ใจความปลอดภัยด้วยการจำกัดสิทธิ์เข้าถึงและสำรองข้อมูล และใช้ AI ช่วยร่างเอกสารข้อเสนอและสรุปประชุม แล้วตรวจทานก่อนใช้จริง ผลคือทีมทำงานเป็นระบบ มองเห็นความก้าวหน้าตรงกัน และส่งมอบงานได้ตามแผน</p></div>
 <div class="box summary" id="sum"><div class="bt">บทสรุป</div>
-<p style="margin:0">เครื่องมือบริหารโครงการช่วยให้แผนที่ดีดำเนินไปอย่างมีประสิทธิภาพและมองเห็นได้ชัดเจน เครื่องมือมีหลายประเภทตั้งแต่ตารางคำนวณ กระดานงาน โปรแกรมบริหารโครงการ ไปจนถึงเครื่องมือทำงานร่วมกัน แผนภูมิแกนต์แสดงงาน ระยะเวลา และหมุดหมาย การจัดสรรทรัพยากรและการปรับสมดุลช่วยป้องกันคอขวด เส้นฐาน แดชบอร์ด และ PMIS ช่วยติดตามความก้าวหน้า กระดาน Kanban สนับสนุนการทำงานแบบปรับตัว การจัดการเอกสารและองค์ความรู้ช่วยรักษาความต่อเนื่องและสะสมบทเรียน ความปลอดภัยข้อมูลและความเป็นส่วนตัวเป็นสิ่งที่ต้องออกแบบเข้าไปตั้งแต่ต้น ปัญญาประดิษฐ์เป็นผู้ช่วยที่ทรงพลังแต่ต้องใช้อย่างมีวิจารณญาณ และการเลือกเครื่องมือควรยึดหลักความเรียบง่ายที่เพียงพอ พร้อมทำให้ทีมใช้จริง ทั้งหมดนี้ช่วยให้ทีมโครงงานธุรกิจสมัยใหม่ทำงานได้อย่างเป็นระบบในเวลาที่จำกัด</p></div>
-
-<h2 id="ex">คำถามทบทวนและแบบฝึกหัดท้ายบท</h2>
-<ol class="ex">
-<li>จำแนกประเภทของเครื่องมือบริหารโครงการ และระบุว่าแต่ละประเภทเหมาะกับงานแบบใด</li>
-<li>แผนภูมิแกนต์แสดงข้อมูลอะไรบ้าง และมีประโยชน์ต่อการวางแผนและติดตามงานอย่างไร</li>
-<li>นำ WBS ของโครงงานกลุ่มท่านมาสร้างแผนภูมิแกนต์อย่างง่ายพร้อมหมุดหมาย</li>
-<li>เส้นฐาน (Baseline) คืออะไร และแดชบอร์ดกับ PMIS ช่วยติดตามความก้าวหน้าอย่างไร</li>
-<li>กระดาน Kanban และการจำกัดงานที่ทำพร้อมกัน (WIP) ช่วยทีมอย่างไร</li>
-<li>เหตุใดการจัดการเอกสารและการควบคุมเวอร์ชันจึงสำคัญต่อทีมโครงงาน</li>
-<li>การจัดการองค์ความรู้ช่วยองค์กรและโครงการต่อไปอย่างไร</li>
-<li>ยกตัวอย่างแนวทางดูแลความปลอดภัยและความเป็นส่วนตัวของข้อมูลในโครงงานของท่าน</li>
-<li>AI ช่วยงานบริหารโครงการได้อย่างไรบ้าง และมีข้อพึงระวังอะไร</li>
-<li>ระบุเกณฑ์การเลือกเครื่องมือบริหารโครงการอย่างน้อย 4 ข้อ และปัจจัยที่ทำให้ทีมใช้จริง</li>
-<li>ออกแบบชุดเครื่องมือที่ทีมโครงงานของท่านจะใช้ พร้อมเหตุผล</li>
-</ol>
-
-<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div><dl>
-<dt>แผนภูมิแกนต์ (Gantt Chart)</dt><dd>เครื่องมือแสดงงาน ระยะเวลา และลำดับในรูปแบบแท่งตามแกนเวลา</dd>
-<dt>การปรับสมดุลทรัพยากร (Resource Leveling)</dt><dd>การปรับแผนเพื่อไม่ให้ทรัพยากรถูกใช้เกินกำลัง</dd>
-<dt>เส้นฐาน (Baseline)</dt><dd>แผนที่ได้รับอนุมัติซึ่งใช้เป็นเกณฑ์เปรียบเทียบกับผลจริง</dd>
-<dt>แดชบอร์ด (Dashboard)</dt><dd>หน้ารวมตัวชี้วัดสำคัญของโครงการเพื่อดูสถานะได้ทันที</dd>
-<dt>PMIS</dt><dd>ระบบสารสนเทศที่รวมข้อมูลหลายโครงการเพื่อการบริหารระดับองค์กร</dd>
-<dt>กระดาน Kanban / WIP</dt><dd>กระดานงานตามสถานะ และการจำกัดงานที่ทำพร้อมกัน</dd>
-<dt>การจัดการองค์ความรู้</dt><dd>การเปลี่ยนบทเรียนของโครงการให้เป็นสินทรัพย์ที่ใช้ซ้ำได้</dd>
-<dt>ความเป็นส่วนตัวของข้อมูล</dt><dd>การเก็บและใช้ข้อมูลส่วนบุคคลตามกฎหมายและจริยธรรม</dd></dl></div>
-
-<h2 id="refs">เอกสารอ้างอิงประจำบท</h2>
-<div class="refs"><div class="r" id="ref-agile">Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler, M., … Thomas, D. (2001). <em>Manifesto for agile software development.</em> https://agilemanifesto.org</div><div class="r" id="ref-kerzner">Kerzner, H. (2022). <em>Project management: A systems approach to planning, scheduling, and controlling</em> (13th ed.). Wiley.</div><div class="r" id="ref-kloppenborg">Kloppenborg, T. J., Anantatmula, V., &amp; Wells, K. N. (2019). <em>Contemporary project management</em> (4th ed.). Cengage Learning.</div><div class="r" id="ref-larson">Larson, E. W., &amp; Gray, C. F. (2021). <em>Project management: The managerial process</em> (8th ed.). McGraw-Hill Education.</div><div class="r" id="ref-meredith">Meredith, J. R., Shafer, S. M., &amp; Mantel, S. J., Jr. (2021). <em>Project management: A managerial approach</em> (11th ed.). Wiley.</div><div class="r" id="ref-pinto">Pinto, J. K. (2019). <em>Project management: Achieving competitive advantage</em> (5th ed.). Pearson.</div><div class="r" id="ref-pmi">Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (7th ed.) and <em>The standard for project management.</em> PMI.</div><div class="r" id="ref-schwalbe">Schwalbe, K. (2019). <em>Information technology project management</em> (9th ed.). Cengage Learning.</div><div class="r" id="ref-wisut">วิสูตร จิระดำเกิง. (2560). <em>การบริหารโครงการ: แนวทางปฏิบัติจริง</em> (ฉบับปรับปรุงครั้งที่ 3). กรุงเทพฯ: สำนักพิมพ์วรรณกวี.</div><div class="r" id="ref-bamrung">บรรจง อมรชีวิน. (2557). <em>การวางแผนและการบริหารโครงการ (Project Planning and Management).</em> กรุงเทพฯ: สำนักพิมพ์บรรจง อมรชีวิน.</div></div>
-<div class="navrow"><a href="textbook_0903468_บทที่7_เผยแพร่.html">◀ บทก่อนหน้า</a><a href="textbook_0903468_สารบัญ.html">สารบัญ</a><a href="textbook_0903468_บทที่9_เผยแพร่.html">บทถัดไป ▶</a></div>
-<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div>
-<code id="citetext">วราวุฒิ นาคบุญนำ. ([ปี]). เครื่องมือและโปรแกรมบริหารโครงการ. ใน <em>ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่</em> (บทที่ 8). คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม.</code>
-<button onclick="cc()">คัดลอกรูปแบบอ้างอิง</button></div>
-<footer>© อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำรารายวิชา 0903468 · ฉบับเผยแพร่ออนไลน์ เวอร์ชัน 3.0 (ฉบับตำรา) · CC BY-NC-SA 4.0 [ปรับได้]</footer>
-</article></div>
-<script>
-let fsz=18;function fs(d){fsz=Math.max(15,Math.min(24,fsz+d));document.body.style.fontSize=fsz+'px';}
-const bar=document.querySelector('#progress .bar');const links=[...document.querySelectorAll('#toc a')];const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-function os(){const h=document.documentElement;const st=h.scrollTop;const mx=h.scrollHeight-h.clientHeight;bar.style.width=(mx>0?st/mx*100:0)+'%';let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k;});links.forEach((a,k)=>a.classList.toggle('active',k===i));}
-document.addEventListener('scroll',os,{passive:true});os();
-document.querySelectorAll('a.cite').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;document.querySelectorAll('.refs .r').forEach(r=>r.classList.remove('hl'));t.classList.add('hl');setTimeout(()=>t.classList.remove('hl'),2600);}));
-function cc(){const t=document.getElementById('citetext').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{const b=event.target;const o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>b.textContent=o,1600);});}
-</script><script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<!-- gc-visitcount -->
-<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
-</body></html>
+<p>เครื่องมือบริหารโครงการช่วยให้แผนที่ดีดำเนินไปอย่างมีประสิทธิภาพและมองเห็นได้ชัดเจน เครื่องมือมีหลายประเภทตั้งแต่ตารางคำนวณ กระดานงาน โปรแกรมบริหารโครงการ ไปจนถึงเครื่องมือทำงานร่วมกัน แผนภูมิแกนต์แสดงงาน ระยะเวลา และหมุดหมาย การจัดสรรทรัพยากรและการปรับสมดุลช่วยป้องกันคอขวด เส้นฐาน แดชบอร์ด และ PMIS ช่วยติดตามความก้าวหน้า กระดาน Kanban สนับสนุนการทำงานแบบปรับตัว การจัดการเอกสารและองค์ความรู้ช่วยรักษาความต่อเนื่องและสะสมบทเรียน ความปลอดภัยข้อมูลและความเป็นส่วนตัวเป็นสิ่งที่ต้องออกแบบเข้าไปตั้งแต่ต้น ปัญญาประดิษฐ์เป็นผู้ช่วยที่ทรงพลังแต่ต้องใช้อย่างมีวิจารณญาณ และการเลือกเครื่องมือควรยึดหลักความเรียบง่ายที่เพียงพอ พร้อมทำให้ทีมใช้จริง ทั้งหมดนี้ช่วยให้ทีมโครงงานธุรกิจสมัยใหม่ทำงานได้อย่างเป็นระบบในเวลาที่จำกัด</p>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จำแนกประเภทของเครื่องมือบริหารโครงการ และระบุว่าแต่ละประเภทเหมาะกับงานแบบใด</li><li>แผนภูมิแกนต์แสดงข้อมูลอะไรบ้าง และมีประโยชน์ต่อการวางแผนและติดตามงานอย่างไร</li><li>นำ WBS ของโครงงานกลุ่มท่านมาสร้างแผนภูมิแกนต์อย่างง่ายพร้อมหมุดหมาย</li><li>เส้นฐาน (Baseline) คืออะไร และแดชบอร์ดกับ PMIS ช่วยติดตามความก้าวหน้าอย่างไร</li><li>กระดาน Kanban และการจำกัดงานที่ทำพร้อมกัน (WIP) ช่วยทีมอย่างไร</li><li>เหตุใดการจัดการเอกสารและการควบคุมเวอร์ชันจึงสำคัญต่อทีมโครงงาน</li><li>การจัดการองค์ความรู้ช่วยองค์กรและโครงการต่อไปอย่างไร</li><li>ยกตัวอย่างแนวทางดูแลความปลอดภัยและความเป็นส่วนตัวของข้อมูลในโครงงานของท่าน</li><li>AI ช่วยงานบริหารโครงการได้อย่างไรบ้าง และมีข้อพึงระวังอะไร</li><li>ระบุเกณฑ์การเลือกเครื่องมือบริหารโครงการอย่างน้อย 4 ข้อ และปัจจัยที่ทำให้ทีมใช้จริง</li><li>ออกแบบชุดเครื่องมือที่ทีมโครงงานของท่านจะใช้ พร้อมเหตุผล</li></ol>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<dl><dt>แผนภูมิแกนต์ (Gantt Chart)</dt><dd>เครื่องมือแสดงงาน ระยะเวลา และลำดับในรูปแบบแท่งตามแกนเวลา</dd><dt>การปรับสมดุลทรัพยากร (Resource Leveling)</dt><dd>การปรับแผนเพื่อไม่ให้ทรัพยากรถูกใช้เกินกำลัง</dd><dt>เส้นฐาน (Baseline)</dt><dd>แผนที่ได้รับอนุมัติซึ่งใช้เป็นเกณฑ์เปรียบเทียบกับผลจริง</dd><dt>แดชบอร์ด (Dashboard)</dt><dd>หน้ารวมตัวชี้วัดสำคัญของโครงการเพื่อดูสถานะได้ทันที</dd><dt>PMIS</dt><dd>ระบบสารสนเทศที่รวมข้อมูลหลายโครงการเพื่อการบริหารระดับองค์กร</dd><dt>กระดาน Kanban / WIP</dt><dd>กระดานงานตามสถานะ และการจำกัดงานที่ทำพร้อมกัน</dd><dt>การจัดการองค์ความรู้</dt><dd>การเปลี่ยนบทเรียนของโครงการให้เป็นสินทรัพย์ที่ใช้ซ้ำได้</dd><dt>ความเป็นส่วนตัวของข้อมูล</dt><dd>การเก็บและใช้ข้อมูลส่วนบุคคลตามกฎหมายและจริยธรรม</dd></dl>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler, M., … Thomas, D. (2001). <em>Manifesto for agile software development.</em> <a href="https://agilemanifesto.org" target="_blank" rel="noopener">https://agilemanifesto.org</a></div>
+<div class="r">Kerzner, H. (2022). <em>Project management: A systems approach to planning, scheduling, and controlling</em> (13th ed.). Wiley.</div>
+<div class="r">Kloppenborg, T. J., Anantatmula, V., &amp; Wells, K. N. (2019). <em>Contemporary project management</em> (4th ed.). Cengage Learning.</div>
+<div class="r">Larson, E. W., &amp; Gray, C. F. (2021). <em>Project management: The managerial process</em> (8th ed.). McGraw-Hill Education.</div>
+<div class="r">Meredith, J. R., Shafer, S. M., &amp; Mantel, S. J., Jr. (2021). <em>Project management: A managerial approach</em> (11th ed.). Wiley.</div>
+<div class="r">Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK guide)</em> (7th ed.) and <em>The standard for project management.</em> PMI.</div>
+<div class="r">Schwalbe, K. (2019). <em>Information technology project management</em> (9th ed.). Cengage Learning.</div>
+</div>
+<h2 id="further">แหล่งอ่านเพิ่มเติม</h2>
+<div class="refs">
+<div class="r">บรรจง อมรชีวิน. (2557). <em>การวางแผนและการบริหารโครงการ (Project Planning and Management).</em> กรุงเทพฯ: สำนักพิมพ์บรรจง อมรชีวิน.</div>
+<div class="r">Pinto, J. K. (2019). <em>Project management: Achieving competitive advantage</em> (5th ed.). Pearson.</div>
+<div class="r">วิสูตร จิระดำเกิง. (2560). <em>การบริหารโครงการ: แนวทางปฏิบัติจริง</em> (ฉบับปรับปรุงครั้งที่ 3). กรุงเทพฯ: สำนักพิมพ์วรรณกวี.</div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 8 เครื่องมือและโปรแกรมบริหารโครงการ. ใน <em>การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่</em> (ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่). คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/textbook_0903468_บทที่8_เผยแพร่.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="textbook_0903468_บทที่7_เผยแพร่.html"><small>◀ บทก่อนหน้า</small>บทที่ 7 การวางแผนขอบเขตโครงการและโครงสร้างจำแนกงาน (Scope &amp; WBS)</a><a href="textbook_0903468_บทที่9_เผยแพร่.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 9 การบริหารงบประมาณและทรัพยากรโครงการ</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำรารายวิชา 0903468 โครงงานพิเศษธุรกิจสมัยใหม่ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

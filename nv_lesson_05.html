@@ -12,11 +12,11 @@
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
-.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
-.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
-.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
 .tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
 #progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
 /* ปก */
@@ -48,6 +48,7 @@ section.sec{padding:30px 0 4px}
 .lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
 .cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
 .cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
 .cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
 .path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
 .st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
@@ -66,7 +67,7 @@ details.plan .tablewrap{padding:0 14px 14px}
 .wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
 .wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
 /* หน้าบท */
-.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
 #toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
 #toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
 #toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
@@ -87,6 +88,7 @@ article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{
 .summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
 .keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
 ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
 .ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
 p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
 .tablewrap{overflow-x:auto;margin:0 0 18px}
@@ -110,15 +112,15 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 #deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
 @media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
- .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.navrow{flex-direction:column}.navrow a{max-width:none}}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
 @media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
  body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="in">
-  <div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="nv_0900304.html">วิชา 0900304</a> › บทที่ 5</div>
-  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+  <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
 </div><div id="progress"><div class="bar"></div></div></div>
 <div class="shell">
 <nav id="toc"><div class="h">สารบัญบทที่ 5</div><a href="#x6">ความนำ</a><a href="#s-5-1">5.1 ลูกค้าซื้อเพราะอะไร</a><a href="#s-5-2">5.2 การแบ่งกลุ่มลูกค้าและการเลือกกลุ่มเป้าหมาย</a><a href="#s-5-3">5.3 การค้นหาความต้องการด้วยการสัมภาษณ์และการสังเกต</a><a href="#s-5-4">5.4 การออกแบบคุณค่าให้ตรงความต้องการ</a><a href="#s-5-5">5.5 เส้นทางลูกค้าและช่องทางส่งมอบคุณค่า</a><a href="#s-5-6">5.6 ความสัมพันธ์และประสบการณ์ลูกค้า</a><a href="#s-5-7">5.7 จริยธรรมในการเก็บข้อมูลลูกค้า</a><a href="#s-5-8">5.8 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-5-9">5.9 ข้อผิดพลาดที่พบบ่อยในการทำความเข้าใจลูกค้า</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: สัมภาษณ์ลูกค้าเป้าหมาย 5 คน</a><a href="#refs">เอกสารอ้างอิง</a></nav>
@@ -129,9 +131,9 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (28 สไลด์)</button><a class="btn line" href="nv/files/nv_0900304_บทที่05_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 กิจกรรมท้ายบท</a></div>
 <div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายงานที่ลูกค้าต้องการทำให้สำเร็จ ปัญหา และประโยชน์ที่ลูกค้าอยากได้ พร้อมยกตัวอย่างได้</li><li>จำแนกกลุ่มลูกค้าตามเกณฑ์การแบ่งกลุ่ม และเขียนภาพตัวแทนลูกค้าของกลุ่มเป้าหมายได้</li><li>เขียนคำถามสัมภาษณ์ที่ไม่ชี้นำ และสรุปรูปแบบที่พบซ้ำจากการสัมภาษณ์ได้</li><li>ใช้ตารางคำถามจับคู่ความต้องการของลูกค้ากับคุณค่าที่ธุรกิจเสนอได้</li><li>จัดทำแผนที่เส้นทางลูกค้า และระบุช่องทางกับจุดสัมผัสในแต่ละขั้นได้</li><li>ระบุแนวปฏิบัติด้านจริยธรรมและการคุ้มครองข้อมูลส่วนบุคคลในการเก็บข้อมูลลูกค้าได้</li><li>สัมภาษณ์ลูกค้าเป้าหมาย 5 คน และจัดทำตารางสรุปผลการสัมภาษณ์ได้ (กิจกรรมท้ายบท)</li></ol></div>
 <h2 id="x6">ความนำ</h2>
-<p class="lead">ถึงตอนนี้แต่ละกลุ่มมี Lean Canvas และ Business Model Canvas ที่เขียนขึ้นจากความเข้าใจของทีม และมีข้อสมมติสำคัญ 3 ข้อจากงานด่าน 2 ข้อสมมติส่วนใหญ่เกี่ยวกับลูกค้า เช่น ลูกค้ากลุ่มนี้มีปัญหาจริงหรือไม่ อยากได้อะไร และจะซื้อผ่านช่องทางใด คำถามเหล่านี้ตอบได้ดีที่สุดด้วยการออกไปพบลูกค้า ไม่ใช่การประชุมในทีม</p>
+<p class="lead">ถึงตอนนี้แต่ละกลุ่มมี Lean Canvas และ Business Model Canvas ที่เขียนขึ้นจากความเข้าใจของทีม และมีข้อสมมติสำคัญ 3 ข้อจากงานกลุ่มครั้งที่ 2 ข้อสมมติส่วนใหญ่เกี่ยวกับลูกค้า เช่น ลูกค้ากลุ่มนี้มีปัญหาจริงหรือไม่ อยากได้อะไร และจะซื้อผ่านช่องทางใด คำถามเหล่านี้ตอบได้ดีที่สุดด้วยการออกไปพบลูกค้า ไม่ใช่การประชุมในทีม</p>
 <p class="lead">บทนี้ว่าด้วยการทำความเข้าใจลูกค้าอย่างเป็นระบบ เริ่มจากคำถามพื้นฐานว่าลูกค้าซื้อเพราะอะไร ต่อด้วยการแบ่งกลุ่มลูกค้าและเขียนภาพตัวแทนลูกค้า วิธีสัมภาษณ์และสังเกตที่ได้ข้อมูลจริง การออกแบบคุณค่าให้ตรงกับสิ่งที่พบ แล้วขยายไปสู่เส้นทางที่ลูกค้าเดินตั้งแต่รู้จักธุรกิจจนกลับมาซื้อซ้ำ และปิดด้วยจริยธรรมในการเก็บข้อมูลลูกค้า ซึ่งเป็นเรื่องที่นิสิตต้องปฏิบัติจริงในกิจกรรมท้ายบท</p>
-<p class="lead">ผลงานของบทนี้คือการสัมภาษณ์ลูกค้าเป้าหมาย 5 คนพร้อมตารางสรุปผล ซึ่งเป็นหลักฐานสำคัญของงานด่าน 3 และเป็นจุดเริ่มต้นของการทดสอบตลาดในบทที่ 6</p>
+<p class="lead">ผลงานของบทนี้คือการสัมภาษณ์ลูกค้าเป้าหมาย 5 คนพร้อมตารางสรุปผล ซึ่งเป็นหลักฐานสำคัญของงานกลุ่มครั้งที่ 3 และเป็นจุดเริ่มต้นของการทดสอบตลาดในบทที่ 6</p>
 <h2 id="s-5-1">5.1 ลูกค้าซื้อเพราะอะไร</h2>
 <p>คำตอบที่ง่ายที่สุดคือลูกค้าซื้อเพราะต้องการสินค้า แต่คำตอบนี้ไม่ช่วยให้ผู้ประกอบการออกแบบธุรกิจได้ Christensen และคณะ (2016) เสนอให้มองว่าลูกค้า "จ้าง" สินค้าหรือบริการมาทำงานบางอย่างให้สำเร็จในสถานการณ์หนึ่ง ถ้าเข้าใจงานนั้น ผู้ประกอบการจะเห็นทั้งคู่แข่งที่แท้จริงและโอกาสที่จะทำงานนั้นได้ดีกว่า ตัวอย่างเช่น นิสิตที่ซื้อกาแฟก่อนเข้าเรียนเช้าอาจไม่ได้ต้องการกาแฟ แต่ต้องการไม่ง่วงในคาบเรียน งานนี้มีคู่แข่งหลายแบบ เช่น เครื่องดื่มชูกำลัง ชาเย็น หรือการนอนให้พอ</p>
 <p>แนวคิดนี้แยกความต้องการของลูกค้าเป็น 3 ส่วน (Osterwalder et al., 2014) ได้แก่ <strong>งานที่ลูกค้าต้องการทำให้สำเร็จ (Customer jobs)</strong> คือสิ่งที่ลูกค้าพยายามทำในชีวิตหรือการทำงาน <strong>ปัญหา (Pains)</strong> คือสิ่งที่ทำให้งานนั้นยาก เสียเวลา เสียเงิน หรือเสี่ยง และ <strong>ประโยชน์ที่อยากได้ (Gains)</strong> คือผลลัพธ์ที่ลูกค้าหวัง หรือสิ่งที่จะทำให้ลูกค้าพอใจมากขึ้น ตารางที่ 5.1 อธิบายแต่ละส่วนพร้อมตัวอย่าง</p>
@@ -186,7 +188,7 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <p>ขั้นหลังการขายเป็นขั้นที่ธุรกิจใหม่มักลืม ทั้งที่เป็นแหล่งข้อมูลที่ดีที่สุดในการปรับคุณค่า เพราะผู้ให้ความเห็นคือคนที่ซื้อจริงแล้ว ไม่ใช่คนที่ตอบคำถามสมมติ วิธีที่ใช้ได้กับธุรกิจขนาดเล็กคือถามคำถามสั้นเพียง 1–2 ข้อหลังการใช้ทุกครั้ง เช่น "ครั้งนี้มีอะไรที่อยากให้ต่างไปไหม" แล้วจดคำตอบรวมไว้ในที่เดียว เมื่อมีคำตอบเรื่องเดียวกันซ้ำหลายครั้ง ให้ถือเป็นรูปแบบที่พบซ้ำแบบเดียวกับการสัมภาษณ์</p>
 <p>ลูกค้าที่หยุดซื้อให้ข้อมูลสำคัญไม่น้อยกว่าลูกค้าที่ซื้อต่อ ทีมควรติดต่อลูกค้าที่หายไปอย่างสุภาพเพื่อถามเหตุผล โดยไม่พยายามขายซ้ำในการคุยครั้งนั้น คำตอบมักชี้ไปที่จุดติดขัดในเส้นทางลูกค้าที่ทีมมองไม่เห็น เช่น ลืมสั่งเพราะต้องสั่งทุกวัน หรือรับสินค้าไม่สะดวกในบางวัน การติดต่อลูกค้าหลังการขายต้องใช้ช่องทางที่ลูกค้าให้ไว้เพื่อวัตถุประสงค์นี้เท่านั้น ตามหลักการใช้ข้อมูลตามวัตถุประสงค์ในหัวข้อ 5.7</p>
 <h2 id="s-5-7">5.7 จริยธรรมในการเก็บข้อมูลลูกค้า</h2>
-<p>การสัมภาษณ์และสังเกตลูกค้าคือการเก็บข้อมูลจากบุคคล ผู้ให้ข้อมูลไว้ใจให้ข้อมูลแก่ทีม ทีมจึงมีหน้าที่ใช้ข้อมูลอย่างรับผิดชอบ และต้องปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 ซึ่งกำหนดให้การเก็บ ใช้ และเปิดเผยข้อมูลส่วนบุคคลต้องมีฐานทางกฎหมาย เช่น ความยินยอมของเจ้าของข้อมูล และต้องแจ้งวัตถุประสงค์ให้เจ้าของข้อมูลทราบ ตารางที่ 5.10 สรุปแนวปฏิบัติที่นิสิตต้องใช้ในกิจกรรมท้ายบทและงานด่านที่ตามมา</p>
+<p>การสัมภาษณ์และสังเกตลูกค้าคือการเก็บข้อมูลจากบุคคล ผู้ให้ข้อมูลไว้ใจให้ข้อมูลแก่ทีม ทีมจึงมีหน้าที่ใช้ข้อมูลอย่างรับผิดชอบ และต้องปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 ซึ่งกำหนดให้การเก็บ ใช้ และเปิดเผยข้อมูลส่วนบุคคลต้องมีฐานทางกฎหมาย เช่น ความยินยอมของเจ้าของข้อมูล และต้องแจ้งวัตถุประสงค์ให้เจ้าของข้อมูลทราบ ตารางที่ 5.10 สรุปแนวปฏิบัติที่นิสิตต้องใช้ในกิจกรรมท้ายบทและงานกลุ่มครั้งที่ตามมา</p>
 <p class="tcap"><b>ตารางที่ 5.10</b> แนวปฏิบัติด้านจริยธรรมในการเก็บข้อมูลลูกค้า</p>
 <div class="tablewrap"><table><thead><tr><th>หลัก</th><th>สิ่งที่ต้องทำ</th><th>สิ่งที่ห้ามทำ</th></tr></thead><tbody><tr><td>ขอความยินยอม</td><td>แจ้งชื่อ วัตถุประสงค์ และสิทธิที่จะไม่ตอบหรือหยุดเมื่อใดก็ได้ ก่อนเริ่มสัมภาษณ์</td><td>สัมภาษณ์หรือบันทึกเสียงโดยไม่บอก</td></tr><tr><td>เก็บเท่าที่จำเป็น</td><td>เก็บเฉพาะข้อมูลที่ใช้ตอบคำถามของทีม</td><td>ขอเลขบัตรประชาชน ที่อยู่ หรือข้อมูลสุขภาพที่ไม่จำเป็น</td></tr><tr><td>ไม่ระบุตัวตน</td><td>ใช้รหัสแทนชื่อ เช่น ผู้ให้ข้อมูล ก1 ถึง ก5</td><td>ใส่ชื่อจริงหรือภาพใบหน้าในรายงานและสไลด์</td></tr><tr><td>ใช้ตามวัตถุประสงค์</td><td>ใช้ข้อมูลเพื่องานรายวิชาตามที่แจ้งไว้</td><td>นำช่องทางติดต่อไปส่งโฆษณาโดยไม่ได้ขอ</td></tr><tr><td>เก็บรักษาและทำลาย</td><td>เก็บไฟล์ในที่ที่สมาชิกกลุ่มเข้าถึงได้เท่านั้น ลบข้อมูลติดต่อเมื่อจบรายวิชา</td><td>ส่งไฟล์บันทึกที่มีข้อมูลระบุตัวตนในกลุ่มแชตขนาดใหญ่</td></tr><tr><td>ซื่อสัตย์ต่อข้อมูล</td><td>รายงานคำตอบตามจริง รวมถึงคำตอบที่ไม่สนับสนุนไอเดีย</td><td>แต่งคำตอบ หรือเลือกรายงานเฉพาะคำตอบที่ดี</td></tr></tbody></table></div>
 <h3 id="s-5-7-1">5.7.1 ข้อความขอความยินยอม</h3>
@@ -212,7 +214,7 @@ footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;tex
 <h2 id="review">คำถามทบทวน</h2>
 <ol class="ex"><li>จงอธิบายงานด้านการใช้งาน ด้านสังคม และด้านอารมณ์ของลูกค้าที่ซื้อเสื้อสูทไปสัมภาษณ์งาน</li><li>ปัญหาของลูกค้าที่รุนแรงที่สุดมักมีลักษณะอย่างไร และทีมจะรู้ได้อย่างไร</li><li>เพราะเหตุใดธุรกิจใหม่จึงควรเริ่มแบ่งกลุ่มลูกค้าด้วยเกณฑ์พฤติกรรมและสถานการณ์</li><li>ภาพตัวแทนลูกค้าที่ดีต่างจากภาพตัวแทนลูกค้าที่มาจากจินตนาการอย่างไร</li><li>จงปรับคำถาม "ถ้าเรามีบริการรับซักผ้าถึงหอ คุณจะใช้บริการไหม" ให้เป็นคำถามที่ได้ข้อมูลจริง และอธิบายเหตุผล</li><li>เพราะเหตุใดการแนะนำไอเดียของกลุ่มจึงควรทำเป็นลำดับสุดท้ายของการสัมภาษณ์</li><li>รูปแบบที่พบซ้ำคืออะไร และเพราะเหตุใดจึงไม่ควรปรับ Canvas ตามความเห็นของผู้ให้สัมภาษณ์เพียงคนเดียว</li><li>จากตารางที่ 5.7 จงเสนอสิ่งที่ธุรกิจควรเพิ่มเพื่อตอบความต้องการที่ยังไม่มีอะไรตอบ 1 ข้อ</li><li>จงเขียนแผนที่เส้นทางลูกค้า 5 ขั้นของร้านกาแฟหน้าคณะ โดยระบุจุดสัมผัสและจุดที่ลูกค้าอาจติดขัดในแต่ละขั้น</li><li>จงระบุแนวปฏิบัติด้านจริยธรรม 3 ข้อที่กลุ่มต้องทำเมื่อสัมภาษณ์ลูกค้า และบอกว่าแต่ละข้อป้องกันปัญหาอะไร</li></ol>
 <div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: สัมภาษณ์ลูกค้าเป้าหมาย 5 คน</h2>
-<p>ให้แต่ละกลุ่มสัมภาษณ์ลูกค้าเป้าหมายระหว่างสัปดาห์ที่ 8 ถึงสัปดาห์ที่ 9 และส่งผลเป็นไฟล์ PDF ใน Google Classroom ก่อนเริ่มเรียนสัปดาห์ที่ 10 ผลการสัมภาษณ์เป็นหลักฐานสำคัญของงานด่าน 3</p>
+<p>ให้แต่ละกลุ่มสัมภาษณ์ลูกค้าเป้าหมายระหว่างสัปดาห์ที่ 8 ถึงสัปดาห์ที่ 9 และส่งผลเป็นไฟล์ PDF ใน Google Classroom ก่อนเริ่มเรียนสัปดาห์ที่ 10 ผลการสัมภาษณ์เป็นหลักฐานสำคัญของงานกลุ่มครั้งที่ 3</p>
 <ol><li>ภาพตัวแทนลูกค้าฉบับก่อนสัมภาษณ์ตามแบบตารางที่ 5.3</li><li>แนวคำถาม 6–10 ข้อตามลำดับในตารางที่ 5.5 แสดงคำถามที่กลุ่มแก้จากคำถามชี้นำอย่างน้อย 3 ข้อ</li><li>สัมภาษณ์ลูกค้าเป้าหมายอย่างน้อย 5 คน ใช้ข้อความขอความยินยอมในหัวข้อ 5.7.1 และใช้รหัสแทนชื่อ</li><li>ตารางสรุปผลการสัมภาษณ์ตามแบบตารางที่ 5.13 แถวละหนึ่งคน</li><li>รูปแบบที่พบซ้ำอย่างน้อย 3 ใน 5 คน และสิ่งที่พบเพียง 1–2 คนที่ต้องเก็บข้อมูลเพิ่ม</li><li>ภาพตัวแทนลูกค้าฉบับปรับปรุง และตารางจับคู่ความต้องการกับคุณค่าตามแบบตารางที่ 5.7</li><li>รายการที่ต้องแก้ใน Lean Canvas และ Business Model Canvas จากผลการสัมภาษณ์ และข้อสมมติที่ยังต้องทดสอบในบทที่ 6</li></ol>
 <p class="tcap"><b>ตารางที่ 5.13</b> แบบตารางสรุปผลการสัมภาษณ์ลูกค้า</p>
 <div class="tablewrap"><table><thead><tr><th>รหัสผู้ให้ข้อมูล</th><th>ตรงกับกลุ่มเป้าหมายอย่างไร</th><th>เหตุการณ์ล่าสุดที่เล่า</th><th>ปัญหาที่พบ</th><th>ทางเลือกที่ใช้อยู่และค่าใช้จ่าย</th><th>สิ่งที่ผูกพันเล็กน้อยที่ได้</th></tr></thead><tbody><tr><td>ก1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>ก2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>ก3</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>ก4</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>ก5</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
