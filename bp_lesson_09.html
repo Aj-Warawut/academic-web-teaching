@@ -8,238 +8,256 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#111A3A;--navy2:#1B2A58;--ac:#2F5BD0;--gold:#E9A72C;--ink:#1D2340;--mute:#5C6B7A;--line:#E3E7F2;--bg:#F4F6FC;--card:#fff;--shadow:0 8px 26px rgba(20,30,70,.09)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;font-size:17px}
-a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
-.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30}
-.topbar .wrap{display:flex;align-items:center;gap:12px;padding:11px 22px}
-.brandname{font-size:14.5px;font-weight:700;color:#fff}.brandname small{display:block;font-size:11px;color:#9DB0D6;font-weight:400}
-.spacer{flex:1}
-.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;color:#eef1ff;white-space:nowrap}
-.pill:hover{text-decoration:none;background:rgba(255,255,255,.2)}
-.mhead{background:linear-gradient(135deg,var(--navy),var(--navy2) 60%,var(--ac));color:#fff;padding:30px 0 26px}
-.mhead .kick{font-size:13px;font-weight:800;letter-spacing:1.5px;color:#F4C150}
-.mhead h1{font-size:30px;line-height:1.3;margin:4px 0 10px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chips span{background:rgba(255,255,255,.14);border-radius:20px;padding:3px 12px;font-size:13px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.crumb{font-size:13px;color:#AEBEDD;flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.crumb a{color:#CFE0FF}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;height:34px;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
 .btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
 .btn:hover{text-decoration:none;filter:brightness(1.05)}
-.layout{display:grid;grid-template-columns:250px 1fr;gap:28px;padding:26px 0 10px}
-nav.toc{position:sticky;top:72px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 14px;font-size:14px;max-height:calc(100vh - 90px);overflow:auto}
-nav.toc b{display:block;color:var(--navy);margin-bottom:6px}
-nav.toc a{display:block;color:var(--mute);padding:3px 0;line-height:1.4}
-nav.toc a:hover{color:var(--ac)}
-article{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:30px 38px;min-width:0}
-article h2{font-size:23px;color:var(--navy);margin:30px 0 10px;padding-top:6px;line-height:1.4;scroll-margin-top:80px}
-article h2:first-child{margin-top:0}
-article h2.ws{border-top:3px solid var(--gold);padding-top:16px}
-article h3{font-size:19px;color:var(--navy2);margin:20px 0 6px;scroll-margin-top:80px}
-article p{margin:0 0 12px;text-indent:2em}
-article p.ref{text-indent:-2em;padding-left:2em;font-size:15.5px}
-article p.src{text-indent:0;font-size:14px;color:var(--mute)}
-article ol,article ul{margin:4px 0 14px 1.6em}article li{margin:3px 0}
-.obj{background:#f6f8fe;border:1px solid var(--line);border-left:5px solid var(--ac);border-radius:12px;padding:14px 18px;margin-bottom:22px}
-.obj b{color:var(--navy)}.obj ol{margin-bottom:0}
-p.tcap{text-indent:0;margin:18px 0 6px;font-size:15.5px;color:var(--navy2)}
-.tw{overflow-x:auto;margin:0 0 16px;border-top:2px solid var(--navy);border-bottom:2px solid var(--navy)}
-table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5}
-th{text-align:left;background:#f1f4fb;color:var(--navy);padding:7px 10px;border-bottom:1px solid #c9d1e6;white-space:nowrap}
-td{padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-tbody tr:last-child td{border-bottom:none}
-figure{margin:16px 0 20px;text-align:center}
-figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
-figcaption{font-size:15px;color:var(--navy2);margin-top:6px}
-aside.case{background:#fffaf0;border:1px solid #f1d9a6;border-left:5px solid var(--gold);border-radius:12px;padding:16px 20px;margin:20px 0}
-.case-h{font-weight:800;color:#8a5a00;margin-bottom:8px}
-aside.case p{text-indent:0;font-size:16px}aside.case p.q{font-weight:700;color:var(--navy)}
-.pager{display:flex;justify-content:space-between;gap:12px;padding:18px 0}
-.pager a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;flex:1;max-width:48%;color:var(--navy);font-weight:700;font-size:15px}
-.pager a small{display:block;color:var(--mute);font-weight:400}
-.pager a.next{text-align:right;margin-left:auto}
-footer{margin-top:20px;background:var(--navy);color:#9DB0D6;padding:20px 0;font-size:12.5px;text-align:center;line-height:1.7}
-/* presentation */
-#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}
-#deck.on{display:flex}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
 #deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
 #deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
-#deck .bar{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
 #deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
-/* hub */
-.hero p{max-width:760px;color:#dfe6fb;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;padding:22px 0}
-.lc{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px;display:flex;flex-direction:column;color:var(--ink)}
-.lc:hover{text-decoration:none;transform:translateY(-2px);transition:.15s}
-.lc .w{font-size:12px;font-weight:800;color:var(--ac);letter-spacing:.5px}
-.lc h3{font-size:17px;color:var(--navy);line-height:1.4;margin:4px 0 8px}
-.lc .ws{margin-top:auto;font-size:13px;color:#8a5a00;background:#fff4dc;border-radius:8px;padding:3px 8px;align-self:flex-start}
-section.blk{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:24px 28px;margin:18px 0}
-section.blk h2{font-size:22px;color:var(--navy);margin-bottom:10px}
-.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
-.dl a{display:flex;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
-.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}
-.note{font-size:14px;color:var(--mute);margin-top:10px}
-.howto{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:14px 18px;margin-top:6px}
-.howto ul{margin:6px 0 0;padding-left:20px}.howto li{margin:3px 0}.howto code{background:#f3f4f6;border-radius:4px;padding:0 4px;font-size:.92em}
-.lc.wsc p{font-size:14px;color:var(--mute);margin:6px 0 10px}.lc.wsc .go{margin-top:auto;font-weight:700;color:var(--blue,#2563eb);font-size:14px}
-@media(max-width:900px){.layout{grid-template-columns:1fr}nav.toc{position:static;max-height:none}}
-@media(max-width:560px){body{font-size:16px}.topbar .wrap{padding:9px 14px;gap:8px}.brandname small{display:none}
- .brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0;flex:1}.spacer{display:none}
- .wrap{padding:0 16px}.mhead h1{font-size:23px}article{padding:20px 18px;border-radius:12px}article h2{font-size:20px}
- article p{text-indent:1.2em}.pager{flex-direction:column}.pager a{max-width:none}section.blk{padding:18px 16px}}
-@media print{.topbar,nav.toc,.actions,.pager,#deck,footer .gc-views{display:none!important}body{background:#fff;font-size:14pt}
- .layout{display:block;padding:0}article{border:none;box-shadow:none;padding:0}.mhead{background:none;color:#000;padding:0 0 10px}
- .mhead .kick,.chips span{color:#000;background:none}figure,table,aside.case{break-inside:avoid}}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">
-  <a class="brandname" href="bp_0903521.html">วิชา 0903521 การวางแผนธุรกิจ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
-  <div class="spacer"></div>
-  <a class="pill" href="bp_0903521.html">📚 หน้าวิชา</a>
-  <a class="pill" href="index.html">🏠 หน้าแรก</a>
-</div></div>
-
-<div class="mhead"><div class="wrap">
-  <div class="kick">บทที่ 9 · สัปดาห์ที่ 11</div>
-  <h1>แผนองค์กรและกฎหมาย</h1>
-  <div class="chips"><span>0903521 การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ</span><span>กิจกรรมท้ายบท: แผนองค์กรและกฎหมายของกลุ่ม</span></div>
-  <div class="actions">
-    <button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (19 สไลด์)</button>
-    <a class="btn ghost" href="bp/files/bp_0903521_บทที่09_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a>
-    <button class="btn ghost" onclick="window.print()">🖨 พิมพ์บทเรียน</button>
-  </div>
-</div></div>
-<div class="wrap layout">
-  <nav class="toc"><b>ในบทนี้</b><a href="#x-0">ความนำ</a><a href="#s-9-1">9.1 แผนองค์กรและกฎหมายตอบคำถามอะไร</a><a href="#s-9-2">9.2 ทีมผู้ก่อตั้งและทักษะที่ธุรกิจต้องการ</a><a href="#s-9-3">9.3 โครงสร้างองค์กรและหน้าที่</a><a href="#s-9-4">9.4 รูปแบบการประกอบธุรกิจ</a><a href="#s-9-5">9.5 การจดทะเบียนและใบอนุญาต</a><a href="#s-9-6">9.6 ภาษีเบื้องต้น</a><a href="#s-9-7">9.7 ทรัพย์สินทางปัญญา</a><a href="#s-9-8">9.8 องค์กรและกฎหมายตามระยะของเส้นทางสู่เป้าหมาย</a><a href="#s-9-9">9.9 จากแผนองค์กรสู่แผนธุรกิจ</a><a href="#x-10">บทสรุป</a><a href="#x-11">คำศัพท์สำคัญ</a><a href="#x-12">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: แผนองค์กรและกฎหมายของกลุ่ม</a><a href="#x-14">เอกสารอ้างอิง</a></nav>
-  <article>
-    <div class="obj"><b>วัตถุประสงค์ เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</b><ol><li>เปรียบเทียบทักษะที่ธุรกิจต้องการกับทักษะของทีม และระบุวิธีปิดช่องว่างได้</li><li>เขียนผังองค์กร หน้าที่ของแต่ละตำแหน่ง และผู้ทำแทนในงานสำคัญได้</li><li>เปรียบเทียบรูปแบบการประกอบธุรกิจ และระบุรูปแบบที่เหมาะกับแต่ละระยะตามเกณฑ์ในบทได้</li><li>จัดทำรายการการจดทะเบียนและใบอนุญาตที่ธุรกิจต้องมีได้</li><li>อธิบายภาษีหลักของธุรกิจขนาดเล็ก และคำนวณผลของภาษีมูลค่าเพิ่มต่อราคาและรายได้ได้</li><li>ระบุทรัพย์สินทางปัญญาของธุรกิจ และวิธีคุ้มครองที่ใช้กับแต่ละประเภทได้</li></ol></div>
-    <h2 id="x-0">ความนำ</h2>
-<p class="">บทที่ 8 ตอบว่าธุรกิจผลิตและส่งมอบอย่างไร ใช้คนกี่คน และแต่ละคนทำงานใด บทนี้ตอบคำถามที่ต่อจากนั้น คือ ใครเป็นผู้ตัดสินใจและรับผิดชอบผลของงาน ธุรกิจมีสถานะทางกฎหมายแบบใด ต้องจดทะเบียนและขออนุญาตอะไร ต้องเสียภาษีอะไร และจะปกป้องชื่อร้านและสูตรอาหารที่เป็นความได้เปรียบได้อย่างไร คำตอบเหล่านี้เป็นแผนธุรกิจส่วนที่ 8 (ตารางที่ 1.6)</p>
-<p class="">ผู้อ่านแผนมักอ่านส่วนนี้เพื่อตอบคำถามที่ไม่ได้เขียนไว้ตรง ๆ ธนาคารต้องการรู้ว่าถ้าเจ้าของป่วย ธุรกิจยังเดินได้หรือไม่ และธุรกิจทำถูกกฎหมายครบหรือไม่ เพราะธุรกิจที่ถูกสั่งปิดหรือถูกเรียกภาษีย้อนหลังย่อมผ่อนหนี้ไม่ได้ ผู้ลงทุนต้องการรู้ว่าทีมมีความสามารถพอสำหรับระยะต่อไปหรือไม่ และสิ่งที่ตนลงทุนเป็นของธุรกิจจริงหรือเป็นของบุคคล บทนี้จึงไม่ได้สอนกฎหมายเพื่อให้นิสิตเป็นนักกฎหมาย แต่สอนให้วางแผนว่าต้องทำอะไร เมื่อใด และต้องถามผู้รู้เรื่องใด</p>
+<div class="topbar"><div class="in">
+  <div class="crumb"><a href="index.html">พอร์ตโฟลิโอ</a> › <a href="teaching.html">การเรียนการสอน</a> › <a href="bp_0903521.html">วิชา 0903521</a> › บทที่ 9</div>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><button onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 9</div><a href="#x6">ความนำ</a><a href="#s-9-1">9.1 แผนองค์กรและกฎหมายตอบคำถามอะไร</a><a href="#s-9-2">9.2 ทีมผู้ก่อตั้งและทักษะที่ธุรกิจต้องการ</a><a href="#s-9-3">9.3 โครงสร้างองค์กรและหน้าที่</a><a href="#s-9-4">9.4 รูปแบบการประกอบธุรกิจ</a><a href="#s-9-5">9.5 การจดทะเบียนและใบอนุญาต</a><a href="#s-9-6">9.6 ภาษีเบื้องต้น</a><a href="#s-9-7">9.7 ทรัพย์สินทางปัญญา</a><a href="#s-9-8">9.8 องค์กรและกฎหมายตามระยะของเส้นทางสู่เป้าหมาย</a><a href="#s-9-9">9.9 จากแผนองค์กรสู่แผนธุรกิจ</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: แผนองค์กรและกฎหมายของกลุ่ม</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0903521 การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ</div>
+<h1>บทที่ 9 แผนองค์กรและกฎหมาย</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>11</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (19 สไลด์)</button><a class="btn line" href="bp/files/bp_0903521_บทที่09_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 กิจกรรมท้ายบท</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>เปรียบเทียบทักษะที่ธุรกิจต้องการกับทักษะของทีม และระบุวิธีปิดช่องว่างได้</li><li>เขียนผังองค์กร หน้าที่ของแต่ละตำแหน่ง และผู้ทำแทนในงานสำคัญได้</li><li>เปรียบเทียบรูปแบบการประกอบธุรกิจ และระบุรูปแบบที่เหมาะกับแต่ละระยะตามเกณฑ์ในบทได้</li><li>จัดทำรายการการจดทะเบียนและใบอนุญาตที่ธุรกิจต้องมีได้</li><li>อธิบายภาษีหลักของธุรกิจขนาดเล็ก และคำนวณผลของภาษีมูลค่าเพิ่มต่อราคาและรายได้ได้</li><li>ระบุทรัพย์สินทางปัญญาของธุรกิจ และวิธีคุ้มครองที่ใช้กับแต่ละประเภทได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 8 ตอบว่าธุรกิจผลิตและส่งมอบอย่างไร ใช้คนกี่คน และแต่ละคนทำงานใด บทนี้ตอบคำถามที่ต่อจากนั้น คือ ใครเป็นผู้ตัดสินใจและรับผิดชอบผลของงาน ธุรกิจมีสถานะทางกฎหมายแบบใด ต้องจดทะเบียนและขออนุญาตอะไร ต้องเสียภาษีอะไร และจะปกป้องชื่อร้านและสูตรอาหารที่เป็นความได้เปรียบได้อย่างไร คำตอบเหล่านี้เป็นแผนธุรกิจส่วนที่ 8 (ตารางที่ 1.6)</p>
+<p class="lead">ผู้อ่านแผนมักอ่านส่วนนี้เพื่อตอบคำถามที่ไม่ได้เขียนไว้ตรง ๆ ธนาคารต้องการรู้ว่าถ้าเจ้าของป่วย ธุรกิจยังเดินได้หรือไม่ และธุรกิจทำถูกกฎหมายครบหรือไม่ เพราะธุรกิจที่ถูกสั่งปิดหรือถูกเรียกภาษีย้อนหลังย่อมผ่อนหนี้ไม่ได้ ผู้ลงทุนต้องการรู้ว่าทีมมีความสามารถพอสำหรับระยะต่อไปหรือไม่ และสิ่งที่ตนลงทุนเป็นของธุรกิจจริงหรือเป็นของบุคคล บทนี้จึงไม่ได้สอนกฎหมายเพื่อให้นิสิตเป็นนักกฎหมาย แต่สอนให้วางแผนว่าต้องทำอะไร เมื่อใด และต้องถามผู้รู้เรื่องใด</p>
 <h2 id="s-9-1">9.1 แผนองค์กรและกฎหมายตอบคำถามอะไร</h2>
-<p class=""><strong>แผนองค์กร (organization plan)</strong> คือส่วนของแผนธุรกิจที่อธิบายว่าใครทำงานใด ใครรับผิดชอบการตัดสินใจใด และธุรกิจมีสถานะทางกฎหมายอย่างไร แผนส่วนนี้ควรตอบหกคำถามตามตารางที่ 9.1 ตัวเลขที่ได้จากส่วนนี้ เช่น ค่าบริการทางบัญชี เงินสมทบประกันสังคม ค่าธรรมเนียมการจดทะเบียน และภาษี จะเข้าไปอยู่ในแผนการเงินบทที่ 10</p>
+<p><strong>แผนองค์กร (organization plan)</strong> คือส่วนของแผนธุรกิจที่อธิบายว่าใครทำงานใด ใครรับผิดชอบการตัดสินใจใด และธุรกิจมีสถานะทางกฎหมายอย่างไร แผนส่วนนี้ควรตอบหกคำถามตามตารางที่ 9.1 ตัวเลขที่ได้จากส่วนนี้ เช่น ค่าบริการทางบัญชี เงินสมทบประกันสังคม ค่าธรรมเนียมการจดทะเบียน และภาษี จะเข้าไปอยู่ในแผนการเงินบทที่ 10</p>
 <p class="tcap"><b>ตารางที่ 9.1</b> คำถามหลักของแผนองค์กรและกฎหมาย</p>
-<div class="tw"><table><thead><tr><th>คำถาม</th><th>หัวข้อ</th><th>ผลลัพธ์ที่ต้องได้</th><th>ส่งต่อไปที่</th></tr></thead><tbody><tr><td>ทีมมีทักษะพอหรือไม่</td><td>9.2</td><td>ตารางทักษะ ช่องว่าง และวิธีปิดช่องว่าง</td><td>แผนการเงิน (ค่าจ้างและค่าบริการภายนอก)</td></tr><tr><td>ใครรับผิดชอบอะไร</td><td>9.3</td><td>ผังองค์กร หน้าที่ และผู้ทำแทน</td><td>แผนความเสี่ยง (บทที่ 11)</td></tr><tr><td>ธุรกิจเป็นรูปแบบใด</td><td>9.4</td><td>รูปแบบที่เลือกในแต่ละระยะพร้อมเหตุผล</td><td>แผนการเงิน (ภาษี) แผนระดมทุน (บทที่ 12)</td></tr><tr><td>ต้องจดทะเบียนและขออนุญาตอะไร</td><td>9.5</td><td>รายการพร้อมหน่วยงานและกำหนดเวลา</td><td>ตารางเวลาของแผน</td></tr><tr><td>ต้องเสียภาษีอะไร</td><td>9.6</td><td>ภาษีที่เกี่ยวข้องและผลต่อรายได้</td><td>แผนการเงิน</td></tr><tr><td>ปกป้องอะไรและอย่างไร</td><td>9.7</td><td>ทรัพย์สินทางปัญญาและวิธีคุ้มครอง</td><td>กลยุทธ์ (บทที่ 6) แผนแฟรนไชส์</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>คำถาม</th><th>หัวข้อ</th><th>ผลลัพธ์ที่ต้องได้</th><th>ส่งต่อไปที่</th></tr></thead><tbody><tr><td>ทีมมีทักษะพอหรือไม่</td><td>9.2</td><td>ตารางทักษะ ช่องว่าง และวิธีปิดช่องว่าง</td><td>แผนการเงิน (ค่าจ้างและค่าบริการภายนอก)</td></tr><tr><td>ใครรับผิดชอบอะไร</td><td>9.3</td><td>ผังองค์กร หน้าที่ และผู้ทำแทน</td><td>แผนความเสี่ยง (บทที่ 11)</td></tr><tr><td>ธุรกิจเป็นรูปแบบใด</td><td>9.4</td><td>รูปแบบที่เลือกในแต่ละระยะพร้อมเหตุผล</td><td>แผนการเงิน (ภาษี) แผนระดมทุน (บทที่ 12)</td></tr><tr><td>ต้องจดทะเบียนและขออนุญาตอะไร</td><td>9.5</td><td>รายการพร้อมหน่วยงานและกำหนดเวลา</td><td>ตารางเวลาของแผน</td></tr><tr><td>ต้องเสียภาษีอะไร</td><td>9.6</td><td>ภาษีที่เกี่ยวข้องและผลต่อรายได้</td><td>แผนการเงิน</td></tr><tr><td>ปกป้องอะไรและอย่างไร</td><td>9.7</td><td>ทรัพย์สินทางปัญญาและวิธีคุ้มครอง</td><td>กลยุทธ์ (บทที่ 6) แผนแฟรนไชส์</td></tr></tbody></table></div>
 <h2 id="s-9-2">9.2 ทีมผู้ก่อตั้งและทักษะที่ธุรกิจต้องการ</h2>
 <h3 id="s-9-2-1">9.2.1 ตารางทักษะ</h3>
-<p class="">แผนธุรกิจของนิสิตมักแนะนำทีมด้วยประวัติการศึกษาและตำแหน่งในกลุ่ม เช่น ประธาน เลขานุการ และเหรัญญิก ซึ่งไม่ได้บอกผู้อ่านว่าทีมทำธุรกิจนี้ได้หรือไม่ วิธีที่ดีกว่าคือเริ่มจากงานที่ธุรกิจต้องทำ แล้วถามว่าใครในทีมมีทักษะนั้น ทักษะใดที่ไม่มีใครมีคือ<strong>ช่องว่างของทักษะ (skill gap)</strong> ซึ่งแผนต้องบอกว่าจะปิดอย่างไร มีสี่ทางเลือก คือ เรียนรู้เอง จ้างพนักงาน จ้างบริการภายนอก หรือหาที่ปรึกษา</p>
-<p class="">ตารางที่ 9.2 วิเคราะห์ทักษะของหมูปิ้งอาจารย์ตั้ม (กรณีศึกษาสมมติ) สำหรับระยะที่ 1 และระยะต่อไป ข้อสังเกตสำคัญคือทักษะที่ทำให้ร้านเดิมสำเร็จ คือสูตรและการขาย ไม่ใช่ทักษะเดียวกับที่สามสาขาและแฟรนไชส์ต้องการ</p>
+<p>แผนธุรกิจของนิสิตมักแนะนำทีมด้วยประวัติการศึกษาและตำแหน่งในกลุ่ม เช่น ประธาน เลขานุการ และเหรัญญิก ซึ่งไม่ได้บอกผู้อ่านว่าทีมทำธุรกิจนี้ได้หรือไม่ วิธีที่ดีกว่าคือเริ่มจากงานที่ธุรกิจต้องทำ แล้วถามว่าใครในทีมมีทักษะนั้น ทักษะใดที่ไม่มีใครมีคือ<strong>ช่องว่างของทักษะ (skill gap)</strong> ซึ่งแผนต้องบอกว่าจะปิดอย่างไร มีสี่ทางเลือก คือ เรียนรู้เอง จ้างพนักงาน จ้างบริการภายนอก หรือหาที่ปรึกษา</p>
+<p>ตารางที่ 9.2 วิเคราะห์ทักษะของหมูปิ้งอาจารย์ตั้ม (กรณีศึกษาสมมติ) สำหรับระยะที่ 1 และระยะต่อไป ข้อสังเกตสำคัญคือทักษะที่ทำให้ร้านเดิมสำเร็จ คือสูตรและการขาย ไม่ใช่ทักษะเดียวกับที่สามสาขาและแฟรนไชส์ต้องการ</p>
 <p class="tcap"><b>ตารางที่ 9.2</b> ทักษะที่ธุรกิจต้องการกับผู้รับผิดชอบ (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ทักษะ</th><th>ต้องใช้ในระยะ</th><th>ผู้มีทักษะ</th><th>วิธีปิดช่องว่าง</th></tr></thead><tbody><tr><td>สูตรและรสชาติ</td><td>ทุกระยะ</td><td>คุณตั้ม</td><td>เขียนสูตรมาตรฐาน ถ่ายทอดให้หัวหน้าครัวกลาง</td></tr><tr><td>ขายและดูแลลูกค้า</td><td>ทุกระยะ</td><td>คุณตั้ม</td><td>ฝึกหัวหน้าสาขา</td></tr><tr><td>บริหารคนและฝึกอบรม</td><td>1 เป็นต้นไป</td><td>คุณตั้มมีประสบการณ์สอนจากอาชีพครู</td><td>เรียนรู้เพิ่ม</td></tr><tr><td>บัญชีและภาษี</td><td>1 เป็นต้นไป</td><td>ไม่มี</td><td>จ้างสำนักงานบัญชีเดือนละ 2,000 บาท</td></tr><tr><td>สัญญาและกฎหมายแฟรนไชส์</td><td>2</td><td>ไม่มี</td><td>จ้างที่ปรึกษาก่อนขายแฟรนไชส์</td></tr><tr><td>มาตรฐานการผลิตอาหาร</td><td>3</td><td>ไม่มี</td><td>จ้างผู้ควบคุมคุณภาพที่มีประสบการณ์โรงงานอาหาร</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>ทักษะ</th><th>ต้องใช้ในระยะ</th><th>ผู้มีทักษะ</th><th>วิธีปิดช่องว่าง</th></tr></thead><tbody><tr><td>สูตรและรสชาติ</td><td>ทุกระยะ</td><td>คุณตั้ม</td><td>เขียนสูตรมาตรฐาน ถ่ายทอดให้หัวหน้าครัวกลาง</td></tr><tr><td>ขายและดูแลลูกค้า</td><td>ทุกระยะ</td><td>คุณตั้ม</td><td>ฝึกหัวหน้าสาขา</td></tr><tr><td>บริหารคนและฝึกอบรม</td><td>1 เป็นต้นไป</td><td>คุณตั้มมีประสบการณ์สอนจากอาชีพครู</td><td>เรียนรู้เพิ่ม</td></tr><tr><td>บัญชีและภาษี</td><td>1 เป็นต้นไป</td><td>ไม่มี</td><td>จ้างสำนักงานบัญชีเดือนละ 2,000 บาท</td></tr><tr><td>สัญญาและกฎหมายแฟรนไชส์</td><td>2</td><td>ไม่มี</td><td>จ้างที่ปรึกษาก่อนขายแฟรนไชส์</td></tr><tr><td>มาตรฐานการผลิตอาหาร</td><td>3</td><td>ไม่มี</td><td>จ้างผู้ควบคุมคุณภาพที่มีประสบการณ์โรงงานอาหาร</td></tr></tbody></table></div>
 <h3 id="s-9-2-2">9.2.2 ทีมที่ผู้อ่านแผนเชื่อถือ</h3>
-<p class="">ผู้อ่านแผนไม่ได้คาดหวังว่าทีมจะมีทุกทักษะตั้งแต่วันแรก แต่คาดหวังว่าทีมรู้ว่าตนขาดอะไร และมีแผนปิดช่องว่างก่อนที่จะกลายเป็นปัญหา ทีมที่เขียนว่า "ทุกคนช่วยกันทำทุกอย่าง" ให้ภาพที่ตรงกันข้าม คือไม่มีใครรับผิดชอบสิ่งใดจริง ในงานกลุ่มของรายวิชานี้ นิสิตควรเขียนทีมของธุรกิจสมมติตามบทบาทที่ธุรกิจต้องการ เช่น ผู้รับผิดชอบการผลิต การตลาด และการเงิน และระบุอย่างตรงไปตรงมาว่าทักษะใดที่กลุ่มยังไม่มี</p>
-<p class="">ในกรณีศึกษา คุณตั้มมีจุดแข็งที่ไม่เด่นในตารางแต่สำคัญต่อระยะต่อไป คือประสบการณ์จากอาชีพครู การขยายเป็นสามสาขาเปลี่ยนงานของคุณตั้มจากการทำหมูปิ้งเองเป็นการสอนคนอื่นให้ทำได้เท่ากัน และการขายแฟรนไชส์ในระยะที่ 2 คือการสอนคนจำนวนมากขึ้นอีก ทักษะการสอนจึงเป็นทรัพยากรที่ควรเขียนไว้ในแผน</p>
+<p>ผู้อ่านแผนไม่ได้คาดหวังว่าทีมจะมีทุกทักษะตั้งแต่วันแรก แต่คาดหวังว่าทีมรู้ว่าตนขาดอะไร และมีแผนปิดช่องว่างก่อนที่จะกลายเป็นปัญหา ทีมที่เขียนว่า "ทุกคนช่วยกันทำทุกอย่าง" ให้ภาพที่ตรงกันข้าม คือไม่มีใครรับผิดชอบสิ่งใดจริง ในงานกลุ่มของรายวิชานี้ นิสิตควรเขียนทีมของธุรกิจสมมติตามบทบาทที่ธุรกิจต้องการ เช่น ผู้รับผิดชอบการผลิต การตลาด และการเงิน และระบุอย่างตรงไปตรงมาว่าทักษะใดที่กลุ่มยังไม่มี</p>
+<p>ในกรณีศึกษา คุณตั้มมีจุดแข็งที่ไม่เด่นในตารางแต่สำคัญต่อระยะต่อไป คือประสบการณ์จากอาชีพครู การขยายเป็นสามสาขาเปลี่ยนงานของคุณตั้มจากการทำหมูปิ้งเองเป็นการสอนคนอื่นให้ทำได้เท่ากัน และการขายแฟรนไชส์ในระยะที่ 2 คือการสอนคนจำนวนมากขึ้นอีก ทักษะการสอนจึงเป็นทรัพยากรที่ควรเขียนไว้ในแผน</p>
 <h2 id="s-9-3">9.3 โครงสร้างองค์กรและหน้าที่</h2>
 <h3 id="s-9-3-1">9.3.1 ผังองค์กร</h3>
-<p class=""><strong>โครงสร้างองค์กร (organizational structure)</strong> คือการจัดว่าใครรายงานต่อใคร และใครมีอำนาจตัดสินใจเรื่องใด ธุรกิจขนาดเล็กไม่จำเป็นต้องมีหลายชั้น แต่ต้องชัดเจนว่าเมื่อเจ้าของไม่อยู่ ใครเป็นผู้ตัดสินใจในแต่ละจุดงาน ภาพที่ 9.1 แสดงผังองค์กรของกรณีศึกษาในระยะที่ 1 ซึ่งมีพนักงานเจ็ดคนในสี่จุดงาน และใช้บริการบัญชีจากภายนอก</p>
-<figure><img src="bp/fig/fig9_1.png" alt="ผังองค์กรของหมูปิ้งอาจารย์ตั้ม ระยะที่ 1 (กรณีศึกษาสมมติ)" loading="lazy"><figcaption><b>ภาพที่ 9.1</b> ผังองค์กรของหมูปิ้งอาจารย์ตั้ม ระยะที่ 1 (กรณีศึกษาสมมติ)</figcaption></figure>
+<p><strong>โครงสร้างองค์กร (organizational structure)</strong> คือการจัดว่าใครรายงานต่อใคร และใครมีอำนาจตัดสินใจเรื่องใด ธุรกิจขนาดเล็กไม่จำเป็นต้องมีหลายชั้น แต่ต้องชัดเจนว่าเมื่อเจ้าของไม่อยู่ ใครเป็นผู้ตัดสินใจในแต่ละจุดงาน ภาพที่ 9.1 แสดงผังองค์กรของกรณีศึกษาในระยะที่ 1 ซึ่งมีพนักงานเจ็ดคนในสี่จุดงาน และใช้บริการบัญชีจากภายนอก</p>
+<figure class="fig"><img src="bp/fig/fig9_1.png" alt="ผังองค์กรของหมูปิ้งอาจารย์ตั้ม ระยะที่ 1 (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 9.1 ผังองค์กรของหมูปิ้งอาจารย์ตั้ม ระยะที่ 1 (กรณีศึกษาสมมติ)</figcaption></figure>
 <h3 id="s-9-3-2">9.3.2 หน้าที่และอำนาจตัดสินใจ</h3>
-<p class="">ผังองค์กรบอกเพียงว่าใครอยู่ตรงไหน ตารางหน้าที่บอกว่าแต่ละตำแหน่งต้องทำอะไรและตัดสินใจอะไรได้เอง การเขียนอำนาจตัดสินใจไว้ชัดเจนช่วยให้งานเดินได้ในเช้ามืดที่คุณตั้มติดต่อไม่ได้ เช่น หัวหน้าสาขาตัดสินใจทิ้งหมูที่วางเกินสองชั่วโมงได้เองโดยไม่ต้องรอถาม (ตารางที่ 9.3)</p>
+<p>ผังองค์กรบอกเพียงว่าใครอยู่ตรงไหน ตารางหน้าที่บอกว่าแต่ละตำแหน่งต้องทำอะไรและตัดสินใจอะไรได้เอง การเขียนอำนาจตัดสินใจไว้ชัดเจนช่วยให้งานเดินได้ในเช้ามืดที่คุณตั้มติดต่อไม่ได้ เช่น หัวหน้าสาขาตัดสินใจทิ้งหมูที่วางเกินสองชั่วโมงได้เองโดยไม่ต้องรอถาม (ตารางที่ 9.3)</p>
 <p class="tcap"><b>ตารางที่ 9.3</b> หน้าที่และอำนาจตัดสินใจของแต่ละตำแหน่ง (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ตำแหน่ง</th><th>หน้าที่หลัก</th><th>ตัดสินใจได้เอง</th><th>ต้องปรึกษาคุณตั้ม</th></tr></thead><tbody><tr><td>คุณตั้ม (เจ้าของและผู้จัดการ)</td><td>วางแผน ขนส่ง ตรวจคุณภาพ ผสมเครื่องหมัก ดูแลสาขาเดิม</td><td>ทุกเรื่อง</td><td>–</td></tr><tr><td>หัวหน้าครัวกลาง</td><td>ควบคุมการผลิตตามสูตร บันทึกอุณหภูมิ สั่งหมูรายวัน</td><td>ปฏิเสธหมูที่ไม่ผ่านเกณฑ์ ปรับยอดผลิตตามออเดอร์</td><td>เปลี่ยนผู้จัดหา ซื้ออุปกรณ์</td></tr><tr><td>พนักงานครัวกลาง</td><td>หั่น หมัก เสียบไม้ ทำความสะอาด</td><td>–</td><td>–</td></tr><tr><td>หัวหน้าสาขา</td><td>ย่าง ขาย ส่งออเดอร์ LINE บันทึกยอดขายและของเสีย</td><td>ทิ้งหมูที่ไม่ผ่านเกณฑ์ แก้ปัญหาลูกค้าไม่เกิน 100 บาท</td><td>ส่วนลดนอกนโยบาย เปลี่ยนเวลาขาย</td></tr><tr><td>พนักงานสาขา</td><td>ย่างหรือขายตามที่หัวหน้าสาขามอบหมาย</td><td>–</td><td>–</td></tr><tr><td>สำนักงานบัญชี (ภายนอก)</td><td>บันทึกบัญชี ยื่นภาษีรายเดือนและรายปี</td><td>–</td><td>ทุกเรื่องที่กระทบภาษี</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>ตำแหน่ง</th><th>หน้าที่หลัก</th><th>ตัดสินใจได้เอง</th><th>ต้องปรึกษาคุณตั้ม</th></tr></thead><tbody><tr><td>คุณตั้ม (เจ้าของและผู้จัดการ)</td><td>วางแผน ขนส่ง ตรวจคุณภาพ ผสมเครื่องหมัก ดูแลสาขาเดิม</td><td>ทุกเรื่อง</td><td>–</td></tr><tr><td>หัวหน้าครัวกลาง</td><td>ควบคุมการผลิตตามสูตร บันทึกอุณหภูมิ สั่งหมูรายวัน</td><td>ปฏิเสธหมูที่ไม่ผ่านเกณฑ์ ปรับยอดผลิตตามออเดอร์</td><td>เปลี่ยนผู้จัดหา ซื้ออุปกรณ์</td></tr><tr><td>พนักงานครัวกลาง</td><td>หั่น หมัก เสียบไม้ ทำความสะอาด</td><td>–</td><td>–</td></tr><tr><td>หัวหน้าสาขา</td><td>ย่าง ขาย ส่งออเดอร์ LINE บันทึกยอดขายและของเสีย</td><td>ทิ้งหมูที่ไม่ผ่านเกณฑ์ แก้ปัญหาลูกค้าไม่เกิน 100 บาท</td><td>ส่วนลดนอกนโยบาย เปลี่ยนเวลาขาย</td></tr><tr><td>พนักงานสาขา</td><td>ย่างหรือขายตามที่หัวหน้าสาขามอบหมาย</td><td>–</td><td>–</td></tr><tr><td>สำนักงานบัญชี (ภายนอก)</td><td>บันทึกบัญชี ยื่นภาษีรายเดือนและรายปี</td><td>–</td><td>ทุกเรื่องที่กระทบภาษี</td></tr></tbody></table></div>
 <h3 id="s-9-3-3">9.3.3 ผู้ทำแทนในงานสำคัญ</h3>
-<p class="">ธุรกิจขนาดเล็กส่วนใหญ่มี<strong>ความเสี่ยงจากบุคคลสำคัญ (key person risk)</strong> คือธุรกิจหยุดเมื่อคนคนเดียวไม่อยู่ ในกรณีศึกษา คุณตั้มเป็นผู้ขนส่งหมูทุกเช้า ถ้าคุณตั้มป่วยในวันหนึ่ง สามสาขาจะไม่มีหมูขาย วิธีลดความเสี่ยงนี้คือระบุงานที่หยุดไม่ได้ และกำหนดผู้ทำแทนพร้อมฝึกไว้ล่วงหน้า (ตารางที่ 9.4)</p>
+<p>ธุรกิจขนาดเล็กส่วนใหญ่มี<strong>ความเสี่ยงจากบุคคลสำคัญ (key person risk)</strong> คือธุรกิจหยุดเมื่อคนคนเดียวไม่อยู่ ในกรณีศึกษา คุณตั้มเป็นผู้ขนส่งหมูทุกเช้า ถ้าคุณตั้มป่วยในวันหนึ่ง สามสาขาจะไม่มีหมูขาย วิธีลดความเสี่ยงนี้คือระบุงานที่หยุดไม่ได้ และกำหนดผู้ทำแทนพร้อมฝึกไว้ล่วงหน้า (ตารางที่ 9.4)</p>
 <p class="tcap"><b>ตารางที่ 9.4</b> งานที่หยุดไม่ได้และผู้ทำแทน (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>งาน</th><th>ผู้รับผิดชอบหลัก</th><th>ผู้ทำแทน</th><th>สิ่งที่ต้องเตรียม</th></tr></thead><tbody><tr><td>ขนส่งตอนเช้า</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ใบขับขี่ ฝึกเส้นทางเดือนละครั้ง</td></tr><tr><td>ผสมเครื่องหมัก</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ทำซองเครื่องหมักสำรองไว้ใช้ 7 วัน</td></tr><tr><td>ตรวจรสชาติก่อนส่ง</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ฝึกชิมเทียบกับตัวอย่างมาตรฐาน</td></tr><tr><td>ดูแลสาขาเดิม</td><td>คุณตั้ม</td><td>พนักงานสาขาเดิม</td><td>ฝึกงานหัวหน้าสาขา</td></tr><tr><td>ย่างที่สาขาใหม่</td><td>หัวหน้าสาขา</td><td>พนักงานสาขาเดิม หรือพนักงานครัวกลาง</td><td>ฝึกย่างตามขั้นตอนมาตรฐาน</td></tr></tbody></table></div>
-<p class="">ตารางนี้แสดงอีกเรื่องหนึ่งที่สำคัญ หัวหน้าครัวกลางเป็นผู้ทำแทนในสามงาน คนคนนี้จึงเป็นบุคคลสำคัญคนที่สองของธุรกิจ แผนควรเขียนว่าร้านจะรักษาพนักงานคนนี้ไว้อย่างไร และเมื่อเข้าระยะที่ 2 ควรพิจารณาค่าตอบแทนที่สะท้อนความรับผิดชอบที่เพิ่มขึ้น</p>
+<div class="tablewrap"><table><thead><tr><th>งาน</th><th>ผู้รับผิดชอบหลัก</th><th>ผู้ทำแทน</th><th>สิ่งที่ต้องเตรียม</th></tr></thead><tbody><tr><td>ขนส่งตอนเช้า</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ใบขับขี่ ฝึกเส้นทางเดือนละครั้ง</td></tr><tr><td>ผสมเครื่องหมัก</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ทำซองเครื่องหมักสำรองไว้ใช้ 7 วัน</td></tr><tr><td>ตรวจรสชาติก่อนส่ง</td><td>คุณตั้ม</td><td>หัวหน้าครัวกลาง</td><td>ฝึกชิมเทียบกับตัวอย่างมาตรฐาน</td></tr><tr><td>ดูแลสาขาเดิม</td><td>คุณตั้ม</td><td>พนักงานสาขาเดิม</td><td>ฝึกงานหัวหน้าสาขา</td></tr><tr><td>ย่างที่สาขาใหม่</td><td>หัวหน้าสาขา</td><td>พนักงานสาขาเดิม หรือพนักงานครัวกลาง</td><td>ฝึกย่างตามขั้นตอนมาตรฐาน</td></tr></tbody></table></div>
+<p>ตารางนี้แสดงอีกเรื่องหนึ่งที่สำคัญ หัวหน้าครัวกลางเป็นผู้ทำแทนในสามงาน คนคนนี้จึงเป็นบุคคลสำคัญคนที่สองของธุรกิจ แผนควรเขียนว่าร้านจะรักษาพนักงานคนนี้ไว้อย่างไร และเมื่อเข้าระยะที่ 2 ควรพิจารณาค่าตอบแทนที่สะท้อนความรับผิดชอบที่เพิ่มขึ้น</p>
 <h2 id="s-9-4">9.4 รูปแบบการประกอบธุรกิจ</h2>
 <h3 id="s-9-4-1">9.4.1 เปรียบเทียบสี่รูปแบบ</h3>
-<p class="">ธุรกิจในประเทศไทยประกอบการได้หลายรูปแบบ รูปแบบที่ผู้ประกอบการรายใหม่ใช้บ่อยมีสี่รูปแบบ คือ บุคคลธรรมดา ห้างหุ้นส่วนสามัญ ห้างหุ้นส่วนจำกัด และบริษัทจำกัด ความแตกต่างที่สำคัญที่สุดคือ<strong>ความรับผิด (liability)</strong> ต่อหนี้ของธุรกิจ ถ้าความรับผิดไม่จำกัด เจ้าหนี้ของธุรกิจเรียกชำระหนี้จากทรัพย์สินส่วนตัวของเจ้าของได้ ส่วนความแตกต่างด้านภาษีคือ บุคคลธรรมดาเสียภาษีเงินได้บุคคลธรรมดาในอัตราก้าวหน้า ส่วนห้างหุ้นส่วนจำกัดและบริษัทจำกัดเป็นนิติบุคคล เสียภาษีเงินได้นิติบุคคลจากกำไรสุทธิ (ตารางที่ 9.5)</p>
+<p>ธุรกิจในประเทศไทยประกอบการได้หลายรูปแบบ รูปแบบที่ผู้ประกอบการรายใหม่ใช้บ่อยมีสี่รูปแบบ คือ บุคคลธรรมดา ห้างหุ้นส่วนสามัญ ห้างหุ้นส่วนจำกัด และบริษัทจำกัด ความแตกต่างที่สำคัญที่สุดคือ<strong>ความรับผิด (liability)</strong> ต่อหนี้ของธุรกิจ ถ้าความรับผิดไม่จำกัด เจ้าหนี้ของธุรกิจเรียกชำระหนี้จากทรัพย์สินส่วนตัวของเจ้าของได้ ส่วนความแตกต่างด้านภาษีคือ บุคคลธรรมดาเสียภาษีเงินได้บุคคลธรรมดาในอัตราก้าวหน้า ส่วนห้างหุ้นส่วนจำกัดและบริษัทจำกัดเป็นนิติบุคคล เสียภาษีเงินได้นิติบุคคลจากกำไรสุทธิ (ตารางที่ 9.5)</p>
 <p class="tcap"><b>ตารางที่ 9.5</b> เปรียบเทียบรูปแบบการประกอบธุรกิจ</p>
-<div class="tw"><table><thead><tr><th>ประเด็น</th><th>บุคคลธรรมดา</th><th>ห้างหุ้นส่วนสามัญ</th><th>ห้างหุ้นส่วนจำกัด</th><th>บริษัทจำกัด</th></tr></thead><tbody><tr><td>จำนวนผู้ก่อตั้ง</td><td>1 คน</td><td>2 คนขึ้นไป</td><td>2 คนขึ้นไป</td><td>ผู้เริ่มก่อการ 2 คนขึ้นไป</td></tr><tr><td>ความรับผิดต่อหนี้</td><td>ไม่จำกัด</td><td>ไม่จำกัดร่วมกัน</td><td>หุ้นส่วนผู้จัดการไม่จำกัด หุ้นส่วนอื่นจำกัด</td><td>จำกัดเท่ามูลค่าหุ้นที่ยังชำระไม่ครบ</td></tr><tr><td>สถานะ</td><td>ไม่เป็นนิติบุคคล</td><td>เป็นนิติบุคคลเมื่อจดทะเบียน</td><td>นิติบุคคล</td><td>นิติบุคคล</td></tr><tr><td>ภาษีเงินได้</td><td>บุคคลธรรมดา อัตราก้าวหน้า</td><td>ขึ้นกับการจดทะเบียน</td><td>นิติบุคคล</td><td>นิติบุคคล</td></tr><tr><td>ความยุ่งยากด้านบัญชี</td><td>ต่ำ</td><td>ต่ำถึงปานกลาง</td><td>สูง ต้องมีงบการเงินที่ผู้สอบบัญชีตรวจ</td><td>สูง ต้องมีงบการเงินที่ผู้สอบบัญชีตรวจ</td></tr><tr><td>ความน่าเชื่อถือต่อผู้ลงทุนและคู่สัญญา</td><td>ต่ำ</td><td>ต่ำ</td><td>ปานกลาง</td><td>สูง รับผู้ลงทุนด้วยการออกหุ้นได้</td></tr></tbody></table></div>
-<p class="">การจัดตั้งบริษัทจำกัดทำได้ง่ายขึ้นตั้งแต่ปี 2566 เมื่อพระราชบัญญัติแก้ไขเพิ่มเติมประมวลกฎหมายแพ่งและพาณิชย์ (ฉบับที่ 23) พ.ศ. 2565 มีผลใช้บังคับ และลดจำนวนผู้เริ่มก่อการขั้นต่ำจากสามคนเป็นสองคน ข้อนี้ทำให้ผู้ประกอบการรายเล็กที่มีหุ้นส่วนเพียงคนเดียวเลือกรูปแบบบริษัทได้ แต่ความง่ายในการจัดตั้งไม่ได้แปลว่าควรตั้งบริษัททันที เพราะบริษัทมีภาระด้านบัญชีและการสอบบัญชีทุกปี</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>บุคคลธรรมดา</th><th>ห้างหุ้นส่วนสามัญ</th><th>ห้างหุ้นส่วนจำกัด</th><th>บริษัทจำกัด</th></tr></thead><tbody><tr><td>จำนวนผู้ก่อตั้ง</td><td>1 คน</td><td>2 คนขึ้นไป</td><td>2 คนขึ้นไป</td><td>ผู้เริ่มก่อการ 2 คนขึ้นไป</td></tr><tr><td>ความรับผิดต่อหนี้</td><td>ไม่จำกัด</td><td>ไม่จำกัดร่วมกัน</td><td>หุ้นส่วนผู้จัดการไม่จำกัด หุ้นส่วนอื่นจำกัด</td><td>จำกัดเท่ามูลค่าหุ้นที่ยังชำระไม่ครบ</td></tr><tr><td>สถานะ</td><td>ไม่เป็นนิติบุคคล</td><td>เป็นนิติบุคคลเมื่อจดทะเบียน</td><td>นิติบุคคล</td><td>นิติบุคคล</td></tr><tr><td>ภาษีเงินได้</td><td>บุคคลธรรมดา อัตราก้าวหน้า</td><td>ขึ้นกับการจดทะเบียน</td><td>นิติบุคคล</td><td>นิติบุคคล</td></tr><tr><td>ความยุ่งยากด้านบัญชี</td><td>ต่ำ</td><td>ต่ำถึงปานกลาง</td><td>สูง ต้องมีงบการเงินที่ผู้สอบบัญชีตรวจ</td><td>สูง ต้องมีงบการเงินที่ผู้สอบบัญชีตรวจ</td></tr><tr><td>ความน่าเชื่อถือต่อผู้ลงทุนและคู่สัญญา</td><td>ต่ำ</td><td>ต่ำ</td><td>ปานกลาง</td><td>สูง รับผู้ลงทุนด้วยการออกหุ้นได้</td></tr></tbody></table></div>
+<p>การจัดตั้งบริษัทจำกัดทำได้ง่ายขึ้นตั้งแต่ปี 2566 เมื่อพระราชบัญญัติแก้ไขเพิ่มเติมประมวลกฎหมายแพ่งและพาณิชย์ (ฉบับที่ 23) พ.ศ. 2565 มีผลใช้บังคับ และลดจำนวนผู้เริ่มก่อการขั้นต่ำจากสามคนเป็นสองคน ข้อนี้ทำให้ผู้ประกอบการรายเล็กที่มีหุ้นส่วนเพียงคนเดียวเลือกรูปแบบบริษัทได้ แต่ความง่ายในการจัดตั้งไม่ได้แปลว่าควรตั้งบริษัททันที เพราะบริษัทมีภาระด้านบัญชีและการสอบบัญชีทุกปี</p>
 <h3 id="s-9-4-2">9.4.2 เลือกรูปแบบตามระยะ</h3>
-<p class="">รูปแบบธุรกิจที่ดีที่สุดเปลี่ยนไปตามระยะของธุรกิจ และไม่ควรเลือกครั้งเดียวตลอดไป คำถามที่ใช้ตัดสินมีสามข้อ คือ ความเสี่ยงที่จะเกิดหนี้สูงเกินทรัพย์สินส่วนตัวมีมากเพียงใด ต้องรับผู้ลงทุนหรือทำสัญญากับคู่ค้าจำนวนมากหรือไม่ และภาระด้านบัญชีคุ้มกับประโยชน์หรือไม่ ตารางที่ 9.6 แสดงการตัดสินใจของกรณีศึกษา</p>
+<p>รูปแบบธุรกิจที่ดีที่สุดเปลี่ยนไปตามระยะของธุรกิจ และไม่ควรเลือกครั้งเดียวตลอดไป คำถามที่ใช้ตัดสินมีสามข้อ คือ ความเสี่ยงที่จะเกิดหนี้สูงเกินทรัพย์สินส่วนตัวมีมากเพียงใด ต้องรับผู้ลงทุนหรือทำสัญญากับคู่ค้าจำนวนมากหรือไม่ และภาระด้านบัญชีคุ้มกับประโยชน์หรือไม่ ตารางที่ 9.6 แสดงการตัดสินใจของกรณีศึกษา</p>
 <p class="tcap"><b>ตารางที่ 9.6</b> รูปแบบธุรกิจที่เลือกในแต่ละระยะ (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ระยะ</th><th>รูปแบบ</th><th>เหตุผล</th></tr></thead><tbody><tr><td>1 (2570–2571)</td><td>บุคคลธรรมดา เหมือนเดิม</td><td>หนี้ 300,000 บาทอยู่ในระดับที่คุณตั้มรับได้ ยังไม่มีผู้ลงทุน ลดภาระบัญชีในช่วงที่ต้องโฟกัสการขยายสาขา</td></tr><tr><td>2 (2572–2574)</td><td>บริษัทจำกัด ตั้งในไตรมาสแรกปี 2572 หลังผ่านด่าน 1 ผู้เริ่มก่อการคือคุณตั้มและคู่สมรส</td><td>ต้องทำสัญญาแฟรนไชส์หลายฉบับ แยกความรับผิดของธุรกิจออกจากทรัพย์สินส่วนตัว และเตรียมรับผู้ลงทุน</td></tr><tr><td>3 (2575–2579)</td><td>บริษัทจำกัดเดิม เพิ่มทุนรับผู้ลงทุน</td><td>ต้องใช้เงินลงทุนสร้างโรงงาน</td></tr></tbody></table></div>
-<p class="">การตั้งบริษัทหลังผ่านด่าน 1 ไม่ใช่ก่อน มีเหตุผลเดียวกับหลักของรายวิชา ถ้าไม่ผ่านด่าน 1 และตัดสินใจหยุดที่สามสาขา ร้านไม่จำเป็นต้องมีบริษัท ค่าใช้จ่ายและภาระทางบัญชีของบริษัทจึงควรเกิดขึ้นเมื่อมีหลักฐานแล้วว่าจะเดินต่อ</p>
+<div class="tablewrap"><table><thead><tr><th>ระยะ</th><th>รูปแบบ</th><th>เหตุผล</th></tr></thead><tbody><tr><td>1 (2570–2571)</td><td>บุคคลธรรมดา เหมือนเดิม</td><td>หนี้ 300,000 บาทอยู่ในระดับที่คุณตั้มรับได้ ยังไม่มีผู้ลงทุน ลดภาระบัญชีในช่วงที่ต้องโฟกัสการขยายสาขา</td></tr><tr><td>2 (2572–2574)</td><td>บริษัทจำกัด ตั้งในไตรมาสแรกปี 2572 หลังผ่านด่าน 1 ผู้เริ่มก่อการคือคุณตั้มและคู่สมรส</td><td>ต้องทำสัญญาแฟรนไชส์หลายฉบับ แยกความรับผิดของธุรกิจออกจากทรัพย์สินส่วนตัว และเตรียมรับผู้ลงทุน</td></tr><tr><td>3 (2575–2579)</td><td>บริษัทจำกัดเดิม เพิ่มทุนรับผู้ลงทุน</td><td>ต้องใช้เงินลงทุนสร้างโรงงาน</td></tr></tbody></table></div>
+<p>การตั้งบริษัทหลังผ่านด่าน 1 ไม่ใช่ก่อน มีเหตุผลเดียวกับหลักของรายวิชา ถ้าไม่ผ่านด่าน 1 และตัดสินใจหยุดที่สามสาขา ร้านไม่จำเป็นต้องมีบริษัท ค่าใช้จ่ายและภาระทางบัญชีของบริษัทจึงควรเกิดขึ้นเมื่อมีหลักฐานแล้วว่าจะเดินต่อ</p>
 <h2 id="s-9-5">9.5 การจดทะเบียนและใบอนุญาต</h2>
 <h3 id="s-9-5-1">9.5.1 รายการตรวจสอบ</h3>
-<p class="">ธุรกิจทุกประเภทต้องมีการจดทะเบียนและใบอนุญาตบางรายการ แต่รายการแตกต่างกันตามประเภทธุรกิจ ทำเล และขนาด แผนธุรกิจที่ดีไม่ได้คัดลอกรายการกฎหมายทั้งหมด แต่ทำรายการเฉพาะที่ธุรกิจของตนต้องมี พร้อมหน่วยงานที่รับเรื่องและกำหนดเวลาที่ต้องเสร็จ ผู้ประกอบการต้องทำทั้งการจดทะเบียนพาณิชย์ตามพระราชบัญญัติทะเบียนพาณิชย์ พ.ศ. 2499 และสำหรับธุรกิจอาหาร ต้องปฏิบัติตามพระราชบัญญัติการสาธารณสุข พ.ศ. 2535 ซึ่งกำหนดว่าสถานที่จำหน่ายอาหารที่มีพื้นที่ไม่เกิน 200 ตารางเมตรต้องแจ้งต่อเจ้าพนักงานท้องถิ่นและได้รับหนังสือรับรองการแจ้ง ส่วนที่มีพื้นที่เกิน 200 ตารางเมตรต้องได้รับใบอนุญาต (พระราชบัญญัติการสาธารณสุข พ.ศ. 2535, 2535)</p>
-<p class="">ตารางที่ 9.7 เป็นรายการตรวจสอบของกรณีศึกษาในระยะที่ 1 ข้อสังเกตคือบางรายการเขียนว่า "ต้องตรวจกับหน่วยงาน" ซึ่งเป็นคำตอบที่ถูกต้องในแผนธุรกิจ ถ้าผู้เขียนแผนยังไม่แน่ใจว่ากิจกรรมของตนเข้าข่ายต้องขออนุญาตหรือไม่ การเขียนว่าจะสอบถามหน่วยงานใดและเมื่อใดดีกว่าการเดา หรือการไม่เขียนเลย</p>
+<p>ธุรกิจทุกประเภทต้องมีการจดทะเบียนและใบอนุญาตบางรายการ แต่รายการแตกต่างกันตามประเภทธุรกิจ ทำเล และขนาด แผนธุรกิจที่ดีไม่ได้คัดลอกรายการกฎหมายทั้งหมด แต่ทำรายการเฉพาะที่ธุรกิจของตนต้องมี พร้อมหน่วยงานที่รับเรื่องและกำหนดเวลาที่ต้องเสร็จ ผู้ประกอบการต้องทำทั้งการจดทะเบียนพาณิชย์ตามพระราชบัญญัติทะเบียนพาณิชย์ พ.ศ. 2499 และสำหรับธุรกิจอาหาร ต้องปฏิบัติตามพระราชบัญญัติการสาธารณสุข พ.ศ. 2535 ซึ่งกำหนดว่าสถานที่จำหน่ายอาหารที่มีพื้นที่ไม่เกิน 200 ตารางเมตรต้องแจ้งต่อเจ้าพนักงานท้องถิ่นและได้รับหนังสือรับรองการแจ้ง ส่วนที่มีพื้นที่เกิน 200 ตารางเมตรต้องได้รับใบอนุญาต (พระราชบัญญัติการสาธารณสุข พ.ศ. 2535, 2535)</p>
+<p>ตารางที่ 9.7 เป็นรายการตรวจสอบของกรณีศึกษาในระยะที่ 1 ข้อสังเกตคือบางรายการเขียนว่า "ต้องตรวจกับหน่วยงาน" ซึ่งเป็นคำตอบที่ถูกต้องในแผนธุรกิจ ถ้าผู้เขียนแผนยังไม่แน่ใจว่ากิจกรรมของตนเข้าข่ายต้องขออนุญาตหรือไม่ การเขียนว่าจะสอบถามหน่วยงานใดและเมื่อใดดีกว่าการเดา หรือการไม่เขียนเลย</p>
 <p class="tcap"><b>ตารางที่ 9.7</b> รายการจดทะเบียนและใบอนุญาตของระยะที่ 1 (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>รายการ</th><th>หน่วยงาน</th><th>กำหนดเวลา</th><th>สถานะ</th></tr></thead><tbody><tr><td>ทะเบียนพาณิชย์ แจ้งเพิ่มสาขาและครัวกลาง</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเปิดสาขาใหม่</td><td>มีทะเบียนแล้ว ต้องแจ้งเปลี่ยนแปลง</td></tr><tr><td>หนังสือรับรองการแจ้งจัดตั้งสถานที่จำหน่ายอาหาร สาขาละหนึ่งฉบับ</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเปิดสาขาใหม่</td><td>ต้องยื่น</td></tr><tr><td>ครัวกลาง: ต้องขออนุญาตตามข้อบัญญัติท้องถิ่นหรือไม่</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเช่าพื้นที่</td><td>ต้องตรวจกับหน่วยงาน</td></tr><tr><td>อบรมผู้ประกอบกิจการและผู้สัมผัสอาหาร</td><td>หน่วยจัดอบรมที่กรมอนามัยรับรอง</td><td>ก่อนเริ่มงาน</td><td>พนักงานใหม่ 6 คน</td></tr><tr><td>จดทะเบียนภาษีมูลค่าเพิ่ม</td><td>สำนักงานสรรพากรพื้นที่</td><td>ก่อนเปิดสาขาใหม่ (หัวข้อ 9.6)</td><td>ต้องยื่น</td></tr><tr><td>ขึ้นทะเบียนนายจ้างและลูกจ้างประกันสังคม</td><td>สำนักงานประกันสังคมจังหวัด</td><td>เมื่อจ้างพนักงาน</td><td>สาขาเดิมมีแล้ว ต้องเพิ่มลูกจ้างใหม่</td></tr><tr><td>ยื่นจดเครื่องหมายการค้า</td><td>กรมทรัพย์สินทางปัญญา</td><td>ภายในปี 2570 (หัวข้อ 9.7)</td><td>ต้องยื่น</td></tr><tr><td>แจ้งวัตถุประสงค์การเก็บข้อมูลลูกค้าใน LINE</td><td>ภายในร้าน</td><td>ก่อนรับออเดอร์</td><td>ต้องจัดทำ</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>หน่วยงาน</th><th>กำหนดเวลา</th><th>สถานะ</th></tr></thead><tbody><tr><td>ทะเบียนพาณิชย์ แจ้งเพิ่มสาขาและครัวกลาง</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเปิดสาขาใหม่</td><td>มีทะเบียนแล้ว ต้องแจ้งเปลี่ยนแปลง</td></tr><tr><td>หนังสือรับรองการแจ้งจัดตั้งสถานที่จำหน่ายอาหาร สาขาละหนึ่งฉบับ</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเปิดสาขาใหม่</td><td>ต้องยื่น</td></tr><tr><td>ครัวกลาง: ต้องขออนุญาตตามข้อบัญญัติท้องถิ่นหรือไม่</td><td>เทศบาลเมืองมหาสารคาม</td><td>ก่อนเช่าพื้นที่</td><td>ต้องตรวจกับหน่วยงาน</td></tr><tr><td>อบรมผู้ประกอบกิจการและผู้สัมผัสอาหาร</td><td>หน่วยจัดอบรมที่กรมอนามัยรับรอง</td><td>ก่อนเริ่มงาน</td><td>พนักงานใหม่ 6 คน</td></tr><tr><td>จดทะเบียนภาษีมูลค่าเพิ่ม</td><td>สำนักงานสรรพากรพื้นที่</td><td>ก่อนเปิดสาขาใหม่ (หัวข้อ 9.6)</td><td>ต้องยื่น</td></tr><tr><td>ขึ้นทะเบียนนายจ้างและลูกจ้างประกันสังคม</td><td>สำนักงานประกันสังคมจังหวัด</td><td>เมื่อจ้างพนักงาน</td><td>สาขาเดิมมีแล้ว ต้องเพิ่มลูกจ้างใหม่</td></tr><tr><td>ยื่นจดเครื่องหมายการค้า</td><td>กรมทรัพย์สินทางปัญญา</td><td>ภายในปี 2570 (หัวข้อ 9.7)</td><td>ต้องยื่น</td></tr><tr><td>แจ้งวัตถุประสงค์การเก็บข้อมูลลูกค้าใน LINE</td><td>ภายในร้าน</td><td>ก่อนรับออเดอร์</td><td>ต้องจัดทำ</td></tr></tbody></table></div>
 <h3 id="s-9-5-2">9.5.2 ลูกจ้างและประกันสังคม</h3>
-<p class="">การจ้างพนักงานทำให้ธุรกิจมีหน้าที่ตามกฎหมายแรงงานและกฎหมายประกันสังคม เช่น จ่ายค่าจ้างไม่ต่ำกว่าอัตราค่าจ้างขั้นต่ำของจังหวัด ขึ้นทะเบียนนายจ้างและลูกจ้าง และนำส่งเงินสมทบเข้ากองทุนประกันสังคมทั้งส่วนของนายจ้างและส่วนที่หักจากค่าจ้างของลูกจ้าง (พระราชบัญญัติประกันสังคม พ.ศ. 2533, 2533) หน้าที่นี้รวมถึงพนักงานที่ทำงานไม่เต็มเวลาด้วย แผนธุรกิจจึงต้องรวมเงินสมทบส่วนของนายจ้างเป็นต้นทุนของการจ้างงาน ไม่ใช่ใช้เฉพาะค่าจ้าง ในกรณีศึกษา บทที่ 10 ใช้ข้อสมมติว่าเงินสมทบส่วนของนายจ้างเท่ากับร้อยละ 5 ของค่าจ้าง ผู้ประกอบการต้องตรวจอัตราและฐานค่าจ้างที่ใช้คำนวณกับสำนักงานประกันสังคมทุกครั้งที่ทำแผน เพราะอัตราอาจเปลี่ยนตามประกาศ</p>
+<p>การจ้างพนักงานทำให้ธุรกิจมีหน้าที่ตามกฎหมายแรงงานและกฎหมายประกันสังคม เช่น จ่ายค่าจ้างไม่ต่ำกว่าอัตราค่าจ้างขั้นต่ำของจังหวัด ขึ้นทะเบียนนายจ้างและลูกจ้าง และนำส่งเงินสมทบเข้ากองทุนประกันสังคมทั้งส่วนของนายจ้างและส่วนที่หักจากค่าจ้างของลูกจ้าง (พระราชบัญญัติประกันสังคม พ.ศ. 2533, 2533) หน้าที่นี้รวมถึงพนักงานที่ทำงานไม่เต็มเวลาด้วย แผนธุรกิจจึงต้องรวมเงินสมทบส่วนของนายจ้างเป็นต้นทุนของการจ้างงาน ไม่ใช่ใช้เฉพาะค่าจ้าง ในกรณีศึกษา บทที่ 10 ใช้ข้อสมมติว่าเงินสมทบส่วนของนายจ้างเท่ากับร้อยละ 5 ของค่าจ้าง ผู้ประกอบการต้องตรวจอัตราและฐานค่าจ้างที่ใช้คำนวณกับสำนักงานประกันสังคมทุกครั้งที่ทำแผน เพราะอัตราอาจเปลี่ยนตามประกาศ</p>
 <h2 id="s-9-6">9.6 ภาษีเบื้องต้น</h2>
 <h3 id="s-9-6-1">9.6.1 ภาษีหลักของธุรกิจขนาดเล็ก</h3>
-<p class="">ธุรกิจขนาดเล็กเกี่ยวข้องกับภาษีหลักสามประเภท ประเภทแรก ภาษีเงินได้ ซึ่งเสียจากกำไรของธุรกิจ ประเภทที่สอง <strong>ภาษีมูลค่าเพิ่ม (value added tax)</strong> ซึ่งเก็บจากผู้ซื้อทุกครั้งที่ขาย แล้วธุรกิจนำส่งรัฐ ประเภทที่สาม ภาษีที่ธุรกิจหักจากเงินที่จ่ายให้ผู้อื่นแล้วนำส่งแทน เช่น ภาษีที่หักจากค่าจ้างบางกรณี ตารางที่ 9.8 สรุปหลักของภาษีสองประเภทแรก ซึ่งกระทบแผนการเงินมากที่สุด</p>
+<p>ธุรกิจขนาดเล็กเกี่ยวข้องกับภาษีหลักสามประเภท ประเภทแรก ภาษีเงินได้ ซึ่งเสียจากกำไรของธุรกิจ ประเภทที่สอง <strong>ภาษีมูลค่าเพิ่ม (value added tax)</strong> ซึ่งเก็บจากผู้ซื้อทุกครั้งที่ขาย แล้วธุรกิจนำส่งรัฐ ประเภทที่สาม ภาษีที่ธุรกิจหักจากเงินที่จ่ายให้ผู้อื่นแล้วนำส่งแทน เช่น ภาษีที่หักจากค่าจ้างบางกรณี ตารางที่ 9.8 สรุปหลักของภาษีสองประเภทแรก ซึ่งกระทบแผนการเงินมากที่สุด</p>
 <p class="tcap"><b>ตารางที่ 9.8</b> ภาษีหลักที่ต้องวางแผน</p>
-<div class="tw"><table><thead><tr><th>ภาษี</th><th>ผู้เสีย</th><th>หลักการ</th></tr></thead><tbody><tr><td>ภาษีเงินได้บุคคลธรรมดา</td><td>ธุรกิจที่เป็นบุคคลธรรมดาหรือห้างหุ้นส่วนสามัญที่ไม่จดทะเบียน</td><td>เสียจากเงินได้หลังหักค่าใช้จ่ายและค่าลดหย่อน อัตราก้าวหน้า</td></tr><tr><td>ภาษีเงินได้นิติบุคคล</td><td>ห้างหุ้นส่วนจำกัด บริษัทจำกัด</td><td>กิจการที่มีทุนชำระแล้วไม่เกิน 5 ล้านบาทและรายได้ไม่เกิน 30 ล้านบาทต่อปี เสียในอัตราลดหลั่น กำไรสุทธิส่วนที่ไม่เกิน 300,000 บาทได้รับยกเว้น ส่วนที่เกิน 300,000 บาทแต่ไม่เกิน 3 ล้านบาทเสียร้อยละ 15 ส่วนที่เกิน 3 ล้านบาทเสียร้อยละ 20</td></tr><tr><td>ภาษีมูลค่าเพิ่ม</td><td>ผู้ขายสินค้าหรือบริการที่มีรายรับเกิน 1.8 ล้านบาทต่อปี</td><td>ต้องจดทะเบียนภายใน 30 วันนับจากวันที่รายรับเกิน ปัจจุบันเก็บร้อยละ 7 ของราคาขาย และหักภาษีที่จ่ายเมื่อซื้อได้</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>ภาษี</th><th>ผู้เสีย</th><th>หลักการ</th></tr></thead><tbody><tr><td>ภาษีเงินได้บุคคลธรรมดา</td><td>ธุรกิจที่เป็นบุคคลธรรมดาหรือห้างหุ้นส่วนสามัญที่ไม่จดทะเบียน</td><td>เสียจากเงินได้หลังหักค่าใช้จ่ายและค่าลดหย่อน อัตราก้าวหน้า</td></tr><tr><td>ภาษีเงินได้นิติบุคคล</td><td>ห้างหุ้นส่วนจำกัด บริษัทจำกัด</td><td>กิจการที่มีทุนชำระแล้วไม่เกิน 5 ล้านบาทและรายได้ไม่เกิน 30 ล้านบาทต่อปี เสียในอัตราลดหลั่น กำไรสุทธิส่วนที่ไม่เกิน 300,000 บาทได้รับยกเว้น ส่วนที่เกิน 300,000 บาทแต่ไม่เกิน 3 ล้านบาทเสียร้อยละ 15 ส่วนที่เกิน 3 ล้านบาทเสียร้อยละ 20</td></tr><tr><td>ภาษีมูลค่าเพิ่ม</td><td>ผู้ขายสินค้าหรือบริการที่มีรายรับเกิน 1.8 ล้านบาทต่อปี</td><td>ต้องจดทะเบียนภายใน 30 วันนับจากวันที่รายรับเกิน ปัจจุบันเก็บร้อยละ 7 ของราคาขาย และหักภาษีที่จ่ายเมื่อซื้อได้</td></tr></tbody></table></div>
 <p class="src">ที่มา: ประมวลรัษฎากร และกรมสรรพากร (2559)</p>
-<p class="">อัตราภาษีในตารางเป็นอัตราที่ใช้ในเวลาที่เขียนเอกสารนี้ อัตราภาษีมูลค่าเพิ่มร้อยละ 7 เป็นอัตราที่ลดลงชั่วคราวจากอัตราตามกฎหมาย และได้รับการขยายเวลาเป็นรายปี ผู้เขียนแผนต้องตรวจอัตราปัจจุบันกับกรมสรรพากรทุกครั้ง และควรให้สำนักงานบัญชีหรือผู้เชี่ยวชาญด้านภาษีทบทวนก่อนตัดสินใจ</p>
+<p>อัตราภาษีในตารางเป็นอัตราที่ใช้ในเวลาที่เขียนเอกสารนี้ อัตราภาษีมูลค่าเพิ่มร้อยละ 7 เป็นอัตราที่ลดลงชั่วคราวจากอัตราตามกฎหมาย และได้รับการขยายเวลาเป็นรายปี ผู้เขียนแผนต้องตรวจอัตราปัจจุบันกับกรมสรรพากรทุกครั้ง และควรให้สำนักงานบัญชีหรือผู้เชี่ยวชาญด้านภาษีทบทวนก่อนตัดสินใจ</p>
 <h3 id="s-9-6-2">9.6.2 เมื่อยอดขายข้ามเกณฑ์ภาษีมูลค่าเพิ่ม</h3>
-<p class="">เกณฑ์ภาษีมูลค่าเพิ่มเป็นเรื่องที่แผนขยายของธุรกิจขนาดเล็กมักลืม ในกรณีศึกษา ร้านเดิมมียอดขายปีละ 1,310,400 บาท ต่ำกว่า 1.8 ล้านบาท จึงไม่ต้องจดทะเบียน แต่เมื่อเปิดสาขาใหม่ในเดือนมิถุนายน 2570 ยอดขายสะสมจะเกิน 1.8 ล้านบาทในเดือนตุลาคม 2570 (ภาพที่ 9.2) ซึ่งหมายความว่าร้านต้องจดทะเบียนภาษีมูลค่าเพิ่มภายในปีแรกของแผนขยาย เกณฑ์นี้นับยอดขายของผู้ประกอบการรายเดียวกันทุกสาขารวมกัน การแยกสาขาให้คนในครอบครัวเป็นเจ้าของในนามเพื่อให้ยอดขายแต่ละรายต่ำกว่าเกณฑ์ไม่ใช่ทางเลือกที่แผนธุรกิจควรเสนอ เพราะเสี่ยงต่อการถูกพิจารณาว่าหลีกเลี่ยงภาษี</p>
-<figure><img src="bp/fig/fig9_2.png" alt="ยอดขายสะสมปี 2570 เทียบกับเกณฑ์จดทะเบียนภาษีมูลค่าเพิ่ม (กรณีศึกษาสมมติ)" loading="lazy"><figcaption><b>ภาพที่ 9.2</b> ยอดขายสะสมปี 2570 เทียบกับเกณฑ์จดทะเบียนภาษีมูลค่าเพิ่ม (กรณีศึกษาสมมติ)</figcaption></figure>
-<p class="">เมื่อจดทะเบียนแล้ว ราคาที่ลูกค้าจ่ายรวมภาษีมูลค่าเพิ่มไว้ด้วย ร้านมีสองทางเลือกหลัก คือคงราคาเดิมและรับภาระภาษีเอง หรือขึ้นราคา ตารางที่ 9.9 เปรียบเทียบผลต่อหมูปิ้งหนึ่งไม้ โดยใช้ต้นทุนผันแปรต่อไม้ 5.19 บาทจากบทที่ 8</p>
+<p>เกณฑ์ภาษีมูลค่าเพิ่มเป็นเรื่องที่แผนขยายของธุรกิจขนาดเล็กมักลืม ในกรณีศึกษา ร้านเดิมมียอดขายปีละ 1,310,400 บาท ต่ำกว่า 1.8 ล้านบาท จึงไม่ต้องจดทะเบียน แต่เมื่อเปิดสาขาใหม่ในเดือนมิถุนายน 2570 ยอดขายสะสมจะเกิน 1.8 ล้านบาทในเดือนตุลาคม 2570 (ภาพที่ 9.2) ซึ่งหมายความว่าร้านต้องจดทะเบียนภาษีมูลค่าเพิ่มภายในปีแรกของแผนขยาย เกณฑ์นี้นับยอดขายของผู้ประกอบการรายเดียวกันทุกสาขารวมกัน การแยกสาขาให้คนในครอบครัวเป็นเจ้าของในนามเพื่อให้ยอดขายแต่ละรายต่ำกว่าเกณฑ์ไม่ใช่ทางเลือกที่แผนธุรกิจควรเสนอ เพราะเสี่ยงต่อการถูกพิจารณาว่าหลีกเลี่ยงภาษี</p>
+<figure class="fig"><img src="bp/fig/fig9_2.png" alt="ยอดขายสะสมปี 2570 เทียบกับเกณฑ์จดทะเบียนภาษีมูลค่าเพิ่ม (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 9.2 ยอดขายสะสมปี 2570 เทียบกับเกณฑ์จดทะเบียนภาษีมูลค่าเพิ่ม (กรณีศึกษาสมมติ)</figcaption></figure>
+<p>เมื่อจดทะเบียนแล้ว ราคาที่ลูกค้าจ่ายรวมภาษีมูลค่าเพิ่มไว้ด้วย ร้านมีสองทางเลือกหลัก คือคงราคาเดิมและรับภาระภาษีเอง หรือขึ้นราคา ตารางที่ 9.9 เปรียบเทียบผลต่อหมูปิ้งหนึ่งไม้ โดยใช้ต้นทุนผันแปรต่อไม้ 5.19 บาทจากบทที่ 8</p>
 <p class="tcap"><b>ตารางที่ 9.9</b> ผลของภาษีมูลค่าเพิ่มต่อหมูปิ้งหนึ่งไม้ (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ทางเลือก</th><th>ราคาที่ลูกค้าจ่าย</th><th>รายได้สุทธิของร้าน</th><th>ส่วนเกินต่อไม้</th><th>ข้อพิจารณา</th></tr></thead><tbody><tr><td>ก่อนจดทะเบียน</td><td>10 บาท</td><td>10.00 บาท</td><td>4.81 บาท</td><td>–</td></tr><tr><td>คงราคา รับภาระภาษีเอง</td><td>10 บาท</td><td>9.35 บาท</td><td>4.16 บาท</td><td>ส่วนเกินลดลงประมาณร้อยละ 14 ลูกค้าไม่เห็นความเปลี่ยนแปลง</td></tr><tr><td>ขึ้นราคาไม้ละ 1 บาท</td><td>11 บาท</td><td>10.28 บาท</td><td>5.09 บาท</td><td>ต้องตรวจกับราคาคู่แข่งในบทที่ 5 และอาจกระทบประมาณการยอดขายในบทที่ 7</td></tr></tbody></table></div>
-<p class="">คุณตั้มเลือกคงราคาไม้ละ 10 บาท เพราะร้านไม่ได้วางตำแหน่งด้วยราคาสูง และราคาไม้ละ 10 บาทเป็นราคาที่ลูกค้านักเรียนคุ้นเคย การตัดสินใจนี้มีผลสำคัญต่อแผนการเงิน ตั้งแต่เดือนที่จดทะเบียน รายได้ในงบกำไรขาดทุนต้องเท่ากับยอดขายหารด้วย 1.07 ไม่ใช่ยอดขายเต็ม ในปีเต็ม 2571 ยอดขาย 3,407,040 บาทจากบทที่ 7 จึงเป็นรายได้สุทธิประมาณ 3,184,150 บาท และเป็นภาษีมูลค่าเพิ่มที่ต้องนำส่งประมาณ 222,890 บาท ถ้าแผนการเงินใช้ยอดขายเต็มเป็นรายได้ กำไรจะสูงเกินจริงเท่ากับจำนวนนี้</p>
+<div class="tablewrap"><table><thead><tr><th>ทางเลือก</th><th>ราคาที่ลูกค้าจ่าย</th><th>รายได้สุทธิของร้าน</th><th>ส่วนเกินต่อไม้</th><th>ข้อพิจารณา</th></tr></thead><tbody><tr><td>ก่อนจดทะเบียน</td><td>10 บาท</td><td>10.00 บาท</td><td>4.81 บาท</td><td>–</td></tr><tr><td>คงราคา รับภาระภาษีเอง</td><td>10 บาท</td><td>9.35 บาท</td><td>4.16 บาท</td><td>ส่วนเกินลดลงประมาณร้อยละ 14 ลูกค้าไม่เห็นความเปลี่ยนแปลง</td></tr><tr><td>ขึ้นราคาไม้ละ 1 บาท</td><td>11 บาท</td><td>10.28 บาท</td><td>5.09 บาท</td><td>ต้องตรวจกับราคาคู่แข่งในบทที่ 5 และอาจกระทบประมาณการยอดขายในบทที่ 7</td></tr></tbody></table></div>
+<p>คุณตั้มเลือกคงราคาไม้ละ 10 บาท เพราะร้านไม่ได้วางตำแหน่งด้วยราคาสูง และราคาไม้ละ 10 บาทเป็นราคาที่ลูกค้านักเรียนคุ้นเคย การตัดสินใจนี้มีผลสำคัญต่อแผนการเงิน ตั้งแต่เดือนที่จดทะเบียน รายได้ในงบกำไรขาดทุนต้องเท่ากับยอดขายหารด้วย 1.07 ไม่ใช่ยอดขายเต็ม ในปีเต็ม 2571 ยอดขาย 3,407,040 บาทจากบทที่ 7 จึงเป็นรายได้สุทธิประมาณ 3,184,150 บาท และเป็นภาษีมูลค่าเพิ่มที่ต้องนำส่งประมาณ 222,890 บาท ถ้าแผนการเงินใช้ยอดขายเต็มเป็นรายได้ กำไรจะสูงเกินจริงเท่ากับจำนวนนี้</p>
 <h2 id="s-9-7">9.7 ทรัพย์สินทางปัญญา</h2>
 <h3 id="s-9-7-1">9.7.1 สิ่งที่ธุรกิจขนาดเล็กควรคุ้มครอง</h3>
-<p class=""><strong>ทรัพย์สินทางปัญญา (intellectual property)</strong> คือผลงานจากความคิดที่กฎหมายคุ้มครอง สำหรับธุรกิจขนาดเล็กประเภทอาหาร ทรัพย์สินทางปัญญาที่สำคัญมักมีสองรายการ คือชื่อร้านหรือตราสินค้า และสูตรอาหาร แต่ละรายการคุ้มครองด้วยวิธีต่างกัน ชื่อร้านคุ้มครองด้วยการจดทะเบียน<strong>เครื่องหมายการค้า (trademark)</strong> ตามพระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534 ส่วนสูตรอาหารที่ไม่ต้องการเปิดเผยคุ้มครองในฐานะ<strong>ความลับทางการค้า (trade secret)</strong> ตามพระราชบัญญัติความลับทางการค้า พ.ศ. 2545 ซึ่งคุ้มครองข้อมูลที่ยังไม่รู้กันทั่วไป มีมูลค่าทางการค้าเพราะเป็นความลับ และเจ้าของใช้วิธีการที่เหมาะสมรักษาไว้เป็นความลับ (ตารางที่ 9.10)</p>
+<p><strong>ทรัพย์สินทางปัญญา (intellectual property)</strong> คือผลงานจากความคิดที่กฎหมายคุ้มครอง สำหรับธุรกิจขนาดเล็กประเภทอาหาร ทรัพย์สินทางปัญญาที่สำคัญมักมีสองรายการ คือชื่อร้านหรือตราสินค้า และสูตรอาหาร แต่ละรายการคุ้มครองด้วยวิธีต่างกัน ชื่อร้านคุ้มครองด้วยการจดทะเบียน<strong>เครื่องหมายการค้า (trademark)</strong> ตามพระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534 ส่วนสูตรอาหารที่ไม่ต้องการเปิดเผยคุ้มครองในฐานะ<strong>ความลับทางการค้า (trade secret)</strong> ตามพระราชบัญญัติความลับทางการค้า พ.ศ. 2545 ซึ่งคุ้มครองข้อมูลที่ยังไม่รู้กันทั่วไป มีมูลค่าทางการค้าเพราะเป็นความลับ และเจ้าของใช้วิธีการที่เหมาะสมรักษาไว้เป็นความลับ (ตารางที่ 9.10)</p>
 <p class="tcap"><b>ตารางที่ 9.10</b> ทรัพย์สินทางปัญญาของหมูปิ้งอาจารย์ตั้มและวิธีคุ้มครอง (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ทรัพย์สิน</th><th>วิธีคุ้มครอง</th><th>สิ่งที่ต้องทำ</th><th>เหตุผล</th></tr></thead><tbody><tr><td>ชื่อ "หมูปิ้งอาจารย์ตั้ม" และโลโก้</td><td>จดทะเบียนเครื่องหมายการค้า</td><td>ยื่นจดในจำพวกสินค้าเนื้อสัตว์และผลิตภัณฑ์ และจำพวกบริการจัดหาอาหาร ภายในปี 2570</td><td>ป้องกันผู้อื่นใช้ชื่อซ้ำ และเป็นสิ่งที่ขายในสัญญาแฟรนไชส์</td></tr><tr><td>สูตรหมัก</td><td>ความลับทางการค้า</td><td>คุณตั้มผสมเครื่องหมักเป็นซองสำเร็จ ครัวกลางใช้ซองโดยไม่รู้สัดส่วน มีสัญญารักษาความลับกับหัวหน้าครัวกลาง</td><td>การคุ้มครองคงอยู่ตราบที่ยังเป็นความลับ ถ้าเปิดเผยแล้วจะเรียกคืนไม่ได้</td></tr><tr><td>ขั้นตอนมาตรฐานและคู่มือ</td><td>ความลับทางการค้า และสัญญากับพนักงานและผู้ซื้อแฟรนไชส์</td><td>จำกัดผู้เข้าถึง ระบุในสัญญาว่าห้ามนำไปใช้เมื่อสิ้นสุดสัญญา</td><td>เป็นสิ่งที่ทำให้ร้านแฟรนไชส์มีมาตรฐานเดียวกัน</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>ทรัพย์สิน</th><th>วิธีคุ้มครอง</th><th>สิ่งที่ต้องทำ</th><th>เหตุผล</th></tr></thead><tbody><tr><td>ชื่อ "หมูปิ้งอาจารย์ตั้ม" และโลโก้</td><td>จดทะเบียนเครื่องหมายการค้า</td><td>ยื่นจดในจำพวกสินค้าเนื้อสัตว์และผลิตภัณฑ์ และจำพวกบริการจัดหาอาหาร ภายในปี 2570</td><td>ป้องกันผู้อื่นใช้ชื่อซ้ำ และเป็นสิ่งที่ขายในสัญญาแฟรนไชส์</td></tr><tr><td>สูตรหมัก</td><td>ความลับทางการค้า</td><td>คุณตั้มผสมเครื่องหมักเป็นซองสำเร็จ ครัวกลางใช้ซองโดยไม่รู้สัดส่วน มีสัญญารักษาความลับกับหัวหน้าครัวกลาง</td><td>การคุ้มครองคงอยู่ตราบที่ยังเป็นความลับ ถ้าเปิดเผยแล้วจะเรียกคืนไม่ได้</td></tr><tr><td>ขั้นตอนมาตรฐานและคู่มือ</td><td>ความลับทางการค้า และสัญญากับพนักงานและผู้ซื้อแฟรนไชส์</td><td>จำกัดผู้เข้าถึง ระบุในสัญญาว่าห้ามนำไปใช้เมื่อสิ้นสุดสัญญา</td><td>เป็นสิ่งที่ทำให้ร้านแฟรนไชส์มีมาตรฐานเดียวกัน</td></tr></tbody></table></div>
 <h3 id="s-9-7-2">9.7.2 ทำไมต้องจดก่อนขยาย</h3>
-<p class="">บทที่ 6 วิเคราะห์ด้วย VRIO แล้วพบว่าแบรนด์ "อาจารย์ตั้ม" มีคุณค่าในพื้นที่และเลียนแบบได้ยาก แต่ยังไม่ได้รับการจัดการ เพราะยังไม่ได้จดเครื่องหมายการค้า ความเสี่ยงนี้เพิ่มขึ้นเมื่อร้านเป็นที่รู้จักมากขึ้น ถ้าผู้อื่นยื่นจดชื่อที่คล้ายกันก่อน ร้านอาจต้องเปลี่ยนชื่อหรือเข้าสู่ข้อพิพาท ในวันที่กำลังจะขายแฟรนไชส์ ซึ่งสิ่งที่ขายคือสิทธิใช้ชื่อนั้นเอง การยื่นจดจึงควรทำตั้งแต่ระยะที่ 1 แม้ยังไม่มีแผนขายแฟรนไชส์ทันที</p>
-<p class="">การยื่นจดในนามคุณตั้มในปี 2570 แล้วโอนสิทธิให้บริษัทเมื่อจัดตั้งในปี 2572 ทำให้เครื่องหมายการค้าเป็นทรัพย์สินของบริษัท ซึ่งสำคัญต่อผู้ลงทุนในระยะที่ 3 เพราะผู้ลงทุนต้องการให้สิ่งที่สร้างมูลค่าของธุรกิจเป็นของบริษัทที่ตนถือหุ้น ไม่ใช่ของบุคคล สูตรหมักก็ใช้หลักเดียวกัน ในระยะที่ 2 ร้านแม่จะส่งหมูหมักให้ร้านแฟรนไชส์ แทนการส่งสูตร เพื่อให้สูตรยังเป็นความลับ</p>
+<p>บทที่ 6 วิเคราะห์ด้วย VRIO แล้วพบว่าแบรนด์ "อาจารย์ตั้ม" มีคุณค่าในพื้นที่และเลียนแบบได้ยาก แต่ยังไม่ได้รับการจัดการ เพราะยังไม่ได้จดเครื่องหมายการค้า ความเสี่ยงนี้เพิ่มขึ้นเมื่อร้านเป็นที่รู้จักมากขึ้น ถ้าผู้อื่นยื่นจดชื่อที่คล้ายกันก่อน ร้านอาจต้องเปลี่ยนชื่อหรือเข้าสู่ข้อพิพาท ในวันที่กำลังจะขายแฟรนไชส์ ซึ่งสิ่งที่ขายคือสิทธิใช้ชื่อนั้นเอง การยื่นจดจึงควรทำตั้งแต่ระยะที่ 1 แม้ยังไม่มีแผนขายแฟรนไชส์ทันที</p>
+<p>การยื่นจดในนามคุณตั้มในปี 2570 แล้วโอนสิทธิให้บริษัทเมื่อจัดตั้งในปี 2572 ทำให้เครื่องหมายการค้าเป็นทรัพย์สินของบริษัท ซึ่งสำคัญต่อผู้ลงทุนในระยะที่ 3 เพราะผู้ลงทุนต้องการให้สิ่งที่สร้างมูลค่าของธุรกิจเป็นของบริษัทที่ตนถือหุ้น ไม่ใช่ของบุคคล สูตรหมักก็ใช้หลักเดียวกัน ในระยะที่ 2 ร้านแม่จะส่งหมูหมักให้ร้านแฟรนไชส์ แทนการส่งสูตร เพื่อให้สูตรยังเป็นความลับ</p>
 <h2 id="s-9-8">9.8 องค์กรและกฎหมายตามระยะของเส้นทางสู่เป้าหมาย</h2>
-<p class="">องค์กรและข้อกำหนดทางกฎหมายเปลี่ยนไปตามระยะ เช่นเดียวกับการตลาดและการดำเนินงาน ระยะที่ 2 เพิ่มความสัมพันธ์ใหม่กับผู้ซื้อแฟรนไชส์ ซึ่งต้องกำหนดด้วยสัญญา ประเทศไทยยังไม่มีพระราชบัญญัติเฉพาะสำหรับธุรกิจแฟรนไชส์ สัญญาแฟรนไชส์จึงใช้หลักกฎหมายสัญญาทั่วไป และต้องไม่มีข้อกำหนดที่เป็นการค้าที่ไม่เป็นธรรมตามพระราชบัญญัติการแข่งขันทางการค้า พ.ศ. 2560 ระยะที่ 3 เปลี่ยนธุรกิจเป็นผู้ผลิตอาหารเพื่อขายผ่านร้านค้าปลีก ซึ่งต้องได้รับอนุญาตสถานที่ผลิตและผลิตภัณฑ์อาหารตามพระราชบัญญัติอาหาร พ.ศ. 2522 (ตารางที่ 9.11)</p>
+<p>องค์กรและข้อกำหนดทางกฎหมายเปลี่ยนไปตามระยะ เช่นเดียวกับการตลาดและการดำเนินงาน ระยะที่ 2 เพิ่มความสัมพันธ์ใหม่กับผู้ซื้อแฟรนไชส์ ซึ่งต้องกำหนดด้วยสัญญา ประเทศไทยยังไม่มีพระราชบัญญัติเฉพาะสำหรับธุรกิจแฟรนไชส์ สัญญาแฟรนไชส์จึงใช้หลักกฎหมายสัญญาทั่วไป และต้องไม่มีข้อกำหนดที่เป็นการค้าที่ไม่เป็นธรรมตามพระราชบัญญัติการแข่งขันทางการค้า พ.ศ. 2560 ระยะที่ 3 เปลี่ยนธุรกิจเป็นผู้ผลิตอาหารเพื่อขายผ่านร้านค้าปลีก ซึ่งต้องได้รับอนุญาตสถานที่ผลิตและผลิตภัณฑ์อาหารตามพระราชบัญญัติอาหาร พ.ศ. 2522 (ตารางที่ 9.11)</p>
 <p class="tcap"><b>ตารางที่ 9.11</b> องค์กรและกฎหมายที่เปลี่ยนไปตามระยะ (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>ประเด็น</th><th>ระยะที่ 1</th><th>ระยะที่ 2</th><th>ระยะที่ 3</th></tr></thead><tbody><tr><td>รูปแบบธุรกิจ</td><td>บุคคลธรรมดา</td><td>บริษัทจำกัด</td><td>บริษัทจำกัด เพิ่มทุน</td></tr><tr><td>ทีมบริหาร</td><td>คุณตั้ม หัวหน้าครัวกลาง หัวหน้าสาขา</td><td>เพิ่มผู้จัดการแฟรนไชส์และผู้ตรวจประจำเขต</td><td>เพิ่มผู้จัดการโรงงานและผู้ควบคุมคุณภาพ</td></tr><tr><td>กฎหมายและใบอนุญาตหลัก</td><td>ทะเบียนพาณิชย์ สถานที่จำหน่ายอาหาร ภาษีมูลค่าเพิ่ม ประกันสังคม</td><td>สัญญาแฟรนไชส์ กฎหมายการแข่งขันทางการค้า</td><td>ใบอนุญาตผลิตอาหารและเลขสารบบอาหาร</td></tr><tr><td>ทรัพย์สินทางปัญญา</td><td>ยื่นจดเครื่องหมายการค้า สูตรเป็นความลับ</td><td>อนุญาตให้ใช้เครื่องหมายผ่านสัญญาแฟรนไชส์</td><td>เครื่องหมายบนบรรจุภัณฑ์ สูตรในโรงงาน</td></tr><tr><td>ที่ปรึกษาที่ต้องมี</td><td>สำนักงานบัญชี</td><td>ที่ปรึกษากฎหมาย</td><td>ผู้สอบบัญชี ที่ปรึกษาด้านมาตรฐานอาหาร</td></tr></tbody></table></div>
-<p class="">ตารางนี้ชี้ว่าต้นทุนด้านองค์กรและกฎหมายเพิ่มขึ้นทุกระยะ และเป็นต้นทุนที่แผนแบบคิดจากเป้าหมายมักไม่ได้นับ เมื่อคิดย้อนกลับจากเป้าหมายวันละ 3 ล้านบาท ผู้ประกอบการต้องเห็นว่าตนต้องเปลี่ยนจากเจ้าของร้านเป็นผู้บริหารบริษัทที่มีทีมผู้จัดการหลายคน และการเปลี่ยนบทบาทนี้ยากกว่าการเพิ่มจำนวนสาขา</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>ระยะที่ 1</th><th>ระยะที่ 2</th><th>ระยะที่ 3</th></tr></thead><tbody><tr><td>รูปแบบธุรกิจ</td><td>บุคคลธรรมดา</td><td>บริษัทจำกัด</td><td>บริษัทจำกัด เพิ่มทุน</td></tr><tr><td>ทีมบริหาร</td><td>คุณตั้ม หัวหน้าครัวกลาง หัวหน้าสาขา</td><td>เพิ่มผู้จัดการแฟรนไชส์และผู้ตรวจประจำเขต</td><td>เพิ่มผู้จัดการโรงงานและผู้ควบคุมคุณภาพ</td></tr><tr><td>กฎหมายและใบอนุญาตหลัก</td><td>ทะเบียนพาณิชย์ สถานที่จำหน่ายอาหาร ภาษีมูลค่าเพิ่ม ประกันสังคม</td><td>สัญญาแฟรนไชส์ กฎหมายการแข่งขันทางการค้า</td><td>ใบอนุญาตผลิตอาหารและเลขสารบบอาหาร</td></tr><tr><td>ทรัพย์สินทางปัญญา</td><td>ยื่นจดเครื่องหมายการค้า สูตรเป็นความลับ</td><td>อนุญาตให้ใช้เครื่องหมายผ่านสัญญาแฟรนไชส์</td><td>เครื่องหมายบนบรรจุภัณฑ์ สูตรในโรงงาน</td></tr><tr><td>ที่ปรึกษาที่ต้องมี</td><td>สำนักงานบัญชี</td><td>ที่ปรึกษากฎหมาย</td><td>ผู้สอบบัญชี ที่ปรึกษาด้านมาตรฐานอาหาร</td></tr></tbody></table></div>
+<p>ตารางนี้ชี้ว่าต้นทุนด้านองค์กรและกฎหมายเพิ่มขึ้นทุกระยะ และเป็นต้นทุนที่แผนแบบคิดจากเป้าหมายมักไม่ได้นับ เมื่อคิดย้อนกลับจากเป้าหมายวันละ 3 ล้านบาท ผู้ประกอบการต้องเห็นว่าตนต้องเปลี่ยนจากเจ้าของร้านเป็นผู้บริหารบริษัทที่มีทีมผู้จัดการหลายคน และการเปลี่ยนบทบาทนี้ยากกว่าการเพิ่มจำนวนสาขา</p>
 <h2 id="s-9-9">9.9 จากแผนองค์กรสู่แผนธุรกิจ</h2>
-<p class="">ผลของบทนี้เป็นเนื้อหาของแผนธุรกิจส่วนที่ 8 (ตารางที่ 1.6) ซึ่งควรมีหกองค์ประกอบ ได้แก่ ตารางทักษะพร้อมวิธีปิดช่องว่าง ผังองค์กรพร้อมหน้าที่และผู้ทำแทน รูปแบบธุรกิจที่เลือกในแต่ละระยะ รายการจดทะเบียนและใบอนุญาตพร้อมกำหนดเวลา ภาษีที่เกี่ยวข้องและผลต่อรายได้ และทรัพย์สินทางปัญญาพร้อมวิธีคุ้มครอง ตัวเลขที่ส่งต่อให้แผนการเงินสรุปไว้ในตารางที่ 9.12</p>
+<p>ผลของบทนี้เป็นเนื้อหาของแผนธุรกิจส่วนที่ 8 (ตารางที่ 1.6) ซึ่งควรมีหกองค์ประกอบ ได้แก่ ตารางทักษะพร้อมวิธีปิดช่องว่าง ผังองค์กรพร้อมหน้าที่และผู้ทำแทน รูปแบบธุรกิจที่เลือกในแต่ละระยะ รายการจดทะเบียนและใบอนุญาตพร้อมกำหนดเวลา ภาษีที่เกี่ยวข้องและผลต่อรายได้ และทรัพย์สินทางปัญญาพร้อมวิธีคุ้มครอง ตัวเลขที่ส่งต่อให้แผนการเงินสรุปไว้ในตารางที่ 9.12</p>
 <p class="tcap"><b>ตารางที่ 9.12</b> ตัวเลขจากแผนองค์กรและกฎหมายที่ส่งต่อให้แผนการเงิน (กรณีศึกษาสมมติ)</p>
-<div class="tw"><table><thead><tr><th>รายการ</th><th>ค่า</th><th>ประเภทในแผนการเงิน</th></tr></thead><tbody><tr><td>ค่าบริการสำนักงานบัญชี</td><td>2,000 บาทต่อเดือน ตั้งแต่มิถุนายน 2570</td><td>ต้นทุนคงที่</td></tr><tr><td>เงินสมทบประกันสังคมส่วนนายจ้าง</td><td>ข้อสมมติร้อยละ 5 ของค่าจ้าง</td><td>ต้นทุนคงที่</td></tr><tr><td>ค่าจดทะเบียนและเครื่องหมายการค้า</td><td>ข้อสมมติรวม 10,000 บาท ในปี 2570</td><td>ค่าใช้จ่ายครั้งเดียว</td></tr><tr><td>ภาษีมูลค่าเพิ่ม</td><td>จดทะเบียนก่อนเปิดสาขาใหม่ คงราคาไม้ละ 10 บาท</td><td>รายได้สุทธิ = ยอดขาย ÷ 1.07 ตั้งแต่มิถุนายน 2570</td></tr><tr><td>ภาษีเงินได้</td><td>บุคคลธรรมดาในระยะที่ 1</td><td>คำนวณจากกำไรในบทที่ 10</td></tr></tbody></table></div>
-<aside class="case"><div class="case-h">กรณีศึกษาเดินเรื่อง: คำถามที่คุณตั้มไม่ได้เตรียมไว้ (กรณีศึกษาสมมติ)</div><p class="">เมื่อคุณตั้มนำแผนขยายไปยื่นขอสินเชื่อ เจ้าหน้าที่สินเชื่ออ่านประมาณการยอดขายในบทที่ 7 แล้วถามว่า ยอดขายปี 2570 ประมาณ 2.48 ล้านบาท ร้านจดทะเบียนภาษีมูลค่าเพิ่มแล้วหรือยัง และราคาไม้ละ 10 บาทรวมภาษีหรือไม่ คุณตั้มตอบไม่ได้ เพราะร้านเดิมไม่เคยต้องจดทะเบียน และไม่เคยคิดว่าการเปิดสาขาจะเปลี่ยนเรื่องนี้</p><p class="">เจ้าหน้าที่อธิบายว่าคำถามนี้สำคัญต่อการพิจารณาสินเชื่อ ถ้าแผนการเงินใช้ยอดขายเต็มเป็นรายได้ แต่ร้านต้องนำส่งภาษีมูลค่าเพิ่มประมาณปีละ 2 แสนบาท กำไรจริงจะต่ำกว่าที่แสดง และความสามารถผ่อนชำระก็จะต่ำกว่าที่แสดงด้วย เจ้าหน้าที่จึงขอให้คุณตั้มปรับแผนก่อนยื่นใหม่</p><p class="">คุณตั้มปรึกษาสำนักงานบัญชี และตัดสินใจจดทะเบียนก่อนเปิดสาขาใหม่ในเดือนมิถุนายน 2570 แทนการรอให้ยอดขายเกินเกณฑ์ในเดือนตุลาคม เพื่อเริ่มระบบบัญชีและใบกำกับภาษีพร้อมกับสาขาใหม่ คุณตั้มยังให้สำนักงานบัญชีตรวจว่าการซื้ออุปกรณ์ครัวกลางหลังจดทะเบียน จะขอคืนภาษีซื้อได้มากน้อยเพียงใด</p><p class="q">คำถามชวนคิด: ถ้าคุณตั้มเลือกขึ้นราคาเป็นไม้ละ 11 บาทแทนการคงราคา ต้องกลับไปตรวจและแก้ส่วนใดของแผนในบทที่ 5 และบทที่ 7</p></aside>
-<h2 id="x-10">บทสรุป</h2>
-<p class="">เมื่อศึกษาบทนี้แล้ว นิสิตสามารถเขียนแผนองค์กรและกฎหมายที่ตอบได้ว่าใครทำและรับผิดชอบอะไร โดยเริ่มจากตารางทักษะที่แสดงช่องว่างและวิธีปิดช่องว่าง ผังองค์กรที่มีหน้าที่ อำนาจตัดสินใจ และผู้ทำแทนในงานสำคัญ การเลือกรูปแบบธุรกิจที่เหมาะกับแต่ละระยะ รายการจดทะเบียนและใบอนุญาตที่ระบุหน่วยงานและกำหนดเวลา การวิเคราะห์ภาษีมูลค่าเพิ่มเมื่อยอดขายข้ามเกณฑ์ และการคุ้มครองชื่อร้านและสูตรด้วยเครื่องหมายการค้าและความลับทางการค้า</p>
-<p class="">นิสิตนำความรู้นี้ไปเขียนแผนองค์กรและกฎหมายของกลุ่มในกิจกรรมท้ายบท ตัวเลขค่าบริการภายนอก เงินสมทบประกันสังคม ค่าจดทะเบียน และการจัดการภาษีมูลค่าเพิ่มจะเป็นข้อมูลนำเข้าของแผนการเงิน บทที่ 10 จะรวมตัวเลขจากบทที่ 7 ถึงบทที่ 9 เป็นเงินลงทุน ต้นทุน และจุดคุ้มทุน</p>
-<h2 id="x-11">คำศัพท์สำคัญ</h2>
-<ul><li>แผนองค์กร (organization plan)</li><li>ช่องว่างของทักษะ (skill gap)</li><li>โครงสร้างองค์กร (organizational structure)</li><li>ความเสี่ยงจากบุคคลสำคัญ (key person risk)</li><li>ความรับผิด (liability)</li><li>ภาษีมูลค่าเพิ่ม (value added tax)</li><li>ทรัพย์สินทางปัญญา (intellectual property)</li><li>เครื่องหมายการค้า (trademark)</li><li>ความลับทางการค้า (trade secret)</li></ul>
-<h2 id="x-12">คำถามทบทวน</h2>
-<ol><li>เพราะเหตุใดการแนะนำทีมด้วยตำแหน่งในกลุ่ม เช่น ประธานและเหรัญญิก จึงไม่ช่วยผู้อ่านแผน และควรแนะนำทีมอย่างไรแทน</li><li>ทางเลือกสี่ทางในการปิดช่องว่างของทักษะคืออะไร จงยกตัวอย่างทักษะที่ควรใช้บริการภายนอกมากกว่าการจ้างพนักงาน</li><li>ตารางหน้าที่และอำนาจตัดสินใจช่วยการทำงานของธุรกิจที่มีหลายสาขาอย่างไร</li><li>จงระบุงานที่หยุดไม่ได้สองงานของธุรกิจที่นิสิตรู้จัก และกำหนดผู้ทำแทนพร้อมสิ่งที่ต้องเตรียม</li><li>เพราะเหตุใดกรณีศึกษาจึงเลือกตั้งบริษัทจำกัดหลังผ่านด่าน 1 ไม่ใช่ก่อนขอสินเชื่อ</li><li>ร้านกาแฟมียอดขายเดือนละ 140,000 บาท และวางแผนเปิดสาขาที่สองซึ่งขายได้เดือนละ 100,000 บาท ตั้งแต่เดือนกรกฎาคม ยอดขายสะสมของปีจะเกิน 1.8 ล้านบาทในเดือนใด และร้านต้องทำอะไร</li><li>ร้านจดทะเบียนภาษีมูลค่าเพิ่มแล้วและคงราคาแก้วละ 50 บาท ต้นทุนผันแปรแก้วละ 22 บาท จงคำนวณรายได้สุทธิและส่วนเกินต่อแก้ว และเทียบกับก่อนจดทะเบียน</li><li>เพราะเหตุใดการแยกสาขาให้คนในครอบครัวเป็นเจ้าของในนามเพื่อไม่ให้ยอดขายเกินเกณฑ์ภาษีมูลค่าเพิ่ม จึงไม่ใช่ทางเลือกที่แผนธุรกิจควรเสนอ</li><li>ชื่อร้านกับสูตรอาหารควรคุ้มครองด้วยวิธีใด และเพราะเหตุใดจึงใช้วิธีต่างกัน</li><li>เพราะเหตุใดผู้ลงทุนจึงต้องการให้เครื่องหมายการค้าเป็นของบริษัท ไม่ใช่ของผู้ก่อตั้ง</li></ol>
-<h2 id="ws" class="ws">กิจกรรมท้ายบท: แผนองค์กรและกฎหมายของกลุ่ม</h2>
-<p class="">กิจกรรมนี้ไม่นับคะแนน ผู้สอนจะให้ข้อมูลป้อนกลับในสัปดาห์ที่ 12 และผลงานจะเป็นส่วนที่ 8 ของเล่มแผนธุรกิจ</p>
-<ol><li>ตารางทักษะที่ธุรกิจต้องการ ผู้มีทักษะ และวิธีปิดช่องว่าง (แบบตารางที่ 9.2)</li><li>ผังองค์กรของระยะแรก ตารางหน้าที่และอำนาจตัดสินใจ และงานที่หยุดไม่ได้พร้อมผู้ทำแทน</li><li>รูปแบบธุรกิจที่เลือกในแต่ละระยะพร้อมเหตุผล</li><li>รายการจดทะเบียนและใบอนุญาตพร้อมหน่วยงานและกำหนดเวลา ระบุรายการที่ต้องตรวจกับหน่วยงาน</li><li>ตรวจยอดขายสะสมจากใบงานที่ 5 กับเกณฑ์ภาษีมูลค่าเพิ่ม และผลต่อราคาและรายได้ถ้าข้ามเกณฑ์</li><li>ทรัพย์สินทางปัญญาของธุรกิจและวิธีคุ้มครอง</li></ol>
-<h2 id="x-14">เอกสารอ้างอิง</h2>
-<p class="ref">กรมสรรพากร. (2559). <em>มาตรการภาษีเพื่อส่งเสริมและอำนวยความสะดวกในการประกอบกิจการโดยกรมสรรพากร (Doing Business)</em>. กรมสรรพากร.</p>
-<p class="ref">ประมวลรัษฎากร.</p>
-<p class="ref">พระราชบัญญัติการแข่งขันทางการค้า พ.ศ. 2560. (2560). <em>ราชกิจจานุเบกษา</em>, เล่ม 134 ตอนที่ 70 ก.</p>
-<p class="ref">พระราชบัญญัติการสาธารณสุข พ.ศ. 2535. (2535). <em>ราชกิจจานุเบกษา</em>, เล่ม 109 ตอนที่ 38.</p>
-<p class="ref">พระราชบัญญัติความลับทางการค้า พ.ศ. 2545. (2545). <em>ราชกิจจานุเบกษา</em>.</p>
-<p class="ref">พระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534. (2534). <em>ราชกิจจานุเบกษา</em>, เล่ม 108 ตอนที่ 199 ฉบับพิเศษ.</p>
-<p class="ref">พระราชบัญญัติทะเบียนพาณิชย์ พ.ศ. 2499. (2499). <em>ราชกิจจานุเบกษา</em>.</p>
-<p class="ref">พระราชบัญญัติประกันสังคม พ.ศ. 2533. (2533). <em>ราชกิจจานุเบกษา</em>, เล่ม 107 ตอนที่ 161 ฉบับพิเศษ.</p>
-<p class="ref">พระราชบัญญัติแก้ไขเพิ่มเติมประมวลกฎหมายแพ่งและพาณิชย์ (ฉบับที่ 23) พ.ศ. 2565. (2565). <em>ราชกิจจานุเบกษา</em>.</p>
-<p class="ref">พระราชบัญญัติอาหาร พ.ศ. 2522. (2522). <em>ราชกิจจานุเบกษา</em>, เล่ม 96 ตอนที่ 75 ก.</p>
-  </article>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>ค่า</th><th>ประเภทในแผนการเงิน</th></tr></thead><tbody><tr><td>ค่าบริการสำนักงานบัญชี</td><td>2,000 บาทต่อเดือน ตั้งแต่มิถุนายน 2570</td><td>ต้นทุนคงที่</td></tr><tr><td>เงินสมทบประกันสังคมส่วนนายจ้าง</td><td>ข้อสมมติร้อยละ 5 ของค่าจ้าง</td><td>ต้นทุนคงที่</td></tr><tr><td>ค่าจดทะเบียนและเครื่องหมายการค้า</td><td>ข้อสมมติรวม 10,000 บาท ในปี 2570</td><td>ค่าใช้จ่ายครั้งเดียว</td></tr><tr><td>ภาษีมูลค่าเพิ่ม</td><td>จดทะเบียนก่อนเปิดสาขาใหม่ คงราคาไม้ละ 10 บาท</td><td>รายได้สุทธิ = ยอดขาย ÷ 1.07 ตั้งแต่มิถุนายน 2570</td></tr><tr><td>ภาษีเงินได้</td><td>บุคคลธรรมดาในระยะที่ 1</td><td>คำนวณจากกำไรในบทที่ 10</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง: คำถามที่คุณตั้มไม่ได้เตรียมไว้ (กรณีศึกษาสมมติ)</div><p>เมื่อคุณตั้มนำแผนขยายไปยื่นขอสินเชื่อ เจ้าหน้าที่สินเชื่ออ่านประมาณการยอดขายในบทที่ 7 แล้วถามว่า ยอดขายปี 2570 ประมาณ 2.48 ล้านบาท ร้านจดทะเบียนภาษีมูลค่าเพิ่มแล้วหรือยัง และราคาไม้ละ 10 บาทรวมภาษีหรือไม่ คุณตั้มตอบไม่ได้ เพราะร้านเดิมไม่เคยต้องจดทะเบียน และไม่เคยคิดว่าการเปิดสาขาจะเปลี่ยนเรื่องนี้</p><p>เจ้าหน้าที่อธิบายว่าคำถามนี้สำคัญต่อการพิจารณาสินเชื่อ ถ้าแผนการเงินใช้ยอดขายเต็มเป็นรายได้ แต่ร้านต้องนำส่งภาษีมูลค่าเพิ่มประมาณปีละ 2 แสนบาท กำไรจริงจะต่ำกว่าที่แสดง และความสามารถผ่อนชำระก็จะต่ำกว่าที่แสดงด้วย เจ้าหน้าที่จึงขอให้คุณตั้มปรับแผนก่อนยื่นใหม่</p><p>คุณตั้มปรึกษาสำนักงานบัญชี และตัดสินใจจดทะเบียนก่อนเปิดสาขาใหม่ในเดือนมิถุนายน 2570 แทนการรอให้ยอดขายเกินเกณฑ์ในเดือนตุลาคม เพื่อเริ่มระบบบัญชีและใบกำกับภาษีพร้อมกับสาขาใหม่ คุณตั้มยังให้สำนักงานบัญชีตรวจว่าการซื้ออุปกรณ์ครัวกลางหลังจดทะเบียน จะขอคืนภาษีซื้อได้มากน้อยเพียงใด</p><p class="q"><b>คำถามชวนคิด</b> ถ้าคุณตั้มเลือกขึ้นราคาเป็นไม้ละ 11 บาทแทนการคงราคา ต้องกลับไปตรวจและแก้ส่วนใดของแผนในบทที่ 5 และบทที่ 7</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถเขียนแผนองค์กรและกฎหมายที่ตอบได้ว่าใครทำและรับผิดชอบอะไร โดยเริ่มจากตารางทักษะที่แสดงช่องว่างและวิธีปิดช่องว่าง ผังองค์กรที่มีหน้าที่ อำนาจตัดสินใจ และผู้ทำแทนในงานสำคัญ การเลือกรูปแบบธุรกิจที่เหมาะกับแต่ละระยะ รายการจดทะเบียนและใบอนุญาตที่ระบุหน่วยงานและกำหนดเวลา การวิเคราะห์ภาษีมูลค่าเพิ่มเมื่อยอดขายข้ามเกณฑ์ และการคุ้มครองชื่อร้านและสูตรด้วยเครื่องหมายการค้าและความลับทางการค้า</p>
+<p>นิสิตนำความรู้นี้ไปเขียนแผนองค์กรและกฎหมายของกลุ่มในกิจกรรมท้ายบท ตัวเลขค่าบริการภายนอก เงินสมทบประกันสังคม ค่าจดทะเบียน และการจัดการภาษีมูลค่าเพิ่มจะเป็นข้อมูลนำเข้าของแผนการเงิน บทที่ 10 จะรวมตัวเลขจากบทที่ 7 ถึงบทที่ 9 เป็นเงินลงทุน ต้นทุน และจุดคุ้มทุน</p>
 </div>
-<div class="wrap"><div class="pager"><a class="prev" href="bp_lesson_08.html"><small>ก่อนหน้า</small>บทที่ 8 แผนการดำเนินงาน</a><a class="next" href="bp_lesson_10.html"><small>ถัดไป</small>บทที่ 10 แผนการเงิน 1: ต้นทุนและจุดคุ้มทุน</a></div></div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>แผนองค์กร (organization plan)</li><li>ช่องว่างของทักษะ (skill gap)</li><li>โครงสร้างองค์กร (organizational structure)</li><li>ความเสี่ยงจากบุคคลสำคัญ (key person risk)</li><li>ความรับผิด (liability)</li><li>ภาษีมูลค่าเพิ่ม (value added tax)</li><li>ทรัพย์สินทางปัญญา (intellectual property)</li><li>เครื่องหมายการค้า (trademark)</li><li>ความลับทางการค้า (trade secret)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>เพราะเหตุใดการแนะนำทีมด้วยตำแหน่งในกลุ่ม เช่น ประธานและเหรัญญิก จึงไม่ช่วยผู้อ่านแผน และควรแนะนำทีมอย่างไรแทน</li><li>ทางเลือกสี่ทางในการปิดช่องว่างของทักษะคืออะไร จงยกตัวอย่างทักษะที่ควรใช้บริการภายนอกมากกว่าการจ้างพนักงาน</li><li>ตารางหน้าที่และอำนาจตัดสินใจช่วยการทำงานของธุรกิจที่มีหลายสาขาอย่างไร</li><li>จงระบุงานที่หยุดไม่ได้สองงานของธุรกิจที่นิสิตรู้จัก และกำหนดผู้ทำแทนพร้อมสิ่งที่ต้องเตรียม</li><li>เพราะเหตุใดกรณีศึกษาจึงเลือกตั้งบริษัทจำกัดหลังผ่านด่าน 1 ไม่ใช่ก่อนขอสินเชื่อ</li><li>ร้านกาแฟมียอดขายเดือนละ 140,000 บาท และวางแผนเปิดสาขาที่สองซึ่งขายได้เดือนละ 100,000 บาท ตั้งแต่เดือนกรกฎาคม ยอดขายสะสมของปีจะเกิน 1.8 ล้านบาทในเดือนใด และร้านต้องทำอะไร</li><li>ร้านจดทะเบียนภาษีมูลค่าเพิ่มแล้วและคงราคาแก้วละ 50 บาท ต้นทุนผันแปรแก้วละ 22 บาท จงคำนวณรายได้สุทธิและส่วนเกินต่อแก้ว และเทียบกับก่อนจดทะเบียน</li><li>เพราะเหตุใดการแยกสาขาให้คนในครอบครัวเป็นเจ้าของในนามเพื่อไม่ให้ยอดขายเกินเกณฑ์ภาษีมูลค่าเพิ่ม จึงไม่ใช่ทางเลือกที่แผนธุรกิจควรเสนอ</li><li>ชื่อร้านกับสูตรอาหารควรคุ้มครองด้วยวิธีใด และเพราะเหตุใดจึงใช้วิธีต่างกัน</li><li>เพราะเหตุใดผู้ลงทุนจึงต้องการให้เครื่องหมายการค้าเป็นของบริษัท ไม่ใช่ของผู้ก่อตั้ง</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: แผนองค์กรและกฎหมายของกลุ่ม</h2>
+<p>กิจกรรมนี้ไม่นับคะแนน ผู้สอนจะให้ข้อมูลป้อนกลับในสัปดาห์ที่ 12 และผลงานจะเป็นส่วนที่ 8 ของเล่มแผนธุรกิจ</p>
+<ol><li>ตารางทักษะที่ธุรกิจต้องการ ผู้มีทักษะ และวิธีปิดช่องว่าง (แบบตารางที่ 9.2)</li><li>ผังองค์กรของระยะแรก ตารางหน้าที่และอำนาจตัดสินใจ และงานที่หยุดไม่ได้พร้อมผู้ทำแทน</li><li>รูปแบบธุรกิจที่เลือกในแต่ละระยะพร้อมเหตุผล</li><li>รายการจดทะเบียนและใบอนุญาตพร้อมหน่วยงานและกำหนดเวลา ระบุรายการที่ต้องตรวจกับหน่วยงาน</li><li>ตรวจยอดขายสะสมจากใบงานที่ 5 กับเกณฑ์ภาษีมูลค่าเพิ่ม และผลต่อราคาและรายได้ถ้าข้ามเกณฑ์</li><li>ทรัพย์สินทางปัญญาของธุรกิจและวิธีคุ้มครอง</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">กรมสรรพากร. (2559). <em>มาตรการภาษีเพื่อส่งเสริมและอำนวยความสะดวกในการประกอบกิจการโดยกรมสรรพากร (Doing Business)</em>. กรมสรรพากร.</div>
+<div class="r">ประมวลรัษฎากร.</div>
+<div class="r">พระราชบัญญัติการแข่งขันทางการค้า พ.ศ. 2560. (2560). <em>ราชกิจจานุเบกษา</em>, เล่ม 134 ตอนที่ 70 ก.</div>
+<div class="r">พระราชบัญญัติการสาธารณสุข พ.ศ. 2535. (2535). <em>ราชกิจจานุเบกษา</em>, เล่ม 109 ตอนที่ 38.</div>
+<div class="r">พระราชบัญญัติความลับทางการค้า พ.ศ. 2545. (2545). <em>ราชกิจจานุเบกษา</em>.</div>
+<div class="r">พระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534. (2534). <em>ราชกิจจานุเบกษา</em>, เล่ม 108 ตอนที่ 199 ฉบับพิเศษ.</div>
+<div class="r">พระราชบัญญัติทะเบียนพาณิชย์ พ.ศ. 2499. (2499). <em>ราชกิจจานุเบกษา</em>.</div>
+<div class="r">พระราชบัญญัติประกันสังคม พ.ศ. 2533. (2533). <em>ราชกิจจานุเบกษา</em>, เล่ม 107 ตอนที่ 161 ฉบับพิเศษ.</div>
+<div class="r">พระราชบัญญัติแก้ไขเพิ่มเติมประมวลกฎหมายแพ่งและพาณิชย์ (ฉบับที่ 23) พ.ศ. 2565. (2565). <em>ราชกิจจานุเบกษา</em>.</div>
+<div class="r">พระราชบัญญัติอาหาร พ.ศ. 2522. (2522). <em>ราชกิจจานุเบกษา</em>, เล่ม 96 ตอนที่ 75 ก.</div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 9 แผนองค์กรและกฎหมาย. ใน <em>การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ: เอกสารประกอบการสอนรายวิชา 0903521</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/bp_lesson_09.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="bp_lesson_08.html"><small>◀ บทก่อนหน้า</small>บทที่ 8 แผนการดำเนินงาน</a><a href="bp_lesson_10.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 10 แผนการเงิน 1: ต้นทุนและจุดคุ้มทุน</a></div>
+</article>
+</div>
 <div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
-<div class="bar"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
-<script>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0903521 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
 var S=['bp/slides/09/s-01.jpg', 'bp/slides/09/s-02.jpg', 'bp/slides/09/s-03.jpg', 'bp/slides/09/s-04.jpg', 'bp/slides/09/s-05.jpg', 'bp/slides/09/s-06.jpg', 'bp/slides/09/s-07.jpg', 'bp/slides/09/s-08.jpg', 'bp/slides/09/s-09.jpg', 'bp/slides/09/s-10.jpg', 'bp/slides/09/s-11.jpg', 'bp/slides/09/s-12.jpg', 'bp/slides/09/s-13.jpg', 'bp/slides/09/s-14.jpg', 'bp/slides/09/s-15.jpg', 'bp/slides/09/s-16.jpg', 'bp/slides/09/s-17.jpg', 'bp/slides/09/s-18.jpg', 'bp/slides/09/s-19.jpg'],cur=0;
-function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;
- if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
-function openDeck(i){cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
 function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
 function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
 function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
 document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
  if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
- if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}
- else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
-var tx=null;document.getElementById('deck').addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
-document.getElementById('deck').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
 </script>
-<footer><div class="wrap">© 2569 อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · สงวนลิขสิทธิ์เนื้อหาและกรณีศึกษา<br>
-กรณีศึกษา "หมูปิ้งอาจารย์ตั้ม" และตัวเลขทั้งหมดเป็นข้อมูลสมมติเพื่อการสอน · Business Model Canvas โดย Strategyzer AG (CC BY-SA 3.0)</div></footer>
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
 </body>
