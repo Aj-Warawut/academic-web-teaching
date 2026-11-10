@@ -108,7 +108,7 @@ section.blk h2{font-size:22px;color:var(--navy);margin-bottom:10px}
   <h1>แผนธุรกิจ: ความสำคัญ ผู้อ่าน และกระบวนการจัดทำ</h1>
   <div class="chips"><span>0903521 การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ</span><span>ใบงานที่ 1 ปัญหา แนวคิดธุรกิจ และเป้าหมายปลายทาง</span></div>
   <div class="actions">
-    <button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (20 สไลด์)</button>
+    <button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (23 สไลด์)</button>
     <a class="btn ghost" href="bp/files/bp_0903521_บทที่01_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a>
     <button class="btn ghost" onclick="window.print()">🖨 พิมพ์บทเรียน</button>
   </div>
@@ -224,7 +224,7 @@ section.blk h2{font-size:22px;color:var(--navy);margin-bottom:10px}
 <div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
 <div class="bar"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
 <script>
-var S=['bp/slides/01/s-01.jpg', 'bp/slides/01/s-02.jpg', 'bp/slides/01/s-03.jpg', 'bp/slides/01/s-04.jpg', 'bp/slides/01/s-05.jpg', 'bp/slides/01/s-06.jpg', 'bp/slides/01/s-07.jpg', 'bp/slides/01/s-08.jpg', 'bp/slides/01/s-09.jpg', 'bp/slides/01/s-10.jpg', 'bp/slides/01/s-11.jpg', 'bp/slides/01/s-12.jpg', 'bp/slides/01/s-13.jpg', 'bp/slides/01/s-14.jpg', 'bp/slides/01/s-15.jpg', 'bp/slides/01/s-16.jpg', 'bp/slides/01/s-17.jpg', 'bp/slides/01/s-18.jpg', 'bp/slides/01/s-19.jpg', 'bp/slides/01/s-20.jpg'],cur=0;
+var S=['bp/slides/01/s-01.jpg', 'bp/slides/01/s-02.jpg', 'bp/slides/01/s-03.jpg', 'bp/slides/01/s-04.jpg', 'bp/slides/01/s-05.jpg', 'bp/slides/01/s-06.jpg', 'bp/slides/01/s-07.jpg', 'bp/slides/01/s-08.jpg', 'bp/slides/01/s-09.jpg', 'bp/slides/01/s-10.jpg', 'bp/slides/01/s-11.jpg', 'bp/slides/01/s-12.jpg', 'bp/slides/01/s-13.jpg', 'bp/slides/01/s-14.jpg', 'bp/slides/01/s-15.jpg', 'bp/slides/01/s-16.jpg', 'bp/slides/01/s-17.jpg', 'bp/slides/01/s-18.jpg', 'bp/slides/01/s-19.jpg', 'bp/slides/01/s-20.jpg', 'bp/slides/01/s-21.jpg', 'bp/slides/01/s-22.jpg', 'bp/slides/01/s-23.jpg'],cur=0;
 function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;
  if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
 function openDeck(i){cur=i||0;document.getElementById('deck').classList.add('on');show();}
