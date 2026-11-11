@@ -1,0 +1,459 @@
+{
+ "synced": "2026-11-11",
+ "source": "OpenAlex",
+ "profile": {
+  "orcid": "0000-0002-9820-4196",
+  "scopus": "57207568681",
+  "openalex": "https://openalex.org/A5012535215",
+  "scholar": ""
+ },
+ "summary": {
+  "works": 22,
+  "cites": 32,
+  "h": 4,
+  "i10": 0,
+  "scopusWorks": null,
+  "scopusCites": null
+ },
+ "works": [
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "A Leakage-Controlled, Calibration-First Evaluation of Machine Learning Models for Startup-Outcome Prediction: Evidence from Crunchbase",
+   "source": "Information",
+   "doi": "10.3390/info17070702",
+   "url": "https://doi.org/10.3390/info17070702",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Khamphukun Ratchaneekorn",
+    "Warawut Narkbunnum"
+   ],
+   "role": "corr",
+   "field": "Computer Science",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Enhancing Credit Risk Management and Organizational Adaptation in Thai Agricultural Cooperatives",
+   "source": "Journal Of Organizational Behavior Research",
+   "doi": "10.51847/pqqttkwesl",
+   "url": "https://doi.org/10.51847/pqqttkwesl",
+   "cites": 3,
+   "oa": true,
+   "authors": [
+    "Kittipop Kanta",
+    "Warawut Narkbunnum",
+    "Kanjana Hinthaw"
+   ],
+   "role": "co",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Explaining Telecom Customer Churn through Communication-Oriented Machine Learning and SHAP Analysis",
+   "source": "Studies in Media and Communication",
+   "doi": "10.11114/smc.v14i3.8434",
+   "url": "https://doi.org/10.11114/smc.v14i3.8434",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Nutnicha Janchai",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Financial openness in an emerging-market entrepreneurial ecosystem: How foreign and domestic capital structure Thailand's startup financing, 2015–2025",
+   "source": "Journal of Open Innovation Technology Market and Complexity",
+   "doi": "10.1016/j.joitmc.2026.100879",
+   "url": "https://doi.org/10.1016/j.joitmc.2026.100879",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Ong-art Chanprasitchai",
+    "Warawut Narkbunnum"
+   ],
+   "role": "corr",
+   "field": "Economics, Econometrics and Finance",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Forecasting Corporate Financial Distress Using Explainable Machine Learning: Implications for Risk Management Technology",
+   "source": "Journal of Computer Science",
+   "doi": "10.3844/jcssp.2026.2291.2311",
+   "url": "https://doi.org/10.3844/jcssp.2026.2291.2311",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Kanjana Hinthaw",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "From Probabilities to Workload: Calibrated ML and Decision-Curve Analysis for Passenger-Service Operations",
+   "source": "International Journal of Analysis and Applications",
+   "doi": "10.28924/2291-8639-24-2026-250",
+   "url": "https://doi.org/10.28924/2291-8639-24-2026-250",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Thanyaporn Sukdet",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Engineering",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "From Static Labels to Event-Based Prediction: A Temporal Machine-Learning Framework for SME Business Dissolution in an Emerging Market",
+   "source": "Journal of risk and financial management",
+   "doi": "10.3390/jrfm19090652",
+   "url": "https://doi.org/10.3390/jrfm19090652",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Thanyachanok Pawala",
+    "Warawut Narkbunnum",
+    "Kittipol Wisaeng"
+   ],
+   "role": "co",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "software",
+   "typeTh": "ซอฟต์แวร์และโค้ด",
+   "title": "Leakage-controlled, calibration-first evaluation of startup-outcome prediction: analysis code and reproducibility artefacts",
+   "source": "Zenodo (CERN European Organization for Nuclear Research)",
+   "doi": "10.5281/zenodo.21330296",
+   "url": "https://doi.org/10.5281/zenodo.21330296",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Khamphukun Ratchaneekorn",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Computer Science",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Profiling Organizational AI Readiness in Thailand’s Logistics Industry Using TOE–UTAUT Features, Clustering Analysis, and Explainable Machine Learning",
+   "source": "Information",
+   "doi": "10.3390/info17070672",
+   "url": "https://doi.org/10.3390/info17070672",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Wipada Sriwichien",
+    "Warawut Narkbunnum",
+    "Kittipol Wisaeng"
+   ],
+   "role": "co",
+   "field": "Decision Sciences",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Regulatory Quality and New Business Formation in East and Southeast Asia: Nonlinear and Heterogeneous Effects",
+   "source": "International Journal of Analysis and Applications",
+   "doi": "10.28924/2291-8639-24-2026-65",
+   "url": "https://doi.org/10.28924/2291-8639-24-2026-65",
+   "cites": 1,
+   "oa": true,
+   "authors": [
+    "Warawut Narkbunnum",
+    "Yanin Tangpinyoputtikhun"
+   ],
+   "role": "first",
+   "field": "Social Sciences",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2026,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Translational Evaluation of Interpretable Machine Learning for Cardiovascular Risk Prediction: Calibration Decomposition, Subgroup Audits, and Decision-Utility Analysis",
+   "source": "International Journal of Analysis and Applications",
+   "doi": "10.28924/2291-8639-24-2026-202",
+   "url": "https://doi.org/10.28924/2291-8639-24-2026-202",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Hathaichanok Chompoopong",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Health Professions",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2025,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Calibrated Turnover Risk Models for Capacity Constrained Retention Triage",
+   "source": "Journal Of Organizational Behavior Research",
+   "doi": "10.51847/2dguhkt7sk",
+   "url": "https://doi.org/10.51847/2dguhkt7sk",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Sarawut Laksawut",
+    "Warawut Narkbunnum"
+   ],
+   "role": "corr",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2025,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "From Ports to Platform Sales: Maritime Connectivity and E-Sales Adoption in Europe",
+   "source": "International Journal of Analysis and Applications",
+   "doi": "10.28924/2291-8639-23-2025-338",
+   "url": "https://doi.org/10.28924/2291-8639-23-2025-338",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Ong-art Chanprasitchai",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2025,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Interpretable Gradient Boosted Modeling of Employee Attrition: A SHAP-Based Framework for HR Analytics",
+   "source": "International Journal of Analysis and Applications",
+   "doi": "10.28924/2291-8639-23-2025-236",
+   "url": "https://doi.org/10.28924/2291-8639-23-2025-236",
+   "cites": 7,
+   "oa": true,
+   "authors": [
+    "Warawut Narkbunnum",
+    "Kanjana Hinthaw"
+   ],
+   "role": "first",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2025,
+   "type": "book-chapter",
+   "typeTh": "บทในหนังสือ",
+   "title": "Navigating Crisis Through Innovation",
+   "source": "IGI Global eBooks",
+   "doi": "10.4018/979-8-3693-9346-8.ch009",
+   "url": "https://doi.org/10.4018/979-8-3693-9346-8.ch009",
+   "cites": 0,
+   "oa": false,
+   "authors": [
+    "Thanyachanok Pawala",
+    "Warawut Narkbunnum",
+    "Suwichai Phunsa",
+    "Sanya Kenaphoom"
+   ],
+   "role": "co",
+   "field": "Economics, Econometrics and Finance",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2024,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "A Proposed Categorization of Meta-Analysis, Their Respective Example Conceptual Frameworks, and Applicable R Packages for Education Research: A Review",
+   "source": "Journal of Practical Studies in Education",
+   "doi": "10.46809/jpse.v5i3.83",
+   "url": "https://doi.org/10.46809/jpse.v5i3.83",
+   "cites": 8,
+   "oa": true,
+   "authors": [
+    "Gamon Savatsomboon",
+    "Phamornpun Yurayat",
+    "Ong-art Chanprasitchai",
+    "Warawut Narkbunnum",
+    "Jibon Kumar Sharma Leihaothabam",
+    "Surapol Svetsomboon"
+   ],
+   "role": "co",
+   "field": "Decision Sciences",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2024,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "การพัฒนาและการเปรียบเทียบประสิทธิภาพของตัวแบบสำหรับการคัดกรองผู้ป่วยกลุ่มที่สุ่มเสี่ยงเป็นโรคไต ด้วยเทคนิคการทำเหมืองข้อมูล: Development and Performance Comparison of Models for Screening Randomly At-Risk Patients with Kidney Disease Using Data Mining Techniques",
+   "source": "Journal of Applied Information Technology",
+   "doi": "",
+   "url": "https://ph02.tci-thaijo.org/index.php/project-journal/article/view/251780",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Warawut Narkbunnum",
+    "อนุพงศ์ สุขประเสริฐ",
+    "อันดี้ เอเว่นส์",
+    "อริสรา สัตย์ซื่อ",
+    "อุไรวรรณ ทิจันธุง",
+    "กาญจนา หินเธาว์"
+   ],
+   "role": "first",
+   "field": "Health Professions",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2024,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "การเปรียบเทียบประสิทธิภาพตัวแบบสำหรับการคัดกรองผู้ป่วยมะเร็งปากมดลูก: Comparing the efficiency of models for cervical cancer screening",
+   "source": "Journal of Applied Information Technology",
+   "doi": "",
+   "url": "https://drive.google.com/file/d/1zx2kk2pjl-XeMzjPEnYtEHODHSRXx6NF/view?usp=sharing",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Warawut Narkbunnum",
+    "Anupong Sukprasert",
+    "Supornphan Phuwanatrungreaung",
+    "Kittithep Rungpao",
+    "Kanjana Hinthaw"
+   ],
+   "role": "first",
+   "field": "Health Professions",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2023,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Using K-means Techniques for Clustering Depressed Patients in Mahasarakham Province",
+   "source": "Journal of Technology Management Rajabhat Maha Sarakham University",
+   "doi": "",
+   "url": "https://ph02.tci-thaijo.org/index.php/itm-journal/article/view/251446",
+   "cites": 0,
+   "oa": true,
+   "authors": [
+    "Supakron Srisanga",
+    "Arisara Pahdungcharoen",
+    "Nanthicha Wonghong",
+    "Kanjana Hinthaw",
+    "Anupong Sukprasert",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Health Professions",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2022,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Prediction of Depression for Undergraduate Students Based on Imbalanced Data by Using Data Mining Techniques",
+   "source": "Applied System Innovation",
+   "doi": "10.3390/asi5060120",
+   "url": "https://doi.org/10.3390/asi5060120",
+   "cites": 8,
+   "oa": true,
+   "authors": [
+    "Warawut Narkbunnum",
+    "Kittipol Wisaeng"
+   ],
+   "role": "first",
+   "field": "Health Professions",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2018,
+   "type": "conference-paper",
+   "typeTh": "บทความการประชุม",
+   "title": "The Effects of CEO's Personality on Knowledge Transfer and Innovative Performance in Thai SMEs",
+   "source": "Technology Innovation Management and Engineering Science International Conference (TIMES-iCON)",
+   "doi": "10.1109/times-icon.2018.8621848",
+   "url": "https://doi.org/10.1109/times-icon.2018.8621848",
+   "cites": 5,
+   "oa": false,
+   "authors": [
+    "Pongsatorn Tantrabundit",
+    "Warawut Narkbunnum"
+   ],
+   "role": "co",
+   "field": "Psychology",
+   "scopus": null,
+   "scopusCites": null
+  },
+  {
+   "year": 2011,
+   "type": "article",
+   "typeTh": "บทความวารสาร",
+   "title": "Cosmeceutical products on social media",
+   "source": "The International Journal of the Computer, the Internet and Management",
+   "doi": "",
+   "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=3967118",
+   "cites": 0,
+   "oa": false,
+   "authors": [
+    "Warawut Narkbunnum",
+    "M.D Tanom Bunaprasert",
+    "Tippakorn Rungkasiri"
+   ],
+   "role": "first",
+   "field": "Business, Management and Accounting",
+   "scopus": null,
+   "scopusCites": null
+  }
+ ]
+}

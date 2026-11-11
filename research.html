@@ -61,6 +61,38 @@ table.pubs .jour{font-style:italic;color:var(--ink)}
 .qb.q2{background:#E1F3EF;color:#1E7A6B;border:1px solid #A9DDD3}
 .note{font-size:12.5px;color:var(--mute);margin-top:12px;padding-left:2px}
 @media(max-width:560px){.statband{grid-template-columns:repeat(2,1fr)}.stat .n{font-size:26px}}
+.pubdash{padding:28px 0 6px}
+.pubdash .sechead .en,.section .sechead .en{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac)}
+.pd-src{font-size:12.5px;color:var(--mute);margin:-8px 0 14px}
+.pd-src a{color:var(--ac);font-weight:700}
+.pd-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:14px;margin-bottom:16px}
+.pd-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px}
+.pd-card h3{font-size:15px;color:var(--navy);margin-bottom:2px}
+.pd-card .hint{font-size:12px;color:var(--mute);margin-bottom:10px}
+.yb{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:18px}
+.yb button{flex:1;min-width:0;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;padding:0;font-family:inherit}
+.yb .bar{width:100%;max-width:38px;background:var(--ac);border-radius:4px 4px 0 0;position:relative;min-height:2px}
+.yb .bar span{position:absolute;top:-17px;left:0;right:0;text-align:center;font-size:11.5px;font-weight:700;color:var(--ink)}
+.yb .yl{font-size:11px;color:var(--mute);margin-top:4px}
+.yb button.on .bar{background:var(--gold)}.yb button.dim .bar{opacity:.35}
+.fl{list-style:none}.fl li{margin-bottom:7px}
+.fl button{width:100%;border:none;background:none;cursor:pointer;text-align:left;font-family:inherit;padding:0}
+.fl .fn{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink);gap:8px}
+.fl .ft{height:8px;background:#EEF1F8;border-radius:6px;overflow:hidden;margin-top:2px}.fl .ft i{display:block;height:100%;background:var(--ac);border-radius:6px}
+.fl button.on .ft i{background:var(--gold)}.fl button.on .fn{font-weight:700}
+.pd-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.pd-bar input,.pd-bar select{border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-family:inherit;font-size:13.5px;background:#fff}
+.pd-bar input{flex:1;min-width:180px}
+.pd-bar button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 12px;font-family:inherit;font-weight:700;font-size:13px;color:var(--navy);cursor:pointer}
+.pd-count{font-size:12.5px;color:var(--mute);margin-bottom:8px}
+table.pubs td .src{display:block;font-size:12.5px;color:var(--mute);font-style:italic;margin-top:2px}
+table.pubs td .au{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.rl{font-size:11.5px;font-weight:700;border-radius:20px;padding:2px 9px;white-space:nowrap;background:#EEF1F8;color:var(--mute)}
+.rl.first{background:#E1F3EF;color:#1E7A6B}.rl.corr{background:#FBEFD3;color:#9A6B0C}
+.ty{font-size:11px;color:var(--mute);display:block;margin-top:3px}
+.oa{font-size:10.5px;font-weight:800;color:#1E7A6B;border:1px solid #A9DDD3;border-radius:6px;padding:0 5px;margin-left:4px}
+.yb button{overflow:hidden;padding-top:16px!important}
+@media(max-width:760px){.pd-grid{grid-template-columns:minmax(0,1fr)}.yb{gap:2px}.yb .yl{font-size:9px}}
 footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:12.5px;text-align:center}
 @media(max-width:560px){
   .topbar .wrap{padding:9px 12px;gap:8px;flex-wrap:nowrap}
@@ -88,6 +120,27 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
 </div></div>
 
 <div class="wrap">
+  <div class="pubdash" id="pubs">
+    <div class="sechead">
+      <span class="en">Publications</span>
+      <h2 data-th="ผลงานตีพิมพ์" data-en="Publications">ผลงานตีพิมพ์</h2>
+    </div>
+    <p class="pd-src" id="pdSrc"></p>
+    <div class="statband" id="pdStats"></div>
+    <div class="pd-grid">
+      <div class="pd-card"><h3 data-th="จำนวนผลงานรายปี" data-en="Publications per year">จำนวนผลงานรายปี</h3><div class="hint" data-th="กดแท่งเพื่อดูผลงานของปีนั้น" data-en="Click a bar to list that year">กดแท่งเพื่อดูผลงานของปีนั้น</div><div class="yb" id="pdYears"></div></div>
+      <div class="pd-card"><h3 data-th="ผลงานตามสาขา" data-en="By field">ผลงานตามสาขา</h3><div class="hint" data-th="จัดสาขาโดย OpenAlex · กดเพื่อกรอง" data-en="Fields assigned by OpenAlex · click to filter">จัดสาขาโดย OpenAlex · กดเพื่อกรอง</div><ul class="fl" id="pdFields"></ul></div>
+    </div>
+    <div class="pd-bar">
+      <input id="pdQ" type="search" placeholder="ค้นชื่อเรื่อง วารสาร หรือผู้แต่ง" aria-label="ค้นผลงาน">
+      <select id="pdType" aria-label="ประเภทผลงาน"></select>
+      <button id="pdClear" data-th="ล้างตัวกรอง" data-en="Clear filters">ล้างตัวกรอง</button>
+      <button id="pdCsv">⬇ CSV</button>
+    </div>
+    <div class="pd-count" id="pdCount"></div>
+    <div class="tablewrap"><table class="pubs"><thead><tr><th data-th="ปี" data-en="Year">ปี</th><th data-th="ชื่อเรื่องและแหล่งตีพิมพ์" data-en="Title and source">ชื่อเรื่องและแหล่งตีพิมพ์</th><th data-th="บทบาท" data-en="Role">บทบาท</th><th data-th="อ้างอิง" data-en="Cited">อ้างอิง</th></tr></thead><tbody id="pdRows"></tbody></table></div>
+    <p class="note" data-th="ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus" data-en="Published bibliographic data from OpenAlex. Citation counts and h-index may differ from Scopus; see the Scopus profile for official figures.">ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus</p>
+  </div>
   <div class="cards">
     <article class="wcard">
       <div class="top"></div>
@@ -132,5 +185,40 @@ setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+<script>
+(function(){
+const FTH={"Business, Management and Accounting":"บริหารธุรกิจ การจัดการ และการบัญชี","Health Professions":"วิชาชีพด้านสุขภาพ","Computer Science":"วิทยาการคอมพิวเตอร์","Economics, Econometrics and Finance":"เศรษฐศาสตร์และการเงิน","Decision Sciences":"วิทยาการตัดสินใจ","Engineering":"วิศวกรรมศาสตร์","Social Sciences":"สังคมศาสตร์","Psychology":"จิตวิทยา","Medicine":"แพทยศาสตร์","Mathematics":"คณิตศาสตร์","Arts and Humanities":"ศิลปศาสตร์และมนุษยศาสตร์","Environmental Science":"วิทยาศาสตร์สิ่งแวดล้อม","Agricultural and Biological Sciences":"เกษตรศาสตร์และชีววิทยา","ไม่ระบุสาขา":"ไม่ระบุสาขา"};
+const TEN={"บทความวารสาร":"Journal article","บทความปริทัศน์":"Review","บทในหนังสือ":"Book chapter","หนังสือ":"Book","บทความการประชุม":"Conference paper","ต้นฉบับก่อนตีพิมพ์":"Preprint","ชุดข้อมูล":"Dataset","ซอฟต์แวร์และโค้ด":"Software"};
+const RL={first:["ผู้แต่งหลัก","First author"],corr:["ผู้รับผิดชอบบทความ","Corresponding"],co:["ผู้แต่งร่วม","Co-author"]};
+let D=null,fy=null,ff=null;
+const en=()=>document.documentElement.dataset.lang==="en";
+const T=(th,e)=>en()?e:th;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const $=id=>document.getElementById(id);
+function rows(){const q=$("pdQ").value.trim().toLowerCase(),t=$("pdType").value;
+  return D.works.filter(w=>(!fy||w.year===fy)&&(!ff||w.field===ff)&&(!t||w.typeTh===t)&&(!q||(w.title+" "+w.source+" "+w.authors.join(" ")).toLowerCase().includes(q)));}
+function render(){if(!D)return;const S=D.summary,P=D.profile;
+  $("pdSrc").innerHTML=T("ข้อมูลจาก ","Data: ")+esc(D.source)+T(" · ซิงก์ล่าสุด "," · last synced ")+esc(D.synced)+" · "+
+    [["Scopus","https://www.scopus.com/authid/detail.uri?authorId="+P.scopus],["ORCID","https://orcid.org/"+P.orcid],["OpenAlex",P.openalex],P.scholar?["Google Scholar",P.scholar]:null].filter(Boolean).map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+"</a>").join(" · ");
+  const st=[[S.works,T("ผลงานทั้งหมด","publications")],[S.cites,T("การอ้างอิงรวม","citations")],[S.h,"h-index"],[S.scopusWorks!=null?S.scopusWorks:D.works.filter(w=>w.role!=="co").length,S.scopusWorks!=null?T("ผลงานใน Scopus","in Scopus"):T("ผู้แต่งหลักหรือผู้รับผิดชอบ","first/corresponding")]];
+  $("pdStats").innerHTML=st.map((x,i)=>'<div class="stat"><div class="n'+(i===2?" gold":"")+'">'+(x[0]??"–")+'</div><div class="l">'+x[1]+"</div></div>").join("");
+  const ys={};D.works.forEach(w=>{if(w.year)ys[w.year]=(ys[w.year]||0)+1;});const yk=Object.keys(ys).map(Number);const y0=Math.min(...yk),y1=Math.max(...yk),mx=Math.max(...Object.values(ys));
+  const from=Math.max(y0,y1-11);let yh="";for(let y=from;y<=y1;y++){const n=ys[y]||0;yh+='<button class="'+(fy===y?"on":fy?"dim":"")+'" data-y="'+y+'" aria-label="'+y+": "+n+'"><div class="bar" style="height:'+(n/mx*100)+'%">'+(n?"<span>"+n+"</span>":"")+'</div><div class="yl">'+(en()?y:y+543)+"</div></button>";}
+  $("pdYears").innerHTML=yh;$("pdYears").querySelectorAll("button").forEach(b=>b.onclick=()=>{const y=+b.dataset.y;fy=fy===y?null:y;render();});
+  const fs={};D.works.forEach(w=>fs[w.field]=(fs[w.field]||0)+1);const fm=Math.max(...Object.values(fs));
+  $("pdFields").innerHTML=Object.entries(fs).sort((a,b)=>b[1]-a[1]).map(([f,n])=>'<li><button class="'+(ff===f?"on":"")+'" data-f="'+esc(f)+'"><div class="fn"><span>'+esc(en()?f:(FTH[f]||f))+"</span><b>"+n+'</b></div><div class="ft"><i style="width:'+(n/fm*100)+'%"></i></div></button></li>').join("");
+  $("pdFields").querySelectorAll("button").forEach(b=>b.onclick=()=>{ff=ff===b.dataset.f?null:b.dataset.f;render();});
+  const tsel=$("pdType"),tv=tsel.value;tsel.innerHTML='<option value="">'+T("ทุกประเภท","All types")+"</option>"+[...new Set(D.works.map(w=>w.typeTh))].map(t=>'<option value="'+esc(t)+'">'+esc(en()?(TEN[t]||t):t)+"</option>").join("");tsel.value=tv;
+  $("pdQ").placeholder=T("ค้นชื่อเรื่อง วารสาร หรือผู้แต่ง","Search title, source or author");
+  const R=rows();$("pdCount").textContent=T("แสดง "+R.length+" จาก "+D.works.length+" รายการ","Showing "+R.length+" of "+D.works.length)+(fy?T(" · ปี "+(fy+543)," · "+fy):"")+(ff?" · "+(en()?ff:(FTH[ff]||ff)):"");
+  $("pdRows").innerHTML=R.map(w=>"<tr><td>"+(w.year?(en()?w.year:w.year+543):"–")+'</td><td><b>'+(w.url?'<a href="'+esc(w.url)+'" target="_blank" rel="noopener">'+esc(w.title)+"</a>":esc(w.title))+"</b>"+(w.oa?'<span class="oa">OA</span>':"")+'<span class="src">'+esc(w.source||"–")+'</span><span class="au">'+esc(w.authors.join(", "))+'</span><span class="ty">'+esc(en()?(TEN[w.typeTh]||w.typeTh):w.typeTh)+(w.scopus?" · Scopus":"")+'</span></td><td><span class="rl '+w.role+'">'+RL[w.role][en()?1:0]+"</span></td><td>"+(w.scopusCites!=null?w.scopusCites:w.cites)+"</td></tr>").join("")||'<tr><td colspan="4">'+T("ไม่พบผลงานตามตัวกรอง","No matching publications")+"</td></tr>";}
+function csv(){const R=rows(),q=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
+  const t=[["year","title","source","type","role","citations","doi","authors"].join(",")].concat(R.map(w=>[w.year,w.title,w.source,w.typeTh,RL[w.role][1],w.cites,w.doi,w.authors.join("; ")].map(q).join(",")));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+t.join("\n")],{type:"text/csv"}));a.download="publications_"+D.synced+".csv";a.click();}
+$("pdQ").oninput=render;$("pdType").onchange=render;$("pdClear").onclick=()=>{fy=null;ff=null;$("pdQ").value="";$("pdType").value="";render();};$("pdCsv").onclick=csv;
+const sl=window.setLang;window.setLang=function(l){sl(l);render();};
+fetch("research_data.json",{cache:"no-cache"}).then(r=>r.json()).then(d=>{D=d;render();}).catch(()=>{$("pdSrc").textContent=T("โหลดข้อมูลผลงานไม่ได้","Could not load publication data");});
+})();
+</script>
 </body>
 </html>
