@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<!-- Lean Canvas Studio · วิชา 0900304 · ระยะที่ 1 (2026-11-11)
+<!-- Lean Canvas Studio · วิชา 0900304 · ระยะที่ 2 (2026-11-11): ความเสี่ยง 3 ด้าน เลือกข้อสมมติ 3 ข้อ จับคู่ปัญหา-ทางแก้ ประวัติฉบับ ไฟล์แฟ้มธุรกิจ
+     รูปแบบไฟล์: courses/0900304_NewVentureCreation/_build/แนวทางเครื่องมือออนไลน์.md
      เนื้อหา คำถาม และรายการตรวจมาจากเอกสารประกอบการสอนบทที่ 3 (ตาราง 3.2 3.4 3.5 3.6 3.7 3.10 3.11)
      ตัวอย่างใช้ร้านเช่าชุดรับปริญญาของบทที่ 3 เท่านั้น (ห้ามใช้กรณีของวิชา 0903521)
      ข้อมูลเก็บในเบราว์เซอร์ของผู้ใช้ (localStorage) และไฟล์ .json ที่ผู้ใช้บันทึกเอง ไม่ส่งไปที่ใด -->
@@ -39,6 +40,8 @@ button,input,textarea,select{font-family:inherit;font-size:inherit}
 .btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
 .btn:hover{filter:brightness(1.05)}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;padding:20px 0 30px;align-items:start}
+.layout>main,.layout>aside{min-width:0}
+table.bt td:first-child{min-width:180px}
 /* canvas */
 .canvas{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:auto auto auto;gap:8px}
 .blk{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 10px 8px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:170px;scroll-margin-top:90px}
@@ -92,7 +95,7 @@ footer a{color:#CFE0FF}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 16px;border-radius:10px;font-size:14px;opacity:0;transition:.2s;pointer-events:none;z-index:60}
 .toast.on{opacity:1}
 .printhead{display:none}
-@media(max-width:1100px){.layout{grid-template-columns:1fr}.side{position:static;max-height:none}}
+@media(max-width:1100px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static;max-height:none}}
 @media(max-width:760px){
  .canvas{display:flex;flex-direction:column}.blk{min-height:0}
  .meta{grid-template-columns:1fr 1fr}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}
@@ -107,6 +110,30 @@ footer a{color:#CFE0FF}
  .chip{font-size:9px}.sub .shint{display:none}
  #printcheck{display:block!important;break-before:page}
  footer{background:none;color:#555;padding:4px 0}}
+.mini{border:1px solid var(--line);border-radius:6px;padding:1px 4px;font-size:12px;background:#fff;max-width:100%}
+.mini.wide{width:100%;margin-top:4px}.mini.need{border-color:var(--amber);background:var(--asmbg)}
+.pno{display:inline-block;background:var(--tint);color:var(--blue);border-radius:5px;font-size:11px;font-weight:800;padding:0 5px;margin-right:5px}
+.rk{border-radius:20px;padding:1px 8px;font-size:11px;font-weight:700;background:#EEF1F6;color:var(--mute)}
+.rk.cust,.dot.cust{background:#E7EEFC;color:#2F5BD0}.rk.prod,.dot.prod{background:#E6F5EE;color:#1F7A5A}.rk.mkt,.dot.mkt{background:#FBF3DF;color:#9A6B00}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-top:18px;scroll-margin-top:80px}
+.panel h2{font-size:18px;color:var(--navy)}.panel .k{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--amber)}
+.picked3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 12px}
+.pk{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:8px 10px;background:#fff}
+.pk.prod{border-top-color:var(--teal)}.pk.mkt{border-top-color:var(--amber)}.pk.empty .pkt{color:#9AA6B2;font-style:italic}
+.pkh{font-weight:800;color:var(--navy)}.pkq{font-size:12px;color:var(--mute);line-height:1.4}.pkt{margin-top:4px;font-weight:600}.pks{font-size:12px;color:var(--mute)}
+.tw{overflow-x:auto}table.bt{border-collapse:collapse;width:100%;font-size:13.5px}
+table.bt th{background:var(--navy);color:#fff;text-align:left;padding:6px 8px;font-weight:700;white-space:nowrap}
+table.bt td{border-top:1px solid var(--line);padding:5px 8px;vertical-align:middle}table.bt td.sm,.sm{font-size:12px;color:var(--mute)}
+table.bt tr.picked td{background:#FFF9EC}
+.grid{display:grid;grid-template-columns:120px 1fr 1fr;gap:4px;margin-top:12px}
+.gh{font-size:12px;font-weight:800;color:var(--navy);text-align:center}.gl{font-size:12px;font-weight:700;color:var(--navy);display:flex;align-items:center}
+.gc{min-height:54px;border:1px dashed var(--line);border-radius:8px;padding:5px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;background:#fff}
+.gc.hot{border:2px solid var(--amber);background:#FFF9EC}
+.dot{border-radius:20px;padding:1px 8px;font-size:11.5px;background:#EEF1F6}.dot.pk{outline:2px solid var(--navy)}
+ul.vl{list-style:none;margin:4px 0 0!important}ul.vl li{border-top:1px solid var(--line);padding:5px 0;font-size:13px}ul.vl li:first-child{border-top:none}
+.lnk{border:none;background:none;color:var(--blue);cursor:pointer;font-size:12.5px;margin-left:6px;padding:0}
+@media(max-width:760px){.picked3{grid-template-columns:1fr}.grid{grid-template-columns:80px 1fr 1fr}}
+@media print{.panel{box-shadow:none;break-inside:avoid}#board{display:none}#printcheck h3{font-size:12px;margin:8px 0 4px}#printcheck table{table-layout:fixed;width:100%}#printcheck td,#printcheck th{word-break:break-word}#printcheck th:first-child{width:12%}.layout>main{width:100%}footer .wrap{max-width:100%}}
 #printcheck{display:none}
 #printcheck table{border-collapse:collapse;width:100%;font-size:11px}#printcheck td,#printcheck th{border:1px solid #ccc;padding:4px 6px;text-align:left;vertical-align:top}
 </style>
@@ -120,7 +147,7 @@ footer a{color:#CFE0FF}
 <div class="hero"><div class="wrap">
   <div class="kick">เครื่องมือประกอบบทที่ 3 · กิจกรรมท้ายบทที่ 3 และงานกลุ่มครั้งที่ 2</div>
   <h1>Lean Canvas Studio</h1>
-  <p>เขียน Lean Canvas ของกลุ่มทีละช่องตามลำดับในตารางที่ 3.2 ติดป้ายทุกรายการว่าเป็นข้อเท็จจริงหรือข้อสมมติ แล้วตรวจกับรายการตรวจก่อนส่ง (ตารางที่ 3.11) งานบันทึกอยู่ในเบราว์เซอร์เครื่องนี้เท่านั้น ควรกด "บันทึกไฟล์" เก็บไว้ทุกครั้ง</p>
+  <p>เขียน Lean Canvas ของกลุ่มทีละช่องตามลำดับในตารางที่ 3.2 ติดป้ายทุกรายการว่าเป็นข้อเท็จจริงหรือข้อสมมติ ตรวจกับรายการตรวจก่อนส่ง (ตารางที่ 3.11) แล้วเลือกข้อสมมติที่ต้องทดสอบก่อน งานบันทึกอยู่ในเบราว์เซอร์เครื่องนี้เท่านั้น ควรกด "บันทึกไฟล์" เก็บไว้ทุกครั้ง</p>
   <div class="meta">
     <div><label for="mGroup">รหัสกลุ่ม</label><input id="mGroup" placeholder="เช่น G01"></div>
     <div><label for="mBiz">ชื่อธุรกิจ</label><input id="mBiz" placeholder="ชื่อธุรกิจของกลุ่ม"></div>
@@ -130,6 +157,7 @@ footer a{color:#CFE0FF}
   <div class="bar">
     <button class="btn" onclick="saveFile()">💾 บันทึกไฟล์</button>
     <label class="btn ghost" style="cursor:pointer">📂 เปิดไฟล์<input type="file" accept=".json,application/json" onchange="openFile(this)" hidden></label>
+    <button class="btn ghost" onclick="snapshot()">🕘 บันทึกเป็นฉบับใหม่</button>
     <button class="btn ghost" onclick="window.print()">🖨 พิมพ์ / PDF</button>
     <button class="btn ghost" onclick="loadExample()">ดูตัวอย่าง: ร้านเช่าชุดรับปริญญา</button>
     <button class="btn ghost" onclick="clearAll()">เริ่มใหม่</button>
@@ -143,6 +171,13 @@ footer a{color:#CFE0FF}
       <div class="canvas" id="canvas"></div>
       <div class="legend"><span><b style="background:var(--fact)"></b>ข้อเท็จจริง (มีหลักฐาน)</span><span><b style="background:var(--amber)"></b>ข้อสมมติ (ยังต้องทดสอบ)</span><span>ตัวเลขในวงคือลำดับการเขียน (ตารางที่ 3.2)</span></div>
       <p class="credit">แม่แบบดัดแปลงจาก Lean Canvas ของ Ash Maurya (leancanvas.com) ใช้ภายใต้สัญญาอนุญาต <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a> · ซึ่งดัดแปลงจาก Business Model Canvas ของ Strategyzer AG</p>
+      <section class="panel" id="board">
+        <div class="k">ขั้นที่ 2 · ตารางที่ 3.8 · กิจกรรมท้ายบทที่ 3 ข้อ 7</div>
+        <h2>เลือกข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ ข้อละหนึ่งด้านของความเสี่ยง</h2>
+        <p class="note">ข้อที่ควรทดสอบก่อนคือข้อที่ถ้าผิดแล้วธุรกิจไปต่อไม่ได้ และยังมีหลักฐานน้อย ทดสอบด้านลูกค้าและด้านสินค้าก่อนด้านตลาด เพราะถ้าไม่มีลูกค้าที่มีปัญหาจริง หรือทางแก้ไม่ได้ผล การคำนวณขนาดตลาดก็ไม่มีความหมาย ข้อที่เลือกจะนำไปเขียนบัตรทดสอบในบทที่ 6</p>
+        <div class="picked3" id="picked"></div>
+        <div id="boardBody"></div>
+      </section>
       <div id="printcheck"></div>
     </main>
     <aside class="side">
@@ -155,6 +190,11 @@ footer a{color:#CFE0FF}
         <ul class="chk" id="chk"></ul>
         <p class="note" style="margin-top:8px">ผลตรวจอัตโนมัติดูจากคำที่เขียน จึงเป็นเพียงข้อเตือน กลุ่มต้องอ่านทวนเองทุกข้อ และติ๊กเมื่อแน่ใจแล้ว</p>
       </div>
+      <div class="card">
+        <div class="k">หัวข้อ 3.6.2</div>
+        <h2>ประวัติฉบับ</h2>
+        <div id="vers"></div>
+      </div>
     </aside>
   </div>
 </div>
@@ -165,29 +205,36 @@ footer a{color:#CFE0FF}
 <script>
 // ---------- ข้อมูลจากบทที่ 3 ----------
 const BLOCKS = [
- {k:"PR",no:1,nm:"ปัญหา",en:"Problem",q:"ลูกค้าเจอปัญหาสำคัญอะไร",write:"ปัญหา 1–3 ข้อ เขียนจากสิ่งที่ลูกค้าประสบ",
+ {k:"PR",no:1,nm:"ปัญหา",en:"Problem",q:"ลูกค้าเจอปัญหาสำคัญอะไร",write:"ปัญหา 1–3 ข้อ เขียนจากสิ่งที่ลูกค้าประสบ",risk:"cust",
   tips:["เขียนสิ่งที่ลูกค้าประสบ ไม่ใช่การขาดสินค้าของเรา เช่น ไม่ใช่ \"ลูกค้าไม่มีแอปพลิเคชันจองโต๊ะ\" แต่เป็น \"หาที่นั่งอ่านหนังสือช่วงสอบไม่ได้\""],
   sub:{k:"ALT",nm:"ทางเลือกที่ลูกค้าใช้อยู่",hint:"ตอนนี้ลูกค้าแก้ปัญหานี้อย่างไร เช่น ซื้อของใหม่ ยืมเพื่อน ทนไปก่อน"}},
- {k:"CS",no:2,nm:"กลุ่มลูกค้า",en:"Customer segments",q:"ใครมีปัญหานี้",write:"กลุ่มลูกค้าเป้าหมาย และผู้ใช้กลุ่มแรก",
+ {k:"CS",no:2,nm:"กลุ่มลูกค้า",en:"Customer segments",q:"ใครมีปัญหานี้",write:"กลุ่มลูกค้าเป้าหมาย และผู้ใช้กลุ่มแรก",risk:"cust",
   tips:["ระบุกลุ่มที่เฉพาะเจาะจงพอจะออกไปหาและคุยได้ ไม่ใช่ \"คนทั่วไปที่ชอบกาแฟ\""],
   sub:{k:"EA",nm:"ผู้ใช้กลุ่มแรก (Early adopters)",hint:"รู้ว่าตนมีปัญหา กำลังหาทางแก้ เคยลองแก้เอง ยอมจ่าย และยอมลองของที่ยังไม่สมบูรณ์ (ตารางที่ 3.4)"}},
- {k:"UV",no:3,nm:"คุณค่าเฉพาะตัว",en:"Unique value proposition",q:"ทำไมลูกค้าควรสนใจเรามากกว่าทางเลือกเดิม",write:"ประโยคเดียวที่ชัด บอกผลลัพธ์ที่ลูกค้าได้รับ",
+ {k:"UV",no:3,nm:"คุณค่าเฉพาะตัว",en:"Unique value proposition",q:"ทำไมลูกค้าควรสนใจเรามากกว่าทางเลือกเดิม",write:"ประโยคเดียวที่ชัด บอกผลลัพธ์ที่ลูกค้าได้รับ",risk:"prod",
   tips:["ไม่ใช้คำโฆษณาทั่วไป เช่น \"คุณภาพดี บริการประทับใจ\"","บอกผลลัพธ์ที่ลูกค้าได้และต่างจากทางเลือกเดิม (ตารางที่ 3.5)"],
   sub:{k:"HLC",nm:"แนวคิดระดับสูง (High-level concept)",hint:"เปรียบกับสิ่งที่คนรู้จักแล้ว ในรูป \"X สำหรับ Y\" เช่น \"ร้านเช่าชุดที่มาหาถึงคณะ\""}},
- {k:"SO",no:4,nm:"ทางแก้",en:"Solution",q:"ทางแก้ที่เล็กที่สุดของแต่ละปัญหาคืออะไร",write:"คุณสมบัติหลัก 1–3 อย่าง",
-  tips:["เลือกทางแก้ที่เล็กที่สุดของแต่ละปัญหา ไม่ใช่รายการคุณสมบัติยาว"]},
- {k:"CH",no:5,nm:"ช่องทาง",en:"Channels",q:"ลูกค้ารู้จักและซื้อเราทางใด",write:"ช่องทางเข้าถึงลูกค้า",
+ {k:"SO",no:4,nm:"ทางแก้",en:"Solution",q:"ทางแก้ที่เล็กที่สุดของแต่ละปัญหาคืออะไร",write:"คุณสมบัติหลัก 1–3 อย่าง และระบุว่าแก้ปัญหาข้อใด",risk:"prod",
+  tips:["เลือกทางแก้ที่เล็กที่สุดของแต่ละปัญหา ไม่ใช่รายการคุณสมบัติยาว","ทางแก้ทุกข้อต้องตอบปัญหาข้อใดข้อหนึ่งในช่องที่ 1"]},
+ {k:"CH",no:5,nm:"ช่องทาง",en:"Channels",q:"ลูกค้ารู้จักและซื้อเราทางใด",write:"ช่องทางเข้าถึงลูกค้า",risk:"cust",
   tips:["ช่องทางต้องเข้าถึงผู้ใช้กลุ่มแรกได้จริงด้วยต้นทุนต่ำ และตรงกับกลุ่มลูกค้าที่เขียนไว้"]},
- {k:"RE",no:6,nm:"กระแสรายได้",en:"Revenue streams",q:"ใครจ่าย จ่ายเพื่ออะไร เท่าไร",write:"รูปแบบรายได้และราคา",
+ {k:"RE",no:6,nm:"กระแสรายได้",en:"Revenue streams",q:"ใครจ่าย จ่ายเพื่ออะไร เท่าไร",write:"รูปแบบรายได้และราคา",risk:"mkt",
   tips:["ระบุว่าใครจ่าย จ่ายเพื่ออะไร และราคาประมาณเท่าไร"]},
- {k:"CO",no:7,nm:"โครงสร้างต้นทุน",en:"Cost structure",q:"ต้องใช้เงินกับอะไร",write:"ต้นทุนหลักในการสร้าง หาลูกค้า และส่งมอบ",
+ {k:"CO",no:7,nm:"โครงสร้างต้นทุน",en:"Cost structure",q:"ต้องใช้เงินกับอะไร",write:"ต้นทุนหลักในการสร้าง หาลูกค้า และส่งมอบ",risk:"mkt",
   tips:["แยกต้นทุนที่จ่ายครั้งเดียวหรือคงที่ กับต้นทุนที่เกิดทุกครั้งที่ขาย เพื่อใช้คำนวณจุดคุ้มทุน (หัวข้อ 3.5.2)"]},
- {k:"KM",no:8,nm:"ตัวชี้วัดหลัก",en:"Key metrics",q:"ตัวเลขใดบอกว่าธุรกิจไปถูกทาง",write:"ตัวชี้วัด 1–3 ตัว",
+ {k:"KM",no:8,nm:"ตัวชี้วัดหลัก",en:"Key metrics",q:"ตัวเลขใดบอกว่าธุรกิจไปถูกทาง",write:"ตัวชี้วัด 1–3 ตัว",risk:"",
   tips:["ใช้ตัวชี้วัดตามเส้นทางลูกค้า (ตารางที่ 3.7) ไม่ใช่ตัวเลขที่ไม่นำไปสู่การตัดสินใจ เช่น จำนวนคนกดถูกใจโพสต์"]},
- {k:"UA",no:9,nm:"ความได้เปรียบที่ลอกเลียนยาก",en:"Unfair advantage",q:"อะไรที่คู่แข่งซื้อหรือลอกไม่ได้ง่าย",write:"ข้อได้เปรียบที่มีจริง หรือเว้นว่างไว้ก่อน",optional:true,
+ {k:"UA",no:9,nm:"ความได้เปรียบที่ลอกเลียนยาก",en:"Unfair advantage",q:"อะไรที่คู่แข่งซื้อหรือลอกไม่ได้ง่าย",write:"ข้อได้เปรียบที่มีจริง หรือเว้นว่างไว้ก่อน",optional:true,risk:"mkt",
   tips:["ธุรกิจใหม่ส่วนใหญ่ยังไม่มีในวันแรก เว้นว่างได้","ราคาถูก บริการดี ทำงานหนัก เป็นรายแรก หรือฟีเจอร์มากกว่า เป็นจุดเด่นที่คู่แข่งลอกได้ (ตารางที่ 3.6)"]},
 ];
-const ORDER = BLOCKS.map(b=>b.k);
+const SUBRISK={ALT:"cust",EA:"cust",HLC:"prod"};
+const ORDER = BLOCKS.map(b=>b.k), ALLKEYS=[...ORDER,"ALT","EA","HLC"];
+const NAME = Object.fromEntries([...BLOCKS.map(b=>[b.k,b.nm]),...BLOCKS.filter(b=>b.sub).map(b=>[b.sub.k,b.sub.nm.split(" (")[0]])]);
+// ตารางที่ 3.8
+const RISK = {cust:"ด้านลูกค้า",prod:"ด้านสินค้า",mkt:"ด้านตลาด"};
+const RISKQ = {cust:"มีลูกค้าที่มีปัญหานี้จริง และเข้าถึงได้หรือไม่",prod:"ทางแก้ของเราแก้ปัญหาได้จริงหรือไม่",mkt:"ทำธุรกิจนี้แล้วคุ้มค่า และป้องกันการแข่งขันได้หรือไม่"};
+const IMP = {H:"ไปต่อไม่ได้",M:"ต้องปรับมาก",L:"ปรับเล็กน้อย"};
+const EVD = {none:"ยังไม่มี",some:"มีบ้าง"};
 const CHECKS = [
  "ปัญหาเขียนจากมุมของลูกค้า ไม่ใช่การขาดสินค้าของเรา",
  "กลุ่มลูกค้าเฉพาะเจาะจงพอที่จะออกไปหาและพูดคุยได้",
@@ -201,43 +248,57 @@ const CHECKS = [
  "อ่านทวนจากปัญหาถึงรายได้แล้วเป็นเรื่องเดียวกัน"];
 
 // ตัวอย่างจากบทที่ 3 (ภาพที่ 3.2 ตารางที่ 3.7 3.8 และหัวข้อ 3.5.2) · กรณีสมมติเพื่อการสอน
-const EXAMPLE = {meta:{group:"ตัวอย่าง",biz:"ร้านเช่าชุดรับปริญญา (กรณีสมมติเพื่อการสอน)",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},
+const EX = {meta:{group:"ตัวอย่าง",biz:"ร้านเช่าชุดรับปริญญา (กรณีสมมติเพื่อการสอน)",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},
  items:{
-  PR:[{t:"ชุดถ่ายรูปซ้อมรับปริญญาแพง",lab:"asm",ev:""},{t:"ไซซ์ไม่พอดี ต้องไปลองหลายร้าน",lab:"asm",ev:""}],
-  ALT:[{t:"ซื้อชุดใหม่",lab:"asm",ev:""},{t:"ยืมชุดรุ่นพี่",lab:"asm",ev:""}],
+  PR:[{id:"p1",t:"ชุดถ่ายรูปซ้อมรับปริญญาแพง",lab:"asm"},{id:"p2",t:"ไซซ์ไม่พอดี ต้องไปลองหลายร้าน",lab:"asm",imp:"H",pick:true}],
+  ALT:[{t:"ซื้อชุดใหม่",lab:"asm"},{t:"ยืมชุดรุ่นพี่",lab:"asm"}],
   CS:[{t:"บัณฑิตที่ถ่ายรูปกับเพื่อน",lab:"fact",ev:"สัมภาษณ์บัณฑิต 9 คน ทุกคนถ่ายรูปกับเพื่อนอย่างน้อย 1 ครั้งก่อนวันรับปริญญา"}],
-  EA:[{t:"คณะที่ถ่ายรูปก่อนคณะอื่น",lab:"asm",ev:""}],
-  UV:[{t:"ชุดถ่ายรูปรับปริญญาพอดีตัว ในราคานิสิต",lab:"asm",ev:""}],
-  HLC:[{t:"ร้านเช่าชุดที่มาหาถึงคณะ",lab:"asm",ev:""}],
-  SO:[{t:"เช่ารายวันพร้อมแก้ไซซ์",lab:"asm",ev:""},{t:"นัดลองชุดที่คณะ",lab:"asm",ev:""}],
-  CH:[{t:"กลุ่มไลน์รุ่น",lab:"asm",ev:""},{t:"บูทหน้าคณะ",lab:"asm",ev:""}],
-  RE:[{t:"ค่าเช่าชุดละ 300 บาทต่อวัน",lab:"asm",ev:""},{t:"ค่าแก้ไซซ์ด่วน",lab:"asm",ev:""}],
-  CO:[{t:"ซื้อชุดและแก้ทรง 30 ชุด ชุดละ 900 บาท",lab:"asm",ev:""},{t:"เช่าบูทหน้าคณะ 3,000 บาทตลอดช่วงถ่ายรูป",lab:"asm",ev:""},{t:"ค่าซักรีด 60 บาทต่อการเช่า",lab:"asm",ev:""}],
-  KM:[{t:"จำนวนคิวลองชุดต่อวัน",lab:"asm",ev:""},{t:"สัดส่วนคนที่ลองแล้วเช่าจริง",lab:"asm",ev:""}],
+  EA:[{t:"คณะที่ถ่ายรูปก่อนคณะอื่น",lab:"asm"}],
+  UV:[{t:"ชุดถ่ายรูปรับปริญญาพอดีตัว ในราคานิสิต",lab:"asm"}],
+  HLC:[{t:"ร้านเช่าชุดที่มาหาถึงคณะ",lab:"asm"}],
+  SO:[{t:"เช่ารายวันพร้อมแก้ไซซ์",lab:"asm",solves:"p1",imp:"H",pick:true},{t:"นัดลองชุดที่คณะ",lab:"asm",solves:"p2"}],
+  CH:[{t:"กลุ่มไลน์รุ่น",lab:"asm"},{t:"บูทหน้าคณะ",lab:"asm"}],
+  RE:[{t:"ค่าเช่าชุดละ 300 บาทต่อวัน",lab:"asm",imp:"H",pick:true},{t:"ค่าแก้ไซซ์ด่วน",lab:"asm",imp:"L"}],
+  CO:[{t:"ซื้อชุดและแก้ทรง 30 ชุด ชุดละ 900 บาท",lab:"asm"},{t:"เช่าบูทหน้าคณะ 3,000 บาทตลอดช่วงถ่ายรูป",lab:"asm"},{t:"ค่าซักรีด 60 บาทต่อการเช่า",lab:"asm"}],
+  KM:[{t:"จำนวนคิวลองชุดต่อวัน",lab:"asm"},{t:"สัดส่วนคนที่ลองแล้วเช่าจริง",lab:"asm"}],
   UA:[{t:"รู้กำหนดการถ่ายรูปของทุกคณะก่อนคนอื่น",lab:"fact",ev:"รวบรวมจากประกาศของสโมสรนิสิตแต่ละคณะ"}]}};
 
-const KEY="lean_studio_0900304_v1";
-let S = blank();
-function blank(){const it={};[...ORDER,"ALT","EA","HLC"].forEach(k=>it[k]=[]);return {meta:{group:"",biz:"",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},items:it,manual:Array(10).fill(false),cur:null};}
-function load(){try{const v=localStorage.getItem(KEY);if(v){const d=JSON.parse(v);S=Object.assign(blank(),d);S.items=Object.assign(blank().items,d.items||{});}}catch(e){}}
+const KEY="lean_studio_0900304_v2", OLDKEY="lean_studio_0900304_v1";
+let S = blank(), dirty=false;
+function uid(){return "i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function blank(){const it={};ALLKEYS.forEach(k=>it[k]=[]);return {meta:{group:"",biz:"",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},items:it,manual:Array(10).fill(false),versions:[],cur:null};}
+function norm(k,x){x=Object.assign({id:uid(),t:"",lab:"asm",ev:"",risk:"",imp:"",evd:"none",pick:false,solves:""},x);
+  if(!x.risk)x.risk=(BLOCKS.find(b=>b.k===k)||{}).risk||SUBRISK[k]||"";return x;}
+function fromData(d){const s=blank();Object.assign(s.meta,d.meta||{});s.manual=(d.manual||s.manual).slice(0,10);s.versions=d.versions||[];
+  const it=d.items||{};ALLKEYS.forEach(k=>s.items[k]=(it[k]||[]).map(x=>norm(k,x)));return s;}
+function load(){try{const v=localStorage.getItem(KEY)||localStorage.getItem(OLDKEY);if(v)S=fromData(JSON.parse(v));}catch(e){}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
-function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800);}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1900);}
+const allItems=()=>ALLKEYS.flatMap(k=>S.items[k].map(x=>Object.assign({k},{x})));
+const asms=()=>allItems().filter(o=>o.x.lab==="asm");
 
 // ---------- วาด Canvas ----------
 function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+function sel(opts,val,onch,label){const s=el("select","mini");s.setAttribute("aria-label",label);
+  Object.entries(opts).forEach(([v,t])=>{const o=el("option",null,t);o.value=v;if(v===val)o.selected=true;s.appendChild(o);});
+  s.onchange=()=>onch(s.value);return s;}
 function itemList(key){
   const ul=el("ul","items");
   S.items[key].forEach((it,i)=>{
     const li=el("li","item "+it.lab);
-    li.appendChild(el("div","tx",it.t));
+    const pi=key==="PR"?el("span","pno","ป"+(i+1)):null;
+    const tx=el("div","tx");if(pi)tx.appendChild(pi);tx.appendChild(document.createTextNode(it.t));li.appendChild(tx);
     const row=el("div","row");
     const chip=el("button","chip "+it.lab,it.lab==="fact"?"ข้อเท็จจริง":"ข้อสมมติ");
-    chip.title="กดเพื่อสลับป้าย";chip.onclick=()=>{it.lab=it.lab==="fact"?"asm":"fact";commit();};
+    chip.title="กดเพื่อสลับป้าย";chip.onclick=()=>{it.lab=it.lab==="fact"?"asm":"fact";if(it.lab==="fact")it.pick=false;commit();};
     row.appendChild(chip);
-    const d=el("button","del","×");d.title="ลบรายการ";d.onclick=()=>{S.items[key].splice(i,1);commit();};row.appendChild(d);
+    if(it.lab==="asm"&&it.risk)row.appendChild(el("span","rk "+it.risk,RISK[it.risk]));
+    const d=el("button","del","×");d.title="ลบรายการ";d.onclick=()=>{S.items[key].splice(i,1);if(key==="PR")S.items.SO.forEach(s=>{if(s.solves===it.id)s.solves="";});commit();};row.appendChild(d);
     li.appendChild(row);
+    if(key==="SO"){const opts={"":"แก้ปัญหาข้อใด?"};S.items.PR.forEach((p,j)=>opts[p.id]="ป"+(j+1)+" "+p.t.slice(0,28));
+      const s=sel(opts,it.solves||"",v=>{it.solves=v;commit();},"ทางแก้นี้แก้ปัญหาข้อใด");s.classList.add("wide");if(!it.solves)s.classList.add("need");li.appendChild(s);}
     if(it.lab==="fact"){const ev=el("input","ev");ev.placeholder="หลักฐาน เช่น สัมภาษณ์ลูกค้า 5 คน";ev.value=it.ev||"";
-      ev.oninput=()=>{it.ev=ev.value;save();renderChecks();};li.appendChild(ev);}
+      ev.oninput=()=>{it.ev=ev.value;touch();renderChecks();};li.appendChild(ev);}
     ul.appendChild(li);
   });
   return ul;
@@ -245,7 +306,7 @@ function itemList(key){
 function addBox(key,ph){
   const box=el("div","add");const inp=el("input");inp.placeholder=ph;inp.setAttribute("aria-label",ph);
   const b=el("button",null,"+");b.title="เพิ่มรายการ";
-  const go=()=>{const v=inp.value.trim();if(!v)return;S.items[key].push({t:v,lab:"asm",ev:""});inp.value="";commit(key);};
+  const go=()=>{const v=inp.value.trim();if(!v)return;S.items[key].push(norm(key,{t:v}));inp.value="";commit(key);};
   b.onclick=go;inp.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();go();}};
   box.appendChild(inp);box.appendChild(b);return box;
 }
@@ -261,27 +322,25 @@ function render(){
     d.appendChild(addBox(b.k,"เพิ่ม"+b.nm));
     if(b.sub){const s=el("div","sub");s.appendChild(el("div","sh",b.sub.nm));s.appendChild(el("div","shint",b.sub.hint));
       s.appendChild(itemList(b.sub.k));s.appendChild(addBox(b.sub.k,"เพิ่ม"+b.sub.nm.split(" (")[0]));d.appendChild(s);}
-    d.onclick=e=>{if(e.target.closest("input,button"))return;S.cur=b.k;renderGuide();markCur();};
+    d.onclick=e=>{if(e.target.closest("input,button,select"))return;S.cur=b.k;renderGuide();markCur();};
     c.appendChild(d);
   });
-  renderGuide();renderChecks();renderPrint();
+  renderGuide();renderChecks();renderBoard();renderVersions();renderPrint();
 }
 function markCur(){const cur=currentStep();document.querySelectorAll(".blk").forEach(x=>x.classList.toggle("cur",!!cur&&x.id==="b-"+cur.k));}
-function commit(focusKey){save();render();if(focusKey){const i=document.querySelector("#b-"+focusKey+" .add input");if(i)i.focus();}}
+function touch(){dirty=true;save();}
+function commit(focusKey){touch();render();if(focusKey){const i=document.querySelector("#b-"+focusKey+" .add input");if(i)i.focus();}}
 
 // ---------- ขั้นถัดไป ----------
-function currentStep(){
-  if(S.cur){return BLOCKS.find(b=>b.k===S.cur);}
-  return BLOCKS.find(b=>!b.optional&&!S.items[b.k].length)||null;
-}
+function currentStep(){if(S.cur)return BLOCKS.find(b=>b.k===S.cur);return BLOCKS.find(b=>!b.optional&&!S.items[b.k].length)||null;}
 function renderGuide(){
   const g=document.getElementById("guide");g.innerHTML="";
   const filled=BLOCKS.filter(b=>!b.optional&&S.items[b.k].length).length,total=BLOCKS.filter(b=>!b.optional).length;
   g.appendChild(el("div","k","ขั้นตอน"));
-  const auto=BLOCKS.find(b=>!b.optional&&!S.items[b.k].length);
   const b=currentStep();
   if(!b){g.appendChild(el("h2",null,"เขียนครบ 8 ช่องหลักแล้ว"));
-    g.appendChild(el("p",null,"ช่องที่ 9 ความได้เปรียบที่ลอกเลียนยาก เว้นว่างได้ถ้ายังไม่มี ต่อไปให้ตรวจกับรายการตรวจด้านล่าง แล้วเลือกข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ (ข้อ 7 ของกิจกรรมท้ายบทที่ 3)"));}
+    g.appendChild(el("p",null,"ช่องที่ 9 เว้นว่างได้ถ้ายังไม่มี ขั้นต่อไปคือตรวจกับรายการตรวจ แล้วเลือกข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ ข้อละหนึ่งด้านของความเสี่ยง (ข้อ 7 ของกิจกรรมท้ายบทที่ 3)"));
+    const go=el("button","btn line","ไปเลือกข้อสมมติ");go.style.marginTop="8px";go.onclick=()=>document.getElementById("board").scrollIntoView({behavior:"smooth"});g.appendChild(go);}
   else{
     g.appendChild(el("h2",null,"ช่องที่ "+b.no+" "+b.nm));
     const p=el("p");p.innerHTML="<b>คำถามหลัก:</b> ";p.appendChild(document.createTextNode(b.q));g.appendChild(p);
@@ -299,62 +358,55 @@ function renderGuide(){
 // ---------- รายการตรวจ (ตารางที่ 3.11) ----------
 const has=(k,re)=>S.items[k].some(x=>re.test(x.t));
 function autoCheck(){
-  const I=S.items,n=k=>I[k].length;
-  const R=[];
-  // 1 ปัญหา
+  const I=S.items,n=k=>I[k].length,R=[];
   if(!n("PR"))R.push(["man","ยังไม่มีปัญหา"]);
   else if(has("PR",/(ไม่มี|ขาด)\s*(แอป|ระบบ|บริการ|เว็บไซต์|เว็บ|ร้าน|เครื่องมือ)/))R.push(["warn","มีปัญหาที่เขียนว่า \"ไม่มีแอป/ระบบ/บริการ\" อาจเป็นการขาดสินค้าของเรา"]);
   else if(n("PR")>3)R.push(["warn","ปัญหามากกว่า 3 ข้อ ควรเลือกข้อที่สำคัญที่สุด"]);
   else R.push(["ok",""]);
-  // 2 กลุ่มลูกค้า
   if(!n("CS"))R.push(["man","ยังไม่มีกลุ่มลูกค้า"]);
   else if(has("CS",/ทุกคน|คนทั่วไป|ทุกเพศ|ทุกวัย|ทุกกลุ่ม|ประชาชนทั่วไป/))R.push(["warn","กลุ่มลูกค้ากว้างเกินไป"]);
   else if(!n("EA"))R.push(["warn","ยังไม่ได้ระบุผู้ใช้กลุ่มแรก"]);
   else R.push(["ok",""]);
-  // 3 คุณค่าเฉพาะตัว
   if(!n("UV"))R.push(["man","ยังไม่มีคุณค่าเฉพาะตัว"]);
   else if(n("UV")>1)R.push(["warn","คุณค่าเฉพาะตัวควรเป็นประโยคเดียว"]);
   else if(has("UV",/คุณภาพดี|บริการดี|ประทับใจ|ครบวงจร|ล้ำสมัย|ดีที่สุด|ย่อมเยา|ราคาถูก/))R.push(["warn","มีคำโฆษณาทั่วไป ควรเขียนผลลัพธ์ที่ลูกค้าได้รับ"]);
   else if(I.UV[0].t.length>140)R.push(["warn","ประโยคยาวเกินไป ควรอ่านจบในหนึ่งลมหายใจ"]);
   else R.push(["ok",""]);
-  // 4 ทางแก้
+  const unpairedSO=I.SO.filter(s=>!s.solves||!I.PR.some(p=>p.id===s.solves)).length;
+  const unsolvedPR=I.PR.filter(p=>!I.SO.some(s=>s.solves===p.id)).length;
   if(!n("SO"))R.push(["man","ยังไม่มีทางแก้"]);
   else if(n("SO")>3||(n("PR")&&n("SO")>n("PR")+1))R.push(["warn","ทางแก้มากกว่าปัญหา อาจเป็นรายการคุณสมบัติยาว"]);
+  else if(unpairedSO)R.push(["warn","ทางแก้ "+unpairedSO+" ข้อยังไม่ได้ระบุว่าแก้ปัญหาข้อใด"]);
+  else if(unsolvedPR)R.push(["warn","ปัญหา "+unsolvedPR+" ข้อยังไม่มีทางแก้"]);
   else R.push(["ok",""]);
-  // 5 ช่องทาง
   R.push(n("CH")?["man","ตรวจเองว่าช่องทางเข้าถึงผู้ใช้กลุ่มแรกได้จริงด้วยต้นทุนต่ำ"]:["man","ยังไม่มีช่องทาง"]);
-  // 6 รายได้
   if(!n("RE"))R.push(["man","ยังไม่มีกระแสรายได้"]);
   else if(!has("RE",/\d/))R.push(["warn","ยังไม่มีตัวเลขราคา"]);
   else R.push(["ok",""]);
-  // 7 ตัวชี้วัด
   if(!n("KM"))R.push(["man","ยังไม่มีตัวชี้วัด"]);
   else if(has("KM",/ถูกใจ|ไลก์|like|ยอดวิว|ผู้ติดตาม|follower|แชร์/i))R.push(["warn","มีตัวเลขที่ไม่นำไปสู่การตัดสินใจ เช่น จำนวนถูกใจ ใช้ตัวชี้วัดตามตารางที่ 3.7"]);
   else if(n("KM")>3)R.push(["warn","ตัวชี้วัดมากกว่า 3 ตัว"]);
   else R.push(["ok",""]);
-  // 8 ความได้เปรียบ
   if(!n("UA"))R.push(["ok","เว้นว่างได้ ถ้ายังไม่มีความได้เปรียบที่ลอกยาก"]);
   else if(has("UA",/ราคาถูก|ถูกกว่า|บริการดี|ขยัน|ทำงานหนัก|รายแรก|คุณภาพ|ฟีเจอร์|ใส่ใจ/))R.push(["warn","เป็นจุดเด่นที่คู่แข่งลอกได้ (ตารางที่ 3.6)"]);
   else R.push(["ok",""]);
-  // 9 ป้าย
-  const all=[...ORDER,"ALT","EA","HLC"].flatMap(k=>I[k]);
-  const facts=all.filter(x=>x.lab==="fact"),noev=facts.filter(x=>!(x.ev||"").trim());
+  const all=allItems().map(o=>o.x),noev=all.filter(x=>x.lab==="fact"&&!(x.ev||"").trim());
   if(!all.length)R.push(["man","ยังไม่มีรายการ"]);
   else if(!all.some(x=>x.lab==="asm"))R.push(["warn","ทุกรายการเป็นข้อเท็จจริง ธุรกิจใหม่ควรมีข้อสมมติที่ต้องทดสอบ"]);
   else if(noev.length)R.push(["warn","ข้อเท็จจริง "+noev.length+" รายการยังไม่ได้ใส่หลักฐาน"]);
   else R.push(["ok",""]);
-  // 10 อ่านทวน
   R.push(["man","อ่านทวนจากปัญหา ลูกค้า คุณค่า ทางแก้ ไปถึงรายได้ ว่าเป็นเรื่องเดียวกัน"]);
   return R;
 }
+const STLABEL={ok:"ไม่พบข้อเตือน",warn:"ควรแก้",man:"ตรวจเอง"};
 function renderChecks(){
   const R=autoCheck(),ul=document.getElementById("chk");ul.innerHTML="";let pass=0;
   R.forEach((r,i)=>{
     if(S.manual[i]&&r[0]!=="warn")pass++;
     const li=el("li");const cb=el("input");cb.type="checkbox";cb.checked=!!S.manual[i];cb.setAttribute("aria-label","ตรวจแล้ว ข้อ "+(i+1));
-    cb.onchange=()=>{S.manual[i]=cb.checked;save();renderChecks();};li.appendChild(cb);
+    cb.onchange=()=>{S.manual[i]=cb.checked;touch();renderChecks();renderPrint();};li.appendChild(cb);
     const tx=el("div");tx.appendChild(document.createTextNode((i+1)+". "+CHECKS[i]+" "));
-    const st=el("span","st "+r[0],r[0]==="ok"?"ผ่านเบื้องต้น":r[0]==="warn"?"ควรแก้":"ตรวจเอง");tx.appendChild(st);
+    tx.appendChild(el("span","st "+r[0],STLABEL[r[0]]));
     if(r[1])tx.appendChild(el("span","why",r[1]));
     if(r[0]==="warn"&&S.manual[i])tx.appendChild(el("span","why","ติ๊กแล้วแต่ยังมีข้อเตือน ควรอ่านทวนอีกครั้ง"));
     li.appendChild(tx);ul.appendChild(li);
@@ -363,37 +415,116 @@ function renderChecks(){
   const warn=R.filter(r=>r[0]==="warn").length;
   document.getElementById("chkSum").textContent="ตรวจแล้ว "+pass+" จาก 10 ข้อ"+(warn?" · มีข้อเตือน "+warn+" ข้อ":"");
 }
+
+// ---------- เลือกข้อสมมติที่ต้องทดสอบก่อน (ตารางที่ 3.8 · กิจกรรมท้ายบทที่ 3 ข้อ 7) ----------
+const IMPS={H:3,M:2,L:1}, EVS={none:2,some:1};
+const score=x=>(IMPS[x.imp]||0)*(EVS[x.evd]||2);
+function renderBoard(){
+  const box=document.getElementById("boardBody");box.innerHTML="";
+  const A=asms();
+  if(!A.length){box.appendChild(el("p","note","ยังไม่มีข้อสมมติ เขียน Canvas ก่อน แล้วรายการที่ติดป้ายข้อสมมติจะมาอยู่ที่นี่"));renderPicked();return;}
+  // ตารางให้คะแนน
+  const tw=el("div","tw");const t=el("table","bt");
+  t.innerHTML="<thead><tr><th>ข้อสมมติ</th><th>ช่อง</th><th>ด้านความเสี่ยง</th><th>ถ้าผิด ธุรกิจ…</th><th>หลักฐานที่มี</th><th>เลือกทดสอบ</th></tr></thead>";
+  const tb=el("tbody");
+  [...A].sort((a,b)=>score(b.x)-score(a.x)).forEach(o=>{
+    const x=o.x,tr=el("tr");if(x.pick)tr.className="picked";
+    tr.appendChild(el("td",null,x.t));tr.appendChild(el("td","sm",NAME[o.k]));
+    const c1=el("td");c1.appendChild(sel(Object.assign({"":"เลือก"},RISK),x.risk,v=>{x.risk=v;if(x.pick)x.pick=false;commit();},"ด้านความเสี่ยง"));tr.appendChild(c1);
+    const c2=el("td");c2.appendChild(sel(Object.assign({"":"เลือก"},IMP),x.imp,v=>{x.imp=v;commit();},"ผลกระทบถ้าผิด"));tr.appendChild(c2);
+    const c3=el("td");c3.appendChild(sel(EVD,x.evd||"none",v=>{x.evd=v;commit();},"หลักฐานที่มี"));tr.appendChild(c3);
+    const c4=el("td");const cb=el("input");cb.type="checkbox";cb.checked=!!x.pick;cb.setAttribute("aria-label","เลือกทดสอบ");
+    cb.onchange=()=>{if(cb.checked){if(!x.risk){toast("เลือกด้านความเสี่ยงก่อน");cb.checked=false;return;}
+        A.forEach(y=>{if(y.x!==x&&y.x.risk===x.risk)y.x.pick=false;});}
+      x.pick=cb.checked;commit();};
+    c4.appendChild(cb);tr.appendChild(c4);tb.appendChild(tr);
+  });
+  t.appendChild(tb);tw.appendChild(t);box.appendChild(tw);
+  // กระดาน 3x2
+  const grid=el("div","grid");
+  grid.appendChild(el("div","gh",""));grid.appendChild(el("div","gh","หลักฐาน: ยังไม่มี"));grid.appendChild(el("div","gh","หลักฐาน: มีบ้าง"));
+  ["H","M","L"].forEach(im=>{grid.appendChild(el("div","gl","ถ้าผิด: "+IMP[im]));
+    ["none","some"].forEach(ev=>{const cell=el("div","gc"+(im==="H"&&ev==="none"?" hot":""));
+      A.filter(o=>o.x.imp===im&&(o.x.evd||"none")===ev).forEach(o=>cell.appendChild(el("span","dot "+(o.x.risk||"")+(o.x.pick?" pk":""),o.x.t.slice(0,26))));
+      grid.appendChild(cell);});});
+  box.appendChild(grid);
+  const un=A.filter(o=>!o.x.imp).length;
+  box.appendChild(el("p","note",(un?"ยังไม่ได้ประเมินผลกระทบ "+un+" ข้อ · ":"")+"ช่องมุมซ้ายบน (ถ้าผิดธุรกิจไปต่อไม่ได้ และยังไม่มีหลักฐาน) คือข้อที่ควรทดสอบก่อน"));
+  renderPicked();
+}
+function renderPicked(){
+  const box=document.getElementById("picked");box.innerHTML="";
+  ["cust","prod","mkt"].forEach((r,i)=>{
+    const p=asms().find(o=>o.x.pick&&o.x.risk===r);
+    const d=el("div","pk "+r);d.appendChild(el("div","pkh",(i+1)+". "+RISK[r]));d.appendChild(el("div","pkq",RISKQ[r]));
+    d.appendChild(el("div","pkt",p?p.x.t:"ยังไม่ได้เลือก"));if(!p)d.classList.add("empty");else d.appendChild(el("div","pks","จากช่อง"+NAME[p.k]+(p.x.imp?" · ถ้าผิด ธุรกิจ"+IMP[p.x.imp]:"")));
+    box.appendChild(d);});
+}
+
+// ---------- ประวัติฉบับ (หัวข้อ 3.6.2) ----------
+function snapshot(){
+  if(!hasWork()){toast("ยังไม่มีรายการให้บันทึก");return;}
+  const note=prompt("ชื่อฉบับหรือสิ่งที่เปลี่ยน เช่น \"หลังสัมภาษณ์ลูกค้า 5 คน\"",S.meta.ver||"");if(note===null)return;
+  S.versions.push({date:new Date().toISOString().slice(0,16).replace("T"," "),note:note,items:JSON.parse(JSON.stringify(S.items))});commit();toast("บันทึกฉบับใหม่แล้ว");
+}
+function stats(items){const a=ALLKEYS.flatMap(k=>items[k]||[]);return {n:a.length,f:a.filter(x=>x.lab==="fact").length};}
+function renderVersions(){
+  const box=document.getElementById("vers");box.innerHTML="";
+  if(!S.versions.length){box.appendChild(el("p","note","ยังไม่มีฉบับที่บันทึก กด \"บันทึกเป็นฉบับใหม่\" ทุกครั้งที่ทดสอบเสร็จ แทนการเขียนทับฉบับเดิม (หัวข้อ 3.6.2)"));return;}
+  const ul=el("ul","vl");
+  S.versions.forEach((v,i)=>{const s=stats(v.items),li=el("li");
+    li.appendChild(el("b",null,"ฉบับที่ "+(i+1)+" "));li.appendChild(document.createTextNode(v.note||""));
+    li.appendChild(el("span","sm"," · "+v.date+" · "+s.n+" รายการ ข้อเท็จจริง "+s.f));
+    const r=el("button","lnk","นำกลับมาแก้");r.onclick=()=>{if(!confirm("แทนงานปัจจุบันด้วยฉบับที่ "+(i+1)+" ? ควรบันทึกฉบับปัจจุบันก่อน"))return;
+      S.items=fromData({items:JSON.parse(JSON.stringify(v.items))}).items;commit();};
+    li.appendChild(r);ul.appendChild(li);});
+  box.appendChild(ul);
+  const now=stats(S.items),first=stats(S.versions[0].items);
+  box.appendChild(el("p","note","ข้อเท็จจริงเพิ่มจาก "+first.f+" เป็น "+now.f+" รายการ นับจากฉบับที่ 1"));
+}
+
+// ---------- หน้าพิมพ์ ----------
 function renderPrint(){
   const m=S.meta;["Biz","Group","Ver","Date"].forEach(k=>document.getElementById("p"+k).textContent=m[k.toLowerCase()]||"–");
-  const R=autoCheck();let h="<table><tr><th>ข้อ</th><th>รายการตรวจ (ตารางที่ 3.11)</th><th>ผลตรวจอัตโนมัติ</th><th>กลุ่มตรวจแล้ว</th></tr>";
-  R.forEach((r,i)=>{h+="<tr><td>"+(i+1)+"</td><td>"+CHECKS[i]+"</td><td>"+({ok:"ผ่านเบื้องต้น",warn:"ควรแก้",man:"ตรวจเอง"})[r[0]]+(r[1]?": "+esc(r[1]):"")+"</td><td>"+(S.manual[i]?"✓":"")+"</td></tr>";});
-  document.getElementById("printcheck").innerHTML=h+"</table>";
+  const R=autoCheck();let h="<h3>ข้อสมมติที่ต้องทดสอบก่อน (ตารางที่ 3.8)</h3><table><tr><th>ด้าน</th><th>ข้อสมมติ</th><th>ช่อง</th><th>ถ้าผิด ธุรกิจ…</th></tr>";
+  ["cust","prod","mkt"].forEach(r=>{const p=asms().find(o=>o.x.pick&&o.x.risk===r);h+="<tr><td>"+RISK[r]+"</td><td>"+(p?esc(p.x.t):"ยังไม่ได้เลือก")+"</td><td>"+(p?NAME[p.k]:"")+"</td><td>"+(p&&p.x.imp?IMP[p.x.imp]:"")+"</td></tr>";});
+  h+="</table><h3>รายการตรวจ (ตารางที่ 3.11)</h3><table><tr><th>ข้อ</th><th>รายการตรวจ</th><th>ผลตรวจอัตโนมัติ</th><th>กลุ่มตรวจแล้ว</th></tr>";
+  R.forEach((r,i)=>{h+="<tr><td>"+(i+1)+"</td><td>"+CHECKS[i]+"</td><td>"+STLABEL[r[0]]+(r[1]?": "+esc(r[1]):"")+"</td><td>"+(S.manual[i]?"✓":"")+"</td></tr>";});
+  h+="</table>";
+  if(S.versions.length){h+="<h3>ประวัติฉบับ</h3><table><tr><th>ฉบับ</th><th>วันที่</th><th>สิ่งที่เปลี่ยน</th><th>รายการ / ข้อเท็จจริง</th></tr>";
+    S.versions.forEach((v,i)=>{const s=stats(v.items);h+="<tr><td>"+(i+1)+"</td><td>"+v.date+"</td><td>"+esc(v.note||"")+"</td><td>"+s.n+" / "+s.f+"</td></tr>";});h+="</table>";}
+  document.getElementById("printcheck").innerHTML=h;
 }
-function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
 
 // ---------- ข้อมูลกลุ่ม ไฟล์ ----------
 function bindMeta(){
   const map={mGroup:"group",mBiz:"biz",mVer:"ver",mDate:"date"};
-  Object.entries(map).forEach(([id,k])=>{const e=document.getElementById(id);e.value=S.meta[k]||"";e.oninput=e.onchange=()=>{S.meta[k]=e.value;save();renderPrint();};});
+  Object.entries(map).forEach(([id,k])=>{const e=document.getElementById(id);e.value=S.meta[k]||"";e.oninput=e.onchange=()=>{S.meta[k]=e.value;touch();renderPrint();};});
 }
 function saveFile(){
-  const name="LeanCanvas_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
-  const blob=new Blob([JSON.stringify({tool:"lean_studio_0900304",version:1,data:S},null,1)],{type:"application/json"});
-  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast("บันทึกไฟล์ "+name);
+  const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
+  const out={tool:"business_file_0900304",version:2,meta:S.meta,lean:{items:S.items,manual:S.manual,versions:S.versions}};
+  const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty=false;toast("บันทึกไฟล์ "+name);
 }
 function openFile(inp){
   const f=inp.files[0];if(!f)return;const r=new FileReader();
-  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.tool!=="lean_studio_0900304")throw 0;
-    S=Object.assign(blank(),d.data);S.items=Object.assign(blank().items,d.data.items||{});S.cur=null;save();bindMeta();render();toast("เปิดไฟล์แล้ว");}
-    catch(e){toast("ไฟล์นี้ไม่ใช่งานจาก Lean Canvas Studio");}inp.value="";};
+  r.onload=()=>{try{const d=JSON.parse(r.result);let data;
+      if(d.tool==="business_file_0900304")data=Object.assign({meta:d.meta},d.lean||{});
+      else if(d.tool==="lean_studio_0900304")data=d.data;   // ไฟล์ระยะที่ 1
+      else throw 0;
+      S=fromData(data);save();dirty=false;bindMeta();render();toast("เปิดไฟล์แล้ว");}
+    catch(e){toast("ไฟล์นี้ไม่ใช่แฟ้มธุรกิจของวิชา 0900304");}inp.value="";};
   r.readAsText(f);
 }
 function loadExample(){
   if(hasWork()&&!confirm("งานที่เขียนอยู่จะถูกแทนด้วยตัวอย่าง ควรกด \"บันทึกไฟล์\" ก่อน ต้องการดูตัวอย่างต่อหรือไม่"))return;
-  S=JSON.parse(JSON.stringify(Object.assign(blank(),EXAMPLE)));S.items=Object.assign(blank().items,JSON.parse(JSON.stringify(EXAMPLE.items)));save();bindMeta();render();toast("โหลดตัวอย่างร้านเช่าชุดรับปริญญาแล้ว");
+  S=fromData(JSON.parse(JSON.stringify(EX)));save();dirty=false;bindMeta();render();toast("โหลดตัวอย่างร้านเช่าชุดรับปริญญาแล้ว");
 }
-function clearAll(){if(hasWork()&&!confirm("ล้างงานทั้งหมดในเบราว์เซอร์นี้ ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;S=blank();save();bindMeta();render();}
+function clearAll(){if(hasWork()&&!confirm("ล้างงานทั้งหมดในเบราว์เซอร์นี้ ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;S=blank();save();dirty=false;bindMeta();render();}
 function hasWork(){return Object.values(S.items).some(a=>a.length);}
+window.addEventListener("beforeunload",e=>{if(dirty&&hasWork()){e.preventDefault();e.returnValue="";}});
 
 load();bindMeta();render();
 </script>
