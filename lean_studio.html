@@ -136,12 +136,13 @@ ul.vl{list-style:none;margin:4px 0 0!important}ul.vl li{border-top:1px solid var
 @media print{.panel{box-shadow:none;break-inside:avoid}#board{display:none}#printcheck h3{font-size:12px;margin:8px 0 4px}#printcheck table{table-layout:fixed;width:100%}#printcheck td,#printcheck th{word-break:break-word}#printcheck th:first-child{width:12%}.layout>main{width:100%}footer .wrap{max-width:100%}}
 #printcheck{display:none}
 #printcheck table{border-collapse:collapse;width:100%;font-size:11px}#printcheck td,#printcheck th{border:1px solid #ccc;padding:4px 6px;text-align:left;vertical-align:top}
+@media(max-width:480px){.topbar .brandname{display:none}.tools{flex-wrap:wrap;justify-content:flex-end;width:100%}}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="in">
   <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
-  <div class="tools"><a href="idea_studio.html">💡 ขั้นไอเดีย</a><a href="nv_lesson_03.html">📖 บทที่ 3</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
+  <div class="tools"><a href="idea_studio.html">💡 ขั้นไอเดีย</a><a href="nv_bmc_studio.html?from=lean">🧱 ต่อไป BMC</a><a href="nv_lesson_03.html">📖 บทที่ 3</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
 </div></div>
 
 <div class="hero"><div class="wrap">
@@ -263,7 +264,7 @@ const EX = {meta:{group:"ตัวอย่าง",biz:"ร้านเช่า
   KM:[{t:"จำนวนคิวลองชุดต่อวัน",lab:"asm"},{t:"สัดส่วนคนที่ลองแล้วเช่าจริง",lab:"asm"}],
   UA:[{t:"รู้กำหนดการถ่ายรูปของทุกคณะก่อนคนอื่น",lab:"fact",ev:"รวบรวมจากประกาศของสโมสรนิสิตแต่ละคณะ"}]}};
 
-const KEY="lean_studio_0900304_v2", OLDKEY="lean_studio_0900304_v1", IDEAKEY="idea_studio_0900304_v1", HAND="lean_handoff_0900304";
+const KEY="lean_studio_0900304_v2", OLDKEY="lean_studio_0900304_v1", IDEAKEY="idea_studio_0900304_v1", BMCKEY="bmc_studio_0900304_v1", HAND="lean_handoff_0900304";
 let S = blank(), dirty=false;
 function uid(){return "i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function blank(){const it={};ALLKEYS.forEach(k=>it[k]=[]);return {meta:{group:"",biz:"",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},items:it,manual:Array(10).fill(false),versions:[],cur:null};}
@@ -509,13 +510,14 @@ function saveFile(){
   const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
   const out={tool:"business_file_0900304",version:2,meta:S.meta,lean:{items:S.items,manual:S.manual,versions:S.versions}};
   try{const iv=localStorage.getItem(IDEAKEY);if(iv)out.idea=JSON.parse(iv);}catch(e){}
+  try{const bv=localStorage.getItem(BMCKEY);if(bv)out.bmc=JSON.parse(bv);}catch(e){}
   const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty=false;toast("บันทึกไฟล์ "+name);
 }
 function openFile(inp){
   const f=inp.files[0];if(!f)return;const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);let data;
-      if(d.tool==="business_file_0900304"){data=Object.assign({meta:d.meta},d.lean||{});if(d.idea){try{localStorage.setItem(IDEAKEY,JSON.stringify(d.idea));}catch(e){}}}
+      if(d.tool==="business_file_0900304"){data=Object.assign({meta:d.meta},d.lean||{});if(d.idea){try{localStorage.setItem(IDEAKEY,JSON.stringify(d.idea));}catch(e){}}if(d.bmc){try{localStorage.setItem(BMCKEY,JSON.stringify(d.bmc));}catch(e){}}}
       else if(d.tool==="lean_studio_0900304")data=d.data;   // ไฟล์ระยะที่ 1
       else throw 0;
       S=fromData(data);save();dirty=false;bindMeta();render();toast("เปิดไฟล์แล้ว");}

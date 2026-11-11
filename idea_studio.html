@@ -502,12 +502,13 @@ function bindMeta(){const map={mGroup:"group",mBiz:"biz",mVer:"ver",mDate:"date"
 function leanData(){try{const v=localStorage.getItem(LEANKEY);return v?JSON.parse(v):null;}catch(e){return null;}}
 function saveFile(){
   const lean=leanData();const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
-  const out={tool:"business_file_0900304",version:2,meta:S.meta,idea:S};if(lean)out.lean={items:lean.items,manual:lean.manual,versions:lean.versions||[]};
+  const out={tool:"business_file_0900304",version:2,meta:S.meta,idea:S};if(lean)out.lean={items:lean.items,manual:lean.manual,versions:lean.versions||[]};try{const bv=localStorage.getItem("bmc_studio_0900304_v1");if(bv)out.bmc=JSON.parse(bv);}catch(e){}
   const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty=false;toast("บันทึกไฟล์ "+name);}
 function openFile(f){const file=f.files[0];if(!file)return;const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);if(d.tool!=="business_file_0900304")throw 0;
       if(d.idea)S=fromData(Object.assign({},d.idea,{meta:d.meta||d.idea.meta}));else{S=blank();S.meta=Object.assign(S.meta,d.meta||{});}
       if(d.lean){try{localStorage.setItem(LEANKEY,JSON.stringify(Object.assign({meta:d.meta},d.lean)));}catch(e){}}
+      if(d.bmc){try{localStorage.setItem("bmc_studio_0900304_v1",JSON.stringify(d.bmc));}catch(e){}}
       save();dirty=false;bindMeta();renderAll();toast("เปิดไฟล์แล้ว"+(d.lean?" (รวมส่วน Lean Canvas)":""));}
     catch(e){toast("ไฟล์นี้ไม่ใช่แฟ้มธุรกิจของวิชา 0900304");}f.value="";};r.readAsText(file);}
 function clearAll(){if((S.problems.length||S.ideas.length)&&!confirm("ล้างงานขั้นไอเดียทั้งหมดในเบราว์เซอร์นี้ ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;S=blank();save();dirty=false;bindMeta();view="s1";renderAll();}

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!-- BMC Studio · วิชา 0900304 (2026-11-11) · แยกจาก bmc_studio.html ของวิชา 0903521 แต่ส่งออกไฟล์ .bmc.json ที่เปิดใน BMC Studio ได้ และเปิดไฟล์ .bmc.json ได้
+     เนื้อหา คำถาม และรายการตรวจมาจากเอกสารประกอบการสอนบทที่ 4 (ตาราง 4.2 4.3 4.4 4.5 4.6 4.8 4.10 4.11 หัวข้อ 4.5.1) ตัวอย่างจากภาพที่ 4.2
+     รูปแบบไฟล์: courses/0900304_NewVentureCreation/_build/แนวทางเครื่องมือออนไลน์.md (ส่วน bmc ของแฟ้มธุรกิจ)
+     ข้อมูลเก็บในเบราว์เซอร์ของผู้ใช้ (localStorage) และไฟล์ .json ที่ผู้ใช้บันทึกเอง ไม่ส่งไปที่ใด -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMC Studio · วิชา 0900304</title>
+<meta name="description" content="เครื่องมือแปลง Lean Canvas เป็น Business Model Canvas ตรวจความเชื่อมโยง และตรวจก่อนส่งงานกลุ่มครั้งที่ 2 วิชา 0900304">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--fact:#1F7A5A;--factbg:#E6F5EE;--asm:#9A6B00;--asmbg:#FBF3DF;--warn:#B54708;--warnbg:#FEF3E2;--ok:#1F7A5A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+button,input,textarea,select{font-family:inherit;font-size:inherit}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}
+.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;padding:0 12px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap}
+.tools a:hover{background:var(--blue);text-decoration:none}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:26px 0 22px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 22px}
+.hero .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:12.5px}
+.hero h1{font-size:28px;line-height:1.3;margin:6px 0 6px}
+.hero p{color:#DCE6FB;max-width:900px}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.meta label{font-size:12px;color:#CADCFC;display:block;margin-bottom:3px}
+.meta input,.meta select{width:100%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:7px 10px}
+.meta select option{color:var(--ink)}
+.meta input::placeholder{color:#B9C8E8}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer;background:var(--gold);color:var(--navy)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.05)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;padding:20px 0 30px;align-items:start}
+.layout>main,.layout>aside{min-width:0}
+table.bt td:first-child{min-width:180px}
+/* canvas */
+.canvas{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:auto auto auto;gap:8px}
+.blk{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 10px 8px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:170px;scroll-margin-top:90px}
+.blk.cur{outline:3px solid var(--amber);outline-offset:1px}
+.blk .bh{display:flex;align-items:flex-start;gap:7px;margin-bottom:4px}
+.blk .no{flex:0 0 24px;height:24px;border-radius:7px;background:var(--blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.blk.done .no{background:var(--teal)}
+.blk .nm{font-weight:800;color:var(--navy);line-height:1.25;font-size:14.5px}
+.blk .en{font-size:11px;color:var(--mute);font-weight:600}
+.blk .q{font-size:12.5px;color:var(--mute);margin-bottom:6px;line-height:1.4}
+.PR{grid-column:1/3;grid-row:1/3}.SO{grid-column:3/5;grid-row:1}.KM{grid-column:3/5;grid-row:2}
+.UV{grid-column:5/7;grid-row:1/3}.UA{grid-column:7/9;grid-row:1}.CH{grid-column:7/9;grid-row:2}
+.CS{grid-column:9/11;grid-row:1/3}.CO{grid-column:1/6;grid-row:3}.RE{grid-column:6/11;grid-row:3}
+ul.items{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:6px}
+.item{border:1px solid var(--line);border-radius:8px;padding:5px 7px;background:#fff;font-size:13.5px;line-height:1.45}
+.item.fact{border-left:4px solid var(--fact)}.item.asm{border-left:4px solid var(--amber)}
+.item .tx{word-break:break-word}
+.item .row{display:flex;align-items:center;gap:5px;margin-top:4px;flex-wrap:wrap}
+.chip{border:none;border-radius:20px;padding:1px 9px;font-size:11.5px;font-weight:700;cursor:pointer}
+.chip.fact{background:var(--factbg);color:var(--fact)}.chip.asm{background:var(--asmbg);color:var(--asm)}.chip.rv{background:#FDE8E8;color:#B42318}
+.del{margin-left:auto;border:none;background:none;color:#9AA6B2;cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
+.del:hover{color:#C0392B}
+.ev{width:100%;border:1px dashed var(--line);border-radius:6px;padding:3px 6px;font-size:12.5px;margin-top:4px;background:#FAFCFB}
+.add{display:flex;gap:4px;margin-top:auto}
+.add input{flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:13px}
+.add button{border:none;background:var(--tint);color:var(--blue);font-weight:800;border-radius:8px;padding:0 9px;cursor:pointer}
+.sub{border-top:1px dashed var(--line);margin-top:6px;padding-top:6px}
+.sub .sh{font-size:12px;font-weight:800;color:var(--teal)}
+.sub .shint{font-size:11.5px;color:var(--mute);margin-bottom:4px;line-height:1.35}
+.credit{font-size:11.5px;color:var(--mute);margin-top:8px}
+/* side */
+.side{position:sticky;top:76px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 92px);overflow:auto;padding-bottom:6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;color:var(--navy);margin-bottom:6px}
+.card .k{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--amber)}
+.card p,.card li{font-size:13.5px}
+.card ul{margin:4px 0 0 18px}
+.prog{height:8px;background:var(--tint);border-radius:8px;overflow:hidden;margin:6px 0 2px}.prog i{display:block;height:100%;background:var(--teal)}
+.chk{list-style:none;margin:6px 0 0!important}
+.chk li{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.4}
+.chk li:first-child{border-top:none}
+.st{flex:0 0 auto;border-radius:6px;padding:0 6px;font-size:11.5px;font-weight:800;margin-top:1px}
+.st.ok{background:var(--factbg);color:var(--ok)}.st.warn{background:var(--warnbg);color:var(--warn)}.st.man{background:var(--tint);color:var(--blue)}
+.chk .why{display:block;color:var(--warn);font-size:12px}
+.chk input{margin-top:3px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--mute);margin-top:4px}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.note{font-size:12.5px;color:var(--mute)}
+footer{background:var(--navy);color:#9DB0D6;padding:18px 0;font-size:12.5px;text-align:center;line-height:1.7}
+footer a{color:#CFE0FF}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 16px;border-radius:10px;font-size:14px;opacity:0;transition:.2s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.printhead{display:none}
+@media(max-width:1100px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static;max-height:none}}
+@media(max-width:760px){
+ .canvas{display:flex;flex-direction:column}.blk{min-height:0}
+ .meta{grid-template-columns:1fr 1fr}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}
+ .wrap{padding:0 16px}.hero h1{font-size:23px}.tools a{padding:0 10px}}
+@page{size:A4 landscape;margin:8mm}
+@media print{
+ body{background:#fff;font-size:10.5px}.topbar,.hero,.side,.add,.del,.toast,footer .gc-views{display:none!important}
+ .printhead{display:block;margin-bottom:6px;font-size:12px}.printhead b{font-size:15px;color:var(--navy)}
+ .wrap{max-width:none;padding:0}.layout{display:block;padding:0}
+ .canvas{display:grid!important;gap:4px}.blk{min-height:0;box-shadow:none;padding:6px;break-inside:avoid}.blk.cur{outline:none}
+ .blk .q{display:none}.item{font-size:10px;padding:3px 5px}.ev{border:none;padding:0;font-size:9.5px}
+ .chip{font-size:9px}.sub .shint{display:none}
+ #printcheck{display:block!important;break-before:page}
+ footer{background:none;color:#555;padding:4px 0}}
+.mini{border:1px solid var(--line);border-radius:6px;padding:1px 4px;font-size:12px;background:#fff;max-width:100%}
+.mini.wide{width:100%;margin-top:4px}.mini.need{border-color:var(--amber);background:var(--asmbg)}
+.pno{display:inline-block;background:var(--tint);color:var(--blue);border-radius:5px;font-size:11px;font-weight:800;padding:0 5px;margin-right:5px}
+.rk{border-radius:20px;padding:1px 8px;font-size:11px;font-weight:700;background:#EEF1F6;color:var(--mute)}
+.rk.cust,.dot.cust{background:#E7EEFC;color:#2F5BD0}.rk.prod,.dot.prod{background:#E6F5EE;color:#1F7A5A}.rk.mkt,.dot.mkt{background:#FBF3DF;color:#9A6B00}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-top:18px;scroll-margin-top:80px}
+.panel h2{font-size:18px;color:var(--navy)}.panel .k{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--amber)}
+.picked3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 12px}
+.pk{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:8px 10px;background:#fff}
+.pk.prod{border-top-color:var(--teal)}.pk.mkt{border-top-color:var(--amber)}.pk.empty .pkt{color:#9AA6B2;font-style:italic}
+.pkh{font-weight:800;color:var(--navy)}.pkq{font-size:12px;color:var(--mute);line-height:1.4}.pkt{margin-top:4px;font-weight:600}.pks{font-size:12px;color:var(--mute)}
+.tw{overflow-x:auto}table.bt{border-collapse:collapse;width:100%;font-size:13.5px}
+table.bt th{background:var(--navy);color:#fff;text-align:left;padding:6px 8px;font-weight:700;white-space:nowrap}
+table.bt td{border-top:1px solid var(--line);padding:5px 8px;vertical-align:middle}table.bt td.sm,.sm{font-size:12px;color:var(--mute)}
+table.bt tr.picked td{background:#FFF9EC}
+.grid{display:grid;grid-template-columns:120px 1fr 1fr;gap:4px;margin-top:12px}
+.gh{font-size:12px;font-weight:800;color:var(--navy);text-align:center}.gl{font-size:12px;font-weight:700;color:var(--navy);display:flex;align-items:center}
+.gc{min-height:54px;border:1px dashed var(--line);border-radius:8px;padding:5px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;background:#fff}
+.gc.hot{border:2px solid var(--amber);background:#FFF9EC}
+.dot{border-radius:20px;padding:1px 8px;font-size:11.5px;background:#EEF1F6}.dot.pk{outline:2px solid var(--navy)}
+ul.vl{list-style:none;margin:4px 0 0!important}ul.vl li{border-top:1px solid var(--line);padding:5px 0;font-size:13px}ul.vl li:first-child{border-top:none}
+.lnk{border:none;background:none;color:var(--blue);cursor:pointer;font-size:12.5px;margin-left:6px;padding:0}
+@media(max-width:760px){.picked3{grid-template-columns:1fr}.grid{grid-template-columns:80px 1fr 1fr}}
+@media print{.panel{box-shadow:none;break-inside:avoid}#board{display:none}#printcheck h3{font-size:12px;margin:8px 0 4px}#printcheck table{table-layout:fixed;width:100%}#printcheck td,#printcheck th{word-break:break-word}#printcheck th:first-child{width:12%}.layout>main{width:100%}footer .wrap{max-width:100%}}
+#printcheck{display:none}
+#printcheck table{border-collapse:collapse;width:100%;font-size:11px}#printcheck td,#printcheck th{border:1px solid #ccc;padding:4px 6px;text-align:left;vertical-align:top}
+/* ---- BMC Studio เพิ่มเติม ---- */
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;position:sticky;top:56px;z-index:30;background:var(--bg);padding:8px 0}
+.steps button{flex:1;min-width:150px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer;color:var(--navy);font-weight:700;line-height:1.3}
+.steps button b{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--tint);color:var(--blue);align-items:center;justify-content:center;margin-right:4px}
+.steps button small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.steps button.on{border:2px solid var(--amber);background:#FFF9EC}.steps button.done b{background:var(--teal);color:#fff}
+.step{display:none}.step.on{display:block}
+.layout{padding-top:12px}
+.panel.step{margin-top:0}
+.canvas.bmc .kp{grid-column:1/3;grid-row:1/3}.canvas.bmc .ka{grid-column:3/5;grid-row:1}.canvas.bmc .kr{grid-column:3/5;grid-row:2}
+.canvas.bmc .vp{grid-column:5/7;grid-row:1/3}.canvas.bmc .cr{grid-column:7/9;grid-row:1}.canvas.bmc .ch{grid-column:7/9;grid-row:2}
+.canvas.bmc .cs{grid-column:9/11;grid-row:1/3}.canvas.bmc .cost{grid-column:1/6;grid-row:3}.canvas.bmc .rev{grid-column:6/11;grid-row:3}
+.canvas.lean .LPR{grid-column:1/3;grid-row:1/3}.canvas.lean .LSO{grid-column:3/5;grid-row:1}.canvas.lean .LKM{grid-column:3/5;grid-row:2}
+.canvas.lean .LUV{grid-column:5/7;grid-row:1/3}.canvas.lean .LUA{grid-column:7/9;grid-row:1}.canvas.lean .LCH{grid-column:7/9;grid-row:2}
+.canvas.lean .LCS{grid-column:9/11;grid-row:1/3}.canvas.lean .LCO{grid-column:1/6;grid-row:3}.canvas.lean .LRE{grid-column:6/11;grid-row:3}
+.blk.over{border-color:var(--warn)}
+.cnt{font-size:11px;font-weight:700;color:var(--mute);background:var(--tint);border-radius:6px;padding:0 5px;margin-left:2px}.cnt.bad{background:var(--warnbg);color:var(--warn)}
+details.subt{font-size:11.5px;color:var(--mute);margin:-2px 0 6px;line-height:1.4}details.subt summary{cursor:pointer;color:var(--blue)}
+.item.orph{border-color:#E9B4AE;background:#FFF7F6}
+.item.hl{outline:2px solid var(--blue);background:#F1F5FC}.item.dim{opacity:.35}
+.item .tx{display:block;outline:none;border-radius:4px;min-height:1.4em}.item .tx:focus{background:#FFFBEA;box-shadow:0 0 0 2px var(--gold)}
+.chip.nw{background:#E7EEFC;color:var(--blue)}.chip.old{background:#EEF1F6;color:var(--mute)}.chip.ea{background:#FFF1C9;color:#8A5A00}
+.chip.on{background:var(--teal);color:#fff}.chip.lk{background:#E7EEFC;color:var(--blue)}.chip.orphc{background:#FDE8E8;color:#B42318}
+.stg{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}.stg .chip{font-size:11px}
+.hint{font-size:11.5px;color:var(--warn);line-height:1.35;margin:2px 0 4px}
+.cvtabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.cvtabs button:not(.lnk){border:1px solid var(--line);background:#fff;border-radius:20px;padding:4px 12px;font-weight:700;color:var(--navy);cursor:pointer}
+.cvtabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.cvhead{font-size:14px;color:var(--navy);margin:0 0 8px}
+.box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:12px;background:#fff}.box>b{color:var(--navy)}
+.box.warnbox{border-color:#F3C98B;background:#FFFBF2}
+.rad{display:block;margin-top:6px;font-size:14px;cursor:pointer}
+.tray{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border-top:1px solid var(--line);padding:6px 0}.tray .trt{font-weight:600;flex:1;min-width:160px}
+.fld{width:100%;border:1px solid var(--line);border-radius:8px;padding:6px 9px;margin-top:6px;background:#fff}.fld.area{resize:vertical;line-height:1.5}
+.h3{font-size:15px;color:var(--navy);margin:16px 0 6px}
+.lcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:10px}
+.lcard{border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:10px;padding:8px 10px;background:#fff}
+.lcard.cs{border-top-color:var(--blue)}.lcard.co{border-top-color:var(--mute)}
+.lch{font-weight:800;color:var(--navy);margin-bottom:4px;line-height:1.35}
+.lg{border-top:1px dashed var(--line);padding-top:4px;margin-top:4px}.lgt{font-size:12px;font-weight:700;color:var(--mute)}
+.lc{display:block;font-size:13.5px;line-height:1.4;padding:2px 0;cursor:pointer}.lc.on{color:var(--navy);font-weight:600}
+.warnline{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:6px 10px;margin-top:8px;font-size:13.5px}
+.okline{background:var(--factbg);color:var(--ok);border-radius:8px;padding:6px 10px;margin-top:8px;font-size:13.5px}
+.miss{color:var(--warn);font-size:12.5px}
+table.t411 td{vertical-align:top}
+.pkrow{border-top:1px solid var(--line);padding:6px 0}.pkrow label{cursor:pointer}.pkrow.on{background:#FFF9EC}
+.navnext{margin-top:14px;text-align:right}
+button:disabled{opacity:.5;cursor:not-allowed}
+#printout{display:none}
+@media(max-width:760px){.steps{position:static}.steps button{min-width:46%}.lcards{grid-template-columns:1fr}}
+@media print{
+ .steps,.step,.side,.topbar,.hero,.toast{display:none!important}
+ #printout{display:block}.layout{display:block;padding:0}
+ .ph{font-size:12px;margin-bottom:4px}.ph b{font-size:14px;color:var(--navy)}
+ .pc{break-before:page}.pc:first-of-type{break-before:auto}.ph+.pc{break-before:auto}
+ .pt{font-weight:800;color:var(--navy);font-size:13px;margin:6px 0 4px}
+ .pc .canvas{display:grid!important;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+ .pc .blk{min-height:150px;box-shadow:none;padding:5px;break-inside:avoid}.pc .blk .nm{font-size:11.5px;font-weight:800}
+ .pc .item{font-size:9.5px;padding:2px 4px}.pc .item .sm{font-size:8.5px}
+ .pc .item.orph{border-color:#C0392B}.pc .blk>.sm{font-size:9px;margin-top:3px}
+ table.pt2{border-collapse:collapse;width:100%;font-size:10px;table-layout:fixed;margin-bottom:6px}
+ table.pt2 td,table.pt2 th{border:1px solid #bbb;padding:3px 5px;text-align:left;vertical-align:top;word-break:break-word}
+ table.pt2 th{background:#EEF1F6}
+ .pc p{font-size:10.5px;margin:4px 0}
+ footer{background:none;color:#555;padding:4px 0}}
+@media(max-width:480px){.topbar .brandname{display:none}.tools{flex-wrap:wrap;justify-content:flex-end;width:100%}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><a href="lean_studio.html">🧩 ขั้น Lean</a><a href="nv_lesson_04.html">📖 บทที่ 4</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <div class="kick">เครื่องมือประกอบบทที่ 4 · ใบงานที่ 2 งานกลุ่มครั้งที่ 2</div>
+  <h1>BMC Studio: Business Model Canvas ของกลุ่ม</h1>
+  <p>แปลง Lean Canvas เป็น Business Model Canvas ตามตารางที่ 4.4 เติมช่องใหม่โดยถามว่าค้ำคุณค่าข้อใด ตรวจความเชื่อมโยงตามตารางที่ 4.6 จนไม่มีรายการโดดเดี่ยว แล้วตรวจกับข้อผิดพลาดในตารางที่ 4.10 ผลลัพธ์จัดเรียงตามใบงานที่ 2 งานบันทึกอยู่ในเบราว์เซอร์เครื่องนี้ ควรกด "บันทึกไฟล์" ทุกครั้ง</p>
+  <div class="meta">
+    <div><label for="mGroup">รหัสกลุ่ม</label><input id="mGroup" placeholder="เช่น G01"></div>
+    <div><label for="mBiz">ชื่อธุรกิจ</label><input id="mBiz" placeholder="ชื่อธุรกิจของกลุ่ม"></div>
+    <div><label for="mVer">ฉบับ</label><select id="mVer"><option>ฉบับร่าง</option><option>ฉบับส่งงานกลุ่มครั้งที่ 2</option><option>ฉบับปรับหลังทดสอบ</option></select></div>
+    <div><label for="mDate">วันที่</label><input id="mDate" type="date"></div>
+  </div>
+  <div class="bar">
+    <button class="btn" onclick="saveFile()">💾 บันทึกไฟล์</button>
+    <label class="btn ghost" style="cursor:pointer">📂 เปิดไฟล์<input type="file" accept=".json,application/json" onchange="openFile(this)" hidden></label>
+    <button class="btn ghost" onclick="window.print()">🖨 พิมพ์ / PDF</button>
+    <button class="btn ghost" onclick="exportBmc()" title="ไฟล์ .bmc.json เปิดต่อใน BMC Studio ได้">📤 ส่งออกไฟล์สำหรับ BMC Studio</button>
+    <button class="btn ghost" onclick="loadExample()">ดูตัวอย่าง: ร้านเช่าชุดรับปริญญา</button>
+    <button class="btn ghost" onclick="clearAll()">เริ่มใหม่</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <nav class="steps" id="steps"></nav>
+  <div class="layout">
+    <main>
+      <section class="panel step" id="s1"></section>
+      <section class="step" id="s2"></section>
+      <section class="panel step" id="s3"></section>
+      <section class="panel step" id="s4"></section>
+      <div id="printout"></div>
+    </main>
+    <aside class="side">
+      <div class="card">
+        <div class="k">ใบงานที่ 2</div>
+        <h2>สิ่งที่ต้องส่ง</h2>
+        <div class="prog"><i id="wsBar" style="width:0"></i></div>
+        <ul class="chk" id="ws"></ul>
+        <p class="note" style="margin-top:8px">ส่งไฟล์ PDF ใน Google Classroom ก่อนเริ่มเรียนสัปดาห์ที่ 7 และนำเสนอกลุ่มละไม่เกิน 10 นาที ประเมินด้วยรูบริกที่ 2</p>
+      </div>
+      <div class="card">
+        <div class="k">ป้ายบน Canvas</div>
+        <div class="legend" style="margin-top:2px"><span><b style="background:var(--fact)"></b>ข้อเท็จจริง (มีหลักฐาน)</span><span><b style="background:var(--amber)"></b>ข้อสมมติ</span><span><b style="background:#C0392B"></b>รายการโดดเดี่ยว</span></div>
+        <p class="note" style="margin-top:6px">กด 🔗 ที่รายการใดก็ได้ เพื่อดูว่ารายการนั้นเชื่อมกับรายการใดบ้าง</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เครื่องมือประกอบเอกสารประกอบการสอนรายวิชา 0900304 · CC BY-NC-SA 4.0 (แม่แบบ Business Model Canvas และ Lean Canvas: CC BY-SA 3.0)<br>เครื่องมือนี้ไม่เก็บหรือส่งข้อมูลของผู้ใช้ไปที่ใด ข้อมูลอยู่ในเบราว์เซอร์และไฟล์ที่ผู้ใช้บันทึกเอง</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- ข้อมูลจากบทที่ 4 ----------
+// ตารางที่ 4.2 (เรียงตามตำแหน่งบน Canvas)
+const BL = [
+ {k:"kp",nm:"พันธมิตรหลัก",en:"Key partnerships",q:"ใครช่วยให้เราทำได้โดยไม่ต้องทำเองทั้งหมด",sub:"พันธมิตรที่ไม่ใช่คู่แข่ง พันธมิตรกับคู่แข่ง กิจการร่วมค้า ผู้ขายวัตถุดิบประจำ"},
+ {k:"ka",nm:"กิจกรรมหลัก",en:"Key activities",q:"งานสำคัญที่สุดที่ต้องทำให้ดีคืออะไร",sub:"การผลิต การแก้ปัญหาให้ลูกค้า การดูแลแพลตฟอร์มหรือเครือข่าย"},
+ {k:"kr",nm:"ทรัพยากรหลัก",en:"Key resources",q:"ต้องมีอะไรจึงจะส่งมอบคุณค่าได้",sub:"ทรัพยากรทางกายภาพ ทรัพย์สินทางปัญญา บุคลากร เงินทุน"},
+ {k:"vp",nm:"คุณค่าที่เสนอ",en:"Value propositions",q:"เราแก้ปัญหาหรือตอบความต้องการอะไรของลูกค้า",sub:"ความใหม่ ประสิทธิภาพ ปรับตามลูกค้า ทำให้งานสำเร็จ การออกแบบ แบรนด์ ราคา ลดต้นทุน ลดความเสี่ยง การเข้าถึง ความสะดวก"},
+ {k:"cr",nm:"ความสัมพันธ์กับลูกค้า",en:"Customer relationships",q:"ได้ลูกค้าใหม่ รักษาลูกค้าเดิม และเพิ่มยอดขายต่อรายอย่างไร",sub:"ดูแลโดยพนักงาน ดูแลแบบเฉพาะราย บริการตนเอง บริการอัตโนมัติ ชุมชนผู้ใช้ การร่วมสร้างกับลูกค้า"},
+ {k:"ch",nm:"ช่องทาง",en:"Channels",q:"ลูกค้ารู้จัก ประเมิน ซื้อ รับสินค้า และได้รับบริการหลังการขายทางใด",sub:"ช่องทางของตนเองหรือของพันธมิตร ช่องทางตรงหรือผ่านคนกลาง"},
+ {k:"cs",nm:"กลุ่มลูกค้า",en:"Customer segments",q:"เราสร้างคุณค่าให้ใคร",sub:"ตลาดมวลชน ตลาดเฉพาะกลุ่ม หลายกลุ่มที่ต่างกันเล็กน้อย หลายกลุ่มที่ไม่เกี่ยวกัน หลายฝั่งที่พึ่งพากัน"},
+ {k:"cost",nm:"โครงสร้างต้นทุน",en:"Cost structure",q:"ต้นทุนสำคัญคืออะไร มาจากช่องใด",sub:"เน้นต้นทุนต่ำหรือเน้นคุณค่า ต้นทุนคงที่และต้นทุนผันแปร"},
+ {k:"rev",nm:"กระแสรายได้",en:"Revenue streams",q:"ลูกค้าจ่ายเพื่ออะไร จ่ายอย่างไร",sub:"ขายขาด ค่าใช้งาน ค่าสมาชิก ค่าเช่า ค่าสิทธิ ค่านายหน้า ค่าโฆษณา"}];
+const KS = BL.map(b=>b.k), NM = Object.fromEntries(BL.map(b=>[b.k,b.nm])), LEFT=["ka","kr","kp"];
+const REVT = ["ขายขาด","ค่าใช้งาน","ค่าสมาชิก","ค่าเช่า","ค่าสิทธิ","ค่านายหน้า","ค่าโฆษณา"];   // ตารางที่ 4.3
+const RR = {tx:"รายได้ต่อครั้ง",rec:"รายได้ต่อเนื่อง"}, FV = {fix:"ต้นทุนคงที่",var:"ต้นทุนผันแปร"};
+const STG = ["รู้จัก","ซื้อ","รับสินค้า","หลังการขาย"];                                     // ตารางที่ 4.4
+// คู่ที่ตรวจตามตารางที่ 4.6 (ทิศทางเดียวกับไฟล์ BMC Studio)
+const PAIRS = [["vp","cs"],["ch","cs"],["cr","cs"],["vp","rev"],["ka","vp"],["kr","vp"],["kp","vp"],["ka","cost"],["kr","cost"],["kp","cost"]];
+const PATTERNS = [ // ตารางที่ 4.5
+ ["แพลตฟอร์มหลายฝั่ง (Multi-sided platform)","เชื่อมลูกค้าสองกลุ่มขึ้นไปที่ต้องการกันและกัน คุณค่าเพิ่มเมื่อแต่ละฝั่งมีมากขึ้น","กลุ่มลูกค้าหลายฝั่ง กิจกรรมดูแลแพลตฟอร์ม"],
+ ["สมาชิก (Subscription)","ลูกค้าจ่ายเป็นงวดเพื่อใช้บริการต่อเนื่อง","กระแสรายได้ ความสัมพันธ์กับลูกค้า"],
+ ["ฟรีเมียม (Freemium)","ให้ใช้บริการพื้นฐานฟรี เก็บเงินจากผู้ใช้ส่วนน้อยที่ต้องการบริการเพิ่ม","กลุ่มลูกค้าที่ใช้ฟรีและที่จ่าย โครงสร้างต้นทุน"],
+ ["การแยกส่วนธุรกิจ (Unbundling)","แยกธุรกิจการดูแลลูกค้า การพัฒนาสินค้า และโครงสร้างพื้นฐาน ออกจากกัน เพราะแต่ละส่วนบริหารต่างกัน","กิจกรรมหลัก พันธมิตรหลัก"],
+ ["สินค้าเฉพาะกลุ่มจำนวนมาก (Long tail)","ขายสินค้าเฉพาะกลุ่มจำนวนมากรายการ แต่ละรายการขายน้อยแต่รวมกันแล้วมาก","ทรัพยากรหลัก ช่องทาง"],
+ ["แบบเปิด (Open business model)","ร่วมสร้างคุณค่ากับคนภายนอก รับความรู้เข้ามาหรือนำสิ่งที่ไม่ใช้ออกไปสร้างรายได้","พันธมิตรหลัก ทรัพยากรหลัก"]];
+const LINKQ = [ // ตารางที่ 4.6
+ ["คุณค่า กับ กลุ่มลูกค้า","คุณค่าแต่ละข้อตอบลูกค้ากลุ่มใด","มีคุณค่าที่ไม่มีกลุ่มลูกค้ารับ หรือมีกลุ่มลูกค้าที่ไม่ได้คุณค่าใด"],
+ ["กลุ่มลูกค้า กับ ช่องทาง","ลูกค้าแต่ละกลุ่มรู้จักและซื้อผ่านช่องทางใด","มีกลุ่มลูกค้าที่ไม่มีช่องทางเข้าถึง"],
+ ["กลุ่มลูกค้า กับ ความสัมพันธ์","ลูกค้าแต่ละกลุ่มได้รับการดูแลแบบใด","ใช้ความสัมพันธ์แบบเดียวกับลูกค้าที่ต้องการต่างกัน"],
+ ["คุณค่า กับ กระแสรายได้","ลูกค้าจ่ายเงินเพื่อคุณค่าข้อใด","มีรายได้ที่ไม่สอดคล้องกับคุณค่า หรือคุณค่าหลักไม่สร้างรายได้เลย"],
+ ["ด้านซ้าย กับ คุณค่า","กิจกรรม ทรัพยากร และพันธมิตรแต่ละรายการค้ำคุณค่าข้อใด","มีรายการทางซ้ายที่ไม่ได้ค้ำคุณค่าใด"],
+ ["ต้นทุน กับ ด้านซ้าย","ต้นทุนแต่ละรายการมาจากกิจกรรม ทรัพยากร หรือพันธมิตรใด","มีกิจกรรมหรือทรัพยากรที่ไม่มีต้นทุน หรือมีต้นทุนที่ไม่รู้ที่มา"]];
+const MIST = [ // ตารางที่ 4.10
+ ["กรอกทุกช่องเหมือนแบบฟอร์ม","เลือกรายการหลักไม่เกิน 3 รายการต่อช่อง และตรวจความเชื่อมโยง"],
+ ["มีรายการโดดเดี่ยว","ลากเส้นเชื่อม แล้วลบหรือเติมรายการที่ขาด"],
+ ["เขียนคุณค่าเป็นคุณสมบัติสินค้า","เขียนสิ่งที่ลูกค้าได้รับ"],
+ ["สับสนช่องทางกับความสัมพันธ์","ช่องทางคือทางที่ลูกค้าพบและซื้อ ความสัมพันธ์คือวิธีดูแลให้กลับมา"],
+ ["ทรัพยากรหลักกว้างเกินไป","ระบุทรัพยากรเฉพาะที่ค้ำคุณค่า เช่น ชุด 30 ชุดหลายไซซ์"],
+ ["เขียนพันธมิตรเป็นผู้ขายทั่วไป","ระบุพันธมิตรและสิ่งที่พันธมิตรทำให้ ซึ่งทีมทำเองไม่ได้"],
+ ["รวม Canvas ปัจจุบันกับเป้าหมาย","แยกเป็นสองฉบับ และระบุส่วนที่เพิ่ม"],
+ ["ไม่ติดป้ายข้อสมมติ","ติดป้ายทุกรายการ และระบุหลักฐานของรายการที่เป็นข้อเท็จจริง"]];
+const STEPS = [["s1","ก","เริ่มจาก Lean Canvas","ตารางที่ 4.4"],["s2","ข","เขียน Canvas 9 ช่อง","ตารางที่ 4.2 4.3 4.5"],["s3","ค","ตรวจความเชื่อมโยง","ตารางที่ 4.6 4.11"],["s4","ง","ป้ายและตรวจก่อนส่ง","ตารางที่ 4.8 4.10"]];
+
+// ตัวอย่างจากภาพที่ 4.2 ตารางที่ 4.8 และหัวข้อ 4.3 4.5.1 (กรณีสมมติเพื่อการสอน) · ดอกจันในภาพ = ข้อสมมติ
+const EX = {meta:{group:"ตัวอย่าง",biz:"ร้านเช่าชุดรับปริญญา (กรณีสมมติเพื่อการสอน)",ver:"ฉบับร่าง",date:""},
+ main:{items:{
+  kp:[{id:"kp1",t:"ร้านซักรีดหน้ามหาวิทยาลัยคืนชุดได้ภายใน 1 วัน",ev:"ตกลงเงื่อนไขกับร้าน และทดลองส่งซัก 1 รอบ"},{id:"kp2",t:"ช่างแก้ชุดในชุมชนแก้ไซซ์ได้ภายในวัน",ev:"ขอให้ช่างแก้ชุดตัวอย่าง 3 ชุด และจับเวลา",pick:true},{id:"kp3",t:"สโมสรนิสิตคณะ"}],
+  ka:[{id:"ka1",t:"แก้ไซซ์ภายในวัน",ev:"ขอให้ช่างแก้ชุดตัวอย่าง 3 ชุด และจับเวลา"},{id:"ka2",t:"จัดคิวลองชุดตามคณะ",lab:"fact"}],
+  kr:[{id:"kr1",t:"ชุด 30 ชุดหลายไซซ์",lab:"fact"},{id:"kr2",t:"ตารางถ่ายรูปทุกคณะ",lab:"fact",ev:"รวบรวมจากประกาศของสโมสรนิสิตแต่ละคณะ"}],
+  vp:[{id:"vp1",t:"ชุดถ่ายรูปรับปริญญาพอดีตัว",lab:"fact"},{id:"vp2",t:"ในราคานิสิต"},{id:"vp3",t:"ลองถึงคณะ ไม่ต้องไปหลายร้าน",lab:"fact"}],
+  cr:[{id:"cr1",t:"จองคิวผ่านไลน์",lab:"fact"},{id:"cr2",t:"ส่วนลดเมื่อมาเป็นกลุ่มทำให้ลูกค้าชวนเพื่อน",ev:"นับสัดส่วนการจองเป็นกลุ่มในช่วงทดลอง"}],
+  ch:[{id:"ch1",t:"กลุ่มไลน์รุ่น",lab:"fact"},{id:"ch2",t:"บูทหน้าคณะ",lab:"fact"}],
+  cs:[{id:"cs1",t:"บัณฑิตที่ถ่ายรูปกับเพื่อน",lab:"fact",ev:"สัมภาษณ์บัณฑิต 9 คน ทุกคนถ่ายรูปกับเพื่อนอย่างน้อย 1 ครั้งก่อนวันรับปริญญา"},{id:"cs2",t:"คณะที่ถ่ายรูปก่อน",ea:true}],
+  cost:[{id:"co1",t:"ซื้อชุดและแก้ทรง",lab:"fact",fv:"fix"},{id:"co2",t:"ค่าบูท",lab:"fact",fv:"fix"},{id:"co3",t:"ค่าซักรีดต่อการเช่า",lab:"fact",fv:"var"}],
+  rev:[{id:"rv1",t:"ค่าเช่าชุดละ 300 บาทต่อวัน",rt:"ค่าเช่า",ev:"ทดลองเปิดจองล่วงหน้าที่ราคานี้ 1 สัปดาห์ แล้วนับจำนวนจอง",pick:true},{id:"rv2",t:"ค่าแก้ไซซ์ด่วน"}]},
+ links:[["vp1","cs1"],["vp2","cs1"],["vp3","cs1"],["ch1","cs1"],["cr1","cs1"],["vp1","rv1"],["vp2","rv1"],["kr1","vp1"],["ka1","vp1"],["kp2","vp1"],["kp1","vp1"],["kp1","vp3"],["kr1","co1"],["kp1","co3"]]},
+ story:"ร้านเรา (คุณค่า) ช่วยบัณฑิตที่ถ่ายรูปกับเพื่อน (กลุ่มลูกค้า) ได้ชุดพอดีตัวในราคานิสิต ลูกค้ารู้จักเราจากกลุ่มไลน์รุ่น (ช่องทาง) และจองคิวผ่านไลน์ (ความสัมพันธ์) จ่ายค่าเช่าชุดละ 300 บาทต่อวัน (รายได้) เราทำได้เพราะมีชุด 30 ชุดหลายไซซ์ (ทรัพยากร) และช่างแก้ชุดในชุมชนแก้ไซซ์ให้ภายในวัน (พันธมิตร)"};
+
+// ---------- สถานะ ----------
+const KEY="bmc_studio_0900304_v1", LEANKEY="lean_studio_0900304_v2", LEANOLD="lean_studio_0900304_v1", IDEAKEY="idea_studio_0900304_v1";
+let S=blank(), dirty=false, view="s1", hl=null;
+function uid(){return "i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function blankCv(){const it={};KS.forEach(k=>it[k]=[]);return {items:it,links:[]};}
+function blank(){return {meta:{group:"",biz:"",ver:"ฉบับร่าง",date:""},asis:false,consent:false,cvk:"main",cv:{main:blankCv(),asis:blankCv()},tray:[],km:[],leanFix:"",pattern:"",patAsm:"",story:"",manual:Array(8).fill(false)};}
+function norm(x){return Object.assign({id:uid(),t:"",lab:"asm",ev:"",rv:false,nw:false,pick:false,ea:false,stg:[],rt:"",rr:"",fv:""},x);}
+function normCv(c){const o=blankCv();c=c||{};KS.forEach(k=>o.items[k]=((c.items||{})[k]||[]).map(norm));
+  const ids=new Set(KS.flatMap(k=>o.items[k].map(x=>x.id)));o.links=(c.links||[]).map(l=>Array.isArray(l)?{a:l[0],b:l[1]}:l).filter(l=>ids.has(l.a)&&ids.has(l.b));return o;}
+function fromData(d){const s=blank();d=d||{};Object.assign(s.meta,d.meta||{});["asis","consent","leanFix","pattern","patAsm","story","cvk"].forEach(k=>{if(d[k]!=null)s[k]=d[k];});
+  s.cv.main=normCv((d.cv||{}).main||d.main);s.cv.asis=normCv((d.cv||{}).asis);s.tray=(d.tray||[]).map(norm);s.km=d.km||[];s.manual=(d.manual||s.manual).slice(0,8);
+  if(!s.asis)s.cvk="main";return s;}
+function load(){try{const v=localStorage.getItem(KEY);if(v)S=fromData(JSON.parse(v));}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function touch(){dirty=true;save();}
+function commit(){touch();render();}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),2600);}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+const CV=()=>S.cv[S.cvk];
+const cvName=k=>S.asis?(k==="asis"?"Canvas ปัจจุบัน":"Canvas เป้าหมาย"):"Business Model Canvas";
+const all=(c)=>KS.flatMap(k=>c.items[k].map(x=>({k,x})));
+const find=(c,id)=>{for(const k of KS){const x=c.items[k].find(i=>i.id===id);if(x)return {k,x};}return null;};
+function pairOK(ka,kb){return PAIRS.some(p=>(p[0]===ka&&p[1]===kb)||(p[0]===kb&&p[1]===ka));}
+function isLinked(c,a,b){return c.links.some(l=>(l.a===a&&l.b===b)||(l.a===b&&l.b===a));}
+function toggleLink(c,a,b){if(isLinked(c,a,b))c.links=c.links.filter(l=>!((l.a===a&&l.b===b)||(l.a===b&&l.b===a)));else c.links.push({a,b});}
+function nb(c,id,ks){const o=[];c.links.forEach(l=>{const z=l.a===id?l.b:l.b===id?l.a:null;if(z){const f=find(c,z);if(f&&(!ks||ks.includes(f.k)))o.push(f);}});return o;}
+function orphans(c){return all(c).filter(o=>!nb(c,o.x.id).length);}
+function delItem(c,k,id){c.items[k]=c.items[k].filter(x=>x.id!==id);c.links=c.links.filter(l=>l.a!==id&&l.b!==id);}
+
+// ---------- แถบขั้น ----------
+function renderSteps(){const n=document.getElementById("steps");n.innerHTML="";const W=wsState();
+  const done=[W[0].ok,W[1].ok,W[2].ok&&W[6].ok,W[4].ok&&W[5].ok];
+  STEPS.forEach((s,i)=>{const b=el("button",(view===s[0]?"on ":"")+(done[i]?"done":""));b.innerHTML="<b>"+s[1]+"</b>"+s[2]+"<small>"+s[3]+"</small>";b.onclick=()=>{view=s[0];render();window.scrollTo({top:document.getElementById("steps").offsetTop-60,behavior:"smooth"});};n.appendChild(b);});}
+function showView(){document.querySelectorAll(".step").forEach(x=>x.classList.toggle("on",x.id===view));}
+function nextBtn(to,label){const d=el("div","navnext");const b=el("button","btn",label);b.onclick=()=>{view=to;render();window.scrollTo({top:document.getElementById("steps").offsetTop-60,behavior:"smooth"});};d.appendChild(b);return d;}
+
+// ---------- ขั้น ก: เริ่มจาก Lean Canvas (ตารางที่ 4.4) ----------
+function leanData(){try{const v=localStorage.getItem(LEANKEY)||localStorage.getItem(LEANOLD);return v?JSON.parse(v):null;}catch(e){return null;}}
+function leanCount(L){return L&&L.items?Object.values(L.items).reduce((a,x)=>a+(x||[]).length,0):0;}
+function importLean(ask){
+  const L=leanData();if(!leanCount(L)){toast("ไม่พบ Lean Canvas ในเบราว์เซอร์นี้ เปิด Lean Canvas Studio หรือเปิดแฟ้มธุรกิจของกลุ่มก่อน");return;}
+  const c=S.cv.main;
+  if(all(c).length&&!confirm("เพิ่มรายการจาก Lean Canvas ต่อท้าย "+cvName("main")+" ที่มีอยู่หรือไม่ (รายการจะติดป้ายว่ารอทบทวน)"))return;
+  const I=L.items, cp=(x,extra)=>norm(Object.assign({t:x.t,lab:x.lab||"asm",ev:x.ev||"",pick:!!x.pick&&x.lab!=="fact",rv:true},extra||{}));
+  let n=0;const put=(k,x,extra)=>{c.items[k].push(cp(x,extra));n++;};
+  (I.CS||[]).forEach(x=>put("cs",x));
+  (I.EA||[]).forEach(x=>put("cs",x,{ea:true}));
+  (I.UV||[]).forEach(x=>put("vp",x));
+  (I.PR||[]).forEach(x=>put("vp",x,{from:"PR"}));
+  (I.CH||[]).forEach(x=>put("ch",x));
+  (I.RE||[]).forEach(x=>put("rev",x));
+  (I.CO||[]).forEach(x=>put("cost",x));
+  (I.SO||[]).forEach(x=>{S.tray.push(cp(x,{from:"SO"}));n++;});
+  (I.UA||[]).forEach(x=>{S.tray.push(cp(x,{from:"UA"}));n++;});
+  S.km=(I.KM||[]).map(x=>x.t);
+  ["group","biz","date"].forEach(k=>{if(!S.meta[k]&&L.meta&&L.meta[k])S.meta[k]=L.meta[k];});
+  bindMeta();commit();toast("รับ "+n+" รายการจาก Lean Canvas แล้ว ทบทวนทีละรายการ");
+}
+function trayMove(i,where){const x=S.tray[i],c=S.cv.main;S.tray.splice(i,1);
+  const mk=()=>norm(Object.assign({},x,{id:uid(),from:x.from}));
+  if(where==="vp"||where==="both")c.items.vp.push(mk());
+  if(where==="ka"||where==="both")c.items.ka.push(mk());
+  if(where==="kr"||where==="kp")c.items[where].push(mk());
+  commit();}
+function renderS1(){
+  const s=document.getElementById("s1");s.innerHTML="";const L=leanData(),n=leanCount(L);
+  s.insertAdjacentHTML("beforeend",'<div class="k">ขั้น ก · หัวข้อ 4.3 และ 4.6 · ใบงานข้อ 1 และ 4</div><h2>เริ่มจาก Lean Canvas ของกลุ่ม</h2><p class="note">กลุ่มที่ทำ Lean Canvas มาแล้วไม่ต้องเริ่ม Business Model Canvas จากศูนย์ เพราะ 5 ช่องย้ายข้ามมาได้เกือบทันที อีก 4 ช่องเป็นช่องใหม่ที่ทีมต้องเติม รายการที่ย้ายมาจะติดป้าย "รอทบทวน" จนกว่ากลุ่มจะอ่านแล้วแก้ตามคอลัมน์ "สิ่งที่ต้องทำเพิ่ม"</p>');
+  // ธุรกิจใหม่หรือธุรกิจเดิม
+  const kind=el("div","box");kind.innerHTML='<b>ธุรกิจของกลุ่มเป็นแบบใด</b>';
+  [["new","ธุรกิจใหม่ทั้งหมด เขียน Canvas ฉบับเดียว"],["old","พัฒนาจากธุรกิจที่มีอยู่แล้ว เขียน Canvas ปัจจุบันและ Canvas เป้าหมายแยกกัน"]].forEach(([v,t])=>{
+    const l=el("label","rad");const r=el("input");r.type="radio";r.name="kind";r.checked=(v==="old")===S.asis;r.onchange=()=>{S.asis=v==="old";if(!S.asis)S.cvk="main";commit();};l.appendChild(r);l.appendChild(document.createTextNode(" "+t));kind.appendChild(l);});
+  if(S.asis){const l=el("label","rad");const c=el("input");c.type="checkbox";c.checked=S.consent;c.onchange=()=>{S.consent=c.checked;commit();};l.appendChild(c);l.appendChild(document.createTextNode(" มีหลักฐานความยินยอมของเจ้าของกิจการแล้ว และจะไม่เปิดเผยข้อมูลภายในที่เจ้าของไม่อนุญาต (ตารางที่ 1.11)"));kind.appendChild(l);
+    kind.appendChild(el("p","note","เขียน Canvas ปัจจุบันก่อน แล้วกด \"คัดลอกเป็นจุดเริ่มของ Canvas เป้าหมาย\" ในขั้น ข รายการที่เพิ่มใน Canvas เป้าหมายจะติดป้าย \"เพิ่มใหม่\" เพื่อให้เห็นส่วนต่าง"));}
+  s.appendChild(kind);
+  // นำเข้า
+  const imp=el("div","box");imp.innerHTML='<b>นำเข้าจาก Lean Canvas Studio</b> <span class="note">'+(n?"พบ Lean Canvas ในเบราว์เซอร์นี้ "+n+" รายการ"+(L.meta&&L.meta.group?" ของกลุ่ม "+esc(L.meta.group):""):"ยังไม่พบ Lean Canvas ในเบราว์เซอร์นี้ เปิดแฟ้มธุรกิจของกลุ่มด้วยปุ่ม \"เปิดไฟล์\" ก่อน")+'</span>';
+  const b=el("button","btn line","⬇ นำรายการจาก Lean Canvas มาเติม");b.onclick=()=>importLean(false);if(!n)b.disabled=true;imp.appendChild(el("div")).appendChild(b);
+  if(S.asis)imp.appendChild(el("p","note","รายการจาก Lean Canvas จะเข้า Canvas เป้าหมาย เพราะ Lean Canvas อธิบายธุรกิจใหม่ที่จะทำ"));
+  s.appendChild(imp);
+  // ตาราง 4.4
+  s.insertAdjacentHTML("beforeend",'<h3 class="h3">ตารางที่ 4.4 การแปลง Lean Canvas เป็น Business Model Canvas</h3><div class="tw"><table class="bt"><tr><th>ช่องใน Lean Canvas</th><th>ไปอยู่ช่องใดใน BMC</th><th>สิ่งที่ต้องทำเพิ่ม</th></tr>'+
+   [["กลุ่มลูกค้าและผู้ใช้กลุ่มแรก","กลุ่มลูกค้า","ระบุผู้ใช้กลุ่มแรกเป็นกลุ่มที่สำคัญที่สุด"],["ปัญหาและคุณค่าเฉพาะตัว","คุณค่าที่เสนอ","เขียนเป็นคุณค่าที่ลูกค้าได้รับ ไม่ใช่ตัวปัญหา"],["ทางแก้","คุณค่าที่เสนอ และกิจกรรมหลัก","แยกสิ่งที่ลูกค้าได้รับออกจากงานที่ทีมต้องทำ"],["ช่องทาง","ช่องทาง","เติมให้ครบระยะ รู้จัก ซื้อ รับสินค้า และหลังการขาย"],["กระแสรายได้","กระแสรายได้","ระบุรูปแบบรายได้ตามตารางที่ 4.3"],["โครงสร้างต้นทุน","โครงสร้างต้นทุน","แยกต้นทุนคงที่และต้นทุนผันแปร"],["ตัวชี้วัดหลัก","ไม่มีช่องโดยตรง","เก็บไว้ในเอกสารแนบเพื่อใช้ติดตามผล"],["ความได้เปรียบที่ลอกเลียนยาก","ทรัพยากรหลัก หรือพันธมิตรหลัก","ระบุว่าความได้เปรียบนั้นเป็นทรัพยากรหรือความร่วมมือแบบใด"],["(ไม่มีใน Lean Canvas)","พันธมิตรหลัก กิจกรรมหลัก ทรัพยากรหลัก ความสัมพันธ์กับลูกค้า","เติมใหม่โดยถามว่าค้ำคุณค่าข้อใด"]].map(r=>"<tr><td>"+r.join("</td><td>")+"</td></tr>").join("")+"</table></div>");
+  // ถาดรอแยก
+  if(S.tray.length){const t=el("div","box warnbox");t.innerHTML='<b>รายการที่กลุ่มต้องเลือกช่องเอง ('+S.tray.length+')</b><p class="note">ทางแก้ต้องแยกสิ่งที่ลูกค้าได้รับออกจากงานที่ทีมต้องทำ ส่วนความได้เปรียบที่ลอกเลียนยากต้องระบุว่าเป็นทรัพยากรหรือความร่วมมือ</p>';
+    S.tray.forEach((x,i)=>{const r=el("div","tray");r.appendChild(el("span","pno",x.from==="SO"?"ทางแก้":"ความได้เปรียบ"));r.appendChild(el("span","trt",x.t));
+      const opts=x.from==="SO"?[["vp","→ คุณค่าที่เสนอ"],["ka","→ กิจกรรมหลัก"],["both","→ ทั้งสองช่อง (เขียนแยกเอง)"]]:[["kr","→ ทรัพยากรหลัก"],["kp","→ พันธมิตรหลัก"]];
+      opts.forEach(([w,lb])=>{const b=el("button","lnk",lb);b.onclick=()=>trayMove(i,w);r.appendChild(b);});
+      const d=el("button","lnk","ไม่ใช้");d.onclick=()=>{S.tray.splice(i,1);commit();};r.appendChild(d);t.appendChild(r);});
+    s.appendChild(t);}
+  // ตัวชี้วัด
+  const km=el("div","box");km.innerHTML='<b>ตัวชี้วัดหลัก (เอกสารแนบ)</b> <span class="note">ไม่มีช่องใน BMC เก็บไว้ใช้ติดตามผล</span>';
+  km.appendChild(el("p",null,S.km.length?S.km.join(" · "):"– ยังไม่มี (นำเข้าจาก Lean Canvas)"));s.appendChild(km);
+  // สิ่งที่แก้ใน Lean
+  const lf=el("div","box");lf.innerHTML='<b>ใบงานข้อ 1: สิ่งที่แก้ใน Lean Canvas ตามความเห็นของผู้สอน</b><p class="note">Lean Canvas ฉบับปรับปรุงพิมพ์รวมในไฟล์ PDF ของเครื่องมือนี้ให้เอง เขียนสั้น ๆ ว่าแก้อะไร เพราะอะไร</p>';
+  const ta=el("textarea","fld area");ta.rows=3;ta.placeholder="เช่น แก้ช่องปัญหาให้เขียนจากมุมของลูกค้า และเปลี่ยนผู้ใช้กลุ่มแรกเป็นคณะที่ถ่ายรูปก่อน";ta.value=S.leanFix;ta.oninput=()=>{S.leanFix=ta.value;touch();renderSide();};lf.appendChild(ta);
+  if(L&&L.versions&&L.versions.length)lf.appendChild(el("p","note","Lean Canvas มีประวัติ "+L.versions.length+" ฉบับ ฉบับล่าสุด: "+(L.versions[L.versions.length-1].note||"")));
+  s.appendChild(lf);
+  s.appendChild(nextBtn("s2","ขั้น ข ▶"));
+}
+
+// ---------- ขั้น ข: Canvas 9 ช่อง ----------
+function itemEl(c,k,x){
+  const li=el("li","item "+x.lab);if(!nb(c,x.id).length)li.classList.add("orph");
+  if(hl){const z=hl===x.id||nb(c,hl).some(o=>o.x.id===x.id);li.classList.add(z?"hl":"dim");}
+  const tx=el("span","tx",x.t);tx.contentEditable="true";tx.spellcheck=false;tx.oninput=()=>{x.t=tx.textContent;touch();};tx.onblur=()=>{x.t=tx.textContent.trim();touch();renderSide();};li.appendChild(tx);
+  if(x.from==="PR")li.appendChild(el("div","hint","มาจากช่องปัญหา: เขียนใหม่เป็นคุณค่าที่ลูกค้าได้รับ ไม่ใช่ตัวปัญหา"));
+  const row=el("div","row");
+  const lab=el("button","chip "+x.lab,x.lab==="fact"?"ข้อเท็จจริง":"ข้อสมมติ");lab.title="กดเพื่อสลับป้าย";lab.onclick=()=>{x.lab=x.lab==="fact"?"asm":"fact";if(x.lab==="fact")x.pick=false;commit();};row.appendChild(lab);
+  if(x.rv){const r=el("button","chip rv","รอทบทวน");r.title="อ่านและแก้ตามตารางที่ 4.4 แล้วกดเพื่อยืนยัน";r.onclick=()=>{x.rv=false;if(x.from==="PR")delete x.from;commit();};row.appendChild(r);}
+  if(S.asis&&S.cvk==="main"){const nw=el("button","chip "+(x.nw?"nw":"old"),x.nw?"เพิ่มใหม่":"มีอยู่เดิม");nw.onclick=()=>{x.nw=!x.nw;commit();};row.appendChild(nw);}
+  if(k==="cs"){const e=el("button","chip "+(x.ea?"ea":"old"),x.ea?"★ ผู้ใช้กลุ่มแรก":"☆ ผู้ใช้กลุ่มแรก");e.title="ผู้ใช้กลุ่มแรกเป็นกลุ่มที่สำคัญที่สุด (ตารางที่ 4.4)";e.onclick=()=>{x.ea=!x.ea;commit();};row.appendChild(e);}
+  if(k==="rev"){row.appendChild(sel([["","รูปแบบรายได้…"],...REVT.map(t=>[t,t])],x.rt,v=>{x.rt=v;commit();},"รูปแบบรายได้ตามตารางที่ 4.3"));
+    row.appendChild(sel([["","ต่อครั้งหรือต่อเนื่อง…"],...Object.entries(RR)],x.rr,v=>{x.rr=v;commit();},"รายได้ต่อครั้งหรือรายได้ต่อเนื่อง"));}
+  if(k==="cost")row.appendChild(sel([["","คงที่หรือผันแปร…"],...Object.entries(FV)],x.fv,v=>{x.fv=v;commit();},"ต้นทุนคงที่หรือผันแปร"));
+  const n=nb(c,x.id).length;const lk=el("button","chip "+(n?"lk":"orphc"),n?"🔗 "+n:"🔗 ยังไม่เชื่อม");lk.title="ดูรายการที่เชื่อมกัน";lk.onclick=()=>{hl=hl===x.id?null:x.id;renderS2();};row.appendChild(lk);
+  const d=el("button","del","×");d.title="ลบรายการ";d.onclick=()=>{if(x.t&&!confirm("ลบ \""+x.t+"\" และเส้นเชื่อมของรายการนี้หรือไม่"))return;delItem(c,k,x.id);if(hl===x.id)hl=null;commit();};row.appendChild(d);
+  li.appendChild(row);
+  if(k==="ch"){const st=el("div","stg");STG.forEach(g=>{const b=el("button","chip "+(x.stg.includes(g)?"on":"old"),g);b.onclick=()=>{x.stg=x.stg.includes(g)?x.stg.filter(z=>z!==g):[...x.stg,g];commit();};st.appendChild(b);});li.appendChild(st);}
+  const ev=el("input","ev");ev.value=x.ev;ev.placeholder=x.lab==="fact"?"หลักฐานที่ผู้อื่นตรวจได้":"วิธีหาหลักฐาน";ev.setAttribute("aria-label","หลักฐาน");ev.oninput=()=>{x.ev=ev.value;touch();};ev.onchange=()=>renderSide();li.appendChild(ev);
+  return li;
+}
+function sel(opts,val,onch,label){const s=el("select","mini"+(val?"":" need"));s.setAttribute("aria-label",label);opts.forEach(([v,t])=>{const o=el("option",null,t);o.value=v;s.appendChild(o);});s.value=val||"";s.onchange=()=>onch(s.value);return s;}
+function renderS2(){
+  const s=document.getElementById("s2");s.innerHTML="";const c=CV();
+  if(S.asis){const tb=el("div","cvtabs");["asis","main"].forEach(k=>{const b=el("button",S.cvk===k?"on":"",cvName(k)+" ("+all(S.cv[k]).length+")");b.onclick=()=>{S.cvk=k;hl=null;commit();};tb.appendChild(b);});
+    if(S.cvk==="main"){const cp=el("button","lnk","คัดลอก Canvas ปัจจุบันเป็นจุดเริ่มของ Canvas เป้าหมาย");cp.onclick=copyAsis;tb.appendChild(cp);}
+    s.appendChild(tb);}
+  const head=el("div","cvhead");head.innerHTML="<b>"+cvName(S.cvk)+"</b>"+(hl?' · แสดงรายการที่เชื่อมกับรายการที่เลือก <button class="lnk" id="hlx">ล้างการเลือก</button>':"");s.appendChild(head);
+  const g=el("div","canvas bmc");
+  BL.forEach(b=>{const d=el("div","blk "+b.k);const arr=c.items[b.k];if(arr.length)d.classList.add("done");if(arr.length>3)d.classList.add("over");
+    d.innerHTML='<div class="bh"><div><div class="nm">'+b.nm+' <span class="cnt'+(arr.length>3?" bad":"")+'">'+arr.length+'/3</span></div><div class="en">'+b.en+'</div></div></div><div class="q">'+b.q+'</div><details class="subt"><summary>ประเภทย่อยที่ใช้ช่วยคิด</summary>'+b.sub+'</details>';
+    if(b.k==="ch"&&arr.length){const miss=STG.filter(g=>!arr.some(x=>x.stg.includes(g)));d.appendChild(el("div","hint",miss.length?"ยังไม่มีช่องทางระยะ: "+miss.join(" "):"ครบทุกระยะแล้ว"));}
+    const ul=el("ul","items");arr.forEach(x=>ul.appendChild(itemEl(c,b.k,x)));d.appendChild(ul);
+    const ad=el("div","add");const inp=el("input");inp.placeholder="เพิ่มรายการ";inp.setAttribute("aria-label","เพิ่มรายการในช่อง"+b.nm);
+    const go=()=>{const t=inp.value.trim();if(!t)return;c.items[b.k].push(norm({t,nw:S.asis&&S.cvk==="main"}));commit();const i=document.querySelector("#s2 .blk."+b.k+" .add input");if(i)i.focus();};
+    inp.onkeydown=e=>{if(e.key==="Enter")go();};const ab=el("button",null,"+");ab.onclick=go;ad.appendChild(inp);ad.appendChild(ab);d.appendChild(ad);g.appendChild(d);});
+  s.appendChild(g);
+  s.insertAdjacentHTML("beforeend",'<p class="credit">แม่แบบดัดแปลงจาก Business Model Canvas ของ Strategyzer AG (strategyzer.com) ใช้ภายใต้สัญญาอนุญาต <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></p>');
+  const hx=document.getElementById("hlx");if(hx)hx.onclick=()=>{hl=null;renderS2();};
+  // รูปแบบโมเดลธุรกิจ
+  const p=el("div","panel");p.innerHTML='<div class="k">หัวข้อ 4.4 · ตารางที่ 4.5 · ไม่บังคับ</div><h2>กลุ่มใช้รูปแบบโมเดลธุรกิจสมัยใหม่หรือไม่</h2><p class="note">รูปแบบเหล่านี้ใช้เป็นแรงบันดาลใจได้ แต่ต้องปรับให้เข้ากับลูกค้าและพิสูจน์ใหม่ทุกครั้ง ถ้าเลือกรูปแบบใด ให้ระบุข้อสมมติสำคัญของรูปแบบนั้น</p>';
+  p.appendChild(sel([["","ไม่ได้ใช้รูปแบบเฉพาะ"],...PATTERNS.map(r=>[r[0],r[0]])],S.pattern,v=>{S.pattern=v;commit();},"รูปแบบโมเดลธุรกิจ"));
+  const pt=PATTERNS.find(r=>r[0]===S.pattern);
+  if(pt){p.appendChild(el("p","note","หลักการ: "+pt[1]+" · ช่องที่เป็นหัวใจ: "+pt[2]));
+    const a=el("input","fld");a.placeholder="ข้อสมมติสำคัญของรูปแบบนี้";a.value=S.patAsm;a.oninput=()=>{S.patAsm=a.value;touch();};p.appendChild(a);
+    if(/แพลตฟอร์ม/.test(pt[0]))p.appendChild(el("p","note","แพลตฟอร์มหลายฝั่งเป็นรูปแบบที่เริ่มยากที่สุด เพราะต้องหาผู้ใช้ทุกฝั่งพร้อมกัน (หัวข้อ 2.3)"));
+    if(/ฟรีเมียม/.test(pt[0]))p.appendChild(el("p","note","ฟรีเมียมต้องคำนวณให้ได้ว่ารายได้จากผู้ใช้ส่วนน้อยที่จ่ายเงินครอบคลุมต้นทุนของผู้ใช้ฟรีทั้งหมดหรือไม่"));}
+  s.appendChild(p);
+  s.appendChild(nextBtn("s3","ขั้น ค ตรวจความเชื่อมโยง ▶"));
+}
+function copyAsis(){const a=S.cv.asis,m=S.cv.main;if(!all(a).length){toast("Canvas ปัจจุบันยังว่าง");return;}
+  if(all(m).length&&!confirm("รายการของ Canvas ปัจจุบันจะต่อท้าย Canvas เป้าหมายที่มีอยู่ ต้องการคัดลอกหรือไม่"))return;
+  const map={};KS.forEach(k=>a.items[k].forEach(x=>{const y=norm(JSON.parse(JSON.stringify(x)));y.id=uid();y.nw=false;y.rv=false;map[x.id]=y.id;m.items[k].push(y);}));
+  a.links.forEach(l=>m.links.push({a:map[l.a],b:map[l.b]}));commit();toast("คัดลอกแล้ว รายการที่เพิ่มต่อจากนี้จะติดป้าย \"เพิ่มใหม่\"");}
+
+// ---------- ขั้น ค: ความเชื่อมโยง (ตารางที่ 4.6 4.11 หัวข้อ 4.5.1) ----------
+function linkGroup(c,x,ks,title){const g=el("div","lg");g.appendChild(el("div","lgt",title));
+  const cands=ks.flatMap(k=>c.items[k].map(y=>({k,y})));
+  if(!cands.length){g.appendChild(el("span","sm","ยังไม่มีรายการในช่อง"+ks.map(k=>NM[k]).join(" ")));return g;}
+  cands.forEach(({k,y})=>{const l=el("label","lc"+(isLinked(c,x.id,y.id)?" on":""));const cb=el("input");cb.type="checkbox";cb.checked=isLinked(c,x.id,y.id);
+    cb.onchange=()=>{toggleLink(c,x.id,y.id);commit();};l.appendChild(cb);l.appendChild(document.createTextNode(" "+(ks.length>1?NM[k]+": ":"")+(y.t||"(ว่าง)")));g.appendChild(l);});
+  return g;}
+function linkChecks(c){
+  const I=c.items, no=(id,ks)=>!nb(c,id,ks).length, names=a=>a.map(x=>x.t);
+  const r=[];
+  r.push([...names(I.vp.filter(x=>no(x.id,["cs"]))).map(t=>"คุณค่า \""+t+"\" ไม่มีกลุ่มลูกค้ารับ"),...names(I.cs.filter(x=>no(x.id,["vp"]))).map(t=>"กลุ่มลูกค้า \""+t+"\" ไม่ได้คุณค่าใด")]);
+  r.push(names(I.cs.filter(x=>no(x.id,["ch"]))).map(t=>"กลุ่มลูกค้า \""+t+"\" ไม่มีช่องทางเข้าถึง"));
+  r.push(names(I.cs.filter(x=>no(x.id,["cr"]))).map(t=>"กลุ่มลูกค้า \""+t+"\" ยังไม่ได้ระบุความสัมพันธ์"));
+  const r4=names(I.rev.filter(x=>no(x.id,["vp"]))).map(t=>"รายได้ \""+t+"\" ไม่สอดคล้องกับคุณค่าใด");
+  if(I.vp.length&&I.rev.length&&!I.vp.some(x=>!no(x.id,["rev"])))r4.push("ไม่มีคุณค่าข้อใดสร้างรายได้");r.push(r4);
+  r.push(LEFT.flatMap(k=>names(I[k].filter(x=>no(x.id,["vp"]))).map(t=>NM[k]+" \""+t+"\" ไม่ได้ค้ำคุณค่าใด")));
+  r.push([...names(I.cost.filter(x=>no(x.id,LEFT))).map(t=>"ต้นทุน \""+t+"\" ไม่รู้ที่มา"),...["ka","kr"].flatMap(k=>names(I[k].filter(x=>no(x.id,["cost"]))).map(t=>NM[k]+" \""+t+"\" ยังไม่มีต้นทุน"))]);
+  return r;}
+function t411(c){return c.items.vp.map(v=>{const cs=nb(c,v.id,["cs"]),left=nb(c,v.id,LEFT);
+  const ch=[...new Set(cs.flatMap(o=>nb(c,o.x.id,["ch"]).map(z=>z.x.t)))],cost=[...new Set(left.flatMap(o=>nb(c,o.x.id,["cost"]).map(z=>z.x.t)))];
+  return [v.t,cs.map(o=>o.x.t),ch,nb(c,v.id,["rev"]).map(o=>o.x.t),left.map(o=>o.x.t),cost];});}
+const FRAME="ร้านเรา (คุณค่า) ช่วย (กลุ่มลูกค้า) ได้ … ลูกค้ารู้จักเราจาก (ช่องทาง) และ (ความสัมพันธ์) จ่าย (รายได้) เราทำได้เพราะมี (ทรัพยากร) และ (พันธมิตร)";
+function renderS3(){
+  const s=document.getElementById("s3");s.innerHTML="";const c=CV();
+  s.insertAdjacentHTML("beforeend",'<div class="k">ขั้น ค · หัวข้อ 4.5 · ใบงานข้อ 3 และ 7</div><h2>ตรวจความเชื่อมโยงของ '+cvName(S.cvk)+'</h2><p class="note">คุณค่าของ Canvas อยู่ที่ความเชื่อมโยง ไม่ใช่การกรอกให้ครบทุกช่อง ติ๊กว่าแต่ละรายการเชื่อมกับรายการใด รายการที่ไม่เชื่อมกับช่องอื่นเลยคือรายการโดดเดี่ยว ซึ่งต้องลบออกหรือเพิ่มรายการที่เชื่อมกับรายการนั้น เกณฑ์นี้มีน้ำหนักมากที่สุดในรูบริกที่ 2</p>');
+  if(S.asis){const tb=el("div","cvtabs");["asis","main"].forEach(k=>{const b=el("button",S.cvk===k?"on":"",cvName(k));b.onclick=()=>{S.cvk=k;commit();};tb.appendChild(b);});s.appendChild(tb);}
+  const I=c.items;
+  if(!I.vp.length){s.appendChild(el("p","warnline","ยังไม่มีคุณค่าที่เสนอ เขียน Canvas ในขั้น ข ก่อน"));}
+  const grid=el("div","lcards");
+  I.vp.forEach((v,i)=>{const d=el("div","lcard");d.appendChild(el("div","lch","คุณค่าข้อที่ "+(i+1)+": "+v.t));
+    d.appendChild(linkGroup(c,v,["cs"],"กลุ่มลูกค้าที่รับคุณค่านี้"));d.appendChild(linkGroup(c,v,["rev"],"ลูกค้าจ่ายเงินเพื่อคุณค่านี้ผ่านรายได้ใด"));d.appendChild(linkGroup(c,v,LEFT,"กิจกรรม ทรัพยากร หรือพันธมิตรที่ค้ำคุณค่านี้"));grid.appendChild(d);});
+  I.cs.forEach(x=>{const d=el("div","lcard cs");d.appendChild(el("div","lch","กลุ่มลูกค้า: "+x.t));d.appendChild(linkGroup(c,x,["ch"],"รู้จักและซื้อผ่านช่องทางใด"));d.appendChild(linkGroup(c,x,["cr"],"ได้รับการดูแลแบบใด"));grid.appendChild(d);});
+  I.cost.forEach(x=>{const d=el("div","lcard co");d.appendChild(el("div","lch","ต้นทุน: "+x.t));d.appendChild(linkGroup(c,x,LEFT,"มาจากกิจกรรม ทรัพยากร หรือพันธมิตรใด"));grid.appendChild(d);});
+  s.appendChild(grid);
+  // ตาราง 4.6
+  const R=linkChecks(c);let h='<h3 class="h3">ผลตรวจตามตารางที่ 4.6</h3><div class="tw"><table class="bt"><tr><th>คู่ที่ตรวจ</th><th>คำถามตรวจ</th><th>ผล</th></tr>';
+  LINKQ.forEach((q,i)=>{h+="<tr><td><b>"+q[0]+"</b></td><td>"+q[1]+(i===2?'<div class="sm">ตรวจเองด้วย: '+q[2]+"</div>":"")+"</td><td>"+(R[i].length?'<span class="st warn">ควรแก้</span> '+R[i].map(esc).join("<br>"):'<span class="st ok">ไม่พบข้อเตือน</span>')+"</td></tr>";});
+  h+="</table></div>";const orph=orphans(c);
+  h+='<p class="'+(orph.length?"warnline":"okline")+'">'+(orph.length?"รายการโดดเดี่ยว "+orph.length+" รายการ: "+orph.map(o=>NM[o.k]+" \""+esc(o.x.t)+"\"").join(" · "):"ไม่มีรายการโดดเดี่ยว")+"</p>";
+  // ตาราง 4.11
+  h+='<h3 class="h3">ตารางที่ 4.11 ตารางตรวจความเชื่อมโยง (สร้างจากที่ติ๊กไว้)</h3><div class="tw"><table class="bt t411"><tr><th>คุณค่าที่เสนอ</th><th>กลุ่มลูกค้าที่รับ</th><th>ช่องทาง</th><th>กระแสรายได้</th><th>กิจกรรม ทรัพยากร หรือพันธมิตรที่ค้ำ</th><th>ต้นทุนที่เกิด</th></tr>';
+  t411(c).forEach(r=>{h+="<tr><td><b>"+esc(r[0])+"</b></td>"+r.slice(1).map(a=>"<td>"+(a.length?a.map(esc).join("<br>"):'<span class="miss">–</span>')+"</td>").join("")+"</tr>";});
+  h+="</table></div>";s.insertAdjacentHTML("beforeend",h);
+  // เรื่องเล่า
+  const st=el("div","box");st.innerHTML='<b>ใบงานข้อ 7: เรื่องเล่าธุรกิจจาก Canvas (หัวข้อ 4.5.1)</b><p class="note">ให้สมาชิกคนหนึ่งเล่าธุรกิจจาก Canvas เป็นประโยคต่อเนื่อง ความยาวไม่เกิน 1 นาที ใช้เปิดการนำเสนอ ถ้าเล่าแล้วสะดุดหรือต้องข้ามช่องใด แสดงว่าช่องนั้นยังไม่เชื่อมกับช่องอื่น</p>';
+  const ta=el("textarea","fld area");ta.rows=4;ta.placeholder=FRAME;ta.value=S.story;ta.oninput=()=>{S.story=ta.value;touch();cnt.textContent=ta.value.trim().length+" ตัวอักษร";};
+  const cnt=el("span","sm",S.story.trim().length+" ตัวอักษร");const fb=el("button","lnk","ใส่โครงประโยค");fb.onclick=()=>{if(S.story.trim()&&!confirm("แทนข้อความเดิมด้วยโครงประโยคหรือไม่"))return;S.story=FRAME;commit();};
+  st.appendChild(ta);const rr=el("div");rr.appendChild(fb);rr.appendChild(document.createTextNode(" "));rr.appendChild(cnt);st.appendChild(rr);
+  st.appendChild(el("p","note","ตัวอย่างในหัวข้อ 4.5.1: \"ร้านเรา (คุณค่า) ช่วยบัณฑิตที่ถ่ายรูปกับเพื่อน (กลุ่มลูกค้า) ได้ชุดพอดีตัวในราคานิสิต ลูกค้ารู้จักเราจากกลุ่มไลน์รุ่น (ช่องทาง) …\""));
+  s.appendChild(st);
+  s.appendChild(nextBtn("s4","ขั้น ง ป้ายและตรวจก่อนส่ง ▶"));
+}
+
+// ---------- ขั้น ง: ป้าย ข้อสมมติสำคัญ ข้อผิดพลาด (ตารางที่ 4.8 4.10) ----------
+function mistakes(){
+  const cs=S.asis?["asis","main"]:["main"];const A=cs.flatMap(k=>all(S.cv[k]).map(o=>Object.assign({cv:k},o)));const m=S.cv.main;
+  const over=cs.flatMap(k=>KS.filter(b=>S.cv[k].items[b].length>3).map(b=>(S.asis?cvName(k)+" ":"")+NM[b]));
+  const orph=cs.flatMap(k=>orphans(S.cv[k]));
+  const same=m.items.ch.filter(x=>m.items.cr.some(y=>y.t.trim()&&y.t.trim()===x.t.trim())).map(x=>x.t);
+  const broad=m.items.kr.filter(x=>/^(เงิน|เงินทุน|คน|บุคลากร|พนักงาน|อุปกรณ์|เครื่องมือ|สถานที่)$/.test(x.t.trim())).map(x=>x.t);
+  const gen=m.items.kp.filter(x=>/^(ร้านค้า|ร้าน|ผู้ขาย|ซัพพลายเออร์|supplier|ผู้จัดจำหน่าย|บริษัท)$/i.test(x.t.trim())).map(x=>x.t);
+  const unl=A.filter(o=>o.x.lab==="fact"&&!o.x.ev.trim()).map(o=>o.x.t),rv=A.filter(o=>o.x.rv).length;
+  return [
+    over.length?["warn","ช่องที่เกิน 3 รายการ: "+over.join(" ")]:["ok",""],
+    orph.length?["warn","รายการโดดเดี่ยว "+orph.length+" รายการ (ดูขั้น ค)"]:["ok",""],
+    ["man",""],
+    same.length?["warn","เขียนเหมือนกันทั้งสองช่อง: "+same.join(" ")]:["man",""],
+    broad.length?["warn","กว้างเกินไป: "+broad.join(" ")]:["man",""],
+    gen.length?["warn","ยังเป็นผู้ขายทั่วไป: "+gen.join(" ")]:["man",""],
+    S.asis?(all(S.cv.asis).length&&all(S.cv.main).length?["ok","แยกสองฉบับแล้ว"]:["warn","ยังเขียนไม่ครบทั้งสองฉบับ"]):["ok","ธุรกิจใหม่ ใช้ฉบับเดียว"],
+    unl.length||rv?["warn",[unl.length?"ข้อเท็จจริงที่ยังไม่มีหลักฐาน "+unl.length+" รายการ":"",rv?"รอทบทวน "+rv+" รายการ":""].filter(Boolean).join(" · ")]:["ok",""]];}
+const STL={ok:"ไม่พบข้อเตือน",warn:"ควรแก้",man:"ตรวจเอง"};
+function renderS4(){
+  const s=document.getElementById("s4");s.innerHTML="";const c=S.cv.main;const A=all(c);
+  s.insertAdjacentHTML("beforeend",'<div class="k">ขั้น ง · หัวข้อ 4.7 และ 4.9 · ใบงานข้อ 5 และ 6</div><h2>ป้ายข้อเท็จจริงหรือข้อสมมติ และข้อสมมติสำคัญ 3 ข้อ</h2><p class="note">รายการที่เป็นข้อเท็จจริงต้องมีหลักฐานที่ผู้อื่นตรวจได้ เช่น ผลสัมภาษณ์ ยอดสั่งจอง หรือเอกสารยืนยันจากพันธมิตร ส่วนข้อสมมติไม่ผิดที่จะมีมาก แต่ผิดถ้าเขียนข้อสมมติเหมือนเป็นข้อเท็จจริง</p>');
+  // ตาราง 4.8
+  let h='<h3 class="h3">ตารางป้ายของ '+cvName("main")+' (แบบตารางที่ 4.8)</h3><div class="tw"><table class="bt"><tr><th>รายการบน Canvas</th><th>ช่อง</th><th>ป้าย</th><th>หลักฐานที่มี หรือวิธีหาหลักฐาน</th></tr>';
+  A.forEach(o=>{const miss=!o.x.ev.trim();h+="<tr><td>"+esc(o.x.t)+"</td><td>"+NM[o.k]+"</td><td>"+(o.x.lab==="fact"?"ข้อเท็จจริง":"ข้อสมมติ")+"</td><td>"+(miss?'<span class="miss">'+(o.x.lab==="fact"?"ต้องระบุหลักฐาน":"ยังไม่ระบุวิธีหาหลักฐาน")+"</span>":esc(o.x.ev))+"</td></tr>";});
+  h+="</table></div>";s.insertAdjacentHTML("beforeend",h);
+  // ข้อสมมติ 3 ข้อ
+  const pk=el("div","box");const asm=A.filter(o=>o.x.lab==="asm"),np=asm.filter(o=>o.x.pick).length;
+  pk.innerHTML='<b>ใบงานข้อ 6: ข้อสมมติสำคัญ 3 ข้อที่ถ้าผิดแล้วธุรกิจไปต่อไม่ได้ (เลือกแล้ว '+np+'/3)</b><p class="note">ข้อที่ควรทดสอบก่อนคือข้อที่ถ้าผิดแล้วธุรกิจไปต่อไม่ได้ และยังมีหลักฐานน้อย มักเป็นคุณค่าหลักหรือต้นทุนหลักของธุรกิจ รายได้เสริมทดสอบทีหลังได้ ข้อที่เลือกไว้ใน Lean Canvas ถูกเลือกให้ก่อนแล้ว กลุ่มเปลี่ยนได้ วิธีทดสอบอย่างเป็นระบบจะเรียนในบทที่ 6</p>';
+  if(!asm.length)pk.appendChild(el("p","sm","ยังไม่มีรายการที่เป็นข้อสมมติ"));
+  asm.forEach(o=>{const r=el("div","pkrow"+(o.x.pick?" on":""));const l=el("label");const cb=el("input");cb.type="checkbox";cb.checked=o.x.pick;
+    cb.onchange=()=>{if(cb.checked&&np>=3){cb.checked=false;toast("เลือกได้ 3 ข้อ ยกเลิกข้ออื่นก่อน");return;}o.x.pick=cb.checked;commit();};
+    l.appendChild(cb);l.appendChild(document.createTextNode(" "+o.x.t+" "));l.appendChild(el("span","sm","("+NM[o.k]+")"));r.appendChild(l);
+    if(o.x.pick){const e=el("input","fld");e.placeholder="วิธีหาหลักฐานเบื้องต้น";e.value=o.x.ev;e.oninput=()=>{o.x.ev=e.value;touch();};e.onchange=()=>renderSide();r.appendChild(e);}
+    pk.appendChild(r);});
+  s.appendChild(pk);
+  // ตาราง 4.10
+  const R=mistakes();const ck=el("div","box");ck.innerHTML='<b>ตรวจกับข้อผิดพลาดที่พบบ่อย (ตารางที่ 4.10)</b><p class="note">ผลตรวจอัตโนมัติดูจากสิ่งที่เขียนและติ๊กไว้ จึงเป็นเพียงข้อเตือน กลุ่มต้องอ่านทวนเองทุกข้อ และติ๊กเมื่อแน่ใจแล้ว ควรตรวจก่อนนำเสนอในสัปดาห์ที่ 7</p>';
+  const ul=el("ul","chk");MIST.forEach((m,i)=>{const li=el("li");const cb=el("input");cb.type="checkbox";cb.checked=S.manual[i];cb.setAttribute("aria-label","กลุ่มตรวจแล้ว");cb.onchange=()=>{S.manual[i]=cb.checked;touch();};
+    li.appendChild(cb);li.appendChild(el("span","st "+R[i][0],STL[R[i][0]]));const t=el("span");t.appendChild(el("b",null,m[0]));t.appendChild(el("span","sm"," · วิธีแก้: "+m[1]));if(R[i][1])t.appendChild(el("span","why",R[i][1]));li.appendChild(t);ul.appendChild(li);});
+  ck.appendChild(ul);s.appendChild(ck);
+}
+
+// ---------- ใบงานที่ 2 ----------
+function wsState(){
+  const L=leanData(),m=S.cv.main,A=all(m),R=mistakes();
+  const nine=KS.every(k=>m.items[k].length>=1&&m.items[k].length<=3);
+  const orph=(S.asis?["asis","main"]:["main"]).reduce((a,k)=>a+orphans(S.cv[k]).length,0);
+  const pick=A.filter(o=>o.x.pick&&o.x.lab==="asm");
+  return [
+    {t:"Lean Canvas ฉบับปรับปรุง พร้อมสิ่งที่แก้ตามความเห็นของผู้สอน",ok:leanCount(L)>0&&!!S.leanFix.trim(),why:!leanCount(L)?"ไม่พบ Lean Canvas ในเบราว์เซอร์นี้":!S.leanFix.trim()?"ยังไม่ได้เขียนสิ่งที่แก้ (ขั้น ก)":""},
+    {t:"Business Model Canvas ครบ 9 ช่อง ไม่เกิน 3 รายการต่อช่อง",ok:nine,why:nine?"":KS.filter(k=>!m.items[k].length).map(k=>NM[k]).join(" ")?"ช่องที่ยังว่าง: "+KS.filter(k=>!m.items[k].length).map(k=>NM[k]).join(" "):"มีช่องที่เกิน 3 รายการ"},
+    {t:"ตารางตรวจความเชื่อมโยง ไม่มีรายการโดดเดี่ยว",ok:A.length>0&&!orph,why:orph?"รายการโดดเดี่ยว "+orph+" รายการ":""},
+    {t:"Canvas ปัจจุบันและ Canvas เป้าหมาย (เฉพาะธุรกิจเดิม)",ok:!S.asis||(all(S.cv.asis).length>0&&A.length>0&&S.consent),na:!S.asis,why:S.asis&&!S.consent?"ยังไม่ยืนยันหลักฐานความยินยอม":""},
+    {t:"ป้ายทุกรายการ และหลักฐานของข้อเท็จจริง",ok:A.length>0&&R[7][0]==="ok",why:R[7][0]==="warn"?R[7][1]:""},
+    {t:"ข้อสมมติสำคัญ 3 ข้อ พร้อมวิธีหาหลักฐาน",ok:pick.length===3&&pick.every(o=>o.x.ev.trim()),why:pick.length<3?"เลือกแล้ว "+pick.length+"/3":pick.some(o=>!o.x.ev.trim())?"ยังไม่ระบุวิธีหาหลักฐานบางข้อ":""},
+    {t:"เรื่องเล่าธุรกิจจาก Canvas ไม่เกิน 1 นาที",ok:!!S.story.trim()&&S.story.trim()!==FRAME,why:""}];}
+function renderSide(){const W=wsState(),ul=document.getElementById("ws");ul.innerHTML="";
+  W.forEach((w,i)=>{const li=el("li");li.appendChild(el("span","st "+(w.na?"man":w.ok?"ok":"warn"),w.na?"ไม่ต้องทำ":w.ok?"ครบ":"ยังไม่ครบ"));const t=el("span",null,(i+1)+". "+w.t);if(!w.ok&&w.why)t.appendChild(el("span","why",w.why));li.appendChild(t);ul.appendChild(li);});
+  document.getElementById("wsBar").style.width=Math.round(100*W.filter(w=>w.ok).length/7)+"%";renderSteps();}
+
+// ---------- หน้าพิมพ์ ----------
+function cvHTML(c,title){let h='<div class="pc"><div class="pt">'+esc(title)+'</div><div class="canvas bmc">';
+  BL.forEach(b=>{h+='<div class="blk '+b.k+'"><div class="nm">'+b.nm+'</div><ul class="items">'+c.items[b.k].map(x=>{
+    const extra=[x.ea?"ผู้ใช้กลุ่มแรก":"",x.rt,RR[x.rr]||"",FV[x.fv]||"",x.stg.length?"ระยะ: "+x.stg.join(" "):"",S.asis&&c===S.cv.main&&x.nw?"เพิ่มใหม่":""].filter(Boolean).join(" · ");
+    return '<li class="item '+x.lab+(nb(c,x.id).length?"":" orph")+'">'+esc(x.t)+(x.lab==="asm"?" *":"")+(extra?'<div class="sm">'+esc(extra)+"</div>":"")+"</li>";}).join("")+"</ul></div>";});
+  return h+'</div><div class="sm">* ข้อสมมติ · ดัดแปลงจาก Business Model Canvas ของ Strategyzer AG (CC BY-SA 3.0)</div></div>';}
+function leanHTML(L){const I=L.items||{},nm={PR:"ปัญหา",SO:"ทางแก้",KM:"ตัวชี้วัดหลัก",UV:"คุณค่าเฉพาะตัว",UA:"ความได้เปรียบที่ลอกเลียนยาก",CH:"ช่องทาง",CS:"กลุ่มลูกค้า",CO:"โครงสร้างต้นทุน",RE:"กระแสรายได้"},sub={PR:["ALT","ทางเลือกที่ลูกค้าใช้อยู่"],CS:["EA","ผู้ใช้กลุ่มแรก"],UV:["HLC","แนวคิดระดับสูง"]};
+  const li=a=>(a||[]).map(x=>'<li class="item '+(x.lab||"asm")+'">'+esc(x.t)+(x.lab==="fact"?"":" *")+"</li>").join("");
+  let h='<div class="pc"><div class="pt">Lean Canvas ฉบับปรับปรุง</div><div class="canvas lean">';
+  Object.keys(nm).forEach(k=>{h+='<div class="blk L'+k+'"><div class="nm">'+nm[k]+'</div><ul class="items">'+li(I[k])+"</ul>"+(sub[k]&&(I[sub[k][0]]||[]).length?'<div class="sm"><b>'+sub[k][1]+'</b></div><ul class="items">'+li(I[sub[k][0]])+"</ul>":"")+"</div>";});
+  h+='</div><div class="sm">* ข้อสมมติ · ดัดแปลงจาก Lean Canvas ของ Ash Maurya (CC BY-SA 3.0)</div>';
+  if(S.leanFix.trim())h+='<p><b>สิ่งที่แก้ตามความเห็นของผู้สอน:</b> '+esc(S.leanFix)+"</p>";
+  if(L.versions&&L.versions.length)h+='<p class="sm">ประวัติฉบับ: '+L.versions.map((v,i)=>"ฉบับที่ "+(i+1)+" "+esc(v.note||"")+" ("+esc(v.date||"")+")").join(" · ")+"</p>";
+  return h+"</div>";}
+function tbl(head,rows){return '<table class="pt2"><tr>'+head.map(x=>"<th>"+x+"</th>").join("")+"</tr>"+rows.map(r=>"<tr>"+r.map(x=>"<td>"+x+"</td>").join("")+"</tr>").join("")+"</table>";}
+function renderPrint(){
+  const m=S.meta,L=leanData(),c=S.cv.main,A=all(c);
+  let h='<div class="ph"><b>งานกลุ่มครั้งที่ 2: '+esc(m.biz||"(ชื่อธุรกิจ)")+'</b> · กลุ่ม '+esc(m.group||"–")+" · "+esc(m.ver||"")+" · "+esc(m.date||"")+"</div>";
+  if(S.asis)h+=cvHTML(S.cv.asis,"Canvas ปัจจุบัน");
+  h+=cvHTML(c,cvName("main"));
+  if(leanCount(L))h+=leanHTML(L);
+  h+='<div class="pc"><div class="pt">ตารางตรวจความเชื่อมโยง (ตารางที่ 4.11) · '+esc(cvName("main"))+"</div>"+tbl(["คุณค่าที่เสนอ","กลุ่มลูกค้าที่รับ","ช่องทาง","กระแสรายได้","กิจกรรม ทรัพยากร หรือพันธมิตรที่ค้ำ","ต้นทุนที่เกิด"],t411(c).map(r=>["<b>"+esc(r[0])+"</b>",...r.slice(1).map(a=>a.length?a.map(esc).join("<br>"):"–")]));
+  const orph=orphans(c);h+="<p>"+(orph.length?"รายการโดดเดี่ยว: "+orph.map(o=>NM[o.k]+" \""+esc(o.x.t)+"\"").join(" · "):"ไม่มีรายการโดดเดี่ยว")+"</p>";
+  if(S.story.trim())h+="<p><b>เรื่องเล่าธุรกิจ:</b> "+esc(S.story)+"</p>";
+  if(S.pattern)h+="<p><b>รูปแบบโมเดลธุรกิจ:</b> "+esc(S.pattern)+(S.patAsm?" · ข้อสมมติสำคัญ: "+esc(S.patAsm):"")+"</p>";
+  h+="</div>";
+  h+='<div class="pc"><div class="pt">ข้อสมมติสำคัญ 3 ข้อ</div>'+tbl(["ข้อ","ข้อสมมติ","ช่อง","วิธีหาหลักฐานเบื้องต้น"],A.filter(o=>o.x.pick&&o.x.lab==="asm").map((o,i)=>[i+1,esc(o.x.t),NM[o.k],esc(o.x.ev)]));
+  h+='<div class="pt">ป้ายข้อเท็จจริงและข้อสมมติ (แบบตารางที่ 4.8)</div>'+tbl(["รายการบน Canvas","ช่อง","ป้าย","หลักฐานที่มี หรือวิธีหาหลักฐาน"],A.map(o=>[esc(o.x.t),NM[o.k],o.x.lab==="fact"?"ข้อเท็จจริง":"ข้อสมมติ",esc(o.x.ev)]));
+  const R=mistakes();h+='<div class="pt">ตรวจกับข้อผิดพลาดที่พบบ่อย (ตารางที่ 4.10)</div>'+tbl(["ข้อผิดพลาด","ผลตรวจอัตโนมัติ","กลุ่มตรวจแล้ว"],MIST.map((x,i)=>[x[0],STL[R[i][0]]+(R[i][1]?": "+esc(R[i][1]):""),S.manual[i]?"✓":""]));
+  if(S.km.length)h+='<div class="pt">เอกสารแนบ: ตัวชี้วัดหลักจาก Lean Canvas</div><p>'+S.km.map(esc).join(" · ")+"</p>";
+  h+="</div>";document.getElementById("printout").innerHTML=h;}
+
+// ---------- ไฟล์ ----------
+function bindMeta(){const map={mGroup:"group",mBiz:"biz",mVer:"ver",mDate:"date"};
+  Object.entries(map).forEach(([id,k])=>{const e=document.getElementById(id);e.value=S.meta[k]||"";e.oninput=e.onchange=()=>{S.meta[k]=e.value;touch();};});}
+function download(name,obj){const blob=new Blob([JSON.stringify(obj,null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+function saveFile(){
+  const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
+  const out={tool:"business_file_0900304",version:2,meta:S.meta,bmc:S};const L=leanData();
+  if(L)out.lean={items:L.items,manual:L.manual,versions:L.versions||[]};try{const iv=localStorage.getItem(IDEAKEY);if(iv)out.idea=JSON.parse(iv);}catch(e){}
+  download(name,out);dirty=false;toast("บันทึกไฟล์ "+name);}
+function openFile(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{inp.value="";let d;try{d=JSON.parse(r.result);}catch(e){toast("อ่านไฟล์ไม่ได้");return;}
+    if(d.tool==="business_file_0900304"){
+      if(d.lean){try{localStorage.setItem(LEANKEY,JSON.stringify(Object.assign({meta:d.meta},d.lean)));}catch(e){}}
+      if(d.idea){try{localStorage.setItem(IDEAKEY,JSON.stringify(d.idea));}catch(e){}}
+      S=fromData(d.bmc||{meta:d.meta});save();dirty=false;bindMeta();render();toast(d.bmc?"เปิดแฟ้มธุรกิจแล้ว":"เปิดแฟ้มธุรกิจแล้ว ยังไม่มี BMC กดนำเข้าจาก Lean Canvas ในขั้น ก");return;}
+    if(Array.isArray(d.items)&&Array.isArray(d.links))return importBmcStudio(d);
+    toast("ไฟล์นี้ไม่ใช่แฟ้มธุรกิจของวิชา 0900304 หรือไฟล์ BMC Studio");};
+  r.readAsText(f);}
+// ไฟล์ .bmc.json ของ BMC Studio: {title, items:[{id,b,t,tag:F|A}], links:[{a,b,s}]}
+function importBmcStudio(d){
+  if(all(S.cv.main).length&&!confirm("แทน "+cvName("main")+" ด้วย Canvas จากไฟล์ BMC Studio หรือไม่ ควรกด \"บันทึกไฟล์\" ก่อน"))return;
+  const c=blankCv();d.items.forEach(x=>{if(c.items[x.b])c.items[x.b].push(norm({id:String(x.id),t:x.t||"",lab:x.tag==="F"?"fact":"asm"}));});
+  let drop=0;d.links.forEach(l=>{const A=find(c,String(l.a)),B=find(c,String(l.b));if(A&&B&&(l.s==null||l.s>0)&&pairOK(A.k,B.k))c.links.push({a:String(l.a),b:String(l.b)});else if(A&&B&&l.s>0)drop++;});
+  S.cv.main=c;S.cvk="main";if(!S.meta.biz&&d.title)S.meta.biz=d.title;bindMeta();commit();
+  toast("เปิดไฟล์ BMC Studio แล้ว"+(drop?" เส้นเชื่อม "+drop+" เส้นไม่อยู่ในคู่ที่ตรวจตามตารางที่ 4.6 จึงไม่นำมา":""));}
+function exportBmc(){
+  const c=S.cv.main,A=all(c);if(!A.length){toast("ยังไม่มีรายการใน Canvas");return;}
+  let ci=0;const items=A.map(o=>{const it={id:o.x.id,b:o.k,t:o.x.t,tag:o.x.lab==="fact"?"F":"A"};if(o.k==="cs")it.c=(ci++)%8;return it;});
+  const old=[["vp","cs"],["ch","cs"],["cr","cs"],["vp","rev"],["ka","vp"],["kr","vp"],["ka","cost"],["kr","cost"],["kp","cost"]];
+  let drop=0;const links=[];c.links.forEach(l=>{const A1=find(c,l.a),B1=find(c,l.b);if(!A1||!B1)return;const p=old.find(p=>(p[0]===A1.k&&p[1]===B1.k)||(p[0]===B1.k&&p[1]===A1.k));
+    if(!p){drop++;return;}links.push(A1.k===p[0]?{a:l.a,b:l.b,s:2,src:"user"}:{a:l.b,b:l.a,s:2,src:"user"});});
+  const title=(S.meta.biz||"BMC")+(S.asis?" (Canvas เป้าหมาย)":"");
+  download(title.replace(/[\\/:*?"<>|]/g,"_")+".bmc.json",{title,items,links,ai:null,seq:A.length+1});
+  toast("ส่งออกแล้ว"+(drop?" · เส้นพันธมิตร–คุณค่า "+drop+" เส้นไม่มีใน BMC Studio จึงไม่ได้ส่งออก":""));}
+function loadExample(){if(hasWork()&&!confirm("งานที่เขียนอยู่จะถูกแทนด้วยตัวอย่าง ควรกด \"บันทึกไฟล์\" ก่อน ต้องการดูตัวอย่างต่อหรือไม่"))return;
+  S=fromData(JSON.parse(JSON.stringify(EX)));save();dirty=false;bindMeta();view="s2";render();toast("ตัวอย่างจากภาพที่ 4.2 · เส้นเชื่อมจากหัวข้อ 4.3 และ 4.5.1 · รายการที่ตำราไม่ได้ระบุความเชื่อมโยงจึงเป็นรายการโดดเดี่ยว");}
+function clearAll(){if(hasWork()&&!confirm("ล้างงาน BMC ทั้งหมดในเบราว์เซอร์นี้ (Lean Canvas ไม่ถูกล้าง) ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;S=blank();save();dirty=false;hl=null;bindMeta();view="s1";render();}
+function hasWork(){return all(S.cv.main).length||all(S.cv.asis).length||S.tray.length;}
+window.addEventListener("beforeunload",e=>{if(dirty&&hasWork()){e.preventDefault();e.returnValue="";}});
+
+function render(){({s1:renderS1,s2:renderS2,s3:renderS3,s4:renderS4})[view]();showView();renderSide();renderPrint();}
+window.addEventListener("beforeprint",renderPrint);
+load();bindMeta();
+if(/[?&]from=lean/.test(location.search)&&leanCount(leanData())&&!all(S.cv.main).length){view="s1";render();setTimeout(()=>importLean(true),50);}
+else{if(all(S.cv.main).length)view="s2";render();}
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
