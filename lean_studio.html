@@ -341,7 +341,11 @@ function renderGuide(){
   const filled=BLOCKS.filter(b=>!b.optional&&S.items[b.k].length).length,total=BLOCKS.filter(b=>!b.optional).length;
   g.appendChild(el("div","k","ขั้นตอน"));
   const b=currentStep();
-  if(!b){g.appendChild(el("h2",null,"เขียนครบ 8 ช่องหลักแล้ว"));
+  const np=["cust","prod","mkt"].filter(r=>asms().some(o=>o.x.pick&&o.x.risk===r)).length;
+  if(!b&&np===3){g.appendChild(el("h2",null,"เลือกข้อสมมติครบ 3 ด้านแล้ว"));
+    g.appendChild(el("p",null,"ขั้นต่อไปในบทที่ 4 คือแปลง Lean Canvas นี้เป็น Business Model Canvas ตามตารางที่ 4.4 (งานกลุ่มครั้งที่ 2) กด \"บันทึกไฟล์\" เก็บไว้ก่อน แล้วส่งต่อไป BMC Studio รายการทั้งหมดจะติดตามไปให้กลุ่มทบทวน"));
+    const go=el("a","btn","➡ ส่งต่อไป BMC Studio (บทที่ 4)");go.href="nv_bmc_studio.html?from=lean";go.style.cssText="margin-top:8px;text-decoration:none";g.appendChild(go);}
+  else if(!b){g.appendChild(el("h2",null,"เขียนครบ 8 ช่องหลักแล้ว"));
     g.appendChild(el("p",null,"ช่องที่ 9 เว้นว่างได้ถ้ายังไม่มี ขั้นต่อไปคือตรวจกับรายการตรวจ แล้วเลือกข้อสมมติที่ต้องทดสอบก่อน 3 ข้อ ข้อละหนึ่งด้านของความเสี่ยง (ข้อ 7 ของกิจกรรมท้ายบทที่ 3)"));
     const go=el("button","btn line","ไปเลือกข้อสมมติ");go.style.marginTop="8px";go.onclick=()=>document.getElementById("board").scrollIntoView({behavior:"smooth"});g.appendChild(go);}
   else{
