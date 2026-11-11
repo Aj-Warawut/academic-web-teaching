@@ -55,7 +55,24 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
 .grph h2{font-size:21px;color:var(--navy)}
 .grpn{font-size:13.5px;color:var(--mute);margin-top:8px}
 .grp .cards{padding-top:18px}
+.grp .cards{display:flex;flex-direction:column;gap:12px;padding:16px 0 4px}
+.hcard{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px;color:inherit;transition:transform .18s,box-shadow .18s}
+.hcard:hover,.hcard:focus-visible{transform:translateX(6px);box-shadow:0 12px 30px rgba(20,30,70,.14);outline:none}
+.hcard:focus-visible{box-shadow:0 0 0 3px var(--gold),0 12px 30px rgba(20,30,70,.14)}
+.hcard .tile{flex:0 0 74px;height:74px;border-radius:14px;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;letter-spacing:.5px}
+.hcard .body{flex:1;min-width:0;padding:0;display:block}
+.hcard .type{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--c)}
+.hcard h3{font-size:17px;color:var(--navy);margin:2px 0 4px;line-height:1.35}
+.hcard p{font-size:13.5px;color:var(--mute);margin:0}
+.hcard .tags{margin:4px 0}
+.hcard .arr{flex:0 0 auto;font-size:22px;color:var(--c);transition:transform .18s}
+.hcard:hover .arr,.hcard:focus-visible .arr{transform:translateX(4px)}
+html.js .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease,box-shadow .18s}
+html.js .rv.in{opacity:1;transform:none}html.js .rv.in:hover,html.js .rv.in:focus-visible{transform:translateX(6px)}
+@media(prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}.hcard,.hcard .arr{transition:none}}
+@media(max-width:560px){.hcard{gap:12px;padding:12px}.hcard .tile{flex-basis:52px;height:52px;font-size:12px}.hcard .arr,.hcard p{display:none}}
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -76,97 +93,89 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
   <section class="grp" id="ug">
     <div class="grph"><span class="en">Undergraduate</span><h2 data-th="ระดับปริญญาตรี" data-en="Undergraduate">ระดับปริญญาตรี</h2></div>
     <div class="cards">
-    <article class="wcard">
-      <div class="top"></div>
+    <a class="hcard rv" href="nv_0900304.html" style="--c:#2F5BD0"><div class="tile" aria-hidden="true">0900304</div>
       <div class="body">
         <div class="type" data-th="บทเรียนออนไลน์รายวิชา" data-en="Online Course">บทเรียนออนไลน์รายวิชา</div>
         <h3 data-th="ความเป็นผู้ประกอบการและการสร้างสรรค์ธุรกิจใหม่ (0900304)" data-en="Entrepreneurship and New Venture Creation (0900304)">ความเป็นผู้ประกอบการและการสร้างสรรค์ธุรกิจใหม่ (0900304)</h3>
         <div class="tags"><span data-th="9 บท" data-en="9 chapters">9 บท</span><span data-th="งานกลุ่ม 5 ครั้ง" data-en="5 team assignments">งานกลุ่ม 5 ครั้ง</span><span data-th="โหมดนำเสนอ" data-en="slide mode">โหมดนำเสนอ</span></div>
         <p data-th="บทเรียน 9 บท พานิสิตพัฒนาธุรกิจใหม่ของกลุ่มผ่านงานกลุ่ม 5 ครั้ง ตั้งแต่ไอเดีย Lean Canvas และ Business Model Canvas การทดสอบตลาด การนำเสนอเพื่อระดมทุน จนถึงการเติบโตอย่างยั่งยืน พร้อมสไลด์และเอกสารประกอบการสอน" data-en="Nine lessons that take student teams through five team assignments on a new venture: idea, Lean Canvas and Business Model Canvas, market testing, pitching for funding, and sustainable growth. Includes slides and the course document (content in Thai)">บทเรียน 9 บท พานิสิตพัฒนาธุรกิจใหม่ของกลุ่มผ่านงานกลุ่ม 5 ครั้ง ตั้งแต่ไอเดีย Lean Canvas และ Business Model Canvas การทดสอบตลาด การนำเสนอเพื่อระดมทุน จนถึงการเติบโตอย่างยั่งยืน พร้อมสไลด์และเอกสารประกอบการสอน</p>
-        <a class="go" href="nv_0900304.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
       </div>
-    </article>
-    <article class="wcard">
-      <div class="top"></div>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
+    <a class="hcard rv" href="bp_0903521.html" style="--c:#2FA392"><div class="tile" aria-hidden="true">0903521</div>
       <div class="body">
         <div class="type" data-th="บทเรียนออนไลน์รายวิชา" data-en="Online Course">บทเรียนออนไลน์รายวิชา</div>
         <h3 data-th="การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)" data-en="Business Planning and Developing for Entrepreneurs (0903521)">การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)</h3>
         <div class="tags"><span data-th="13 บท" data-en="13 chapters">13 บท</span><span data-th="โหมดนำเสนอ" data-en="slide mode">โหมดนำเสนอ</span><span data-th="แม่แบบการเงิน Excel" data-en="Excel finance template">แม่แบบการเงิน Excel</span></div>
         <p data-th="บทเรียน 13 บท ตามโจทย์ &quot;ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร&quot; พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน" data-en="Thirteen lessons built around one question: what must a business plan look like to sell 3 million baht a day? Includes a running case, slides, the course document and a finance template (content in Thai)">บทเรียน 13 บท ตามโจทย์ "ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร" พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน</p>
-        <a class="go" href="bp_0903521.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
       </div>
-    </article>
-    <article class="wcard">
-      <div class="top"></div>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
+    <a class="hcard rv" href="textbook_0903468_สารบัญ.html" style="--c:#7A5AC8"><div class="tile" aria-hidden="true">0903468</div>
       <div class="body">
         <div class="type" data-th="ตำราฉบับเผยแพร่ออนไลน์" data-en="Open Online Textbook">ตำราฉบับเผยแพร่ออนไลน์</div>
         <h3 data-th="การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่ (0903468)" data-en="Project Management for Modern Business Projects (0903468)">การบริหารโครงการสำหรับโครงงานธุรกิจสมัยใหม่ (0903468)</h3>
         <div class="tags"><span data-th="12 บท" data-en="12 chapters">12 บท</span><span data-th="อ้างอิง APA" data-en="APA citations">อ้างอิง APA</span><span data-th="พิมพ์ PDF ได้" data-en="printable">พิมพ์ PDF ได้</span></div>
         <p data-th="ตำราฉบับเผยแพร่ออนไลน์ครบ 12 บท รูปแบบหน้าอ่านวิชาการ พร้อมสารบัญ การอ้างอิงในเนื้อและบรรณานุกรม APA ภาพประกอบ และระบบพิมพ์/อ้างอิงบท" data-en="A 12-chapter open online textbook in an academic reading format with a table of contents, in-text citations and APA references, figures, and print/cite features (content in Thai)">ตำราฉบับเผยแพร่ออนไลน์ครบ 12 บท รูปแบบหน้าอ่านวิชาการ พร้อมสารบัญ การอ้างอิงในเนื้อและบรรณานุกรม APA ภาพประกอบ และระบบพิมพ์/อ้างอิงบท</p>
-        <a class="go" href="textbook_0903468_สารบัญ.html"><span data-th="เปิดตำรา" data-en="Open">เปิดตำรา</span> →</a>
       </div>
-    </article>
-    <article class="wcard">
-      <div class="top"></div>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
+    <a class="hcard rv" href="textbook_0903468.html" style="--c:#7A5AC8"><div class="tile" aria-hidden="true">0903468</div>
       <div class="body">
         <div class="type" data-th="ตำราโต้ตอบ" data-en="Interactive Textbook">ตำราโต้ตอบ</div>
         <h3 data-th="โครงงานพิเศษธุรกิจสมัยใหม่ (0903468)" data-en="Special Project in Modern Business (0903468)">โครงงานพิเศษธุรกิจสมัยใหม่ (0903468)</h3>
         <div class="tags"><span data-th="12 บท" data-en="12 chapters">12 บท</span><span data-th="เครื่องมือคำนวณ" data-en="calculators">เครื่องมือคำนวณ</span></div>
         <p data-th="ตำราโต้ตอบครบ 12 บท พร้อมแบบฝึกคำนวณ (CPM/PERT/NPV/EVM) หน้าเปิดบทมาตรฐาน และภาคผนวก" data-en="A 12-chapter interactive textbook with hands-on calculators (CPM/PERT/NPV/EVM) and appendices (content in Thai)">ตำราโต้ตอบครบ 12 บท พร้อมแบบฝึกคำนวณ (CPM/PERT/NPV/EVM) หน้าเปิดบทมาตรฐาน และภาคผนวก</p>
-        <a class="go" href="textbook_0903468.html"><span data-th="เปิดตำรา" data-en="Open">เปิดตำรา</span> →</a>
       </div>
-    </article>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
     </div>
   </section>
   <section class="grp" id="grad">
     <div class="grph"><span class="en">Graduate</span><h2 data-th="ระดับบัณฑิตศึกษา" data-en="Graduate">ระดับบัณฑิตศึกษา</h2></div>
     <div class="cards">
-    <article class="wcard">
-      <div class="top"></div>
+    <a class="hcard rv" href="Research_Writing_Course.html" style="--c:#C98A16"><div class="tile" aria-hidden="true">✍️</div>
       <div class="body">
         <div class="type" data-th="บทเรียนออนไลน์" data-en="Online Lessons">บทเรียนออนไลน์</div>
         <h3 data-th="การเขียนบทความวิจัย (Research Writing)" data-en="Research Writing">การเขียนบทความวิจัย (Research Writing)</h3>
         <div class="tags"><span data-th="วิชาการ" data-en="academic">วิชาการ</span><span data-th="เขียนงานวิจัย" data-en="writing">เขียนงานวิจัย</span></div>
         <p data-th="บทเรียนออนไลน์ว่าด้วยกระบวนการเขียนและเผยแพร่บทความวิจัย" data-en="Online lessons on the research writing and publication process (content in Thai)">บทเรียนออนไลน์ว่าด้วยกระบวนการเขียนและเผยแพร่บทความวิจัย</p>
-        <a class="go" href="Research_Writing_Course.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
       </div>
-    </article>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
     </div>
   </section>
   <section class="grp" id="open">
     <div class="grph"><span class="en">Open Resources</span><h2 data-th="สื่อเปิดและเวิร์กช็อป" data-en="Open Resources and Workshops">สื่อเปิดและเวิร์กช็อป</h2></div>
     <p class="grpn" data-th="สื่อที่ไม่ผูกกับรายวิชา ใช้ได้ทั้งในชั้นเรียนและงานอบรม" data-en="Materials not tied to a single course, used in classes and training">สื่อที่ไม่ผูกกับรายวิชา ใช้ได้ทั้งในชั้นเรียนและงานอบรม</p>
     <div class="cards">
-    <article class="wcard">
-      <div class="top"></div>
+    <a class="hcard rv" href="bmc_course.html" style="--c:#1B2A58"><div class="tile" aria-hidden="true">BMC</div>
       <div class="body">
-        <div class="type" data-th="สื่อการสอนโต้ตอบ" data-en="Interactive Courseware">สื่อการสอนโต้ตอบ</div>
+        <div class="type" data-th="บทเรียนออนไลน์" data-en="Online Lessons">บทเรียนออนไลน์</div>
         <h3 data-th="Business Model Canvas — โมเดลธุรกิจ 9 องค์ประกอบ" data-en="Business Model Canvas — 9 Building Blocks">Business Model Canvas — โมเดลธุรกิจ 9 องค์ประกอบ</h3>
         <div class="tags"><span data-th="9 องค์ประกอบ" data-en="9 blocks">9 องค์ประกอบ</span><span data-th="แคนวาสกรอกได้" data-en="fillable canvas">แคนวาสกรอกได้</span></div>
-        <p data-th="บทเรียนโต้ตอบเรื่อง Business Model Canvas (Osterwalder & Pigneur) ครบทั้ง 9 องค์ประกอบ พร้อมแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง" data-en="An interactive lesson on the Business Model Canvas (Osterwalder & Pigneur) covering all 9 blocks and a fillable blank canvas (content in Thai)">บทเรียนโต้ตอบเรื่อง Business Model Canvas (Osterwalder & Pigneur) ครบทั้ง 9 องค์ประกอบ พร้อมแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง</p>
-        <a class="go" href="bmc_course.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
+        <p data-th="บทเรียนออนไลน์เรื่อง Business Model Canvas (Osterwalder & Pigneur) ครบทั้ง 9 องค์ประกอบ พร้อมแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง" data-en="An interactive lesson on the Business Model Canvas (Osterwalder & Pigneur) covering all 9 blocks and a fillable blank canvas (content in Thai)">บทเรียนออนไลน์เรื่อง Business Model Canvas (Osterwalder & Pigneur) ครบทั้ง 9 องค์ประกอบ พร้อมแคนวาสเปล่าให้กรอกออกแบบโมเดลธุรกิจได้เอง</p>
       </div>
-    </article>
-    <article class="wcard">
-      <div class="top"></div>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
+    <a class="hcard rv" href="bmc_studio.html" style="--c:#1B2A58"><div class="tile" aria-hidden="true">BMC</div>
       <div class="body">
-        <div class="type" data-th="เครื่องมือวิเคราะห์โต้ตอบ" data-en="Interactive Analysis Tool">เครื่องมือวิเคราะห์โต้ตอบ</div>
+        <div class="type" data-th="เครื่องมือออนไลน์" data-en="Online Tool">เครื่องมือออนไลน์</div>
         <h3 data-th="BMC Studio — ความเชื่อมโยงและความสอดคล้องของ 9 องค์ประกอบ" data-en="BMC Studio — Linking and Aligning the 9 Building Blocks">BMC Studio — ความเชื่อมโยงและความสอดคล้องของ 9 องค์ประกอบ</h3>
         <div class="tags"><span data-th="ต่อยอดจาก BMC" data-en="follows BMC">ต่อยอดจาก BMC</span><span data-th="ตาราง Alignment" data-en="alignment matrix">ตาราง Alignment</span><span data-th="ตรวจด้วย AI" data-en="AI review">ตรวจด้วย AI</span></div>
         <p data-th="ผูกไอเท็มข้ามช่องให้เห็นกลไกของธุรกิจ ตรวจช่องโดดเดี่ยวและความสอดคล้องด้วยตาราง Alignment ให้ AI ช่วยทวนสอบ พร้อมเคสสอนหมูปิ้งอาจารย์ตั้ม และเคส Netflix, Airbnb, Uber ครบ 9 ช่องจากรายงาน 10-K" data-en="Link items across blocks to reveal how a business works, check for orphan blocks and alignment with a matrix view, get an AI second opinion, and explore a grilled-pork stall teaching case plus full 9-block cases of Netflix, Airbnb and Uber based on their 10-K reports (content in Thai)">ผูกไอเท็มข้ามช่องให้เห็นกลไกของธุรกิจ ตรวจช่องโดดเดี่ยวและความสอดคล้องด้วยตาราง Alignment ให้ AI ช่วยทวนสอบ พร้อมเคสสอนหมูปิ้งอาจารย์ตั้ม และเคส Netflix, Airbnb, Uber ครบ 9 ช่องจากรายงาน 10-K</p>
-        <a class="go" href="bmc_studio.html"><span data-th="เปิดเครื่องมือ" data-en="Open">เปิดเครื่องมือ</span> →</a>
       </div>
-    </article>
-    <article class="wcard">
-      <div class="top"></div>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
+    <a class="hcard rv" href="bmc_workshop_slides.html" style="--c:#1B2A58"><div class="tile" aria-hidden="true">🎤</div>
       <div class="body">
         <div class="type" data-th="สไลด์เวิร์กช็อป" data-en="Workshop Slides">สไลด์เวิร์กช็อป</div>
         <h3 data-th="Business Model Canvas สู่แผนความเป็นไปได้ทางธุรกิจ" data-en="From Business Model Canvas to a Business Feasibility Plan">Business Model Canvas สู่แผนความเป็นไปได้ทางธุรกิจ</h3>
         <div class="tags"><span data-th="31 สไลด์" data-en="31 slides">31 สไลด์</span><span data-th="16:9" data-en="16:9">16:9</span><span data-th="โน้ตวิทยากร" data-en="speaker notes">โน้ตวิทยากร</span></div>
         <p data-th="สไลด์เวิร์กช็อปเต็มวัน: แรงบันดาลใจ Startup · BMC แกนลูกค้า–คุณค่า · สร้าง Canvas ให้ครบและตรวจคุณภาพ (3-5-1, บททดสอบ 30 วินาที, Fact/Assumption, As-is/To-be) · ส่งต่อสู่แผนการเงิน กด F เต็มจอ · N เปิดโน้ต" data-en="A full-day workshop deck: startup inspiration, the customer–value core of the BMC, completing and quality-checking the canvas (3-5-1, 30-second test, fact/assumption, as-is/to-be), and the bridge to financial planning. Press F for fullscreen, N for notes (content in Thai)">สไลด์เวิร์กช็อปเต็มวัน: แรงบันดาลใจ Startup · BMC แกนลูกค้า–คุณค่า · สร้าง Canvas ให้ครบและตรวจคุณภาพ (3-5-1, บททดสอบ 30 วินาที, Fact/Assumption, As-is/To-be) · ส่งต่อสู่แผนการเงิน กด F เต็มจอ · N เปิดโน้ต</p>
-        <a class="go" href="bmc_workshop_slides.html"><span data-th="เปิดสไลด์" data-en="Open">เปิดสไลด์</span> →</a>
       </div>
-    </article>
+      <div class="arr" aria-hidden="true">→</div>
+    </a>
     </div>
   </section>
 </div>
@@ -182,5 +191,6 @@ setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+<script>(function(){if(!("IntersectionObserver" in window)){document.querySelectorAll(".rv").forEach(x=>x.classList.add("in"));return;}const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting||e.boundingClientRect.top<0){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll(".rv").forEach(x=>io.observe(x));})();</script>
 </body>
 </html>
