@@ -88,8 +88,9 @@ table.pubs .jour{font-style:italic;color:var(--ink)}
 table.pubs td .src{display:block;font-size:12.5px;color:var(--mute);font-style:italic;margin-top:2px}
 table.pubs td .au{display:block;font-size:12px;color:var(--mute);margin-top:2px}
 .rl{font-size:11.5px;font-weight:700;border-radius:20px;padding:2px 9px;white-space:nowrap;background:#EEF1F8;color:var(--mute)}
-.rl.first{background:#E1F3EF;color:#1E7A6B}.rl.corr{background:#FBEFD3;color:#9A6B0C}
+.rl.first{background:#E1F3EF;color:#1E7A6B}.rl.corr{background:#FBEFD3;color:#9A6B0C}.rl.last{background:#E7EEFC;color:#2F5BD0}
 .ty{font-size:11px;color:var(--mute);display:block;margin-top:3px}
+.pdmore{border:1px solid var(--line);background:#fff;border-radius:20px;padding:7px 18px;font-family:inherit;font-weight:700;font-size:13.5px;color:var(--navy);cursor:pointer;box-shadow:var(--shadow)}
 .oa{font-size:10.5px;font-weight:800;color:#1E7A6B;border:1px solid #A9DDD3;border-radius:6px;padding:0 5px;margin-left:4px}
 .yb button{overflow:hidden;padding-top:16px!important}
 @media(max-width:760px){.pd-grid{grid-template-columns:minmax(0,1fr)}.yb{gap:2px}.yb .yl{font-size:9px}}
@@ -139,20 +140,8 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
     </div>
     <div class="pd-count" id="pdCount"></div>
     <div class="tablewrap"><table class="pubs"><thead><tr><th data-th="ปี" data-en="Year">ปี</th><th data-th="ชื่อเรื่องและแหล่งตีพิมพ์" data-en="Title and source">ชื่อเรื่องและแหล่งตีพิมพ์</th><th data-th="บทบาท" data-en="Role">บทบาท</th><th data-th="อ้างอิง" data-en="Cited">อ้างอิง</th></tr></thead><tbody id="pdRows"></tbody></table></div>
-    <p class="note" data-th="ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus" data-en="Published bibliographic data from OpenAlex. Citation counts and h-index may differ from Scopus; see the Scopus profile for official figures.">ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus</p>
-  </div>
-  <div class="cards">
-    <article class="wcard">
-      <div class="top"></div>
-      <div class="body">
-        <div class="type" data-th="คอร์สโต้ตอบ" data-en="Interactive Course">คอร์สโต้ตอบ</div>
-        <h3 data-th="การเขียนบทความวิจัย (Research Writing)" data-en="Research Writing">การเขียนบทความวิจัย (Research Writing)</h3>
-        <div class="tags"><span data-th="วิชาการ" data-en="academic">วิชาการ</span><span data-th="เขียนงานวิจัย" data-en="writing">เขียนงานวิจัย</span></div>
-        <p data-th="สื่อการเรียนรู้แบบโต้ตอบสำหรับกระบวนการเขียนและเผยแพร่บทความวิจัย" data-en="An interactive resource for the research writing and publication process (content in Thai)">สื่อการเรียนรู้แบบโต้ตอบสำหรับกระบวนการเขียนและเผยแพร่บทความวิจัย</p>
-        <a class="go" href="Research_Writing_Course.html"><span data-th="เปิดคอร์ส" data-en="Open">เปิดคอร์ส</span> →</a>
-      </div>
-    </article>
-    <!-- เพิ่มการ์ดผลงานวิจัยอื่นได้ที่นี่ -->
+    <div style="text-align:center;margin-top:10px"><button id="pdMore" class="pdmore"></button></div>
+    <p class="note" data-th="ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้แต่งดูจากลำดับชื่อ ผู้รับผิดชอบบทความแสดงเฉพาะเรื่องที่มีข้อมูล" data-en="Published bibliographic data from OpenAlex. Citation counts and h-index may differ from Scopus; see the Scopus profile for official figures. Author roles follow author order; corresponding authorship is shown only where recorded.">ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้แต่งดูจากลำดับชื่อ ผู้รับผิดชอบบทความแสดงเฉพาะเรื่องที่มีข้อมูล</p>
   </div>
 
   <div class="section">
@@ -189,8 +178,8 @@ setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
 (function(){
 const FTH={"Business, Management and Accounting":"บริหารธุรกิจ การจัดการ และการบัญชี","Health Professions":"วิชาชีพด้านสุขภาพ","Computer Science":"วิทยาการคอมพิวเตอร์","Economics, Econometrics and Finance":"เศรษฐศาสตร์และการเงิน","Decision Sciences":"วิทยาการตัดสินใจ","Engineering":"วิศวกรรมศาสตร์","Social Sciences":"สังคมศาสตร์","Psychology":"จิตวิทยา","Medicine":"แพทยศาสตร์","Mathematics":"คณิตศาสตร์","Arts and Humanities":"ศิลปศาสตร์และมนุษยศาสตร์","Environmental Science":"วิทยาศาสตร์สิ่งแวดล้อม","Agricultural and Biological Sciences":"เกษตรศาสตร์และชีววิทยา","ไม่ระบุสาขา":"ไม่ระบุสาขา"};
 const TEN={"บทความวารสาร":"Journal article","บทความปริทัศน์":"Review","บทในหนังสือ":"Book chapter","หนังสือ":"Book","บทความการประชุม":"Conference paper","ต้นฉบับก่อนตีพิมพ์":"Preprint","ชุดข้อมูล":"Dataset","ซอฟต์แวร์และโค้ด":"Software"};
-const RL={first:["ผู้แต่งหลัก","First author"],corr:["ผู้รับผิดชอบบทความ","Corresponding"],co:["ผู้แต่งร่วม","Co-author"]};
-let D=null,fy=null,ff=null;
+const RL={first:["ผู้แต่งลำดับแรก","First author"],corr:["ผู้รับผิดชอบบทความ","Corresponding"],last:["ผู้แต่งลำดับสุดท้าย","Last author"],co:["ผู้แต่งร่วม","Co-author"]};
+let D=null,fy=null,ff=null,more=false;
 const en=()=>document.documentElement.dataset.lang==="en";
 const T=(th,e)=>en()?e:th;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
@@ -200,7 +189,7 @@ function rows(){const q=$("pdQ").value.trim().toLowerCase(),t=$("pdType").value;
 function render(){if(!D)return;const S=D.summary,P=D.profile;
   $("pdSrc").innerHTML=T("ข้อมูลจาก ","Data: ")+esc(D.source)+T(" · ซิงก์ล่าสุด "," · last synced ")+esc(D.synced)+" · "+
     [["Scopus","https://www.scopus.com/authid/detail.uri?authorId="+P.scopus],["ORCID","https://orcid.org/"+P.orcid],["OpenAlex",P.openalex],P.scholar?["Google Scholar",P.scholar]:null].filter(Boolean).map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+"</a>").join(" · ");
-  const st=[[S.works,T("ผลงานทั้งหมด","publications")],[S.cites,T("การอ้างอิงรวม","citations")],[S.h,"h-index"],[S.scopusWorks!=null?S.scopusWorks:D.works.filter(w=>w.role!=="co").length,S.scopusWorks!=null?T("ผลงานใน Scopus","in Scopus"):T("ผู้แต่งหลักหรือผู้รับผิดชอบ","first/corresponding")]];
+  const st=[[S.works,T("ผลงานทั้งหมด","publications")],[S.cites,T("การอ้างอิงรวม","citations")],[S.h,"h-index"],[D.works.filter(w=>w.role!=="co").length,T("ผู้แต่งลำดับแรกหรือลำดับสุดท้าย","first or last author")]];
   $("pdStats").innerHTML=st.map((x,i)=>'<div class="stat"><div class="n'+(i===2?" gold":"")+'">'+(x[0]??"–")+'</div><div class="l">'+x[1]+"</div></div>").join("");
   const ys={};D.works.forEach(w=>{if(w.year)ys[w.year]=(ys[w.year]||0)+1;});const yk=Object.keys(ys).map(Number);const y0=Math.min(...yk),y1=Math.max(...yk),mx=Math.max(...Object.values(ys));
   const from=Math.max(y0,y1-11);let yh="";for(let y=from;y<=y1;y++){const n=ys[y]||0;yh+='<button class="'+(fy===y?"on":fy?"dim":"")+'" data-y="'+y+'" aria-label="'+y+": "+n+'"><div class="bar" style="height:'+(n/mx*100)+'%">'+(n?"<span>"+n+"</span>":"")+'</div><div class="yl">'+(en()?y:y+543)+"</div></button>";}
@@ -211,11 +200,13 @@ function render(){if(!D)return;const S=D.summary,P=D.profile;
   const tsel=$("pdType"),tv=tsel.value;tsel.innerHTML='<option value="">'+T("ทุกประเภท","All types")+"</option>"+[...new Set(D.works.map(w=>w.typeTh))].map(t=>'<option value="'+esc(t)+'">'+esc(en()?(TEN[t]||t):t)+"</option>").join("");tsel.value=tv;
   $("pdQ").placeholder=T("ค้นชื่อเรื่อง วารสาร หรือผู้แต่ง","Search title, source or author");
   const R=rows();$("pdCount").textContent=T("แสดง "+R.length+" จาก "+D.works.length+" รายการ","Showing "+R.length+" of "+D.works.length)+(fy?T(" · ปี "+(fy+543)," · "+fy):"")+(ff?" · "+(en()?ff:(FTH[ff]||ff)):"");
-  $("pdRows").innerHTML=R.map(w=>"<tr><td>"+(w.year?(en()?w.year:w.year+543):"–")+'</td><td><b>'+(w.url?'<a href="'+esc(w.url)+'" target="_blank" rel="noopener">'+esc(w.title)+"</a>":esc(w.title))+"</b>"+(w.oa?'<span class="oa">OA</span>':"")+'<span class="src">'+esc(w.source||"–")+'</span><span class="au">'+esc(w.authors.join(", "))+'</span><span class="ty">'+esc(en()?(TEN[w.typeTh]||w.typeTh):w.typeTh)+(w.scopus?" · Scopus":"")+'</span></td><td><span class="rl '+w.role+'">'+RL[w.role][en()?1:0]+"</span></td><td>"+(w.scopusCites!=null?w.scopusCites:w.cites)+"</td></tr>").join("")||'<tr><td colspan="4">'+T("ไม่พบผลงานตามตัวกรอง","No matching publications")+"</td></tr>";}
+  const RV=more?R:R.slice(0,5);
+  $("pdRows").innerHTML=RV.map(w=>"<tr><td>"+(w.year?(en()?w.year:w.year+543):"–")+'</td><td><b>'+(w.url?'<a href="'+esc(w.url)+'" target="_blank" rel="noopener">'+esc(w.title)+"</a>":esc(w.title))+"</b>"+(w.oa?'<span class="oa">OA</span>':"")+'<span class="src">'+esc(w.source||"–")+'</span><span class="au">'+esc(w.authors.join(", "))+'</span><span class="ty">'+esc(en()?(TEN[w.typeTh]||w.typeTh):w.typeTh)+(w.scopus?" · Scopus":"")+'</span></td><td><span class="rl '+w.role+'">'+RL[w.role][en()?1:0]+"</span></td><td>"+(w.scopusCites!=null?w.scopusCites:w.cites)+"</td></tr>").join("")||'<tr><td colspan="4">'+T("ไม่พบผลงานตามตัวกรอง","No matching publications")+"</td></tr>";
+  const mb=$("pdMore");if(R.length>5){mb.style.display="";mb.textContent=more?T("ย่อรายการ ▲","Show fewer ▲"):T("แสดงอีก "+(R.length-5)+" รายการ ▼","Show "+(R.length-5)+" more ▼");}else mb.style.display="none";}
 function csv(){const R=rows(),q=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
   const t=[["year","title","source","type","role","citations","doi","authors"].join(",")].concat(R.map(w=>[w.year,w.title,w.source,w.typeTh,RL[w.role][1],w.cites,w.doi,w.authors.join("; ")].map(q).join(",")));
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["﻿"+t.join("\n")],{type:"text/csv"}));a.download="publications_"+D.synced+".csv";a.click();}
-$("pdQ").oninput=render;$("pdType").onchange=render;$("pdClear").onclick=()=>{fy=null;ff=null;$("pdQ").value="";$("pdType").value="";render();};$("pdCsv").onclick=csv;
+$("pdQ").oninput=render;$("pdType").onchange=render;$("pdClear").onclick=()=>{fy=null;ff=null;$("pdQ").value="";$("pdType").value="";render();};$("pdCsv").onclick=csv;$("pdMore").onclick=()=>{more=!more;render();if(!more)$("pubs").querySelector(".tablewrap").scrollIntoView({block:"nearest"});};
 const sl=window.setLang;window.setLang=function(l){sl(l);render();};
 fetch("research_data.json",{cache:"no-cache"}).then(r=>r.json()).then(d=>{D=d;render();}).catch(()=>{$("pdSrc").textContent=T("โหลดข้อมูลผลงานไม่ได้","Could not load publication data");});
 })();

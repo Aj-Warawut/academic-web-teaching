@@ -8,7 +8,7 @@
   "scholar": ""
  },
  "summary": {
-  "works": 22,
+  "works": 21,
   "cites": 32,
   "h": 4,
   "i10": 0,
@@ -69,7 +69,7 @@
     "Nutnicha Janchai",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Business, Management and Accounting",
    "scopus": null,
    "scopusCites": null
@@ -107,7 +107,7 @@
     "Kanjana Hinthaw",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Business, Management and Accounting",
    "scopus": null,
    "scopusCites": null
@@ -126,7 +126,7 @@
     "Thanyaporn Sukdet",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Engineering",
    "scopus": null,
    "scopusCites": null
@@ -165,7 +165,7 @@
     "Khamphukun Ratchaneekorn",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Computer Science",
    "scopus": null,
    "scopusCites": null
@@ -223,7 +223,7 @@
     "Hathaichanok Chompoopong",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Health Professions",
    "scopus": null,
    "scopusCites": null
@@ -261,7 +261,7 @@
     "Ong-art Chanprasitchai",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Business, Management and Accounting",
    "scopus": null,
    "scopusCites": null
@@ -392,7 +392,7 @@
     "Anupong Sukprasert",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Health Professions",
    "scopus": null,
    "scopusCites": null
@@ -430,28 +430,8 @@
     "Pongsatorn Tantrabundit",
     "Warawut Narkbunnum"
    ],
-   "role": "co",
+   "role": "last",
    "field": "Psychology",
-   "scopus": null,
-   "scopusCites": null
-  },
-  {
-   "year": 2011,
-   "type": "article",
-   "typeTh": "บทความวารสาร",
-   "title": "Cosmeceutical products on social media",
-   "source": "The International Journal of the Computer, the Internet and Management",
-   "doi": "",
-   "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=3967118",
-   "cites": 0,
-   "oa": false,
-   "authors": [
-    "Warawut Narkbunnum",
-    "M.D Tanom Bunaprasert",
-    "Tippakorn Rungkasiri"
-   ],
-   "role": "first",
-   "field": "Business, Management and Accounting",
    "scopus": null,
    "scopusCites": null
   }

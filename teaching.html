@@ -46,6 +46,15 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
   .home{padding:6px 10px;font-size:12px;white-space:nowrap}
   .mhead{padding:26px 0}.mhead h1{font-size:22px}.mico{width:48px;height:48px;flex:0 0 48px;font-size:24px}
 }
+.jump{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0 0}
+.jump a{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:13.5px;font-weight:700;color:var(--navy);box-shadow:var(--shadow)}
+.jump a:hover{border-color:var(--ac);color:var(--ac)}
+.grp{padding-top:22px;scroll-margin-top:70px}
+.grph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:8px}
+.grph .en{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ac)}
+.grph h2{font-size:21px;color:var(--navy)}
+.grpn{font-size:13.5px;color:var(--mute);margin-top:8px}
+.grp .cards{padding-top:18px}
 </style>
 </head>
 <body>
@@ -63,17 +72,10 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
 </div></div>
 
 <div class="wrap">
-  <div class="cards">
-    <article class="wcard">
-      <div class="top"></div>
-      <div class="body">
-        <div class="type" data-th="บทเรียนออนไลน์รายวิชา" data-en="Online Course">บทเรียนออนไลน์รายวิชา</div>
-        <h3 data-th="การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)" data-en="Business Planning and Developing for Entrepreneurs (0903521)">การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)</h3>
-        <div class="tags"><span data-th="13 บท" data-en="13 chapters">13 บท</span><span data-th="โหมดนำเสนอ" data-en="slide mode">โหมดนำเสนอ</span><span data-th="แม่แบบการเงิน Excel" data-en="Excel finance template">แม่แบบการเงิน Excel</span></div>
-        <p data-th="บทเรียน 13 บท ตามโจทย์ &quot;ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร&quot; พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน" data-en="Thirteen lessons built around one question: what must a business plan look like to sell 3 million baht a day? Includes a running case, slides, the course document and a finance template (content in Thai)">บทเรียน 13 บท ตามโจทย์ "ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร" พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน</p>
-        <a class="go" href="bp_0903521.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
-      </div>
-    </article>
+  <nav class="jump"><a href="#ug" data-th="ระดับปริญญาตรี" data-en="Undergraduate">ระดับปริญญาตรี</a><a href="#grad" data-th="ระดับบัณฑิตศึกษา" data-en="Graduate">ระดับบัณฑิตศึกษา</a><a href="#open" data-th="สื่อเปิดและเวิร์กช็อป" data-en="Open Resources and Workshops">สื่อเปิดและเวิร์กช็อป</a></nav>
+  <section class="grp" id="ug">
+    <div class="grph"><span class="en">Undergraduate</span><h2 data-th="ระดับปริญญาตรี" data-en="Undergraduate">ระดับปริญญาตรี</h2></div>
+    <div class="cards">
     <article class="wcard">
       <div class="top"></div>
       <div class="body">
@@ -82,6 +84,16 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
         <div class="tags"><span data-th="9 บท" data-en="9 chapters">9 บท</span><span data-th="งานกลุ่ม 5 ครั้ง" data-en="5 team assignments">งานกลุ่ม 5 ครั้ง</span><span data-th="โหมดนำเสนอ" data-en="slide mode">โหมดนำเสนอ</span></div>
         <p data-th="บทเรียน 9 บท พานิสิตพัฒนาธุรกิจใหม่ของกลุ่มผ่านงานกลุ่ม 5 ครั้ง ตั้งแต่ไอเดีย Lean Canvas และ Business Model Canvas การทดสอบตลาด การนำเสนอเพื่อระดมทุน จนถึงการเติบโตอย่างยั่งยืน พร้อมสไลด์และเอกสารประกอบการสอน" data-en="Nine lessons that take student teams through five team assignments on a new venture: idea, Lean Canvas and Business Model Canvas, market testing, pitching for funding, and sustainable growth. Includes slides and the course document (content in Thai)">บทเรียน 9 บท พานิสิตพัฒนาธุรกิจใหม่ของกลุ่มผ่านงานกลุ่ม 5 ครั้ง ตั้งแต่ไอเดีย Lean Canvas และ Business Model Canvas การทดสอบตลาด การนำเสนอเพื่อระดมทุน จนถึงการเติบโตอย่างยั่งยืน พร้อมสไลด์และเอกสารประกอบการสอน</p>
         <a class="go" href="nv_0900304.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
+      </div>
+    </article>
+    <article class="wcard">
+      <div class="top"></div>
+      <div class="body">
+        <div class="type" data-th="บทเรียนออนไลน์รายวิชา" data-en="Online Course">บทเรียนออนไลน์รายวิชา</div>
+        <h3 data-th="การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)" data-en="Business Planning and Developing for Entrepreneurs (0903521)">การวางแผนธุรกิจและพัฒนาธุรกิจสำหรับผู้ประกอบการ (0903521)</h3>
+        <div class="tags"><span data-th="13 บท" data-en="13 chapters">13 บท</span><span data-th="โหมดนำเสนอ" data-en="slide mode">โหมดนำเสนอ</span><span data-th="แม่แบบการเงิน Excel" data-en="Excel finance template">แม่แบบการเงิน Excel</span></div>
+        <p data-th="บทเรียน 13 บท ตามโจทย์ &quot;ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร&quot; พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน" data-en="Thirteen lessons built around one question: what must a business plan look like to sell 3 million baht a day? Includes a running case, slides, the course document and a finance template (content in Thai)">บทเรียน 13 บท ตามโจทย์ "ถ้าจะขายได้วันละ 3 ล้านบาท แผนธุรกิจต้องเป็นอย่างไร" พร้อมกรณีศึกษาเดินเรื่องหมูปิ้งอาจารย์ตั้ม สไลด์ เอกสารประกอบการสอน และแม่แบบการเงิน</p>
+        <a class="go" href="bp_0903521.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
       </div>
     </article>
     <article class="wcard">
@@ -104,6 +116,27 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
         <a class="go" href="textbook_0903468.html"><span data-th="เปิดตำรา" data-en="Open">เปิดตำรา</span> →</a>
       </div>
     </article>
+    </div>
+  </section>
+  <section class="grp" id="grad">
+    <div class="grph"><span class="en">Graduate</span><h2 data-th="ระดับบัณฑิตศึกษา" data-en="Graduate">ระดับบัณฑิตศึกษา</h2></div>
+    <div class="cards">
+    <article class="wcard">
+      <div class="top"></div>
+      <div class="body">
+        <div class="type" data-th="บทเรียนออนไลน์" data-en="Online Lessons">บทเรียนออนไลน์</div>
+        <h3 data-th="การเขียนบทความวิจัย (Research Writing)" data-en="Research Writing">การเขียนบทความวิจัย (Research Writing)</h3>
+        <div class="tags"><span data-th="วิชาการ" data-en="academic">วิชาการ</span><span data-th="เขียนงานวิจัย" data-en="writing">เขียนงานวิจัย</span></div>
+        <p data-th="บทเรียนออนไลน์ว่าด้วยกระบวนการเขียนและเผยแพร่บทความวิจัย" data-en="Online lessons on the research writing and publication process (content in Thai)">บทเรียนออนไลน์ว่าด้วยกระบวนการเขียนและเผยแพร่บทความวิจัย</p>
+        <a class="go" href="Research_Writing_Course.html"><span data-th="เปิดบทเรียน" data-en="Open">เปิดบทเรียน</span> →</a>
+      </div>
+    </article>
+    </div>
+  </section>
+  <section class="grp" id="open">
+    <div class="grph"><span class="en">Open Resources</span><h2 data-th="สื่อเปิดและเวิร์กช็อป" data-en="Open Resources and Workshops">สื่อเปิดและเวิร์กช็อป</h2></div>
+    <p class="grpn" data-th="สื่อที่ไม่ผูกกับรายวิชา ใช้ได้ทั้งในชั้นเรียนและงานอบรม" data-en="Materials not tied to a single course, used in classes and training">สื่อที่ไม่ผูกกับรายวิชา ใช้ได้ทั้งในชั้นเรียนและงานอบรม</p>
+    <div class="cards">
     <article class="wcard">
       <div class="top"></div>
       <div class="body">
@@ -134,8 +167,8 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
         <a class="go" href="bmc_workshop_slides.html"><span data-th="เปิดสไลด์" data-en="Open">เปิดสไลด์</span> →</a>
       </div>
     </article>
-    <!-- เพิ่มการ์ดวิชาอื่นได้ที่นี่ -->
-  </div>
+    </div>
+  </section>
 </div>
 
 <footer>© อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</footer>
