@@ -61,7 +61,7 @@ ul.items{list-style:none;display:flex;flex-direction:column;gap:5px;margin-botto
 .item .tx{word-break:break-word}
 .item .row{display:flex;align-items:center;gap:5px;margin-top:4px;flex-wrap:wrap}
 .chip{border:none;border-radius:20px;padding:1px 9px;font-size:11.5px;font-weight:700;cursor:pointer}
-.chip.fact{background:var(--factbg);color:var(--fact)}.chip.asm{background:var(--asmbg);color:var(--asm)}
+.chip.fact{background:var(--factbg);color:var(--fact)}.chip.asm{background:var(--asmbg);color:var(--asm)}.chip.rv{background:#FDE8E8;color:#B42318}
 .del{margin-left:auto;border:none;background:none;color:#9AA6B2;cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
 .del:hover{color:#C0392B}
 .ev{width:100%;border:1px dashed var(--line);border-radius:6px;padding:3px 6px;font-size:12.5px;margin-top:4px;background:#FAFCFB}
@@ -141,7 +141,7 @@ ul.vl{list-style:none;margin:4px 0 0!important}ul.vl li{border-top:1px solid var
 <body>
 <div class="topbar"><div class="in">
   <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
-  <div class="tools"><a href="nv_lesson_03.html">📖 บทที่ 3</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
+  <div class="tools"><a href="idea_studio.html">💡 ขั้นไอเดีย</a><a href="nv_lesson_03.html">📖 บทที่ 3</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
 </div></div>
 
 <div class="hero"><div class="wrap">
@@ -263,11 +263,11 @@ const EX = {meta:{group:"ตัวอย่าง",biz:"ร้านเช่า
   KM:[{t:"จำนวนคิวลองชุดต่อวัน",lab:"asm"},{t:"สัดส่วนคนที่ลองแล้วเช่าจริง",lab:"asm"}],
   UA:[{t:"รู้กำหนดการถ่ายรูปของทุกคณะก่อนคนอื่น",lab:"fact",ev:"รวบรวมจากประกาศของสโมสรนิสิตแต่ละคณะ"}]}};
 
-const KEY="lean_studio_0900304_v2", OLDKEY="lean_studio_0900304_v1";
+const KEY="lean_studio_0900304_v2", OLDKEY="lean_studio_0900304_v1", IDEAKEY="idea_studio_0900304_v1", HAND="lean_handoff_0900304";
 let S = blank(), dirty=false;
 function uid(){return "i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function blank(){const it={};ALLKEYS.forEach(k=>it[k]=[]);return {meta:{group:"",biz:"",ver:"ฉบับร่าง (กิจกรรมท้ายบทที่ 3)",date:""},items:it,manual:Array(10).fill(false),versions:[],cur:null};}
-function norm(k,x){x=Object.assign({id:uid(),t:"",lab:"asm",ev:"",risk:"",imp:"",evd:"none",pick:false,solves:""},x);
+function norm(k,x){x=Object.assign({id:uid(),t:"",lab:"asm",ev:"",risk:"",imp:"",evd:"none",pick:false,solves:"",rv:false},x);
   if(!x.risk)x.risk=(BLOCKS.find(b=>b.k===k)||{}).risk||SUBRISK[k]||"";return x;}
 function fromData(d){const s=blank();Object.assign(s.meta,d.meta||{});s.manual=(d.manual||s.manual).slice(0,10);s.versions=d.versions||[];
   const it=d.items||{};ALLKEYS.forEach(k=>s.items[k]=(it[k]||[]).map(x=>norm(k,x)));return s;}
@@ -293,6 +293,7 @@ function itemList(key){
     chip.title="กดเพื่อสลับป้าย";chip.onclick=()=>{it.lab=it.lab==="fact"?"asm":"fact";if(it.lab==="fact")it.pick=false;commit();};
     row.appendChild(chip);
     if(it.lab==="asm"&&it.risk)row.appendChild(el("span","rk "+it.risk,RISK[it.risk]));
+    if(it.rv){const rb=el("button","chip rv","มาจากขั้นไอเดีย · กดเมื่อทบทวนแล้ว");rb.title="รายการนี้เติมให้จาก Idea Studio อ่านทบทวนและแก้ถ้อยคำก่อน";rb.onclick=()=>{it.rv=false;commit();};row.appendChild(rb);}
     const d=el("button","del","×");d.title="ลบรายการ";d.onclick=()=>{S.items[key].splice(i,1);if(key==="PR")S.items.SO.forEach(s=>{if(s.solves===it.id)s.solves="";});commit();};row.appendChild(d);
     li.appendChild(row);
     if(key==="SO"){const opts={"":"แก้ปัญหาข้อใด?"};S.items.PR.forEach((p,j)=>opts[p.id]="ป"+(j+1)+" "+p.t.slice(0,28));
@@ -391,7 +392,9 @@ function autoCheck(){
   else if(has("UA",/ราคาถูก|ถูกกว่า|บริการดี|ขยัน|ทำงานหนัก|รายแรก|คุณภาพ|ฟีเจอร์|ใส่ใจ/))R.push(["warn","เป็นจุดเด่นที่คู่แข่งลอกได้ (ตารางที่ 3.6)"]);
   else R.push(["ok",""]);
   const all=allItems().map(o=>o.x),noev=all.filter(x=>x.lab==="fact"&&!(x.ev||"").trim());
+  const rvn=all.filter(x=>x.rv).length;
   if(!all.length)R.push(["man","ยังไม่มีรายการ"]);
+  else if(rvn)R.push(["warn","รายการจากขั้นไอเดีย "+rvn+" รายการยังไม่ได้ทบทวน"]);
   else if(!all.some(x=>x.lab==="asm"))R.push(["warn","ทุกรายการเป็นข้อเท็จจริง ธุรกิจใหม่ควรมีข้อสมมติที่ต้องทดสอบ"]);
   else if(noev.length)R.push(["warn","ข้อเท็จจริง "+noev.length+" รายการยังไม่ได้ใส่หลักฐาน"]);
   else R.push(["ok",""]);
@@ -505,13 +508,14 @@ function bindMeta(){
 function saveFile(){
   const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
   const out={tool:"business_file_0900304",version:2,meta:S.meta,lean:{items:S.items,manual:S.manual,versions:S.versions}};
+  try{const iv=localStorage.getItem(IDEAKEY);if(iv)out.idea=JSON.parse(iv);}catch(e){}
   const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty=false;toast("บันทึกไฟล์ "+name);
 }
 function openFile(inp){
   const f=inp.files[0];if(!f)return;const r=new FileReader();
   r.onload=()=>{try{const d=JSON.parse(r.result);let data;
-      if(d.tool==="business_file_0900304")data=Object.assign({meta:d.meta},d.lean||{});
+      if(d.tool==="business_file_0900304"){data=Object.assign({meta:d.meta},d.lean||{});if(d.idea){try{localStorage.setItem(IDEAKEY,JSON.stringify(d.idea));}catch(e){}}}
       else if(d.tool==="lean_studio_0900304")data=d.data;   // ไฟล์ระยะที่ 1
       else throw 0;
       S=fromData(data);save();dirty=false;bindMeta();render();toast("เปิดไฟล์แล้ว");}
@@ -526,7 +530,15 @@ function clearAll(){if(hasWork()&&!confirm("ล้างงานทั้งห
 function hasWork(){return Object.values(S.items).some(a=>a.length);}
 window.addEventListener("beforeunload",e=>{if(dirty&&hasWork()){e.preventDefault();e.returnValue="";}});
 
-load();bindMeta();render();
+// รับรายการจาก Idea Studio (เติมให้ก่อน แล้วกลุ่มทบทวนทีละรายการ)
+function importHandoff(){let h=null;try{h=JSON.parse(localStorage.getItem(HAND)||"null");localStorage.removeItem(HAND);}catch(e){}
+  if(!h||!h.items)return;
+  const n=Object.values(h.items).reduce((a,x)=>a+x.length,0);if(!n)return;
+  if(hasWork()&&!confirm("เพิ่ม "+n+" รายการจากขั้นไอเดียต่อท้ายงานที่มีอยู่หรือไม่ (รายการจะติดป้ายว่ายังไม่ทบทวน)"))return;
+  Object.entries(h.items).forEach(([k,arr])=>arr.forEach(x=>S.items[k].push(norm(k,x))));
+  ["group","biz","date"].forEach(k=>{if(!S.meta[k]&&h.meta&&h.meta[k])S.meta[k]=h.meta[k];});
+  save();dirty=true;toast("รับ "+n+" รายการจากขั้นไอเดียแล้ว ทบทวนทีละรายการ");}
+load();importHandoff();bindMeta();render();
 </script>
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

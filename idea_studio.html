@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- Idea Studio · วิชา 0900304 · เครื่องมือประกอบบทที่ 2 (2026-11-11)
+     เนื้อหา คำถาม เกณฑ์ และรายการตรวจยกจากเอกสารประกอบการสอนบทที่ 2 (ตาราง 2.2 2.5–2.10 2.12 2.13 หัวข้อ 2.6 2.7.2 ใบงานที่ 1) เท่านั้น
+     ตัวอย่างแสดงเป็นข้อความจากบท ไม่ได้แต่งชุดข้อมูลตัวอย่างใหม่ · แฟ้มธุรกิจร่วมกับ lean_studio.html (ดู _build/แนวทางเครื่องมือออนไลน์.md)
+     ข้อมูลเก็บใน localStorage ของผู้ใช้ ไม่ส่งไปที่ใด -->
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idea Studio · วิชา 0900304</title>
+<meta name="description" content="เครื่องมือรวบรวมปัญหา หาหลักฐาน คิดไอเดีย และให้คะแนนโอกาสแบบถ่วงน้ำหนัก ตามใบงานที่ 1 วิชา 0900304">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--fact:#1F7A5A;--factbg:#E6F5EE;--asm:#9A6B00;--asmbg:#FBF3DF;--warn:#B54708;--warnbg:#FEF3E2;--ok:#1F7A5A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+button,input,textarea,select{font-family:inherit;font-size:inherit}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}
+.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;padding:0 12px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap}
+.tools a:hover{background:var(--blue);text-decoration:none}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:26px 0 22px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 22px}
+.hero .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:12.5px}
+.hero h1{font-size:28px;line-height:1.3;margin:6px 0 6px}
+.hero p{color:#DCE6FB;max-width:900px}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.meta label{font-size:12px;color:#CADCFC;display:block;margin-bottom:3px}
+.meta input,.meta select{width:100%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:7px 10px}
+.meta select option{color:var(--ink)}
+.meta input::placeholder{color:#B9C8E8}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:10px;padding:8px 14px;font-weight:700;cursor:pointer;background:var(--gold);color:var(--navy)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.05)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;padding:20px 0 30px;align-items:start}
+.layout>main,.layout>aside{min-width:0}
+table.bt td:first-child{min-width:180px}
+/* canvas */
+.canvas{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));grid-template-rows:auto auto auto;gap:8px}
+.blk{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 10px 8px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:170px;scroll-margin-top:90px}
+.blk.cur{outline:3px solid var(--amber);outline-offset:1px}
+.blk .bh{display:flex;align-items:flex-start;gap:7px;margin-bottom:4px}
+.blk .no{flex:0 0 24px;height:24px;border-radius:7px;background:var(--blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.blk.done .no{background:var(--teal)}
+.blk .nm{font-weight:800;color:var(--navy);line-height:1.25;font-size:14.5px}
+.blk .en{font-size:11px;color:var(--mute);font-weight:600}
+.blk .q{font-size:12.5px;color:var(--mute);margin-bottom:6px;line-height:1.4}
+.PR{grid-column:1/3;grid-row:1/3}.SO{grid-column:3/5;grid-row:1}.KM{grid-column:3/5;grid-row:2}
+.UV{grid-column:5/7;grid-row:1/3}.UA{grid-column:7/9;grid-row:1}.CH{grid-column:7/9;grid-row:2}
+.CS{grid-column:9/11;grid-row:1/3}.CO{grid-column:1/6;grid-row:3}.RE{grid-column:6/11;grid-row:3}
+ul.items{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:6px}
+.item{border:1px solid var(--line);border-radius:8px;padding:5px 7px;background:#fff;font-size:13.5px;line-height:1.45}
+.item.fact{border-left:4px solid var(--fact)}.item.asm{border-left:4px solid var(--amber)}
+.item .tx{word-break:break-word}
+.item .row{display:flex;align-items:center;gap:5px;margin-top:4px;flex-wrap:wrap}
+.chip{border:none;border-radius:20px;padding:1px 9px;font-size:11.5px;font-weight:700;cursor:pointer}
+.chip.fact{background:var(--factbg);color:var(--fact)}.chip.asm{background:var(--asmbg);color:var(--asm)}
+.del{margin-left:auto;border:none;background:none;color:#9AA6B2;cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
+.del:hover{color:#C0392B}
+.ev{width:100%;border:1px dashed var(--line);border-radius:6px;padding:3px 6px;font-size:12.5px;margin-top:4px;background:#FAFCFB}
+.add{display:flex;gap:4px;margin-top:auto}
+.add input{flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:13px}
+.add button{border:none;background:var(--tint);color:var(--blue);font-weight:800;border-radius:8px;padding:0 9px;cursor:pointer}
+.sub{border-top:1px dashed var(--line);margin-top:6px;padding-top:6px}
+.sub .sh{font-size:12px;font-weight:800;color:var(--teal)}
+.sub .shint{font-size:11.5px;color:var(--mute);margin-bottom:4px;line-height:1.35}
+.credit{font-size:11.5px;color:var(--mute);margin-top:8px}
+/* side */
+.side{position:sticky;top:76px;display:flex;flex-direction:column;gap:14px;max-height:calc(100vh - 92px);overflow:auto;padding-bottom:6px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;color:var(--navy);margin-bottom:6px}
+.card .k{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--amber)}
+.card p,.card li{font-size:13.5px}
+.card ul{margin:4px 0 0 18px}
+.prog{height:8px;background:var(--tint);border-radius:8px;overflow:hidden;margin:6px 0 2px}.prog i{display:block;height:100%;background:var(--teal)}
+.chk{list-style:none;margin:6px 0 0!important}
+.chk li{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.4}
+.chk li:first-child{border-top:none}
+.st{flex:0 0 auto;border-radius:6px;padding:0 6px;font-size:11.5px;font-weight:800;margin-top:1px}
+.st.ok{background:var(--factbg);color:var(--ok)}.st.warn{background:var(--warnbg);color:var(--warn)}.st.man{background:var(--tint);color:var(--blue)}
+.chk .why{display:block;color:var(--warn);font-size:12px}
+.chk input{margin-top:3px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--mute);margin-top:4px}
+.legend b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.note{font-size:12.5px;color:var(--mute)}
+footer{background:var(--navy);color:#9DB0D6;padding:18px 0;font-size:12.5px;text-align:center;line-height:1.7}
+footer a{color:#CFE0FF}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:9px 16px;border-radius:10px;font-size:14px;opacity:0;transition:.2s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.printhead{display:none}
+@media(max-width:1100px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static;max-height:none}}
+@media(max-width:760px){
+ .canvas{display:flex;flex-direction:column}.blk{min-height:0}
+ .meta{grid-template-columns:1fr 1fr}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}
+ .wrap{padding:0 16px}.hero h1{font-size:23px}.tools a{padding:0 10px}}
+@page{size:A4;margin:12mm}
+@media print{
+ body{background:#fff;font-size:10.5px}.topbar,.hero,.side,.add,.del,.toast,footer .gc-views{display:none!important}
+ .printhead{display:block;margin-bottom:6px;font-size:12px}.printhead b{font-size:15px;color:var(--navy)}
+ .wrap{max-width:none;padding:0}.layout{display:block;padding:0}
+ .canvas{display:grid!important;gap:4px}.blk{min-height:0;box-shadow:none;padding:6px;break-inside:avoid}.blk.cur{outline:none}
+ .blk .q{display:none}.item{font-size:10px;padding:3px 5px}.ev{border:none;padding:0;font-size:9.5px}
+ .chip{font-size:9px}.sub .shint{display:none}
+ #printcheck{display:block!important;break-before:page}
+ footer{background:none;color:#555;padding:4px 0}}
+.mini{border:1px solid var(--line);border-radius:6px;padding:1px 4px;font-size:12px;background:#fff;max-width:100%}
+.mini.wide{width:100%;margin-top:4px}.mini.need{border-color:var(--amber);background:var(--asmbg)}
+.pno{display:inline-block;background:var(--tint);color:var(--blue);border-radius:5px;font-size:11px;font-weight:800;padding:0 5px;margin-right:5px}
+.rk{border-radius:20px;padding:1px 8px;font-size:11px;font-weight:700;background:#EEF1F6;color:var(--mute)}
+.rk.cust,.dot.cust{background:#E7EEFC;color:#2F5BD0}.rk.prod,.dot.prod{background:#E6F5EE;color:#1F7A5A}.rk.mkt,.dot.mkt{background:#FBF3DF;color:#9A6B00}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-top:18px;scroll-margin-top:80px}
+.panel h2{font-size:18px;color:var(--navy)}.panel .k{font-size:11.5px;font-weight:800;letter-spacing:1px;color:var(--amber)}
+.picked3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 12px}
+.pk{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:8px 10px;background:#fff}
+.pk.prod{border-top-color:var(--teal)}.pk.mkt{border-top-color:var(--amber)}.pk.empty .pkt{color:#9AA6B2;font-style:italic}
+.pkh{font-weight:800;color:var(--navy)}.pkq{font-size:12px;color:var(--mute);line-height:1.4}.pkt{margin-top:4px;font-weight:600}.pks{font-size:12px;color:var(--mute)}
+.tw{overflow-x:auto}table.bt{border-collapse:collapse;width:100%;font-size:13.5px}
+table.bt th{background:var(--navy);color:#fff;text-align:left;padding:6px 8px;font-weight:700;white-space:nowrap}
+table.bt td{border-top:1px solid var(--line);padding:5px 8px;vertical-align:middle}table.bt td.sm,.sm{font-size:12px;color:var(--mute)}
+table.bt tr.picked td{background:#FFF9EC}
+.grid{display:grid;grid-template-columns:120px 1fr 1fr;gap:4px;margin-top:12px}
+.gh{font-size:12px;font-weight:800;color:var(--navy);text-align:center}.gl{font-size:12px;font-weight:700;color:var(--navy);display:flex;align-items:center}
+.gc{min-height:54px;border:1px dashed var(--line);border-radius:8px;padding:5px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;background:#fff}
+.gc.hot{border:2px solid var(--amber);background:#FFF9EC}
+.dot{border-radius:20px;padding:1px 8px;font-size:11.5px;background:#EEF1F6}.dot.pk{outline:2px solid var(--navy)}
+ul.vl{list-style:none;margin:4px 0 0!important}ul.vl li{border-top:1px solid var(--line);padding:5px 0;font-size:13px}ul.vl li:first-child{border-top:none}
+.lnk{border:none;background:none;color:var(--blue);cursor:pointer;font-size:12.5px;margin-left:6px;padding:0}
+@media(max-width:760px){.picked3{grid-template-columns:1fr}.grid{grid-template-columns:80px 1fr 1fr}}
+@media print{.panel{box-shadow:none;break-inside:avoid}#board{display:none}#printcheck h3{font-size:12px;margin:8px 0 4px}#printcheck table{table-layout:fixed;width:100%}#printcheck td,#printcheck th{word-break:break-word}#printcheck th:first-child{width:12%}.layout>main{width:100%}footer .wrap{max-width:100%}}
+#printcheck{display:none}
+#printcheck table{border-collapse:collapse;width:100%;font-size:11px}#printcheck td,#printcheck th{border:1px solid #ccc;padding:4px 6px;text-align:left;vertical-align:top}
+</style>
+<style>
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0;position:sticky;top:56px;z-index:30;background:var(--bg);padding:8px 0}
+.steps button{flex:1;min-width:150px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer;color:var(--navy);font-weight:700;line-height:1.3}
+.steps button b{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--tint);color:var(--blue);align-items:center;justify-content:center;margin-right:4px}
+.steps button small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.steps button.on{border:2px solid var(--amber);background:#FFF9EC}.steps button.done b{background:var(--teal);color:#fff}
+.step{display:none;margin-top:0}.step.on{display:block}
+.step h3{font-size:16px;color:var(--navy);margin:18px 0 4px}
+.lbl{display:block;font-size:13px;font-weight:700;color:var(--navy);margin:10px 0 3px}
+.fld{width:100%;border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:14px;background:#fff}
+.fld.big{font-size:15.5px;margin-top:8px}.fld.sm{width:auto;max-width:170px}.fld.num{width:auto;min-width:56px}.fld.why{margin-top:4px;font-size:12.5px}.fld.need{border-color:var(--amber);background:var(--asmbg)}
+textarea.fld{resize:vertical;font-family:inherit}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0}
+.chosen{background:var(--tint);border-radius:8px;padding:6px 10px;font-weight:600;color:var(--navy);margin:8px 0}
+.warnline{color:var(--warn);background:var(--warnbg);border-radius:8px;padding:5px 10px;font-size:13.5px;margin:6px 0}
+details.ex{background:#FAFBFE;border:1px dashed var(--line);border-radius:10px;padding:6px 12px;margin:10px 0}
+details.ex summary{cursor:pointer;font-weight:700;color:var(--teal);font-size:13.5px}details.ex p,details.ex li{font-size:13.5px;margin:4px 0}details.ex ul{margin:4px 0 4px 18px}
+.why{display:flex;gap:6px;align-items:center;margin:4px 0}.why .wl{flex:0 0 58px;font-size:13px;font-weight:700;color:var(--navy)}
+.evbox{border:1px solid var(--line);border-radius:10px;padding:8px;margin:6px 0;display:flex;flex-direction:column;gap:5px;background:#fff}
+.evtop{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.evtop .fld{width:auto}
+.bar2{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.tcard{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:10px;background:#fff;display:flex;flex-direction:column;gap:5px}
+.tcard .th{font-weight:800;color:var(--navy)}.prompt{background:#FFF9EC;border-radius:6px;padding:4px 8px;font-size:13px}.exs{font-size:12px;color:var(--mute)}
+ol.ilist{margin:4px 0 0 22px}ol.ilist li{margin:3px 0;font-size:14px}.tag{background:var(--tint);color:var(--blue);border-radius:20px;padding:0 8px;font-size:11.5px;font-weight:700}
+.pickl{display:flex;flex-direction:column;gap:4px;margin:8px 0}.pi{font-size:14px;cursor:pointer}
+table.sc td{vertical-align:top}table.sc tr.tot td{font-weight:800;background:var(--tint)}details.crit summary{cursor:pointer;font-size:12px;color:var(--blue)}
+ul.chk.big li{font-size:14px}ul.chk.big .fld{margin-top:5px}
+.navnext{display:flex;justify-content:space-between;gap:8px;margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:760px){.grid4,.cards{grid-template-columns:1fr}.steps{position:static}.steps button{min-width:46%}}
+@media print{.steps,.navnext,.bar2,.add,.del,button.btn{display:none!important}.step{display:block!important;break-inside:auto;margin-bottom:8px}details.ex{display:none}
+ .fld{border:none;padding:0}select.fld{appearance:none;-webkit-appearance:none}body{font-size:10.5px}
+ .tw{overflow:visible}table.bt{table-layout:fixed;width:100%}table.bt td,table.bt th{word-break:break-word;font-size:10px;padding:3px 4px}.tcard .add,.pi input:not(:checked)+*{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="nv_0900304.html">วิชา 0900304 ความเป็นผู้ประกอบการ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><a href="nv_lesson_02.html">📖 บทที่ 2</a><a href="nv_0900304.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a></div>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <div class="kick">เครื่องมือประกอบบทที่ 2 · ใบงานที่ 1 งานกลุ่มครั้งที่ 1</div>
+  <h1>Idea Studio: ไอเดียและการประเมินโอกาส</h1>
+  <p>ทำตามกระบวนการในตารางที่ 2.5 ขั้นที่ 1–4 รวบรวมปัญหา เลือกปัญหาและหาหลักฐาน คิดไอเดียหลายทางโดยยังไม่ตัดสิน แล้วให้คะแนนแบบถ่วงน้ำหนัก ผลลัพธ์จัดเรียงตามใบงานที่ 1 และส่งต่อไป Lean Canvas Studio ได้ งานบันทึกอยู่ในเบราว์เซอร์เครื่องนี้ ควรกด "บันทึกไฟล์" ทุกครั้ง</p>
+  <div class="meta">
+    <div><label for="mGroup">รหัสกลุ่ม</label><input id="mGroup" placeholder="เช่น G01"></div>
+    <div><label for="mBiz">ชื่อธุรกิจ (ถ้ามี)</label><input id="mBiz" placeholder="ยังไม่ต้องมีก็ได้"></div>
+    <div><label for="mVer">ฉบับ</label><select id="mVer"><option>ฉบับร่าง</option><option>ฉบับส่งงานกลุ่มครั้งที่ 1</option></select></div>
+    <div><label for="mDate">วันที่</label><input id="mDate" type="date"></div>
+  </div>
+  <div class="bar">
+    <button class="btn" onclick="saveFile()">💾 บันทึกไฟล์</button>
+    <label class="btn ghost" style="cursor:pointer">📂 เปิดไฟล์<input type="file" accept=".json,application/json" onchange="openFile(this)" hidden></label>
+    <button class="btn ghost" onclick="window.print()">🖨 พิมพ์ / PDF</button>
+    <button class="btn ghost" onclick="toLean()">➡ ส่งต่อไป Lean Canvas Studio</button>
+    <button class="btn ghost" onclick="clearAll()">เริ่มใหม่</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <nav class="steps" id="steps"></nav>
+  <div class="layout">
+    <main>
+      <div class="printhead"><b>ไอเดียและการประเมินโอกาส</b> · กลุ่ม <span id="pGroup"></span> · <span id="pVer"></span> · <span id="pDate"></span></div>
+      <section class="panel step" id="s1"></section>
+      <section class="panel step" id="s2"></section>
+      <section class="panel step" id="s3"></section>
+      <section class="panel step" id="s4"></section>
+      <section class="panel step" id="s5"></section>
+    </main>
+    <aside class="side">
+      <div class="card">
+        <div class="k">ใบงานที่ 1</div>
+        <h2>สิ่งที่ต้องส่ง</h2>
+        <div class="prog"><i id="wsBar" style="width:0"></i></div>
+        <ul class="chk" id="ws"></ul>
+        <p class="note" style="margin-top:8px">ส่งไฟล์ PDF ใน Google Classroom ก่อนเริ่มเรียนสัปดาห์ที่ 3 ประเมินด้วยรูบริกที่ 1</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เครื่องมือประกอบเอกสารประกอบการสอนรายวิชา 0900304 · CC BY-NC-SA 4.0<br>เครื่องมือนี้ไม่เก็บหรือส่งข้อมูลของผู้ใช้ไปที่ใด ข้อมูลอยู่ในเบราว์เซอร์และไฟล์ที่ผู้ใช้บันทึกเอง · ห้ามบันทึกชื่อจริงหรือเบอร์โทรศัพท์ของผู้ให้ข้อมูล</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+// ---------- ข้อมูลจากบทที่ 2 (ต้นฉบับเดียว: เอกสารประกอบการสอนบทที่ 2) ----------
+const SRC = [
+ ["unexp","เหตุการณ์ที่ไม่คาดคิด","อะไรขายดีหรือขายไม่ได้อย่างผิดคาด"],
+ ["incong","ความไม่สอดคล้อง","ลูกค้าต้องทนกับอะไรที่ไม่ควรต้องทน"],
+ ["process","ความจำเป็นของกระบวนการ","ขั้นตอนไหนที่ทุกคนบ่นแต่ยังต้องทำ"],
+ ["industry","โครงสร้างอุตสาหกรรมเปลี่ยน","ใครกำลังเสียลูกค้า และลูกค้าย้ายไปไหน"],
+ ["demo","ประชากรเปลี่ยน","กลุ่มคนใดกำลังเพิ่มขึ้นหรือลดลง"],
+ ["percep","การรับรู้และค่านิยมเปลี่ยน","คนเริ่มให้ความสำคัญกับอะไรมากขึ้น"],
+ ["know","ความรู้ใหม่","ความรู้ใหม่ใดทำให้สิ่งที่เคยยากกลายเป็นง่าย"],
+ ["cust","ปัญหาของลูกค้าโดยตรง","ฟังคำบ่นและสังเกตพฤติกรรมของลูกค้า"],
+ ["gap","ช่องว่างตลาด","กลุ่มลูกค้าใดที่ธุรกิจเดิมยังให้บริการได้ไม่ดี เช่น ราคาสูงเกินไปสำหรับนิสิต"],
+ ["reg","การเปลี่ยนแปลงกฎระเบียบ","กฎหมายใหม่ใดบังคับให้ธุรกิจต้องทำบางอย่าง"]];
+const SRCN = Object.fromEntries(SRC.map(x=>[x[0],x[1]]));
+const FREQ = {"":"บ่อยแค่ไหน",daily:"ทุกวัน",weekly:"ทุกสัปดาห์",monthly:"ทุกเดือน",season:"เป็นช่วง เช่น ช่วงสอบ",rare:"นาน ๆ ครั้ง"};
+const METHOD = {p:{interview:["สัมภาษณ์ลูกค้าเป้าหมาย 5–10 คน","ถามเหตุการณ์ที่เกิดขึ้นจริง ไม่ถามว่าจะซื้อหรือไม่ (บทที่ 5)"],
+                   observe:["สังเกตและนับ เช่น นับคิว นับผู้มาใช้บริการ","บันทึกวันเวลาและวิธีนับให้ชัด"],
+                   survey:["แบบสอบถามออนไลน์","ใช้หลังสัมภาษณ์แล้ว และขอความยินยอมทุกครั้ง"]},
+                s:{nso:["สำนักงานสถิติแห่งชาติ","ระบุปีและพื้นที่ของข้อมูล"],
+                   dbd:["กรมพัฒนาธุรกิจการค้า และ สสว.","จำนวนธุรกิจที่จดทะเบียนอาจไม่รวมร้านค้าที่ไม่ได้จดทะเบียน"],
+                   online:["ข้อมูลการค้นหาออนไลน์และรีวิวบนแพลตฟอร์ม","เป็นแนวโน้ม ไม่ใช่จำนวนลูกค้าจริง"],
+                   report:["งานวิจัยและรายงานอุตสาหกรรม","ตรวจปีที่เผยแพร่และกลุ่มตัวอย่าง"],
+                   other:["แหล่งอื่น","ระบุชื่อแหล่ง ปี และพื้นที่ของข้อมูล"]}};
+const TECH = [
+ ["hmw","คำถาม \"เราจะ…ได้อย่างไร\"","เปลี่ยนปัญหาเป็นคำถามที่ขึ้นต้นว่า \"เราจะ…ได้อย่างไร\" แล้วตอบให้มากที่สุด","เราจะทำให้นิสิตหาที่นั่งเงียบได้ภายใน 5 นาทีได้อย่างไร"],
+ ["who","เปลี่ยนผู้ให้บริการ","ถามว่าถ้าคนกลุ่มอื่นแก้ปัญหานี้ จะแก้อย่างไร","ร้านกาแฟเปิดโซนเงียบช่วงค่ำ หอพักเปิดห้องอ่านหนังสือรวม"],
+ ["time","เปลี่ยนเวลาและสถานที่","ถามว่าถ้าแก้ปัญหาในเวลาอื่นหรือที่อื่นจะเป็นอย่างไร","ใช้ห้องเรียนว่างหลังเลิกเรียนเป็นห้องอ่านหนังสือ"],
+ ["combine","รวมกับสิ่งที่มีอยู่","จับคู่ปัญหากับทรัพยากรที่ใช้ไม่เต็มที่","จับคู่โต๊ะว่างของร้านอาหารช่วงบ่ายกับนิสิตที่ต้องการที่นั่ง"],
+ ["cut","ตัดสิ่งที่ไม่จำเป็นออก","ถามว่าถ้าตัดส่วนที่แพงที่สุดออก จะเหลืออะไร","ไม่ต้องมีสถานที่ แค่บอกว่าที่ไหนมีที่ว่างในขณะนั้น"],
+ ["notech","ทางแก้ที่ไม่ใช้เทคโนโลยี","บังคับให้คิดทางแก้ที่ไม่มีแอปพลิเคชัน","ป้ายบอกจำนวนที่ว่างหน้าห้องอ่านหนังสือ"]];
+const TECHN = Object.fromEntries(TECH.map(x=>[x[0],x[1]]));
+const CRIT = [
+ ["size","ขนาดของปัญหา","มีคนประสบปัญหานี้มากแค่ไหน บ่อยแค่ไหน รุนแรงเพียงใด","ปัญหาเกิดกับคนน้อย นาน ๆ ครั้ง","ปัญหาเกิดกับคนจำนวนมาก บ่อย และสร้างความเสียหายชัดเจน","สัมภาษณ์ การนับ สถิติประชากร"],
+ ["pay","ความพร้อมจ่าย","ลูกค้าจ่ายเงินหรือเสียเวลาแก้ปัญหานี้อยู่แล้วหรือไม่","ลูกค้าไม่เคยพยายามแก้ปัญหา","ลูกค้าจ่ายเงินให้ทางแก้เดิมอยู่แล้ว และยังไม่พอใจ","คำตอบเรื่องค่าใช้จ่ายปัจจุบัน ราคาของทางแก้เดิม"],
+ ["feas","ความเป็นไปได้","ทีมทำทางแก้นี้ได้ภายในภาคเรียน ด้วยเงินและทักษะที่มีหรือไม่","ต้องใช้เทคโนโลยี เงิน หรือใบอนุญาตที่ทีมหาไม่ได้","ทีมสร้างต้นแบบทดสอบได้ภายใน 2–3 สัปดาห์","รายการทรัพยากรที่ต้องใช้เทียบกับที่ทีมมี"],
+ ["risk","ความเสี่ยง (คะแนนสูง = เสี่ยงต่ำ)","ถ้าผิดพลาด จะเสียหายมากแค่ไหน และมีข้อจำกัดทางกฎหมายหรือจริยธรรมหรือไม่","ความเสี่ยงสูง เช่น เกี่ยวกับสุขภาพหรือความปลอดภัยโดยตรง","ความเสี่ยงต่ำ ทดลองได้โดยไม่ทำให้ใครเสียหาย","กฎหมายที่เกี่ยวข้อง ผลกระทบต่อลูกค้า"],
+ ["fit","ความเหมาะกับทีม","ทีมมีความรู้ ประสบการณ์ เครือข่าย และความสนใจในเรื่องนี้หรือไม่","ไม่มีสมาชิกคนใดรู้จักลูกค้ากลุ่มนี้","สมาชิกเป็นหรือรู้จักลูกค้ากลุ่มนี้ และมีทักษะที่ต้องใช้","รายการสิ่งที่ทีมมีอยู่แล้วจากกิจกรรมท้ายบทที่ 1"]];
+const MIST = [
+ ["เริ่มจากไอเดียแล้วหาปัญหามารองรับ","เริ่มจากรายการปัญหาจริงอย่างน้อย 10 ปัญหา"],
+ ["ข้อความปัญหากว้างเกินไป","ระบุกลุ่มลูกค้า สถานการณ์ และผลเสียให้เฉพาะเจาะจง"],
+ ["ใช้ความคิดเห็นของเพื่อนเป็นหลักฐาน","หาหลักฐานว่าลูกค้าเสียเงินหรือเวลาแก้ปัญหานี้อยู่แล้ว"],
+ ["อ้างว่าไม่มีคู่แข่ง","ระบุวิธีที่ลูกค้าแก้ปัญหาอยู่ในปัจจุบัน ซึ่งเป็นคู่แข่งทางอ้อม"],
+ ["ใช้สถิติระดับประเทศอย่างเดียว","ใช้ข้อมูลของพื้นที่และกลุ่มลูกค้าที่จะทำธุรกิจจริง"],
+ ["ให้คะแนนเกณฑ์ด้วยความรู้สึก","เขียนหลักฐานหรือเหตุผลกำกับทุกคะแนน"],
+ ["เลือกไอเดียที่ทีมทำไม่ได้ในภาคเรียน","ลดขนาดเป็นบริการที่ทดสอบได้ภายใน 2–3 สัปดาห์"]];
+const WS = ["รายการปัญหาอย่างน้อย 10 ปัญหา พร้อมแหล่งของโอกาส","ข้อความปัญหาหนึ่งประโยค และสาเหตุจากการถามทำไม 5 ครั้ง",
+ "หลักฐาน: ปฐมภูมิอย่างน้อย 1 แบบ และทุติยภูมิอย่างน้อย 1 แหล่งที่ระบุปี","ไอเดียอย่างน้อย 10 ไอเดีย จากอย่างน้อย 2 เทคนิค",
+ "ตารางให้คะแนนอย่างน้อย 3 ไอเดีย พร้อมเหตุผลทุกคะแนน","ไอเดียที่เลือก \"ทำไมต้องเป็นตอนนี้\" และวิธีที่ลูกค้าแก้อยู่อย่างน้อย 2 วิธี",
+ "ตรวจกับข้อผิดพลาดในตารางที่ 2.12 และระบุสิ่งที่แก้แล้ว"];
+const STEPS = [["s1","ก","คลังปัญหา","ขั้นที่ 1 ตาราง 2.5"],["s2","ข","ข้อความปัญหาและหลักฐาน","ขั้นที่ 2"],["s3","ค","คิดไอเดีย","ขั้นที่ 3"],["s4","ง","ให้คะแนนและเลือก","ขั้นที่ 4"],["s5","จ","ตรวจก่อนส่ง","ตาราง 2.12"]];
+
+// ---------- สถานะ ----------
+const KEY="idea_studio_0900304_v1", LEANKEY="lean_studio_0900304_v2", HAND="lean_handoff_0900304";
+let S=blank(), view="s1", dirty=false;
+function uid(){return "i"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function blank(){return {meta:{group:"",biz:"",ver:"ฉบับร่าง",date:""},assets:"",problems:[],chosen:"",stmt:{who:"",what:"",when:"",impact:"",text:""},
+  whys:["","","","",""],root:"",evid:[],ideas:[],w:{size:20,pay:20,feas:20,risk:20,fit:20},pick:[],sc:{},selected:"",whynow:"",alts:[],fixes:Array(7).fill(""),manual:Array(7).fill(false)};}
+function fromData(d){const s=blank();Object.keys(s).forEach(k=>{if(d&&d[k]!==undefined)s[k]=d[k];});s.meta=Object.assign(blank().meta,d&&d.meta||{});return s;}
+function load(){try{const v=localStorage.getItem(KEY);if(v)S=fromData(JSON.parse(v));}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function touch(){dirty=true;save();renderSide();renderPrintHead();}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1900);}
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+function inp(val,ph,on,cls){const e=el("input",cls||"fld");e.value=val||"";e.placeholder=ph||"";e.setAttribute("aria-label",ph||"");e.oninput=()=>{on(e.value);touch();};return e;}
+function sel(opts,val,on,label,cls){const s=el("select",cls||"fld");s.setAttribute("aria-label",label);Object.entries(opts).forEach(([v,t])=>{const o=el("option",null,t);o.value=v;if(v===val)o.selected=true;s.appendChild(o);});s.onchange=()=>{on(s.value);touch();};return s;}
+function head(sec,code,title,sub,intro){sec.appendChild(el("div","k","ขั้น "+code+" · "+sub));sec.appendChild(el("h2",null,title));if(intro)sec.appendChild(el("p","note",intro));}
+function example(sec,title,lines){const d=el("details","ex");d.appendChild(el("summary",null,"ตัวอย่างจากบทที่ 2: "+title));lines.forEach(l=>d.appendChild(el("p",null,l)));sec.appendChild(d);}
+function warnBox(sec,msgs){msgs.filter(Boolean).forEach(m=>sec.appendChild(el("p","warnline","⚠ "+m)));}
+const prob=()=>S.problems.find(p=>p.id===S.chosen);
+
+// ---------- ขั้น ก คลังปัญหา ----------
+function renderS1(){
+  const s=document.getElementById("s1");s.innerHTML="";
+  head(s,"ก","รวบรวมปัญหาอย่างน้อย 10 ปัญหา","ขั้นที่ 1 ของตารางที่ 2.5 · ใบงานข้อ 1","จดปัญหาจากชีวิตประจำวัน การสังเกต และการเปลี่ยนแปลงรอบตัว ระบุแหล่งของโอกาสของแต่ละปัญหา (ตารางที่ 2.2) แล้วเลือกหนึ่งปัญหาที่จะไปต่อ ยังไม่ต้องคิดทางแก้");
+  const as=el("div","row2");as.appendChild(el("label","lbl","สิ่งที่ทีมมีอยู่แล้ว (จากกิจกรรมท้ายบทที่ 1: ความรู้ ประสบการณ์ คนที่รู้จัก)"));
+  const ta=el("textarea","fld");ta.rows=2;ta.value=S.assets;ta.placeholder="ช่วยให้เห็นปัญหาที่ทีมเข้าใจและเข้าถึงลูกค้าได้";ta.oninput=()=>{S.assets=ta.value;touch();};as.appendChild(ta);s.appendChild(as);
+  const tw=el("div","tw");const t=el("table","bt");t.innerHTML="<thead><tr><th>เลือก</th><th>#</th><th>ปัญหา (เขียนจากสิ่งที่ลูกค้าประสบ)</th><th>แหล่งของโอกาส</th><th>ใครเจอ</th><th>บ่อยแค่ไหน</th><th></th></tr></thead>";
+  const tb=el("tbody");
+  S.problems.forEach((p,i)=>{const tr=el("tr");if(p.id===S.chosen)tr.className="picked";
+    const r=el("input");r.type="radio";r.name="chosen";r.checked=p.id===S.chosen;r.setAttribute("aria-label","เลือกปัญหานี้");r.onchange=()=>{S.chosen=p.id;if(!S.stmt.what)S.stmt.what=p.t;if(!S.stmt.who)S.stmt.who=p.who||"";touch();renderAll();};
+    const c0=el("td");c0.appendChild(r);tr.appendChild(c0);tr.appendChild(el("td","sm",String(i+1)));
+    const c1=el("td");c1.appendChild(inp(p.t,"ปัญหา",v=>p.t=v));tr.appendChild(c1);
+    const c2=el("td");c2.appendChild(sel(Object.assign({"":"เลือกแหล่ง"},SRCN),p.src,v=>{p.src=v;renderS1();},"แหล่งของโอกาส"));tr.appendChild(c2);
+    const c3=el("td");c3.appendChild(inp(p.who,"เช่น นิสิตหอพัก",v=>p.who=v));tr.appendChild(c3);
+    const c4=el("td");c4.appendChild(sel(FREQ,p.freq||"",v=>p.freq=v,"บ่อยแค่ไหน"));tr.appendChild(c4);
+    const c5=el("td");const d=el("button","del","×");d.title="ลบ";d.onclick=()=>{S.problems.splice(i,1);if(S.chosen===p.id)S.chosen="";touch();renderAll();};c5.appendChild(d);tr.appendChild(c5);
+    tb.appendChild(tr);});
+  t.appendChild(tb);tw.appendChild(t);s.appendChild(tw);
+  const add=el("button","btn line","+ เพิ่มปัญหา");add.onclick=()=>{S.problems.push({id:uid(),t:"",src:"",who:"",freq:""});touch();renderS1();const xs=document.querySelectorAll("#s1 tbody tr");const last=xs[xs.length-1];if(last)last.querySelector("input.fld").focus();};s.appendChild(add);
+  const n=S.problems.filter(p=>p.t.trim()).length,srcs=new Set(S.problems.map(p=>p.src).filter(Boolean)).size;
+  s.appendChild(el("p","note","มีปัญหา "+n+" ข้อ จากแหล่งของโอกาส "+srcs+" แหล่ง"));
+  warnBox(s,[n<10&&"ยังไม่ครบ 10 ปัญหา (ใบงานข้อ 1)",S.problems.some(p=>p.t.trim()&&!p.src)&&"บางปัญหายังไม่ได้ระบุแหล่งของโอกาส",n&&!S.chosen&&"ยังไม่ได้เลือกปัญหาที่จะไปต่อ",
+    S.problems.some(p=>/(ไม่มี|ขาด)\s*(แอป|ระบบ|บริการ|เว็บ)/.test(p.t))&&"บางปัญหาเขียนว่า \"ไม่มีแอป/ระบบ/บริการ\" ซึ่งเป็นทางแก้ ไม่ใช่สิ่งที่ลูกค้าประสบ"]);
+  const g=el("details","ex");g.appendChild(el("summary",null,"คำถามช่วยค้นหาตามแหล่งของโอกาส (ตารางที่ 2.2 และแหล่งที่พบบ่อยอีก 3 แหล่ง)"));
+  const ul=el("ul");SRC.forEach(x=>ul.appendChild(el("li",null,x[1]+": "+x[2])));g.appendChild(ul);s.appendChild(g);
+}
+
+// ---------- ขั้น ข ข้อความปัญหา สาเหตุ หลักฐาน ----------
+function composeStmt(){const t=S.stmt;return [t.who,t.what,t.when,t.impact?"ทำให้"+t.impact.replace(/^ทำให้\s*/,""):""].filter(x=>x&&x.trim()).join(" ");}
+function renderS2(){
+  const s=document.getElementById("s2");s.innerHTML="";
+  head(s,"ข","เขียนข้อความปัญหา หาสาเหตุ และหาหลักฐาน","ขั้นที่ 2 · หัวข้อ 2.6 · ใบงานข้อ 2–3","ข้อความปัญหาคือประโยคเดียวที่บอกว่าลูกค้ากลุ่มใดประสบปัญหาอะไร ในสถานการณ์ใด และเกิดผลเสียอะไร ต้องไม่มีทางแก้ของทีมอยู่ในประโยค");
+  const p=prob();s.appendChild(el("p","chosen",p?"ปัญหาที่เลือก: "+p.t:"ยังไม่ได้เลือกปัญหาในขั้น ก"));
+  const g=el("div","grid4");
+  [["who","ลูกค้ากลุ่มใด","เช่น นิสิตหอพักที่ซักผ้าเอง"],["what","ประสบปัญหาอะไร","เช่น ต้องรอเครื่องซักผ้านานกว่า 1 ชั่วโมง"],["when","ในสถานการณ์ใด","เช่น คืนวันอาทิตย์"],["impact","ผลเสียคืออะไร","เช่น เสียเวลาอ่านหนังสือก่อนสัปดาห์เรียน"]].forEach(([k,l,ph])=>{
+    const d=el("div");d.appendChild(el("label","lbl",l));d.appendChild(inp(S.stmt[k],ph,v=>{S.stmt[k]=v;}));g.appendChild(d);});
+  s.appendChild(g);
+  const b=el("button","btn line","ประกอบเป็นประโยค");b.onclick=()=>{S.stmt.text=composeStmt();touch();renderS2();};s.appendChild(b);
+  const ta=el("textarea","fld big");ta.rows=2;ta.value=S.stmt.text;ta.placeholder="ข้อความปัญหาหนึ่งประโยค (แก้ถ้อยคำได้)";ta.setAttribute("aria-label","ข้อความปัญหา");ta.oninput=()=>{S.stmt.text=ta.value;touch();};s.appendChild(ta);
+  const st=S.stmt.text;
+  warnBox(s,[st&&/แอป|แอปพลิเคชัน|แพลตฟอร์ม|ระบบ|เว็บไซต์|ต้องการ/.test(st)&&"ประโยคอาจมีทางแก้อยู่ เช่น \"ต้องการแอปพลิเคชัน\" ให้เขียนสิ่งที่ลูกค้าประสบแทน",
+    st&&/คนไทย|ทุกคน|คนทั่วไป|คนรุ่นใหม่|ประชาชน/.test(st)&&"กลุ่มลูกค้ากว้างเกินไป ระบุให้เฉพาะเจาะจงพอที่จะหาลูกค้ามาสัมภาษณ์ได้",
+    st&&!/ทำให้|จน|เสีย/.test(st)&&"ยังไม่บอกผลเสียที่เกิดขึ้น"]);
+  example(s,"ข้อความปัญหาที่ยังไม่ดีและที่ปรับแล้ว (ตารางที่ 2.7)",[
+    "ยังไม่ดี: \"คนรุ่นใหม่ต้องการแอปพลิเคชันออกกำลังกาย\" มีทางแก้อยู่ในประโยค และกลุ่มลูกค้ากว้างเกินไป",
+    "ปรับแล้ว: \"พนักงานบริษัทอายุ 25–35 ปีที่เลิกงานหลังหกโมงเย็น ไม่มีเวลาไปฟิตเนส ทำให้ไม่ได้ออกกำลังกายติดต่อกันหลายสัปดาห์\"",
+    "ตัวอย่างวิเคราะห์ปัญหาการซักผ้า: \"นิสิตหอพักที่ซักผ้าเองต้องรอเครื่องซักผ้าคืนวันอาทิตย์นานกว่า 1 ชั่วโมง ทำให้เสียเวลาอ่านหนังสือก่อนสัปดาห์เรียน\""]);
+  // 5 Whys
+  s.appendChild(el("h3",null,"สาเหตุของปัญหา: ถามทำไม 5 ครั้ง (หัวข้อ 2.6.2)"));
+  s.appendChild(el("p","note","ปัญหาที่ลูกค้าเล่ามักเป็นอาการ ถามว่า \"ทำไม\" ต่อคำตอบก่อนหน้า แล้วเลือกระดับที่ทีมจะแก้"));
+  S.whys.forEach((w,i)=>{const r=el("div","why");const rb=el("input");rb.type="radio";rb.name="root";rb.checked=S.root===String(i);rb.title="เลือกเป็นสาเหตุที่จะแก้";rb.setAttribute("aria-label","เลือกเป็นสาเหตุที่จะแก้");rb.onchange=()=>{S.root=String(i);touch();};
+    r.appendChild(rb);r.appendChild(el("span","wl","ทำไม "+(i+1)));r.appendChild(inp(w,"เพราะ…",v=>S.whys[i]=v));s.appendChild(r);});
+  s.appendChild(el("p","note","วงกลมด้านหน้า = สาเหตุที่ทีมเลือกจะแก้"));
+  example(s,"ถามทำไม 5 ครั้ง (หัวข้อ 2.6.2)",["นิสิตไม่ได้กินอาหารเช้า ทำไม เพราะตื่นสาย ทำไม เพราะนอนดึก ทำไม เพราะทำงานกลุ่มถึงดึก ทำไม เพราะสมาชิกว่างไม่ตรงกันจึงนัดได้แค่กลางคืน",
+    "ถ้าหยุดที่คำตอบแรก ทางแก้คืออาหารเช้าที่ซื้อได้เร็ว ถ้าถามต่อ อาจเห็นโอกาสในเครื่องมือนัดหมายงานกลุ่ม ทั้งสองทางแก้ตอบปัญหาคนละระดับ"]);
+  // หลักฐาน
+  s.appendChild(el("h3",null,"หลักฐานของปัญหา (ตารางที่ 2.8)"));
+  s.appendChild(el("p","note","ต้องมีข้อมูลปฐมภูมิอย่างน้อย 1 แบบ (สัมภาษณ์ลูกค้าเป้าหมายอย่างน้อย 5 คน หรือสังเกตและนับ) และข้อมูลทุติยภูมิอย่างน้อย 1 แหล่งที่ระบุปี ห้ามบันทึกชื่อจริงหรือเบอร์โทรศัพท์ของผู้ให้ข้อมูล"));
+  S.evid.forEach((e,i)=>{const box=el("div","evbox");
+    const top=el("div","evtop");
+    top.appendChild(sel({p:"ปฐมภูมิ",s:"ทุติยภูมิ"},e.type,v=>{e.type=v;e.method="";renderS2();},"ประเภทข้อมูล"));
+    const mo=Object.fromEntries(Object.entries(METHOD[e.type]).map(([k,v])=>[k,v[0]]));top.appendChild(sel(Object.assign({"":"วิธี/แหล่ง"},mo),e.method,v=>{e.method=v;renderS2();},"วิธีหรือแหล่งข้อมูล"));
+    if(e.type==="p")top.appendChild(inp(e.n,"จำนวนคน/ครั้ง",v=>e.n=v,"fld sm"));else top.appendChild(inp(e.year,"ปีของข้อมูล เช่น 2568",v=>e.year=v,"fld sm"));
+    const d=el("button","del","×");d.title="ลบ";d.onclick=()=>{S.evid.splice(i,1);touch();renderS2();};top.appendChild(d);box.appendChild(top);
+    box.appendChild(inp(e.detail,e.type==="p"?"ทำที่ไหน เมื่อไร กับใคร (ไม่ระบุชื่อ)":"ชื่อแหล่ง และพื้นที่ของข้อมูล",v=>e.detail=v));
+    box.appendChild(inp(e.result,"พบอะไร เช่น 6 ใน 8 คนเคยรอเกิน 1 ชั่วโมง",v=>e.result=v));
+    if(e.method&&METHOD[e.type][e.method])box.appendChild(el("p","note","ข้อควรระวัง: "+METHOD[e.type][e.method][1]));
+    s.appendChild(box);});
+  const ab=el("div","bar2");const a1=el("button","btn line","+ ข้อมูลปฐมภูมิ");a1.onclick=()=>{S.evid.push({id:uid(),type:"p",method:"",n:"",year:"",detail:"",result:""});touch();renderS2();};
+  const a2=el("button","btn line","+ ข้อมูลทุติยภูมิ");a2.onclick=()=>{S.evid.push({id:uid(),type:"s",method:"",n:"",year:"",detail:"",result:""});touch();renderS2();};ab.appendChild(a1);ab.appendChild(a2);s.appendChild(ab);
+  const ev=evCheck();warnBox(s,ev.msgs);
+  example(s,"วิเคราะห์ปัญหาการซักผ้าของนิสิตหอพัก (กรณีสมมติเพื่อการสอน)",[
+    "ปฐมภูมิ แบบแรก: นับคนรอใช้เครื่องซักผ้าที่หอพัก 3 แห่ง ในคืนวันอาทิตย์ 2 สัปดาห์",
+    "ปฐมภูมิ แบบที่สอง: สัมภาษณ์นิสิตหอพัก 8 คน พบว่า 6 คนเคยรอเกิน 1 ชั่วโมง และ 5 คนบอกว่าเคยจ่ายเงินให้ร้านซักรีดนอกหอพักในสัปดาห์ที่มีสอบ",
+    "ทุติยภูมิ: จำนวนนิสิตที่พักในหอพักเอกชนรอบมหาวิทยาลัยจากเว็บไซต์ของมหาวิทยาลัย (ในงานจริงต้องระบุปีของข้อมูล)"]);
+}
+function evCheck(){
+  const P=S.evid.filter(e=>e.type==="p"&&(e.method||e.detail)),Sx=S.evid.filter(e=>e.type==="s"&&(e.method||e.detail));
+  const iv=P.filter(e=>e.method==="interview");const ivOk=iv.some(e=>parseInt(e.n,10)>=5);
+  const msgs=[!P.length&&"ยังไม่มีข้อมูลปฐมภูมิ",iv.length&&!ivOk&&!P.some(e=>e.method==="observe")&&"การสัมภาษณ์ควรมีอย่างน้อย 5 คน (ใบงานข้อ 3)",
+    !Sx.length&&"ยังไม่มีข้อมูลทุติยภูมิ",Sx.length&&Sx.some(e=>!/\d{4}/.test(e.year||""))&&"ข้อมูลทุติยภูมิต้องระบุปีของข้อมูล",
+    S.evid.some(e=>/เพื่อน.*(ดี|ชอบ|บอกว่า)/.test(e.result||""))&&"หลักฐานที่เป็นความคิดเห็นของเพื่อนไม่ใช่หลักฐานของปัญหา (ตารางที่ 2.12)"];
+  return {ok:P.length>0&&(ivOk||P.some(e=>e.method==="observe")||P.some(e=>e.method==="survey"))&&Sx.length>0&&!Sx.some(e=>!/\d{4}/.test(e.year||"")),msgs};
+}
+
+// ---------- ขั้น ค คิดไอเดีย ----------
+function renderS3(){
+  const s=document.getElementById("s3");s.innerHTML="";
+  head(s,"ค","คิดไอเดียอย่างน้อย 10 ไอเดีย จากอย่างน้อย 2 เทคนิค","ขั้นที่ 3 · ตารางที่ 2.6 · ใบงานข้อ 4","กติกาสำคัญ: ห้ามวิจารณ์ไอเดียระหว่างคิด นับจำนวนไอเดียก่อน แล้วจึงประเมินในขั้น ง ขั้นนี้จึงไม่มีช่องให้คะแนน");
+  const p=prob(),what=(S.stmt.what||(p&&p.t)||"แก้ปัญหานี้").trim();
+  s.appendChild(el("p","chosen",S.stmt.text?"ข้อความปัญหา: "+S.stmt.text:(p?"ปัญหาที่เลือก: "+p.t:"ยังไม่ได้เลือกปัญหา")));
+  const cards=el("div","cards");
+  TECH.forEach(([k,nm,how,ex])=>{const c=el("div","tcard");c.appendChild(el("div","th",nm));c.appendChild(el("div","note",how));
+    if(k==="hmw")c.appendChild(el("div","prompt","เราจะทำให้ "+(S.stmt.who||"ลูกค้า")+" ไม่ต้อง"+what.replace(/^ต้อง/,"")+" ได้อย่างไร"));
+    c.appendChild(el("div","exs","ตัวอย่างในบท: "+ex));
+    const n=S.ideas.filter(x=>x.tech===k).length;
+    const box=el("div","add");const i=el("input");i.placeholder="ไอเดียจากเทคนิคนี้";i.setAttribute("aria-label","ไอเดียจาก"+nm);
+    const b=el("button",null,"+");const go=()=>{const v=i.value.trim();if(!v)return;S.ideas.push({id:uid(),t:v,tech:k});i.value="";touch();renderS3();const ni=document.querySelectorAll("#s3 .tcard input")[TECH.findIndex(x=>x[0]===k)];if(ni)ni.focus();};
+    b.onclick=go;i.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();go();}};box.appendChild(i);box.appendChild(b);c.appendChild(box);
+    c.appendChild(el("div","sm",n+" ไอเดีย"));cards.appendChild(c);});
+  s.appendChild(cards);
+  const ul=el("ol","ilist");S.ideas.forEach((x,i)=>{const li=el("li");li.appendChild(document.createTextNode(x.t+" "));li.appendChild(el("span","tag",TECHN[x.tech]||""));
+    const d=el("button","del","×");d.title="ลบ";d.onclick=()=>{S.ideas.splice(i,1);S.pick=S.pick.filter(id=>id!==x.id);touch();renderAll();};li.appendChild(d);ul.appendChild(li);});
+  s.appendChild(el("h3",null,"ไอเดียทั้งหมด "+S.ideas.length+" ไอเดีย จาก "+new Set(S.ideas.map(x=>x.tech)).size+" เทคนิค"));s.appendChild(ul);
+  warnBox(s,[S.ideas.length<10&&"ยังไม่ครบ 10 ไอเดีย",new Set(S.ideas.map(x=>x.tech)).size<2&&"ใช้เทคนิคอย่างน้อย 2 เทคนิค"]);
+}
+
+// ---------- ขั้น ง ให้คะแนน ----------
+const total=id=>CRIT.reduce((a,[k])=>a+((S.sc[id]&&S.sc[id][k]&&+S.sc[id][k].v)||0)*(+S.w[k]||0),0)/100;
+const totalEq=id=>CRIT.reduce((a,[k])=>a+((S.sc[id]&&S.sc[id][k]&&+S.sc[id][k].v)||0)*20,0)/100;
+function renderS4(){
+  const s=document.getElementById("s4");s.innerHTML="";
+  head(s,"ง","ให้คะแนนแบบถ่วงน้ำหนัก แล้วเลือกไอเดีย","ขั้นที่ 4 · ตารางที่ 2.9 2.10 2.13 · ใบงานข้อ 5–6","เลือกอย่างน้อย 3 ไอเดีย กำหนดน้ำหนักให้รวมเป็นร้อยละ 100 ก่อนให้คะแนน ให้คะแนน 1–5 พร้อมหลักฐานหรือเหตุผลทุกคะแนน เกณฑ์ความเสี่ยง คะแนนสูงหมายถึงเสี่ยงต่ำ");
+  const pk=el("div","pickl");S.ideas.forEach(x=>{const l=el("label","pi");const c=el("input");c.type="checkbox";c.checked=S.pick.includes(x.id);
+    c.onchange=()=>{if(c.checked)S.pick.push(x.id);else S.pick=S.pick.filter(i=>i!==x.id);touch();renderS4();};l.appendChild(c);l.appendChild(document.createTextNode(" "+x.t));pk.appendChild(l);});
+  if(!S.ideas.length)pk.appendChild(el("p","note","ยังไม่มีไอเดีย ทำขั้น ค ก่อน"));s.appendChild(pk);
+  const ids=S.pick.filter(id=>S.ideas.some(x=>x.id===id)),idea=id=>S.ideas.find(x=>x.id===id);
+  const wsum=CRIT.reduce((a,[k])=>a+(+S.w[k]||0),0);
+  const tw=el("div","tw");const t=el("table","bt sc");
+  let h="<thead><tr><th>เกณฑ์</th><th>น้ำหนัก (ร้อยละ)</th>";ids.forEach((id,i)=>h+="<th>ไอเดียที่ "+(i+1)+"<br><span class='sm'>"+esc(idea(id).t.slice(0,40))+"</span></th>");t.innerHTML=h+"</tr></thead>";
+  const tb=el("tbody");
+  CRIT.forEach(([k,nm,q,s1,s5,evi])=>{const tr=el("tr");const c0=el("td");c0.appendChild(el("b",null,nm));c0.appendChild(el("div","sm",q));
+    const det=el("details","crit");det.appendChild(el("summary",null,"คะแนน 1 และ 5"));det.appendChild(el("div","sm","1 = "+s1));det.appendChild(el("div","sm","5 = "+s5));det.appendChild(el("div","sm","หลักฐานที่ใช้: "+evi));c0.appendChild(det);tr.appendChild(c0);
+    const c1=el("td");const wi=el("input","fld num");wi.type="number";wi.min=0;wi.max=100;wi.value=S.w[k];wi.setAttribute("aria-label","น้ำหนัก "+nm);wi.oninput=()=>{S.w[k]=wi.value;touch();updTotals();};c1.appendChild(wi);tr.appendChild(c1);
+    ids.forEach(id=>{S.sc[id]=S.sc[id]||{};S.sc[id][k]=S.sc[id][k]||{v:"",r:""};const cell=S.sc[id][k],c=el("td");
+      c.appendChild(sel({"":"–","1":"1","2":"2","3":"3","4":"4","5":"5"},String(cell.v||""),v=>{cell.v=v;updTotals();},"คะแนน "+nm,"fld num"));
+      const r=inp(cell.r,"เหตุผล/หลักฐาน",v=>cell.r=v,"fld why");if(cell.v&&!cell.r)r.classList.add("need");c.appendChild(r);tr.appendChild(c);});
+    tb.appendChild(tr);});
+  const trt=el("tr","tot");trt.appendChild(el("td",null,"คะแนนรวม (เต็ม 5)"));trt.appendChild(el("td","wsum",String(wsum)));ids.forEach(id=>trt.appendChild(el("td","tv",total(id).toFixed(2))));tb.appendChild(trt);
+  t.appendChild(tb);tw.appendChild(t);s.appendChild(tw);
+  const msgBox=el("div");msgBox.id="s4msg";s.appendChild(msgBox);updMsgs();
+  // เลือก
+  s.appendChild(el("h3",null,"ไอเดียที่เลือก"));
+  const ch=el("div","pickl");ids.forEach(id=>{const l=el("label","pi");const r=el("input");r.type="radio";r.name="sel";r.checked=S.selected===id;r.onchange=()=>{S.selected=id;touch();};l.appendChild(r);l.appendChild(document.createTextNode(" "+idea(id).t+" ("+total(id).toFixed(2)+")"));ch.appendChild(l);});
+  if(!ids.length)ch.appendChild(el("p","note","เลือกไอเดียเพื่อให้คะแนนก่อน"));s.appendChild(ch);
+  s.appendChild(el("label","lbl","ทำไมต้องเป็นตอนนี้ (หัวข้อ 2.7.2): มีอะไรเปลี่ยนไปที่ทำให้แก้ได้ในวันนี้ เชื่อมกับการเปลี่ยนแปลงในหัวข้อ 2.3 และ 2.4"));
+  const wn=el("textarea","fld");wn.rows=2;wn.value=S.whynow;wn.setAttribute("aria-label","ทำไมต้องเป็นตอนนี้");wn.oninput=()=>{S.whynow=wn.value;touch();};s.appendChild(wn);
+  s.appendChild(el("label","lbl","วิธีที่ลูกค้าแก้ปัญหาอยู่ในปัจจุบัน อย่างน้อย 2 วิธี (คู่แข่งทางอ้อม)"));
+  S.alts.forEach((a,i)=>{const r=el("div","why");r.appendChild(inp(a,"เช่น จ่ายร้านซักรีดนอกหอพัก",v=>S.alts[i]=v));const d=el("button","del","×");d.onclick=()=>{S.alts.splice(i,1);touch();renderS4();};r.appendChild(d);s.appendChild(r);});
+  const aa=el("button","btn line","+ วิธีที่ลูกค้าใช้อยู่");aa.onclick=()=>{S.alts.push("");touch();renderS4();};s.appendChild(aa);
+  example(s,"ตารางให้คะแนนแบบถ่วงน้ำหนัก (ตารางที่ 2.10 กรณีสมมติเพื่อการสอน)",[
+    "น้ำหนัก: ขนาดของปัญหา 25 ความพร้อมจ่าย 25 ความเป็นไปได้ 20 ความเสี่ยง 15 ความเหมาะกับทีม 15",
+    "ก. บริการรับส่งผ้าซักหอพัก 4 4 4 3 3 = 3.70 · ข. แอปพลิเคชันแลกหนังสือเรียนมือสอง 3 2 3 4 5 = 3.20 · ค. ขนมเพื่อสุขภาพจากผลผลิตชุมชน 3 3 3 3 4 = 3.15",
+    "วิธีคำนวณไอเดีย ก.: (4 × 25) + (4 × 25) + (4 × 20) + (3 × 15) + (3 × 15) = 370 แล้วหารด้วย 100 ได้ 3.70",
+    "ไอเดีย ข. ได้คะแนนความพร้อมจ่ายต่ำ เพราะนิสิตที่สัมภาษณ์ส่วนใหญ่แลกหนังสือกันเองในกลุ่มไลน์โดยไม่เสียเงิน กลุ่มจึงเลือกไอเดีย ก."]);
+}
+function updTotals(){document.querySelectorAll("#s4 .tv").forEach((td,i)=>{const id=S.pick.filter(id=>S.ideas.some(x=>x.id===id))[i];td.textContent=total(id).toFixed(2);});
+  const ws=document.querySelector("#s4 .wsum");if(ws)ws.textContent=String(CRIT.reduce((a,[k])=>a+(+S.w[k]||0),0));
+  document.querySelectorAll("#s4 input.why").forEach(e=>{});updMsgs();save();renderSide();}
+function scoreIssues(){const ids=S.pick.filter(id=>S.ideas.some(x=>x.id===id));let noR=0,blank=0,all5=false;
+  ids.forEach(id=>{const sc=S.sc[id]||{};CRIT.forEach(([k])=>{const c=sc[k]||{};if(!c.v)blank++;else if(!(c.r||"").trim())noR++;});
+    if(CRIT.every(([k])=>sc[k]&&+sc[k].v===5))all5=true;});return {ids,noR,blank,all5};}
+function updMsgs(){const box=document.getElementById("s4msg");if(!box)return;box.innerHTML="";
+  const {ids,noR,blank,all5}=scoreIssues(),wsum=CRIT.reduce((a,[k])=>a+(+S.w[k]||0),0);
+  const top=[...ids].sort((a,b)=>total(b)-total(a))[0],topEq=[...ids].sort((a,b)=>totalEq(b)-totalEq(a))[0];
+  warnBox(box,[ids.length<3&&"เลือกให้คะแนนอย่างน้อย 3 ไอเดีย",wsum!==100&&"น้ำหนักรวมเป็น "+wsum+" ต้องเท่ากับ 100",blank&&"ยังไม่ได้ให้คะแนน "+blank+" ช่อง",
+    noR&&"คะแนน "+noR+" ช่องยังไม่มีเหตุผลหรือหลักฐาน",all5&&"มีไอเดียที่ได้ 5 ทุกเกณฑ์ ตรวจว่าให้คะแนนด้วยความรู้สึกหรือไม่"]);
+  if(ids.length>=2&&!blank&&top!==topEq)box.appendChild(el("p","note","ถ้าให้น้ำหนักทุกเกณฑ์เท่ากัน อันดับหนึ่งจะเปลี่ยนไป แสดงว่าผลขึ้นกับน้ำหนักที่ทีมกำหนด ควรอธิบายเหตุผลของน้ำหนักในการนำเสนอ"));
+}
+
+// ---------- ขั้น จ ตรวจก่อนส่ง ----------
+function mistakeAuto(){
+  const st=S.stmt.text||"",sc=scoreIssues(),ev=evCheck(),selIdea=S.selected;
+  const feas=selIdea&&S.sc[selIdea]&&S.sc[selIdea].feas?+S.sc[selIdea].feas.v:0;
+  return [
+    S.problems.filter(p=>p.t.trim()).length<10?["warn","รายการปัญหายังไม่ครบ 10 ข้อ"]:["ok",""],
+    !st?["man","ยังไม่มีข้อความปัญหา"]:/คนไทย|ทุกคน|คนทั่วไป|คนรุ่นใหม่|ประชาชน/.test(st)?["warn","มีคำที่กว้างเกินไป"]:["ok",""],
+    S.evid.some(e=>/เพื่อน.*(ดี|ชอบ|บอกว่า)/.test(e.result||""))||!S.evid.some(e=>e.type==="p")?["warn","หลักฐานปฐมภูมิยังไม่มี หรือเป็นความเห็นของเพื่อน"]:["ok",""],
+    /ไม่มีคู่แข่ง|ยังไม่มีใครทำ/.test(S.whynow)||S.alts.filter(a=>a.trim()).length<2?["warn","ยังไม่ได้ระบุวิธีที่ลูกค้าแก้อยู่อย่างน้อย 2 วิธี หรืออ้างว่าไม่มีคู่แข่ง"]:["ok",""],
+    S.evid.some(e=>e.type==="s")?["man","ตรวจเองว่าข้อมูลทุติยภูมิเป็นของพื้นที่และกลุ่มลูกค้าจริง ไม่ใช่ระดับประเทศอย่างเดียว"]:["man","ยังไม่มีข้อมูลทุติยภูมิ"],
+    sc.noR||sc.all5||sc.blank?["warn","มีคะแนนที่ยังไม่มีเหตุผล หรือได้ 5 ทุกเกณฑ์"]:(sc.ids.length?["ok",""]:["man","ยังไม่ได้ให้คะแนน"]),
+    !selIdea?["man","ยังไม่ได้เลือกไอเดีย"]:feas&&feas<=2?["warn","ไอเดียที่เลือกได้คะแนนความเป็นไปได้ "+feas+" ควรลดขนาดให้ทดสอบได้ใน 2–3 สัปดาห์"]:["ok",""]];
+}
+const STL={ok:"ไม่พบข้อเตือน",warn:"ควรแก้",man:"ตรวจเอง"};
+function renderS5(){
+  const s=document.getElementById("s5");s.innerHTML="";
+  head(s,"จ","ตรวจกับข้อผิดพลาดที่พบบ่อย","ตารางที่ 2.12 · ใบงานข้อ 7","ใบงานข้อ 7 ให้ระบุว่ากลุ่มแก้ข้อใดไปแล้ว เขียนสิ่งที่แก้ในช่องของแต่ละข้อ แล้วติ๊กเมื่อแน่ใจ ผลตรวจอัตโนมัติเป็นเพียงข้อเตือน");
+  const R=mistakeAuto(),ul=el("ul","chk big");
+  R.forEach((r,i)=>{const li=el("li");const cb=el("input");cb.type="checkbox";cb.checked=!!S.manual[i];cb.setAttribute("aria-label","ตรวจแล้ว ข้อ "+(i+1));cb.onchange=()=>{S.manual[i]=cb.checked;touch();};li.appendChild(cb);
+    const d=el("div");d.appendChild(el("b",null,(i+1)+". "+MIST[i][0]+" "));d.appendChild(el("span","st "+r[0],STL[r[0]]));d.appendChild(el("div","sm","วิธีแก้: "+MIST[i][1]));if(r[1])d.appendChild(el("span","why",r[1]));
+    d.appendChild(inp(S.fixes[i],"สิ่งที่กลุ่มแก้แล้ว (ถ้ามี)",v=>S.fixes[i]=v));li.appendChild(d);ul.appendChild(li);});
+  s.appendChild(ul);
+}
+
+// ---------- ใบงาน ด้านข้าง ----------
+function wsStatus(){const n=S.problems.filter(p=>p.t.trim()).length,sc=scoreIssues(),wsum=CRIT.reduce((a,[k])=>a+(+S.w[k]||0),0);
+  return [n>=10&&!S.problems.some(p=>p.t.trim()&&!p.src),!!S.stmt.text.trim()&&S.whys.filter(w=>w.trim()).length>=3,evCheck().ok,
+    S.ideas.length>=10&&new Set(S.ideas.map(x=>x.tech)).size>=2,sc.ids.length>=3&&!sc.blank&&!sc.noR&&wsum===100,
+    !!S.selected&&!!S.whynow.trim()&&S.alts.filter(a=>a.trim()).length>=2,S.manual.every(Boolean)];}
+function renderSide(){const st=wsStatus(),ul=document.getElementById("ws");ul.innerHTML="";
+  st.forEach((ok,i)=>{const li=el("li");li.appendChild(el("span","st "+(ok?"ok":"man"),ok?"ครบ":"ยังไม่ครบ"));li.appendChild(document.createTextNode(" "+(i+1)+". "+WS[i]));ul.appendChild(li);});
+  document.getElementById("wsBar").style.width=(st.filter(Boolean).length/7*100)+"%";
+  document.querySelectorAll(".steps button").forEach((b,i)=>{const done=[st[0],st[1]&&st[2],st[3],st[4]&&st[5],st[6]][i];b.classList.toggle("done",!!done);});}
+function renderSteps(){const n=document.getElementById("steps");n.innerHTML="";
+  STEPS.forEach(([id,code,nm,sub])=>{const b=el("button",id===view?"on":"");b.innerHTML="<b>"+code+"</b> "+nm+"<small>"+sub+"</small>";b.onclick=()=>{view=id;showView();window.scrollTo({top:document.getElementById("steps").offsetTop-70,behavior:"smooth"});};n.appendChild(b);});
+  const nx=el("div","navnext");document.querySelectorAll(".step").forEach(x=>x.querySelectorAll(".navnext").forEach(y=>y.remove()));}
+function showView(){document.querySelectorAll(".step").forEach(x=>x.classList.toggle("on",x.id===view));document.querySelectorAll(".steps button").forEach((b,i)=>b.classList.toggle("on",STEPS[i][0]===view));
+  const sec=document.getElementById(view);const i=STEPS.findIndex(x=>x[0]===view);sec.querySelectorAll(".navnext").forEach(y=>y.remove());
+  const nav=el("div","navnext");if(i>0){const p=el("button","btn line","◀ ขั้น "+STEPS[i-1][1]);p.onclick=()=>{view=STEPS[i-1][0];showView();};nav.appendChild(p);}
+  if(i<STEPS.length-1){const q=el("button","btn","ขั้น "+STEPS[i+1][1]+" ▶");q.onclick=()=>{view=STEPS[i+1][0];renderAll();window.scrollTo({top:document.getElementById("steps").offsetTop-70,behavior:"smooth"});};nav.appendChild(q);}
+  else{const q=el("button","btn","➡ ส่งต่อไป Lean Canvas Studio");q.onclick=toLean;nav.appendChild(q);}sec.appendChild(nav);}
+function renderPrintHead(){const m=S.meta;["Group","Ver","Date"].forEach(k=>document.getElementById("p"+k).textContent=m[k.toLowerCase()]||"–");}
+function renderAll(){renderS1();renderS2();renderS3();renderS4();renderS5();renderSteps();showView();renderSide();renderPrintHead();}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);}
+
+// ---------- แฟ้มธุรกิจ และส่งต่อ ----------
+function bindMeta(){const map={mGroup:"group",mBiz:"biz",mVer:"ver",mDate:"date"};
+  Object.entries(map).forEach(([id,k])=>{const e=document.getElementById(id);e.value=S.meta[k]||"";e.oninput=e.onchange=()=>{S.meta[k]=e.value;touch();};});}
+function leanData(){try{const v=localStorage.getItem(LEANKEY);return v?JSON.parse(v):null;}catch(e){return null;}}
+function saveFile(){
+  const lean=leanData();const name="แฟ้มธุรกิจ_"+(S.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(S.meta.date||new Date().toISOString().slice(0,10))+".json";
+  const out={tool:"business_file_0900304",version:2,meta:S.meta,idea:S};if(lean)out.lean={items:lean.items,manual:lean.manual,versions:lean.versions||[]};
+  const blob=new Blob([JSON.stringify(out,null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty=false;toast("บันทึกไฟล์ "+name);}
+function openFile(f){const file=f.files[0];if(!file)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.tool!=="business_file_0900304")throw 0;
+      if(d.idea)S=fromData(Object.assign({},d.idea,{meta:d.meta||d.idea.meta}));else{S=blank();S.meta=Object.assign(S.meta,d.meta||{});}
+      if(d.lean){try{localStorage.setItem(LEANKEY,JSON.stringify(Object.assign({meta:d.meta},d.lean)));}catch(e){}}
+      save();dirty=false;bindMeta();renderAll();toast("เปิดไฟล์แล้ว"+(d.lean?" (รวมส่วน Lean Canvas)":""));}
+    catch(e){toast("ไฟล์นี้ไม่ใช่แฟ้มธุรกิจของวิชา 0900304");}f.value="";};r.readAsText(file);}
+function clearAll(){if((S.problems.length||S.ideas.length)&&!confirm("ล้างงานขั้นไอเดียทั้งหมดในเบราว์เซอร์นี้ ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;S=blank();save();dirty=false;bindMeta();view="s1";renderAll();}
+function toLean(){
+  const p=prob(),idea=S.ideas.find(x=>x.id===S.selected);
+  if(!S.stmt.text.trim()&&!p){toast("ยังไม่มีปัญหาที่เลือก");return;}
+  const prim=S.evid.filter(e=>e.type==="p"&&(e.result||"").trim());
+  const pid="h"+uid(),items={PR:[{id:pid,t:S.stmt.text.trim()||p.t,lab:prim.length?"fact":"asm",ev:prim.map(e=>e.result).join(" · "),rv:true}],
+    CS:(S.stmt.who||(p&&p.who))?[{t:S.stmt.who||p.who,lab:"asm",rv:true}]:[],ALT:S.alts.filter(a=>a.trim()).map(a=>({t:a,lab:"asm",rv:true})),
+    SO:idea?[{t:idea.t,lab:"asm",solves:pid,rv:true}]:[]};
+  try{localStorage.setItem(HAND,JSON.stringify({meta:S.meta,items:items,at:new Date().toISOString()}));}catch(e){}
+  if(dirty&&!confirm("ยังไม่ได้บันทึกไฟล์ งานในขั้นไอเดียยังอยู่ในเบราว์เซอร์นี้ ไปที่ Lean Canvas Studio เลยหรือไม่"))return;
+  dirty=false;location.href="lean_studio.html?from=idea";}
+window.addEventListener("beforeunload",e=>{if(dirty&&(S.problems.length||S.ideas.length)){e.preventDefault();e.returnValue="";}});
+
+load();bindMeta();renderAll();
+</script>
+
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
