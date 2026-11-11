@@ -141,7 +141,7 @@ footer{margin-top:34px;background:var(--navy);color:#9DB0D6;padding:22px 0;font-
     <div class="pd-count" id="pdCount"></div>
     <div class="tablewrap"><table class="pubs"><thead><tr><th data-th="ปี" data-en="Year">ปี</th><th data-th="ชื่อเรื่องและแหล่งตีพิมพ์" data-en="Title and source">ชื่อเรื่องและแหล่งตีพิมพ์</th><th data-th="บทบาท" data-en="Role">บทบาท</th><th data-th="อ้างอิง" data-en="Cited">อ้างอิง</th></tr></thead><tbody id="pdRows"></tbody></table></div>
     <div style="text-align:center;margin-top:10px"><button id="pdMore" class="pdmore"></button></div>
-    <p class="note" data-th="ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้แต่งดูจากลำดับชื่อ ผู้รับผิดชอบบทความแสดงเฉพาะเรื่องที่มีข้อมูล" data-en="Published bibliographic data from OpenAlex. Citation counts and h-index may differ from Scopus; see the Scopus profile for official figures. Author roles follow author order; corresponding authorship is shown only where recorded.">ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้แต่งดูจากลำดับชื่อ ผู้รับผิดชอบบทความแสดงเฉพาะเรื่องที่มีข้อมูล</p>
+    <p class="note" data-th="ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้ประพันธ์: ชื่อแรกเป็นผู้ประพันธ์อันดับแรก ชื่อสุดท้ายเป็นผู้ประพันธ์บรรณกิจ" data-en="Published bibliographic data from OpenAlex. Citation counts and h-index may differ from Scopus; see the Scopus profile for official figures. Roles: first-listed = first author; last-listed = corresponding author.">ข้อมูลบรรณานุกรมที่เผยแพร่แล้วจาก OpenAlex จำนวนการอ้างอิงและ h-index อาจต่างจาก Scopus ตัวเลขทางการให้ดูที่โปรไฟล์ Scopus บทบาทผู้แต่งดูจากลำดับชื่อ ผู้รับผิดชอบบทความแสดงเฉพาะเรื่องที่มีข้อมูล</p>
   </div>
 
   <div class="section">
@@ -178,7 +178,7 @@ setLang(new URLSearchParams(location.search).get('lang')==='en'?'en':'th');
 (function(){
 const FTH={"Business, Management and Accounting":"บริหารธุรกิจ การจัดการ และการบัญชี","Health Professions":"วิชาชีพด้านสุขภาพ","Computer Science":"วิทยาการคอมพิวเตอร์","Economics, Econometrics and Finance":"เศรษฐศาสตร์และการเงิน","Decision Sciences":"วิทยาการตัดสินใจ","Engineering":"วิศวกรรมศาสตร์","Social Sciences":"สังคมศาสตร์","Psychology":"จิตวิทยา","Medicine":"แพทยศาสตร์","Mathematics":"คณิตศาสตร์","Arts and Humanities":"ศิลปศาสตร์และมนุษยศาสตร์","Environmental Science":"วิทยาศาสตร์สิ่งแวดล้อม","Agricultural and Biological Sciences":"เกษตรศาสตร์และชีววิทยา","ไม่ระบุสาขา":"ไม่ระบุสาขา"};
 const TEN={"บทความวารสาร":"Journal article","บทความปริทัศน์":"Review","บทในหนังสือ":"Book chapter","หนังสือ":"Book","บทความการประชุม":"Conference paper","ต้นฉบับก่อนตีพิมพ์":"Preprint","ชุดข้อมูล":"Dataset","ซอฟต์แวร์และโค้ด":"Software"};
-const RL={first:["ผู้แต่งลำดับแรก","First author"],corr:["ผู้รับผิดชอบบทความ","Corresponding"],last:["ผู้แต่งลำดับสุดท้าย","Last author"],co:["ผู้แต่งร่วม","Co-author"]};
+const RL={first:["ผู้ประพันธ์อันดับแรก","First author"],corr:["ผู้ประพันธ์บรรณกิจ","Corresponding author"],co:["ผู้ร่วมประพันธ์","Co-author"]};
 let D=null,fy=null,ff=null,more=false;
 const en=()=>document.documentElement.dataset.lang==="en";
 const T=(th,e)=>en()?e:th;
@@ -189,7 +189,7 @@ function rows(){const q=$("pdQ").value.trim().toLowerCase(),t=$("pdType").value;
 function render(){if(!D)return;const S=D.summary,P=D.profile;
   $("pdSrc").innerHTML=T("ข้อมูลจาก ","Data: ")+esc(D.source)+T(" · ซิงก์ล่าสุด "," · last synced ")+esc(D.synced)+" · "+
     [["Scopus","https://www.scopus.com/authid/detail.uri?authorId="+P.scopus],["ORCID","https://orcid.org/"+P.orcid],["OpenAlex",P.openalex],P.scholar?["Google Scholar",P.scholar]:null].filter(Boolean).map(x=>'<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+"</a>").join(" · ");
-  const st=[[S.works,T("ผลงานทั้งหมด","publications")],[S.cites,T("การอ้างอิงรวม","citations")],[S.h,"h-index"],[D.works.filter(w=>w.role!=="co").length,T("ผู้แต่งลำดับแรกหรือลำดับสุดท้าย","first or last author")]];
+  const st=[[S.works,T("ผลงานทั้งหมด","publications")],[S.cites,T("การอ้างอิงรวม","citations")],[S.h,"h-index"],[D.works.filter(w=>w.role!=="co").length,T("ผู้ประพันธ์อันดับแรกหรือบรรณกิจ","first or corresponding author")]];
   $("pdStats").innerHTML=st.map((x,i)=>'<div class="stat"><div class="n'+(i===2?" gold":"")+'">'+(x[0]??"–")+'</div><div class="l">'+x[1]+"</div></div>").join("");
   const ys={};D.works.forEach(w=>{if(w.year)ys[w.year]=(ys[w.year]||0)+1;});const yk=Object.keys(ys).map(Number);const y0=Math.min(...yk),y1=Math.max(...yk),mx=Math.max(...Object.values(ys));
   const from=Math.max(y0,y1-11);let yh="";for(let y=from;y<=y1;y++){const n=ys[y]||0;yh+='<button class="'+(fy===y?"on":fy?"dim":"")+'" data-y="'+y+'" aria-label="'+y+": "+n+'"><div class="bar" style="height:'+(n/mx*100)+'%">'+(n?"<span>"+n+"</span>":"")+'</div><div class="yl">'+(en()?y:y+543)+"</div></button>";}
