@@ -153,13 +153,13 @@ h4.grpH{font-size:15px;color:var(--navy);margin:14px 0 4px}
 
 footer.foot{text-align:center;font-size:13px;color:var(--mute);padding:18px 16px 28px;border-top:1px solid var(--line);line-height:1.8}
 footer.foot a{color:var(--blue)}
-@media(max-width:860px){
+@media screen and (max-width:860px){   /* เฉพาะหน้าจอ: ตอนพิมพ์ต้องคงรูปแคนวาส 9 ช่อง */
   .bmc{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
   .b-kp,.b-ka,.b-kr,.b-vp,.b-cr,.b-ch,.b-cs,.b-cost,.b-rev{grid-column:auto!important;grid-row:auto!important;min-height:120px}
   .b-cost,.b-rev{grid-column:1/-1!important}
   header.top h1{font-size:20px}
 }
-@media(max-width:560px){.bmc{grid-template-columns:1fr}#content{padding:16px 12px 60px}}
+@media screen and (max-width:560px){.bmc{grid-template-columns:1fr}#content{padding:16px 12px 60px}}
 /* ===== โหมด PDF แคนวาส =====
    สร้างหน้าพิมพ์แยกใน #printArea: ① แคนวาสสะอาดมีรหัสไอเท็ม ② หนึ่งหน้าต่อกลุ่มลูกค้า (เฉพาะเส้นในสายนั้น)
    ③ ตารางเส้นเชื่อม ④ รายงาน · ล็อกความกว้างเท่า A4 แนวนอนแล้ววาดเส้นใหม่ เส้นจึงตรงตำแหน่ง */
@@ -1015,9 +1015,9 @@ document.getElementById('btnPdf').onclick=()=>{
   const head=sub=>`<div class="phead"><span><b>${esc(st.title||'Business Model Canvas')}</b> · ${sub}</span><span>${date} · BMC Studio · © อ.ดร.วราวุฒิ นาคบุญนำ</span></div>`;
   const L=st.links.filter(l=>l.s>0&&item(l.a)&&item(l.b));
   const cs=itemsOf('cs');
-  let h=`<div class="ppage">${head('Business Model Canvas')}<div class="pwrap">${printGrid(null)}<svg></svg></div><p class="q" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · Strategyzer.com · CC BY-SA 3.0 · รหัสไอเท็ม (เช่น VP1) ใช้อ้างอิงกับตารางเส้นเชื่อม · หน้าถัดไปแสดงเส้นเชื่อมแยกตามสายของกลุ่มลูกค้า</p></div>`;
+  let h=`<div class="ppage">${head('Business Model Canvas')}<div class="pwrap">${printGrid(null)}<svg></svg></div><div class="cv-attr">The Business Model Canvas · Designed by Strategyzer AG · strategyzer.com · licensed under CC BY-SA 3.0 (creativecommons.org/licenses/by-sa/3.0) · Thai adaptation by Warawut Narkbunnum · ฉบับภาษาไทยดัดแปลงโดย อ.ดร.วราวุฒิ นาคบุญนำ</div><p class="q" style="margin-top:6px">รหัสไอเท็ม (เช่น VP1) ใช้อ้างอิงกับตารางเส้นเชื่อม · หน้าถัดไปแสดงเส้นเชื่อมแยกตามสายของกลุ่มลูกค้า</p></div>`;
   const segPages=cs.map(c=>{const M=segMembers(c.id);return {c,M,links:L.filter(l=>M.has(l.a)&&M.has(l.b))};});
-  segPages.forEach((p,k)=>{h+=`<div class="ppage" data-seg="${k}">${head('สายของกลุ่มลูกค้า')}<p class="psub"><b>${codeOf(p.c.id)} ${esc(p.c.t)}</b> — ไอเท็มที่จางคือไม่อยู่ในสายของกลุ่มนี้ · เส้นหนา = ระดับความสอดคล้องสูง (${p.links.length} เส้น)</p><div class="pwrap">${printGrid(p.M)}<svg></svg></div><p class="q" style="margin-top:6px">Business Model Canvas โดย Strategyzer AG · Strategyzer.com · CC BY-SA 3.0</p></div>`;});
+  segPages.forEach((p,k)=>{h+=`<div class="ppage" data-seg="${k}">${head('สายของกลุ่มลูกค้า')}<p class="psub"><b>${codeOf(p.c.id)} ${esc(p.c.t)}</b> — ไอเท็มที่จางคือไม่อยู่ในสายของกลุ่มนี้ · เส้นหนา = ระดับความสอดคล้องสูง (${p.links.length} เส้น)</p><div class="pwrap">${printGrid(p.M)}<svg></svg></div><div class="cv-attr">The Business Model Canvas · Designed by Strategyzer AG · strategyzer.com · licensed under CC BY-SA 3.0 (creativecommons.org/licenses/by-sa/3.0) · Thai adaptation by Warawut Narkbunnum · ฉบับภาษาไทยดัดแปลงโดย อ.ดร.วราวุฒิ นาคบุญนำ</div></div>`;});
   const rows=PAIRS.map((pr,pi)=>L.filter(l=>pairOf(item(l.a).b,item(l.b).b)===pi).map(l=>{const a=item(l.a).b===pr[0]?l.a:l.b,b=a===l.a?l.b:l.a;
     return `<tr><td>${codeOf(a)} ${esc(item(a).t)}</td><td>${codeOf(b)} ${esc(item(b).t)}</td><td class="sc">${l.s}</td></tr>`;}).join('')).join('');
   h+=`<div class="ppage">${head('ตารางเส้นเชื่อม')}<p class="psub">ทั้งหมด ${L.length} เส้น · ระดับ 1 = อ่อน · 2 = ชัด · 3 = แกนหลัก</p><div class="plkcols"><table class="plk"><tr><th>ไอเท็ม</th><th>เชื่อมกับ</th><th>ระดับ</th></tr>${rows||'<tr><td colspan="3">ยังไม่มีเส้นเชื่อม</td></tr>'}</table></div></div>`;
