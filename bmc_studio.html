@@ -245,7 +245,7 @@ table.plk td.sc{text-align:center;font-weight:700;width:46px}
   <div class="canvasWrap" id="cwrap">
     <div class="bmc" id="bmc"></div>
     <svg id="lines"></svg>
-    <div class="cv-attr">The Business Model Canvas · Designed by Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">strategyzer.com</a> · licensed under CC BY-SA 3.0 (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">creativecommons.org/licenses/by-sa/3.0</a>) · ฉบับภาษาไทยดัดแปลงโดย อ.ดร.วราวุฒิ นาคบุญนำ</div>
+    <div class="cv-attr">The Business Model Canvas · Designed by Strategyzer AG · <a href="https://www.strategyzer.com" target="_blank" rel="noopener">strategyzer.com</a> · licensed under CC BY-SA 3.0 (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">creativecommons.org/licenses/by-sa/3.0</a>) · Thai adaptation by Warawut Narkbunnum · ฉบับภาษาไทยดัดแปลงโดย อ.ดร.วราวุฒิ นาคบุญนำ</div>
   </div>
   <div class="legend" id="legend"></div>
   <div class="detail" id="detail"></div>
@@ -975,7 +975,7 @@ async function importDocx(f){
   }
   const got={};ORDER.forEach(b=>got[b]=[]);let cur=null,skipped=0,seen=0;
   lines.forEach(l=>{
-    if(/^\s*(©|\(c\)|copyright)/i.test(l)){cur=null;return;} /* บรรทัดลิขสิทธิ์/เครดิต ไม่ใช่ไอเท็ม */
+    if(/^\s*(©|\(c\)|copyright)/i.test(l)||/strategyzer\.com|creativecommons\.org|ฉบับภาษาไทยดัดแปลง/i.test(l)){cur=null;return;} /* บรรทัดลิขสิทธิ์/เครดิตใต้แคนวาส ไม่ใช่ไอเท็ม */
     const lb=labelOf(l);
     if(lb){cur=lb[0];seen++;if(lb[1])got[cur].push(lb[1]);return;}
     const c=clean(l);if(!c)return;
