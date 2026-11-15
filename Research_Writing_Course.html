@@ -419,5 +419,65 @@ go(0);document.querySelectorAll('.wfmap').forEach(function(m){wfRender(m,0)});
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- gc-visitcount -->
 <script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#5C6B7A;padding:8px 0 12px;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+<!-- present-kit v1 start -->
+<style>
+#toolbar,#menuToggle{transition:opacity .3s}
+body.pk-idle #toolbar,body.pk-idle #menuToggle{opacity:0;pointer-events:none}
+body.pk-idle{cursor:none}
+</style>
+<script>
+(function(){
+  var fsb=document.getElementById('fs-btn'),pjb=document.getElementById('proj-btn');
+  if(!fsb||!pjb)return;
+  var auto=false,idt=null;
+  function isFs(){return !!document.fullscreenElement;}
+  function isProj(){return document.body.classList.contains('projector');}
+  function zf(){
+    var z=1;['content','main'].forEach(function(id){var e=document.getElementById(id);var v=e&&parseFloat(e.style.zoom);if(v>0)z*=v;});
+    return z;
+  }
+  function fit(){
+    var on=isProj(),w=Math.round(window.innerWidth*0.9/zf());
+    document.querySelectorAll('.wrap').forEach(function(e){e.style.maxWidth=on?w+'px':'';});
+  }
+  function wake(){
+    document.body.classList.remove('pk-idle');clearTimeout(idt);
+    if(isFs())idt=setTimeout(function(){document.body.classList.add('pk-idle');},2500);
+  }
+  function label(){
+    var on=isFs();fsb.innerHTML=on?'⛶ ออกจากเต็มจอ':'⛶ เต็มจอ';fsb.classList.toggle('on',on);
+  }
+  document.addEventListener('fullscreenchange',function(){
+    if(isFs()){if(!isProj()){pjb.click();auto=true;}}
+    else{if(auto&&isProj())pjb.click();auto=false;}
+    if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+    label();fit();wake();
+  });
+  document.addEventListener('mousemove',wake);
+  document.addEventListener('touchstart',wake);
+  window.addEventListener('resize',fit);
+  ['proj-btn','fsz-up','fsz-down'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',function(){setTimeout(fit,0);});});
+  function scroller(){
+    var m=document.getElementById('main');
+    if(m&&m.scrollHeight>m.clientHeight+2&&getComputedStyle(m).overflowY!=='visible')return m;
+    return document.scrollingElement||document.documentElement;
+  }
+  document.addEventListener('keydown',function(e){
+    var t=e.target||{},tg=t.tagName;
+    if(tg==='INPUT'||tg==='TEXTAREA'||tg==='SELECT'||t.isContentEditable)return;
+    if(e.ctrlKey||e.metaKey||e.altKey)return;
+    if(e.key==='f'||e.key==='F'){e.preventDefault();fsb.click();return;}
+    if(!isFs()&&!isProj())return;
+    var k=e.key,dn=(k==='PageDown'||(k===' '&&!e.shiftKey)),up=(k==='PageUp'||(k===' '&&e.shiftKey));
+    if(!dn&&!up)return;
+    e.preventDefault();wake();
+    var s=scroller(),step=Math.round(s.clientHeight*0.85);
+    if(dn){if(s.scrollTop+s.clientHeight<s.scrollHeight-4)s.scrollTop+=step;else go(cur+1);}
+    else{if(s.scrollTop>4)s.scrollTop=Math.max(0,s.scrollTop-step);else go(cur-1);}
+  });
+  label();
+})();
+</script>
+<!-- present-kit v1 end -->
 </body>
 </html>
