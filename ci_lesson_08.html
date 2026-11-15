@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 8 การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี · วิชา 0903464</title>
+<meta name="description" content="บทเรียนบทที่ 8 วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ci_0903464.html">วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ci_0903464.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 8</div><a href="#x6">ความนำ</a><a href="#s-8-1">8.1 โอกาสทางนวัตกรรมที่เกิดจากเทคโนโลยี</a><a href="#s-8-2">8.2 ระดับความพร้อมของเทคโนโลยี</a><a href="#s-8-3">8.3 การประเมินโอกาสทางตลาด</a><a href="#s-8-4">8.4 การประเมินความเสี่ยงของนวัตกรรม</a><a href="#s-8-5">8.5 การพิจารณาไปต่อ ปรับ หรือหยุด</a><a href="#s-8-6">8.6 การรวมเป็นแผนพัฒนาเชิงพาณิชย์ฉบับสมบูรณ์</a><a href="#s-8-7">8.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-8-8">8.8 ข้อผิดพลาดที่พบบ่อยในการประเมินโอกาสทางนวัตกรรม</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: งานกลุ่มครั้งที่ 3 แผนพัฒนาเชิงพาณิชย์ของนวัตกรรมและรายงานฉบับสมบูรณ์</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ</div>
+<h1>บทที่ 8 การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>13–14</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (31 สไลด์)</button><a class="btn line" href="ci/files/ci_0903464_บทที่08_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 งานกลุ่มครั้งที่ 3</a><a class="btn line" href="researcher_commercialization_playbook.html">📘 Commercialization Playbook (อ่านเพิ่มเติม)</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความแตกต่างระหว่างนวัตกรรมที่เริ่มจากเทคโนโลยีกับนวัตกรรมที่เริ่มจากความต้องการของตลาดได้</li><li>ระบุระดับความพร้อมของเทคโนโลยีของนวัตกรรมของกลุ่มพร้อมหลักฐานได้</li><li>คำนวณขนาดตลาดแบบจากล่างขึ้นบนจากข้อมูลที่มีที่มาได้</li><li>จำแนกความเสี่ยงของนวัตกรรม 5 ด้าน และคำนวณคะแนนความเสี่ยงจากโอกาสเกิดและผลกระทบได้</li><li>อธิบายเกณฑ์การพิจารณาไปต่อ ปรับ หรือหยุด และใช้เกณฑ์นั้นกับนวัตกรรมของกลุ่มได้</li><li>ใช้โครงแผนพัฒนาเชิงพาณิชย์และรูบริกที่ 3 ระบุส่วนที่ยังขาดในรายงานฉบับสมบูรณ์ของกลุ่มได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 7 ให้กลุ่มเขียนโมเดลธุรกิจ เลือกช่องทางเข้าสู่ตลาด และคำนวณราคา ผลงานเหล่านี้ตอบว่านวัตกรรม "จะ" ออกสู่ตลาดอย่างไร แต่ยังไม่ได้ตอบว่า "ควร" ออกสู่ตลาดหรือไม่ คำถามนี้ต้องดูหลายด้านพร้อมกัน ทั้งเทคโนโลยีพร้อมเพียงใด ตลาดใหญ่พอหรือไม่ และมีความเสี่ยงอะไรที่อาจทำให้ล้มเหลว</p>
+<p class="lead">บทนี้เริ่มจากมุมมองว่าโอกาสทางนวัตกรรมเกิดจากเทคโนโลยีได้อย่างไร แล้วอธิบายเครื่องมือประเมิน 3 ชุด คือ ระดับความพร้อมของเทคโนโลยี การประเมินโอกาสทางตลาด และการประเมินความเสี่ยง จากนั้นอธิบายการพิจารณาไปต่อ ปรับ หรือหยุด และการรวมผลงานทั้งภาคเรียนเป็นแผนพัฒนาเชิงพาณิชย์ฉบับสมบูรณ์</p>
+<p class="lead">บทนี้เป็นบทสุดท้ายของเนื้อหา และเป็นฐานของงานกลุ่มครั้งที่ 3 ซึ่งมีน้ำหนักร้อยละ 25 ของคะแนนรายวิชา รูบริกที่ 3 ให้น้ำหนักการประเมินโอกาสทางนวัตกรรมร้อยละ 20 และกำหนดว่าระดับสูงสุดต้องใช้กรอบการประเมินที่เรียน เช่น ระดับความพร้อมของเทคโนโลยี ขนาดตลาด และคู่แข่ง พร้อมข้อมูลที่มีที่มา เนื้อหาในหัวข้อ 8.2 ถึง 8.4 จึงเป็นสิ่งที่กลุ่มต้องใช้โดยตรง</p>
+<h2 id="s-8-1">8.1 โอกาสทางนวัตกรรมที่เกิดจากเทคโนโลยี</h2>
+<h3 id="s-8-1-1">8.1.1 เทคโนโลยีผลักกับตลาดดึง</h3>
+<p>นวัตกรรมเริ่มต้นได้จาก 2 ทาง ทางแรกคือ <strong>เทคโนโลยีผลัก (Technology push)</strong> หมายถึงนวัตกรรมที่เริ่มจากความรู้หรือเทคโนโลยีใหม่ แล้วจึงหาว่าใช้แก้ปัญหาอะไรได้ ทางที่สองคือ <strong>ตลาดดึง (Market pull หรือ Demand pull)</strong> หมายถึงนวัตกรรมที่เริ่มจากความต้องการหรือปัญหาของลูกค้า แล้วจึงหาเทคโนโลยีมาตอบ กระบวนการคิดเชิงออกแบบในบทที่ 3 เป็นแนวทางแบบตลาดดึง เพราะเริ่มจากปัญหาของผู้ใช้ ส่วนผลงานวิจัยของมหาวิทยาลัยในบทที่ 6 มักเป็นแบบเทคโนโลยีผลัก ตารางที่ 8.1 เปรียบเทียบทั้งสองทาง</p>
+<p class="tcap"><b>ตารางที่ 8.1</b> เทคโนโลยีผลักกับตลาดดึง</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>เทคโนโลยีผลัก</th><th>ตลาดดึง</th></tr></thead><tbody><tr><td>จุดเริ่มต้น</td><td>ความรู้หรือเทคโนโลยีใหม่</td><td>ปัญหาหรือความต้องการของลูกค้า</td></tr><tr><td>คำถามแรก</td><td>เทคโนโลยีนี้ใช้ทำอะไรได้บ้าง</td><td>ลูกค้ามีปัญหาอะไรที่ยังไม่มีใครแก้ได้ดี</td></tr><tr><td>จุดแข็ง</td><td>สร้างสิ่งที่ตลาดยังนึกไม่ถึง และเลียนแบบได้ยาก</td><td>ตรงกับความต้องการจริง ขายได้ง่ายกว่า</td></tr><tr><td>ความเสี่ยงหลัก</td><td>ไม่มีลูกค้าที่ต้องการจริง</td><td>ได้นวัตกรรมที่เลียนแบบได้ง่าย</td></tr><tr><td>ตัวอย่าง</td><td>นักวิจัยพัฒนาวัสดุเคลือบผิวใหม่ แล้วหาว่าใช้กับสินค้าใด</td><td>ร้านค้าพบว่าลูกค้ารอคิวนาน จึงหาระบบจองคิว</td></tr></tbody></table></div>
+<p>Di Stefano และคณะ (2012) ทบทวนงานวิจัยด้านนวัตกรรมที่ศึกษาสองแนวคิดนี้ และสรุปว่าแนวคิดทั้งสองไม่ได้ขัดกัน นวัตกรรมเกิดจากการเชื่อมความสามารถทางเทคโนโลยีเข้ากับความต้องการของตลาด ข้อสรุปเชิงปฏิบัติคือ กลุ่มที่เริ่มจากปัญหาของผู้ใช้ควรถามต่อว่ามีเทคโนโลยีใดที่ทำให้แก้ปัญหาได้ดีกว่าหรือถูกกว่าเดิม ส่วนกลุ่มที่เริ่มจากเทคโนโลยีต้องหาหลักฐานว่ามีผู้ใช้ที่มีปัญหาจริง ด้วยวิธีในบทที่ 3 และ 4</p>
+<h3 id="s-8-1-2">8.1.2 แหล่งของโอกาสจากเทคโนโลยี</h3>
+<p>โอกาสทางนวัตกรรมจากเทคโนโลยีไม่ได้มาจากเทคโนโลยีที่ใหม่ที่สุดเสมอไป สำหรับธุรกิจขนาดเล็กและนวัตกรรมของนิสิต โอกาสมักมาจากเทคโนโลยีที่มีอยู่แล้วแต่เพิ่งถูกลงหรือใช้ง่ายขึ้น ตารางที่ 8.2 สรุปแหล่งของโอกาสที่พบบ่อย</p>
+<p class="tcap"><b>ตารางที่ 8.2</b> แหล่งของโอกาสทางนวัตกรรมจากเทคโนโลยี</p>
+<div class="tablewrap"><table><thead><tr><th>แหล่งของโอกาส</th><th>ความหมาย</th><th>ตัวอย่าง (กรณีสมมติเพื่อการสอน)</th></tr></thead><tbody><tr><td>เทคโนโลยีที่ราคาลดลง</td><td>สิ่งที่เคยแพงเกินกว่าธุรกิจขนาดเล็กจะใช้ได้ เริ่มมีราคาที่รับได้</td><td>ร้านอาหารใช้เซนเซอร์วัดอุณหภูมิตู้แช่ราคาไม่แพง แจ้งเตือนผ่านโทรศัพท์</td></tr><tr><td>เทคโนโลยีที่ใช้ง่ายขึ้น</td><td>เครื่องมือที่เคยต้องใช้ผู้เชี่ยวชาญ คนทั่วไปใช้ได้</td><td>ร้านค้าทำแบบฟอร์มสั่งสินค้าออนไลน์เองโดยไม่ต้องเขียนโปรแกรม</td></tr><tr><td>เทคโนโลยีจากอุตสาหกรรมอื่น</td><td>นำวิธีที่ใช้ในอุตสาหกรรมหนึ่งไปใช้อีกอุตสาหกรรม</td><td>นำระบบติดตามพัสดุมาใช้ติดตามผ้าที่ส่งซัก</td></tr><tr><td>สิทธิบัตรที่หมดอายุ</td><td>การประดิษฐ์ที่ใครก็ใช้ได้แล้ว (บทที่ 6)</td><td>ปรับกลไกจากสิทธิบัตรเก่าให้เหมาะกับผลิตภัณฑ์ชุมชน</td></tr><tr><td>ผลงานวิจัยที่ยังไม่มีผู้นำไปใช้</td><td>เทคโนโลยีในมหาวิทยาลัยที่พร้อมถ่ายโอน (บทที่ 6)</td><td>วิสาหกิจชุมชนขออนุญาตใช้วิธียืดอายุอาหาร</td></tr><tr><td>แพลตฟอร์มดิจิทัลที่มีผู้ใช้จำนวนมาก</td><td>ใช้แพลตฟอร์มที่ลูกค้าใช้อยู่แล้วเป็นช่องทาง</td><td>ส่งรหัสผ่านแอปพลิเคชันส่งข้อความที่ผู้ใช้มีอยู่</td></tr></tbody></table></div>
+<h3 id="s-8-1-3">8.1.3 คำถามสำหรับแปลงเทคโนโลยีเป็นโอกาส</h3>
+<p>เทคโนโลยีจะเป็นโอกาสทางนวัตกรรมได้ ต้องผ่านคำถามอย่างน้อย 4 ข้อ ข้อแรก เทคโนโลยีนี้ทำอะไรได้ดีกว่าวิธีเดิม เช่น เร็วกว่า ถูกกว่า หรือแม่นยำกว่า ข้อที่สอง ใครได้ประโยชน์จากความดีกว่านั้นมากที่สุด ข้อที่สาม ผู้ได้ประโยชน์ยอมจ่ายเงินหรือเปลี่ยนพฤติกรรมเพื่อสิ่งนี้หรือไม่ และข้อที่สี่ ทีมเข้าถึงเทคโนโลยีนี้ได้หรือไม่ เช่น ซื้อได้ ขออนุญาตใช้ได้ หรือพัฒนาเองได้ ถ้าตอบข้อที่สามไม่ได้ เทคโนโลยีนั้นยังเป็นเพียงความเป็นไปได้ ไม่ใช่โอกาส หัวข้อ 8.2 ถึง 8.4 เป็นเครื่องมือสำหรับตอบคำถามเหล่านี้อย่างเป็นระบบ</p>
+<h2 id="s-8-2">8.2 ระดับความพร้อมของเทคโนโลยี</h2>
+<h3 id="s-8-2-1">8.2.1 ความหมายและที่มา</h3>
+<p><strong>ระดับความพร้อมของเทคโนโลยี (Technology Readiness Level หรือ TRL)</strong> คือมาตรวัดความพร้อมของเทคโนโลยีหนึ่ง ๆ แบ่งเป็น 9 ระดับ ระดับ 1 ต่ำสุด และระดับ 9 สูงสุด องค์การบริหารการบินและอวกาศแห่งชาติของสหรัฐอเมริกา (NASA) อธิบายว่าโครงการเทคโนโลยีแต่ละโครงการจะถูกประเมินเทียบกับเกณฑ์ของแต่ละระดับ แล้วกำหนดระดับตามความก้าวหน้าของโครงการ (National Aeronautics and Space Administration [NASA], 2023) Mankins (2009) ทบทวนความเป็นมาของมาตรวัดนี้ ซึ่งพัฒนาขึ้นที่ NASA และต่อมามีหน่วยงานอื่นนำไปใช้ในการประเมินเทคโนโลยีอย่างแพร่หลาย</p>
+<p>ประโยชน์ของ TRL คือทำให้คนที่มีพื้นฐานต่างกัน เช่น นักวิจัย นักลงทุน และผู้ให้ทุน ใช้ภาษาเดียวกันเมื่อพูดถึงความพร้อมของเทคโนโลยี และช่วยให้เห็นว่าเทคโนโลยียังต้องผ่านขั้นใดอีกบ้างก่อนนำไปใช้จริง</p>
+<h3 id="s-8-2-2">8.2.2 ระดับทั้ง 9 ระดับ</h3>
+<p>ตารางที่ 8.3 สรุปความหมายของแต่ละระดับตามคำอธิบายของ NASA (2023) ในคอลัมน์ที่สอง คอลัมน์ที่สามเป็นถ้อยคำที่ผู้เขียนปรับสำหรับนวัตกรรมทางธุรกิจเพื่อใช้ในการสอน ไม่ใช่นิยามทางการ เพราะนิยามของ NASA เขียนสำหรับเทคโนโลยีอวกาศ เช่น ระดับ 7 ถึง 9 อ้างถึงการทดสอบในสภาพแวดล้อมอวกาศและภารกิจการบิน</p>
+<p class="tcap"><b>ตารางที่ 8.3</b> ระดับความพร้อมของเทคโนโลยี 9 ระดับ</p>
+<div class="tablewrap"><table><thead><tr><th>ระดับ</th><th>ความหมายตามคำอธิบายของ NASA</th><th>ถ้อยคำปรับสำหรับนวัตกรรมทางธุรกิจ (เพื่อการสอน)</th></tr></thead><tbody><tr><td>1</td><td>เริ่มการวิจัยทางวิทยาศาสตร์ และแปลผลไปสู่การวิจัยและพัฒนาในอนาคต</td><td>มีความรู้หรือหลักการพื้นฐานที่อาจนำมาใช้ได้</td></tr><tr><td>2</td><td>ศึกษาหลักการพื้นฐานแล้ว และเริ่มคิดการประยุกต์ใช้ ยังแทบไม่มีหลักฐานจากการทดลอง</td><td>มีแนวคิดว่าจะนำหลักการไปใช้แก้ปัญหาอะไร แต่ยังไม่ได้ลอง</td></tr><tr><td>3</td><td>เริ่มวิจัยและออกแบบอย่างจริงจัง ศึกษาเชิงวิเคราะห์และในห้องปฏิบัติการ มักสร้างแบบจำลองพิสูจน์แนวคิด</td><td>ทำต้นแบบพิสูจน์แนวคิด แสดงว่าหลักการใช้ได้</td></tr><tr><td>4</td><td>ทดสอบชิ้นส่วนหลายชิ้นร่วมกัน</td><td>ประกอบส่วนสำคัญเข้าด้วยกันและทดสอบในสถานที่ของทีม</td></tr><tr><td>5</td><td>ทดสอบเข้มข้นกว่าระดับ 4 ในสภาพที่ใกล้เคียงสภาพจริงมากที่สุด</td><td>ทดสอบกับผู้ใช้ในสถานการณ์ที่ใกล้เคียงการใช้จริง</td></tr><tr><td>6</td><td>มีต้นแบบหรือแบบจำลองที่ทำงานได้ครบทุกหน้าที่</td><td>ต้นแบบทำงานได้ครบทุกหน้าที่ และทดสอบกับผู้ใช้จริงแล้ว</td></tr><tr><td>7</td><td>สาธิตต้นแบบที่ทำงานได้ในสภาพแวดล้อมจริงของการใช้งาน (สำหรับ NASA คืออวกาศ)</td><td>ทดลองให้บริการหรือขายจริงในพื้นที่เล็ก</td></tr><tr><td>8</td><td>ทดสอบและรับรองแล้ว พร้อมนำไปใช้ในระบบที่มีอยู่</td><td>ผ่านข้อกำหนดและมาตรฐานที่เกี่ยวข้อง พร้อมผลิตหรือให้บริการในขนาดใหญ่ขึ้น</td></tr><tr><td>9</td><td>ผ่านการใช้งานจริงในภารกิจที่สำเร็จแล้ว</td><td>ขายหรือให้บริการจริงต่อเนื่อง และมีลูกค้าที่ทีมไม่รู้จักมาก่อน</td></tr></tbody></table></div>
+<h3 id="s-8-2-3">8.2.3 การระบุระดับของนวัตกรรมของกลุ่ม</h3>
+<p>การระบุระดับ TRL ต้องมีหลักฐาน ไม่ใช่ความรู้สึกของทีม หลักการคือ นวัตกรรมอยู่ในระดับใดระดับหนึ่งก็ต่อเมื่อมีหลักฐานครบสำหรับระดับนั้น ถ้ามีหลักฐานบางส่วนของระดับที่สูงกว่า ให้ระบุระดับที่มีหลักฐานครบ แล้วบอกว่ากำลังดำเนินการในระดับถัดไป</p>
+<p>นวัตกรรมของกลุ่มส่วนใหญ่ที่ผ่านงานกลุ่มครั้งที่ 2 มาแล้วจะอยู่ระหว่างระดับ 4 ถึง 6 ตามถ้อยคำปรับในตารางที่ 8.3 เพราะมีต้นแบบและผลการทดสอบกับผู้ใช้ แต่ยังไม่ได้ขายจริง ตารางที่ 8.4 แสดงตัวอย่างการบันทึก</p>
+<p class="tcap"><b>ตารางที่ 8.4</b> ตัวอย่างการระบุระดับความพร้อมของเทคโนโลยี (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วนของนวัตกรรม</th><th>ระดับที่มีหลักฐานครบ</th><th>หลักฐาน</th><th>สิ่งที่ต้องทำเพื่อขึ้นระดับถัดไป</th></tr></thead><tbody><tr><td>ตู้ล็อกและกลไกเปิดปิด</td><td>6</td><td>ใช้ตู้ที่มีขายในตลาด ทดสอบกับผู้ใช้ 10 คน 2 สัปดาห์</td><td>ทดลองให้บริการจริงที่หอพัก 1 แห่ง เก็บเงินจริง</td></tr><tr><td>ระบบส่งรหัสครั้งเดียว</td><td>5</td><td>ทีมส่งรหัสด้วยมือระหว่างทดสอบ ยังไม่เป็นระบบอัตโนมัติ</td><td>ทำระบบส่งรหัสอัตโนมัติและทดสอบกับผู้ใช้</td></tr><tr><td>การประสานงานกับร้านซักอบรีด</td><td>4</td><td>ร้าน 1 แห่งรับผ้าจากตู้ในช่วงทดสอบ</td><td>ทดสอบการรับส่ง 1 เดือนโดยไม่มีทีมช่วย</td></tr></tbody></table></div>
+<p>ตัวอย่างนี้แสดงว่านวัตกรรมหนึ่งชิ้นอาจมีหลายส่วนที่ความพร้อมไม่เท่ากัน ความพร้อมของนวัตกรรมทั้งชิ้นถูกจำกัดด้วยส่วนที่พร้อมน้อยที่สุด ในตัวอย่างคือการประสานงานกับร้าน ซึ่งไม่ใช่เทคโนโลยีด้วยซ้ำ ทีมจึงควรให้ความสำคัญกับส่วนนี้ก่อน</p>
+<h3 id="s-8-2-4">8.2.4 ข้อจำกัดของ TRL</h3>
+<p>TRL วัดความพร้อมของเทคโนโลยี ไม่ได้วัดความพร้อมของตลาดหรือธุรกิจ เทคโนโลยีที่อยู่ระดับ 9 อาจไม่มีลูกค้าก็ได้ ในทางกลับกัน บริการที่ใช้เทคโนโลยีธรรมดาซึ่งพร้อมใช้อยู่แล้ว อาจล้มเหลวเพราะไม่มีผู้ใช้ ด้วยเหตุนี้ รูบริกที่ 3 จึงกำหนดให้ประเมินทั้งความพร้อมของเทคโนโลยี ขนาดตลาด และคู่แข่ง ไม่ใช่ TRL อย่างเดียว นอกจากนี้ นวัตกรรมที่เป็นบริการหรือโมเดลธุรกิจ เช่น บริการรับฝากของในชุมชน อาจไม่มีเทคโนโลยีใหม่เลย กรณีนี้กลุ่มใช้ถ้อยคำปรับในตารางที่ 8.3 กับตัวบริการแทน และระบุให้ชัดว่าเป็นการปรับใช้</p>
+<h2 id="s-8-3">8.3 การประเมินโอกาสทางตลาด</h2>
+<p>การประเมินโอกาสทางตลาดตอบคำถามว่า ถ้าเทคโนโลยีพร้อม จะมีลูกค้ามากพอให้ธุรกิจอยู่ได้หรือไม่ ในรายวิชานี้แบ่งการประเมินเป็น 3 ส่วน ได้แก่ ขนาดตลาด ความพร้อมของลูกค้า และคู่แข่งกับทางเลือกเดิม</p>
+<h3 id="s-8-3-1">8.3.1 ขนาดตลาด</h3>
+<p>ขนาดตลาดประมาณได้ 2 วิธี วิธีแรกคือ <strong>การประมาณจากบนลงล่าง (Top-down)</strong> เริ่มจากตัวเลขของตลาดใหญ่ เช่น มูลค่าตลาดทั้งประเทศจากรายงาน แล้วคูณด้วยสัดส่วนที่เกี่ยวข้อง วิธีที่สองคือ <strong>การประมาณจากล่างขึ้นบน (Bottom-up)</strong> เริ่มจากหน่วยเล็กที่สุดที่ทีมรู้จริง เช่น จำนวนลูกค้าในพื้นที่ คูณด้วยสัดส่วนที่ซื้อ ความถี่ และราคา</p>
+<p>สำหรับนวัตกรรมของนิสิต วิธีจากล่างขึ้นบนเหมาะกว่า เพราะใช้ข้อมูลที่ทีมเก็บได้เองจากบทที่ 3 และ 4 และทำให้เห็นว่าตัวเลขแต่ละตัวมาจากไหน ส่วนวิธีจากบนลงล่างมักให้ตัวเลขที่ใหญ่เกินจริง เพราะสมมติว่าทีมจะได้ส่วนแบ่งจากตลาดทั้งประเทศ ซึ่งทีมเข้าถึงไม่ได้ ตารางที่ 8.5 แสดงตัวอย่างการคำนวณ</p>
+<p class="tcap"><b>ตารางที่ 8.5</b> ตัวอย่างการประมาณขนาดตลาดแบบจากล่างขึ้นบน (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>ตัวเลข</th><th>ที่มาของตัวเลข</th><th>ผลลัพธ์</th></tr></thead><tbody><tr><td>1. จำนวนห้องพักในพื้นที่</td><td>40 หอพัก × 80 ห้อง</td><td>นับจากการสำรวจพื้นที่รอบมหาวิทยาลัย</td><td>3,200 ห้อง</td></tr><tr><td>2. สัดส่วนที่มีปัญหาส่งผ้าไม่ทัน</td><td>ร้อยละ 30</td><td>ผลการสัมภาษณ์ในบทที่ 3</td><td>960 คน</td></tr><tr><td>3. สัดส่วนที่ยอมจ่าย</td><td>ร้อยละ 50</td><td>ผลการทดสอบในบทที่ 4</td><td>480 คน</td></tr><tr><td>4. การใช้ต่อคนต่อเดือน</td><td>4 ครั้ง × 20 บาท</td><td>ผลการทดสอบ และราคาในบทที่ 7</td><td>80 บาทต่อคนต่อเดือน</td></tr><tr><td>5. ตลาดที่เข้าถึงได้ต่อเดือน</td><td>480 × 80</td><td>คำนวณ</td><td>38,400 บาทต่อเดือน</td></tr><tr><td>6. ส่วนที่คาดว่าจะได้ในปีแรก</td><td>ร้อยละ 25 ของขั้นที่ 5</td><td>ทีมติดตั้งตู้ได้ 10 จาก 40 หอพัก</td><td>9,600 บาทต่อเดือน</td></tr></tbody></table></div>
+<p>ตัวเลขในขั้นที่ 6 คือรายได้ที่ทีมคาดว่าจะได้จริงในปีแรก ซึ่งเล็กกว่าขั้นที่ 5 มาก ตัวเลขนี้ต้องนำไปเทียบกับต้นทุนในบทที่ 7 ถ้าต้องติดตั้ง 10 ตู้ ราคาตู้ละ 24,000 บาท เงินลงทุนจะเป็น 240,000 บาท ซึ่งมากกว่ารายได้ต่อเดือนหลายเท่า ทีมจึงต้องคำนวณระยะเวลาคืนทุนใหม่ และพิจารณาว่าควรเริ่มด้วยจำนวนตู้น้อยกว่านี้หรือไม่</p>
+<p>ข้อสำคัญที่สุดของตารางนี้คือคอลัมน์ที่มาของตัวเลข รูบริกที่ 3 กำหนดว่าระดับสูงสุดต้องมีข้อมูลที่มีที่มา ตัวเลขที่ทีมคาดเดาเองต้องระบุว่าเป็นการคาดเดา และควรมีกรณีที่แย่กว่าที่คาดประกอบ เช่นเดียวกับการคำนวณในบทที่ 7</p>
+<h3 id="s-8-3-2">8.3.2 ความพร้อมของลูกค้า</h3>
+<p>ลูกค้าที่มีปัญหาอาจยังไม่พร้อมใช้นวัตกรรมก็ได้ ความพร้อมของลูกค้าดูได้จาก 3 ด้าน ด้านแรกคือลูกค้ารู้ตัวหรือไม่ว่ามีปัญหา ถ้าลูกค้าไม่รู้สึกว่าเป็นปัญหา ทีมต้องใช้ทรัพยากรมากในการสื่อสาร ด้านที่สองคือลูกค้าพยายามแก้ปัญหาเองอยู่แล้วหรือไม่ ถ้าพยายามอยู่ แปลว่าปัญหารุนแรงพอ ด้านที่สามคือลูกค้าต้องเปลี่ยนพฤติกรรมมากเพียงใดเพื่อใช้นวัตกรรม ยิ่งต้องเปลี่ยนมาก การยอมรับยิ่งช้า ตามคุณลักษณะของนวัตกรรมที่ Rogers (2003) อธิบายไว้และบทที่ 5 และ 7 ได้กล่าวถึงแล้ว</p>
+<h3 id="s-8-3-3">8.3.3 คู่แข่งและทางเลือกเดิม</h3>
+<p>นิสิตมักเขียนว่านวัตกรรมของกลุ่ม "ไม่มีคู่แข่ง" ซึ่งแทบไม่เคยเป็นจริง เพราะลูกค้าที่มีปัญหาย่อมมีวิธีจัดการกับปัญหาอยู่แล้ว แม้จะเป็นวิธีที่ไม่ดีนัก วิธีเหล่านี้เรียกว่า <strong>ทางเลือกเดิม (Existing alternatives)</strong> และเป็นคู่แข่งที่แท้จริงของนวัตกรรม ตารางที่ 8.6 แสดงการเปรียบเทียบนวัตกรรมกับทางเลือกเดิมและคู่แข่งโดยตรง</p>
+<p class="tcap"><b>ตารางที่ 8.6</b> ตัวอย่างการเปรียบเทียบกับคู่แข่งและทางเลือกเดิม (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>ทางเลือก</th><th>ราคาต่อครั้ง</th><th>ความสะดวกด้านเวลา</th><th>จุดอ่อน</th><th>ลูกค้าที่ยังเลือกทางนี้</th></tr></thead><tbody><tr><td>ไปส่งที่ร้านเองในวันหยุด</td><td>ค่าเดินทาง</td><td>ต้องรอวันหยุด</td><td>ผ้าค้างหลายวัน</td><td>ผู้ที่มีเวลาว่างวันหยุด</td></tr><tr><td>ฝากเพื่อนส่ง</td><td>ไม่มีค่าใช้จ่าย</td><td>ขึ้นกับเพื่อน</td><td>เกรงใจ ไม่แน่นอน</td><td>ผู้ที่มีเพื่อนกลับเร็ว</td></tr><tr><td>ร้านที่มีบริการรับส่งถึงห้อง</td><td>30 บาท</td><td>นัดเวลาได้</td><td>ต้องอยู่ห้องตอนรับส่ง</td><td>ผู้ที่อยู่ห้องเป็นเวลา</td></tr><tr><td>เครื่องซักผ้าหยอดเหรียญในหอพัก</td><td>ค่าซักต่อรอบ</td><td>ซักได้ทุกเวลา</td><td>ต้องซักและตากเอง</td><td>ผู้ที่มีเวลาและที่ตาก</td></tr><tr><td>บริการตู้รับผ้า</td><td>20 บาท</td><td>ฝากรับได้ตลอด 24 ชั่วโมง</td><td>ต้องมีตู้ในหอพักของตน</td><td>ผู้ที่กลับหลังร้านปิดและไม่อยากซักเอง</td></tr></tbody></table></div>
+<p>คอลัมน์สุดท้ายสำคัญที่สุด เพราะบอกว่าลูกค้ากลุ่มใดจะยังไม่เปลี่ยนมาใช้นวัตกรรม แม้นวัตกรรมจะดีกว่าในบางด้าน ตารางนี้ช่วยให้ทีมกำหนดกลุ่มผู้ใช้แรกได้แคบและชัดขึ้น ตามหลักในบทที่ 5</p>
+<h2 id="s-8-4">8.4 การประเมินความเสี่ยงของนวัตกรรม</h2>
+<h3 id="s-8-4-1">8.4.1 ความเสี่ยง 5 ด้าน</h3>
+<p>ความเสี่ยงของนวัตกรรมคือเหตุการณ์ที่อาจเกิดขึ้นและทำให้นวัตกรรมไม่สำเร็จตามแผน ในรายวิชานี้จำแนกความเสี่ยงเป็น 5 ด้าน ตามตารางที่ 8.7 การจำแนกนี้ช่วยให้ทีมไม่มองข้ามด้านที่ไม่คุ้นเคย เช่น ทีมที่ถนัดเทคโนโลยีมักมองข้ามความเสี่ยงด้านตลาด และทีมที่ถนัดการตลาดมักมองข้ามความเสี่ยงด้านเทคโนโลยี</p>
+<p class="tcap"><b>ตารางที่ 8.7</b> ความเสี่ยงของนวัตกรรม 5 ด้าน</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามหลัก</th><th>ตัวอย่างความเสี่ยง</th><th>หลักฐานที่ลดความไม่แน่นอน</th></tr></thead><tbody><tr><td>เทคโนโลยี</td><td>นวัตกรรมทำงานได้ตามที่ออกแบบทุกครั้งหรือไม่</td><td>ระบบส่งรหัสล่ม ผู้ใช้เปิดตู้ไม่ได้</td><td>ระดับ TRL และผลการทดสอบซ้ำ</td></tr><tr><td>ตลาด</td><td>มีลูกค้าจ่ายเงินมากพอหรือไม่</td><td>ผู้ใช้จริงน้อยกว่าที่คาด</td><td>การสั่งจองล่วงหน้า การทดลองขาย</td></tr><tr><td>การเงิน</td><td>รายได้พอกับต้นทุนก่อนเงินหมดหรือไม่</td><td>ต้นทุนติดตั้งสูงกว่าที่คาด คืนทุนช้า</td><td>การคำนวณหลายกรณี ใบเสนอราคาจริง</td></tr><tr><td>ทีมและการดำเนินงาน</td><td>ทีมและพันธมิตรทำงานตามแผนได้หรือไม่</td><td>สมาชิกจบการศึกษา ร้านพันธมิตรเลิกร่วมมือ</td><td>ข้อตกลงทีม ข้อตกลงกับพันธมิตร</td></tr><tr><td>กฎหมายและทรัพย์สินทางปัญญา</td><td>ทำได้ตามกฎหมายและไม่ละเมิดสิทธิผู้อื่นหรือไม่</td><td>ใช้ข้อมูลส่วนบุคคลของผู้ใช้โดยไม่ได้รับความยินยอม ชื่อบริการซ้ำกับเครื่องหมายการค้าที่จดไว้</td><td>ผลการสืบค้นในบทที่ 6 ความยินยอมตามบทที่ 3</td></tr></tbody></table></div>
+<h3 id="s-8-4-2">8.4.2 การให้คะแนนความเสี่ยง</h3>
+<p>เมื่อระบุความเสี่ยงได้แล้ว ทีมต้องรู้ว่าความเสี่ยงใดควรจัดการก่อน วิธีที่ใช้กันทั่วไปคือให้คะแนน 2 มิติ คือ <strong>โอกาสเกิด (Likelihood)</strong> และ <strong>ผลกระทบ (Impact)</strong> ในรายวิชานี้ใช้มาตรา 1 ถึง 3 ทั้งสองมิติ โดย 1 คือต่ำ 2 คือปานกลาง และ 3 คือสูง แล้วคูณกันเป็นคะแนนความเสี่ยง ซึ่งมีค่าตั้งแต่ 1 ถึง 9 ความเสี่ยงที่มีคะแนน 6 ขึ้นไปถือว่าสูง ต้องมีแผนรับมือก่อนเริ่มดำเนินการ ตารางที่ 8.8 แสดงตัวอย่าง</p>
+<p class="tcap"><b>ตารางที่ 8.8</b> ตัวอย่างการให้คะแนนความเสี่ยงและแผนรับมือ (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>ความเสี่ยง</th><th>ด้าน</th><th>โอกาสเกิด</th><th>ผลกระทบ</th><th>คะแนน</th><th>แผนรับมือ</th></tr></thead><tbody><tr><td>ผู้ใช้จริงน้อยกว่าที่คาดครึ่งหนึ่ง</td><td>ตลาด</td><td>2</td><td>3</td><td>6</td><td>ทดลองที่หอพัก 1 แห่งก่อนซื้อตู้เพิ่ม</td></tr><tr><td>ร้านพันธมิตรเลิกร่วมมือ</td><td>ทีมและการดำเนินงาน</td><td>2</td><td>3</td><td>6</td><td>ทำข้อตกลงเป็นหนังสือ และติดต่อร้านสำรอง 1 ร้าน</td></tr><tr><td>ระบบส่งรหัสล่ม</td><td>เทคโนโลยี</td><td>1</td><td>3</td><td>3</td><td>มีรหัสสำรองและเบอร์ติดต่อที่ตู้</td></tr><tr><td>ผ้าหายหรือเสียหายในตู้</td><td>การเงิน</td><td>1</td><td>2</td><td>2</td><td>กำหนดเงื่อนไขการรับผิดชอบให้ชัด</td></tr><tr><td>เก็บเบอร์โทรศัพท์ผู้ใช้โดยไม่แจ้งวัตถุประสงค์</td><td>กฎหมายและทรัพย์สินทางปัญญา</td><td>2</td><td>2</td><td>4</td><td>แจ้งวัตถุประสงค์และขอความยินยอมก่อนลงทะเบียน</td></tr></tbody></table></div>
+<p>ในตัวอย่าง ความเสี่ยงสูงสุด 2 ข้อไม่ใช่ด้านเทคโนโลยี แต่เป็นด้านตลาดและพันธมิตร ซึ่งสอดคล้องกับข้อสังเกตในหัวข้อ 8.2.3 ว่าส่วนที่พร้อมน้อยที่สุดของนวัตกรรมนี้คือการประสานงานกับร้าน การให้คะแนนเป็นการประมาณของทีม ไม่ใช่การวัดที่แม่นยำ ประโยชน์อยู่ที่การบังคับให้ทีมคุยกันว่าอะไรน่ากังวลที่สุด และระบุเหตุผลของคะแนนแต่ละข้อไว้ในรายงาน</p>
+<h2 id="s-8-5">8.5 การพิจารณาไปต่อ ปรับ หรือหยุด</h2>
+<h3 id="s-8-5-1">8.5.1 จุดตัดสินในกระบวนการพัฒนา</h3>
+<p>Cooper (1990) เสนอระบบ <strong>Stage-Gate</strong> สำหรับการพัฒนาผลิตภัณฑ์ใหม่ ระบบนี้แบ่งการพัฒนาเป็นขั้นตอน และคั่นแต่ละขั้นด้วยประตู ซึ่งเป็นจุดที่ผู้บริหารพิจารณาว่าจะให้โครงการไปต่อหรือหยุด โดยใช้เกณฑ์ที่กำหนดไว้ล่วงหน้า หลักคิดสำคัญคือ การหยุดโครงการที่ไม่มีอนาคตตั้งแต่ต้นช่วยประหยัดทรัพยากรไว้ให้โครงการที่ดีกว่า บทที่ 2 ได้อธิบายกระบวนการจัดการนวัตกรรมไว้แล้ว หัวข้อนี้เน้นจุดตัดสินท้ายภาคเรียน ซึ่งเป็นส่วนที่ 8 ของแผนพัฒนาเชิงพาณิชย์</p>
+<p>นอกจากไปต่อหรือหยุด ยังมีทางเลือกที่สาม คือ <strong>การปรับทิศทาง (Pivot)</strong> Ries (2011) ใช้คำนี้หมายถึงการเปลี่ยนแนวทางเพื่อทดสอบสมมติฐานพื้นฐานข้อใหม่ เมื่อหลักฐานแสดงว่าแนวทางเดิมไม่ได้ผล โดยยังใช้สิ่งที่เรียนรู้มาแล้ว ไม่ใช่เริ่มใหม่ทั้งหมด</p>
+<h3 id="s-8-5-2">8.5.2 เกณฑ์การพิจารณา</h3>
+<p>ตารางที่ 8.9 สรุปลักษณะของผลการประเมินที่มักนำไปสู่แต่ละทางเลือก เกณฑ์นี้ใช้ผลจากหัวข้อ 8.2 ถึง 8.4 ร่วมกัน ไม่ใช้ผลด้านใดด้านหนึ่งอย่างเดียว</p>
+<p class="tcap"><b>ตารางที่ 8.9</b> เกณฑ์การพิจารณาไปต่อ ปรับ หรือหยุด</p>
+<div class="tablewrap"><table><thead><tr><th>ทางเลือก</th><th>ลักษณะของผลการประเมิน</th><th>สิ่งที่ทีมทำต่อ</th></tr></thead><tbody><tr><td>ไปต่อ</td><td>ผู้ใช้จ่ายเงินหรือยืนยันจะจ่าย ตลาดที่เข้าถึงได้พอกับต้นทุน ความเสี่ยงสูงทุกข้อมีแผนรับมือ</td><td>ขยายการทดลองตามแผน 6 เดือน</td></tr><tr><td>ปรับ</td><td>ปัญหาของผู้ใช้มีจริง แต่ส่วนหนึ่งของโมเดลไม่ได้ผล เช่น กลุ่มลูกค้า ช่องทาง หรือรูปแบบรายได้</td><td>เปลี่ยนส่วนที่ไม่ได้ผล แล้วทดสอบใหม่</td></tr><tr><td>หยุด</td><td>ไม่พบหลักฐานว่าปัญหารุนแรงพอ หรือต้นทุนสูงกว่ารายได้ในทุกกรณี และไม่มีทางปรับที่สมเหตุสมผล</td><td>บันทึกสิ่งที่เรียนรู้ และพิจารณาโจทย์ใหม่</td></tr></tbody></table></div>
+<p>การปรับทิศทางมีได้หลายแบบ ตัวอย่างจากบริการตู้รับผ้า (กรณีสมมติเพื่อการสอน) เช่น เปลี่ยนกลุ่มลูกค้าจากผู้เช่าเป็นเจ้าของหอพัก เปลี่ยนรูปแบบรายได้จากค่าบริการต่อครั้งเป็นค่าเช่าตู้รายเดือน หรือเปลี่ยนจากตู้รับผ้าเป็นตู้รับฝากพัสดุทั่วไป ซึ่งใช้ตู้เดิมแต่ตอบปัญหาที่ใหญ่กว่า ทุกแบบใช้ความรู้ที่ทีมได้มาแล้ว และต้องทดสอบสมมติฐานใหม่ด้วยวิธีในบทที่ 4</p>
+<h3 id="s-8-5-3">8.5.3 การหยุดไม่ใช่ความล้มเหลวของรายวิชา</h3>
+<p>ในรายวิชานี้ กลุ่มที่สรุปว่าควรปรับหรือหยุด ไม่ได้คะแนนน้อยกว่ากลุ่มที่สรุปว่าไปต่อ รูบริกที่ 3 ประเมินว่ากลุ่มใช้กรอบการประเมินอย่างถูกต้อง มีข้อมูลที่มีที่มา และขั้นตอนถัดไปเป็นรูปธรรม ไม่ได้ประเมินว่านวัตกรรมต้องสำเร็จ ข้อสรุปว่าควรหยุดที่มีหลักฐานชัดเจน มีคุณค่ามากกว่าข้อสรุปว่าไปต่อที่ไม่มีหลักฐาน เพราะทักษะที่รายวิชาต้องการคือการตัดสินจากหลักฐาน</p>
+<h2 id="s-8-6">8.6 การรวมเป็นแผนพัฒนาเชิงพาณิชย์ฉบับสมบูรณ์</h2>
+<h3 id="s-8-6-1">8.6.1 โครงรายงานและความเชื่อมโยงกับรูบริกที่ 3</h3>
+<p>บทที่ 7 ได้กำหนดโครงแผนพัฒนาเชิงพาณิชย์ 8 ส่วนไว้ในตารางที่ 7.13 บทนี้เพิ่มส่วนที่ 7 คือความพร้อมและความเสี่ยง จากหัวข้อ 8.2 ถึง 8.4 และส่วนที่ 8 คือข้อสรุปและก้าวต่อไป จากหัวข้อ 8.5 ตารางที่ 8.10 แสดงว่าเกณฑ์แต่ละข้อในรูบริกที่ 3 ประเมินจากส่วนใดของรายงาน และระดับสูงสุดของแต่ละเกณฑ์ต้องมีอะไร</p>
+<p class="tcap"><b>ตารางที่ 8.10</b> เกณฑ์ของรูบริกที่ 3 กับส่วนของรายงาน</p>
+<div class="tablewrap"><table><thead><tr><th>เกณฑ์ (น้ำหนัก)</th><th>ส่วนของรายงานที่ใช้ประเมิน</th><th>ระดับสูงกว่ามาตรฐานต้องมี</th></tr></thead><tbody><tr><td>ความครบถ้วนของกระบวนการ (ร้อยละ 20)</td><td>ส่วนที่ 1 ถึง 8 ทั้งฉบับ</td><td>ครบตั้งแต่โจทย์ปัญหา แนวคิด ต้นแบบ ผลการทดสอบ ถึงแผนพัฒนาเชิงพาณิชย์ และแต่ละส่วนเชื่อมโยงกัน</td></tr><tr><td>การประเมินโอกาสทางนวัตกรรม (ร้อยละ 20)</td><td>ส่วนที่ 3 และ 7</td><td>ใช้กรอบการประเมินที่เรียน เช่น ระดับความพร้อมของเทคโนโลยี ขนาดตลาด และคู่แข่ง พร้อมข้อมูลที่มีที่มา</td></tr><tr><td>แผนพัฒนาเชิงพาณิชย์ (ร้อยละ 25)</td><td>ส่วนที่ 5 6 และ 8</td><td>ระบุโมเดลธุรกิจ ช่องทางเข้าสู่ตลาด แหล่งสนับสนุน และขั้นตอนถัดไปที่เป็นรูปธรรม</td></tr><tr><td>ทรัพย์สินทางปัญญาและการถ่ายโอนนวัตกรรม (ร้อยละ 15)</td><td>ส่วนที่ 4</td><td>ระบุประเภททรัพย์สินทางปัญญาที่เกี่ยวข้อง ผลการสืบค้นสิทธิบัตร และแนวทางการแสวงหาหรือถ่ายโอนนวัตกรรมที่เหมาะสม</td></tr><tr><td>การอ้างอิงและการเขียนรายงาน (ร้อยละ 10)</td><td>ทั้งฉบับ</td><td>อ้างอิงครบทุกข้อมูลที่นำมาใช้ ภาษาวิชาการถูกต้อง</td></tr><tr><td>การสื่อสารในการนำเสนอ (ร้อยละ 10)</td><td>การนำเสนอครั้งที่ 3</td><td>ถ่ายทอดคล่องแคล่ว เป็นลำดับ ใช้สื่อดิจิทัลช่วยให้เข้าใจง่าย อยู่ในเวลา</td></tr></tbody></table></div>
+<h3 id="s-8-6-2">8.6.2 การทำให้แผนเป็นเรื่องเดียวกัน</h3>
+<p>ปัญหาที่พบบ่อยที่สุดของรายงานฉบับสมบูรณ์คือแต่ละส่วนเขียนโดยสมาชิกต่างคน และใช้ข้อมูลคนละชุด เช่น ส่วนที่ 1 ระบุกลุ่มผู้ใช้เป็นนิสิตหอพัก แต่ส่วนที่ 5 ระบุกลุ่มลูกค้าเป็นคนทำงานทั่วไป หรือราคาในส่วนที่ 6 ไม่ตรงกับราคาที่ใช้คำนวณขนาดตลาดในส่วนที่ 7 ความไม่ตรงกันเหล่านี้ทำให้คะแนนเกณฑ์ความครบถ้วนของกระบวนการลดลง แม้ทุกส่วนจะเขียนครบ</p>
+<p>วิธีป้องกันคือกำหนดตัวเลขและข้อความหลักไว้ที่เดียวก่อนเขียน ได้แก่ กลุ่มผู้ใช้แรก คุณค่าที่เสนอ ราคา จำนวนผู้ใช้ที่คาด ระดับ TRL และข้อสรุปไปต่อ ปรับ หรือหยุด แล้วให้ทุกส่วนใช้ข้อมูลชุดนี้ เมื่อมีการเปลี่ยนตัวเลขใด ให้แก้ที่ชุดข้อมูลหลักก่อน แล้วไล่แก้ทุกส่วนที่ใช้ตัวเลขนั้น หลังเขียนเสร็จ ให้สมาชิกคนหนึ่งที่ไม่ได้เขียนส่วนนั้นอ่านทั้งฉบับเพื่อตรวจความต่อเนื่อง</p>
+<h3 id="s-8-6-3">8.6.3 ส่วนที่ 8 ข้อสรุปและก้าวต่อไป</h3>
+<p>ส่วนที่ 8 เป็นส่วนที่กลุ่มมักเขียนสั้นและกว้างเกินไป เช่น "จะพัฒนาต่อไปให้ดียิ่งขึ้น" ซึ่งไม่ตรงกับเกณฑ์ขั้นตอนถัดไปที่เป็นรูปธรรม ส่วนนี้ควรมี 3 องค์ประกอบ องค์ประกอบแรกคือข้อสรุปไปต่อ ปรับ หรือหยุด พร้อมเหตุผลที่อ้างผลจากหัวข้อ 8.2 ถึง 8.4 องค์ประกอบที่สองคือแผน 6 เดือน ระบุกิจกรรม ผู้รับผิดชอบ และตัวชี้วัด องค์ประกอบที่สามคือทรัพยากรที่ต้องใช้ และแหล่งที่จะได้มา เช่น แหล่งสนับสนุนในบทที่ 7 ตารางที่ 8.11 แสดงตัวอย่างแผน 6 เดือน</p>
+<p class="tcap"><b>ตารางที่ 8.11</b> ตัวอย่างแผน 6 เดือน (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>เดือน</th><th>กิจกรรม</th><th>ผู้รับผิดชอบ</th><th>ตัวชี้วัด</th></tr></thead><tbody><tr><td>1</td><td>ทำข้อตกลงกับหอพัก 1 แห่งและร้านซักอบรีด 1 ร้าน</td><td>สมาชิกด้านพันธมิตร</td><td>ข้อตกลงที่ลงนามแล้ว 2 ฉบับ</td></tr><tr><td>2</td><td>ติดตั้งตู้ 1 ตู้ และเปิดให้บริการโดยเก็บเงินจริง</td><td>ทั้งทีม</td><td>มีการใช้อย่างน้อย 150 ครั้งในเดือนแรก</td></tr><tr><td>3</td><td>ทำระบบส่งรหัสอัตโนมัติ</td><td>สมาชิกด้านเทคโนโลยี</td><td>ส่งรหัสได้ภายใน 1 นาทีโดยไม่มีคนช่วย</td></tr><tr><td>4</td><td>ทบทวนตัวเลขการใช้ รายได้ และต้นทุนจริง</td><td>สมาชิกด้านการเงิน</td><td>รายงานเทียบกับประมาณการในตารางที่ 8.5</td></tr><tr><td>5</td><td>พิจารณาไปต่อ ปรับ หรือหยุด อีกครั้ง</td><td>ทั้งทีม</td><td>ข้อสรุปพร้อมหลักฐาน</td></tr><tr><td>6</td><td>ถ้าไปต่อ เตรียมเอกสารขอรับการสนับสนุน</td><td>สมาชิกด้านเอกสาร</td><td>เอกสารพร้อมยื่นตามประกาศของหน่วยงาน</td></tr></tbody></table></div>
+<h3 id="s-8-6-4">8.6.4 กำหนดการของงานกลุ่มครั้งที่ 3</h3>
+<p>ตามแผนการสอนใน มคอ.3 งานกลุ่มครั้งที่ 3 มีกำหนดการดังนี้ สัปดาห์ที่ 13 เรียนเนื้อหาบทนี้ สัปดาห์ที่ 14 เป็น Workshop แผนพัฒนาเชิงพาณิชย์ในชั้นเรียน ซึ่งกลุ่มควรนำร่างส่วนที่ 1 ถึง 6 มาด้วย เพื่อทำส่วนที่ 7 และ 8 พร้อมปรึกษาผู้สอน สัปดาห์ที่ 15 ปรึกษาร่างรายงานรายกลุ่ม และสัปดาห์ที่ 16 นำเสนอครั้งที่ 3 พร้อมส่งรายงานฉบับสมบูรณ์</p>
+<h2 id="s-8-7">8.7 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในตารางที่ 8.12 เป็นที่มาของเครื่องมือประเมินในบทนี้ และแสดงว่าการประเมินโอกาสต้องดูทั้งเทคโนโลยีและตลาด</p>
+<p class="tcap"><b>ตารางที่ 8.12</b> งานวิจัยที่เกี่ยวข้องกับการประเมินโอกาสทางนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>ประเด็นที่ศึกษา</th><th>ข้อค้นพบสำคัญ</th><th>ข้อสรุปสำหรับนิสิต</th></tr></thead><tbody><tr><td>Cooper (1990)</td><td>ระบบ Stage-Gate สำหรับการพัฒนาผลิตภัณฑ์ใหม่ (บทความเชิงแนวคิดจากประสบการณ์ของบริษัท)</td><td>แบ่งการพัฒนาเป็นขั้น คั่นด้วยจุดพิจารณาไปต่อหรือหยุดตามเกณฑ์ที่กำหนดล่วงหน้า</td><td>กำหนดเกณฑ์ก่อนดูผล แล้วตัดสินตามเกณฑ์</td></tr><tr><td>Mankins (2009)</td><td>ทบทวนความเป็นมาและการใช้ TRL</td><td>TRL พัฒนาที่ NASA และหน่วยงานอื่นนำไปใช้อย่างแพร่หลาย</td><td>ใช้ TRL เป็นภาษากลางในการบอกความพร้อม</td></tr><tr><td>Di Stefano และคณะ (2012)</td><td>ทบทวนงานวิจัยเรื่องเทคโนโลยีผลักและตลาดดึง</td><td>แนวคิดทั้งสองไม่ได้ขัดกัน นวัตกรรมเกิดจากการเชื่อมเทคโนโลยีกับความต้องการของตลาด</td><td>ประเมินทั้งเทคโนโลยีและตลาดเสมอ</td></tr></tbody></table></div>
+<h2 id="s-8-8">8.8 ข้อผิดพลาดที่พบบ่อยในการประเมินโอกาสทางนวัตกรรม</h2>
+<p>ข้อผิดพลาดในตารางที่ 8.13 พบบ่อยในรายงานแผนพัฒนาเชิงพาณิชย์ และส่วนใหญ่ทำให้คะแนนเกณฑ์การประเมินโอกาสทางนวัตกรรมลดลง</p>
+<p class="tcap"><b>ตารางที่ 8.13</b> ข้อผิดพลาดที่พบบ่อยในการประเมินโอกาสทางนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ระบุระดับ TRL สูงเกินหลักฐาน</td><td>ระบุระดับ 8 ทั้งที่ยังไม่เคยขายจริง</td><td>ระบุระดับที่มีหลักฐานครบตามตารางที่ 8.4</td></tr><tr><td>ใช้ขนาดตลาดจากบนลงล่างอย่างเดียว</td><td>"ตลาดทั้งประเทศมีมูลค่าหลายพันล้านบาท"</td><td>ประมาณจากล่างขึ้นบนพร้อมที่มาของตัวเลข</td></tr><tr><td>เขียนว่าไม่มีคู่แข่ง</td><td>"ยังไม่มีใครทำบริการนี้"</td><td>เปรียบเทียบกับทางเลือกเดิมตามตารางที่ 8.6</td></tr><tr><td>ระบุความเสี่ยงด้านเดียว</td><td>มีแต่ความเสี่ยงด้านเทคโนโลยี</td><td>ตรวจครบ 5 ด้านตามตารางที่ 8.7</td></tr><tr><td>สรุปไปต่อโดยไม่มีเกณฑ์</td><td>"ทีมเชื่อว่าจะประสบความสำเร็จ"</td><td>ใช้เกณฑ์ในตารางที่ 8.9 และอ้างผลการประเมิน</td></tr><tr><td>ตัวเลขแต่ละส่วนไม่ตรงกัน</td><td>ราคาในส่วนที่ 6 ต่างจากส่วนที่ 7</td><td>ใช้ชุดข้อมูลหลักชุดเดียวตามหัวข้อ 8.6.2</td></tr><tr><td>ก้าวต่อไปกว้างเกินไป</td><td>"จะพัฒนาให้ดียิ่งขึ้น"</td><td>เขียนแผน 6 เดือนพร้อมตัวชี้วัดตามตารางที่ 8.11</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: เครื่องอบแห้งพลังงานแสงอาทิตย์ของกลุ่มเกษตรกร (กรณีสมมติเพื่อการสอน)</div><p>คณะวิศวกรรมศาสตร์ของมหาวิทยาลัยแห่งหนึ่งพัฒนาเครื่องอบแห้งผลไม้พลังงานแสงอาทิตย์ ผ่านการทดสอบในแปลงสาธิตของมหาวิทยาลัย 1 ฤดูกาล กลุ่มนิสิตในรายวิชาได้รับโจทย์ให้ประเมินว่าควรนำเครื่องนี้ไปให้กลุ่มเกษตรกรผู้ปลูกกล้วยในจังหวัดใช้หรือไม่</p><p>กลุ่มระบุว่าเทคโนโลยีอยู่ระดับ 6 ตามถ้อยคำปรับในตารางที่ 8.3 เพราะทำงานได้ครบแต่ยังไม่เคยใช้ในพื้นที่ของเกษตรกร การประมาณตลาดแบบจากล่างขึ้นบนจากรายชื่อสมาชิกกลุ่มเกษตรกรพบว่าสมาชิกที่แปรรูปกล้วยตากเองมีไม่มาก และทางเลือกเดิมคือการตากแดดบนตะแกรงซึ่งแทบไม่มีต้นทุน ความเสี่ยงสูงสุดคือด้านการเงิน เพราะราคาเครื่องสูงเมื่อเทียบกับรายได้จากกล้วยตากของสมาชิกแต่ละราย</p><p>กลุ่มสรุปให้ปรับทิศทาง โดยเปลี่ยนกลุ่มลูกค้าจากเกษตรกรรายบุคคลเป็นวิสาหกิจชุมชนที่ใช้เครื่องร่วมกัน และเสนอแผนทดลองใช้ 1 เครื่องในฤดูกาลถัดไป พร้อมบันทึกคุณภาพสินค้าและเวลาที่ประหยัดได้เทียบกับการตากแดด</p><p class="q"><b>คำถามชวนคิด</b> ข้อสรุปของกลุ่มอ้างผลการประเมินด้านใดบ้าง และถ้าผลการทดลองในฤดูกาลถัดไปไม่ดีขึ้น กลุ่มควรพิจารณาทางเลือกใด</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายได้ว่านวัตกรรมเริ่มได้ทั้งจากเทคโนโลยีผลักและตลาดดึง และนวัตกรรมที่สำเร็จต้องเชื่อมเทคโนโลยีเข้ากับความต้องการของตลาด นิสิตระบุแหล่งของโอกาสจากเทคโนโลยี เช่น เทคโนโลยีที่ราคาลดลง สิทธิบัตรที่หมดอายุ และผลงานวิจัยที่ยังไม่มีผู้นำไปใช้ และระบุระดับความพร้อมของเทคโนโลยีของนวัตกรรมของกลุ่มจากหลักฐาน โดยรู้ว่า TRL วัดเฉพาะความพร้อมของเทคโนโลยี</p>
+<p>นิสิตคำนวณขนาดตลาดแบบจากล่างขึ้นบนพร้อมที่มาของตัวเลข เปรียบเทียบนวัตกรรมกับคู่แข่งและทางเลือกเดิม จำแนกความเสี่ยง 5 ด้าน และคำนวณคะแนนความเสี่ยงจากโอกาสเกิดและผลกระทบได้ นิสิตใช้เกณฑ์การพิจารณาไปต่อ ปรับ หรือหยุด กับนวัตกรรมของกลุ่ม และใช้โครงแผนพัฒนาเชิงพาณิชย์ร่วมกับรูบริกที่ 3 ตรวจความครบถ้วนและความเชื่อมโยงของรายงานฉบับสมบูรณ์ ซึ่งเป็นผลงานรวมของรายวิชาทั้งภาคเรียน</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>เทคโนโลยีผลัก (Technology push)</li><li>ตลาดดึง (Market pull)</li><li>ระดับความพร้อมของเทคโนโลยี (Technology Readiness Level)</li><li>การประมาณจากบนลงล่าง (Top-down)</li><li>การประมาณจากล่างขึ้นบน (Bottom-up)</li><li>ทางเลือกเดิม (Existing alternatives)</li><li>โอกาสเกิด (Likelihood)</li><li>ผลกระทบ (Impact)</li><li>ระบบ Stage-Gate (Stage-Gate system)</li><li>การปรับทิศทาง (Pivot)</li><li>แผนพัฒนาเชิงพาณิชย์ (Commercialization plan)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงเปรียบเทียบนวัตกรรมแบบเทคโนโลยีผลักกับตลาดดึง และบอกว่านวัตกรรมของกลุ่มเริ่มจากทางใด</li><li>จงยกตัวอย่างแหล่งของโอกาสทางนวัตกรรมจากเทคโนโลยี 3 แหล่ง พร้อมตัวอย่างที่ใช้กับธุรกิจขนาดเล็กได้</li><li>ถ้านวัตกรรมมีต้นแบบที่ทำงานได้ครบทุกหน้าที่ และทดสอบกับผู้ใช้จริงแล้ว แต่ยังไม่เคยขาย ควรอยู่ระดับ TRL ใดตามถ้อยคำปรับในตารางที่ 8.3 เพราะเหตุใด</li><li>เพราะเหตุใด TRL อย่างเดียวจึงไม่พอสำหรับการประเมินโอกาสทางนวัตกรรม</li><li>ร้านกาแฟแห่งหนึ่งอยู่ใกล้สำนักงาน 25 แห่ง แต่ละแห่งมีพนักงาน 40 คน ร้อยละ 20 ของพนักงานสนใจบริการสั่งกาแฟล่วงหน้า และแต่ละคนสั่งเดือนละ 10 แก้ว แก้วละ 50 บาท จงคำนวณตลาดที่เข้าถึงได้ต่อเดือน</li><li>ความเสี่ยงที่มีโอกาสเกิด 3 และผลกระทบ 2 มีคะแนนเท่าใด และต้องมีแผนรับมือก่อนเริ่มดำเนินการหรือไม่ตามเกณฑ์ในบทนี้</li><li>การปรับทิศทางต่างจากการหยุดอย่างไร จงยกตัวอย่างการปรับทิศทาง 2 แบบ</li><li>จงอธิบายวิธีทำให้รายงานแผนพัฒนาเชิงพาณิชย์ที่เขียนโดยสมาชิกหลายคนมีข้อมูลตรงกันทั้งฉบับ</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: งานกลุ่มครั้งที่ 3 แผนพัฒนาเชิงพาณิชย์ของนวัตกรรมและรายงานฉบับสมบูรณ์</h2>
+<p>ให้ทำเป็นกลุ่ม นำร่างมาทำต่อใน Workshop สัปดาห์ที่ 14 นำเสนอและส่งรายงานฉบับสมบูรณ์ในสัปดาห์ที่ 16 งานนี้ประเมินด้วยรูบริกที่ 3 คิดเป็นร้อยละ 25 ของคะแนนรายวิชา</p>
+<ol><li>ระบุระดับความพร้อมของเทคโนโลยีของแต่ละส่วนของนวัตกรรมตามแบบในตารางที่ 8.4 พร้อมหลักฐาน</li><li>ประมาณขนาดตลาดแบบจากล่างขึ้นบนตามแบบในตารางที่ 8.5 ระบุที่มาของตัวเลขทุกตัว และคำนวณกรณีที่แย่กว่าที่คาดด้วย</li><li>เปรียบเทียบนวัตกรรมกับคู่แข่งและทางเลือกเดิมอย่างน้อย 3 ทางเลือกตามแบบในตารางที่ 8.6</li><li>ระบุความเสี่ยงครบ 5 ด้าน ให้คะแนน และเขียนแผนรับมือความเสี่ยงที่มีคะแนน 6 ขึ้นไปตามแบบในตารางที่ 8.8</li><li>สรุปว่าควรไปต่อ ปรับ หรือหยุด ตามเกณฑ์ในตารางที่ 8.9 และเขียนแผน 6 เดือนตามแบบในตารางที่ 8.11</li><li>รวมผลงานจากกิจกรรมท้ายบทที่ 5 ถึง 7 และงานกลุ่มครั้งที่ 1 และ 2 เป็นรายงานฉบับสมบูรณ์ตามโครงในตารางที่ 7.13</li><li>ตรวจรายงานด้วยแบบตรวจในตารางที่ 8.14 ก่อนส่ง</li></ol>
+<p class="tcap"><b>ตารางที่ 8.14</b> แบบตรวจความครบถ้วนของรายงานฉบับสมบูรณ์ก่อนส่ง</p>
+<div class="tablewrap"><table><thead><tr><th>รายการตรวจ</th><th>เกณฑ์ในรูบริกที่ 3</th><th>ผ่าน</th><th>ส่วนที่ต้องแก้</th></tr></thead><tbody><tr><td>มีครบ 8 ส่วนตามตารางที่ 7.13</td><td>ความครบถ้วนของกระบวนการ</td><td></td><td></td></tr><tr><td>กลุ่มผู้ใช้ ราคา และตัวเลขหลักตรงกันทุกส่วน</td><td>ความครบถ้วนของกระบวนการ</td><td></td><td></td></tr><tr><td>มี TRL ขนาดตลาด และคู่แข่ง พร้อมที่มาของข้อมูล</td><td>การประเมินโอกาสทางนวัตกรรม</td><td></td><td></td></tr><tr><td>มีโมเดลธุรกิจ ช่องทาง แหล่งสนับสนุน และแผน 6 เดือน</td><td>แผนพัฒนาเชิงพาณิชย์</td><td></td><td></td></tr><tr><td>มีประเภททรัพย์สินทางปัญญาและผลการสืบค้นสิทธิบัตร</td><td>ทรัพย์สินทางปัญญาและการถ่ายโอนนวัตกรรม</td><td></td><td></td></tr><tr><td>อ้างอิงครบทุกข้อมูลที่นำมาใช้</td><td>การอ้างอิงและการเขียนรายงาน</td><td></td><td></td></tr><tr><td>ซ้อมนำเสนอแล้วอยู่ในเวลาที่กำหนด</td><td>การสื่อสารในการนำเสนอ</td><td></td><td></td></tr></tbody></table></div>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Cooper, R. G. (1990). Stage-gate systems: A new tool for managing new products. <em>Business Horizons, 33</em>(3), 44–54. <a href="https://doi.org/10.1016/0007-6813(90)90040-I" target="_blank" rel="noopener">https://doi.org/10.1016/0007-6813(90)90040-I</a></div>
+<div class="r">Di Stefano, G., Gambardella, A., &amp; Verona, G. (2012). Technology push and demand pull perspectives in innovation studies: Current findings and future research directions. <em>Research Policy, 41</em>(8), 1283–1295. <a href="https://doi.org/10.1016/j.respol.2012.03.021" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2012.03.021</a></div>
+<div class="r">Mankins, J. C. (2009). Technology readiness assessments: A retrospective. <em>Acta Astronautica, 65</em>(9–10), 1216–1223. <a href="https://doi.org/10.1016/j.actaastro.2009.03.058" target="_blank" rel="noopener">https://doi.org/10.1016/j.actaastro.2009.03.058</a></div>
+<div class="r">National Aeronautics and Space Administration. (2023, September 27). <em>Technology readiness levels</em>. Retrieved November 14, 2026, from <a href="https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/" target="_blank" rel="noopener">https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/</a></div>
+<div class="r">Ries, E. (2011). <em>The lean startup: How today's entrepreneurs use continuous innovation to create radically successful businesses</em>. Crown Business.</div>
+<div class="r">Rogers, E. M. (2003). <em>Diffusion of innovations</em> (5th ed.). Free Press.</div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 8 การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี. ใน <em>การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ: เอกสารประกอบการสอนรายวิชา 0903464</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ci_lesson_08.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ci_lesson_07.html"><small>◀ บทก่อนหน้า</small>บทที่ 7 การพัฒนาเชิงพาณิชย์</a><a href="ci_0903464.html" style="text-align:right"><small>▶</small>หน้าวิชา</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0903464 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ci/slides/08/s-01.jpg', 'ci/slides/08/s-02.jpg', 'ci/slides/08/s-03.jpg', 'ci/slides/08/s-04.jpg', 'ci/slides/08/s-05.jpg', 'ci/slides/08/s-06.jpg', 'ci/slides/08/s-07.jpg', 'ci/slides/08/s-08.jpg', 'ci/slides/08/s-09.jpg', 'ci/slides/08/s-10.jpg', 'ci/slides/08/s-11.jpg', 'ci/slides/08/s-12.jpg', 'ci/slides/08/s-13.jpg', 'ci/slides/08/s-14.jpg', 'ci/slides/08/s-15.jpg', 'ci/slides/08/s-16.jpg', 'ci/slides/08/s-17.jpg', 'ci/slides/08/s-18.jpg', 'ci/slides/08/s-19.jpg', 'ci/slides/08/s-20.jpg', 'ci/slides/08/s-21.jpg', 'ci/slides/08/s-22.jpg', 'ci/slides/08/s-23.jpg', 'ci/slides/08/s-24.jpg', 'ci/slides/08/s-25.jpg', 'ci/slides/08/s-26.jpg', 'ci/slides/08/s-27.jpg', 'ci/slides/08/s-28.jpg', 'ci/slides/08/s-29.jpg', 'ci/slides/08/s-30.jpg', 'ci/slides/08/s-31.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

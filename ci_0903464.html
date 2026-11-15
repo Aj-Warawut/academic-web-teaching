@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ</title>
+<meta name="description" content="บทเรียนออนไลน์ สไลด์ และใบงาน รายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ci_0903464.html">วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><a href="teaching.html">🎓 การสอน</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div></div>
+<div class="cover"><div class="wrap">
+  <div class="kick">เอกสารประกอบการสอน · ภาคการศึกษาปลาย ปีการศึกษา 2569</div>
+  <h1>การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ</h1>
+  <div class="sub">รายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ (Creativity and Innovation Development for Business)</div>
+  <div class="by">ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b><br>คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</div>
+  <div class="pills"><span class="pill">8 บท</span><span class="pill">งานกลุ่ม 3 ครั้ง</span><span class="pill">โหมดนำเสนอ</span><span class="pill">อ้างอิง APA</span></div>
+  <div class="actions"><a class="btn" href="ci_lesson_01.html">เริ่มบทที่ 1</a><a class="btn ghost" href="#worksheets">📝 ใบงาน</a><a class="btn ghost" href="#plan">🗓 แผนการเรียน</a><a class="btn ghost" href="idea_studio.html?c=0903464">💡 Idea Studio</a><a class="btn ghost" href="#tools">🧰 เครื่องมือออนไลน์</a><a class="btn ghost" href="#downloads">⬇ สไลด์</a></div>
+</div></div>
+<div class="wrap">
+  <section class="sec" id="preface"><h2>คำนำ</h2><p class="pre">เอกสารประกอบการสอนนี้จัดทำสำหรับนิสิตเทียบเข้าที่เรียนรายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ เนื้อหาเรียงตามเส้นทางของการพัฒนานวัตกรรม ตั้งแต่ความหมายและการจัดการนวัตกรรม การคิดเชิงออกแบบ การทำต้นแบบและทดสอบกับผู้ใช้ กลยุทธ์นวัตกรรม การถ่ายโอนและคุ้มครองทรัพย์สินทางปัญญา การพัฒนาเชิงพาณิชย์ จนถึงการประเมินโอกาสทางนวัตกรรม</p><p class="pre">ตลอดภาคเรียน แต่ละกลุ่มทำโจทย์นวัตกรรมของตนเองจากปัญหาจริงของสถานประกอบการหรือชุมชน ทุกบทจบด้วยกิจกรรมที่กลุ่มนำไปใช้กับโจทย์ของกลุ่มได้ทันที และรวมเป็นงานกลุ่ม 3 ครั้ง ได้แก่ โจทย์ปัญหาและแนวคิดนวัตกรรม ต้นแบบและผลการทดสอบกับผู้ใช้ และแผนพัฒนาเชิงพาณิชย์ของนวัตกรรม</p></section>
+  <section class="sec" id="contents"><h2>สารบัญ</h2><div class="toc"><a class="ch" href="ci_lesson_01.html"><div class="n">1</div><div><div class="t">ความหมาย ประเภท และรูปแบบของนวัตกรรมและเทคโนโลยียุคดิจิทัล</div><div class="st">สัปดาห์ที่ 1</div><div class="tag">กิจกรรมท้ายบท 1</div></div></a><a class="ch" href="ci_lesson_02.html"><div class="n">2</div><div><div class="t">กระบวนการจัดการนวัตกรรมและเทคโนโลยียุคดิจิทัล</div><div class="st">สัปดาห์ที่ 2</div><div class="tag">กิจกรรมท้ายบท 2</div></div></a><a class="ch" href="ci_lesson_03.html"><div class="n">3</div><div><div class="t">กระบวนการคิดสร้างสรรค์นวัตกรรมอย่างเป็นระบบ</div><div class="st">สัปดาห์ที่ 3–4</div><div class="tag">งานกลุ่มครั้งที่ 1</div></div></a><a class="ch" href="ci_lesson_04.html"><div class="n">4</div><div><div class="t">การพัฒนาผลิตภัณฑ์และบริการใหม่ การทำต้นแบบ และการทดสอบกับผู้ใช้</div><div class="st">สัปดาห์ที่ 6–7</div><div class="tag">งานกลุ่มครั้งที่ 2</div></div></a><a class="ch" href="ci_lesson_05.html"><div class="n">5</div><div><div class="t">กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี</div><div class="st">สัปดาห์ที่ 8</div><div class="tag">กิจกรรมท้ายบท 5</div></div></a><a class="ch" href="ci_lesson_06.html"><div class="n">6</div><div><div class="t">การแสวงหาและการถ่ายโอนนวัตกรรม</div><div class="st">สัปดาห์ที่ 11</div><div class="tag">กิจกรรมท้ายบท 6</div></div></a><a class="ch" href="ci_lesson_07.html"><div class="n">7</div><div><div class="t">การพัฒนาเชิงพาณิชย์</div><div class="st">สัปดาห์ที่ 12</div><div class="tag">กิจกรรมท้ายบท 7</div></div></a><a class="ch" href="ci_lesson_08.html"><div class="n">8</div><div><div class="t">การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี</div><div class="st">สัปดาห์ที่ 13–14</div><div class="tag">งานกลุ่มครั้งที่ 3</div></div></a></div></section>
+  <section class="sec" id=plan><h2>แผนการเรียน 17 สัปดาห์</h2><details class="plan"><summary>เปิดดูแผนรายสัปดาห์</summary><div class="tablewrap"><table><thead><tr><th>สัปดาห์</th><th>เนื้อหา</th><th>งานที่ส่งหรือนำเสนอ</th></tr></thead><tbody><tr><td>1</td><td>การชี้แจงแนวทางการสอน · บทที่ 1 ความหมาย ประเภท และรูปแบบของนวัตกรรมและเทคโนโลยียุคดิจิทัล</td><td>–</td></tr><tr><td>2</td><td><a href="ci_lesson_02.html">บทที่ 2 กระบวนการจัดการนวัตกรรมและเทคโนโลยียุคดิจิทัล · จัดกลุ่มและเลือกโจทย์ปัญหาจากสถานประกอบการหรือชุมชน</a></td><td><a href="ci_lesson_01.html#ws">กิจกรรมท้ายบท 1 ส่ง</a></td></tr><tr><td>3</td><td><a href="ci_lesson_03.html">บทที่ 3 กระบวนการคิดสร้างสรรค์นวัตกรรมอย่างเป็นระบบ (1) · การคิดเชิงออกแบบ การทำความเข้าใจผู้ใช้ และการนิยามปัญหา</a></td><td><a href="ci_lesson_02.html#ws">กิจกรรมท้ายบท 2 ส่ง</a></td></tr><tr><td>4</td><td><a href="ci_lesson_03.html">บทที่ 3 กระบวนการคิดสร้างสรรค์นวัตกรรมอย่างเป็นระบบ (2) · การระดมความคิดและการคัดเลือกแนวคิด</a></td><td>–</td></tr><tr><td>5</td><td>นำเสนอครั้งที่ 1 โจทย์ปัญหาและแนวคิดนวัตกรรม (งานกลุ่ม)</td><td><a href="ci_lesson_03.html#ws">งานกลุ่มครั้งที่ 1 ส่ง</a></td></tr><tr><td>6</td><td><a href="ci_lesson_04.html">บทที่ 4 แนวคิดการพัฒนาผลิตภัณฑ์และบริการใหม่ · ขั้นตอนการพัฒนาผลิตภัณฑ์ใหม่และผลิตภัณฑ์ต้นแบบขั้นต่ำ (MVP)</a></td><td>–</td></tr><tr><td>7</td><td><a href="ci_lesson_04.html">บทที่ 4 การทำต้นแบบและการทดสอบกับผู้ใช้ · ฝึกจัดทำต้นแบบด้วยเครื่องมือดิจิทัล</a></td><td>–</td></tr><tr><td>8</td><td><a href="ci_lesson_05.html">บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี</a></td><td>–</td></tr><tr><td>9</td><td>ไม่มีการจัดการเรียนการสอน เนื่องจากมหาวิทยาลัยจัดสอบกลางภาค</td><td>–</td></tr><tr><td>10</td><td>นำเสนอครั้งที่ 2 ต้นแบบและผลการทดสอบกับผู้ใช้ (งานกลุ่ม)</td><td><a href="ci_lesson_04.html#ws">งานกลุ่มครั้งที่ 2 ส่ง</a><br><a href="ci_lesson_05.html#ws">กิจกรรมท้ายบท 5 ส่ง</a></td></tr><tr><td>11</td><td><a href="ci_lesson_06.html">บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม · นวัตกรรมแบบเปิด การอนุญาตให้ใช้สิทธิ และการคุ้มครองทรัพย์สินทางปัญญา</a></td><td>–</td></tr><tr><td>12</td><td><a href="ci_lesson_07.html">บทที่ 7 การพัฒนาเชิงพาณิชย์ · โมเดลธุรกิจของนวัตกรรม ช่องทางเข้าสู่ตลาด และแหล่งสนับสนุนธุรกิจนวัตกรรม</a></td><td><a href="ci_lesson_06.html#ws">กิจกรรมท้ายบท 6 ส่ง</a></td></tr><tr><td>13</td><td><a href="ci_lesson_08.html">บทที่ 8 การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี · ระดับความพร้อมของเทคโนโลยี และการประเมินโอกาสทางตลาด</a></td><td><a href="ci_lesson_07.html#ws">กิจกรรมท้ายบท 7 ส่ง</a></td></tr><tr><td>14</td><td>Workshop แผนพัฒนาเชิงพาณิชย์ของนวัตกรรมของกลุ่ม</td><td>–</td></tr><tr><td>15</td><td>กรณีศึกษานวัตกรรมของธุรกิจไทย และทบทวนเนื้อหาทั้งรายวิชา · ปรึกษาร่างรายงานรายกลุ่ม</td><td>–</td></tr><tr><td>16</td><td>นำเสนอครั้งที่ 3 แผนพัฒนาเชิงพาณิชย์ของนวัตกรรม และส่งรายงานฉบับสมบูรณ์ (งานกลุ่ม)</td><td><a href="ci_lesson_08.html#ws">งานกลุ่มครั้งที่ 3 ส่ง</a></td></tr><tr><td>17</td><td>ไม่มีการจัดการเรียนการสอน เนื่องจากมหาวิทยาลัยจัดสอบปลายภาค</td><td>–</td></tr></tbody></table></div></details><p class="note">กำหนดส่งงานให้ยึดตามที่ผู้สอนแจ้งในชั้นเรียน</p></section><section class="sec" id=worksheets><h2>ใบงานและการส่งงาน</h2><div class="box info howto"><b>วิธีส่งงาน</b><ul><li>ส่งงานตามช่องทางที่ผู้สอนแจ้งในคาบแรก</li><li>งานกลุ่มครั้งที่ 1 ถึง 3 ประเมินด้วยรูบริกที่ 1 ถึง 3 ใน มคอ.3 ของรายวิชา</li><li>ข้อมูลผู้ให้สัมภาษณ์ใช้รหัสแทนชื่อ และขอความยินยอมทุกครั้ง</li></ul></div><div class="wsg"><a class="wsc" href="ci_lesson_01.html#ws"><div class="w">บทที่ 1 · สัปดาห์ที่ 2</div><h3>กิจกรรมท้ายบท: จำแนกนวัตกรรมรอบตัว 5 ตัวอย่าง</h3><p>ให้นิสิตทำเป็นรายบุคคล เริ่มในชั้นเรียนสัปดาห์ที่ 1 และส่งก่อนเริ่มเรียนสัปดาห์ที่ 2 ความยาวไม่เกิน 2 หน้ากระดาษ A4 กิจกรรมนี้ฝึกใช้เครื่องมือในบทนี้ และเป็นแหล่งโจทย์สำหรับการเลือกโจทย์ของกลุ่มในบทที่ 2</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_02.html#ws"><div class="w">บทที่ 2 · สัปดาห์ที่ 3</div><h3>กิจกรรมท้ายบท: ตั้งทีม จัดทำข้อตกลงทีม และเลือกโจทย์ปัญหา</h3><p>ให้นิสิตทำเป็นกลุ่ม 4–5 คน เริ่มในชั้นเรียนสัปดาห์ที่ 2 และส่งก่อนเริ่มเรียนสัปดาห์ที่ 3 ส่งเป็นไฟล์เดียวต่อกลุ่ม ความยาวไม่เกิน 3 หน้ากระดาษ A4 กิจกรรมนี้เป็นจุดเริ่มของงานกลุ่มทั้งภาคเรียน โจทย์ที่เลือกจะใช้ต่อในบทที่ 3 และงานกลุ่มครั้งที่ 1</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_03.html#ws"><div class="w">บทที่ 3 · สัปดาห์ที่ 5</div><h3>กิจกรรมท้ายบท: งานกลุ่มครั้งที่ 1 โจทย์ปัญหาและแนวคิดนวัตกรรม</h3><p>ให้ทำเป็นกลุ่มตามทีมที่ตั้งในบทที่ 2 เริ่มในสัปดาห์ที่ 3 และนำเสนอพร้อมส่งสไลด์ในสัปดาห์ที่ 5 ใช้เวลานำเสนอกลุ่มละไม่เกิน 10 นาที และตอบคำถาม 5 นาที ประเมินด้วยรูบริกที่ 1 (ร้อยละ 10 ของคะแนนรายวิชา) ส่งบันทึกการแบ่งงานของสมาชิกพร้อมสไลด์</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_04.html#ws"><div class="w">บทที่ 4 · สัปดาห์ที่ 10</div><h3>กิจกรรมท้ายบท: งานกลุ่มครั้งที่ 2 ต้นแบบและผลการทดสอบกับผู้ใช้</h3><p>ให้ทำเป็นกลุ่มต่อจากงานกลุ่มครั้งที่ 1 เริ่มในสัปดาห์ที่ 6 และนำเสนอพร้อมส่งสไลด์ในสัปดาห์ที่ 10 ใช้เวลานำเสนอกลุ่มละไม่เกิน 10 นาที และตอบคำถาม 5 นาที ประเมินด้วยรูบริกที่ 2 (ร้อยละ 15 ของคะแนนรายวิชา) ส่งตารางสมมติฐานและเกณฑ์ผ่านให้ผู้สอนภายในสัปดาห์ที่ 7 ก่อนเริ่มทดสอบกับผู้ใช้</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_05.html#ws"><div class="w">บทที่ 5 · สัปดาห์ที่ 10</div><h3>กิจกรรมท้ายบท: วางนวัตกรรมของกลุ่มบนเส้นการแพร่กระจาย และเลือกกลุ่มผู้ใช้แรก</h3><p>ให้ทำเป็นกลุ่ม ส่งในสัปดาห์ที่ 10 พร้อมการนำเสนองานกลุ่มครั้งที่ 2 ผลงานนี้เป็นส่วนหนึ่งของบทกลยุทธ์ในแผนพัฒนาเชิงพาณิชย์ของงานกลุ่มครั้งที่ 3 จึงไม่มีคะแนนแยก แต่ผู้สอนจะให้ข้อมูลป้อนกลับก่อนกลุ่มนำไปใช้ในรายงานฉบับสมบูรณ์</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_06.html#ws"><div class="w">บทที่ 6 · สัปดาห์ที่ 12</div><h3>กิจกรรมท้ายบท: สืบค้นสิทธิบัตรที่ใกล้เคียงกับนวัตกรรมของกลุ่ม</h3><p>ให้ทำเป็นกลุ่ม ส่งในสัปดาห์ที่ 12 ผลงานนี้เป็นส่วนหนึ่งของหัวข้อทรัพย์สินทางปัญญาและการถ่ายโอนนวัตกรรมในแผนพัฒนาเชิงพาณิชย์ของงานกลุ่มครั้งที่ 3 ซึ่งรูบริกที่ 3 ให้น้ำหนักร้อยละ 15 และกำหนดว่าระดับสูงสุดต้องระบุประเภททรัพย์สินทางปัญญาที่เกี่ยวข้อง ผลการสืบค้นสิทธิบัตร และแนวทางการแสวงหาหรือถ่ายโอนนวัตกรรมที่เหมาะสม</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_07.html#ws"><div class="w">บทที่ 7 · สัปดาห์ที่ 13</div><h3>กิจกรรมท้ายบท: ร่างโมเดลธุรกิจและช่องทางเข้าสู่ตลาดของนวัตกรรมของกลุ่ม</h3><p>ให้ทำเป็นกลุ่ม ส่งในสัปดาห์ที่ 13 ผลงานนี้เป็นส่วนที่ 5 และ 6 ของแผนพัฒนาเชิงพาณิชย์ในงานกลุ่มครั้งที่ 3 ตามตารางที่ 7.13</p><div class="go">อ่านใบงาน →</div></a><a class="wsc" href="ci_lesson_08.html#ws"><div class="w">บทที่ 8 · สัปดาห์ที่ 16</div><h3>กิจกรรมท้ายบท: งานกลุ่มครั้งที่ 3 แผนพัฒนาเชิงพาณิชย์ของนวัตกรรมและรายงานฉบับสมบูรณ์</h3><p>ให้ทำเป็นกลุ่ม นำร่างมาทำต่อใน Workshop สัปดาห์ที่ 14 นำเสนอและส่งรายงานฉบับสมบูรณ์ในสัปดาห์ที่ 16 งานนี้ประเมินด้วยรูบริกที่ 3 คิดเป็นร้อยละ 25 ของคะแนนรายวิชา</p><div class="go">อ่านใบงาน →</div></a></div></section><section class="sec" id=tools><h2>เครื่องมือออนไลน์</h2><div class="dl"><a href="idea_studio.html?c=0903464">Idea Studio: สัมภาษณ์ผู้ใช้ แผนที่ความเข้าใจผู้ใช้ ข้อความปัญหา ระดมความคิด และคัดเลือกแนวคิด<span>บทที่ 3 · งานกลุ่มครั้งที่ 1</span></a><a href="bmc_studio.html">BMC Studio: เขียน Business Model Canvas และตรวจความเชื่อมโยงระหว่างช่อง<span>บทที่ 7</span></a><a href="researcher_commercialization_playbook.html">Commercialization Playbook: แหล่งอ่านเพิ่มเติมเรื่องการนำผลงานออกสู่ตลาด<span>บทที่ 8 · อ่านเพิ่มเติม</span></a></div><p class="note">ข้อมูลที่กรอกในเครื่องมือเก็บในเบราว์เซอร์ของผู้ใช้เท่านั้น ควรบันทึกไฟล์ทุกครั้งหลังทำงาน</p></section><section class="sec" id=downloads><h2>สไลด์ประกอบการบรรยาย</h2><div class="dl"><a href="ci/files/ci_0903464_บทที่01_สไลด์.pptx" download>บทที่ 1 ความหมาย ประเภท และรูปแบบของนวัตกรรมและเทคโนโลยียุคดิจิทัล<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่02_สไลด์.pptx" download>บทที่ 2 กระบวนการจัดการนวัตกรรมและเทคโนโลยียุคดิจิทัล<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่03_สไลด์.pptx" download>บทที่ 3 กระบวนการคิดสร้างสรรค์นวัตกรรมอย่างเป็นระบบ<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่04_สไลด์.pptx" download>บทที่ 4 การพัฒนาผลิตภัณฑ์และบริการใหม่ การทำต้นแบบ และการทดสอบกับผู้ใช้<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่05_สไลด์.pptx" download>บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่06_สไลด์.pptx" download>บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่07_สไลด์.pptx" download>บทที่ 7 การพัฒนาเชิงพาณิชย์<span>.pptx · 0.2 MB</span></a><a href="ci/files/ci_0903464_บทที่08_สไลด์.pptx" download>บทที่ 8 การประเมินและการแสวงหาโอกาสทางนวัตกรรมบนพื้นฐานของเทคโนโลยี<span>.pptx · 0.2 MB</span></a></div><p class="note">เปิดโหมดนำเสนอได้จากหน้าบทเรียนแต่ละบท</p></section>
+  <section class="sec" id="howtocite"><h2>การอ้างอิงและลิขสิทธิ์</h2>
+    <div class="box info"><p><b>สัญญาอนุญาต:</b> <span class="lic">CC BY-NC-SA 4.0</span> อนุญาตให้ใช้เพื่อการศึกษาโดยอ้างอิงแหล่งที่มา ไม่ใช้เชิงพาณิชย์ และเผยแพร่ต่อภายใต้เงื่อนไขเดียวกัน ยกเว้นเนื้อหา Business Model Canvas ในบทที่ 7 ซึ่งดัดแปลงจากงานของ Osterwalder และ Pigneur (2010) ภายใต้สัญญาอนุญาต CC BY-SA 3.0 ตามต้นฉบับ · ตัวอย่างและกรณีศึกษาที่ระบุว่าเป็นกรณีสมมติแต่งขึ้นเพื่อการสอน</p><p><b>ปรับปรุงล่าสุด:</b> 14 พฤศจิกายน 2569</p></div>
+    <div class="box cite"><div class="bt">อ้างอิงทั้งเล่ม (APA)</div><code id="citeall">วราวุฒิ นาคบุญนำ. (2569). <em>การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ: เอกสารประกอบการสอนรายวิชา 0903464</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ci_0903464.html</code>
+    <button class="cpbtn" onclick="cp('citeall',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+  </section>
+</div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0903464 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

@@ -524,7 +524,192 @@ function toLean(){
   dirty=false;location.href="lean_studio.html?from=idea";}
 window.addEventListener("beforeunload",e=>{if(dirty&&(S.problems.length||S.ideas.length)){e.preventDefault();e.returnValue="";}});
 
-load();bindMeta();renderAll();
+const M464=new URLSearchParams(location.search).get("c")==="0903464";
+if(!M464){load();bindMeta();renderAll();}
+</script>
+
+<script>
+// ---------- โหมดวิชา 0903464 (เปิดด้วย ?c=0903464) · ข้อมูลจากเอกสารประกอบการสอนวิชา 0903464 บทที่ 3 เท่านั้น ----------
+// ตาราง 3.6 3.7 3.9–3.12 3.15 3.16 หัวข้อ 3.3–3.7 และกิจกรรมท้ายบท (งานกลุ่มครั้งที่ 1) · เก็บแยกจากโหมด 0900304
+if(M464){(function(){
+const K4="idea_studio_0903464_v1", TOOL4="idea_file_0903464";
+const EMP=[["say","พูด","ข้อมูลโดยตรง"],["do","ทำ","ข้อมูลโดยตรง"],["think","คิด","การตีความของทีม"],["feel","รู้สึก","การตีความของทีม"]];
+const TECH4=[["solo","คิดคนเดียวก่อนแล้วรวมกัน","เริ่มต้นระดมความคิดทุกครั้ง (ตารางที่ 3.9)",["1. ตั้งคำถาม \"เราจะ...ได้อย่างไร\" ให้ทุกคนเห็น (2 นาที)","2. คิดคนเดียวโดยไม่คุยกัน คนละ 8 ความคิดขึ้นไป (8–10 นาที)","3. อ่านทีละคน ผู้อื่นฟังโดยไม่วิจารณ์ (10 นาที)","4. จัดกลุ่มความคิดที่คล้ายกัน ตั้งชื่อกลุ่ม (5–10 นาที)","5. คิดคนเดียวอีกรอบ ดูกลุ่มที่ยังมีความคิดน้อย (5 นาที)"]],
+ ["scamper","SCAMPER","มีทางแก้เดิมอยู่แล้ว หรือทีมคิดไม่ออก เลือกเฉพาะข้อที่ใช้ได้กับโจทย์ (ตารางที่ 3.10)",["S แทนที่: ใช้สิ่งอื่นแทนส่วนใดส่วนหนึ่ง","C รวม: รวมสองสิ่งเข้าด้วยกัน","A ปรับใช้: นำวิธีของที่อื่นมาปรับใช้","M ปรับขนาดหรือรูปแบบ: ขยาย ย่อ หรือเปลี่ยนรูปแบบ","P ใช้ในทางอื่น: ใช้สิ่งที่มีอยู่เพื่อจุดประสงค์ใหม่","E ตัดออก: ตัดขั้นตอนหรือส่วนที่ไม่จำเป็น","R กลับด้านหรือจัดลำดับใหม่: สลับลำดับหรือมองกลับด้าน"]],
+ ["reverse","การคิดกลับด้าน","ทีมมองไม่เห็นสาเหตุ หรือบรรยากาศเงียบ (หัวข้อ 3.5.3)",["ตั้งคำถามตรงข้ามกับเป้าหมาย เช่น \"เราจะทำให้...แย่ที่สุดได้อย่างไร\"","กลับคำตอบทุกข้อให้เป็นความคิดเชิงแก้ไข แล้วจดเป็นความคิดในช่องนี้"]]];
+const TN4=Object.fromEntries(TECH4.map(x=>[x[0],x[1]]));
+const CRIT4=[["need","ผู้ใช้ต้องการ","ตอบปัญหาในข้อความปัญหาโดยตรง มีข้อมูลผู้ใช้หลายรายสนับสนุน","ตอบปัญหาบางส่วน หรือมีข้อมูลสนับสนุนน้อย","ไม่ตอบปัญหาที่นิยามไว้"],
+ ["feas","ทำได้จริง","ทีมทำต้นแบบและทดสอบได้ภายในสัปดาห์ที่ 6–10 ด้วยความรู้และทรัพยากรที่มี","ทำได้ถ้าลดขอบเขตหรือได้ความช่วยเหลือจากภายนอก","ต้องใช้เทคโนโลยี เงิน หรือเวลาเกินกว่าที่ทีมมี"],
+ ["worth","คุ้มค่า","ประโยชน์ต่อผู้ใช้หรือองค์การชัดเจนเมื่อเทียบกับต้นทุนที่ประมาณได้","ประโยชน์พอเห็นได้ แต่ต้นทุนยังไม่ชัด","ต้นทุนสูงกว่าประโยชน์อย่างเห็นได้ชัด"]];
+const MIST4=[["สัมภาษณ์คนที่สะดวกแทนผู้ใช้จริง","เลือกผู้ใช้ตามตารางที่ 3.4"],["ถามความเห็นต่อทางแก้ของทีม","ถามถึงเหตุการณ์ที่เกิดขึ้นจริง (ตารางที่ 3.5)"],
+ ["ปนข้อมูลกับการตีความ","แยกบันทึกสิ่งที่พูด ทำ และความเห็นของทีม"],["ใส่ทางแก้ในข้อความปัญหา","เขียนสิ่งที่ผู้ใช้ต้องการทำให้สำเร็จ (ตารางที่ 3.7)"],
+ ["วิจารณ์ความคิดระหว่างระดมความคิด","แยกช่วงสร้างความคิดกับช่วงคัดเลือก"],["เลือกแนวคิดก่อนแล้วหาเหตุผลทีหลัง","อ้างข้อมูลผู้ใช้ทุกครั้งที่ให้คะแนน (ตารางที่ 3.12)"],
+ ["บันทึกเสียงหรือภาพโดยไม่ขออนุญาต","ขอความยินยอมก่อนเสมอ (หัวข้อ 3.7)"]];
+const WS4=["สัมภาษณ์ผู้ใช้อย่างน้อย 5 ราย และสังเกตอย่างน้อย 1 ครั้ง พร้อมวิธีขอความยินยอมทุกราย (ตารางที่ 3.16)",
+ "แผนที่ความเข้าใจผู้ใช้ 4 ช่อง ระบุแหล่งข้อมูลทุกข้อ (ตารางที่ 3.6)","ข้อความปัญหา \"ผู้ใช้... ต้องการ... เพราะ...\" และคำถาม \"เราจะ...ได้อย่างไร\" 1–3 คำถาม",
+ "ระดมความคิดอย่างน้อย 2 เทคนิค และรายงานจำนวนความคิดทั้งหมด","ให้คะแนนแนวคิด 3–5 แนวคิดตามตารางที่ 3.12 พร้อมข้อมูลอ้างอิง และอธิบายแนวคิดที่เลือก",
+ "ผลิตภัณฑ์หรือบริการที่ตอบปัญหาเดียวกันอย่างน้อย 2 รายการ พร้อมแหล่งอ้างอิงและความแตกต่าง"];
+const ST4=[["s1","ก","ผู้ใช้และแผนที่ความเข้าใจ","หัวข้อ 3.3 · ใบงานข้อ 1–2"],["s2","ข","ข้อความปัญหา","หัวข้อ 3.4 · ใบงานข้อ 3"],["s3","ค","ระดมความคิด","หัวข้อ 3.5 · ใบงานข้อ 4"],["s4","ง","คัดเลือกและสืบค้น","หัวข้อ 3.6 · ใบงานข้อ 5–6"],["s5","จ","ตรวจก่อนนำเสนอ","ตารางที่ 3.15"]];
+function blank4(){return {meta:{group:"",biz:"",ver:"ฉบับร่าง",date:""},users:[],obs:"",emp:{say:[],do:[],think:[],feel:[]},stmt:{user:"",need:"",because:"",text:""},
+  hmw:["","",""],ideas:[],pick:[],sc:{},selected:"",selWhy:"",exist:[],manual:MIST4.map(()=>false)};}
+function from4(d){const s=blank4();Object.keys(s).forEach(k=>{if(d&&d[k]!==undefined)s[k]=d[k];});s.meta=Object.assign(blank4().meta,d&&d.meta||{});s.emp=Object.assign(blank4().emp,d&&d.emp||{});return s;}
+let Q=blank4(),v4="s1",dirty4=false;
+try{const x=localStorage.getItem(K4);if(x)Q=from4(JSON.parse(x));}catch(e){}
+function save4(){try{localStorage.setItem(K4,JSON.stringify(Q));}catch(e){}}
+function t4(){dirty4=true;save4();side4();ph4();}
+function in4(val,ph,on,cls){const e=el("input",cls||"fld");e.value=val||"";e.placeholder=ph||"";e.setAttribute("aria-label",ph||"");e.oninput=()=>{on(e.value);t4();};return e;}
+function ta4(val,ph,on,rows){const e=el("textarea","fld");e.rows=rows||2;e.value=val||"";e.placeholder=ph||"";e.setAttribute("aria-label",ph||"");e.oninput=()=>{on(e.value);t4();};return e;}
+function ex4(sec,title,lines){const d=el("details","ex");d.appendChild(el("summary",null,"ตัวอย่างจากบทที่ 3: "+title));lines.forEach(l=>d.appendChild(el("p",null,l)));sec.appendChild(d);}
+function delB(on){const d=el("button","del","×");d.title="ลบ";d.onclick=on;return d;}
+const usersOk=()=>Q.users.filter(u=>(u.find||"").trim()).length;
+const obsN=()=>parseInt(Q.obs,10)||0;
+const filled=a=>a.filter(x=>(x.t||"").trim());
+function composeQ(){const s=Q.stmt;return [s.user,s.need?"ต้องการ"+s.need.replace(/^ต้องการ\s*/,""):"",s.because?"เพราะ"+s.because.replace(/^เพราะ\s*/,""):""].filter(x=>x&&x.trim()).join(" ");}
+const SOLW=/แอป|แอปพลิเคชัน|เว็บไซต์|ระบบ|โปรแกรม|แพลตฟอร์ม|ตู้|เครื่อง/;
+const hmwOk=h=>/^เราจะ/.test(h.trim())&&/ได้อย่างไร\s*$/.test(h.trim());
+
+function r1(){const s=document.getElementById("s1");s.innerHTML="";
+  head(s,"ก","สัมภาษณ์ สังเกต และทำแผนที่ความเข้าใจผู้ใช้","หัวข้อ 3.3 · ใบงานข้อ 1–2","ใช้รหัสแทนชื่อผู้ใช้ทุกราย ห้ามบันทึกชื่อจริงหรือเบอร์โทรศัพท์ ถามถึงเหตุการณ์ที่เกิดขึ้นจริง ไม่ถามความเห็นต่อทางแก้ของทีม (ตารางที่ 3.5)");
+  s.appendChild(el("h3",null,"ตารางสรุปการสัมภาษณ์ผู้ใช้ (ตารางที่ 3.16)"));
+  const tw=el("div","tw"),t=el("table","bt");t.innerHTML="<thead><tr><th>รหัสผู้ใช้</th><th>กลุ่มผู้ใช้</th><th>วันที่</th><th>วิธีขอความยินยอม</th><th>ข้อค้นพบสำคัญ 1–2 ข้อ</th><th></th></tr></thead>";
+  const tb=el("tbody");Q.users.forEach((u,i)=>{const tr=el("tr");
+    [["code","เช่น ผู้ใช้รายที่ 1"],["group","กลุ่มผู้ใช้"],["date","วันที่"],["consent","เช่น ขอวาจาก่อนเริ่ม"],["find","สิ่งที่ผู้ใช้พูดหรือทำ"]].forEach(([k,ph])=>{const c=el("td");c.appendChild(in4(u[k],ph,v=>u[k]=v));tr.appendChild(c);});
+    const c=el("td");c.appendChild(delB(()=>{Q.users.splice(i,1);t4();r1();}));tr.appendChild(c);tb.appendChild(tr);});
+  t.appendChild(tb);tw.appendChild(t);s.appendChild(tw);
+  const a=el("button","btn line","+ เพิ่มผู้ใช้");a.onclick=()=>{Q.users.push({id:uid(),code:"ผู้ใช้รายที่ "+(Q.users.length+1),group:"",date:"",consent:"",find:""});t4();r1();};s.appendChild(a);
+  const ob=el("div","row2");ob.appendChild(el("label","lbl","จำนวนครั้งที่สังเกต และสถานที่"));ob.appendChild(in4(Q.obs,"เช่น 2 ครั้ง ที่คลังสินค้าช่วงเช้า",v=>{Q.obs=v;}));s.appendChild(ob);
+  warnBox(s,[usersOk()<5&&"ยังมีผู้ใช้ที่บันทึกข้อค้นพบไม่ครบ 5 ราย (ใบงานข้อ 1)",obsN()<1&&"ยังไม่ได้ระบุการสังเกต (ใบงานข้อ 1)",
+    Q.users.some(u=>(u.find||"").trim()&&!(u.consent||"").trim())&&"บางรายยังไม่ระบุวิธีขอความยินยอม (หัวข้อ 3.7.2)",
+    Q.users.some(u=>/\d{3}[- ]?\d{3}[- ]?\d{3,4}/.test(u.code+u.find))&&"พบตัวเลขคล้ายเบอร์โทรศัพท์ ให้ลบออกและใช้รหัสแทน"]);
+  s.appendChild(el("h3",null,"แผนที่ความเข้าใจผู้ใช้ (ตารางที่ 3.6)"));
+  s.appendChild(el("p","note","ช่องพูดและทำมาจากข้อมูลโดยตรง ช่องคิดและรู้สึกเป็นการตีความของทีม ทุกข้อต้องระบุว่ามาจากผู้ใช้รายใด"));
+  const g=el("div","grid4");EMP.forEach(([k,nm,kind])=>{const box=el("div","evbox");box.appendChild(el("b",null,nm+" "));box.appendChild(el("span","sm","("+kind+")"));
+    Q.emp[k].forEach((x,i)=>{const r=el("div","why");r.appendChild(in4(x.t,"ข้อมูล",v=>x.t=v));const sr=in4(x.src,"แหล่ง เช่น ผู้ใช้รายที่ 3",v=>x.src=v);if((x.t||"").trim()&&!(x.src||"").trim())sr.classList.add("need");r.appendChild(sr);
+      r.appendChild(delB(()=>{Q.emp[k].splice(i,1);t4();r1();}));box.appendChild(r);});
+    const b=el("button","btn line","+ "+nm);b.onclick=()=>{Q.emp[k].push({t:"",src:""});t4();r1();};box.appendChild(b);g.appendChild(box);});
+  s.appendChild(g);
+  const miss=EMP.filter(([k])=>!filled(Q.emp[k]).length).map(x=>x[1]),nosrc=EMP.some(([k])=>Q.emp[k].some(x=>(x.t||"").trim()&&!(x.src||"").trim()));
+  warnBox(s,[miss.length&&"ช่องที่ยังว่าง: "+miss.join(" "),nosrc&&"บางข้อยังไม่ระบุแหล่งข้อมูล (ใบงานข้อ 2)"]);
+  ex4(s,"แผนที่ความเข้าใจผู้ใช้ พนักงานคลังที่ทำงานไม่ถึง 6 เดือน (ตารางที่ 3.6 กรณีสมมติเพื่อการสอน)",["พูด: \"สินค้ารุ่นใกล้กันวางอยู่ชั้นเดียวกัน ป้ายเล็กมาก\" (สัมภาษณ์ผู้ใช้รายที่ 3 และ 4)","ทำ: ถ่ายภาพป้ายสินค้าเก็บในโทรศัพท์ไว้เทียบเอง (สังเกตในคลัง วันที่ 2)","คิด: กลัวถามหัวหน้าบ่อยแล้วจะถูกมองว่าทำงานไม่เป็น (ตีความจากคำพูดของผู้ใช้รายที่ 3)","รู้สึก: กดดันในช่วงเช้าที่มีคำสั่งซื้อรอจำนวนมาก (ตีความจากคำพูดของผู้ใช้รายที่ 3 และ 4)"]);}
+
+function r2(){const s=document.getElementById("s2");s.innerHTML="";
+  head(s,"ข","เขียนข้อความปัญหาและคำถาม \"เราจะ...ได้อย่างไร\"","หัวข้อ 3.4 · ใบงานข้อ 3","เลือกนิยามปัญหาจากกลุ่มข้อมูลที่มีผู้ใช้หลายรายสนับสนุน ส่วนที่สองเขียนสิ่งที่ผู้ใช้ต้องการทำให้สำเร็จ ไม่ใช่ทางแก้ที่ทีมคิดไว้");
+  const g=el("div","grid4");[["user","ผู้ใช้ (เฉพาะเจาะจง)","เช่น พนักงานคลังที่ทำงานไม่ถึง 6 เดือน"],["need","ต้องการ","สิ่งที่ผู้ใช้ต้องการทำให้สำเร็จ"],["because","เพราะ","ข้อค้นพบจากข้อมูลผู้ใช้"]].forEach(([k,l,ph])=>{
+    const d=el("div");d.appendChild(el("label","lbl",l));d.appendChild(in4(Q.stmt[k],ph,v=>{Q.stmt[k]=v;}));g.appendChild(d);});s.appendChild(g);
+  const b=el("button","btn line","ประกอบเป็นประโยค");b.onclick=()=>{Q.stmt.text=composeQ();t4();r2();};s.appendChild(b);
+  s.appendChild(ta4(Q.stmt.text,"ข้อความปัญหาหนึ่งประโยค (แก้ถ้อยคำได้)",v=>{Q.stmt.text=v;}));
+  const st=Q.stmt.text||"";
+  warnBox(s,[!st.trim()&&"ยังไม่มีข้อความปัญหา",st&&(!/ต้องการ/.test(st)||!/เพราะ/.test(st))&&"ข้อความยังไม่ครบรูปแบบ \"ผู้ใช้... ต้องการ... เพราะ...\"",
+    SOLW.test(Q.stmt.need||"")&&"ส่วน \"ต้องการ\" อาจใส่ทางแก้ไว้ในปัญหา (ตารางที่ 3.7)",st&&!usersOk()&&"ยังไม่มีข้อมูลผู้ใช้ในขั้น ก รองรับข้อความปัญหา"]);
+  ex4(s,"ข้อความปัญหาที่ยังไม่ดีและที่ปรับแล้ว (ตารางที่ 3.7)",["ยังไม่ดี: \"พนักงานคลังต้องการแอปพลิเคชันค้นหาสินค้า\" ใส่ทางแก้ไว้ในปัญหา","ปรับแล้ว: \"พนักงานคลังที่ทำงานไม่ถึง 6 เดือนต้องการแยกสินค้ารุ่นใกล้กันได้ถูกต้องในช่วงเช้า เพราะป้ายเล็กและไม่กล้าถามหัวหน้าบ่อย\""]);
+  s.appendChild(el("h3",null,"คำถาม \"เราจะ...ได้อย่างไร\" 1–3 คำถาม (หัวข้อ 3.4.3)"));
+  s.appendChild(el("p","note","คำถามที่ดีต้องไม่กว้างจนไม่รู้จะเริ่มตรงไหน และไม่แคบจนมีคำตอบเดียว (ตารางที่ 3.8)"));
+  Q.hmw.forEach((h,i)=>s.appendChild(in4(h,"เราจะ...ได้อย่างไร",v=>{Q.hmw[i]=v;})));
+  const hs=Q.hmw.filter(h=>h.trim());warnBox(s,[!hs.length&&"ยังไม่มีคำถาม \"เราจะ...ได้อย่างไร\"",hs.some(h=>!hmwOk(h))&&"บางคำถามไม่ขึ้นต้นด้วย \"เราจะ\" หรือไม่ลงท้ายด้วย \"ได้อย่างไร\""]);}
+
+function r3(){const s=document.getElementById("s3");s.innerHTML="";
+  head(s,"ค","ระดมความคิดอย่างน้อย 2 เทคนิค","หัวข้อ 3.5 · ใบงานข้อ 4","แยกการสร้างความคิดออกจากการตัดสินความคิด ระหว่างสร้างความคิดไม่มีใครวิจารณ์ และเน้นจำนวนก่อนคุณภาพ");
+  const hs=Q.hmw.filter(h=>h.trim());s.appendChild(el("p","chosen",hs.length?"คำถามตั้งต้น: "+hs.join(" / "):"ยังไม่มีคำถาม \"เราจะ...ได้อย่างไร\" ในขั้น ข"));
+  const cards=el("div","cards");TECH4.forEach(([k,nm,when,steps],ti)=>{const c=el("div","tcard");c.appendChild(el("div","th",nm));c.appendChild(el("div","note","เหมาะเมื่อ: "+when));
+    const ul=el("ul");steps.forEach(x=>ul.appendChild(el("li","sm",x)));c.appendChild(ul);
+    const box=el("div","add");const i=el("input");i.placeholder="ความคิดจากเทคนิคนี้";i.setAttribute("aria-label","ความคิดจาก"+nm);
+    const b=el("button",null,"+");const go=()=>{const v=i.value.trim();if(!v)return;Q.ideas.push({id:uid(),t:v,tech:k});i.value="";t4();r3();const ni=document.querySelectorAll("#s3 .tcard input")[ti];if(ni)ni.focus();};
+    b.onclick=go;i.onkeydown=e=>{if(e.key==="Enter")go();};box.appendChild(i);box.appendChild(b);c.appendChild(box);
+    c.appendChild(el("div","sm","ได้ "+Q.ideas.filter(x=>x.tech===k).length+" ความคิด"));cards.appendChild(c);});s.appendChild(cards);
+  s.appendChild(el("h3",null,"ความคิดทั้งหมด "+Q.ideas.length+" ความคิด"));
+  const ol=el("ol","ilist");Q.ideas.forEach((x,i)=>{const li=el("li");li.appendChild(document.createTextNode(x.t+" "));li.appendChild(el("span","tag",TN4[x.tech]||""));
+    li.appendChild(delB(()=>{Q.ideas.splice(i,1);Q.pick=Q.pick.filter(id=>id!==x.id);if(Q.selected===x.id)Q.selected="";t4();r3();r4();}));ol.appendChild(li);});s.appendChild(ol);
+  const nt=new Set(Q.ideas.map(x=>x.tech)).size;warnBox(s,[nt<2&&"ใบงานข้อ 4 กำหนดให้ใช้อย่างน้อย 2 เทคนิค"]);}
+
+const tot4=id=>CRIT4.reduce((a,[k])=>a+((Q.sc[id]&&Q.sc[id][k]&&+Q.sc[id][k].v)||0),0);
+function sc4(){const ids=Q.pick.filter(id=>Q.ideas.some(x=>x.id===id));let blank=0,noR=0;
+  ids.forEach(id=>CRIT4.forEach(([k])=>{const c=(Q.sc[id]||{})[k]||{};if(!c.v)blank++;else if(!(c.r||"").trim())noR++;}));
+  const cut=ids.filter(id=>Q.sc[id]&&Q.sc[id].need&&Q.sc[id].need.v==="1");return {ids,blank,noR,cut};}
+function r4(){const s=document.getElementById("s4");s.innerHTML="";
+  head(s,"ง","คัดเลือกแนวคิดด้วยเกณฑ์ แล้วสืบค้นสิ่งที่มีอยู่แล้ว","หัวข้อ 3.6 · ใบงานข้อ 5–6","ถ้ามีมากกว่า 20 ความคิด ให้คัดรอบแรกด้วยการลงคะแนนพร้อมกันก่อน (หัวข้อ 3.6.1) แล้วเลือก 3–5 แนวคิดมาให้คะแนนตามตารางที่ 3.12 คะแนนต้องอ้างข้อมูลผู้ใช้ ไม่ใช่ความรู้สึกของทีม");
+  const pk=el("div","pickl");Q.ideas.forEach(x=>{const l=el("label","pi");const c=el("input");c.type="checkbox";c.checked=Q.pick.includes(x.id);
+    c.onchange=()=>{if(c.checked)Q.pick.push(x.id);else Q.pick=Q.pick.filter(id=>id!==x.id);t4();r4();};l.appendChild(c);l.appendChild(document.createTextNode(" "+x.t));pk.appendChild(l);});
+  if(!Q.ideas.length)pk.appendChild(el("p","note","ยังไม่มีความคิดในขั้น ค"));s.appendChild(pk);
+  const R=sc4(),idea=id=>Q.ideas.find(x=>x.id===id);
+  if(R.ids.length){const tw=el("div","tw"),t=el("table","bt sc");const hr=el("tr");hr.appendChild(el("th",null,"เกณฑ์"));R.ids.forEach(id=>hr.appendChild(el("th",null,idea(id).t)));
+    const th=el("thead");th.appendChild(hr);t.appendChild(th);const tb=el("tbody");
+    CRIT4.forEach(([k,nm,s3,s2,s1])=>{const tr=el("tr"),c0=el("td");c0.appendChild(el("b",null,nm));const det=el("details","crit");det.appendChild(el("summary",null,"คำอธิบายคะแนน"));
+      [["3",s3],["2",s2],["1",s1]].forEach(([n,d])=>det.appendChild(el("div","sm",n+" = "+d)));c0.appendChild(det);tr.appendChild(c0);
+      R.ids.forEach(id=>{Q.sc[id]=Q.sc[id]||{};Q.sc[id][k]=Q.sc[id][k]||{v:"",r:""};const cell=Q.sc[id][k],c=el("td");
+        const so=el("select","fld num");so.setAttribute("aria-label","คะแนน "+nm);[["","คะแนน"],["3","3"],["2","2"],["1","1"]].forEach(([v,tx])=>{const o=el("option",null,tx);o.value=v;if(v===cell.v)o.selected=true;so.appendChild(o);});
+        so.onchange=()=>{cell.v=so.value;t4();r4();};c.appendChild(so);
+        const r=in4(cell.r,"ข้อมูลอ้างอิง เช่น ผู้ใช้รายที่ 2",v=>cell.r=v,"fld why");if(cell.v&&!(cell.r||"").trim())r.classList.add("need");c.appendChild(r);tr.appendChild(c);});
+      tb.appendChild(tr);});
+    const tt=el("tr","tot");tt.appendChild(el("td",null,"คะแนนรวม (เต็ม 9)"));R.ids.forEach(id=>tt.appendChild(el("td","tv",String(tot4(id)))));tb.appendChild(tt);t.appendChild(tb);tw.appendChild(t);s.appendChild(tw);}
+  warnBox(s,[R.ids.length&&(R.ids.length<3||R.ids.length>5)&&"ใบงานข้อ 5 ให้แสดงคะแนนของแนวคิด 3–5 แนวคิด",R.blank&&"ยังให้คะแนนไม่ครบ "+R.blank+" ช่อง",R.noR&&R.noR+" คะแนนยังไม่มีข้อมูลอ้างอิง",
+    R.cut.length&&"แนวคิดที่ได้ 1 คะแนนในเกณฑ์ผู้ใช้ต้องการให้ตัดออก: "+R.cut.map(id=>idea(id).t).join(", ")]);
+  s.appendChild(el("h3",null,"แนวคิดที่เลือก"));const ch=el("div","pickl");R.ids.filter(id=>!R.cut.includes(id)).forEach(id=>{const l=el("label","pi"),r=el("input");r.type="radio";r.name="sel4";r.checked=Q.selected===id;
+    r.onchange=()=>{Q.selected=id;t4();};l.appendChild(r);l.appendChild(document.createTextNode(" "+idea(id).t+" ("+tot4(id)+")"));ch.appendChild(l);});s.appendChild(ch);
+  s.appendChild(ta4(Q.selWhy,"อธิบายแนวคิดที่เลือก และสิ่งที่จะทดสอบในบทที่ 4",v=>{Q.selWhy=v;}));
+  s.appendChild(el("h3",null,"สิ่งที่มีอยู่แล้วที่ตอบปัญหาเดียวกัน (หัวข้อ 3.6.3 · ใบงานข้อ 6)"));
+  s.appendChild(el("p","note","สืบค้นจากแหล่งที่น่าเชื่อถือ เช่น เว็บไซต์ของผู้ให้บริการ รายงานของหน่วยงาน หรือบทความวิชาการ ถ้ามีทางแก้อยู่แล้วแต่ผู้ใช้ของกลุ่มยังไม่ได้ใช้ ให้หาเหตุผลว่าทำไม"));
+  Q.exist.forEach((x,i)=>{const box=el("div","evbox");const top=el("div","evtop");top.appendChild(in4(x.name,"ชื่อผลิตภัณฑ์หรือบริการ",v=>x.name=v));top.appendChild(delB(()=>{Q.exist.splice(i,1);t4();r4();}));box.appendChild(top);
+    box.appendChild(in4(x.src,"แหล่งอ้างอิง (ชื่อแหล่ง ปี หรือ URL)",v=>x.src=v));box.appendChild(in4(x.diff,"แนวคิดของกลุ่มต่างจากสิ่งนี้อย่างไร",v=>x.diff=v));s.appendChild(box);});
+  const ab=el("button","btn line","+ เพิ่มรายการ");ab.onclick=()=>{Q.exist.push({name:"",src:"",diff:""});t4();r4();};s.appendChild(ab);
+  const ex=Q.exist.filter(x=>(x.name||"").trim());warnBox(s,[ex.length<2&&"ใบงานข้อ 6 ต้องมีอย่างน้อย 2 รายการ",ex.some(x=>!(x.src||"").trim())&&"บางรายการยังไม่มีแหล่งอ้างอิง"]);}
+
+function auto4(){const R=sc4(),all=Q.users.map(u=>u.find||"").join(" ");
+  return [["man",""],[/ใช้ไหม|จะซื้อ|ชอบไหม/.test(all)?"warn":"man",/ใช้ไหม|จะซื้อ|ชอบไหม/.test(all)?"พบข้อค้นพบที่เป็นความเห็นต่อทางแก้":""],
+    [/ขี้เกียจ|ไม่สนใจ|ไม่ฉลาด/.test(all)?"warn":"man",/ขี้เกียจ|ไม่สนใจ|ไม่ฉลาด/.test(all)?"พบคำตีความในช่องข้อค้นพบ":""],
+    [SOLW.test(Q.stmt.need||"")?"warn":(Q.stmt.text||"").trim()?"ok":"man",SOLW.test(Q.stmt.need||"")?"ส่วน \"ต้องการ\" มีคำที่เป็นทางแก้":""],["man",""],
+    [R.noR?"warn":R.ids.length&&!R.blank?"ok":"man",R.noR?R.noR+" คะแนนยังไม่มีข้อมูลอ้างอิง":""],
+    [Q.users.some(u=>(u.find||"").trim()&&!(u.consent||"").trim())?"warn":usersOk()?"ok":"man",Q.users.some(u=>(u.find||"").trim()&&!(u.consent||"").trim())?"บางรายยังไม่ระบุวิธีขอความยินยอม":""]];}
+function r5(){const s=document.getElementById("s5");s.innerHTML="";
+  head(s,"จ","ตรวจกับข้อผิดพลาดที่พบบ่อยก่อนนำเสนอ","ตารางที่ 3.15","ระบบตรวจได้บางข้อจากข้อมูลที่กรอก ข้อที่เหลือให้ทีมตรวจเอง แล้วทำเครื่องหมายเมื่อตรวจแล้ว");
+  const A=auto4(),ul=el("ul","chk big");MIST4.forEach(([m,fix],i)=>{const li=el("li"),cb=el("input");cb.type="checkbox";cb.checked=!!Q.manual[i];cb.setAttribute("aria-label","ตรวจแล้ว ข้อ "+(i+1));cb.onchange=()=>{Q.manual[i]=cb.checked;t4();};li.appendChild(cb);
+    const d=el("div");d.appendChild(el("b",null,(i+1)+". "+m+" "));d.appendChild(el("span","st "+A[i][0],{ok:"ไม่พบข้อเตือน",warn:"ควรแก้",man:"ตรวจเอง"}[A[i][0]]));d.appendChild(el("div","sm","วิธีแก้: "+fix));if(A[i][1])d.appendChild(el("span","why",A[i][1]));li.appendChild(d);ul.appendChild(li);});
+  s.appendChild(ul);
+  s.appendChild(el("p","note","ลำดับสไลด์ที่แนะนำ: โจทย์และผู้ใช้กลุ่มเป้าหมาย สิ่งที่ได้จากการสัมภาษณ์และสังเกต แผนที่ความเข้าใจผู้ใช้ ข้อความปัญหาและคำถาม \"เราจะ...ได้อย่างไร\" การระดมความคิดและจำนวนความคิด การคัดเลือกแนวคิดด้วยเกณฑ์ ผลการสืบค้นสิ่งที่มีอยู่ และแนวคิดที่เลือกพร้อมสิ่งที่จะทดสอบในบทที่ 4"));}
+
+function ws4(){const R=sc4(),ex=Q.exist.filter(x=>(x.name||"").trim());
+  return [usersOk()>=5&&obsN()>=1&&!Q.users.some(u=>(u.find||"").trim()&&!(u.consent||"").trim()),
+    EMP.every(([k])=>filled(Q.emp[k]).length)&&!EMP.some(([k])=>Q.emp[k].some(x=>(x.t||"").trim()&&!(x.src||"").trim())),
+    /ต้องการ/.test(Q.stmt.text||"")&&/เพราะ/.test(Q.stmt.text||"")&&Q.hmw.some(h=>h.trim()),
+    new Set(Q.ideas.map(x=>x.tech)).size>=2,R.ids.length>=3&&R.ids.length<=5&&!R.blank&&!R.noR&&!!Q.selected&&!!(Q.selWhy||"").trim(),
+    ex.length>=2&&!ex.some(x=>!(x.src||"").trim()||!(x.diff||"").trim())];}
+function side4(){const st=ws4(),ul=document.getElementById("ws");ul.innerHTML="";
+  st.forEach((ok,i)=>{const li=el("li");li.appendChild(el("span","st "+(ok?"ok":"man"),ok?"ครบ":"ยังไม่ครบ"));li.appendChild(document.createTextNode(" "+(i+1)+". "+WS4[i]));ul.appendChild(li);});
+  document.getElementById("wsBar").style.width=(st.filter(Boolean).length/st.length*100)+"%";
+  document.querySelectorAll(".steps button").forEach((b,i)=>b.classList.toggle("done",!![st[0]&&st[1],st[2],st[3],st[4]&&st[5],Q.manual.every(Boolean)][i]));}
+function ph4(){const m=Q.meta;["Group","Ver","Date"].forEach(k=>document.getElementById("p"+k).textContent=m[k.toLowerCase()]||"–");}
+function nav4(){const n=document.getElementById("steps");n.innerHTML="";
+  ST4.forEach(([id,code,nm,sub])=>{const b=el("button",id===v4?"on":"");b.innerHTML="<b>"+code+"</b> "+nm+"<small>"+sub+"</small>";b.onclick=()=>{v4=id;show4();};n.appendChild(b);});}
+function show4(){document.querySelectorAll(".step").forEach(x=>x.classList.toggle("on",x.id===v4));document.querySelectorAll(".steps button").forEach((b,i)=>b.classList.toggle("on",ST4[i][0]===v4));
+  const sec=document.getElementById(v4),i=ST4.findIndex(x=>x[0]===v4);sec.querySelectorAll(".navnext").forEach(y=>y.remove());const nav=el("div","navnext");
+  if(i>0){const p=el("button","btn line","◀ ขั้น "+ST4[i-1][1]);p.onclick=()=>{v4=ST4[i-1][0];show4();};nav.appendChild(p);}
+  if(i<ST4.length-1){const q=el("button","btn","ขั้น "+ST4[i+1][1]+" ▶");q.onclick=()=>{v4=ST4[i+1][0];all4();window.scrollTo({top:document.getElementById("steps").offsetTop-70,behavior:"smooth"});};nav.appendChild(q);}
+  sec.appendChild(nav);}
+function all4(){r1();r2();r3();r4();r5();nav4();show4();side4();ph4();}
+function meta4(){const map={mGroup:"group",mBiz:"biz",mVer:"ver",mDate:"date"};
+  Object.entries(map).forEach(([id,k])=>{const e=document.getElementById(id);e.value=Q.meta[k]||"";e.oninput=e.onchange=()=>{Q.meta[k]=e.value;t4();};});}
+window.saveFile=function(){const name="งานกลุ่มครั้งที่1_"+(Q.meta.group||"กลุ่ม").replace(/[^\wก-๙-]/g,"")+"_"+(Q.meta.date||new Date().toISOString().slice(0,10))+".json";
+  const blob=new Blob([JSON.stringify({tool:TOOL4,version:1,meta:Q.meta,idea:Q},null,1)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);dirty4=false;toast("บันทึกไฟล์ "+name);};
+window.openFile=function(f){const file=f.files[0];if(!file)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.tool!==TOOL4)throw 0;Q=from4(Object.assign({},d.idea,{meta:d.meta||d.idea.meta}));save4();dirty4=false;meta4();all4();toast("เปิดไฟล์แล้ว");}
+    catch(e){toast("ไฟล์นี้ไม่ใช่ไฟล์ Idea Studio ของวิชา 0903464");}f.value="";};r.readAsText(file);};
+window.clearAll=function(){if((Q.users.length||Q.ideas.length)&&!confirm("ล้างงานทั้งหมดในเบราว์เซอร์นี้ ควรกด \"บันทึกไฟล์\" ก่อน ต้องการล้างหรือไม่"))return;Q=blank4();save4();dirty4=false;meta4();v4="s1";all4();};
+window.addEventListener("beforeunload",e=>{if(dirty4&&(Q.users.length||Q.ideas.length)){e.preventDefault();e.returnValue="";}});
+// ข้อความส่วนหัวและส่วนข้างของโหมดนี้
+document.title="Idea Studio · วิชา 0903464";
+const br=document.querySelector(".brandname");br.href="ci_0903464.html";br.firstChild.textContent="วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ";
+document.querySelector(".topbar .tools").innerHTML='<a href="ci_lesson_03.html">📖 บทที่ 3</a><a href="ci_0903464.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a>';
+document.querySelector(".hero .kick").textContent="เครื่องมือประกอบบทที่ 3 · งานกลุ่มครั้งที่ 1 โจทย์ปัญหาและแนวคิดนวัตกรรม";
+document.querySelector(".hero h1").textContent="Idea Studio: เข้าใจผู้ใช้ นิยามปัญหา และคัดเลือกแนวคิด";
+document.querySelector(".hero p").textContent="ทำตามกระบวนการคิดเชิงออกแบบในบทที่ 3 บันทึกการสัมภาษณ์และการสังเกต ทำแผนที่ความเข้าใจผู้ใช้ เขียนข้อความปัญหา ระดมความคิดอย่างน้อย 2 เทคนิค คัดเลือกแนวคิดด้วยเกณฑ์ และสืบค้นสิ่งที่มีอยู่แล้ว ผลลัพธ์เรียงตามใบงานงานกลุ่มครั้งที่ 1 งานบันทึกอยู่ในเบราว์เซอร์เครื่องนี้ ควรกด \"บันทึกไฟล์\" ทุกครั้ง";
+document.querySelector('label[for="mBiz"]').textContent="โจทย์หรือสถานประกอบการ";document.getElementById("mBiz").placeholder="เช่น คลังสินค้าของร้านค้าส่ง";
+document.getElementById("mVer").innerHTML="<option>ฉบับร่าง</option><option>ฉบับนำเสนองานกลุ่มครั้งที่ 1</option>";
+document.querySelectorAll(".hero .bar button").forEach(b=>{if(/Lean/.test(b.textContent))b.style.display="none";});
+document.querySelector(".side .k").textContent="งานกลุ่มครั้งที่ 1";
+document.querySelector(".side .note").textContent="นำเสนอพร้อมส่งสไลด์และบันทึกการแบ่งงานในสัปดาห์ที่ 5 ประเมินด้วยรูบริกที่ 1 (ร้อยละ 10 ของคะแนนรายวิชา)";
+document.querySelector(".printhead b").textContent="โจทย์ปัญหาและแนวคิดนวัตกรรม";
+document.querySelector("footer .wrap").firstChild.textContent="© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เครื่องมือประกอบเอกสารประกอบการสอนรายวิชา 0903464 · CC BY-NC-SA 4.0";
+meta4();all4();
+})();}
 </script>
 
 <script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

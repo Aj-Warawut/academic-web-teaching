@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี · วิชา 0903464</title>
+<meta name="description" content="บทเรียนบทที่ 5 วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ci_0903464.html">วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ci_0903464.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 5</div><a href="#x6">ความนำ</a><a href="#s-5-1">5.1 กระบวนการจัดการกลยุทธ์</a><a href="#s-5-2">5.2 การวิเคราะห์สภาพแวดล้อมเพื่อนวัตกรรม</a><a href="#s-5-3">5.3 กลยุทธ์นวัตกรรม</a><a href="#s-5-4">5.4 วงจรชีวิตเทคโนโลยีและการแพร่กระจายของนวัตกรรม</a><a href="#s-5-5">5.5 การบริหารกลุ่มโครงการนวัตกรรม</a><a href="#s-5-6">5.6 การวัดผลการดำเนินงานด้านนวัตกรรม</a><a href="#s-5-7">5.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-5-8">5.8 ข้อผิดพลาดที่พบบ่อยในการวางกลยุทธ์นวัตกรรม</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: วางนวัตกรรมของกลุ่มบนเส้นการแพร่กระจาย และเลือกกลุ่มผู้ใช้แรก</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ</div>
+<h1>บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>8</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (27 สไลด์)</button><a class="btn line" href="ci/files/ci_0903464_บทที่05_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 กิจกรรมท้ายบท 5</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายกระบวนการจัดการกลยุทธ์ 4 ขั้น และความเชื่อมโยงกับการจัดการนวัตกรรมได้</li><li>ใช้กรอบ PESTEL และ SWOT จัดทำข้อมูลสภาพแวดล้อมของนวัตกรรมของกลุ่มได้</li><li>เปรียบเทียบกลยุทธ์นวัตกรรม 3 แบบตามจังหวะการเข้าสู่ตลาดได้</li><li>อธิบายเส้นโค้งรูปตัว S และจำแนกกลุ่มผู้ยอมรับนวัตกรรม 5 กลุ่มได้</li><li>ใช้เกณฑ์ให้คะแนนจัดลำดับโครงการนวัตกรรมในกลุ่มโครงการได้</li><li>ยกตัวอย่างตัวชี้วัดผลการดำเนินงานด้านนวัตกรรมในแต่ละระดับได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 3 และ 4 เน้นการทำงานกับผู้ใช้ในระดับรายบุคคล คือ สัมภาษณ์ ทำต้นแบบ และทดสอบ บทนี้ขยายมุมมองขึ้นมาที่ระดับองค์การและตลาด คำถามหลักเปลี่ยนจาก "ผู้ใช้ต้องการสิ่งนี้หรือไม่" เป็น "องค์การควรลงทุนในนวัตกรรมนี้หรือไม่ ควรเข้าสู่ตลาดเมื่อใดและอย่างไร และจะรู้ได้อย่างไรว่าการลงทุนด้านนวัตกรรมได้ผล" นวัตกรรมที่ผู้ใช้ชอบอาจล้มเหลวได้ ถ้าเข้าตลาดผิดเวลา แข่งกับคู่แข่งที่มีทรัพยากรมากกว่าโดยไม่มีจุดแข็ง หรือไม่สอดคล้องกับทิศทางขององค์การ</p>
+<p class="lead">เนื้อหาเริ่มจากกระบวนการจัดการกลยุทธ์ 4 ขั้น ซึ่งนิสิตสาขาวิชาการจัดการสมัยใหม่หลายคนเคยเรียนมาแล้ว แต่บทนี้มองผ่านเลนส์ของนวัตกรรม จากนั้นอธิบายการวิเคราะห์สภาพแวดล้อม กลยุทธ์นวัตกรรม 3 แบบ เส้นโค้งรูปตัว S ของเทคโนโลยี การแพร่กระจายของนวัตกรรมไปยังผู้ใช้กลุ่มต่าง ๆ การบริหารโครงการนวัตกรรมหลายโครงการพร้อมกัน และการวัดผลการดำเนินงานด้านนวัตกรรม</p>
+<p class="lead">บทนี้เป็นจุดเริ่มของช่วงงานที่ 3 ของงานกลุ่ม ซึ่งเปลี่ยนจากการทำต้นแบบไปสู่การวางแผนนำนวัตกรรมออกสู่ตลาด กิจกรรมท้ายบทให้กลุ่มวางนวัตกรรมของตนบนเส้นการแพร่กระจาย และเลือกกลุ่มผู้ใช้แรก ผลงานนี้เป็นส่วนหนึ่งของแผนพัฒนาเชิงพาณิชย์ในงานกลุ่มครั้งที่ 3 สัปดาห์ที่ 9 เป็นการสอบกลางภาคซึ่งครอบคลุมเนื้อหาบทที่ 1–5</p>
+<h2 id="s-5-1">5.1 กระบวนการจัดการกลยุทธ์</h2>
+<p><strong>การจัดการกลยุทธ์ (Strategic management)</strong> คือกระบวนการที่องค์การใช้กำหนดทิศทางระยะยาว เลือกวิธีแข่งขัน และจัดสรรทรัพยากรให้ไปถึงทิศทางนั้น ตำราการจัดการกลยุทธ์ส่วนใหญ่แบ่งกระบวนการเป็น 4 ขั้น คือ การวิเคราะห์สภาพแวดล้อม การกำหนดกลยุทธ์ การนำกลยุทธ์ไปปฏิบัติ และการควบคุมและประเมินผล ตารางที่ 5.1 แสดงว่าแต่ละขั้นเกี่ยวข้องกับนวัตกรรมอย่างไร และเชื่อมกับเนื้อหาบทใดในเอกสารนี้</p>
+<p class="tcap"><b>ตารางที่ 5.1</b> กระบวนการจัดการกลยุทธ์กับการจัดการนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>คำถามหลัก</th><th>คำถามด้านนวัตกรรม</th><th>เนื้อหาที่เกี่ยวข้อง</th></tr></thead><tbody><tr><td>1. วิเคราะห์สภาพแวดล้อม</td><td>สภาพแวดล้อมภายนอกและภายในเป็นอย่างไร</td><td>มีโอกาสนวัตกรรมจากการเปลี่ยนแปลงใด องค์การมีความสามารถอะไร</td><td>หัวข้อ 5.2 และหัวข้อ 1.7</td></tr><tr><td>2. กำหนดกลยุทธ์</td><td>องค์การจะแข่งขันอย่างไร</td><td>จะเป็นผู้นำ ตามอย่างรวดเร็ว หรือเลือกตลาดเฉพาะ จะลงทุนในโครงการใด</td><td>หัวข้อ 5.3 และ 5.5</td></tr><tr><td>3. นำกลยุทธ์ไปปฏิบัติ</td><td>จะจัดทรัพยากร โครงสร้าง และคนอย่างไร</td><td>จะจัดกระบวนการ ทีม และวัฒนธรรมนวัตกรรมอย่างไร</td><td>บทที่ 2 และ 4</td></tr><tr><td>4. ควบคุมและประเมินผล</td><td>ผลเป็นไปตามเป้าหรือไม่</td><td>วัดผลนวัตกรรมด้วยตัวชี้วัดใด จะปรับอย่างไร</td><td>หัวข้อ 5.6</td></tr></tbody></table></div>
+<p>ในทางปฏิบัติ ขั้นทั้ง 4 ไม่ได้เกิดขึ้นตามลำดับเพียงครั้งเดียว องค์การต้องวนกลับไปวิเคราะห์ใหม่เมื่อสภาพแวดล้อมเปลี่ยน ซึ่งเกิดเร็วขึ้นในยุคดิจิทัล หลักนี้คล้ายกับการทำงานแบบวนซ้ำในบทที่ 2 และวงจรสร้าง วัด เรียนรู้ในบทที่ 4 แต่ทำในระดับองค์การและใช้รอบที่ยาวกว่า</p>
+<h3 id="s-5-1-1">5.1.1 กลยุทธ์นวัตกรรมเป็นส่วนหนึ่งของกลยุทธ์องค์การ</h3>
+<p><strong>กลยุทธ์นวัตกรรม (Innovation strategy)</strong> คือการตัดสินใจว่าองค์การจะใช้นวัตกรรมสนับสนุนกลยุทธ์ขององค์การอย่างไร ได้แก่ จะสร้างนวัตกรรมประเภทใด ในระดับใด เข้าตลาดเมื่อใด และลงทุนเท่าใด กลยุทธ์นวัตกรรมต้องสอดคล้องกับกลยุทธ์ขององค์การ ตัวอย่างเช่น ธุรกิจที่แข่งขันด้วยต้นทุนต่ำควรเน้นนวัตกรรมกระบวนการที่ลดต้นทุน ส่วนธุรกิจที่แข่งขันด้วยความแตกต่างควรเน้นนวัตกรรมผลิตภัณฑ์และบริการที่ลูกค้ารับรู้คุณค่า ถ้าทั้งสองไม่สอดคล้องกัน ฝ่ายต่าง ๆ จะดึงทรัพยากรไปคนละทาง ตารางที่ 5.2 แสดงความสอดคล้องนี้</p>
+<p class="tcap"><b>ตารางที่ 5.2</b> ความสอดคล้องระหว่างกลยุทธ์การแข่งขันกับจุดเน้นของนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>กลยุทธ์การแข่งขัน</th><th>จุดเน้นของนวัตกรรม</th><th>ตัวอย่างนวัตกรรม</th></tr></thead><tbody><tr><td>ต้นทุนต่ำ</td><td>นวัตกรรมกระบวนการที่ลดต้นทุนและความสูญเสีย</td><td>ระบบจัดการคลังที่ลดการหยิบสินค้าผิด</td></tr><tr><td>ความแตกต่าง</td><td>นวัตกรรมผลิตภัณฑ์และบริการที่ลูกค้ารับรู้คุณค่า</td><td>บริการตู้รับผ้าที่รับได้หลังเวลาร้านปิด</td></tr><tr><td>มุ่งเฉพาะกลุ่ม</td><td>นวัตกรรมที่ตอบความต้องการเฉพาะของกลุ่มลูกค้าที่เลือก</td><td>ฉลากยาตัวอักษรใหญ่สำหรับผู้สูงอายุ</td></tr></tbody></table></div>
+<h2 id="s-5-2">5.2 การวิเคราะห์สภาพแวดล้อมเพื่อนวัตกรรม</h2>
+<p>การวิเคราะห์สภาพแวดล้อมเพื่อนวัตกรรมต่างจากการวิเคราะห์ทั่วไปตรงที่เน้นหา <strong>การเปลี่ยนแปลง</strong> ไม่ใช่เพียงบรรยายสภาพปัจจุบัน เพราะโอกาสนวัตกรรมส่วนใหญ่เกิดจากการเปลี่ยนแปลง ดังที่อธิบายไว้ในหัวข้อ 1.7 เครื่องมือที่ใช้บ่อยมี 2 เครื่องมือ คือ PESTEL สำหรับสภาพแวดล้อมภายนอก และ SWOT ซึ่งรวมสภาพแวดล้อมภายนอกเข้ากับปัจจัยภายใน</p>
+<h3 id="s-5-2-1">5.2.1 PESTEL</h3>
+<p><strong>PESTEL</strong> เป็นกรอบตรวจสภาพแวดล้อมภายนอก 6 ด้าน ได้แก่ การเมือง เศรษฐกิจ สังคม เทคโนโลยี สิ่งแวดล้อม และกฎหมาย ชื่อกรอบมาจากอักษรตัวแรกของแต่ละด้านในภาษาอังกฤษ สำหรับนวัตกรรม แต่ละด้านควรตอบคำถามว่ามีการเปลี่ยนแปลงอะไรที่เปิดโอกาสหรือสร้างอุปสรรคต่อนวัตกรรมของกลุ่ม ตารางที่ 5.3 แสดงคำถามและตัวอย่าง</p>
+<p class="tcap"><b>ตารางที่ 5.3</b> PESTEL สำหรับนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามสำหรับนวัตกรรม</th><th>ตัวอย่างประเด็นที่ควรตรวจ</th></tr></thead><tbody><tr><td>การเมือง (Political)</td><td>นโยบายรัฐส่งเสริมหรือจำกัดนวัตกรรมนี้หรือไม่</td><td>มาตรการส่งเสริมธุรกิจขนาดเล็ก นโยบายเศรษฐกิจดิจิทัล</td></tr><tr><td>เศรษฐกิจ (Economic)</td><td>กำลังซื้อและต้นทุนของผู้ใช้เปลี่ยนไปอย่างไร</td><td>ค่าแรง ค่าเช่า ราคาวัตถุดิบ ค่าครองชีพ</td></tr><tr><td>สังคม (Social)</td><td>พฤติกรรมและค่านิยมของผู้ใช้เปลี่ยนไปอย่างไร</td><td>ผู้สูงอายุเพิ่มขึ้น การซื้อขายออนไลน์ การทำงานนอกเวลาปกติ</td></tr><tr><td>เทคโนโลยี (Technological)</td><td>มีเทคโนโลยีใหม่หรือราคาถูกลงที่ทำให้นวัตกรรมเป็นไปได้หรือไม่</td><td>การชำระเงินด้วยคิวอาร์โค้ด อุปกรณ์อัจฉริยะราคาถูก</td></tr><tr><td>สิ่งแวดล้อม (Environmental)</td><td>มีแรงกดดันด้านสิ่งแวดล้อมที่เกี่ยวข้องหรือไม่</td><td>การลดพลาสติก การประหยัดพลังงาน</td></tr><tr><td>กฎหมาย (Legal)</td><td>มีกฎหมายที่ต้องปฏิบัติตามหรือเปิดโอกาสหรือไม่</td><td>กฎหมายคุ้มครองข้อมูลส่วนบุคคล มาตรฐานผลิตภัณฑ์ ใบอนุญาต</td></tr></tbody></table></div>
+<p>ข้อควรระวังในการใช้ PESTEL คือ ทีมมักเขียนประเด็นกว้าง ๆ ที่ใช้ได้กับทุกนวัตกรรม เช่น "เศรษฐกิจชะลอตัว" โดยไม่บอกว่ามีผลต่อนวัตกรรมของกลุ่มอย่างไร ทุกประเด็นที่เขียนควรมีข้อมูลอ้างอิง และตามด้วยผลต่อนวัตกรรม เช่น "ค่าแรงช่วงค่ำสูงขึ้น ร้านจึงไม่อยากขยายเวลาเปิด ทำให้บริการตู้รับผ้ามีคุณค่ามากขึ้น" ข้อมูลที่ไม่มีแหล่งอ้างอิงให้ระบุว่าเป็นข้อสันนิษฐาน และนำไปทดสอบหรือสืบค้นเพิ่ม</p>
+<h3 id="s-5-2-2">5.2.2 SWOT และการจับคู่ปัจจัย</h3>
+<p><strong>SWOT</strong> สรุปจุดแข็งและจุดอ่อน ซึ่งเป็นปัจจัยภายในที่องค์การควบคุมได้ กับโอกาสและอุปสรรค ซึ่งเป็นปัจจัยภายนอกจาก PESTEL และจากคู่แข่ง ปัญหาที่พบบ่อยคือ ทีมทำรายการ SWOT แล้วหยุด โดยไม่นำไปใช้กำหนดกลยุทธ์ วิธีแก้คือจับคู่ปัจจัยภายในกับภายนอก เพื่อหาแนวทางกลยุทธ์ 4 แบบ ตามตารางที่ 5.4</p>
+<p class="tcap"><b>ตารางที่ 5.4</b> การจับคู่ปัจจัย SWOT เพื่อหาแนวทางกลยุทธ์ (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>คู่ปัจจัย</th><th>คำถาม</th><th>ตัวอย่างแนวทาง</th></tr></thead><tbody><tr><td>จุดแข็งกับโอกาส</td><td>ใช้จุดแข็งอะไรคว้าโอกาสนี้</td><td>ร้านอยู่ใกล้หอพักหลายแห่ง ขยายตู้ไปที่หอพักที่มีนิสิตเลิกเรียนค่ำ</td></tr><tr><td>จุดอ่อนกับโอกาส</td><td>ต้องแก้จุดอ่อนอะไรเพื่อคว้าโอกาส</td><td>เจ้าของร้านลืมส่งรหัส จึงต้องใช้ระบบส่งรหัสอัตโนมัติก่อนขยาย</td></tr><tr><td>จุดแข็งกับอุปสรรค</td><td>ใช้จุดแข็งอะไรรับมืออุปสรรค</td><td>ลูกค้าประจำไว้ใจร้าน ใช้ความไว้ใจนี้รับมือคู่แข่งที่ลดราคา</td></tr><tr><td>จุดอ่อนกับอุปสรรค</td><td>ต้องป้องกันอะไรเพื่อไม่ให้เสียหาย</td><td>ร้านมีเงินทุนน้อยและคู่แข่งอาจทำตาม จึงเริ่มด้วยกล่องล็อกรหัสราคาถูกก่อน</td></tr></tbody></table></div>
+<h3 id="s-5-2-3">5.2.3 การวิเคราะห์คู่แข่งและทางเลือกของผู้ใช้</h3>
+<p>สำหรับนวัตกรรม คู่แข่งไม่ได้มีเฉพาะธุรกิจที่ขายสิ่งเดียวกัน แต่รวมถึงทุกทางเลือกที่ผู้ใช้ใช้แก้ปัญหาเดียวกันอยู่ ในบทที่ 3 กลุ่มได้สืบค้นผลิตภัณฑ์และบริการที่มีอยู่แล้ว บทนี้ให้นำผลการสืบค้นนั้นมาเปรียบเทียบอย่างเป็นระบบ ตัวอย่างเช่น ทางเลือกของนิสิตที่รับผ้าไม่ทัน ได้แก่ ฝากเพื่อนรับ รอวันหยุด ใช้ร้านซักผ้าหยอดเหรียญ หรือซักเอง ทางเลือกเหล่านี้คือคู่แข่งของบริการตู้รับผ้า แม้ไม่มีร้านใดทำตู้รับผ้าเลยก็ตาม ทีมที่บอกว่า "ไม่มีคู่แข่ง" มักยังไม่ได้มองทางเลือกที่ผู้ใช้ใช้อยู่</p>
+<h2 id="s-5-3">5.3 กลยุทธ์นวัตกรรม</h2>
+<h3 id="s-5-3-1">5.3.1 จังหวะการเข้าสู่ตลาด 3 แบบ</h3>
+<p>การตัดสินใจสำคัญของกลยุทธ์นวัตกรรมคือจังหวะการเข้าสู่ตลาด ซึ่งแบ่งได้เป็น 3 แบบหลัก ตามตารางที่ 5.5</p>
+<p class="tcap"><b>ตารางที่ 5.5</b> กลยุทธ์นวัตกรรมตามจังหวะการเข้าสู่ตลาด</p>
+<div class="tablewrap"><table><thead><tr><th>กลยุทธ์</th><th>ลักษณะ</th><th>ความสามารถที่ต้องมี</th><th>ความเสี่ยงหลัก</th></tr></thead><tbody><tr><td>เป็นผู้นำตลาด (First mover)</td><td>เข้าตลาดเป็นรายแรกด้วยผลิตภัณฑ์หรือบริการใหม่</td><td>การวิจัยและพัฒนา การรับความเสี่ยง เงินทุนสำหรับสร้างตลาด</td><td>ตลาดยังไม่พร้อม ต้องลงทุนให้ความรู้ผู้ใช้ คู่แข่งทำตามได้</td></tr><tr><td>ตามอย่างรวดเร็ว (Fast follower)</td><td>รอดูผลของผู้นำ แล้วเข้าตลาดเร็วด้วยรุ่นที่ปรับปรุงแล้ว</td><td>การติดตามตลาด การพัฒนาและผลิตอย่างรวดเร็ว</td><td>เข้าช้าเกินไปจนผู้นำครองตลาดแล้ว</td></tr><tr><td>เลือกตลาดเฉพาะ (Niche)</td><td>มุ่งกลุ่มลูกค้าเฉพาะที่ผู้เล่นรายใหญ่ไม่สนใจหรือตอบได้ไม่ดี</td><td>ความเข้าใจลูกค้ากลุ่มนั้นอย่างลึกซึ้ง</td><td>ตลาดเล็กเกินไป หรือผู้เล่นรายใหญ่เข้ามาเมื่อตลาดโต</td></tr></tbody></table></div>
+<p>Lieberman และ Montgomery (1988) ทบทวนงานวิชาการเกี่ยวกับกลไกที่ทำให้ผู้เข้าตลาดรายแรกได้เปรียบหรือเสียเปรียบ ความได้เปรียบมาจาก 3 กลไกหลัก คือ การเป็นผู้นำด้านเทคโนโลยีซึ่งอาจได้รับการคุ้มครองด้วยสิทธิบัตร การครองทรัพยากรที่หายากก่อน เช่น ทำเลหรือช่องทางจำหน่าย และต้นทุนการเปลี่ยนของผู้ซื้อที่ทำให้ลูกค้าไม่อยากเปลี่ยนไปใช้รายอื่น ส่วนความเสียเปรียบมาจากการที่ผู้ตามได้ประโยชน์จากการลงทุนของผู้นำโดยไม่ต้องจ่าย ความไม่แน่นอนของเทคโนโลยีและตลาดที่ผู้ตามรอให้ชัดเจนก่อนได้ การเปลี่ยนแปลงของเทคโนโลยีหรือความต้องการของลูกค้า และความเฉื่อยของผู้นำที่ไม่ยอมปรับตัว ข้อสรุปสำคัญคือ การเป็นรายแรกไม่ได้ได้เปรียบเสมอไป ขึ้นกับว่ากลไกใดมีอยู่ในตลาดนั้น ตารางที่ 5.6 แปลงข้อสรุปนี้เป็นคำถามที่กลุ่มใช้ได้</p>
+<p class="tcap"><b>ตารางที่ 5.6</b> คำถามตรวจว่าการเป็นผู้นำตลาดได้เปรียบหรือไม่</p>
+<div class="tablewrap"><table><thead><tr><th>กลไก</th><th>คำถามสำหรับกลุ่ม</th><th>ถ้าตอบว่าใช่</th></tr></thead><tbody><tr><td>ผู้นำด้านเทคโนโลยี</td><td>นวัตกรรมได้รับการคุ้มครองหรือเลียนแบบยากหรือไม่</td><td>การเป็นรายแรกได้เปรียบ</td></tr><tr><td>ครองทรัพยากรก่อน</td><td>มีทำเล คู่ค้า หรือช่องทางที่จำนวนจำกัดและได้ก่อนหรือไม่</td><td>การเป็นรายแรกได้เปรียบ</td></tr><tr><td>ต้นทุนการเปลี่ยน</td><td>เมื่อลูกค้าใช้แล้ว เปลี่ยนไปรายอื่นยากหรือไม่</td><td>การเป็นรายแรกได้เปรียบ</td></tr><tr><td>ผู้ตามได้ประโยชน์ฟรี</td><td>ผู้นำต้องลงทุนให้ความรู้ตลาดมาก และผู้ตามใช้ประโยชน์ได้หรือไม่</td><td>ควรพิจารณาตามอย่างรวดเร็ว</td></tr><tr><td>ความไม่แน่นอนสูง</td><td>เทคโนโลยีหรือความต้องการของลูกค้ายังเปลี่ยนเร็วหรือไม่</td><td>ควรพิจารณาตามอย่างรวดเร็ว หรือเริ่มในตลาดเฉพาะ</td></tr></tbody></table></div>
+<h3 id="s-5-3-2">5.3.2 ใครได้กำไรจากนวัตกรรม</h3>
+<p>ผู้คิดนวัตกรรมไม่ได้เป็นผู้ได้กำไรจากนวัตกรรมเสมอไป Teece (1986) อธิบายว่าผู้ที่ได้กำไรขึ้นกับ 2 ปัจจัย ปัจจัยแรกคือ <strong>ระบบการปกป้องผลประโยชน์ (Appropriability regime)</strong> หมายถึงความยากง่ายในการเลียนแบบนวัตกรรม ซึ่งขึ้นกับความแข็งแรงของการคุ้มครองทางกฎหมาย เช่น สิทธิบัตร และลักษณะของเทคโนโลยีเอง ปัจจัยที่สองคือ <strong>สินทรัพย์เสริม (Complementary assets)</strong> หมายถึงสินทรัพย์ที่จำเป็นต่อการนำนวัตกรรมออกสู่ตลาด เช่น ความสามารถในการผลิต ช่องทางจำหน่าย และบริการหลังการขาย ถ้านวัตกรรมเลียนแบบง่าย และผู้คิดไม่มีสินทรัพย์เสริม ผู้ที่มีสินทรัพย์เสริมอยู่แล้วมักได้กำไรมากกว่า ตารางที่ 5.7 สรุปแนวทางตามสองปัจจัยนี้</p>
+<p class="tcap"><b>ตารางที่ 5.7</b> แนวทางกลยุทธ์ตามความยากในการเลียนแบบและสินทรัพย์เสริม</p>
+<div class="tablewrap"><table><thead><tr><th>สถานการณ์</th><th>ความเสี่ยง</th><th>แนวทางที่ควรพิจารณา</th></tr></thead><tbody><tr><td>เลียนแบบยาก และมีสินทรัพย์เสริม</td><td>ต่ำ</td><td>นำออกสู่ตลาดเอง</td></tr><tr><td>เลียนแบบยาก แต่ไม่มีสินทรัพย์เสริม</td><td>ผู้มีสินทรัพย์เสริมต่อรองได้มาก</td><td>อนุญาตให้ใช้สิทธิ หรือร่วมมือกับผู้มีสินทรัพย์เสริม (บทที่ 6)</td></tr><tr><td>เลียนแบบง่าย แต่มีสินทรัพย์เสริม</td><td>คู่แข่งทำตาม</td><td>เข้าตลาดเร็วและใช้สินทรัพย์เสริมสร้างความได้เปรียบ</td></tr><tr><td>เลียนแบบง่าย และไม่มีสินทรัพย์เสริม</td><td>สูงที่สุด</td><td>หาพันธมิตรที่มีสินทรัพย์เสริม หรือเลือกตลาดเฉพาะที่ผู้เล่นรายใหญ่ไม่สนใจ</td></tr></tbody></table></div>
+<p>นวัตกรรมของนิสิตส่วนใหญ่อยู่ในแถวสุดท้าย คือ เลียนแบบง่ายและกลุ่มไม่มีสินทรัพย์เสริม การรู้ข้อนี้ไม่ได้แปลว่าควรเลิก แต่ช่วยให้กลุ่มวางแผนว่าควรร่วมมือกับใคร เช่น บริการตู้รับผ้าอาจร่วมมือกับเจ้าของหอพักซึ่งมีพื้นที่และลูกค้าอยู่แล้ว เรื่องการอนุญาตให้ใช้สิทธิและการคุ้มครองทรัพย์สินทางปัญญาจะอธิบายในบทที่ 6</p>
+<h2 id="s-5-4">5.4 วงจรชีวิตเทคโนโลยีและการแพร่กระจายของนวัตกรรม</h2>
+<h3 id="s-5-4-1">5.4.1 เส้นโค้งรูปตัว S ของเทคโนโลยี</h3>
+<p><strong>เส้นโค้งรูปตัว S ของเทคโนโลยี (Technology S-curve)</strong> อธิบายว่าสมรรถนะของเทคโนโลยีหนึ่งเพิ่มขึ้นอย่างไรตามความพยายามในการพัฒนาที่ใส่ลงไป ในช่วงแรก สมรรถนะเพิ่มช้าเพราะยังเรียนรู้อยู่ ช่วงกลาง สมรรถนะเพิ่มเร็วเมื่อเข้าใจเทคโนโลยีแล้ว และช่วงท้าย สมรรถนะเพิ่มช้าลงเมื่อเข้าใกล้ขีดจำกัด เมื่อเทคโนโลยีเดิมเข้าใกล้ขีดจำกัด เทคโนโลยีใหม่ที่มีเส้นโค้งของตัวเองอาจเข้ามาแทนที่ ตารางที่ 5.8 สรุป 3 ช่วงของเส้นโค้ง</p>
+<p class="tcap"><b>ตารางที่ 5.8</b> ช่วงของเส้นโค้งรูปตัว S ของเทคโนโลยี</p>
+<div class="tablewrap"><table><thead><tr><th>ช่วง</th><th>สมรรถนะ</th><th>ลักษณะของตลาด</th><th>สิ่งที่องค์การควรทำ</th></tr></thead><tbody><tr><td>ช่วงเริ่มต้น</td><td>เพิ่มช้า</td><td>มีหลายแบบแข่งกัน ยังไม่มีแบบที่ตลาดยอมรับ</td><td>ทดลองหลายแบบด้วยต้นทุนต่ำ เรียนรู้จากผู้ใช้กลุ่มแรก</td></tr><tr><td>ช่วงเติบโต</td><td>เพิ่มเร็ว</td><td>ตลาดเริ่มยอมรับแบบหนึ่ง ผู้ใช้เพิ่มเร็ว</td><td>ลงทุนขยายผล ปรับปรุงกระบวนการ ลดต้นทุน</td></tr><tr><td>ช่วงอิ่มตัว</td><td>เพิ่มช้าลง</td><td>การปรับปรุงได้ผลน้อยลงเมื่อเทียบกับต้นทุน</td><td>ติดตามเทคโนโลยีใหม่ที่อาจมาแทนที่ และเตรียมเปลี่ยน</td></tr></tbody></table></div>
+<p>Christensen (1992) ศึกษาประวัติเทคโนโลยีของอุตสาหกรรมฮาร์ดดิสก์ เพื่อตรวจว่าเส้นโค้งรูปตัว S ใช้วางแผนพัฒนาเทคโนโลยีในระดับบริษัทได้หรือไม่ ผลพบว่าการพัฒนาชิ้นส่วนแต่ละชิ้นเป็นไปตามรูปแบบเส้นโค้งรูปตัว S จริง แต่การที่เส้นโค้งแบนลงเป็นเรื่องเฉพาะของแต่ละบริษัท ไม่ได้เกิดพร้อมกันทั้งอุตสาหกรรม บางบริษัทพัฒนาเทคโนโลยีเดิมให้มีสมรรถนะสูงกว่าบริษัทอื่นได้มาก ผู้วิจัยชี้ว่าการที่เทคโนโลยีเดิมไม่ก้าวหน้าอาจเป็นผลของการคาดการณ์ว่าเทคโนโลยีนั้นถึงขีดจำกัดแล้ว ไม่ใช่สาเหตุ ข้อสรุปสำหรับผู้บริหารคือ เส้นโค้งรูปตัว S เป็นกรอบคิดที่มีประโยชน์ แต่ไม่ควรใช้ทำนายอย่างตายตัวว่าเทคโนโลยีถึงขีดจำกัดเมื่อใด</p>
+<h3 id="s-5-4-2">5.4.2 การแพร่กระจายของนวัตกรรม</h3>
+<p><strong>การแพร่กระจายของนวัตกรรม (Diffusion of innovations)</strong> คือกระบวนการที่นวัตกรรมถูกสื่อสารและยอมรับในกลุ่มคนตามช่วงเวลา Rogers (2003) แบ่งผู้ยอมรับนวัตกรรมเป็น 5 กลุ่มตามเวลาที่ยอมรับเมื่อเทียบกับคนอื่นในระบบสังคมเดียวกัน และกำหนดสัดส่วนของแต่ละกลุ่มจากการแจกแจงแบบปกติ ตามตารางที่ 5.9 เมื่อนำจำนวนผู้ยอมรับสะสมมาเขียนกราฟตามเวลา จะได้เส้นโค้งรูปตัว S เช่นกัน</p>
+<p class="tcap"><b>ตารางที่ 5.9</b> กลุ่มผู้ยอมรับนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>กลุ่ม</th><th>สัดส่วนโดยประมาณ</th><th>ลักษณะ</th><th>สิ่งที่ต้องการจากนวัตกรรม</th></tr></thead><tbody><tr><td>ผู้บุกเบิก (Innovators)</td><td>ร้อยละ 2.5</td><td>ชอบลองสิ่งใหม่ รับความเสี่ยงได้</td><td>ความใหม่</td></tr><tr><td>ผู้ยอมรับกลุ่มแรก (Early adopters)</td><td>ร้อยละ 13.5</td><td>เป็นผู้นำความคิดเห็นในกลุ่มของตน</td><td>ประโยชน์ที่ชัดเจนก่อนคนอื่น</td></tr><tr><td>กลุ่มใหญ่กลุ่มแรก (Early majority)</td><td>ร้อยละ 34</td><td>ไตร่ตรองก่อนยอมรับ</td><td>หลักฐานว่าคนอื่นใช้แล้วได้ผล</td></tr><tr><td>กลุ่มใหญ่กลุ่มหลัง (Late majority)</td><td>ร้อยละ 34</td><td>ยอมรับเมื่อคนส่วนใหญ่ใช้แล้ว หรือจำเป็นต้องใช้</td><td>ความง่าย ความเสี่ยงต่ำ ราคาเหมาะสม</td></tr><tr><td>กลุ่มล้าหลัง (Laggards)</td><td>ร้อยละ 16</td><td>ยึดวิธีเดิม ยอมรับช้าที่สุด</td><td>ความจำเป็นที่หลีกเลี่ยงไม่ได้</td></tr></tbody></table></div>
+<p>ข้อสรุปเชิงปฏิบัติจากตารางที่ 5.9 คือ นวัตกรรมใหม่ไม่ควรเริ่มจากการขายให้ทุกคน แต่ควรเริ่มจาก <strong>กลุ่มผู้ใช้แรก (Beachhead users)</strong> ซึ่งมักเป็นผู้บุกเบิกและผู้ยอมรับกลุ่มแรกที่มีปัญหารุนแรงที่สุด แล้วใช้ผลจากกลุ่มนี้เป็นหลักฐานโน้มน้าวกลุ่มถัดไป ในกรณีตู้รับผ้า กลุ่มผู้ใช้แรกอาจเป็นนิสิตที่เรียนภาคค่ำและเคยมีผ้าค้างร้านหลายครั้ง ไม่ใช่นิสิตทุกคนในหอพัก</p>
+<h3 id="s-5-4-3">5.4.3 คุณลักษณะที่ทำให้นวัตกรรมแพร่กระจายเร็ว</h3>
+<p>Rogers (2003) ระบุคุณลักษณะของนวัตกรรมที่ผู้ใช้รับรู้ 5 ประการ ซึ่งมีผลต่ออัตราการยอมรับ กลุ่มใช้คุณลักษณะเหล่านี้ตรวจนวัตกรรมของตนเองได้ ตามตารางที่ 5.10</p>
+<p class="tcap"><b>ตารางที่ 5.10</b> คุณลักษณะของนวัตกรรมที่มีผลต่ออัตราการยอมรับ</p>
+<div class="tablewrap"><table><thead><tr><th>คุณลักษณะ</th><th>ความหมาย</th><th>คำถามสำหรับกลุ่ม</th><th>วิธีปรับถ้ายังอ่อน</th></tr></thead><tbody><tr><td>ประโยชน์เชิงเปรียบเทียบ (Relative advantage)</td><td>ดีกว่าวิธีเดิมแค่ไหนในสายตาผู้ใช้</td><td>ผู้ใช้ได้อะไรมากกว่าทางเลือกที่ใช้อยู่</td><td>เน้นประโยชน์ที่ผู้ใช้ให้ความสำคัญจากผลทดสอบ</td></tr><tr><td>ความเข้ากันได้ (Compatibility)</td><td>สอดคล้องกับค่านิยม ประสบการณ์ และความต้องการเดิม</td><td>ผู้ใช้ต้องเปลี่ยนพฤติกรรมมากหรือไม่</td><td>ออกแบบให้ใช้กับเครื่องมือที่ผู้ใช้มีอยู่</td></tr><tr><td>ความซับซ้อน (Complexity)</td><td>เข้าใจและใช้ยากแค่ไหน</td><td>ผู้ใช้ใหม่ใช้เป็นภายในกี่นาที</td><td>ลดขั้นตอน เพิ่มคำแนะนำ ณ จุดใช้งาน</td></tr><tr><td>การทดลองใช้ได้ (Trialability)</td><td>ลองใช้ในขอบเขตจำกัดได้หรือไม่</td><td>ผู้ใช้ลองก่อนตัดสินใจได้หรือไม่</td><td>ให้ทดลองใช้ฟรีครั้งแรก</td></tr><tr><td>การสังเกตเห็นได้ (Observability)</td><td>ผลของนวัตกรรมมองเห็นได้แค่ไหน</td><td>คนอื่นเห็นผลที่ผู้ใช้ได้รับหรือไม่</td><td>แสดงผลลัพธ์หรือคำบอกเล่าจากผู้ใช้จริง</td></tr></tbody></table></div>
+<p>ความซับซ้อนเป็นคุณลักษณะเดียวที่มีความสัมพันธ์ทางลบกับอัตราการยอมรับ คือ ยิ่งซับซ้อนยิ่งยอมรับช้า ส่วนอีก 4 คุณลักษณะมีความสัมพันธ์ทางบวก ผลการทดสอบในบทที่ 4 เป็นข้อมูลสำคัญสำหรับประเมินคุณลักษณะเหล่านี้ เช่น สัดส่วนผู้ใช้ที่ใช้งานได้เองบอกถึงความซับซ้อน</p>
+<h2 id="s-5-5">5.5 การบริหารกลุ่มโครงการนวัตกรรม</h2>
+<p>องค์การมักมีแนวคิดนวัตกรรมหลายแนวคิดพร้อมกัน แต่มีทรัพยากรจำกัด <strong>การบริหารกลุ่มโครงการ (Portfolio management)</strong> คือการเลือกว่าจะลงทุนในโครงการใด จัดสรรทรัพยากรอย่างไร และรักษาความสมดุลระหว่างโครงการต่าง ๆ Cooper และคณะ (1999) อธิบายว่าการบริหารกลุ่มโครงการเกี่ยวข้องกับการเลือกเชิงกลยุทธ์ว่าธุรกิจจะลงทุนในตลาด ผลิตภัณฑ์ และเทคโนโลยีใด การจัดสรรทรัพยากรที่มีจำกัด การคัดเลือกโครงการ และความสมดุลระหว่างจำนวนโครงการกับทรัพยากรที่มี</p>
+<h3 id="s-5-5-1">5.5.1 ผลการศึกษาวิธีบริหารกลุ่มโครงการ</h3>
+<p>Cooper และคณะ (1999) ศึกษาวิธีบริหารกลุ่มโครงการผลิตภัณฑ์ใหม่ของบริษัทในสหรัฐอเมริกา 205 แห่ง ผลพบว่าธุรกิจที่มีผลงานดีที่สุดมีกลุ่มโครงการที่ประกอบด้วยโครงการมูลค่าสูง สอดคล้องกับกลยุทธ์ สมดุล และมีจำนวนเหมาะสม ธุรกิจกลุ่มนี้ใช้วิธีบริหารกลุ่มโครงการที่เป็นทางการและชัดเจน ใช้กับทุกโครงการอย่างสม่ำเสมอ และผู้บริหารยอมรับวิธีนั้น ข้อค้นพบที่น่าสนใจคือ วิธีทางการเงินเป็นวิธีที่นิยมที่สุด แต่ให้ผลไม่ดี ส่วนวิธีเชิงกลยุทธ์และวิธีให้คะแนนให้กลุ่มโครงการที่ดีที่สุด และธุรกิจที่ดีที่สุดมักใช้หลายวิธีร่วมกัน</p>
+<p>เหตุผลที่วิธีทางการเงินอย่างเดียวให้ผลไม่ดีกับนวัตกรรม คือ โครงการนวัตกรรมระยะแรกมีความไม่แน่นอนสูง ตัวเลขรายได้และต้นทุนที่ประมาณขึ้นจึงคลาดเคลื่อนได้มาก การตัดสินใจจากตัวเลขเหล่านั้นอย่างเดียวทำให้ดูเหมือนแม่นยำ ทั้งที่ข้อมูลยังไม่พร้อม</p>
+<h3 id="s-5-5-2">5.5.2 แบบจำลองให้คะแนน</h3>
+<p><strong>แบบจำลองให้คะแนน (Scoring model)</strong> คือการให้คะแนนโครงการตามเกณฑ์หลายข้อที่กำหนดน้ำหนักไว้ล่วงหน้า แล้วรวมเป็นคะแนนถ่วงน้ำหนัก วิธีนี้ขยายจากเกณฑ์คัดเลือกแนวคิดในบทที่ 3 ซึ่งใช้ 3 เกณฑ์ที่น้ำหนักเท่ากัน ให้มีเกณฑ์ด้านกลยุทธ์และความเสี่ยงเพิ่ม ตารางที่ 5.11 แสดงตัวอย่างของร้านซักอบรีดที่มีแนวคิด 3 โครงการ</p>
+<p class="tcap"><b>ตารางที่ 5.11</b> ตัวอย่างแบบจำลองให้คะแนนโครงการนวัตกรรม (กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>เกณฑ์ (น้ำหนัก)</th><th>ตู้รับผ้า</th><th>บริการรับส่งถึงหอพัก</th><th>ระบบสะสมแต้ม</th></tr></thead><tbody><tr><td>ผู้ใช้ต้องการ (30%)</td><td>3</td><td>2</td><td>1</td></tr><tr><td>สอดคล้องกับกลยุทธ์ของร้าน (25%)</td><td>3</td><td>2</td><td>2</td></tr><tr><td>ทำได้ด้วยทรัพยากรที่มี (20%)</td><td>2</td><td>1</td><td>3</td></tr><tr><td>คุ้มค่า (15%)</td><td>2</td><td>2</td><td>2</td></tr><tr><td>ความเสี่ยงต่ำ (10%)</td><td>2</td><td>1</td><td>3</td></tr><tr><td>คะแนนถ่วงน้ำหนัก (เต็ม 3)</td><td>2.55</td><td>1.70</td><td>2.00</td></tr></tbody></table></div>
+<p>คะแนนถ่วงน้ำหนักคำนวณจากผลรวมของคะแนนคูณน้ำหนัก เช่น ตู้รับผ้าได้ 3 × 0.30 + 3 × 0.25 + 2 × 0.20 + 2 × 0.15 + 2 × 0.10 = 2.55 คะแนน คะแนนที่ได้ไม่ใช่คำตัดสิน แต่ใช้เป็นจุดเริ่มของการอภิปราย ถ้าผลไม่ตรงกับความรู้สึกของทีม ให้ตรวจว่าเกณฑ์หรือน้ำหนักขาดอะไรไป ก่อนจะเปลี่ยนคะแนนให้ได้ผลตามที่ต้องการ</p>
+<h3 id="s-5-5-3">5.5.3 ความสมดุลของกลุ่มโครงการ</h3>
+<p>นอกจากคะแนนของแต่ละโครงการ องค์การต้องดูความสมดุลของทั้งกลุ่มด้วย ถ้าทุกโครงการเป็นการปรับปรุงเล็กน้อยที่ความเสี่ยงต่ำ องค์การจะไม่มีนวัตกรรมที่สร้างการเติบโตในอนาคต ถ้าทุกโครงการเป็นนวัตกรรมแบบก้าวกระโดดที่ความเสี่ยงสูง องค์การอาจไม่มีรายได้รองรับระหว่างรอ หลักนี้ตรงกับเรื่องการสำรวจและการใช้ประโยชน์ในบทที่ 2 ตารางที่ 5.12 แสดงการจัดโครงการตามระดับความใหม่และความเสี่ยง</p>
+<p class="tcap"><b>ตารางที่ 5.12</b> การจัดกลุ่มโครงการตามระดับความใหม่</p>
+<div class="tablewrap"><table><thead><tr><th>ประเภทโครงการ</th><th>ลักษณะ</th><th>ความเสี่ยง</th><th>บทบาทในกลุ่มโครงการ</th></tr></thead><tbody><tr><td>ปรับปรุงสิ่งที่มีอยู่</td><td>ปรับผลิตภัณฑ์หรือกระบวนการเดิมให้ดีขึ้น</td><td>ต่ำ</td><td>สร้างรายได้และประสิทธิภาพในระยะสั้น</td></tr><tr><td>ขยายสู่ตลาดหรือผลิตภัณฑ์ใกล้เคียง</td><td>นำความสามารถเดิมไปใช้กับตลาดหรือผลิตภัณฑ์ใหม่ที่ใกล้เคียง</td><td>ปานกลาง</td><td>สร้างการเติบโตในระยะกลาง</td></tr><tr><td>สร้างสิ่งใหม่</td><td>ผลิตภัณฑ์ ตลาด หรือโมเดลธุรกิจใหม่สำหรับองค์การ</td><td>สูง</td><td>สร้างทางเลือกสำหรับอนาคต</td></tr></tbody></table></div>
+<h2 id="s-5-6">5.6 การวัดผลการดำเนินงานด้านนวัตกรรม</h2>
+<p>องค์การที่ลงทุนในนวัตกรรมต้องรู้ว่าการลงทุนนั้นได้ผลหรือไม่ แต่การวัดนวัตกรรมทำได้ยาก เพราะผลลัพธ์ใช้เวลานานกว่าจะเกิด และหลายโครงการล้มเหลวตามธรรมชาติของงานที่ไม่แน่นอน คู่มือออสโล ฉบับปี 2018 ของ OECD และ Eurostat ซึ่งใช้วัดนวัตกรรมในระดับประเทศ แบ่งนวัตกรรมทางธุรกิจเป็น 2 ประเภทหลัก คือ <strong>นวัตกรรมผลิตภัณฑ์ (Product innovation)</strong> และ <strong>นวัตกรรมกระบวนการทางธุรกิจ (Business process innovation)</strong> (OECD &amp; Eurostat, 2018) การแบ่งนี้ช่วยให้องค์การวัดนวัตกรรมทั้งด้านที่ลูกค้าเห็นและด้านที่เกิดภายในองค์การ</p>
+<h3 id="s-5-6-1">5.6.1 ตัวชี้วัด 4 ระดับ</h3>
+<p>ตัวชี้วัดนวัตกรรมแบ่งได้เป็น 4 ระดับตามตำแหน่งในกระบวนการ คือ ปัจจัยนำเข้า กระบวนการ ผลผลิต และผลลัพธ์ องค์การไม่ควรวัดเพียงระดับเดียว เพราะถ้าวัดเฉพาะปัจจัยนำเข้า เช่น งบประมาณ จะไม่รู้ว่าได้ผลหรือไม่ และถ้าวัดเฉพาะผลลัพธ์ จะรู้ช้าเกินไปที่จะแก้ไข ตารางที่ 5.13 แสดงตัวอย่างตัวชี้วัดในแต่ละระดับ</p>
+<p class="tcap"><b>ตารางที่ 5.13</b> ตัวชี้วัดผลการดำเนินงานด้านนวัตกรรม 4 ระดับ</p>
+<div class="tablewrap"><table><thead><tr><th>ระดับ</th><th>คำถาม</th><th>ตัวอย่างตัวชี้วัดในองค์การ</th><th>ตัวอย่างตัวชี้วัดในงานกลุ่ม</th></tr></thead><tbody><tr><td>ปัจจัยนำเข้า</td><td>ลงทุนไปเท่าใด</td><td>งบประมาณวิจัยและพัฒนา จำนวนบุคลากรด้านนวัตกรรม</td><td>ชั่วโมงทำงานของทีม ค่าวัสดุทำต้นแบบ</td></tr><tr><td>กระบวนการ</td><td>ทำงานได้ดีแค่ไหน</td><td>จำนวนแนวคิดที่ได้รับการทดสอบ เวลาจากแนวคิดถึงต้นแบบ</td><td>จำนวนรอบการทดสอบ จำนวนผู้ใช้ที่ทดสอบ</td></tr><tr><td>ผลผลิต</td><td>ได้อะไรออกมา</td><td>จำนวนผลิตภัณฑ์ใหม่ที่ออกสู่ตลาด จำนวนสิทธิบัตร</td><td>ต้นแบบที่ผ่านเกณฑ์ สมมติฐานที่ทดสอบแล้ว</td></tr><tr><td>ผลลัพธ์</td><td>สร้างคุณค่าอะไร</td><td>สัดส่วนรายได้จากผลิตภัณฑ์ใหม่ ต้นทุนที่ลดได้ ความพึงพอใจของลูกค้า</td><td>ปัญหาของผู้ใช้ที่ลดลงในการทดลองใช้</td></tr></tbody></table></div>
+<h3 id="s-5-6-2">5.6.2 หลักการเลือกตัวชี้วัด</h3>
+<p>ตัวชี้วัดที่ดีควรเชื่อมกับกลยุทธ์นวัตกรรมขององค์การ วัดได้ด้วยข้อมูลที่เก็บได้จริง และไม่สร้างแรงจูงใจที่ผิด ตัวอย่างของแรงจูงใจที่ผิด คือ ถ้าองค์การวัดผลจากจำนวนแนวคิดที่เสนอเพียงอย่างเดียว พนักงานจะเสนอแนวคิดจำนวนมากที่ไม่ได้คิดอย่างรอบคอบ หรือถ้าวัดจากอัตราความสำเร็จของโครงการ ทีมจะเลือกแต่โครงการที่ปลอดภัย และไม่มีใครกล้าทำนวัตกรรมที่ความเสี่ยงสูง องค์การจึงควรใช้ตัวชี้วัดหลายตัวที่ถ่วงดุลกัน และทบทวนเป็นระยะ</p>
+<h2 id="s-5-7">5.7 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในตารางที่ 5.14 ให้กรอบคิดสำหรับการวางกลยุทธ์นวัตกรรม ข้อสรุปร่วมคือ ความสำเร็จของนวัตกรรมไม่ได้ขึ้นกับความใหม่ของแนวคิดเพียงอย่างเดียว แต่ขึ้นกับจังหวะเข้าตลาด การป้องกันการเลียนแบบ สินทรัพย์เสริม และวิธีบริหารโครงการหลายโครงการพร้อมกัน</p>
+<p class="tcap"><b>ตารางที่ 5.14</b> งานวิจัยที่เกี่ยวข้องกับกลยุทธ์นวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>ประเด็นที่ศึกษา</th><th>ข้อค้นพบสำคัญ</th><th>ข้อสรุปสำหรับนิสิต</th></tr></thead><tbody><tr><td>Teece (1986)</td><td>ผู้ที่ได้กำไรจากนวัตกรรม (บทความเชิงแนวคิด)</td><td>กำไรขึ้นกับความยากในการเลียนแบบและการมีสินทรัพย์เสริม</td><td>หาพันธมิตรที่มีสินทรัพย์เสริม</td></tr><tr><td>Lieberman และ Montgomery (1988)</td><td>ความได้เปรียบของผู้เข้าตลาดรายแรก (การทบทวนวรรณกรรม)</td><td>การเป็นรายแรกมีทั้งข้อได้เปรียบและเสียเปรียบ ขึ้นกับกลไกในตลาด</td><td>ตรวจกลไกก่อนเลือกเป็นรายแรก</td></tr><tr><td>Christensen (1992)</td><td>เส้นโค้งรูปตัว S ในอุตสาหกรรมฮาร์ดดิสก์ (ข้อมูลประวัติเทคโนโลยี)</td><td>เส้นโค้งแบนลงต่างกันในแต่ละบริษัท ไม่ใช่ทั้งอุตสาหกรรม</td><td>ใช้เป็นกรอบคิด ไม่ใช้ทำนายตายตัว</td></tr><tr><td>Cooper และคณะ (1999)</td><td>วิธีบริหารกลุ่มโครงการผลิตภัณฑ์ใหม่ (205 บริษัท)</td><td>วิธีทางการเงินนิยมที่สุดแต่ให้ผลไม่ดี วิธีเชิงกลยุทธ์และการให้คะแนนให้ผลดีกว่า</td><td>ใช้แบบจำลองให้คะแนนร่วมกับวิธีอื่น</td></tr></tbody></table></div>
+<h2 id="s-5-8">5.8 ข้อผิดพลาดที่พบบ่อยในการวางกลยุทธ์นวัตกรรม</h2>
+<p>ข้อผิดพลาดในตารางที่ 5.15 พบบ่อยทั้งในองค์การและในงานกลุ่ม ส่วนใหญ่เกิดจากการใช้เครื่องมือกลยุทธ์เป็นแบบฟอร์มที่ต้องกรอก แทนที่จะใช้ช่วยตัดสินใจ</p>
+<p class="tcap"><b>ตารางที่ 5.15</b> ข้อผิดพลาดที่พบบ่อยในการวางกลยุทธ์นวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เขียน PESTEL กว้างจนใช้ได้กับทุกเรื่อง</td><td>"เทคโนโลยีเปลี่ยนเร็ว"</td><td>ระบุการเปลี่ยนแปลงเฉพาะ พร้อมแหล่งอ้างอิงและผลต่อนวัตกรรม</td></tr><tr><td>ทำ SWOT แล้วไม่นำไปใช้</td><td>มีรายการ 4 ช่องแต่ไม่มีแนวทางกลยุทธ์</td><td>จับคู่ปัจจัยตามตารางที่ 5.4</td></tr><tr><td>บอกว่าไม่มีคู่แข่ง</td><td>"ยังไม่มีใครทำตู้รับผ้า"</td><td>ระบุทางเลือกที่ผู้ใช้ใช้แก้ปัญหาอยู่</td></tr><tr><td>เชื่อว่าการเป็นรายแรกได้เปรียบเสมอ</td><td>รีบออกตลาดก่อนทดสอบเสร็จ</td><td>ตรวจกลไกตามตารางที่ 5.6</td></tr><tr><td>ตั้งเป้าขายให้ทุกคนตั้งแต่ต้น</td><td>กลุ่มเป้าหมายคือ "คนทั่วไป"</td><td>เลือกกลุ่มผู้ใช้แรกที่มีปัญหารุนแรงที่สุด</td></tr><tr><td>ใช้ตัวเลขการเงินที่ประมาณขึ้นเป็นเกณฑ์เดียว</td><td>เลือกโครงการจากรายได้ที่คาดว่าจะได้</td><td>ใช้แบบจำลองให้คะแนนร่วมกับข้อมูลจากการทดสอบ</td></tr><tr><td>วัดผลเฉพาะปัจจัยนำเข้า</td><td>รายงานแต่งบประมาณที่ใช้</td><td>วัดครบ 4 ระดับตามตารางที่ 5.13</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: ร้านกาแฟในอำเภอกับเครื่องสั่งกาแฟด้วยตนเอง (กรณีสมมติเพื่อการสอน)</div><p>เจ้าของร้านกาแฟในอำเภอแห่งหนึ่งเห็นร้านในกรุงเทพมหานครใช้เครื่องสั่งและชำระเงินด้วยตนเอง จึงต้องการเป็นร้านแรกในอำเภอที่ใช้เครื่องนี้ และวางแผนติดตั้ง 2 เครื่อง ลูกสาวของเจ้าของร้านซึ่งเรียนสาขาวิชาการจัดการสมัยใหม่ เสนอให้ใช้เครื่องมือในบทนี้ตรวจก่อนตัดสินใจ</p><p>จาก PESTEL และ SWOT พบว่าลูกค้าประจำส่วนใหญ่เป็นผู้สูงอายุที่มาพร้อมกันทุกเช้า และชอบคุยกับพนักงาน ร้านมีจุดแข็งที่ความเป็นกันเอง แต่มีจุดอ่อนที่พนักงานรับออเดอร์ไม่ทันในช่วงเที่ยงซึ่งเป็นกลุ่มพนักงานบริษัทและนักเรียน เมื่อตรวจคุณลักษณะตามตารางที่ 5.10 พบว่าเครื่องนี้ซับซ้อนสำหรับลูกค้าช่วงเช้า และไม่เข้ากันกับพฤติกรรมของพวกเขา ส่วนการเป็นร้านแรกไม่ได้สร้างความได้เปรียบที่ยั่งยืน เพราะร้านอื่นซื้อเครื่องเดียวกันได้</p><p>ร้านจึงเปลี่ยนแผน เลือกลูกค้าช่วงเที่ยงเป็นกลุ่มผู้ใช้แรก ทดลองให้สั่งล่วงหน้าผ่านคิวอาร์โค้ดที่โต๊ะเป็นเวลา 1 เดือน ซึ่งลงทุนน้อยกว่ามาก และเก็บการรับออเดอร์โดยพนักงานไว้สำหรับช่วงเช้า</p><p class="q"><b>คำถามชวนคิด</b> ร้านใช้เครื่องมือใดบ้างในบทนี้ และถ้าการทดลอง 1 เดือนได้ผลดี ร้านควรใช้ตัวชี้วัดใดในแต่ละระดับของตารางที่ 5.13 ก่อนตัดสินใจลงทุนเพิ่ม</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายกระบวนการจัดการกลยุทธ์ 4 ขั้น คือ การวิเคราะห์สภาพแวดล้อม การกำหนดกลยุทธ์ การนำกลยุทธ์ไปปฏิบัติ และการควบคุมและประเมินผล และอธิบายได้ว่ากลยุทธ์นวัตกรรมต้องสอดคล้องกับกลยุทธ์การแข่งขันขององค์การ นิสิตใช้ PESTEL ตรวจการเปลี่ยนแปลงภายนอกที่มีผลต่อนวัตกรรม ใช้ SWOT และการจับคู่ปัจจัยหาแนวทางกลยุทธ์ และระบุคู่แข่งจากทางเลือกที่ผู้ใช้ใช้อยู่ได้ นิสิตเปรียบเทียบกลยุทธ์การเป็นผู้นำตลาด การตามอย่างรวดเร็ว และการเลือกตลาดเฉพาะ และอธิบายได้ว่าการเป็นรายแรกได้เปรียบเฉพาะเมื่อมีกลไกรองรับ และกำไรจากนวัตกรรมขึ้นกับความยากในการเลียนแบบและสินทรัพย์เสริม</p>
+<p>นิสิตอธิบายเส้นโค้งรูปตัว S ของเทคโนโลยี จำแนกกลุ่มผู้ยอมรับนวัตกรรม 5 กลุ่ม และใช้คุณลักษณะ 5 ประการของนวัตกรรมตรวจนวัตกรรมของกลุ่มเพื่อเลือกกลุ่มผู้ใช้แรกได้ นิสิตใช้แบบจำลองให้คะแนนจัดลำดับโครงการนวัตกรรม และคำนึงถึงความสมดุลของกลุ่มโครงการได้ สุดท้าย นิสิตยกตัวอย่างตัวชี้วัดผลการดำเนินงานด้านนวัตกรรมในระดับปัจจัยนำเข้า กระบวนการ ผลผลิต และผลลัพธ์ได้ และเลือกตัวชี้วัดที่ไม่สร้างแรงจูงใจที่ผิด</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การจัดการกลยุทธ์ (Strategic management)</li><li>กลยุทธ์นวัตกรรม (Innovation strategy)</li><li>PESTEL</li><li>SWOT</li><li>ผู้นำตลาด (First mover)</li><li>ผู้ตามอย่างรวดเร็ว (Fast follower)</li><li>ระบบการปกป้องผลประโยชน์ (Appropriability regime)</li><li>สินทรัพย์เสริม (Complementary assets)</li><li>เส้นโค้งรูปตัว S ของเทคโนโลยี (Technology S-curve)</li><li>การแพร่กระจายของนวัตกรรม (Diffusion of innovations)</li><li>กลุ่มผู้ใช้แรก (Beachhead users)</li><li>การบริหารกลุ่มโครงการ (Portfolio management)</li><li>แบบจำลองให้คะแนน (Scoring model)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายกระบวนการจัดการกลยุทธ์ 4 ขั้น และยกตัวอย่างคำถามด้านนวัตกรรมในแต่ละขั้น</li><li>เพราะเหตุใดกลยุทธ์นวัตกรรมต้องสอดคล้องกับกลยุทธ์การแข่งขัน จงยกตัวอย่างกรณีที่ไม่สอดคล้องกัน</li><li>จงเขียนประเด็น PESTEL 3 ด้านที่มีผลต่อนวัตกรรมของกลุ่ม พร้อมระบุผลต่อนวัตกรรม</li><li>จงเปรียบเทียบกลยุทธ์การเป็นผู้นำตลาด การตามอย่างรวดเร็ว และการเลือกตลาดเฉพาะ ในด้านความสามารถที่ต้องมีและความเสี่ยง</li><li>ตามแนวคิดของ Teece (1986) เพราะเหตุใดผู้คิดนวัตกรรมจึงไม่ได้เป็นผู้ได้กำไรเสมอไป</li><li>จงจำแนกกลุ่มผู้ยอมรับนวัตกรรม 5 กลุ่ม และบอกว่าทำไมนวัตกรรมใหม่ควรเริ่มจากกลุ่มผู้ใช้แรก</li><li>จากข้อมูลในตารางที่ 5.11 ถ้าเปลี่ยนน้ำหนักเกณฑ์ผู้ใช้ต้องการเป็นร้อยละ 20 และทำได้ด้วยทรัพยากรที่มีเป็นร้อยละ 30 คะแนนถ่วงน้ำหนักของแต่ละโครงการเป็นเท่าใด</li><li>จงยกตัวอย่างตัวชี้วัดนวัตกรรมที่อาจสร้างแรงจูงใจที่ผิด และเสนอตัวชี้วัดที่ใช้ถ่วงดุล</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: วางนวัตกรรมของกลุ่มบนเส้นการแพร่กระจาย และเลือกกลุ่มผู้ใช้แรก</h2>
+<p>ให้ทำเป็นกลุ่ม ส่งในสัปดาห์ที่ 10 พร้อมการนำเสนองานกลุ่มครั้งที่ 2 ผลงานนี้เป็นส่วนหนึ่งของบทกลยุทธ์ในแผนพัฒนาเชิงพาณิชย์ของงานกลุ่มครั้งที่ 3 จึงไม่มีคะแนนแยก แต่ผู้สอนจะให้ข้อมูลป้อนกลับก่อนกลุ่มนำไปใช้ในรายงานฉบับสมบูรณ์</p>
+<ol><li>จัดทำ PESTEL ของนวัตกรรมของกลุ่ม อย่างน้อยด้านละ 1 ประเด็น พร้อมแหล่งอ้างอิงและผลต่อนวัตกรรม ตามตารางที่ 5.3</li><li>จัดทำ SWOT และจับคู่ปัจจัยเป็นแนวทางกลยุทธ์อย่างน้อย 1 แนวทางต่อคู่ ตามตารางที่ 5.4</li><li>ระบุทางเลือกที่ผู้ใช้ใช้แก้ปัญหาอยู่อย่างน้อย 3 ทางเลือก และเปรียบเทียบกับนวัตกรรมของกลุ่ม</li><li>เลือกกลยุทธ์จังหวะการเข้าสู่ตลาด พร้อมเหตุผลจากตารางที่ 5.6 และ 5.7</li><li>ประเมินนวัตกรรมของกลุ่มตามคุณลักษณะ 5 ประการในตารางที่ 5.10 โดยใช้ผลทดสอบจากบทที่ 4 ประกอบ แล้วกรอกตารางที่ 5.16</li><li>เลือกกลุ่มผู้ใช้แรก ระบุลักษณะ จำนวนโดยประมาณพร้อมแหล่งข้อมูล และเหตุผลที่เลือก</li></ol>
+<p class="tcap"><b>ตารางที่ 5.16</b> แบบประเมินคุณลักษณะของนวัตกรรมของกลุ่ม</p>
+<div class="tablewrap"><table><thead><tr><th>คุณลักษณะ</th><th>ระดับ (สูง ปานกลาง ต่ำ)</th><th>หลักฐานจากผลทดสอบ</th><th>สิ่งที่จะปรับ</th></tr></thead><tbody><tr><td>ประโยชน์เชิงเปรียบเทียบ</td><td></td><td></td><td></td></tr><tr><td>ความเข้ากันได้</td><td></td><td></td><td></td></tr><tr><td>ความซับซ้อน</td><td></td><td></td><td></td></tr><tr><td>การทดลองใช้ได้</td><td></td><td></td><td></td></tr><tr><td>การสังเกตเห็นได้</td><td></td><td></td><td></td></tr></tbody></table></div>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Christensen, C. M. (1992). Exploring the limits of the technology S-curve. Part I: Component technologies. <em>Production and Operations Management, 1</em>(4), 334–357. <a href="https://doi.org/10.1111/j.1937-5956.1992.tb00001.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1937-5956.1992.tb00001.x</a></div>
+<div class="r">Cooper, R. G., Edgett, S. J., &amp; Kleinschmidt, E. J. (1999). New product portfolio management: Practices and performance. <em>Journal of Product Innovation Management, 16</em>(4), 333–351. <a href="https://doi.org/10.1111/1540-5885.1640333" target="_blank" rel="noopener">https://doi.org/10.1111/1540-5885.1640333</a></div>
+<div class="r">Lieberman, M. B., &amp; Montgomery, D. B. (1988). First-mover advantages. <em>Strategic Management Journal, 9</em>(S1), 41–58. <a href="https://doi.org/10.1002/smj.4250090706" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250090706</a></div>
+<div class="r">OECD, &amp; Eurostat. (2018). <em>Oslo manual 2018: Guidelines for collecting, reporting and using data on innovation</em> (4th ed.). OECD Publishing. <a href="https://doi.org/10.1787/9789264304604-en" target="_blank" rel="noopener">https://doi.org/10.1787/9789264304604-en</a></div>
+<div class="r">Rogers, E. M. (2003). <em>Diffusion of innovations</em> (5th ed.). Free Press.</div>
+<div class="r">Teece, D. J. (1986). Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy. <em>Research Policy, 15</em>(6), 285–305. <a href="https://doi.org/10.1016/0048-7333(86)90027-2" target="_blank" rel="noopener">https://doi.org/10.1016/0048-7333(86)90027-2</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี. ใน <em>การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ: เอกสารประกอบการสอนรายวิชา 0903464</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ci_lesson_05.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ci_lesson_04.html"><small>◀ บทก่อนหน้า</small>บทที่ 4 การพัฒนาผลิตภัณฑ์และบริการใหม่ การทำต้นแบบ และการทดสอบกับผู้ใช้</a><a href="ci_lesson_06.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0903464 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ci/slides/05/s-01.jpg', 'ci/slides/05/s-02.jpg', 'ci/slides/05/s-03.jpg', 'ci/slides/05/s-04.jpg', 'ci/slides/05/s-05.jpg', 'ci/slides/05/s-06.jpg', 'ci/slides/05/s-07.jpg', 'ci/slides/05/s-08.jpg', 'ci/slides/05/s-09.jpg', 'ci/slides/05/s-10.jpg', 'ci/slides/05/s-11.jpg', 'ci/slides/05/s-12.jpg', 'ci/slides/05/s-13.jpg', 'ci/slides/05/s-14.jpg', 'ci/slides/05/s-15.jpg', 'ci/slides/05/s-16.jpg', 'ci/slides/05/s-17.jpg', 'ci/slides/05/s-18.jpg', 'ci/slides/05/s-19.jpg', 'ci/slides/05/s-20.jpg', 'ci/slides/05/s-21.jpg', 'ci/slides/05/s-22.jpg', 'ci/slides/05/s-23.jpg', 'ci/slides/05/s-24.jpg', 'ci/slides/05/s-25.jpg', 'ci/slides/05/s-26.jpg', 'ci/slides/05/s-27.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

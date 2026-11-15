@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม · วิชา 0903464</title>
+<meta name="description" content="บทเรียนบทที่ 6 วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ci_0903464.html">วิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ci_0903464.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 6</div><a href="#x6">ความนำ</a><a href="#s-6-1">6.1 แหล่งของนวัตกรรม</a><a href="#s-6-2">6.2 นวัตกรรมแบบเปิด</a><a href="#s-6-3">6.3 การถ่ายโอนเทคโนโลยีจากมหาวิทยาลัยและหน่วยวิจัยสู่ธุรกิจ</a><a href="#s-6-4">6.4 การอนุญาตให้ใช้สิทธิ</a><a href="#s-6-5">6.5 ทรัพย์สินทางปัญญา</a><a href="#s-6-6">6.6 การสืบค้นสิทธิบัตรและอนุสิทธิบัตรจากฐานข้อมูลออนไลน์</a><a href="#s-6-7">6.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-6-8">6.8 ข้อผิดพลาดที่พบบ่อยในการแสวงหาและคุ้มครองนวัตกรรม</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">กิจกรรมท้ายบท: สืบค้นสิทธิบัตรที่ใกล้เคียงกับนวัตกรรมของกลุ่ม</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0903464 การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ</div>
+<h1>บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>11</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (34 สไลด์)</button><a class="btn line" href="ci/files/ci_0903464_บทที่06_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 กิจกรรมท้ายบท 6</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายแหล่งของนวัตกรรมทั้งภายในและภายนอกองค์การได้</li><li>อธิบายหลักนวัตกรรมแบบเปิด และยกตัวอย่างรูปแบบการนำความรู้เข้าและออกจากองค์การได้</li><li>อธิบายช่องทางการถ่ายโอนเทคโนโลยีจากมหาวิทยาลัยและหน่วยวิจัยสู่ธุรกิจได้</li><li>จำแนกทรัพย์สินทางปัญญา 5 ประเภทตามกฎหมายไทย และระบุประเภทที่เกี่ยวข้องกับนวัตกรรมของกลุ่มได้</li><li>ระบุเงื่อนไขสำคัญของสัญญาอนุญาตให้ใช้สิทธิได้</li><li>ใช้ฐานข้อมูลออนไลน์สืบค้นสิทธิบัตรและอนุสิทธิบัตรที่ใกล้เคียงกับนวัตกรรมของกลุ่ม และบันทึกผลได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 3 และ 4 ให้กลุ่มคิดแนวคิดและทำต้นแบบเอง บทที่ 5 ให้กลุ่มวางกลยุทธ์ว่าจะเข้าตลาดอย่างไร แต่ในโลกจริง องค์การไม่จำเป็นต้องคิดและพัฒนานวัตกรรมทุกอย่างเอง ความรู้และเทคโนโลยีจำนวนมากอยู่นอกองค์การ เช่น อยู่ที่ลูกค้า คู่ค้า มหาวิทยาลัย และหน่วยวิจัย องค์การที่รู้วิธีแสวงหาความรู้จากภายนอก และรู้วิธีนำความรู้ของตนออกไปสร้างประโยชน์ จะสร้างนวัตกรรมได้เร็วขึ้นและใช้ทรัพยากรน้อยลง</p>
+<p class="lead">เมื่อมีการแลกเปลี่ยนความรู้ระหว่างองค์การ คำถามที่ตามมาคือ ใครเป็นเจ้าของความรู้นั้นและใครมีสิทธิใช้ประโยชน์ คำถามนี้นำไปสู่เรื่องทรัพย์สินทางปัญญา ซึ่งทำให้นวัตกรรมเลียนแบบได้ยากขึ้นในทางกฎหมาย ตามที่บทที่ 5 อธิบายว่าผู้ที่ได้กำไรจากนวัตกรรมขึ้นกับความยากในการเลียนแบบ</p>
+<p class="lead">กิจกรรมท้ายบทให้กลุ่มสืบค้นสิทธิบัตรที่ใกล้เคียงกับนวัตกรรมของกลุ่ม ผลงานนี้เป็นส่วนหนึ่งของงานกลุ่มครั้งที่ 3</p>
+<p class="lead">ข้อควรทราบ เนื้อหาเรื่องกฎหมายในบทนี้มีจุดประสงค์ให้เข้าใจหลักการ ไม่ใช่คำปรึกษาทางกฎหมาย ตัวบทที่อ้างเป็นฉบับที่ตรวจได้ในขณะเขียน ก่อนยื่นคำขอหรือทำสัญญาจริง ให้ตรวจตัวบทล่าสุดจากกรมทรัพย์สินทางปัญญาหรือปรึกษาผู้เชี่ยวชาญ</p>
+<h2 id="s-6-1">6.1 แหล่งของนวัตกรรม</h2>
+<p><strong>แหล่งของนวัตกรรม (Sources of innovation)</strong> คือที่มาของความรู้ แนวคิด หรือเทคโนโลยีที่องค์การนำมาสร้างนวัตกรรม แหล่งเหล่านี้แบ่งได้เป็นแหล่งภายในและภายนอกองค์การ ตารางที่ 6.1 สรุปแหล่งหลัก จุดเด่น และข้อจำกัด</p>
+<p class="tcap"><b>ตารางที่ 6.1</b> แหล่งของนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>แหล่ง</th><th>ตัวอย่าง</th><th>จุดเด่น</th><th>ข้อจำกัด</th></tr></thead><tbody><tr><td>ภายในองค์การ</td><td>ฝ่ายวิจัยและพัฒนา พนักงานหน้างาน ระบบข้อเสนอแนะ</td><td>เข้าใจงานและข้อจำกัดขององค์การ ควบคุมได้</td><td>มุมมองแคบ มักติดกรอบเดิม</td></tr><tr><td>ลูกค้าและผู้ใช้</td><td>ข้อร้องเรียน การสัมภาษณ์ ผู้ใช้ที่ดัดแปลงสินค้าเอง</td><td>ตรงกับความต้องการจริง</td><td>ลูกค้าส่วนใหญ่บอกได้แค่สิ่งที่คุ้นเคย</td></tr><tr><td>คู่ค้าและผู้ส่งมอบ</td><td>ผู้ผลิตวัตถุดิบ ผู้ให้บริการเทคโนโลยี</td><td>มีความรู้เฉพาะด้านที่องค์การไม่มี</td><td>ต้องตกลงเรื่องความเป็นเจ้าของผลงาน</td></tr><tr><td>คู่แข่งและธุรกิจในอุตสาหกรรมอื่น</td><td>สินค้าและบริการที่มีอยู่ในตลาด</td><td>เห็นสิ่งที่ตลาดยอมรับแล้ว</td><td>เสี่ยงละเมิดทรัพย์สินทางปัญญาถ้าลอกเลียน</td></tr><tr><td>มหาวิทยาลัยและหน่วยวิจัย</td><td>ผลงานวิจัย สิทธิบัตร ห้องปฏิบัติการ ผู้เชี่ยวชาญ</td><td>มีความรู้เชิงลึกและเทคโนโลยีใหม่</td><td>ผลงานมักยังห่างจากผลิตภัณฑ์ที่ขายได้</td></tr><tr><td>ข้อมูลสาธารณะ</td><td>สิทธิบัตรที่หมดอายุ ฐานข้อมูลสิทธิบัตร งานวิจัยที่เผยแพร่</td><td>ใช้ได้ทันทีด้วยต้นทุนต่ำ</td><td>ต้องมีทักษะในการค้นและอ่าน</td></tr></tbody></table></div>
+<h3 id="s-6-1-1">6.1.1 ผู้ใช้นำ</h3>
+<p>บทที่ 3 อธิบายการสัมภาษณ์ผู้ใช้เพื่อหาปัญหา แต่ในกรณีที่ผลิตภัณฑ์ใหม่มาก ผู้ใช้ทั่วไปมักบอกความต้องการได้ไม่แม่นยำ เพราะยังไม่มีประสบการณ์กับสิ่งนั้น von Hippel (1986) เสนอแนวคิด <strong>ผู้ใช้นำ (Lead users)</strong> หมายถึงผู้ใช้ที่มีความต้องการรุนแรงในปัจจุบัน ซึ่งความต้องการนั้นจะกลายเป็นความต้องการทั่วไปในตลาดอีกหลายเดือนหรือหลายปีข้างหน้า ผู้ใช้นำจึงเปรียบเสมือนห้องทดลองที่บอกล่วงหน้าว่าตลาดจะต้องการอะไร และผู้ใช้นำจำนวนมากพยายามแก้ปัญหาของตนเองก่อนที่จะมีสินค้าในตลาด ทางแก้ที่ผู้ใช้นำทำขึ้นเองจึงเป็นแหล่งแนวคิดผลิตภัณฑ์ใหม่ที่มีค่า</p>
+<p>ในทางปฏิบัติ กลุ่มหาผู้ใช้นำได้จากคนที่ดัดแปลงเครื่องมือหรือวิธีทำงานเอง เพราะวิธีที่มีอยู่ไม่ตอบความต้องการ เช่น นิสิตที่ทำกล่องล็อกรหัสไว้หน้าห้องเพื่อให้ร้านมาส่งผ้า (กรณีสมมติเพื่อการสอน) ผู้ใช้กลุ่มแรกที่กลุ่มกำหนดในบทที่ 5 อาจมีผู้ใช้นำอยู่ด้วย และควรสัมภาษณ์คนกลุ่มนี้ก่อน</p>
+<h2 id="s-6-2">6.2 นวัตกรรมแบบเปิด</h2>
+<h3 id="s-6-2-1">6.2.1 จากนวัตกรรมแบบปิดสู่นวัตกรรมแบบเปิด</h3>
+<p>ในอดีต บริษัทขนาดใหญ่ลงทุนในฝ่ายวิจัยและพัฒนาของตนเอง คิด พัฒนา ผลิต และขายเองทั้งหมด แนวทางนี้เรียกว่า <strong>นวัตกรรมแบบปิด (Closed innovation)</strong> Chesbrough (2003) เสนอแนวคิด <strong>นวัตกรรมแบบเปิด (Open innovation)</strong> ซึ่งต่อมา Chesbrough และ Crowther (2006) สรุปหลักไว้ว่า องค์การยอมรับว่าความคิดที่ดีไม่ได้มาจากภายในองค์การทั้งหมด และความคิดที่ดีที่เกิดภายในองค์การก็ไม่จำเป็นต้องนำออกสู่ตลาดได้สำเร็จโดยองค์การเอง ตารางที่ 6.2 เปรียบเทียบแนวทางทั้งสอง</p>
+<p class="tcap"><b>ตารางที่ 6.2</b> นวัตกรรมแบบปิดกับนวัตกรรมแบบเปิด</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>นวัตกรรมแบบปิด</th><th>นวัตกรรมแบบเปิด</th></tr></thead><tbody><tr><td>แหล่งความรู้</td><td>ฝ่ายวิจัยและพัฒนาขององค์การ</td><td>ทั้งภายในและภายนอกองค์การ</td></tr><tr><td>ผลงานที่องค์การไม่ใช้</td><td>เก็บไว้ ไม่เกิดประโยชน์</td><td>อนุญาตให้ผู้อื่นใช้ หรือแยกเป็นธุรกิจใหม่</td></tr><tr><td>ทรัพย์สินทางปัญญา</td><td>ใช้ป้องกันไม่ให้ผู้อื่นใช้</td><td>ใช้ป้องกัน ซื้อ ขาย และอนุญาตให้ใช้</td></tr><tr><td>บทบาทของฝ่ายวิจัยและพัฒนา</td><td>คิดและพัฒนาเองทั้งหมด</td><td>คิดเอง และหาความรู้จากภายนอกมาต่อยอด</td></tr><tr><td>ความเสี่ยงหลัก</td><td>ช้า ใช้ทรัพยากรมาก</td><td>ข้อมูลรั่วไหล พึ่งพาภายนอกมากเกินไป</td></tr></tbody></table></div>
+<h3 id="s-6-2-2">6.2.2 ทิศทางของนวัตกรรมแบบเปิด</h3>
+<p>นวัตกรรมแบบเปิดมีการไหลของความรู้ 2 ทิศทาง ทิศทางแรกคือ <strong>การนำความรู้เข้า (Inbound open innovation)</strong> หมายถึงการนำความรู้ เทคโนโลยี หรือแนวคิดจากภายนอกมาใช้ในองค์การ ทิศทางที่สองคือ <strong>การนำความรู้ออก (Outbound open innovation)</strong> หมายถึงการนำความรู้หรือเทคโนโลยีขององค์การไปให้ผู้อื่นใช้ประโยชน์ ตารางที่ 6.3 แสดงรูปแบบที่พบบ่อย</p>
+<p class="tcap"><b>ตารางที่ 6.3</b> รูปแบบของนวัตกรรมแบบเปิด</p>
+<div class="tablewrap"><table><thead><tr><th>ทิศทาง</th><th>รูปแบบ</th><th>ตัวอย่าง</th></tr></thead><tbody><tr><td>นำความรู้เข้า</td><td>ขอรับอนุญาตให้ใช้สิทธิในเทคโนโลยีของผู้อื่น</td><td>ธุรกิจอาหารขอรับอนุญาตใช้สูตรถนอมอาหารจากมหาวิทยาลัย</td></tr><tr><td>นำความรู้เข้า</td><td>จ้างวิจัยหรือวิจัยร่วม</td><td>ร้านค้าจ้างอาจารย์ช่วยพัฒนาระบบจัดการสินค้า</td></tr><tr><td>นำความรู้ออก</td><td>อนุญาตให้ผู้อื่นใช้สิทธิ</td><td>บริษัทที่มีสิทธิบัตรแต่ไม่ได้ผลิต อนุญาตให้ผู้ผลิตรายอื่นใช้</td></tr><tr><td>นำความรู้ออก</td><td>แยกเป็นธุรกิจใหม่</td><td>ทีมวิจัยตั้งบริษัทเพื่อนำผลงานออกสู่ตลาด</td></tr><tr><td>สองทิศทาง</td><td>ร่วมพัฒนากับพันธมิตร</td><td>ร้านซักอบรีดร่วมกับเจ้าของหอพักพัฒนาบริการตู้รับผ้า</td></tr></tbody></table></div>
+<p>Chesbrough และ Crowther (2006) พบว่าหลายองค์การในอุตสาหกรรมที่ไม่ใช่เทคโนโลยีขั้นสูงใช้แนวคิดนวัตกรรมแบบเปิดอยู่แล้ว ธุรกิจขนาดเล็กในชุมชนจึงใช้แนวคิดนี้ได้ เช่น ร่วมมือกับมหาวิทยาลัยในพื้นที่</p>
+<h3 id="s-6-2-3">6.2.3 เปิดมากแค่ไหนจึงพอดี</h3>
+<p>Laursen และ Salter (2006) ศึกษาบริษัทอุตสาหกรรมการผลิตในสหราชอาณาจักรจำนวนมาก โดยวัดความกว้างของการค้นหาความรู้จากภายนอก คือจำนวนประเภทของแหล่ง และความลึก คือการใช้แต่ละแหล่งอย่างเข้มข้น ผลพบว่าทั้งสองมีความสัมพันธ์กับผลการดำเนินงานด้านนวัตกรรมในรูปตัว U กลับหัว คือ การเปิดรับเพิ่มขึ้นช่วยได้ในช่วงแรก แต่ถ้าเปิดมากเกินไป ผลจะลดลง ผู้วิจัยอธิบายว่าองค์การมีเวลาและความสนใจจำกัด</p>
+<p>ข้อสรุปเชิงปฏิบัติคือ กลุ่มไม่ควรพยายามร่วมมือกับทุกแหล่ง แต่ควรเลือกแหล่งภายนอกไม่กี่แหล่งที่ช่วยเติมสิ่งที่กลุ่มขาดได้มากที่สุด และใช้แหล่งนั้นอย่างจริงจัง ตารางที่ 6.4 ใช้ช่วยกำหนดว่ากลุ่มควรหาความรู้จากแหล่งใด</p>
+<p class="tcap"><b>ตารางที่ 6.4</b> คำถามสำหรับกำหนดแหล่งความรู้ภายนอก</p>
+<div class="tablewrap"><table><thead><tr><th>คำถาม</th><th>ตัวอย่างคำตอบ (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</th></tr></thead><tbody><tr><td>กลุ่มขาดความรู้หรือทรัพยากรด้านใด</td><td>ระบบล็อกอิเล็กทรอนิกส์ที่ส่งรหัสอัตโนมัติ</td></tr><tr><td>ใครมีสิ่งที่กลุ่มขาด</td><td>ผู้ขายตู้ล็อกอัจฉริยะ อาจารย์สาขาวิศวกรรมคอมพิวเตอร์</td></tr><tr><td>สิ่งที่กลุ่มให้แก่ผู้นั้นได้</td><td>ข้อมูลความต้องการของผู้ใช้ ผลทดสอบต้นแบบ</td></tr><tr><td>ความเสี่ยงของความร่วมมือ</td><td>ผู้ขายตู้นำแนวคิดไปขายให้ร้านอื่น</td></tr><tr><td>วิธีลดความเสี่ยง</td><td>ทำข้อตกลงรักษาความลับก่อนเปิดเผยรายละเอียด</td></tr></tbody></table></div>
+<h2 id="s-6-3">6.3 การถ่ายโอนเทคโนโลยีจากมหาวิทยาลัยและหน่วยวิจัยสู่ธุรกิจ</h2>
+<p><strong>การถ่ายโอนเทคโนโลยี (Technology transfer)</strong> คือกระบวนการที่ความรู้ เทคโนโลยี หรือผลงานวิจัย ถูกส่งต่อจากผู้สร้างไปยังผู้ที่นำไปใช้ประโยชน์ ในบริบทของวิชานี้ หมายถึงการส่งต่อจากมหาวิทยาลัยหรือหน่วยวิจัยไปยังธุรกิจ เพื่อพัฒนาเป็นผลิตภัณฑ์หรือบริการ ธุรกิจที่สนใจผลงานวิจัยควรติดต่อหน่วยงานด้านทรัพย์สินทางปัญญาของมหาวิทยาลัยก่อนติดต่อนักวิจัยเป็นรายบุคคล เพราะผลงานวิจัยมักมีข้อกำหนดเรื่องความเป็นเจ้าของ</p>
+<h3 id="s-6-3-1">6.3.1 ช่องทางการถ่ายโอนเทคโนโลยี</h3>
+<p>การถ่ายโอนเทคโนโลยีเกิดได้หลายช่องทาง แต่ละช่องทางเหมาะกับสถานการณ์ต่างกัน ตามตารางที่ 6.5</p>
+<p class="tcap"><b>ตารางที่ 6.5</b> ช่องทางการถ่ายโอนเทคโนโลยี</p>
+<div class="tablewrap"><table><thead><tr><th>ช่องทาง</th><th>ลักษณะ</th><th>เหมาะเมื่อ</th></tr></thead><tbody><tr><td>การอนุญาตให้ใช้สิทธิ</td><td>ธุรกิจได้รับสิทธิใช้ผลงานที่มีการคุ้มครอง และจ่ายค่าตอบแทน</td><td>ผลงานพร้อมใช้ และธุรกิจมีความสามารถผลิตและขาย</td></tr><tr><td>การโอนสิทธิ</td><td>เจ้าของโอนกรรมสิทธิ์ในผลงานให้ธุรกิจ</td><td>เจ้าของไม่ต้องการใช้ผลงานนั้นต่อ</td></tr><tr><td>การวิจัยร่วม</td><td>ธุรกิจและมหาวิทยาลัยร่วมกันพัฒนา แบ่งงานและผลประโยชน์ตามข้อตกลง</td><td>เทคโนโลยียังต้องพัฒนาต่อ และทั้งสองฝ่ายมีความรู้ที่เสริมกัน</td></tr><tr><td>การจ้างวิจัยหรือที่ปรึกษา</td><td>ธุรกิจจ้างนักวิจัยแก้ปัญหาเฉพาะ</td><td>ปัญหาชัดเจน ต้องการผลในเวลาจำกัด</td></tr><tr><td>การตั้งบริษัทใหม่</td><td>นักวิจัยหรือนิสิตตั้งบริษัทเพื่อนำผลงานออกสู่ตลาด</td><td>ไม่มีธุรกิจที่พร้อมรับเทคโนโลยี และทีมต้องการดำเนินการเอง</td></tr><tr><td>การเคลื่อนย้ายบุคลากร</td><td>นิสิตฝึกงานหรือนักวิจัยไปทำงานในธุรกิจ</td><td>ความรู้ที่ต้องถ่ายโอนอยู่ในตัวคน ไม่ได้อยู่ในเอกสาร</td></tr></tbody></table></div>
+<h3 id="s-6-3-2">6.3.2 ขั้นตอนการถ่ายโอนเทคโนโลยี</h3>
+<p>การถ่ายโอนเทคโนโลยีโดยทั่วไปเริ่มจากการค้นหาเทคโนโลยีที่ตอบปัญหาของธุรกิจ จากนั้นทั้งสองฝ่ายลงนามข้อตกลงรักษาความลับก่อนแลกเปลี่ยนข้อมูล ธุรกิจทดสอบว่าเทคโนโลยีใช้ได้จริงในบริบทของตน แล้วเจรจาเงื่อนไข ทำสัญญา และจดทะเบียนตามที่กฎหมายกำหนด ขั้นสุดท้ายคือการถ่ายทอดความรู้และพัฒนาต่อเป็นผลิตภัณฑ์ รายละเอียดแต่ละขั้นต่างกันตามระเบียบของแต่ละหน่วยงาน</p>
+<p>ขั้นทดสอบเป็นจุดที่ธุรกิจมักข้าม แต่ผลงานที่ใช้ได้ในห้องปฏิบัติการอาจใช้ไม่ได้ในโรงงานหรือร้านค้า จึงควรกำหนดแผนทดสอบและเกณฑ์ผ่านแบบเดียวกับบทที่ 4</p>
+<h2 id="s-6-4">6.4 การอนุญาตให้ใช้สิทธิ</h2>
+<p><strong>การอนุญาตให้ใช้สิทธิ (Licensing)</strong> คือการที่เจ้าของทรัพย์สินทางปัญญา ซึ่งเรียกว่า ผู้อนุญาต อนุญาตให้บุคคลอื่น ซึ่งเรียกว่า ผู้รับอนุญาต ใช้ทรัพย์สินทางปัญญานั้นภายใต้เงื่อนไขที่ตกลงกัน โดยเจ้าของยังคงเป็นเจ้าของอยู่ ต่างจาก <strong>การโอนสิทธิ (Assignment)</strong> ซึ่งกรรมสิทธิ์ย้ายไปเป็นของผู้รับโอน</p>
+<h3 id="s-6-4-1">6.4.1 หลักตามพระราชบัญญัติสิทธิบัตร</h3>
+<p>พระราชบัญญัติสิทธิบัตร พ.ศ. 2522 ซึ่งแก้ไขเพิ่มเติมโดยพระราชบัญญัติสิทธิบัตร (ฉบับที่ 2) พ.ศ. 2535 และ (ฉบับที่ 3) พ.ศ. 2542 กำหนดหลักเรื่องการอนุญาตให้ใช้สิทธิไว้หลายข้อ มาตรา 38 กำหนดว่าผู้ทรงสิทธิบัตรจะอนุญาตให้บุคคลใดใช้สิทธิตามสิทธิบัตร หรือจะโอนสิทธิบัตรให้บุคคลอื่นก็ได้ มาตรา 39 กำหนดข้อจำกัด 2 ข้อ คือ ผู้ทรงสิทธิบัตรจะกำหนดเงื่อนไข ข้อจำกัดสิทธิ หรือค่าตอบแทนที่เป็นการจำกัดการแข่งขันโดยไม่ชอบธรรมไม่ได้ และจะกำหนดให้ผู้รับอนุญาตจ่ายค่าตอบแทนสำหรับการใช้การประดิษฐ์หลังจากสิทธิบัตรหมดอายุไม่ได้ มาตรา 41 กำหนดว่าการอนุญาตให้ใช้สิทธิและการโอนสิทธิบัตรต้องทำเป็นหนังสือและจดทะเบียนต่อพนักงานเจ้าหน้าที่ นอกจากนี้ มาตรา 40 กำหนดว่า ถ้ามีผู้ทรงสิทธิบัตรร่วมกันหลายคน การอนุญาตให้ใช้สิทธิหรือการโอนต้องได้รับความยินยอมจากผู้ทรงสิทธิบัตรร่วมทุกคน ข้อนี้สำคัญสำหรับงานวิจัยร่วมที่มีเจ้าของหลายฝ่าย</p>
+<h3 id="s-6-4-2">6.4.2 เงื่อนไขสำคัญของสัญญาอนุญาตให้ใช้สิทธิ</h3>
+<p>สัญญาอนุญาตให้ใช้สิทธิแต่ละฉบับต่างกัน แต่มีเงื่อนไขสำคัญที่ต้องตกลงให้ชัดเจนเสมอ ตามตารางที่ 6.6</p>
+<p class="tcap"><b>ตารางที่ 6.6</b> เงื่อนไขสำคัญของสัญญาอนุญาตให้ใช้สิทธิ</p>
+<div class="tablewrap"><table><thead><tr><th>เงื่อนไข</th><th>คำถามที่ต้องตอบ</th><th>ทางเลือกที่พบบ่อย</th></tr></thead><tbody><tr><td>ความเป็นสิทธิแต่ผู้เดียว</td><td>ผู้อนุญาตจะให้สิทธิแก่ผู้อื่นด้วยหรือไม่</td><td>สิทธิแต่ผู้เดียว (Exclusive) หรือไม่ใช่สิทธิแต่ผู้เดียว (Non-exclusive)</td></tr><tr><td>ขอบเขตการใช้</td><td>ใช้กับผลิตภัณฑ์หรือตลาดใดได้บ้าง</td><td>ระบุประเภทผลิตภัณฑ์หรือกลุ่มลูกค้า</td></tr><tr><td>พื้นที่</td><td>ใช้ได้ในพื้นที่ใด</td><td>ทั้งประเทศ บางภูมิภาค หรือหลายประเทศ</td></tr><tr><td>ระยะเวลา</td><td>สัญญามีผลนานเท่าใด</td><td>กำหนดปี หรือจนกว่าสิทธิจะหมดอายุ</td></tr><tr><td>ค่าตอบแทน</td><td>จ่ายเท่าใดและอย่างไร</td><td>ค่าธรรมเนียมแรกเข้า ค่าตอบแทนตามยอดขาย (Royalty) เงินเมื่อถึงเป้าหมาย</td></tr><tr><td>การพัฒนาต่อยอด</td><td>ผลงานที่พัฒนาต่อเป็นของใคร</td><td>ของผู้พัฒนา หรือแบ่งตามข้อตกลง</td></tr><tr><td>หน้าที่ของผู้รับอนุญาต</td><td>ต้องทำอะไรเพื่อรักษาสิทธิ</td><td>ต้องเริ่มผลิตภายในเวลาที่กำหนด รายงานยอดขาย</td></tr><tr><td>การยกเลิก</td><td>ยกเลิกได้เมื่อใด</td><td>ผิดสัญญา ไม่จ่ายค่าตอบแทน ไม่นำไปใช้</td></tr></tbody></table></div>
+<p>ผู้รับอนุญาตมักต้องการสิทธิแต่ผู้เดียวเพื่อกันคู่แข่ง แต่ผู้อนุญาตเสี่ยงว่าถ้าผู้รับอนุญาตไม่นำไปใช้จริงจะไม่มีรายได้ จึงมักกำหนดหน้าที่ของผู้รับอนุญาตไว้ด้วย</p>
+<h3 id="s-6-4-3">6.4.3 การอนุญาตให้ใช้สิทธิกับกลยุทธ์นวัตกรรม</h3>
+<p>บทที่ 5 อธิบายตามแนวคิดของ Teece (1986) ว่า ถ้านวัตกรรมเลียนแบบได้ยากแต่เจ้าของไม่มีสินทรัพย์เสริม เช่น โรงงานหรือช่องทางจำหน่าย การอนุญาตให้ผู้ที่มีสินทรัพย์เสริมใช้สิทธิเป็นทางเลือกที่ควรพิจารณา ในทางกลับกัน การอนุญาตให้ใช้สิทธิจะได้ผลก็ต่อเมื่อนวัตกรรมได้รับการคุ้มครองที่ชัดเจน เพราะถ้าไม่มีการคุ้มครอง ผู้อื่นก็ไม่จำเป็นต้องขออนุญาต</p>
+<h2 id="s-6-5">6.5 ทรัพย์สินทางปัญญา</h2>
+<p><strong>ทรัพย์สินทางปัญญา (Intellectual property)</strong> คือผลงานที่เกิดจากความคิดสร้างสรรค์ของมนุษย์ ซึ่งกฎหมายให้ความคุ้มครองแก่เจ้าของ ทำให้เจ้าของมีสิทธิใช้ประโยชน์และห้ามผู้อื่นใช้โดยไม่ได้รับอนุญาตในระยะเวลาหนึ่ง กฎหมายไทยที่เกี่ยวข้องกับนวัตกรรมทางธุรกิจมากที่สุดมี 4 ฉบับ ได้แก่ พระราชบัญญัติสิทธิบัตร พระราชบัญญัติลิขสิทธิ์ พระราชบัญญัติเครื่องหมายการค้า และพระราชบัญญัติความลับทางการค้า บทนี้แบ่งทรัพย์สินทางปัญญาที่นิสิตควรรู้เป็น 5 ประเภท ตามตารางที่ 6.7</p>
+<p class="tcap"><b>ตารางที่ 6.7</b> ทรัพย์สินทางปัญญา 5 ประเภทที่เกี่ยวข้องกับนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ประเภท</th><th>สิ่งที่คุ้มครอง</th><th>กฎหมาย</th><th>ต้องจดทะเบียนหรือไม่</th><th>อายุการคุ้มครอง</th></tr></thead><tbody><tr><td>สิทธิบัตรการประดิษฐ์</td><td>ผลิตภัณฑ์หรือกรรมวิธีใหม่ที่มีขั้นการประดิษฐ์สูงขึ้น</td><td>พ.ร.บ.สิทธิบัตร มาตรา 5 และ 35</td><td>ต้องยื่นคำขอและได้รับสิทธิบัตร</td><td>20 ปีนับแต่วันขอรับสิทธิบัตรในราชอาณาจักร</td></tr><tr><td>สิทธิบัตรการออกแบบผลิตภัณฑ์</td><td>รูปร่าง ลวดลาย หรือสีของผลิตภัณฑ์ที่ใหม่</td><td>พ.ร.บ.สิทธิบัตร มาตรา 56 และ 62</td><td>ต้องยื่นคำขอและได้รับสิทธิบัตร</td><td>10 ปีนับแต่วันขอรับสิทธิบัตรในราชอาณาจักร</td></tr><tr><td>อนุสิทธิบัตร</td><td>การประดิษฐ์ใหม่ที่ประยุกต์ในทางอุตสาหกรรมได้ ไม่ต้องมีขั้นการประดิษฐ์สูงขึ้น</td><td>พ.ร.บ.สิทธิบัตร มาตรา 65 ทวิ และ 65 สัตต</td><td>ต้องยื่นคำขอและได้รับอนุสิทธิบัตร</td><td>6 ปีนับแต่วันขอรับ ต่ออายุได้ 2 คราว คราวละ 2 ปี</td></tr><tr><td>ลิขสิทธิ์</td><td>งานสร้างสรรค์ เช่น วรรณกรรม ศิลปกรรม ซึ่งรวมถึงโปรแกรมคอมพิวเตอร์</td><td>พ.ร.บ.ลิขสิทธิ์ มาตรา 6 และ 19</td><td>ไม่ต้องจดทะเบียน</td><td>ตลอดอายุผู้สร้างสรรค์และอีก 50 ปีนับแต่ผู้สร้างสรรค์ถึงแก่ความตาย</td></tr><tr><td>เครื่องหมายการค้า</td><td>เครื่องหมายที่ใช้แยกสินค้าหรือบริการของตนจากของผู้อื่น</td><td>พ.ร.บ.เครื่องหมายการค้า มาตรา 53</td><td>ต้องจดทะเบียนเพื่อได้รับความคุ้มครองตามพระราชบัญญัติ</td><td>10 ปีนับแต่วันจดทะเบียน ต่ออายุได้</td></tr><tr><td>ความลับทางการค้า</td><td>ข้อมูลการค้าที่ยังไม่รู้จักทั่วไป มีมูลค่าเพราะเป็นความลับ และเจ้าของรักษาความลับอย่างเหมาะสม</td><td>พ.ร.บ.ความลับทางการค้า มาตรา 3</td><td>ไม่ต้องจดทะเบียน</td><td>ตราบที่ยังเป็นความลับ</td></tr></tbody></table></div>
+<p>ตารางที่ 6.7 แยกสิทธิบัตร 2 แบบเป็น 2 แถว แต่นับรวมเป็นประเภทสิทธิบัตร จึงเป็น 5 ประเภทตามโครงรายวิชา</p>
+<h3 id="s-6-5-1">6.5.1 สิทธิบัตรการประดิษฐ์</h3>
+<p><strong>สิทธิบัตร (Patent)</strong> ตามมาตรา 3 ของพระราชบัญญัติสิทธิบัตร หมายถึงหนังสือสำคัญที่ออกให้เพื่อคุ้มครองการประดิษฐ์หรือการออกแบบผลิตภัณฑ์ มาตรา 5 กำหนดว่าการประดิษฐ์ที่ขอรับสิทธิบัตรได้ต้องมีลักษณะ 3 ข้อ ตามตารางที่ 6.8</p>
+<p class="tcap"><b>ตารางที่ 6.8</b> เงื่อนไขของการประดิษฐ์ที่ขอรับสิทธิบัตรได้</p>
+<div class="tablewrap"><table><thead><tr><th>เงื่อนไข</th><th>ความหมายตามกฎหมาย</th><th>คำถามสำหรับกลุ่ม</th></tr></thead><tbody><tr><td>เป็นการประดิษฐ์ขึ้นใหม่ (มาตรา 6)</td><td>ไม่เป็นงานที่ปรากฏอยู่แล้ว เช่น ไม่เคยมีหรือใช้แพร่หลาย ไม่เคยเปิดเผยในเอกสารหรือสิ่งพิมพ์ และไม่เคยได้รับสิทธิบัตร ก่อนวันขอรับสิทธิบัตร</td><td>ผลการสืบค้นพบการประดิษฐ์ที่เหมือนกันหรือไม่ กลุ่มเคยเผยแพร่รายละเอียดหรือยัง</td></tr><tr><td>มีขั้นการประดิษฐ์สูงขึ้น (มาตรา 7)</td><td>ไม่เป็นที่ประจักษ์โดยง่ายแก่บุคคลที่มีความชำนาญในระดับสามัญสำหรับงานประเภทนั้น</td><td>ช่างหรือผู้ที่ทำงานด้านนี้คิดได้เองง่าย ๆ หรือไม่</td></tr><tr><td>ประยุกต์ในทางอุตสาหกรรมได้ (มาตรา 8)</td><td>นำไปใช้ประโยชน์ในการผลิตทางอุตสาหกรรม รวมทั้งหัตถกรรม เกษตรกรรม และพาณิชยกรรมได้</td><td>ผลิตหรือใช้ซ้ำได้จริงหรือไม่</td></tr></tbody></table></div>
+<p>มาตรา 9 กำหนดสิ่งที่ไม่ได้รับความคุ้มครองตามพระราชบัญญัตินี้ไว้ เช่น กฎเกณฑ์และทฤษฎีทางวิทยาศาสตร์และคณิตศาสตร์ ระบบข้อมูลสำหรับการทำงานของเครื่องคอมพิวเตอร์ และวิธีการวินิจฉัย บำบัด หรือรักษาโรคมนุษย์หรือสัตว์ นิสิตที่ทำนวัตกรรมเป็นแอปพลิเคชันจึงควรทราบว่า ตัวโปรแกรมคอมพิวเตอร์ได้รับความคุ้มครองแบบลิขสิทธิ์ ซึ่งอธิบายในหัวข้อ 6.5.4</p>
+<p>สิทธิของผู้ทรงสิทธิบัตรตามมาตรา 36 คือ สิทธิแต่ผู้เดียวในการผลิต ใช้ ขาย มีไว้เพื่อขาย เสนอขาย หรือนำเข้ามาในราชอาณาจักร ซึ่งผลิตภัณฑ์ตามสิทธิบัตร และมาตรา 36 ทวิ กำหนดว่าขอบเขตของสิทธิเป็นไปตามที่ระบุใน <strong>ข้อถือสิทธิ (Claims)</strong> ส่วนที่บอกว่าสิทธิบัตรคุ้มครองอะไรจึงเป็นข้อถือสิทธิ ไม่ใช่ชื่อหรือบทสรุป</p>
+<h3 id="s-6-5-2">6.5.2 ข้อควรระวังเรื่องการเปิดเผยก่อนยื่นคำขอ</h3>
+<p>ตามมาตรา 6 การประดิษฐ์ที่ได้มีการเปิดเผยสาระสำคัญหรือรายละเอียดในเอกสารหรือสิ่งพิมพ์ การนำออกแสดง หรือการเปิดเผยต่อสาธารณชนด้วยประการใด ๆ ก่อนวันขอรับสิทธิบัตร ถือเป็นงานที่ปรากฏอยู่แล้ว จึงไม่ใช่การประดิษฐ์ขึ้นใหม่ กฎหมายมีข้อยกเว้นบางกรณี เช่น การเปิดเผยโดยผู้ประดิษฐ์ หรือการแสดงในงานแสดงสินค้าระหว่างประเทศหรืองานแสดงของทางราชการ ที่ทำภายใน 12 เดือนก่อนขอรับสิทธิบัตร แต่ข้อยกเว้นมีเงื่อนไขเฉพาะ และนิสิตไม่ควรวางแผนโดยพึ่งข้อยกเว้นนี้</p>
+<p>ถ้ากลุ่มคิดว่านวัตกรรมอาจขอรับสิทธิบัตรได้ ควรระวังการเผยแพร่รายละเอียดทางเทคนิคก่อนปรึกษาหน่วยงานทรัพย์สินทางปัญญาของมหาวิทยาลัย</p>
+<h3 id="s-6-5-3">6.5.3 อนุสิทธิบัตรและสิทธิบัตรการออกแบบผลิตภัณฑ์</h3>
+<p><strong>อนุสิทธิบัตร (Petty patent)</strong> คุ้มครองการประดิษฐ์เช่นเดียวกับสิทธิบัตร แต่มาตรา 65 ทวิ กำหนดเงื่อนไขเพียง 2 ข้อ คือ เป็นการประดิษฐ์ขึ้นใหม่ และประยุกต์ในทางอุตสาหกรรมได้ ไม่ต้องมีขั้นการประดิษฐ์สูงขึ้น อนุสิทธิบัตรจึงเหมาะกับการประดิษฐ์ที่ปรับปรุงเล็กน้อย ซึ่งเป็นลักษณะของนวัตกรรมแบบค่อยเป็นค่อยไปที่อธิบายในบทที่ 1 มาตรา 65 สัตต กำหนดอายุ 6 ปีนับแต่วันขอรับอนุสิทธิบัตร และต่ออายุได้ 2 คราว คราวละ 2 ปี โดยยื่นคำขอภายใน 90 วันก่อนวันสิ้นอายุ ส่วนมาตรา 65 ตรี กำหนดว่าบุคคลใดจะขอรับทั้งอนุสิทธิบัตรและสิทธิบัตรสำหรับการประดิษฐ์อย่างเดียวกันไม่ได้</p>
+<p><strong>สิทธิบัตรการออกแบบผลิตภัณฑ์ (Design patent)</strong> คุ้มครองแบบผลิตภัณฑ์ ซึ่งมาตรา 3 นิยามว่าหมายถึงรูปร่างของผลิตภัณฑ์ หรือองค์ประกอบของลวดลายหรือสีของผลิตภัณฑ์ อันมีลักษณะพิเศษสำหรับผลิตภัณฑ์ และใช้เป็นแบบสำหรับผลิตภัณฑ์อุตสาหกรรมรวมทั้งหัตถกรรมได้ ตัวอย่างเช่น รูปทรงของขวดหรือลวดลายของบรรจุภัณฑ์ มาตรา 62 กำหนดอายุ 10 ปีนับแต่วันขอรับสิทธิบัตร</p>
+<h3 id="s-6-5-4">6.5.4 ลิขสิทธิ์</h3>
+<p><strong>ลิขสิทธิ์ (Copyright)</strong> คุ้มครองงานสร้างสรรค์ มาตรา 6 ของพระราชบัญญัติลิขสิทธิ์ พ.ศ. 2537 กำหนดว่างานอันมีลิขสิทธิ์ ได้แก่ งานสร้างสรรค์ประเภทวรรณกรรม นาฏกรรม ศิลปกรรม และประเภทอื่นที่ระบุในมาตรานั้น ในทางปฏิบัติ งานที่เกี่ยวข้องกับนวัตกรรมทางธุรกิจ ได้แก่ คู่มือ เนื้อหาเว็บไซต์ ภาพประกอบ ภาพถ่าย วิดีโอ และโปรแกรมคอมพิวเตอร์ ซึ่งกฎหมายลิขสิทธิ์จัดเป็นวรรณกรรม</p>
+<p>หลักสำคัญที่นิสิตต้องเข้าใจ คือ มาตรา 6 วรรคสอง กำหนดว่าการคุ้มครองลิขสิทธิ์ไม่คลุมถึงความคิด หรือขั้นตอน กรรมวิธีหรือระบบ หมายความว่า ลิขสิทธิ์คุ้มครองการแสดงออกของความคิด เช่น ข้อความ ภาพ หรือรหัสโปรแกรมที่เขียนขึ้น แต่ไม่คุ้มครองความคิดเบื้องหลัง ถ้ากลุ่มคิดบริการตู้รับผ้า ผู้อื่นทำบริการแบบเดียวกันได้ แต่จะคัดลอกคู่มือ ภาพ หรือโปรแกรมของกลุ่มไม่ได้</p>
+<p>มาตรา 8 กำหนดให้ผู้สร้างสรรค์เป็นผู้มีลิขสิทธิ์ในงานที่ตนสร้างสรรค์ขึ้น ภายใต้เงื่อนไขที่ระบุในมาตรานั้น และลิขสิทธิ์ไม่ต้องจดทะเบียน มาตรา 19 กำหนดว่าลิขสิทธิ์มีอยู่ตลอดอายุของผู้สร้างสรรค์ และมีอยู่ต่อไปอีกห้าสิบปีนับแต่ผู้สร้างสรรค์ถึงแก่ความตาย</p>
+<h3 id="s-6-5-5">6.5.5 เครื่องหมายการค้า</h3>
+<p><strong>เครื่องหมายการค้า (Trademark)</strong> คือเครื่องหมายที่ใช้แยกสินค้าหรือบริการของผู้ประกอบการรายหนึ่งออกจากของรายอื่น เช่น ชื่อ โลโก้ หรือสัญลักษณ์ พระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534 มาตรา 53 กำหนดว่าการจดทะเบียนเครื่องหมายการค้ามีอายุ 10 ปีนับแต่วันที่จดทะเบียน และต่ออายุได้ และมาตรา 55 กำหนดว่าการต่ออายุแต่ละครั้งมีผลอีก 10 ปี เครื่องหมายการค้าจึงเป็นทรัพย์สินทางปัญญาประเภทเดียวในตารางที่ 6.7 ที่ต่ออายุได้ไม่จำกัด ตราบที่เจ้าของยังต่ออายุตามกำหนด</p>
+<p>สำหรับนวัตกรรมของนิสิตซึ่งมักเลียนแบบได้ง่าย เครื่องหมายการค้าเป็นเครื่องมือสำคัญ เพราะแม้คู่แข่งจะทำบริการแบบเดียวกันได้ แต่ใช้ชื่อหรือโลโก้ที่ลูกค้าจดจำของกลุ่มไม่ได้ ก่อนตั้งชื่อแบรนด์ กลุ่มควรสืบค้นว่ามีผู้จดทะเบียนชื่อที่เหมือนหรือคล้ายกันไว้แล้วหรือไม่</p>
+<h3 id="s-6-5-6">6.5.6 ความลับทางการค้า</h3>
+<p><strong>ความลับทางการค้า (Trade secret)</strong> ตามพระราชบัญญัติความลับทางการค้า พ.ศ. 2545 มาตรา 3 คือข้อมูลการค้าที่มีองค์ประกอบ 3 ข้อ ได้แก่ ยังไม่เป็นที่รู้จักกันโดยทั่วไปหรือยังเข้าถึงไม่ได้ในหมู่บุคคลที่เกี่ยวข้องกับข้อมูลนั้น มีมูลค่าในเชิงพาณิชย์เพราะการเป็นความลับ และผู้ควบคุมความลับได้ใช้วิธีการที่เหมาะสมรักษาไว้เป็นความลับ ตัวอย่างได้แก่ สูตรอาหาร รายชื่อลูกค้า ต้นทุน และวิธีการทำงานเฉพาะของร้าน</p>
+<p>ความลับทางการค้าไม่ต้องจดทะเบียน และได้รับความคุ้มครองตราบที่ยังเป็นความลับ แต่ถ้าคู่แข่งค้นพบข้อมูลเดียวกันได้เอง หรือแยกส่วนผลิตภัณฑ์แล้วเข้าใจได้ ความลับนั้นก็จะไม่มีค่าอีกต่อไป ถ้าเจ้าของไม่จำกัดผู้เข้าถึงข้อมูล หรือไม่ทำข้อตกลงรักษาความลับกับพนักงานและคู่ค้า ข้อมูลนั้นอาจไม่เข้าข่ายความลับทางการค้า</p>
+<h3 id="s-6-5-7">6.5.7 ความเป็นเจ้าของผลงานของลูกจ้างและนิสิต</h3>
+<p>สำหรับสิทธิบัตร มาตรา 11 ของพระราชบัญญัติสิทธิบัตรกำหนดว่า สิทธิขอรับสิทธิบัตรสำหรับการประดิษฐ์ที่ลูกจ้างประดิษฐ์ขึ้นโดยการทำงานตามสัญญาจ้าง ตกได้แก่นายจ้าง เว้นแต่สัญญาจ้างจะระบุไว้เป็นอย่างอื่น ส่วนผลงานที่นิสิตทำในรายวิชา ความเป็นเจ้าของขึ้นกับระเบียบของมหาวิทยาลัยและข้อตกลงกับผู้ที่ร่วมงาน กลุ่มควรเพิ่มเรื่องนี้ในข้อตกลงทีมจากบทที่ 2 และสอบถามระเบียบของมหาวิทยาลัยก่อนนำผลงานไปใช้เชิงพาณิชย์</p>
+<h3 id="s-6-5-8">6.5.8 การกำหนดประเภทการคุ้มครองที่เหมาะกับนวัตกรรมของกลุ่ม</h3>
+<p>นวัตกรรมหนึ่งชิ้นมักมีทรัพย์สินทางปัญญาหลายประเภทพร้อมกัน ตารางที่ 6.9 ใช้แยกองค์ประกอบของนวัตกรรม แล้วระบุประเภทการคุ้มครองที่เกี่ยวข้อง</p>
+<p class="tcap"><b>ตารางที่ 6.9</b> การแยกองค์ประกอบของนวัตกรรมและการคุ้มครองที่เกี่ยวข้อง (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</p>
+<div class="tablewrap"><table><thead><tr><th>องค์ประกอบ</th><th>ประเภทการคุ้มครองที่เกี่ยวข้อง</th><th>สิ่งที่กลุ่มควรทำ</th></tr></thead><tbody><tr><td>แนวคิดบริการรับผ้าหลังร้านปิด</td><td>ไม่ได้รับความคุ้มครอง เพราะเป็นความคิด</td><td>แข่งขันด้วยความเร็วและความสัมพันธ์กับผู้ใช้</td></tr><tr><td>กลไกล็อกและการส่งรหัส ถ้าเป็นแบบใหม่</td><td>สิทธิบัตรหรืออนุสิทธิบัตร ถ้าเข้าเงื่อนไข</td><td>สืบค้นสิทธิบัตรก่อน และระวังการเปิดเผย</td></tr><tr><td>รูปทรงตู้</td><td>สิทธิบัตรการออกแบบผลิตภัณฑ์ ถ้าใหม่</td><td>พิจารณาเมื่อจะผลิตจำนวนมาก</td></tr><tr><td>ชื่อและโลโก้บริการ</td><td>เครื่องหมายการค้า</td><td>สืบค้นชื่อซ้ำก่อนใช้ และพิจารณาจดทะเบียน</td></tr><tr><td>คู่มือ ภาพ และโปรแกรมส่งรหัส</td><td>ลิขสิทธิ์</td><td>เก็บหลักฐานวันที่สร้างงาน</td></tr><tr><td>รายชื่อลูกค้าและต้นทุนต่อรอบ</td><td>ความลับทางการค้า</td><td>จำกัดผู้เข้าถึง ทำข้อตกลงรักษาความลับ</td></tr></tbody></table></div>
+<h2 id="s-6-6">6.6 การสืบค้นสิทธิบัตรและอนุสิทธิบัตรจากฐานข้อมูลออนไลน์</h2>
+<p>การสืบค้นสิทธิบัตรมีประโยชน์มากกว่าการตรวจว่านวัตกรรมของกลุ่มขอรับสิทธิบัตรได้หรือไม่ ธุรกิจสืบค้นสิทธิบัตรด้วยเหตุผล 4 ข้อ คือ ตรวจความใหม่ก่อนยื่นคำขอ ตรวจความเสี่ยงว่านวัตกรรมอาจใช้สิ่งที่มีผู้ทรงสิทธิอยู่ หาแนวคิดจากวิธีที่ผู้อื่นใช้แก้ปัญหาเดียวกัน และหาพันธมิตรที่มีเทคโนโลยีที่ต้องการ</p>
+<h3 id="s-6-6-1">6.6.1 ฐานข้อมูลสิทธิบัตร</h3>
+<p>ฐานข้อมูลที่นิสิตใช้ได้โดยไม่เสียค่าใช้จ่ายมี 2 กลุ่ม กลุ่มแรกคือระบบสืบค้นข้อมูลสิทธิบัตรและอนุสิทธิบัตรของกรมทรัพย์สินทางปัญญา ซึ่งเข้าได้จากเว็บไซต์ของกรม (<a href="https://www.ipthailand.go.th)" target="_blank" rel="noopener">https://www.ipthailand.go.th)</a> ใช้สืบค้นสิทธิบัตรและอนุสิทธิบัตรที่ยื่นในประเทศไทย กลุ่มที่สองคือฐานข้อมูลสิทธิบัตรระหว่างประเทศ เช่น PATENTSCOPE ขององค์การทรัพย์สินทางปัญญาโลก Espacenet ของสำนักงานสิทธิบัตรยุโรป และ Google Patents ซึ่งรวบรวมสิทธิบัตรจากหลายประเทศ ผู้สอนจะสาธิตด้วยหน้าจอปัจจุบันในชั้นเรียน สิทธิบัตรมีผลเฉพาะในประเทศที่ได้รับสิทธิบัตร แต่การประดิษฐ์ที่เปิดเผยแล้วในประเทศใดก็ตาม ไม่ถือเป็นการประดิษฐ์ขึ้นใหม่ตามมาตรา 6</p>
+<h3 id="s-6-6-2">6.6.2 ขั้นตอนการสืบค้น</h3>
+<p>การสืบค้นสิทธิบัตรที่ได้ผลต้องวางแผนคำค้นก่อน เพราะเอกสารสิทธิบัตรใช้ภาษาทางเทคนิคและกฎหมาย ซึ่งต่างจากภาษาที่ผู้ใช้พูด ตารางที่ 6.10 แสดงขั้นตอน</p>
+<p class="tcap"><b>ตารางที่ 6.10</b> ขั้นตอนการสืบค้นสิทธิบัตร</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>สิ่งที่ทำ</th><th>ตัวอย่าง (บริการตู้รับผ้า กรณีสมมติเพื่อการสอน)</th></tr></thead><tbody><tr><td>1. เขียนนวัตกรรมเป็นประโยคสั้น</td><td>ระบุหน้าที่หลักและวิธีที่ใช้</td><td>ตู้รับฝากของที่เปิดด้วยรหัสซึ่งส่งผ่านโทรศัพท์</td></tr><tr><td>2. แยกเป็นแนวคิดหลัก</td><td>2–3 แนวคิดที่ต้องมีครบ</td><td>ตู้ล็อก รหัสครั้งเดียว การส่งผ่านโทรศัพท์</td></tr><tr><td>3. หาคำพ้องความหมายทั้งไทยและอังกฤษ</td><td>คำที่เอกสารสิทธิบัตรอาจใช้</td><td>ตู้ ล็อกเกอร์ ช่องเก็บของ locker parcel box one-time code</td></tr><tr><td>4. ค้นแบบกว้างก่อน</td><td>ใช้คำจาก 2 แนวคิด</td><td>locker AND code</td></tr><tr><td>5. ค้นให้แคบลง</td><td>เพิ่มแนวคิดที่ 3 หรือจำกัดประเทศและปี</td><td>locker AND code AND mobile</td></tr><tr><td>6. อ่านผลที่ใกล้เคียงที่สุด</td><td>อ่านชื่อ บทสรุป และข้อถือสิทธิ</td><td>เลือกอ่านละเอียดอย่างน้อย 3 รายการ</td></tr><tr><td>7. บันทึกผล</td><td>บันทึกเลขที่ ชื่อ ประเทศ สถานะ และความเหมือนหรือต่าง</td><td>ตามตารางที่ 6.14</td></tr></tbody></table></div>
+<h3 id="s-6-6-3">6.6.3 การอ่านเอกสารสิทธิบัตร</h3>
+<p>เอกสารสิทธิบัตรมีหลายส่วน แต่ละส่วนบอกข้อมูลต่างกัน ตารางที่ 6.11 สรุปส่วนที่นิสิตควรอ่าน</p>
+<p class="tcap"><b>ตารางที่ 6.11</b> ส่วนสำคัญของเอกสารสิทธิบัตร</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>บอกอะไร</th><th>วิธีใช้</th></tr></thead><tbody><tr><td>ข้อมูลบรรณานุกรม</td><td>เลขที่ ประเทศ วันยื่นคำขอ ผู้ขอ ผู้ประดิษฐ์</td><td>ใช้คำนวณว่าหมดอายุแล้วหรือยัง และรู้ว่าใครเป็นเจ้าของ</td></tr><tr><td>ชื่อการประดิษฐ์และบทสรุป</td><td>ภาพรวมของการประดิษฐ์</td><td>ใช้คัดกรองว่าเกี่ยวข้องหรือไม่</td></tr><tr><td>รายละเอียดการประดิษฐ์</td><td>ปัญหาเดิม วิธีแก้ และวิธีทำ</td><td>ใช้เรียนรู้แนวคิดและเทคนิค</td></tr><tr><td>รูปเขียน</td><td>ภาพแสดงโครงสร้างหรือขั้นตอน</td><td>ใช้ทำความเข้าใจได้เร็ว</td></tr><tr><td>ข้อถือสิทธิ</td><td>ขอบเขตของสิ่งที่ได้รับความคุ้มครอง</td><td>ใช้ตัดสินว่านวัตกรรมของกลุ่มเหมือนหรือต่าง</td></tr><tr><td>สถานะ</td><td>ยื่นคำขอ ได้รับสิทธิบัตร หมดอายุ หรือถูกยกเลิก</td><td>สิทธิบัตรที่หมดอายุแล้ว ใครก็ใช้ได้</td></tr></tbody></table></div>
+<p>การอ่านข้อถือสิทธิต้องระวังว่า สิทธิบัตรคุ้มครองเฉพาะการประดิษฐ์ที่มีองค์ประกอบตามข้อถือสิทธิ ถ้านวัตกรรมของกลุ่มต่างจากข้อถือสิทธิในสาระสำคัญ ก็อาจไม่ใช่การใช้สิ่งที่ได้รับความคุ้มครอง แต่การตัดสินเรื่องการละเมิดเป็นเรื่องทางกฎหมาย ในรายวิชานี้กลุ่มเพียงบันทึกว่าเหมือนหรือต่างอย่างไร</p>
+<h3 id="s-6-6-4">6.6.4 การตีความผลการสืบค้น</h3>
+<p>ผลการสืบค้นมี 3 แบบหลัก และแต่ละแบบนำไปสู่การดำเนินการต่างกัน ถ้าพบสิทธิบัตรที่เหมือนกันและยังมีผลในประเทศไทย กลุ่มต้องปรับแบบให้ต่าง หรือติดต่อขอรับอนุญาตให้ใช้สิทธิ ถ้าพบสิทธิบัตรที่ใกล้เคียงแต่หมดอายุแล้ว หรือมีผลเฉพาะในประเทศอื่น กลุ่มอาจนำแนวคิดนั้นมาใช้หรือต่อยอดได้ แต่ขอรับสิทธิบัตรในสิ่งที่เหมือนกันไม่ได้เพราะไม่ใหม่แล้ว ถ้าไม่พบรายการที่ใกล้เคียง ไม่ได้แปลว่าไม่มี อาจเป็นเพราะคำค้นไม่ครอบคลุม กลุ่มควรลองคำค้นอื่นและฐานข้อมูลอื่นก่อนสรุป</p>
+<h2 id="s-6-7">6.7 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในตารางที่ 6.12 ให้หลักฐานว่าความรู้จากภายนอกเป็นแหล่งนวัตกรรมที่สำคัญ แต่ต้องเลือกใช้อย่างเหมาะสม</p>
+<p class="tcap"><b>ตารางที่ 6.12</b> งานวิจัยที่เกี่ยวข้องกับการแสวงหาและการถ่ายโอนนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>ประเด็นที่ศึกษา</th><th>ข้อค้นพบสำคัญ</th><th>ข้อสรุปสำหรับนิสิต</th></tr></thead><tbody><tr><td>von Hippel (1986)</td><td>ผู้ใช้นำเป็นแหล่งแนวคิดผลิตภัณฑ์ใหม่ (บทความเชิงแนวคิดและวิธีการ)</td><td>ผู้ใช้นำมีความต้องการที่จะกลายเป็นความต้องการทั่วไปในอนาคต และมักแก้ปัญหาเอง</td><td>สัมภาษณ์ผู้ใช้ที่ดัดแปลงเครื่องมือเอง</td></tr><tr><td>Chesbrough และ Crowther (2006)</td><td>นวัตกรรมแบบเปิดในอุตสาหกรรมที่ไม่ใช่เทคโนโลยีขั้นสูง</td><td>หลายอุตสาหกรรมใช้นวัตกรรมแบบเปิดอยู่แล้ว และไม่ได้หมายถึงการจ้างภายนอกวิจัยแทนทั้งหมด</td><td>ธุรกิจขนาดเล็กใช้แนวคิดนี้ได้</td></tr><tr><td>Laursen และ Salter (2006)</td><td>ความกว้างและความลึกของการค้นหาความรู้ภายนอก (บริษัทอุตสาหกรรมการผลิตในสหราชอาณาจักร)</td><td>ความสัมพันธ์กับผลการดำเนินงานด้านนวัตกรรมเป็นรูปตัว U กลับหัว</td><td>เลือกแหล่งภายนอกไม่กี่แหล่งและใช้อย่างจริงจัง</td></tr></tbody></table></div>
+<h2 id="s-6-8">6.8 ข้อผิดพลาดที่พบบ่อยในการแสวงหาและคุ้มครองนวัตกรรม</h2>
+<p>ข้อผิดพลาดในตารางที่ 6.13 พบบ่อยทั้งในธุรกิจขนาดเล็กและในงานกลุ่ม ส่วนใหญ่เกิดจากการเข้าใจผิดเรื่องสิ่งที่กฎหมายคุ้มครอง</p>
+<p class="tcap"><b>ตารางที่ 6.13</b> ข้อผิดพลาดที่พบบ่อยในการแสวงหาและคุ้มครองนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เชื่อว่าความคิดได้รับการคุ้มครอง</td><td>"เราคิดก่อน คนอื่นทำไม่ได้"</td><td>แยกองค์ประกอบตามตารางที่ 6.9</td></tr><tr><td>เปิดเผยรายละเอียดก่อนตรวจเรื่องสิทธิบัตร</td><td>โพสต์วิธีทำกลไกในสื่อสังคมออนไลน์</td><td>ปรึกษาหน่วยงานทรัพย์สินทางปัญญาก่อนเผยแพร่</td></tr><tr><td>ใช้ภาพ เพลง หรือโลโก้ของผู้อื่นในสื่อ</td><td>ใช้ภาพจากอินเทอร์เน็ตในต้นแบบและสไลด์</td><td>ใช้งานที่สร้างเองหรือที่มีสัญญาอนุญาตชัดเจน</td></tr><tr><td>หยุดพัฒนาเมื่อพบสิทธิบัตรที่ใกล้เคียง</td><td>พบสิทธิบัตรต่างประเทศที่หมดอายุแล้ว</td><td>ตรวจสถานะ ประเทศ และข้อถือสิทธิก่อนสรุป</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: วิสาหกิจชุมชนกับน้ำพริกสูตรอายุยาว (กรณีสมมติเพื่อการสอน)</div><p>วิสาหกิจชุมชนแห่งหนึ่งผลิตน้ำพริกขายในตลาดท้องถิ่น ปัญหาหลักคือน้ำพริกเก็บได้ไม่นาน จึงส่งขายไกลไม่ได้ สมาชิกทราบว่ามหาวิทยาลัยในจังหวัดมีงานวิจัยเรื่องการยืดอายุอาหารพื้นบ้าน จึงติดต่อหน่วยงานถ่ายโอนเทคโนโลยีของมหาวิทยาลัย</p><p>หน่วยงานแจ้งว่างานวิจัยนั้นยื่นคำขออนุสิทธิบัตรไว้แล้ว และให้ลงนามข้อตกลงรักษาความลับก่อนเปิดเผยรายละเอียด วิสาหกิจทดลองผลิต 3 รอบ และนักวิจัยช่วยปรับขั้นตอนให้เข้ากับอุปกรณ์ของชุมชน ทั้งสองฝ่ายทำสัญญาอนุญาตให้ใช้สิทธิแบบไม่ใช่สิทธิแต่ผู้เดียว จำกัดพื้นที่ในจังหวัด มีค่าตอบแทนเป็นร้อยละของยอดขาย และกำหนดว่าวิธีปรับที่ทำร่วมกันเป็นของทั้งสองฝ่าย</p><p>ระหว่างนั้น วิสาหกิจพบว่าชื่อที่ใช้ขายมานานมีผู้อื่นใช้คล้ายกัน จึงสืบค้นและยื่นจดทะเบียนเครื่องหมายการค้าในชื่อใหม่ และเก็บสัดส่วนเครื่องปรุงของสูตรเดิมไว้เป็นความลับทางการค้า โดยให้เฉพาะสมาชิกที่ได้รับมอบหมายเป็นผู้ผสม</p><p class="q"><b>คำถามชวนคิด</b> กรณีนี้ใช้ทรัพย์สินทางปัญญาประเภทใดบ้าง และเพราะเหตุใดมหาวิทยาลัยจึงเลือกอนุญาตแบบไม่ใช่สิทธิแต่ผู้เดียว</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายแหล่งของนวัตกรรมทั้งภายในและภายนอกองค์การ รวมถึงผู้ใช้นำ อธิบายความต่างระหว่างนวัตกรรมแบบปิดและแบบเปิด และอธิบายได้ว่าการเปิดรับความรู้จากภายนอกควรพอดี</p>
+<p>นิสิตอธิบายช่องทางการถ่ายโอนเทคโนโลยี ระบุเงื่อนไขสำคัญของสัญญาอนุญาตให้ใช้สิทธิ จำแนกทรัพย์สินทางปัญญา 5 ประเภทตามเงื่อนไขและอายุการคุ้มครอง และใช้ฐานข้อมูลออนไลน์สืบค้นสิทธิบัตรได้ ผลนี้นำไปใช้ในแผนพัฒนาเชิงพาณิชย์ในบทที่ 7 และ 8</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>แหล่งของนวัตกรรม (Sources of innovation)</li><li>ผู้ใช้นำ (Lead users)</li><li>นวัตกรรมแบบปิด (Closed innovation)</li><li>นวัตกรรมแบบเปิด (Open innovation)</li><li>การถ่ายโอนเทคโนโลยี (Technology transfer)</li><li>การอนุญาตให้ใช้สิทธิ (Licensing)</li><li>การโอนสิทธิ (Assignment)</li><li>ทรัพย์สินทางปัญญา (Intellectual property)</li><li>สิทธิบัตร (Patent)</li><li>อนุสิทธิบัตร (Petty patent)</li><li>ลิขสิทธิ์ (Copyright)</li><li>เครื่องหมายการค้า (Trademark)</li><li>ความลับทางการค้า (Trade secret)</li><li>ข้อถือสิทธิ (Claims)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>ผู้ใช้นำต่างจากผู้ใช้ทั่วไปอย่างไร และกลุ่มจะหาผู้ใช้นำของนวัตกรรมของกลุ่มได้จากที่ใด</li><li>จงเปรียบเทียบนวัตกรรมแบบปิดกับนวัตกรรมแบบเปิด และยกตัวอย่างการนำความรู้เข้าและการนำความรู้ออกอย่างละ 1 ตัวอย่าง</li><li>ตามผลการศึกษาของ Laursen และ Salter (2006) เพราะเหตุใดการเปิดรับความรู้จากภายนอกมากเกินไปจึงไม่ดี</li><li>จงอธิบายช่องทางการถ่ายโอนเทคโนโลยี 3 ช่องทาง และบอกว่าแต่ละช่องทางเหมาะกับสถานการณ์ใด</li><li>ตามพระราชบัญญัติสิทธิบัตร มาตรา 39 ผู้ทรงสิทธิบัตรกำหนดเงื่อนไขใดในสัญญาอนุญาตให้ใช้สิทธิไม่ได้</li><li>จงเปรียบเทียบสิทธิบัตรการประดิษฐ์ อนุสิทธิบัตร และสิทธิบัตรการออกแบบผลิตภัณฑ์ ในด้านเงื่อนไขและอายุการคุ้มครอง</li><li>เพราะเหตุใดลิขสิทธิ์จึงไม่คุ้มครองแนวคิดของบริการ และกลุ่มควรใช้การคุ้มครองแบบใดแทน</li><li>ถ้าผลการสืบค้นพบสิทธิบัตรต่างประเทศที่ใกล้เคียงกับนวัตกรรมของกลุ่ม กลุ่มควรตรวจข้อมูลใดก่อนตัดสินใจ</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>กิจกรรมท้ายบท: สืบค้นสิทธิบัตรที่ใกล้เคียงกับนวัตกรรมของกลุ่ม</h2>
+<p>ให้ทำเป็นกลุ่ม ส่งในสัปดาห์ที่ 12 ผลงานนี้เป็นส่วนหนึ่งของหัวข้อทรัพย์สินทางปัญญาและการถ่ายโอนนวัตกรรมในแผนพัฒนาเชิงพาณิชย์ของงานกลุ่มครั้งที่ 3 ซึ่งรูบริกที่ 3 ให้น้ำหนักร้อยละ 15 และกำหนดว่าระดับสูงสุดต้องระบุประเภททรัพย์สินทางปัญญาที่เกี่ยวข้อง ผลการสืบค้นสิทธิบัตร และแนวทางการแสวงหาหรือถ่ายโอนนวัตกรรมที่เหมาะสม</p>
+<ol><li>แยกองค์ประกอบของนวัตกรรมของกลุ่ม และระบุประเภทการคุ้มครองที่เกี่ยวข้องตามตารางที่ 6.9</li><li>วางแผนคำค้นตามตารางที่ 6.10 ทั้งภาษาไทยและภาษาอังกฤษ อย่างน้อย 3 แนวคิดหลัก</li><li>สืบค้นในระบบของกรมทรัพย์สินทางปัญญา และฐานข้อมูลระหว่างประเทศอย่างน้อย 1 ฐาน</li><li>บันทึกรายการที่ใกล้เคียงที่สุดอย่างน้อย 3 รายการในตารางที่ 6.14 พร้อมภาพหน้าจอแสดงคำค้นและผลการค้น</li><li>สรุปว่านวัตกรรมของกลุ่มต่างจากรายการที่พบอย่างไร และระบุแนวทางที่เหมาะสม เช่น ยื่นคำขอ ปรับแบบ ขอรับอนุญาตให้ใช้สิทธิ หรือใช้การคุ้มครองแบบอื่น</li><li>ระบุแหล่งความรู้ภายนอกที่กลุ่มจะร่วมมือได้อย่างน้อย 1 แหล่ง ตามตารางที่ 6.4</li></ol>
+<p class="tcap"><b>ตารางที่ 6.14</b> แบบบันทึกผลการสืบค้นสิทธิบัตร</p>
+<div class="tablewrap"><table><thead><tr><th>ลำดับ</th><th>เลขที่และฐานข้อมูล</th><th>ชื่อการประดิษฐ์</th><th>ประเทศและสถานะ</th><th>สิ่งที่เหมือน</th><th>สิ่งที่ต่าง</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">กรมทรัพย์สินทางปัญญา. (ม.ป.ป.). <em>ระบบสืบค้นข้อมูลสิทธิบัตรและอนุสิทธิบัตร</em>. <a href="https://www.ipthailand.go.th" target="_blank" rel="noopener">https://www.ipthailand.go.th</a></div>
+<div class="r">พระราชบัญญัติความลับทางการค้า พ.ศ. 2545. (2545, 23 เมษายน). <em>ราชกิจจานุเบกษา</em>.</div>
+<div class="r">พระราชบัญญัติเครื่องหมายการค้า พ.ศ. 2534 แก้ไขเพิ่มเติมโดยพระราชบัญญัติเครื่องหมายการค้า (ฉบับที่ 2) พ.ศ. 2543. (2534, 28 ตุลาคม).</div>
+<div class="r">พระราชบัญญัติลิขสิทธิ์ พ.ศ. 2537. (2537, 21 ธันวาคม). <em>ราชกิจจานุเบกษา</em>. เล่ม 111 ตอนที่ 59 ก. หน้า 1.</div>
+<div class="r">พระราชบัญญัติสิทธิบัตร พ.ศ. 2522. (2522, 16 มีนาคม). <em>ราชกิจจานุเบกษา</em>. เล่ม 96 ตอนที่ 35. แก้ไขเพิ่มเติมโดยพระราชบัญญัติสิทธิบัตร (ฉบับที่ 2) พ.ศ. 2535 และ (ฉบับที่ 3) พ.ศ. 2542.</div>
+<div class="r">Chesbrough, H. W. (2003). <em>Open innovation: The new imperative for creating and profiting from technology</em>. Harvard Business School Press.</div>
+<div class="r">Chesbrough, H., &amp; Crowther, A. K. (2006). Beyond high tech: Early adopters of open innovation in other industries. <em>R&amp;D Management, 36</em>(3), 229–236. <a href="https://doi.org/10.1111/j.1467-9310.2006.00428.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1467-9310.2006.00428.x</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. (2006). Open for innovation: The role of openness in explaining innovation performance among U.K. manufacturing firms. <em>Strategic Management Journal, 27</em>(2), 131–150. <a href="https://doi.org/10.1002/smj.507" target="_blank" rel="noopener">https://doi.org/10.1002/smj.507</a></div>
+<div class="r">Teece, D. J. (1986). Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy. <em>Research Policy, 15</em>(6), 285–305. <a href="https://doi.org/10.1016/0048-7333(86)90027-2" target="_blank" rel="noopener">https://doi.org/10.1016/0048-7333(86)90027-2</a></div>
+<div class="r">von Hippel, E. (1986). Lead users: A source of novel product concepts. <em>Management Science, 32</em>(7), 791–805. <a href="https://doi.org/10.1287/mnsc.32.7.791" target="_blank" rel="noopener">https://doi.org/10.1287/mnsc.32.7.791</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 6 การแสวงหาและการถ่ายโอนนวัตกรรม. ใน <em>การสร้างสรรค์และพัฒนานวัตกรรมทางธุรกิจ: เอกสารประกอบการสอนรายวิชา 0903464</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ci_lesson_06.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ci_lesson_05.html"><small>◀ บทก่อนหน้า</small>บทที่ 5 กระบวนการจัดการกลยุทธ์ และการจัดการนวัตกรรมและเทคโนโลยี</a><a href="ci_lesson_07.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 7 การพัฒนาเชิงพาณิชย์</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0903464 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ci/slides/06/s-01.jpg', 'ci/slides/06/s-02.jpg', 'ci/slides/06/s-03.jpg', 'ci/slides/06/s-04.jpg', 'ci/slides/06/s-05.jpg', 'ci/slides/06/s-06.jpg', 'ci/slides/06/s-07.jpg', 'ci/slides/06/s-08.jpg', 'ci/slides/06/s-09.jpg', 'ci/slides/06/s-10.jpg', 'ci/slides/06/s-11.jpg', 'ci/slides/06/s-12.jpg', 'ci/slides/06/s-13.jpg', 'ci/slides/06/s-14.jpg', 'ci/slides/06/s-15.jpg', 'ci/slides/06/s-16.jpg', 'ci/slides/06/s-17.jpg', 'ci/slides/06/s-18.jpg', 'ci/slides/06/s-19.jpg', 'ci/slides/06/s-20.jpg', 'ci/slides/06/s-21.jpg', 'ci/slides/06/s-22.jpg', 'ci/slides/06/s-23.jpg', 'ci/slides/06/s-24.jpg', 'ci/slides/06/s-25.jpg', 'ci/slides/06/s-26.jpg', 'ci/slides/06/s-27.jpg', 'ci/slides/06/s-28.jpg', 'ci/slides/06/s-29.jpg', 'ci/slides/06/s-30.jpg', 'ci/slides/06/s-31.jpg', 'ci/slides/06/s-32.jpg', 'ci/slides/06/s-33.jpg', 'ci/slides/06/s-34.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>
