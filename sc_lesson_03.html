@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 3 การวิเคราะห์ภาวะแวดล้อมทางธุรกิจด้วย SWOT และ PESTEL · วิชา 0907021</title>
+<meta name="description" content="บทเรียนบทที่ 3 วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="sc_0907021.html">วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="sc_0907021.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 3</div><a href="#x6">ความนำ</a><a href="#s-3-1">3.1 ภาวะแวดล้อมกับแรงขับการเปลี่ยนแปลง</a><a href="#s-3-2">3.2 การวิเคราะห์ PESTEL</a><a href="#s-3-3">3.3 การวิเคราะห์ SWOT</a><a href="#s-3-4">3.4 การตีความภาวะแวดล้อม</a><a href="#s-3-5">3.5 แรงขับทางดิจิทัล</a><a href="#s-3-6">3.6 เขียนผลการวิเคราะห์ให้ใช้ในแผนได้</a><a href="#s-3-7">3.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-3-8">3.8 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 3 PESTEL และ SWOT ขององค์กรที่เลือก</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์</div>
+<h1>บทที่ 3 การวิเคราะห์ภาวะแวดล้อมทางธุรกิจด้วย SWOT และ PESTEL</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>3</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (22 สไลด์)</button><a class="btn line" href="sc/files/sc_0907021_บทที่03_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความหมายของภาวะแวดล้อมภายในและภายนอก และบทบาทของการสำรวจภาวะแวดล้อมในการเปลี่ยนแปลงเชิงกลยุทธ์ได้</li><li>วิเคราะห์ปัจจัยมหภาคทั้ง 6 ด้านขององค์กรที่เลือกด้วย PESTEL พร้อมบอกข้อจำกัดของเครื่องมือได้</li><li>วิเคราะห์จุดแข็ง จุดอ่อน โอกาส และภัยคุกคามขององค์กรที่เลือกด้วย SWOT และจับคู่เป็นทางเลือกกลยุทธ์ด้วยเมทริกซ์ SO ST WO WT ได้</li><li>อธิบายว่าการตีความของผู้บริหารมีผลต่อการจัดปัจจัยเป็นโอกาสหรือภัยคุกคามอย่างไร โดยอ้างหลักฐานเชิงวิจัยได้</li><li>วิเคราะห์แรงขับทางดิจิทัลและอุปสรรคภายในขององค์กรที่เลือก แล้วเขียนเป็นแรงขับการเปลี่ยนแปลงที่ตรวจได้ (ใบงานที่ 3)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 ให้ส่วนแรกของแผน คือการบอกว่าการเปลี่ยนแปลงที่จะนำเป็นแบบใดและขับเคลื่อนด้วยกลไกใด บทที่ 2 ให้ส่วนที่สอง คือกรอบขั้นตอนที่จะใช้ ทั้งสองกรอบที่เรียนมาเริ่มต้นเหมือนกัน คือต้องทำให้คนในองค์กรเห็นว่าสภาพเดิมไปต่อไม่ได้ ไม่ว่าจะเรียกว่าขั้นละลายหรือขั้นสร้างความเร่งด่วน คำถามที่ตามมาคือ "อะไรผลักให้องค์กรต้องเปลี่ยน และรู้ได้อย่างไร"</p>
+<p class="lead">บทนี้ตอบคำถามนั้นด้วยเครื่องมือวิเคราะห์ภาวะแวดล้อมสองแบบที่ใช้กันมากที่สุด คือ PESTEL สำหรับปัจจัยมหภาคภายนอก และ SWOT สำหรับจับคู่ปัจจัยภายนอกกับภายในขององค์กร ทั้งสองเครื่องมือดูง่าย จึงมักถูกใช้แบบเติมช่องให้ครบ บทนี้จึงเน้นสามเรื่องที่ทำให้การวิเคราะห์ใช้ทำแผนได้จริง คือข้อจำกัดของเครื่องมือ การตีความของผู้บริหารซึ่งกำหนดว่าปัจจัยใดเป็นโอกาสหรือภัยคุกคาม และแรงขับทางดิจิทัลซึ่งเป็นแรงขับการเปลี่ยนแปลงสำคัญขององค์กรจำนวนมากในปัจจุบัน</p>
+<p class="lead">ท้ายบทมีกรณีศึกษา Kodak และ Fujifilm สองบริษัทที่เผชิญแรงขับภายนอกเดียวกันแต่ได้ผลต่างกัน และใบงานที่ 3 ซึ่งให้นิสิตวิเคราะห์ PESTEL และ SWOT ขององค์กรที่เลือกไว้ในใบงานที่ 1</p>
+<h2 id="s-3-1">3.1 ภาวะแวดล้อมกับแรงขับการเปลี่ยนแปลง</h2>
+<p>ก่อนใช้เครื่องมือใด ผู้วางแผนควรแยกให้ออกก่อนว่าภาวะแวดล้อมส่วนใดอยู่ในการควบคุมขององค์กร ส่วนใดอยู่นอกการควบคุม และองค์กรรับรู้การเปลี่ยนแปลงของภาวะแวดล้อมด้วยวิธีใด</p>
+<h3 id="s-3-1-1">3.1.1 ภาวะแวดล้อมภายในและภายนอก</h3>
+<p>Yüksel (2012, p. 52) แบ่งภาวะแวดล้อมขององค์กรเป็นสองส่วน ภาวะแวดล้อมภายใน (internal environment) คือทรัพยากรและขีดความสามารถขององค์กร ภาวะแวดล้อมภายนอก (external environment) คือสิ่งที่อยู่นอกการควบคุมขององค์กร และแบ่งย่อยเป็นภาวะแวดล้อมมหภาค (macro environment) กับภาวะแวดล้อมระดับอุตสาหกรรม (sectoral environment) Yüksel ชี้ว่าการเปลี่ยนแปลงของภาวะแวดล้อมภายนอกกระทบทั้งโครงสร้าง การตัดสินใจ และการกระทำขององค์กร</p>
+<p>การแบ่งนี้ตรงกับโครงของ SWOT ซึ่ง Benzaghta และคณะ (2021, pp. 55–56, 58) สรุปว่าจุดแข็งและจุดอ่อนเป็นปัจจัยภายในที่องค์กรควบคุมได้ ส่วนโอกาสและภัยคุกคามเป็นปัจจัยภายนอกที่องค์กรควบคุมไม่ได้ PESTEL ในบทนี้ใช้วิเคราะห์ส่วนมหภาค ส่วนระดับอุตสาหกรรม เช่น คู่แข่งและลูกค้า นิสิตจะใช้ในการวิเคราะห์ SWOT ด้วย</p>
+<h3 id="s-3-1-2">3.1.2 การสำรวจภาวะแวดล้อม (environmental scanning)</h3>
+<p>การสำรวจภาวะแวดล้อม หมายถึงการที่ผู้บริหารหาข้อมูลเกี่ยวกับเหตุการณ์และแนวโน้มภายนอกองค์กร งานวิจัยของ Daft, Sormunen และ Parks (1988) สัมภาษณ์ผู้บริหารสูงสุดของบริษัทผลิต 50 แห่ง เรื่องความไม่แน่นอนเชิงกลยุทธ์ที่รับรู้ในภาวะแวดล้อม 6 ด้าน พบว่า</p>
+<ul><li>ด้านลูกค้า เศรษฐกิจ และคู่แข่ง สร้างความไม่แน่นอนเชิงกลยุทธ์สูงกว่าด้านเทคโนโลยี กฎระเบียบ และสังคมวัฒนธรรม</li><li>เมื่อความไม่แน่นอนของด้านใดสูง ผู้บริหารสำรวจด้านนั้นบ่อยขึ้น และใช้แหล่งข้อมูลที่เป็นบุคคลมากขึ้น</li><li>ผู้บริหารสูงสุดของบริษัทที่มีผลการดำเนินงานสูง สำรวจบ่อยกว่าและกว้างกว่าผู้บริหารของบริษัทที่มีผลการดำเนินงานต่ำ เมื่อเผชิญความไม่แน่นอนเชิงกลยุทธ์</li></ul>
+<p>ข้อค้นพบนี้มาจากบทคัดย่อและเป็นความสัมพันธ์ ไม่ได้พิสูจน์ว่าการสำรวจมากทำให้ผลการดำเนินงานสูง แต่มีนัยสำหรับการใช้ PESTEL สองข้อ ข้อแรก ด้านที่ผู้บริหารรู้สึกว่าไม่แน่นอนน้อย เช่น เทคโนโลยีหรือสังคม อาจถูกสำรวจน้อยกว่าด้านอื่น ทั้งที่อาจเป็นแรงขับการเปลี่ยนแปลงครั้งใหญ่ ข้อที่สอง การวิเคราะห์ภาวะแวดล้อมไม่ใช่งานครั้งเดียว ต้องกำหนดว่าใครสำรวจด้านใดและบ่อยเพียงใด</p>
+<h3 id="s-3-1-3">3.1.3 จากภาวะแวดล้อมสู่แรงขับการเปลี่ยนแปลง</h3>
+<p>บทที่ 2 อธิบายว่าการเปลี่ยนแปลงเกิดเมื่อแรงผลักมากกว่าแรงรักษาสภาพเดิม บทนี้ให้เครื่องมือหาแรงผลักเหล่านั้นอย่างเป็นระบบ ผู้เขียนเรียกปัจจัยภาวะแวดล้อมที่ทำให้องค์กรต้องเปลี่ยนว่า แรงขับการเปลี่ยนแปลง (change drivers) และแยกเป็นสามระดับ</p>
+<ul><li>ปัจจัยภาวะแวดล้อม คือสิ่งที่เกิดขึ้นหรือกำลังเปลี่ยนภายนอก เช่น กฎหมายใหม่หรือพฤติกรรมผู้บริโภคที่เปลี่ยน</li><li>ผลต่อองค์กร คือปัจจัยนั้นกระทบจุดแข็งหรือจุดอ่อนใดขององค์กร</li><li>แรงขับการเปลี่ยนแปลง คือข้อสรุปว่าเพราะปัจจัยและผลกระทบนั้น องค์กรต้องเปลี่ยนอะไร</li></ul>
+<p>ปัจจัยภาวะแวดล้อมที่ไม่ได้เชื่อมกับผลต่อองค์กร ยังไม่ใช่แรงขับการเปลี่ยนแปลง และใช้สร้างความเร่งด่วนในแผนไม่ได้ หัวข้อ 3.4 จะแสดงหลักฐานว่าการเชื่อมนี้ คือจุดที่องค์กรที่ฟื้นตัวกับองค์กรที่ถดถอยต่างกัน</p>
+<h2 id="s-3-2">3.2 การวิเคราะห์ PESTEL</h2>
+<p>PESTEL เป็นเครื่องมือจัดกลุ่มปัจจัยภาวะแวดล้อมมหภาค เครื่องมือนี้ช่วยให้ไม่ลืมด้านใดด้านหนึ่ง แต่ไม่ได้บอกว่าปัจจัยใดสำคัญกว่ากัน หัวข้อนี้อธิบายทั้งสองเรื่อง</p>
+<h3 id="s-3-2-1">3.2.1 ความหมายและปัจจัย 6 ด้าน</h3>
+<p>Yüksel (2012, p. 53) อธิบายว่าภาวะแวดล้อมมหภาคประกอบด้วยปัจจัยทางการเมือง (political) เศรษฐกิจ (economic) สังคมวัฒนธรรม (socio-cultural) เทคโนโลยี (technological) สิ่งแวดล้อม (environmental) และกฎหมาย (legal) ซึ่งกระทบการดำเนินงานขององค์กรทั้งทางตรงและทางอ้อม การวิเคราะห์ภาวะแวดล้อมมหภาคช่วยให้องค์กรระบุโอกาสและภัยคุกคามได้ และมีหน้าที่สองอย่าง คือระบุภาวะแวดล้อมที่องค์กรดำเนินงานอยู่ และให้ข้อมูลสำหรับคาดการณ์สถานการณ์ในอนาคต</p>
+<p>ตารางที่ 3.1 แสดงปัจจัยทั้ง 6 ด้าน พร้อมตัวอย่างปัจจัยย่อยที่ Yüksel ใช้ในกรณีศึกษา และคำถามที่ผู้วางแผนการเปลี่ยนแปลงควรถาม</p>
+<p class="tcap"><b>ตารางที่ 3.1</b> ปัจจัย 6 ด้านของ PESTEL ตัวอย่างปัจจัยย่อย และคำถามสำหรับแผนการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>ตัวอย่างปัจจัยย่อยในงานของ Yüksel</th><th>คำถามสำหรับแผนการเปลี่ยนแปลง</th></tr></thead><tbody><tr><td>การเมือง (P)</td><td>ความสัมพันธ์กับสหภาพยุโรป เสถียรภาพทางการเมือง</td><td>นโยบายรัฐที่กำลังเปลี่ยนบังคับหรือเปิดทางให้องค์กรต้องเปลี่ยนอะไร</td></tr><tr><td>เศรษฐกิจ (E)</td><td>รายได้ประชาชาติ ต้นทุนพลังงาน อัตราการว่างงาน</td><td>ต้นทุนหรือกำลังซื้อที่เปลี่ยนทำให้แบบธุรกิจเดิมยังไปต่อได้หรือไม่</td></tr><tr><td>สังคมวัฒนธรรม (S)</td><td>วิถีชีวิต การศึกษา</td><td>ลูกค้าและพนักงานคาดหวังอะไรต่างจากเดิม</td></tr><tr><td>เทคโนโลยี (T)</td><td>การลงทุนด้านเทคโนโลยีของรัฐ สิทธิบัตรใหม่ อัตราการเปลี่ยนแปลงทางเทคโนโลยี</td><td>เทคโนโลยีใหม่ทำให้สมรรถนะใดขององค์กรล้าสมัยหรือมีค่าขึ้น</td></tr><tr><td>สิ่งแวดล้อม (E)</td><td>โครงสร้างพื้นฐานการขนส่ง ประเด็นสีเขียว</td><td>ข้อกำหนดหรือความคาดหวังด้านสิ่งแวดล้อมเปลี่ยนวิธีผลิตหรือขายอย่างไร</td></tr><tr><td>กฎหมาย (L)</td><td>กฎหมายการแข่งขัน สิทธิผู้บริโภค</td><td>กฎหมายใดที่ออกใหม่หรือจะออก และมีกำหนดเวลาบังคับใช้เมื่อใด</td></tr></tbody></table></div>
+<p>ที่มา ปัจจัย 6 ด้านจาก Yüksel (2012, p. 53) ตัวอย่างปัจจัยย่อยเลือกจาก 36 ปัจจัยย่อยในกรณีศึกษาของ Yüksel (2012, pp. 56–57) คำถามในคอลัมน์ขวาผู้เขียนสร้างเพื่อการสอน</p>
+<h3 id="s-3-2-2">3.2.2 ข้อจำกัดของ PESTEL</h3>
+<p>Yüksel (2012, p. 53) สรุปข้อจำกัดของ PESTEL แบบที่ใช้กันทั่วไปไว้ 3 ข้อ</p>
+<ol><li>เป็นการวิเคราะห์เชิงคุณภาพ ไม่มีการวัด ผลที่ได้จึงเป็นรายการปัจจัยที่บอกไม่ได้ว่าแต่ละข้อหนักเบาเพียงใด</li><li>ประเมินแต่ละปัจจัยแยกกัน ทั้งที่ความสำคัญของแต่ละปัจจัยต่อองค์กรไม่เท่ากัน</li><li>ปัจจัยมีผลต่อกัน เช่น สถานการณ์ทางการเมืองมีผลทางเศรษฐกิจและสังคมวัฒนธรรมตามมา การแยกเป็น 6 ช่องจึงอาจซ่อนความสัมพันธ์นี้</li></ol>
+<p>Yüksel สรุปว่า PESTEL ตามที่ใช้กันอยู่ให้เพียงภาพทั่วไปของภาวะแวดล้อมมหภาค (Yüksel, 2012, p. 52) งานวิจัยก่อนหน้าส่วนใหญ่หยุดที่การระบุและจัดกลุ่มปัจจัย (Yüksel, 2012, p. 53) สำหรับนิสิต ข้อจำกัดนี้แปลว่าตาราง PESTEL ที่มีหกช่องครบ ยังไม่ใช่การวิเคราะห์ ต้องตอบต่อว่าปัจจัยใดสำคัญที่สุดต่อการเปลี่ยนแปลงที่กำลังวางแผน</p>
+<h3 id="s-3-2-3">3.2.3 การให้น้ำหนักปัจจัย</h3>
+<p>Yüksel (2012, p. 54) เสนอตัวแบบ 8 ขั้นที่ใช้เทคนิค DEMATEL หาความสัมพันธ์ระหว่างปัจจัย ใช้ ANP คำนวณน้ำหนักของปัจจัยย่อย และใช้ AHP ประเมินสถานการณ์ปัจจุบัน แล้วรวมเป็นค่าระดับภาวะแวดล้อมมหภาคระหว่าง 0 ถึง 1 ค่าต่ำกว่า 0.40 แปลว่าไม่เอื้อต่อเป้าหมายขององค์กร ค่า 0.40–0.60 เอื้อปานกลาง ค่า 0.60–0.80 เอื้อดี และค่า 0.80–1.00 เอื้อสูง เมื่อทดลองกับบริษัทหนึ่งแห่งในอังการา โดยมีผู้จัดการ 2 คนกับผู้วิจัยเป็นทีมประเมิน ได้ค่ารวม 0.5993 คือภาวะแวดล้อมมหภาคเอื้อต่อเป้าหมายของบริษัทในระดับปานกลาง (Yüksel, 2012, pp. 56, 64) ผู้วิจัยเองระบุว่าต้องศึกษาเพิ่มก่อนจะสรุปเป็นการทั่วไปได้ (Yüksel, 2012, p. 65)</p>
+<p>นิสิตไม่จำเป็นต้องใช้ AHP ในใบงาน แต่ควรนำหลักคิดเรื่องการให้น้ำหนักมาใช้ ตารางที่ 3.2 เป็นวิธีอย่างง่ายที่ผู้เขียนสร้างเพื่อการสอน ให้คะแนนแต่ละปัจจัยสองมิติ คือผลกระทบต่อองค์กรและความเร่งด่วน แล้วเรียงลำดับ วิธีนี้ไม่ใช่ตัวแบบของ Yüksel และคะแนนยังเป็นการประเมินของผู้วิเคราะห์ จึงต้องเขียนเหตุผลของคะแนนกำกับทุกข้อ</p>
+<p class="tcap"><b>ตารางที่ 3.2</b> ตัวอย่างการให้น้ำหนักปัจจัย PESTEL ของเครือร้านกาแฟแห่งหนึ่ง (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>ปัจจัย (ด้าน)</th><th>ผลกระทบ (1–5)</th><th>ความเร่งด่วน (1–5)</th><th>คะแนนรวม</th><th>เหตุผลของคะแนน</th></tr></thead><tbody><tr><td>ลูกค้าสั่งผ่านแอปส่งอาหารมากขึ้น (S T)</td><td>5</td><td>5</td><td>25</td><td>ยอดขายหน้าร้านลดลงต่อเนื่อง 4 ไตรมาส</td></tr><tr><td>ค่าจ้างขั้นต่ำปรับขึ้น (E L)</td><td>4</td><td>4</td><td>16</td><td>ต้นทุนแรงงานเป็นต้นทุนหลัก มีผลปีหน้า</td></tr><tr><td>ข้อกำหนดลดบรรจุภัณฑ์พลาสติก (E L)</td><td>3</td><td>3</td><td>9</td><td>มีระยะผ่อนผัน 2 ปี</td></tr><tr><td>ความไม่แน่นอนทางการเมือง (P)</td><td>2</td><td>2</td><td>4</td><td>ยังไม่พบผลต่อยอดขายโดยตรง</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอน แนวคิดการให้น้ำหนักจาก Yüksel (2012, pp. 53–54) วิธีให้คะแนนสองมิติไม่ใช่ตัวแบบของ Yüksel ตัวเลขทั้งหมดเป็นตัวอย่างสมมติ</p>
+<h2 id="s-3-3">3.3 การวิเคราะห์ SWOT</h2>
+<p>SWOT เป็นเครื่องมือที่รู้จักกันมากที่สุดในการวางแผนกลยุทธ์ หัวข้อนี้อธิบายความหมาย การจับคู่เป็นทางเลือกกลยุทธ์ หลักฐานเรื่องการใช้ และวิธีใช้คู่กับ PESTEL</p>
+<h3 id="s-3-3-1">3.3.1 ความหมายและที่มา</h3>
+<p>SWOT ย่อมาจากจุดแข็ง (strengths) จุดอ่อน (weaknesses) โอกาส (opportunities) และภัยคุกคาม (threats) Benzaghta และคณะ (2021, pp. 55–56) อธิบายว่าจุดแข็งและจุดอ่อนเป็นปัจจัยภายใน ส่วนโอกาสและภัยคุกคามเป็นปัจจัยภายนอก โอกาสรวมถึงช่องว่างที่องค์กรเข้าไปตอบสนองหรือกิจกรรมใหม่ที่เริ่มได้ ภัยคุกคามคืออุปสรรคที่มีอยู่แล้วหรืออาจเกิดขึ้น</p>
+<p>ที่มาของ SWOT ยังไม่มีข้อยุติ แหล่งหนึ่งระบุว่ามาจาก Harvard ในทศวรรษ 1950 อีกแหล่งระบุว่ามาจาก Albert Humphrey ที่ Stanford Research Institute ในทศวรรษ 1960 และ SWOT กลายเป็นกรอบหลักของสาขาการจัดการเชิงกลยุทธ์ในทศวรรษ 1990 (Benzaghta et al., 2021, p. 57) เช่นเดียวกับแนวคิดสามขั้นในบทที่ 2 ผู้เขียนแนะนำให้นิสิตไม่ระบุผู้คิด SWOT ในรายงาน ถ้าไม่มีแหล่งที่อ่านจริง</p>
+<h3 id="s-3-3-2">3.3.2 เมทริกซ์ SO ST WO WT</h3>
+<p>SWOT ที่หยุดที่ตารางสี่ช่องบอกเพียงสถานการณ์ ยังไม่บอกว่าจะทำอะไร Weihrich (1982) เสนอให้จับคู่ปัจจัยภายในกับภายนอกเป็นกลยุทธ์ 4 แบบ และเป็นการใช้ SWOT ในการกำหนดกลยุทธ์ครั้งแรก โดยใช้กรณี Volkswagen (Weihrich, 1982 อ้างถึงใน Benzaghta et al., 2021, pp. 58, 60) ตารางที่ 3.3 สรุปกลยุทธ์ทั้ง 4 แบบ</p>
+<p class="tcap"><b>ตารางที่ 3.3</b> เมทริกซ์ SO ST WO WT และตัวอย่างทางเลือกการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>โอกาส (O)</th><th>ภัยคุกคาม (T)</th></tr></thead><tbody><tr><td>จุดแข็ง (S)</td><td>กลยุทธ์ SO ใช้จุดแข็งคว้าโอกาส เช่น ใช้ฐานลูกค้าสมาชิกเดิมเปิดบริการสั่งผ่านแอปของตนเอง</td><td>กลยุทธ์ ST ใช้จุดแข็งหลีกเลี่ยงภัยคุกคาม เช่น ใช้อำนาจต่อรองกับผู้ขายวัตถุดิบลดผลของต้นทุนที่สูงขึ้น</td></tr><tr><td>จุดอ่อน (W)</td><td>กลยุทธ์ WO ลดจุดอ่อนเพื่อคว้าโอกาส เช่น ฝึกทักษะข้อมูลให้ผู้จัดการสาขาเพื่อใช้ข้อมูลการสั่งซื้อออนไลน์</td><td>กลยุทธ์ WT ลดจุดอ่อนและหลีกเลี่ยงภัยคุกคาม เช่น ปิดสาขาที่ขาดทุนในทำเลที่ลูกค้าหันไปสั่งออนไลน์</td></tr></tbody></table></div>
+<p>ที่มา ความหมายของกลยุทธ์ 4 แบบจาก Weihrich (1982) อ้างถึงใน Benzaghta และคณะ (2021, p. 58) ตัวอย่างในแต่ละช่องเป็นตัวอย่างสมมติที่ผู้เขียนสร้างเพื่อการสอน ต่อจากตารางที่ 3.2</p>
+<p>สำหรับแผนการจัดการการเปลี่ยนแปลง เมทริกซ์นี้มีประโยชน์สองทาง ทางแรก ทำให้เห็นทางเลือกการเปลี่ยนแปลงมากกว่าหนึ่งทาง ทางที่สอง กลยุทธ์ที่ต้องลดจุดอ่อน (WO และ WT) มักเป็นการเปลี่ยนแปลงภายในองค์กร เช่น ทักษะ โครงสร้าง หรือวัฒนธรรม ซึ่งเป็นส่วนที่แผนการจัดการการเปลี่ยนแปลงต้องดูแลมากที่สุด</p>
+<h3 id="s-3-3-3">3.3.3 ความนิยมกับหลักฐาน</h3>
+<p>SWOT ได้รับความนิยมสูง Benzaghta และคณะ (2021, pp. 58, 60) ระบุว่า SWOT เรียบง่าย ใช้ง่าย ให้ภาพเบื้องต้นของสถานการณ์ และเป็นเครื่องมือที่ธุรกิจใช้มากที่สุด งานวิจัยของ Helms และ Nixon (2010) ซึ่งทบทวนบทความวิชาการที่ใช้ SWOT พบว่า SWOT ยังปรากฏในวรรณกรรมอย่างต่อเนื่อง งานวิจัยสนับสนุนการใช้เพื่อการวางแผน ขยายจากบริษัทไปสู่การวิเคราะห์ประเทศและอุตสาหกรรม และใช้ในกรณีศึกษาธุรกิจสำหรับการเรียนแทบทุกกรณี</p>
+<p>ตามหลักหลักฐานก่อนความนิยม นิสิตควรอ่านหลักฐานนี้อย่างระวังสามข้อ</p>
+<ol><li>ความนิยมไม่ใช่หลักฐานว่าได้ผล งานที่อ้างข้างต้นแสดงว่า SWOT ถูกใช้มาก แต่ไม่ได้แสดงว่าองค์กรที่ใช้ SWOT มีผลการดำเนินงานดีกว่าองค์กรที่ไม่ใช้</li><li>Benzaghta และคณะ (2021, p. 66) ระบุเองว่าเป็นการทบทวนแบบบูรณาการ ไม่ใช่การทบทวนอย่างเป็นระบบ และบทความเขียนในเชิงสนับสนุน SWOT จึงเหมาะเป็นแหล่งของนิยามและประวัติ มากกว่าเป็นหลักฐานว่า SWOT ได้ผล</li><li>ผลสำรวจการใช้เครื่องมือวางแผนในบางประเทศที่ Benzaghta และคณะรวบรวมไว้ เช่น บริษัทในบาห์เรนร้อยละ 22 ใช้ SWOT และการวิเคราะห์ทางการเงิน และธุรกิจในซาอุดีอาระเบียร้อยละ 10 ใช้เครื่องมือวางแผนเป็นประจำ (Benzaghta et al., 2021, pp. 60–61) เป็นตัวเลขของการสำรวจเฉพาะประเทศ ไม่ควรนำไปอ้างว่าเป็นสัดส่วนของบริษัททั่วโลก</li></ol>
+<p>Benzaghta และคณะ (2021, p. 59) ยังสรุปเกณฑ์ของ SWOT ที่ดีตาม Coman และ Ronen (2009) ไว้ 4 ข้อ คือกระชับ นำไปทำได้ มีนัยสำคัญ และเชื่อถือได้ เกณฑ์นี้ใช้ตรวจ SWOT ของนิสิตเองได้ ช่องที่มี 15 ข้อซึ่งกว้างจนใช้ได้กับทุกองค์กร ไม่ผ่านเกณฑ์ทั้งสี่ข้อ</p>
+<h3 id="s-3-3-4">3.3.4 ใช้ PESTEL คู่กับ SWOT</h3>
+<p>Benzaghta และคณะ (2021, p. 59) ชี้ว่า SWOT เน้นปัจจัยภายในเป็นหลัก ขณะที่ PESTEL จับอิทธิพลภายนอกที่องค์กรควบคุมไม่ได้ การใช้คู่กันให้ภาพที่ครบกว่า และในบทสรุประบุว่าการใช้ SWOT ร่วมกับเครื่องมืออื่น เช่น AHP PESTEL หรือแรงกดดันห้าประการ ให้ผลที่เป็นประโยชน์มากกว่า (Benzaghta et al., 2021, pp. 65–66) ลำดับการใช้ที่ผู้เขียนแนะนำสำหรับใบงานมีดังนี้</p>
+<p class="tcap"><b>ตารางที่ 3.4</b> ลำดับการใช้ PESTEL คู่กับ SWOT ในใบงานที่ 3</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>สิ่งที่ทำ</th><th>ผลที่ได้</th></tr></thead><tbody><tr><td>1</td><td>ทำ PESTEL ครบ 6 ด้าน และให้น้ำหนักตามตารางที่ 3.2</td><td>ปัจจัยภายนอกเรียงตามความสำคัญ</td></tr><tr><td>2</td><td>เลือกปัจจัยภายนอกที่คะแนนสูงสุด 3–5 ข้อ เพิ่มปัจจัยระดับอุตสาหกรรม เช่น คู่แข่งและลูกค้า แล้วจัดเป็นโอกาสหรือภัยคุกคาม พร้อมเหตุผล</td><td>ช่อง O และ T</td></tr><tr><td>3</td><td>ระบุจุดแข็งและจุดอ่อนที่เกี่ยวกับปัจจัยในขั้นที่ 2 โดยมีหลักฐานจากข้อมูลขององค์กร</td><td>ช่อง S และ W</td></tr><tr><td>4</td><td>จับคู่เป็นกลยุทธ์ SO ST WO WT อย่างน้อยแบบละหนึ่งข้อ</td><td>ทางเลือกการเปลี่ยนแปลง</td></tr><tr><td>5</td><td>สรุปเป็นแรงขับการเปลี่ยนแปลง 2–3 ข้อตามรูปแบบในตารางที่ 3.6</td><td>ข้อมูลสำหรับขั้นละลายหรือขั้นสร้างความเร่งด่วน</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอน จากข้อเสนอให้ใช้ SWOT คู่กับ PESTEL ของ Benzaghta และคณะ (2021, p. 59)</p>
+<p>ขั้นที่ 3 ต่างจากการทำ SWOT ทั่วไป คือไม่เขียนจุดแข็งและจุดอ่อนทั้งหมดที่นึกได้ แต่เขียนเฉพาะที่เกี่ยวกับปัจจัยภายนอกที่สำคัญ วิธีนี้ทำให้ SWOT กระชับและนำไปทำได้ตามเกณฑ์ในหัวข้อ 3.3.3</p>
+<h2 id="s-3-4">3.4 การตีความภาวะแวดล้อม</h2>
+<p>PESTEL และ SWOT ดูเหมือนเป็นการรวบรวมข้อเท็จจริง แต่การจัดปัจจัยเป็นโอกาสหรือภัยคุกคาม และการตัดสินว่าปัจจัยใดสำคัญ เป็นการตีความของผู้บริหาร หัวข้อนี้แสดงหลักฐานว่าการตีความมีผลต่อการกระทำขององค์กร</p>
+<h3 id="s-3-4-1">3.4.1 โอกาสหรือภัยคุกคามขึ้นกับการตีตรา</h3>
+<p>Dutton และ Jackson (1987) เสนอตัวแบบเชิงแนวคิดว่าความหมายที่ผู้ตัดสินใจให้กับประเด็นเชิงกลยุทธ์ แปลงเป็นการตอบสนองขององค์กรได้อย่างไร งานนี้ตั้งสมมติฐานว่าการตีตรา (labeling) ประเด็นหนึ่งว่าเป็นภัยคุกคามหรือโอกาส มีผลต่อการประมวลข้อมูลที่ตามมาและแรงจูงใจของผู้ตัดสินใจ และจึงมีผลต่อชนิดของการกระทำที่องค์กรเลือก ข้อมูลนี้มาจากบทคัดย่อ และเป็นสมมติฐานเชิงแนวคิด ไม่ใช่ผลการทดสอบ</p>
+<p>สำหรับการวิเคราะห์ SWOT แปลว่าปัจจัยภายนอกเดียวกันอาจถูกจัดอยู่คนละช่องได้ เช่น เทคโนโลยีใหม่ที่ทำให้สินค้าเดิมขายได้น้อยลง ผู้บริหารคนหนึ่งเห็นเป็นภัยคุกคาม อีกคนเห็นเป็นโอกาสในการเข้าตลาดใหม่ และการจัดช่องนั้นจะชี้นำว่าองค์กรมองหาข้อมูลอะไรต่อและตอบสนองแบบใด ผู้วิเคราะห์จึงควรเขียนเหตุผลของการจัดช่อง และพิจารณาว่าถ้าตีความอีกทางจะได้กลยุทธ์ต่างไปอย่างไร</p>
+<h3 id="s-3-4-2">3.4.2 เห็นแล้วต้องเชื่อมกับกลยุทธ์</h3>
+<p>งานวิจัยของ Barr, Stimpert และ Huff (1992) ใช้ข้อมูลระยะยาวของบริษัทรถไฟในสหรัฐอเมริกา 2 แห่งที่จับคู่กัน เพื่อหาว่าอะไรแยกองค์กรที่ฟื้นตัวกับองค์กรที่ถดถอยหลังภาวะแวดล้อมเปลี่ยนอย่างมีนัยสำคัญ ผู้วิจัยเริ่มจากข้อเสนอว่าความต่างอยู่ที่การสังเกตเห็นการเปลี่ยนแปลง แต่พบว่าการฟื้นตัวไม่ได้ขึ้นกับการสังเกตเห็นสภาพใหม่เป็นหลัก หากขึ้นกับการเชื่อมการเปลี่ยนแปลงของภาวะแวดล้อมเข้ากับกลยุทธ์ขององค์กร และปรับการเชื่อมนั้นตามเวลา ในบริษัทที่สำเร็จ การฟื้นตัวเป็นกระบวนการต่อเนื่องของการปรับแผนที่ความคิดของผู้บริหาร</p>
+<p>ข้อค้นพบนี้มาจากบทคัดย่อและศึกษาเพียง 2 บริษัท แต่ตรงกับเหตุผลที่บทนี้แยกปัจจัยภาวะแวดล้อมออกจากแรงขับการเปลี่ยนแปลงในหัวข้อ 3.1.3 PESTEL ช่วยให้สังเกตเห็น แต่การสังเกตเห็นยังไม่พอ ผู้วางแผนต้องเชื่อมปัจจัยแต่ละข้อกับกลยุทธ์ขององค์กร และกลับมาทบทวนการเชื่อมนั้นเมื่อภาวะแวดล้อมเปลี่ยนอีก</p>
+<h3 id="s-3-4-3">3.4.3 ผู้นำกับการทำให้คนเห็นภาวะแวดล้อมตรงกัน</h3>
+<p>บทที่ 1 อธิบายว่าบทบาทหลักของผู้นำสูงสุดในการเริ่มการเปลี่ยนแปลงเชิงกลยุทธ์ เข้าใจได้ดีที่สุดผ่านการทำความเข้าใจสถานการณ์ (sensemaking) และการสื่อความหมายให้ผู้อื่น (sensegiving) (Gioia &amp; Chittipeddi, 1991) เมื่อนำมาใช้กับบทนี้ ผลการวิเคราะห์ภาวะแวดล้อมเป็นผลของการทำความเข้าใจสถานการณ์ของผู้บริหาร แต่ยังไม่ใช่ความเข้าใจของคนทั้งองค์กร ถ้าผู้บริหารตีความปัจจัยหนึ่งเป็นภัยคุกคาม แต่พนักงานยังเห็นว่าไม่เกี่ยวกับงานของตน ความเร่งด่วนจะไม่เกิด</p>
+<p>ผู้นำจึงต้องสื่อความหมายของผลการวิเคราะห์ ไม่ใช่เพียงแจกตาราง SWOT ผู้เขียนเสนอว่าการให้ตัวแทนพนักงานร่วมทำ PESTEL หรือร่วมจัดช่อง SWOT ตั้งแต่ต้น ช่วยให้คนเห็นแรงขับการเปลี่ยนแปลงตรงกันได้เร็วกว่าการสื่อสารผลที่ทำเสร็จแล้ว ซึ่งสอดคล้องกับงานที่ Vial (2019, p. 130) ทบทวนไว้ในหัวข้อ 3.5.3</p>
+<h2 id="s-3-5">3.5 แรงขับทางดิจิทัล</h2>
+<p>CLO2 ของรายวิชากำหนดให้วิเคราะห์การเปลี่ยนแปลงทางดิจิทัลเป็นส่วนหนึ่งของแรงขับการเปลี่ยนแปลง ในตาราง PESTEL เทคโนโลยีดิจิทัลมักถูกเขียนไว้ในช่อง T เพียงข้อเดียว หัวข้อนี้แสดงว่าผลของเทคโนโลยีดิจิทัลกระจายไปหลายช่อง ทั้งภายนอกและภายใน</p>
+<h3 id="s-3-5-1">3.5.1 ความหมายของการเปลี่ยนแปลงทางดิจิทัล</h3>
+<p>Vial (2019) ทบทวนงาน 282 ชิ้นเกี่ยวกับการเปลี่ยนแปลงทางดิจิทัล (digital transformation) และนิยามว่าเป็นกระบวนการที่มุ่งปรับปรุงหน่วยหนึ่ง โดยกระตุ้นให้คุณสมบัติของหน่วยนั้นเปลี่ยนอย่างมีนัยสำคัญ ผ่านการผสมเทคโนโลยีสารสนเทศ การประมวลผล การสื่อสาร และการเชื่อมต่อ (Vial, 2019, pp. 118, 121) นิยามนี้มีข้อสังเกตสองข้อ ข้อแรก การปรับปรุงเป็นสิ่งที่คาดหวัง แต่ไม่รับประกันว่าจะเกิด (Vial, 2019, p. 121) ข้อที่สอง Vial (2019, p. 124) ชี้ว่าการเปลี่ยนแปลงทางดิจิทัลเป็นการเดินทาง ไม่ใช่โครงการ คือไม่ได้จบเมื่อติดตั้งระบบเสร็จ</p>
+<h3 id="s-3-5-2">3.5.2 การพลิกผันสามด้านและตำแหน่งใน PESTEL และ SWOT</h3>
+<p>Vial (2019, p. 122) สรุปว่าเทคโนโลยีดิจิทัลก่อการพลิกผัน (disruption) สามด้าน และอ้างคำของ Sebastian และคณะ (2017) ว่าเทคโนโลยีดิจิทัลเป็นทั้งโอกาสพลิกเกมและภัยคุกคามต่อการอยู่รอดของบริษัท (Vial, 2019, p. 124) ตารางที่ 3.5 แสดงการพลิกผันแต่ละด้านและตำแหน่งที่ควรปรากฏในการวิเคราะห์ของบทนี้</p>
+<p class="tcap"><b>ตารางที่ 3.5</b> การพลิกผันจากเทคโนโลยีดิจิทัลสามด้านและตำแหน่งในการวิเคราะห์ภาวะแวดล้อม</p>
+<div class="tablewrap"><table><thead><tr><th>การพลิกผัน</th><th>สิ่งที่ Vial สรุปไว้</th><th>ตำแหน่งใน PESTEL และ SWOT</th></tr></thead><tbody><tr><td>พฤติกรรมและความคาดหวังของผู้บริโภค</td><td>การคาดการณ์ความคาดหวังของลูกค้าล่วงหน้าแทนการตามแก้ กลายเป็นความจำเป็นเชิงกลยุทธ์ (p. 123)</td><td>ด้าน S และ T ของ PESTEL เป็น O หรือ T ใน SWOT ขึ้นกับการตีความ</td></tr><tr><td>ภูมิทัศน์การแข่งขัน</td><td>บริการเข้ามาแทนผลิตภัณฑ์ อุปสรรคการเข้าตลาดลดลง และแพลตฟอร์มนิยามตลาดใหม่ เช่น อุตสาหกรรมเพลง (pp. 123–124)</td><td>ปัจจัยระดับอุตสาหกรรม คู่แข่งรายใหม่ เป็น T สำหรับรายเดิม</td></tr><tr><td>ความพร้อมของข้อมูล</td><td>เทคโนโลยีดิจิทัลก่อให้เกิดข้อมูล องค์กรใช้การวิเคราะห์ข้อมูลให้บริการที่ตอบลูกค้าได้ดีขึ้น ทำกระบวนการได้มีประสิทธิภาพขึ้น หรือขายข้อมูลให้ผู้อื่น (p. 124)</td><td>ด้าน T ของ PESTEL และความสามารถใช้ข้อมูลเป็น S หรือ W</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์กลางสรุปจาก Vial (2019) เลขหน้าในวงเล็บเป็นหน้าของบทความนี้ คอลัมน์ขวาผู้เขียนสร้างเพื่อการสอน</p>
+<p>ตารางที่ 3.5 แสดงว่าแรงขับทางดิจิทัลไม่ได้อยู่ช่องเดียว และผลของมันต่อองค์กรขึ้นกับจุดแข็งและจุดอ่อนที่มีอยู่ Vial (2019, p. 125) ชี้ว่าเทคโนโลยีดิจิทัลเพียงลำพังให้คุณค่าน้อย องค์กรต้องเปลี่ยนเส้นทางการสร้างคุณค่า และ Vial (2019, p. 127) ระบุว่าการเปลี่ยนนี้ต้องมาพร้อมการเปลี่ยนโครงสร้าง เช่น ตั้งหน่วยแยกหรือทีมข้ามสายงาน วัฒนธรรมที่ทดลองเล็กก่อนแล้วจึงขยาย และทักษะการวิเคราะห์ข้อมูลของพนักงาน</p>
+<h3 id="s-3-5-3">3.5.3 อุปสรรคภายใน ความเฉื่อยและการต่อต้าน</h3>
+<p>ในช่อง W ของ SWOT สิ่งที่มักถูกมองข้ามคืออุปสรรคที่เกิดจากความสำเร็จเดิมขององค์กร Vial (2019, pp. 129–130) พบงาน 35 ชิ้นที่กล่าวถึงความเฉื่อย (inertia) เช่น การพึ่งพาเส้นทางเดิม และกระบวนการที่ถูกปรับจนมีประสิทธิภาพสูงแต่แข็งตัว และงาน 40 ชิ้นที่กล่าวถึงการต่อต้านของพนักงาน Vial ชี้ว่าในกรณีเหล่านี้ ปัญหาไม่ใช่ว่าผู้บริหารสูงสุดไม่เห็นประโยชน์ของเทคโนโลยีดิจิทัล แต่โครงสร้างขององค์กรทั้งที่จับต้องได้ เช่น วิธีการผลิต และที่จับต้องไม่ได้ เช่น วัฒนธรรม ฝังอยู่ในงานประจำวันจนกดพลังของเทคโนโลยีใหม่ (Vial, 2019, p. 130) งานที่ Vial ทบทวนอธิบายการต่อต้านไว้สองทาง ทางแรก การต่อต้านเป็นผลของความเฉื่อยที่ฝังอยู่ในงานประจำวัน แก้ด้วยการเปลี่ยนพฤติกรรมของพนักงานอย่างเดียวไม่ได้ ต้องปรับกระบวนการให้ยืดหยุ่น ทางที่สอง คนมองไม่เห็นประโยชน์ของเทคโนโลยีดิจิทัล และการจัดเวิร์กช็อปที่ให้ผู้ได้รับผลกระทบมีส่วนร่วมช่วยป้องกันการต่อต้านได้ (Vial, 2019, p. 130)</p>
+<p>ข้อค้นพบนี้เชื่อมกับบทที่ 1 ซึ่งอธิบายว่าเหตุใดผู้นำตลาดจึงเปลี่ยนแปลงได้ยาก สำหรับใบงานที่ 3 ข้อนี้แปลว่าจุดแข็งที่ทำให้องค์กรสำเร็จในอดีต อาจต้องเขียนเป็นจุดอ่อนด้วยเมื่อมองจากแรงขับทางดิจิทัล และการวิเคราะห์ความพร้อมกับแรงต้านอย่างละเอียดจะทำในบทที่ 11</p>
+<p>Vial (2019, p. 133) เสนอว่ามุมมองสมรรถภาพเชิงพลวัต (dynamic capabilities) ของ Teece ซึ่งประกอบด้วยการรับรู้ (sensing) การคว้าโอกาส (seizing) และการปรับเปลี่ยน (transforming) เป็นแนวทางศึกษาการเปลี่ยนแปลงทางดิจิทัลต่อไป เพราะการเปลี่ยนแปลงทางดิจิทัลเป็นแหล่งของการเปลี่ยนแปลงที่ต่อเนื่อง ผู้เขียนเห็นว่าสามคำนี้ใช้จัดลำดับงานของบทนี้ได้ PESTEL และการสำรวจภาวะแวดล้อมคือการรับรู้ เมทริกซ์ SO ST WO WT คือการเลือกว่าจะคว้าโอกาสใด และแผนการจัดการการเปลี่ยนแปลงในบทต่อไปคือการปรับเปลี่ยน</p>
+<h2 id="s-3-6">3.6 เขียนผลการวิเคราะห์ให้ใช้ในแผนได้</h2>
+<p>ผลการวิเคราะห์ภาวะแวดล้อมจะใช้ในแผนได้ เมื่อแต่ละแรงขับบอกได้ว่าปัจจัยคืออะไร มีหลักฐานจากแหล่งใด กระทบองค์กรอย่างไร องค์กรต้องเปลี่ยนอะไร และใครติดตามปัจจัยนั้นเมื่อใด ส่วนสุดท้ายมาจากข้อค้นพบของ Daft และคณะ (1988) ว่าการสำรวจภาวะแวดล้อมเป็นงานต่อเนื่อง และจาก Barr และคณะ (1992) ว่าการเชื่อมปัจจัยกับกลยุทธ์ต้องปรับตามเวลา</p>
+<p class="tcap"><b>ตารางที่ 3.6</b> ตัวอย่างการเขียนแรงขับการเปลี่ยนแปลงให้ตรวจได้ (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>เขียนแบบตรวจไม่ได้</th><th>เขียนแบบตรวจได้</th></tr></thead><tbody><tr><td>เทคโนโลยีเปลี่ยนเร็ว (T)</td><td>ปัจจัย ลูกค้าสั่งผ่านแอปส่งอาหารเพิ่มขึ้น หลักฐาน ยอดขายหน้าร้านลดลง 4 ไตรมาสติดกันตามรายงานภายใน ผลต่อองค์กร กระทบจุดแข็งเรื่องทำเลสาขา แรงขับ ต้องเปลี่ยนจากการขายหน้าร้านเป็นช่องทางผสม ผู้ติดตาม ผู้จัดการฝ่ายการตลาด ทบทวนทุกไตรมาส ตัวชี้วัด สัดส่วนยอดขายออนไลน์</td></tr><tr><td>จุดแข็ง แบรนด์ดี (S)</td><td>จุดแข็ง ลูกค้าสมาชิกที่ซื้อซ้ำ หลักฐาน จำนวนสมาชิกที่ซื้อซ้ำในระบบสมาชิก ใช้ในกลยุทธ์ SO เปิดแอปสั่งซื้อของตนเอง</td></tr><tr><td>คู่แข่งมาก (T)</td><td>ภัยคุกคาม แพลตฟอร์มส่งอาหารเก็บค่าธรรมเนียมสูงและเป็นเจ้าของข้อมูลลูกค้า ผลต่อองค์กร กำไรต่อแก้วลดลงเมื่อขายผ่านแพลตฟอร์ม แรงขับ ต้องสร้างความสามารถด้านข้อมูลลูกค้าของตนเอง</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอน ต่อจากตารางที่ 3.2 และ 3.3 ตัวเลขและข้อมูลเป็นตัวอย่างสมมติ</p>
+<p>คอลัมน์ซ้ายไม่ผิด แต่ไม่บอกว่าองค์กรต้องเปลี่ยนอะไรและรู้ได้อย่างไรว่าปัจจัยนั้นยังสำคัญ คอลัมน์ขวาตอบสองคำถามนี้ และเป็นข้อมูลสำหรับขั้นละลายหรือขั้นสร้างความเร่งด่วนในใบงานที่ 2</p>
+<h2 id="s-3-7">3.7 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในบทนี้มีสองกลุ่ม งานเรื่องเครื่องมือส่วนใหญ่เป็นการทบทวนหรือเสนอวิธี ไม่ได้ทดสอบว่าการใช้เครื่องมือทำให้ผลการดำเนินงานดีขึ้น งานเรื่องการรับรู้และตีความของผู้บริหารช่วยอธิบายว่าทำไมองค์กรที่มีข้อมูลเหมือนกันจึงตอบสนองต่างกัน</p>
+<p class="tcap"><b>ตารางที่ 3.7</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Yüksel (2012)</td><td>การวัดและประเมินปัจจัย PESTEL</td><td>เสนอตัวแบบ DEMATEL ANP AHP ทดลองกับบริษัทเดียว</td><td>PESTEL แบบเดิมให้ภาพทั่วไป ปัจจัยมีผลต่อกันและหนักเบาไม่เท่ากัน</td></tr><tr><td>Benzaghta และคณะ (2021)</td><td>การใช้ SWOT ในงานวิจัยหกทศวรรษ</td><td>ทบทวนวรรณกรรมเชิงบูรณาการ</td><td>นิยาม ที่มา เมทริกซ์ SO ST WO WT และการใช้คู่กับ PESTEL</td></tr><tr><td>Daft และคณะ (1988)</td><td>การสำรวจภาวะแวดล้อมของผู้บริหารสูงสุด</td><td>สัมภาษณ์ผู้บริหาร 50 บริษัท</td><td>ความไม่แน่นอนสูงสัมพันธ์กับการสำรวจบ่อยขึ้น บริษัทผลการดำเนินงานสูงสำรวจกว้างกว่า</td></tr><tr><td>Barr และคณะ (1992)</td><td>ความต่างระหว่างองค์กรที่ฟื้นตัวกับถดถอย</td><td>ข้อมูลระยะยาว บริษัทรถไฟ 2 แห่ง</td><td>การฟื้นตัวขึ้นกับการเชื่อมภาวะแวดล้อมกับกลยุทธ์ มากกว่าการสังเกตเห็น</td></tr><tr><td>Vial (2019)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนวรรณกรรม 282 ชิ้น</td><td>การพลิกผันสามด้าน อุปสรรคจากความเฉื่อยและการต่อต้าน</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Daft และคณะ และ Barr และคณะ มาจากบทคัดย่อ ส่วน Dutton และ Jackson (1987) และ Helms และ Nixon (2010) ซึ่งใช้ในหัวข้อ 3.3.3 และ 3.4.1 อ่านได้เฉพาะบทคัดย่อเช่นกัน</p>
+<h2 id="s-3-8">3.8 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยเมื่อนิสิตและองค์กรใช้ PESTEL และ SWOT</p>
+<p class="tcap"><b>ตารางที่ 3.8</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เติม PESTEL ครบ 6 ช่องแล้วถือว่าวิเคราะห์เสร็จ</td><td>PESTEL แบบนี้ให้เพียงภาพทั่วไป ไม่บอกว่าปัจจัยใดสำคัญ (Yüksel, 2012, pp. 52–53)</td><td>ให้น้ำหนักและเรียงลำดับตามตารางที่ 3.2</td></tr><tr><td>ใส่ปัจจัยภายในไว้ในช่อง O หรือ T เช่น "พนักงานมีประสบการณ์"</td><td>โอกาสและภัยคุกคามเป็นปัจจัยภายนอกที่องค์กรควบคุมไม่ได้ (Benzaghta et al., 2021, p. 58)</td><td>ย้ายไปช่อง S หรือ W และหาปัจจัยภายนอกที่เกี่ยวข้อง</td></tr><tr><td>SWOT แต่ละช่องมีข้อกว้าง ๆ หลายสิบข้อ</td><td>ไม่ผ่านเกณฑ์กระชับ นำไปทำได้ มีนัยสำคัญ เชื่อถือได้ (Benzaghta et al., 2021, p. 59)</td><td>เลือกเฉพาะข้อที่เกี่ยวกับปัจจัยภายนอกสำคัญตามตารางที่ 3.4</td></tr><tr><td>หยุดที่ตาราง SWOT สี่ช่อง</td><td>ตารางบอกสถานการณ์ แต่ไม่บอกทางเลือก</td><td>จับคู่เป็นกลยุทธ์ SO ST WO WT ตามตารางที่ 3.3</td></tr><tr><td>จัดปัจจัยเป็นโอกาสหรือภัยคุกคามโดยไม่ให้เหตุผล</td><td>การจัดช่องเป็นการตีความ และมีผลต่อการกระทำที่ตามมา (Dutton &amp; Jackson, 1987)</td><td>เขียนเหตุผล และลองตีความอีกทาง</td></tr><tr><td>เขียนว่า "SWOT ได้รับการพิสูจน์แล้วว่าได้ผล เพราะธุรกิจใช้มากที่สุด"</td><td>ความนิยมไม่ใช่หลักฐานว่าได้ผล (หัวข้อ 3.3.3)</td><td>บอกว่าใช้มากและใช้ง่าย และบอกข้อจำกัด</td></tr><tr><td>เขียนแรงขับเป็นคำกว้าง เช่น "เทคโนโลยีเปลี่ยนเร็ว"</td><td>ใช้สร้างความเร่งด่วนในแผนไม่ได้ และตรวจไม่ได้</td><td>เขียนตามรูปแบบคอลัมน์ขวาของตารางที่ 3.6</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: Kodak และ Fujifilm กับแรงขับทางดิจิทัลเดียวกัน</div><p>งานวิจัยของ Ho และ Chen (2018) เปรียบเทียบ Kodak กับ Fujifilm ซึ่งเผชิญการพลิกผันจากเทคโนโลยีดิจิทัลเหมือนกัน แต่รายหนึ่งล้มเหลวและอีกรายเติบโต ผู้วิจัยตั้งข้อเสนอเชิงทฤษฎีจากวรรณกรรม แล้วทดสอบด้วยกรณีของสองบริษัทนี้</p><p>งานวิจัยของ Ho และ Chen พบว่า</p><p>1. การพลิกผันทางเทคโนโลยีไม่ได้ทำให้สมรรถนะทางเทคโนโลยีทั้งหมดในผลิตภัณฑ์ของบริษัทล้าสมัย</p><p>2. สมรรถนะที่ถูกพลิกผันในตลาดเดิมไม่จำเป็นต้องทิ้ง</p><p>3. บริษัทเดิมควรวิเคราะห์ระบบเทคโนโลยีและความสามารถด้านนวัตกรรมของตน แล้วขยายไปสาขาใหม่ที่สมรรถนะนั้นมีคุณค่าและสร้างความแตกต่างได้</p><p>4. ความท้าทายอยู่ที่การนิยามธุรกิจหลักใหม่ให้ทันเวลา และปรับโครงสร้างองค์กรให้ดำเนินกลยุทธ์ได้สม่ำเสมอ</p><p>สำหรับ Kodak งานที่ Vial (2019) อ้างถึงแสดงว่าสมรรถนะหลักขององค์กรกลายเป็นความแข็งตัวหลัก (core rigidities) ที่ขัดขวางการเปลี่ยนแปลงแบบถอนรากที่ภาพถ่ายดิจิทัลเปิดให้ (Lucas &amp; Goh, 2009 อ้างถึงใน Vial, 2019, pp. 129–130) และ Vial สรุปกรณีทำนองนี้ว่าปัญหาไม่ใช่ผู้บริหารไม่เห็นประโยชน์ของเทคโนโลยีดิจิทัล แต่โครงสร้างที่ฝังอยู่ในงานประจำวันกดพลังของเทคโนโลยีใหม่ (Vial, 2019, p. 130)</p><p>ข้อมูลในกล่องนี้มาจากบทคัดย่อของ Ho และ Chen และจากการอ้างถึงใน Vial เท่านั้น ไม่มีปี ตัวเลข หรือชื่อธุรกิจใหม่ของบริษัทใด เมื่อมองด้วยกรอบในบทนี้ ในตาราง PESTEL ของสองบริษัท ภาพถ่ายดิจิทัลอยู่ในช่อง T เหมือนกัน ความต่างอยู่ที่การตีความว่าสมรรถนะเดิมเป็นจุดแข็งที่นำไปใช้ในสาขาใหม่ได้ หรือเป็นสิ่งที่ผูกองค์กรไว้กับธุรกิจเดิม ซึ่งตรงกับข้อค้นพบของ Barr และคณะ (1992) ว่าการสังเกตเห็นยังไม่พอ ต้องเชื่อมภาวะแวดล้อมกับกลยุทธ์</p><p class="q"><b>คำถามชวนคิด</b> ถ้าท่านเป็นทีมวางแผนของบริษัทฟิล์มในช่วงที่ภาพถ่ายดิจิทัลเริ่มเข้ามา ท่านจะเขียนสมรรถนะทางเทคโนโลยีเดิมไว้ในช่อง S หรือ W และจะใช้เมทริกซ์ SO ST WO WT หาทางเลือกการเปลี่ยนแปลงอย่างไร ให้สอดคล้องกับข้อเสนอของ Ho และ Chen</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ส่วนที่บอกว่า "อะไรผลักให้องค์กรต้องเปลี่ยน" ผู้วางแผนต้องบอกได้ว่าแรงขับการเปลี่ยนแปลงแต่ละข้อมาจากปัจจัยภาวะแวดล้อมใด มีหลักฐานอะไร กระทบจุดแข็งหรือจุดอ่อนใด และใครติดตามปัจจัยนั้น</p><p>แรงขับในส่วนนี้คือข้อมูลสำหรับขั้นละลายหรือขั้นสร้างความเร่งด่วนในกรอบที่เลือกไว้ในใบงานที่ 2</p><p>ใบงานที่ 3 คือร่างแรกของส่วนแรงขับการเปลี่ยนแปลงในรายงานวิเคราะห์กรณีศึกษา (เดี่ยว) ส่งสัปดาห์ที่ 5 และนำไปใช้ในรายงานฉบับสมบูรณ์สัปดาห์ที่ 8</p><p>บทที่ 4 จะต่อด้วยทักษะของผู้นำการเปลี่ยนแปลง ซึ่งรวมถึงการทำให้คนในองค์กรเห็นแรงขับเหล่านี้ตรงกัน</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรแยกภาวะแวดล้อมภายในกับภายนอกได้ และอธิบายได้ว่าการสำรวจภาวะแวดล้อมเป็นงานต่อเนื่อง ผู้บริหารมักสำรวจด้านที่รู้สึกไม่แน่นอนมากกว่าด้านอื่น นิสิตควรใช้ PESTEL วิเคราะห์ปัจจัยมหภาค 6 ด้านได้ และรู้ว่า PESTEL ที่ไม่ให้น้ำหนักปัจจัยให้เพียงภาพทั่วไป</p>
+<p>นิสิตยังสามารถใช้ SWOT จับคู่ปัจจัยภายนอกกับภายในเป็นกลยุทธ์ SO ST WO WT และอธิบายได้ว่า SWOT ใช้มากและใช้ง่าย แต่ความนิยมนี้ไม่ใช่หลักฐานว่าได้ผล หลักฐานเรื่องการตีความของผู้บริหารแสดงว่าการจัดปัจจัยเป็นโอกาสหรือภัยคุกคามมีผลต่อการกระทำขององค์กร และการฟื้นตัวขึ้นกับการเชื่อมภาวะแวดล้อมกับกลยุทธ์ ไม่ใช่เพียงการสังเกตเห็น แรงขับทางดิจิทัลกระจายอยู่หลายช่องของการวิเคราะห์ และอุปสรรคสำคัญมักอยู่ภายในองค์กรเอง ดังกรณี Kodak</p>
+<p>นิสิตนำความรู้นี้ไปใช้ทันทีในใบงานที่ 3 โดยทำตามลำดับในตารางที่ 3.4 และเขียนแรงขับให้ตรวจได้ตามตารางที่ 3.6 บทที่ 4 จะต่อด้วยการพัฒนาทักษะความเป็นผู้นำสำหรับการเปลี่ยนแปลง</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ภาวะแวดล้อมภายในและภายนอก (internal and external environment)</li><li>ภาวะแวดล้อมมหภาค (macro environment)</li><li>การสำรวจภาวะแวดล้อม (environmental scanning)</li><li>ความไม่แน่นอนเชิงกลยุทธ์ (strategic uncertainty)</li><li>แรงขับการเปลี่ยนแปลง (change drivers)</li><li>การวิเคราะห์ PESTEL (PESTEL analysis)</li><li>การวิเคราะห์ SWOT (SWOT analysis)</li><li>เมทริกซ์ SO ST WO WT หรือ TOWS (TOWS matrix)</li><li>การตีตราประเด็นเชิงกลยุทธ์ (labeling of strategic issues)</li><li>แผนที่ความคิด (cognitive map)</li><li>การเปลี่ยนแปลงทางดิจิทัล (digital transformation)</li><li>การพลิกผัน (disruption)</li><li>ความแข็งตัวหลัก (core rigidities)</li><li>สมรรถภาพเชิงพลวัต (dynamic capabilities)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>ภาวะแวดล้อมภายในกับภายนอกต่างกันอย่างไร และสอดคล้องกับช่องทั้งสี่ของ SWOT อย่างไร</li><li>ข้อค้นพบของ Daft และคณะ (1988) เรื่องการสำรวจภาวะแวดล้อม มีนัยอย่างไรต่อการทำ PESTEL ขององค์กร จงบอกอย่างน้อยสองข้อ</li><li>ปัจจัยภาวะแวดล้อม ผลต่อองค์กร และแรงขับการเปลี่ยนแปลง ต่างกันอย่างไร จงยกตัวอย่าง</li><li>Yüksel (2012) ระบุข้อจำกัดของ PESTEL ไว้ 3 ข้อ จงอธิบายแต่ละข้อ และบอกว่าตารางที่ 3.2 แก้ข้อจำกัดข้อใดได้และข้อใดยังแก้ไม่ได้</li><li>จงอธิบายเมทริกซ์ SO ST WO WT และบอกว่ากลยุทธ์แบบใดมักต้องการการจัดการการเปลี่ยนแปลงภายในองค์กรมากที่สุด เพราะเหตุใด</li><li>เพื่อนร่วมชั้นเขียนในรายงานว่า "SWOT เป็นเครื่องมือที่ดีที่สุด เพราะธุรกิจใช้มากที่สุดและงานวิจัยพิสูจน์แล้ว" นิสิตจะให้ข้อเสนอแนะอย่างไรตามหลักหลักฐานก่อนความนิยม โดยอ้าง Benzaghta และคณะ (2021) และ Helms และ Nixon (2010)</li><li>Dutton และ Jackson (1987) เสนอว่าการตีตราประเด็นเป็นภัยคุกคามหรือโอกาสมีผลอย่างไร และข้อเสนอนี้เปลี่ยนวิธีทำ SWOT ของนิสิตอย่างไร</li><li>Barr และคณะ (1992) พบว่าอะไรแยกองค์กรที่ฟื้นตัวกับองค์กรที่ถดถอย และผู้นำควรทำอะไรกับผลการวิเคราะห์ เพื่อให้คนในองค์กรเห็นแรงขับตรงกัน</li><li>จงวิเคราะห์ว่าการพลิกผันสามด้านจากเทคโนโลยีดิจิทัลตาม Vial (2019) ปรากฏในองค์กรที่นิสิตเลือกอย่างไร และควรอยู่ช่องใดของ PESTEL และ SWOT</li><li>จากกรณี Kodak และ Fujifilm จงอธิบายว่าทำไมแรงขับภายนอกเดียวกันจึงนำไปสู่ผลที่ต่างกัน โดยใช้แนวคิดความแข็งตัวหลักและข้อเสนอของ Ho และ Chen (2018)</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 3 PESTEL และ SWOT ขององค์กรที่เลือก</h2>
+<p>ใบงานเดี่ยว ตอบไม่เกินสี่หน้ากระดาษ A4 และส่งก่อนเริ่มเรียนสัปดาห์ที่ 5 ใช้องค์กรและการเปลี่ยนแปลงเดียวกับใบงานที่ 1 และ 2 ใบงานนี้เป็นส่วนแรงขับการเปลี่ยนแปลงของรายงานวิเคราะห์กรณีศึกษา (เดี่ยว) สัปดาห์ที่ 8</p>
+<ol><li>สรุปองค์กร การเปลี่ยนแปลง และกรอบขั้นตอนจากใบงานที่ 1 และ 2 ไม่เกินห้าบรรทัด</li><li>ตาราง PESTEL ครบ 6 ด้าน ด้านละอย่างน้อยหนึ่งปัจจัย ทุกปัจจัยระบุแหล่งข้อมูล</li><li>ให้น้ำหนักปัจจัยตามตารางที่ 3.2 พร้อมเหตุผลทุกข้อ แล้วเลือกปัจจัยสำคัญ 3–5 ข้อ</li><li>ตาราง SWOT ที่ทำตามขั้นที่ 2 และ 3 ของตารางที่ 3.4 ช่องละไม่เกินห้าข้อ ทุกข้อในช่อง S และ W มีหลักฐานจากข้อมูลขององค์กร และทุกข้อในช่อง O และ T มีเหตุผลของการจัดช่อง</li><li>เมทริกซ์ SO ST WO WT อย่างน้อยแบบละหนึ่งกลยุทธ์</li><li>แรงขับทางดิจิทัลขององค์กร วิเคราะห์ตามการพลิกผันสามด้านในตารางที่ 3.5 และระบุอุปสรรคภายในอย่างน้อยหนึ่งข้อ</li><li>ปัจจัยหนึ่งข้อที่ตีความได้ทั้งเป็นโอกาสและภัยคุกคาม อธิบายว่าการตีความแต่ละแบบนำไปสู่กลยุทธ์ต่างกันอย่างไร</li><li>แรงขับการเปลี่ยนแปลง 2–3 ข้อ เขียนตามรูปแบบคอลัมน์ขวาของตารางที่ 3.6 คือมีปัจจัย หลักฐาน ผลต่อองค์กร สิ่งที่ต้องเปลี่ยน ผู้ติดตาม และตัวชี้วัด</li><li>รายการแหล่งอ้างอิงที่ใช้ตามรูปแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Barr, P. S., Stimpert, J. L., &amp; Huff, A. S. (1992). Cognitive change, strategic action, and organizational renewal. <em>Strategic Management Journal</em>, <em>13</em>(S1), 15–36. <a href="https://doi.org/10.1002/smj.4250131004" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250131004</a></div>
+<div class="r">Benzaghta, M. A., Elwalda, A., Mousa, M., Erkan, I., &amp; Rahman, M. (2021). SWOT analysis applications: An integrative literature review. <em>Journal of Global Business Insights</em>, <em>6</em>(1), 55–73. <a href="https://doi.org/10.5038/2640-6489.6.1.1148" target="_blank" rel="noopener">https://doi.org/10.5038/2640-6489.6.1.1148</a></div>
+<div class="r">Daft, R. L., Sormunen, J., &amp; Parks, D. (1988). Chief executive scanning, environmental characteristics, and company performance: An empirical study. <em>Strategic Management Journal</em>, <em>9</em>(2), 123–139. <a href="https://doi.org/10.1002/smj.4250090204" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250090204</a></div>
+<div class="r">Dutton, J. E., &amp; Jackson, S. E. (1987). Categorizing strategic issues: Links to organizational action. <em>Academy of Management Review</em>, <em>12</em>(1), 76. <a href="https://doi.org/10.2307/257995" target="_blank" rel="noopener">https://doi.org/10.2307/257995</a></div>
+<div class="r">Gioia, D. A., &amp; Chittipeddi, K. (1991). Sensemaking and sensegiving in strategic change initiation. <em>Strategic Management Journal</em>, <em>12</em>(6), 433–448. <a href="https://doi.org/10.1002/smj.4250120604" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250120604</a></div>
+<div class="r">Helms, M. M., &amp; Nixon, J. (2010). Exploring SWOT analysis: Where are we now? <em>Journal of Strategy and Management</em>, <em>3</em>(3), 215–251. <a href="https://doi.org/10.1108/17554251011064837" target="_blank" rel="noopener">https://doi.org/10.1108/17554251011064837</a></div>
+<div class="r">Ho, J. C., &amp; Chen, H. (2018). Managing the disruptive and sustaining the disrupted: The case of Kodak and Fujifilm in the face of digital disruption. <em>Review of Policy Research</em>, <em>35</em>(3), 352–371. <a href="https://doi.org/10.1111/ropr.12278" target="_blank" rel="noopener">https://doi.org/10.1111/ropr.12278</a></div>
+<div class="r">Vial, G. (2019). Understanding digital transformation: A review and a research agenda. <em>The Journal of Strategic Information Systems</em>, <em>28</em>(2), 118–144. <a href="https://doi.org/10.1016/j.jsis.2019.01.003" target="_blank" rel="noopener">https://doi.org/10.1016/j.jsis.2019.01.003</a></div>
+<div class="r">Yüksel, I. (2012). Developing a multi-criteria decision making model for PESTEL analysis. <em>International Journal of Business and Management</em>, <em>7</em>(24), 52–66. <a href="https://doi.org/10.5539/ijbm.v7n24p52" target="_blank" rel="noopener">https://doi.org/10.5539/ijbm.v7n24p52</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 3 การวิเคราะห์ภาวะแวดล้อมทางธุรกิจด้วย SWOT และ PESTEL. ใน <em>การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์: เอกสารประกอบการสอนรายวิชา 0907021</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/sc_lesson_03.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="sc_lesson_02.html"><small>◀ บทก่อนหน้า</small>บทที่ 2 ทฤษฎีการเปลี่ยนแปลงของ Lewin Kotter และแนวคิดอื่น</a><a href="sc_lesson_04.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 4 ภาวะผู้นำสำหรับการเปลี่ยนแปลง</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907021 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['sc/slides/03/s-01.jpg', 'sc/slides/03/s-02.jpg', 'sc/slides/03/s-03.jpg', 'sc/slides/03/s-04.jpg', 'sc/slides/03/s-05.jpg', 'sc/slides/03/s-06.jpg', 'sc/slides/03/s-07.jpg', 'sc/slides/03/s-08.jpg', 'sc/slides/03/s-09.jpg', 'sc/slides/03/s-10.jpg', 'sc/slides/03/s-11.jpg', 'sc/slides/03/s-12.jpg', 'sc/slides/03/s-13.jpg', 'sc/slides/03/s-14.jpg', 'sc/slides/03/s-15.jpg', 'sc/slides/03/s-16.jpg', 'sc/slides/03/s-17.jpg', 'sc/slides/03/s-18.jpg', 'sc/slides/03/s-19.jpg', 'sc/slides/03/s-20.jpg', 'sc/slides/03/s-21.jpg', 'sc/slides/03/s-22.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

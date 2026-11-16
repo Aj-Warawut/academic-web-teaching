@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 4 ภาวะผู้นำสำหรับการเปลี่ยนแปลง · วิชา 0907021</title>
+<meta name="description" content="บทเรียนบทที่ 4 วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="sc_0907021.html">วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="sc_0907021.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 4</div><a href="#x6">ความนำ</a><a href="#s-4-1">4.1 บทบาทของผู้นำในการเปลี่ยนแปลงเชิงกลยุทธ์</a><a href="#s-4-2">4.2 ทักษะของผู้นำการเปลี่ยนแปลง</a><a href="#s-4-3">4.3 ทักษะการตัดสินใจเชิงกลยุทธ์</a><a href="#s-4-4">4.4 การจัดการในภาวะวิกฤติ</a><a href="#s-4-5">4.5 การประเมินทักษะภาวะผู้นำในการเปลี่ยนแปลง</a><a href="#s-4-6">4.6 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-4-7">4.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์</div>
+<h1>บทที่ 4 ภาวะผู้นำสำหรับการเปลี่ยนแปลง</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>4</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (21 สไลด์)</button><a class="btn line" href="sc/files/sc_0907021_บทที่04_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายบทบาทของผู้นำในแต่ละช่วงของการเปลี่ยนแปลงเชิงกลยุทธ์ และบทบาทการทำความเข้าใจและการสื่อความหมายได้</li><li>อธิบายความสัมพันธ์ระหว่างทักษะมุ่งงาน ทักษะมุ่งคน และกิจกรรมการดำเนินการเปลี่ยนแปลง โดยอ้างหลักฐานเชิงวิจัยได้</li><li>อธิบายแบบแผนการตัดสินใจเชิงกลยุทธ์ที่รวดเร็วในภาวะแวดล้อมที่เปลี่ยนเร็วได้</li><li>อธิบายความหมายของวิกฤติขององค์กร เกณฑ์การจัดการวิกฤติที่มีประสิทธิผล และบทบาทของผู้นำในแต่ละระยะของวิกฤติได้</li><li>อธิบายผลการประเมินทักษะภาวะผู้นำในการเปลี่ยนแปลงของตนเอง และข้อจำกัดของการประเมินตนเองได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 ถึง 3 ให้สามส่วนแรกของแผนการจัดการการเปลี่ยนแปลง คือการเปลี่ยนแปลงแบบใด ใช้กรอบขั้นตอนใด และแรงขับใดผลักให้องค์กรต้องเปลี่ยน แต่แผนที่มีครบสามส่วนยังไม่เดินเอง ต้องมีคนนำ คำถามของบทนี้คือ "ผู้นำการเปลี่ยนแปลงต้องมีทักษะอะไร และหลักฐานเชิงวิจัยบอกอะไรเกี่ยวกับทักษะเหล่านั้น"</p>
+<p class="lead">หนังสือและบทความยอดนิยมเรื่องภาวะผู้นำมีจำนวนมาก และมักเล่าเรื่องผู้บริหารคนเดียวที่พลิกองค์กรได้ บทนี้ใช้หลักหลักฐานก่อนความนิยม จึงเลือกใช้งานวิจัยที่ระบุวิธีการและข้อจำกัดได้ และแยกให้เห็นว่าข้อใดเป็นผลการทดสอบ ข้อใดเป็นข้อเสนอเชิงแนวคิด บทนี้แบ่งทักษะเป็นสามกลุ่มตามหัวข้อของรายวิชา คือทักษะการนำการเปลี่ยนแปลง ทักษะการตัดสินใจเชิงกลยุทธ์ และการจัดการในภาวะวิกฤติ แล้วจบด้วยกิจกรรมประเมินทักษะของตนเอง</p>
+<p class="lead">ท้ายบทมีกรณีศึกษา IBM บริษัทเดิมที่เปลี่ยนจากผู้ขายฮาร์ดแวร์เป็นผู้ให้บริการโซลูชัน ซึ่งใช้ฝึกวิเคราะห์ว่าการเชื่อมกลยุทธ์เข้ากับการลงมือต้องอาศัยทักษะผู้นำแบบใด</p>
+<h2 id="s-4-1">4.1 บทบาทของผู้นำในการเปลี่ยนแปลงเชิงกลยุทธ์</h2>
+<p>ก่อนพูดถึงทักษะ ผู้วางแผนต้องรู้ก่อนว่าผู้นำต้องทำอะไรในการเปลี่ยนแปลง หัวข้อนี้อธิบายบทบาทสองมุม คือบทบาทในแต่ละช่วงของกระบวนการ และบทบาทในการทำให้คนเข้าใจการเปลี่ยนแปลง</p>
+<h3 id="s-4-1-1">4.1.1 บทบาทของผู้นำในแต่ละช่วงของการเปลี่ยนแปลง</h3>
+<p>Hussain และคณะ (2018, p. 126) ทบทวนตัวแบบการเปลี่ยนแปลงหลายแบบ เช่น ของ Lewin ของ Kanter และคณะ และของ Kotter แล้วสรุปว่าทุกแบบเห็นว่าภาวะผู้นำเป็นปัจจัยหลักของการเปลี่ยนแปลง ผู้เขียนนำกิจกรรมผู้นำ 5 อย่างของ Cummings และ Worley มาจับคู่กับสามขั้นของ Lewin ที่เรียนในบทที่ 2 (Hussain et al., 2018, p. 125) ดังตารางที่ 4.1</p>
+<p class="tcap"><b>ตารางที่ 4.1</b> กิจกรรมของผู้นำในสามขั้นของการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้นของ Lewin</th><th>กิจกรรมของผู้นำ</th><th>ตัวอย่างสิ่งที่ผู้นำทำ</th></tr></thead><tbody><tr><td>ละลาย (unfreezing)</td><td>จูงใจให้เปลี่ยน และสร้างวิสัยทัศน์</td><td>ชี้แรงขับการเปลี่ยนแปลงจากบทที่ 3 และบอกภาพขององค์กรหลังเปลี่ยน</td></tr><tr><td>เปลี่ยน (moving)</td><td>สร้างแรงสนับสนุนทางการเมือง และบริหารช่วงเปลี่ยนผ่าน</td><td>หาแนวร่วมจากผู้มีส่วนได้ส่วนเสียหลัก จัดทรัพยากรและโครงสร้างชั่วคราว</td></tr><tr><td>ตรึงใหม่ (refreezing)</td><td>รักษาแรงขับเคลื่อน</td><td>ติดตามผล ปรับระบบงานและรางวัลให้รองรับพฤติกรรมใหม่</td></tr></tbody></table></div>
+<p>ที่มา การจับคู่กิจกรรมกับขั้นจาก Hussain และคณะ (2018, p. 125) ซึ่งอ้าง Cummings และ Worley คอลัมน์ขวาผู้เขียนสร้างเพื่อการสอน</p>
+<p>ข้อควรระวังคือ Hussain และคณะ (2018) เป็นบทความเชิงแนวคิด การจับคู่ในตารางที่ 4.1 เป็นข้อสรุปจากวรรณกรรม ไม่ใช่ผลการทดสอบ ตารางนี้จึงใช้เป็นรายการตรวจว่าแผนมีผู้รับผิดชอบกิจกรรมครบทุกขั้นหรือไม่ แต่ไม่ได้บอกว่าผู้นำแบบใดทำกิจกรรมใดได้ดี คำถามหลังนี้หัวข้อ 4.2 จะตอบด้วยหลักฐานเชิงประจักษ์</p>
+<h3 id="s-4-1-2">4.1.2 การทำความเข้าใจและการสื่อความหมาย</h3>
+<p>บทที่ 1 อธิบายว่างานวิจัยของ Gioia และ Chittipeddi (1991) ซึ่งศึกษาปีแรกของการเปลี่ยนแปลงเชิงกลยุทธ์ในมหาวิทยาลัยรัฐขนาดใหญ่แห่งหนึ่ง พบว่าบทบาทหลักของผู้นำสูงสุดเข้าใจได้ดีที่สุดผ่านการทำความเข้าใจสถานการณ์ (sensemaking) และการสื่อความหมายให้ผู้อื่น (sensegiving) และปีแรกนั้นมี 4 ระยะ คือการสร้างภาพอนาคต (envisioning) การส่งสัญญาณ (signaling) การทบทวนภาพอนาคต (re-visioning) และการสร้างพลัง (energizing) บทที่ 3 นำแนวคิดนี้ไปใช้กับผลการวิเคราะห์ภาวะแวดล้อม คือผู้นำต้องทำให้คนเห็นแรงขับการเปลี่ยนแปลงตรงกัน</p>
+<p>บทนี้เพิ่มอีกมุมหนึ่ง คือผู้นำเองก็ต้องทำความเข้าใจการเปลี่ยนแปลงที่มาจากผู้อื่น งานวิจัยของ Balogun, Bartunek และ Do (2015) ติดตามทีมผู้บริหารระดับสูงของบริษัทย่อยในสหราชอาณาจักรของบริษัทข้ามชาติแห่งหนึ่งในระยะยาว พบว่า</p>
+<ul><li>ทีมผู้บริหารระดับสูงไม่ได้เป็นผู้ขับเคลื่อนการเปลี่ยนแปลงกลุ่มเดียวที่เหมือนกัน แต่เป็นชุมชนการตีความที่แตกต่างกัน</li><li>เมื่อการเปลี่ยนแปลงมาจากศูนย์กลาง ทีมนี้มีบทบาทซ้อน คือเป็นทั้งผู้รับการเปลี่ยนแปลงและผู้ขับเคลื่อนการเปลี่ยนแปลง</li><li>บริบทเฉพาะของแต่ละหน่วยทำให้ตีความและตอบสนองต่อการเปลี่ยนแปลงต่างกัน ซึ่งมีผลต่อผลลัพธ์ของการเปลี่ยนแปลง</li></ul>
+<p>ข้อค้นพบนี้มาจากบทคัดย่อและศึกษาองค์กรเดียว แต่มีนัยต่อแผนการเปลี่ยนแปลงข้อหนึ่ง แผนมักเขียนว่า "ผู้บริหารระดับสูงเป็นผู้นำการเปลี่ยนแปลง" ราวกับทุกคนเข้าใจตรงกัน ผู้วางแผนควรถามเพิ่มว่าผู้บริหารแต่ละหน่วยตีความการเปลี่ยนแปลงนี้อย่างไร และหน่วยใดยังเป็นผู้รับมากกว่าผู้นำ</p>
+<h2 id="s-4-2">4.2 ทักษะของผู้นำการเปลี่ยนแปลง</h2>
+<p>หัวข้อนี้ใช้งานวิจัยสามกลุ่ม กลุ่มแรกเชื่อมทักษะของผู้นำกับกิจกรรมการดำเนินการเปลี่ยนแปลง กลุ่มที่สองศึกษาพฤติกรรมผู้นำที่ช่วยหรือขัดขวางการเปลี่ยนแปลง กลุ่มที่สามศึกษาผลของภาวะผู้นำต่อความผูกพันของผู้ตาม</p>
+<h3 id="s-4-2-1">4.2.1 ทักษะมุ่งงานและทักษะมุ่งคน</h3>
+<p>Battilana และคณะ (2010, p. 423) ใช้ตัวแบบพฤติกรรมผู้นำแบบคลาสสิกที่แบ่งเป็นสองด้าน คือพฤติกรรมมุ่งงาน (task-oriented behaviors) กับพฤติกรรมมุ่งคน (person-oriented behaviors) ผู้วิจัยให้เหตุผลว่าตัวแบบนี้ครอบคลุมกิจกรรมประจำวันของผู้นำระดับหัวหน้างานส่วนใหญ่ และเหมาะกับการศึกษาการเปลี่ยนแปลง</p>
+<ul><li>ทักษะมุ่งงาน เกี่ยวกับโครงสร้าง การออกแบบ การควบคุม และการวางงานประจำให้บรรลุเป้าหมาย อาศัยความสามารถในการบอกข้อกำหนดของงานให้ชัด และจัดงานให้ตรงกับพันธกิจและวัตถุประสงค์ขององค์กร</li><li>ทักษะมุ่งคน เกี่ยวกับการส่งเสริมความร่วมมือ บรรยากาศที่สนับสนุน และการปฏิบัติต่อสมาชิกอย่างเป็นธรรม อาศัยความสามารถในการใส่ใจผู้อื่น และคำนึงถึงอารมณ์ของตนเองและผู้อื่น</li></ul>
+<p>ผู้จัดการคนหนึ่งอาจมีประสิทธิผลทั้งสองด้าน ด้านใดด้านหนึ่ง หรือไม่มีทั้งสองด้าน Battilana และคณะ (2010, p. 423) เสนอว่าส่วนผสมนี้มีผลต่อว่าผู้นำจะให้น้ำหนักกับกิจกรรมใดของการเปลี่ยนแปลง</p>
+<h3 id="s-4-2-2">4.2.2 ทักษะกับกิจกรรมการดำเนินการเปลี่ยนแปลง</h3>
+<p>Battilana และคณะ (2010, p. 424) แบ่งกิจกรรมการดำเนินการเปลี่ยนแปลงตามแผนเป็น 3 กลุ่ม ซึ่งต่อยอดจากสามขั้นของ Lewin</p>
+<ul><li>การสื่อสาร (communicating) คือการอธิบายเหตุผลของการเปลี่ยนแปลง และบอกภาพความจำเป็นของการเปลี่ยนแปลงให้ผู้ตาม</li><li>การระดมคน (mobilizing) คือการทำให้เพื่อนร่วมงานสนับสนุนและยอมรับงานประจำแบบใหม่</li><li>การประเมินผล (evaluating) คือการติดตามและประเมินผลของการดำเนินการ และทำให้การเปลี่ยนแปลงคงอยู่</li></ul>
+<p>ผู้วิจัยศึกษาผู้จัดการทางคลินิก 89 คนจาก 77 องค์กรในระบบบริการสุขภาพแห่งชาติของสหราชอาณาจักร (NHS) ซึ่งดำเนินโครงการเปลี่ยนแปลงในองค์กรของตนระหว่างปี 2003–2004 ทักษะผู้นำวัดด้วยแบบสำรวจ 360 องศาก่อนเริ่มโครงการ ส่วนการให้น้ำหนักกับกิจกรรมทั้งสามวัดด้วยการสัมภาษณ์ทางโทรศัพท์หลังดำเนินโครงการ 12 เดือน (Battilana et al., 2010, p. 426) ผลการศึกษาสรุปได้ดังตารางที่ 4.2</p>
+<p class="tcap"><b>ตารางที่ 4.2</b> ความสัมพันธ์ระหว่างทักษะผู้นำกับกิจกรรมการดำเนินการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th>ทักษะ</th><th>การสื่อสาร</th><th>การระดมคน</th><th>การประเมินผล</th></tr></thead><tbody><tr><td>มุ่งคน</td><td>เน้นมากกว่าผู้นำอื่น</td><td>ไม่ต่างจากผู้นำอื่น</td><td>ไม่ต่างจากผู้นำอื่น</td></tr><tr><td>มุ่งงาน</td><td>ไม่พบว่าเน้นน้อยกว่าตามที่ตั้งสมมติฐาน</td><td>เน้นมากกว่าผู้นำอื่น</td><td>เน้นมากกว่าผู้นำอื่น</td></tr></tbody></table></div>
+<p>ที่มา สรุปจาก Battilana และคณะ (2010, pp. 430–431, 433)</p>
+<p>ผลที่น่าสนใจมีสามข้อ ข้อแรก ผู้นำมุ่งคนไม่ได้เน้นการระดมคนมากกว่าผู้อื่น ผู้วิจัยตีความว่าการระดมคนเป็นกระบวนการทางการเมือง ต้องสร้างแนวร่วมกับผู้มีส่วนได้ส่วนเสียหลายกลุ่มนอกทีมของตน และผู้นำมุ่งงานทำได้โดยออกแบบกระบวนการและระบบใหม่ให้รองรับการเปลี่ยนแปลง (Battilana et al., 2010, p. 433) ข้อที่สอง ผู้จัดการที่มีการศึกษาด้านการจัดการขั้นสูงเน้นการระดมคนน้อยกว่าผู้อื่น ซึ่งผิดจากที่ผู้วิจัยคาด (Battilana et al., 2010, pp. 431, 433) ข้อที่สาม ผู้วิจัยสรุปว่าควรมองการเปลี่ยนแปลงเป็นงานหลายมิติ และตัวแบบขั้นตอนที่ใช้กันมักสมมติว่าผู้จัดการมีทักษะครบทุกกิจกรรมอยู่แล้ว ซึ่งไม่จริงเสมอไป (Battilana et al., 2010, p. 434)</p>
+<p>ตามหลักหลักฐานก่อนความนิยม นิสิตต้องอ่านผลนี้อย่างระวังสามข้อ</p>
+<ol><li>ตัวแปรตามคือการให้น้ำหนักกับกิจกรรม ไม่ใช่ความสำเร็จของการเปลี่ยนแปลง งานนี้จึงไม่ได้บอกว่าผู้นำมุ่งงานทำให้การเปลี่ยนแปลงสำเร็จมากกว่า</li><li>ผู้วิจัยระบุเองว่าเป็นการศึกษาเชิงสำรวจ ตัวอย่างเล็กและไม่สุ่ม ผู้เข้าร่วมเลือกเข้าโครงการอบรมเอง ส่วนใหญ่เป็นผู้จัดการระดับกลางในองค์กรภาครัฐขนาดใหญ่ และยังสรุปเชิงเหตุผลไม่ได้เต็มที่ (Battilana et al., 2010, pp. 434–435)</li><li>ผลนี้เป็นความสัมพันธ์ระดับกลุ่ม ผู้นำแต่ละคนยังปรับพฤติกรรมตามกิจกรรมได้</li></ol>
+<p>นัยสำหรับแผนการเปลี่ยนแปลงคือ ผู้นำคนเดียวอาจไม่ถนัดทุกกิจกรรม แผนที่ดีจึงควรระบุว่าใครรับผิดชอบการสื่อสาร ใครรับผิดชอบการระดมคน และใครรับผิดชอบการประเมินผล และทีมนำการเปลี่ยนแปลงควรมีทั้งคนที่ถนัดด้านงานและด้านคน</p>
+<h3 id="s-4-2-3">4.2.3 พฤติกรรมผู้นำที่ช่วยหรือขัดขวางการเปลี่ยนแปลง</h3>
+<p>งานวิจัยของ Higgs และ Rowland (2005) ศึกษากรณี 7 องค์กร จากผู้ให้ข้อมูล 40 คนซึ่งเล่าเรื่องการเปลี่ยนแปลง 70 เรื่อง พบว่าพฤติกรรมผู้นำการเปลี่ยนแปลงแบ่งได้ 3 กลุ่ม</p>
+<ul><li>การกำหนดพฤติกรรม (shaping behaviour) คือพฤติกรรมที่ยึดผู้นำเป็นศูนย์กลาง</li><li>การวางกรอบการเปลี่ยนแปลง (framing change)</li><li>การสร้างขีดความสามารถ (creating capacity)</li></ul>
+<p>ผลการวิเคราะห์ชี้ว่าพฤติกรรมที่ยึดผู้นำเป็นศูนย์กลางทำให้การดำเนินการเปลี่ยนแปลงแย่ลง และแนวทางการเปลี่ยนแปลงที่ตั้งบนสมมติฐานเชิงเส้นตรงไม่ประสบความสำเร็จ ขณะที่แนวทางที่ยอมรับความซับซ้อนประสบความสำเร็จมากกว่า ข้อมูลนี้มาจากบทคัดย่อ นิยามละเอียดของพฤติกรรมแต่ละกลุ่มจึงยังอ้างไม่ได้</p>
+<p>ผลนี้ขัดกับภาพยอดนิยมของผู้นำที่สั่งการและเป็นศูนย์กลางของทุกเรื่อง และสอดคล้องกับข้อสรุปของ Battilana และคณะ (2010, p. 434) ว่าการเปลี่ยนแปลงไม่ใช่กระบวนการเชิงเส้นตรง บทบาทของผู้นำจึงไม่ใช่การทำทุกอย่างเอง แต่เป็นการวางกรอบให้คนเข้าใจและสร้างขีดความสามารถให้คนทำได้</p>
+<h3 id="s-4-2-4">4.2.4 ภาวะผู้นำกับความผูกพันต่อการเปลี่ยนแปลง</h3>
+<p>ภาวะผู้นำการเปลี่ยนสภาพ (transformational leadership) เป็นแนวคิดที่งานวิจัยใช้ศึกษาความสัมพันธ์ระหว่างภาวะผู้นำกับการเปลี่ยนแปลงขององค์กรมาก (Battilana et al., 2010, p. 422) งานวิจัยของ Herold, Fedor, Caldwell และ Liu (2008) ศึกษาหลายระดับว่าภาวะผู้นำการเปลี่ยนสภาพ และการปฏิบัติด้านการจัดการการเปลี่ยนแปลงเฉพาะเรื่อง สัมพันธ์กับความผูกพันต่อการเปลี่ยนแปลง (commitment to change) ของผู้ตามอย่างไร พบว่า</p>
+<ul><li>ภาวะผู้นำการเปลี่ยนสภาพสัมพันธ์กับความผูกพันต่อการเปลี่ยนแปลงมากกว่าการปฏิบัติด้านการจัดการการเปลี่ยนแปลงเฉพาะเรื่อง โดยเฉพาะเมื่อการเปลี่ยนแปลงกระทบตัวบุคคลมาก</li><li>สำหรับผู้นำที่ผู้ตามไม่ได้มองว่าเป็นผู้นำการเปลี่ยนสภาพ การปฏิบัติด้านการจัดการการเปลี่ยนแปลงที่ดีสัมพันธ์กับความผูกพันต่อการเปลี่ยนแปลงที่สูงขึ้น</li></ul>
+<p>ข้อมูลนี้มาจากบทคัดย่อ ขนาดตัวอย่างและบริบทจึงยังอ้างไม่ได้ ผลข้อที่สองมีความหมายต่อผู้นำส่วนใหญ่ ผู้นำที่ผู้ตามไม่ได้มองว่าเป็นผู้นำการเปลี่ยนสภาพ ยังเพิ่มความผูกพันของผู้ตามได้ด้วยการจัดการการเปลี่ยนแปลงที่ดี เช่น การสื่อสาร การให้มีส่วนร่วม และการติดตามผล ทักษะผู้นำการเปลี่ยนแปลงจึงเป็นสิ่งที่พัฒนาได้ ไม่ใช่เฉพาะลักษณะติดตัว</p>
+<h2 id="s-4-3">4.3 ทักษะการตัดสินใจเชิงกลยุทธ์</h2>
+<p>การเปลี่ยนแปลงเชิงกลยุทธ์เริ่มจากการตัดสินใจว่าจะเปลี่ยนอะไร เมื่อใด และอย่างไร หัวข้อนี้อธิบายการตัดสินใจในภาวะแวดล้อมที่เปลี่ยนเร็ว และบทบาทของการตีความในการตัดสินใจ</p>
+<h3 id="s-4-3-1">4.3.1 การตัดสินใจที่รวดเร็วในภาวะแวดล้อมที่เปลี่ยนเร็ว</h3>
+<p>ผู้บริหารจำนวนมากเชื่อว่าการตัดสินใจเร็วต้องใช้ข้อมูลน้อยและพิจารณาทางเลือกน้อย งานวิจัยของ Eisenhardt (1989) ศึกษาเชิงอุปนัยในบริษัทไมโครคอมพิวเตอร์ 8 แห่ง ซึ่งอยู่ในอุตสาหกรรมที่เปลี่ยนเร็วมาก (high-velocity environments) พบแบบแผนที่ตรงข้ามกับความเชื่อนั้น</p>
+<ul><li>ผู้ตัดสินใจเร็วใช้ข้อมูลมากกว่าผู้ตัดสินใจช้า ไม่ใช่น้อยกว่า</li><li>ผู้ตัดสินใจเร็วพัฒนาทางเลือกมากกว่า และใช้กระบวนการขอคำปรึกษาสองชั้น</li><li>การแก้ความขัดแย้ง และการเชื่อมการตัดสินใจเชิงกลยุทธ์เข้ากับแผนปฏิบัติการ มีผลต่อความเร็วของการตัดสินใจ</li><li>การตัดสินใจเร็วตามแบบแผนนี้นำไปสู่ผลการดำเนินงานที่ดีกว่า</li></ul>
+<p>ข้อมูลนี้มาจากบทคัดย่อ และมาจาก 8 บริษัทในอุตสาหกรรมเดียว นิสิตจึงควรใช้เป็นข้อเสนอให้พิจารณา ไม่ใช่สูตรที่ใช้ได้ทุกองค์กร ตารางที่ 4.3 แสดงตัวอย่างการนำแบบแผนนี้ไปใช้กับการตัดสินใจเรื่องการเปลี่ยนแปลง</p>
+<p class="tcap"><b>ตารางที่ 4.3</b> ตัวอย่างการใช้แบบแผนการตัดสินใจเร็วกับการเปลี่ยนแปลง (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>แบบแผน</th><th>ความเชื่อเดิม</th><th>ตัวอย่างการใช้ในเครือร้านกาแฟจากบทที่ 3</th></tr></thead><tbody><tr><td>ใช้ข้อมูลมากกว่า</td><td>รอรายงานสรุปฉบับสมบูรณ์ก่อนตัดสินใจ</td><td>ทีมดูยอดขายรายสัปดาห์ของสาขาและยอดสั่งผ่านแอปทุกสัปดาห์</td></tr><tr><td>พัฒนาทางเลือกมากกว่า</td><td>เสนอทางเลือกเดียวให้อนุมัติ</td><td>เทียบสามทางเลือกพร้อมกัน คือเปิดแอปของตนเอง ร่วมกับแพลตฟอร์ม หรือปรับสาขาเป็นจุดรับสินค้า</td></tr><tr><td>ขอคำปรึกษาสองชั้น</td><td>ผู้บริหารสูงสุดตัดสินใจคนเดียว หรือรอฉันทามติทุกคน</td><td>ปรึกษาผู้จัดการสาขาที่มีประสบการณ์ แล้วผู้บริหารสูงสุดตัดสินใจ</td></tr><tr><td>เชื่อมกับแผนปฏิบัติการ</td><td>ตัดสินใจกลยุทธ์ก่อน วางแผนปฏิบัติการทีหลัง</td><td>ทุกทางเลือกมีร่างงบประมาณ ผู้รับผิดชอบ และสาขานำร่อง</td></tr></tbody></table></div>
+<p>ที่มา แบบแผนจากบทคัดย่อของ Eisenhardt (1989) คอลัมน์กลางและขวาผู้เขียนสร้างเพื่อการสอน เป็นตัวอย่างสมมติ</p>
+<h3 id="s-4-3-2">4.3.2 การตีความก่อนการตัดสินใจ</h3>
+<p>บทที่ 3 อธิบายว่าการตีตราประเด็นเป็นภัยคุกคามหรือโอกาสมีผลต่อการกระทำขององค์กร (Dutton &amp; Jackson, 1987) Wu และคณะ (2021, p. 5) ทบทวนงานวิจัยภาวะผู้นำในภาวะวิกฤติ และพบว่ากลุ่มเอกสารที่ถูกอ้างร่วมกันกลุ่มใหญ่ที่สุดคือมุมมองด้านกระบวนการคิดของผู้นำ เช่น การทำความเข้าใจสถานการณ์ การสื่อความหมาย การตีความวิกฤติว่าเป็นภัยหรือโอกาส และตัวแบบการตัดสินใจ ในกลุ่มนี้ ผู้นำสูงสุดมีบทบาทหลักทั้งในการทำความเข้าใจสถานการณ์ และในการสื่อความหมายเพื่อดำเนินการเปลี่ยนแปลงเชิงกลยุทธ์ผ่านการเผยแพร่วิสัยทัศน์ (Gioia &amp; Chittipeddi, 1991 อ้างถึงใน Wu et al., 2021, p. 5)</p>
+<p>สำหรับผู้นำการเปลี่ยนแปลง ข้อนี้แปลว่าทักษะการตัดสินใจไม่ได้เริ่มที่การเลือกทางเลือก แต่เริ่มที่การตีความสถานการณ์ ก่อนตัดสินใจ ผู้นำควรถามตนเองสามข้อ คือ ตนกำลังตีความสถานการณ์นี้ว่าเป็นภัยหรือโอกาส ถ้าตีความอีกทางจะได้ทางเลือกต่างไปอย่างไร และคนในองค์กรตีความเหมือนตนหรือไม่</p>
+<h2 id="s-4-4">4.4 การจัดการในภาวะวิกฤติ</h2>
+<p>การเปลี่ยนแปลงบางครั้งไม่ได้เกิดจากแผน แต่เกิดจากวิกฤติที่บังคับให้องค์กรต้องเปลี่ยน หัวข้อนี้อธิบายความหมายของวิกฤติ เกณฑ์การจัดการวิกฤติที่มีประสิทธิผล และบทบาทของผู้นำในแต่ละระยะ</p>
+<h3 id="s-4-4-1">4.4.1 ความหมายของวิกฤติขององค์กร</h3>
+<p>Pearson และ Clair (1998, p. 60) นิยามวิกฤติขององค์กร (organizational crisis) ว่าเป็นเหตุการณ์ที่มีโอกาสเกิดต่ำแต่ผลกระทบสูง คุกคามความอยู่รอดขององค์กร มีความคลุมเครือทั้งสาเหตุ ผลที่ตามมา และวิธีแก้ไข และผู้เกี่ยวข้องเชื่อว่าต้องตัดสินใจอย่างรวดเร็ว Wu และคณะ (2021, pp. 2–3) ซึ่งรวบรวมนิยามจากหลายงาน รวมทั้งนิยามนี้ สรุปว่าวิกฤติเป็นเหตุการณ์ที่ผู้นำและผู้มีส่วนได้ส่วนเสียรับรู้ว่ามีลักษณะสามข้อ</p>
+<ol><li>ไม่คาดคิด เกิดไม่บ่อย องค์กรและผู้นำจึงมีการเตรียมตัวและประสบการณ์น้อย</li><li>มีความสำคัญสูง ผลกระทบรุนแรงและต้องตอบสนองอย่างเร่งด่วน</li><li>อาจก่อความเสียหายร้ายแรงต่อองค์กร</li></ol>
+<p>Wu และคณะ (2021, p. 2) ชี้เพิ่มว่าการตรวจพบและการประเมินวิกฤติเป็นกระบวนการเชิงอัตวิสัยที่สร้างขึ้นทางสังคม เหตุการณ์เดียวกันอาจถูกมองเป็นวิกฤติในองค์กรหนึ่ง แต่เป็นปัญหาปกติในอีกองค์กรหนึ่ง ข้อนี้เชื่อมกับการตีความในหัวข้อ 4.3.2 และกับข้อสังเกตของ Wu และคณะว่า เพราะวิกฤติเกิดไม่บ่อย บทบาทสำคัญของผู้นำคือลดโอกาสเกิดวิกฤติและเตรียมความพร้อมขององค์กร (Wu et al., 2021, p. 2)</p>
+<h3 id="s-4-4-2">4.4.2 เกณฑ์การจัดการวิกฤติที่มีประสิทธิผล</h3>
+<p>Pearson และ Clair (1998, pp. 60–61) ชี้ว่าการนับว่าองค์กรผ่านวิกฤติไปได้โดยไม่เสียหายเลยเป็นเกณฑ์ที่ไม่สมจริง ส่วนการนับเพียงว่าองค์กรรอดก็หละหลวมเกินไป จึงเสนอเกณฑ์ระหว่างกลาง 3 ข้อ การจัดการวิกฤติมีประสิทธิผลเมื่อ</p>
+<ol><li>องค์กรดำเนินงานต่อได้หรือกลับมาดำเนินงานได้ คือรักษาหรือฟื้นกิจกรรมหลักที่ตอบความต้องการของลูกค้าหลัก</li><li>ความสูญเสียขององค์กรและของผู้มีส่วนได้ส่วนเสียภายนอกน้อยที่สุด</li><li>เกิดการเรียนรู้ และนำบทเรียนไปใช้กับเหตุการณ์ครั้งต่อไป</li></ol>
+<p>ผู้เขียนทั้งสองยังเสนอนิยามการจัดการวิกฤติที่มีประสิทธิผลแบบบูรณาการ ซึ่งแบ่งได้เป็นสามช่วง (Pearson &amp; Clair, 1998, p. 66)</p>
+<ul><li>ก่อนเกิดเหตุ ลดความเสี่ยงก่อนเหตุการณ์กระตุ้นจะเกิด</li><li>เมื่อเกิดเหตุ ผู้มีส่วนได้ส่วนเสียหลักด้นสดและปฏิสัมพันธ์กัน เพื่อสร้างความเข้าใจร่วม ความหมายร่วม และบทบาทขึ้นใหม่</li><li>หลังเหตุการณ์ บุคคลและองค์กรปรับสมมติฐานพื้นฐาน พฤติกรรม และอารมณ์ เพื่อฟื้นตัวและปรับตัว</li></ul>
+<p>Pearson และ Clair (1998, p. 66) ระบุด้วยว่าในระหว่างวิกฤติ การตัดสินใจถูกกดดันด้วยเวลาที่รับรู้และถูกจำกัดด้วยข้อจำกัดทางความคิด ข้อนี้อธิบายว่าทำไมการเตรียมตัวก่อนเกิดเหตุจึงสำคัญ เพราะขณะเกิดเหตุ ผู้นำมีเวลาคิดน้อยที่สุด บทความนี้เป็นงานเชิงแนวคิด นิยามและเกณฑ์จึงเป็นข้อเสนอที่ใช้จัดระเบียบความคิด ไม่ใช่ผลการทดสอบ</p>
+<h3 id="s-4-4-3">4.4.3 บทบาทของผู้นำในแต่ละระยะของวิกฤติ</h3>
+<p>Wu และคณะ (2021, p. 10) สรุปงานทบทวนของ James และคณะ (2011) และ Bundy และคณะ (2017) ว่าเน้นบทบาทเฉพาะของผู้นำในกระบวนการจัดการวิกฤติ ตารางที่ 4.4 จัดบทบาทเหล่านี้ตามสามระยะในหัวข้อ 4.4.2</p>
+<p class="tcap"><b>ตารางที่ 4.4</b> บทบาทของผู้นำในสามระยะของวิกฤติ</p>
+<div class="tablewrap"><table><thead><tr><th>ระยะ</th><th>บทบาทของผู้นำ</th><th>ตัวอย่างคำถามสำหรับแผน</th></tr></thead><tbody><tr><td>ก่อนวิกฤติ</td><td>ป้องกันไม่ให้วิกฤติเกิด เตรียมความพร้อมขององค์กร</td><td>ความเสี่ยงใดที่องค์กรรู้อยู่แต่ยังไม่มีผู้รับผิดชอบ</td></tr><tr><td>ระหว่างวิกฤติ</td><td>ระบุและแก้ปัญหา กำหนดกรอบของประเด็น ตัดสินใจอย่างรวดเร็วและมีจริยธรรม จัดการอารมณ์และพฤติกรรมของผู้มีส่วนได้ส่วนเสีย</td><td>ใครเป็นผู้สื่อสารหลัก และสื่อสารกับกลุ่มใดก่อน</td></tr><tr><td>หลังวิกฤติ</td><td>นำคนออกจากวิกฤติ หาโอกาสสร้างการเปลี่ยนแปลงเชิงบวก</td><td>บทเรียนใดต้องเปลี่ยนเป็นระบบงานใหม่ และใครติดตาม</td></tr></tbody></table></div>
+<p>ที่มา บทบาทของผู้นำสรุปจาก Wu และคณะ (2021, p. 10) การจัดลงสามระยะและคอลัมน์ขวาผู้เขียนสร้างเพื่อการสอน</p>
+<p>จากงานในกลุ่มนี้ Wu และคณะ (2021, p. 10) สรุปว่า ในบรรดาความรับผิดชอบและทักษะการจัดการวิกฤติของผู้นำ การสื่อสารสำคัญเป็นพิเศษ ข้อสังเกตอีกข้อคือ เมื่อผู้วิจัยจัดงาน 168 เรื่องตามระยะของวิกฤติ พบว่ามีงานเพียงร้อยละ 19.64 ที่ศึกษาระยะก่อนวิกฤติหรือหลังวิกฤติอย่างชัดเจน (Wu et al., 2021, p. 16) ความรู้เรื่องภาวะผู้นำในภาวะวิกฤติจึงยังเน้นช่วงระหว่างวิกฤติ ส่วนบทบาทก่อนและหลังวิกฤติยังมีหลักฐานน้อย</p>
+<h3 id="s-4-4-4">4.4.4 วิกฤติกับการเปลี่ยนแปลงเชิงกลยุทธ์</h3>
+<p>ระยะหลังวิกฤติเชื่อมการจัดการวิกฤติเข้ากับเรื่องของรายวิชานี้โดยตรง เกณฑ์ข้อที่ 3 ของ Pearson และ Clair คือการเรียนรู้ และบทบาทหลังวิกฤติที่ Wu และคณะสรุปไว้คือการหาโอกาสสร้างการเปลี่ยนแปลงเชิงบวก ผู้เขียนเห็นว่าวิกฤติจึงเป็นแรงขับการเปลี่ยนแปลงแบบหนึ่ง ในภาษาของบทที่ 2 วิกฤติทำให้ขั้นละลายเกิดขึ้นเองโดยไม่ต้องสร้างความเร่งด่วน แต่ถ้าผู้นำเพียงพาองค์กรกลับสู่สภาพเดิม การเรียนรู้จะไม่เกิด</p>
+<p class="tcap"><b>ตารางที่ 4.5</b> ตัวอย่างการใช้วิกฤติเป็นจุดเริ่มของการเปลี่ยนแปลง (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>ระยะ</th><th>สิ่งที่เกิดขึ้นในโรงงานอาหารแห่งหนึ่ง</th><th>การตัดสินใจของผู้นำ</th></tr></thead><tbody><tr><td>ก่อนวิกฤติ</td><td>ผู้ตรวจภายในเคยรายงานว่าระบบติดตามวัตถุดิบไม่ครบ แต่ไม่มีผู้รับผิดชอบแก้</td><td>ตัวอย่างของความเสี่ยงที่รู้อยู่แต่ไม่มีเจ้าของ</td></tr><tr><td>ระหว่างวิกฤติ</td><td>ลูกค้ารายใหญ่พบสิ่งปนเปื้อน ต้องเรียกคืนสินค้าหนึ่งรุ่น</td><td>ตั้งทีมเฉพาะกิจ กำหนดผู้สื่อสารหลักคนเดียว แจ้งลูกค้าและพนักงานก่อนสื่อมวลชน</td></tr><tr><td>หลังวิกฤติ</td><td>สายการผลิตกลับมาเดินได้ภายในสองสัปดาห์</td><td>ไม่หยุดที่การกลับสู่สภาพเดิม แต่ใช้เหตุการณ์นี้เริ่มโครงการเปลี่ยนระบบติดตามวัตถุดิบทั้งโรงงาน มีเจ้าของและตัวชี้วัด</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอน ใช้สามระยะจาก Pearson และ Clair (1998, p. 66) เหตุการณ์ทั้งหมดเป็นตัวอย่างสมมติ</p>
+<h2 id="s-4-5">4.5 การประเมินทักษะภาวะผู้นำในการเปลี่ยนแปลง</h2>
+<p>มคอ.3 ของรายวิชากำหนดให้สัปดาห์นี้มีกิจกรรมประเมินทักษะภาวะผู้นำในการเปลี่ยนแปลง หัวข้อนี้ให้แบบประเมินตนเองที่สร้างจากเนื้อหาของบท และอธิบายวิธีอ่านผลอย่างระวัง</p>
+<h3 id="s-4-5-1">4.5.1 แบบประเมินตนเอง</h3>
+<p>ให้นิสิตนึกถึงการเปลี่ยนแปลงครั้งหนึ่งที่ตนเคยนำหรือมีส่วนร่วม แล้วให้คะแนนตนเองแต่ละข้อในตารางที่ 4.6 จาก 1 (แทบไม่ได้ทำ) ถึง 5 (ทำสม่ำเสมอ) พร้อมเขียนตัวอย่างพฤติกรรมจริงหนึ่งตัวอย่างต่อข้อ</p>
+<p class="tcap"><b>ตารางที่ 4.6</b> แบบประเมินตนเองด้านทักษะภาวะผู้นำในการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th>กลุ่มทักษะ</th><th>ข้อความ</th><th>อ้างอิงเนื้อหา</th></tr></thead><tbody><tr><td>มุ่งงาน</td><td>1. ข้าพเจ้าบอกเป้าหมาย ขั้นตอน และผู้รับผิดชอบของการเปลี่ยนแปลงได้ชัด</td><td>หัวข้อ 4.2.1</td></tr><tr><td>มุ่งงาน</td><td>2. ข้าพเจ้าปรับกระบวนการหรือระบบงานให้รองรับวิธีทำงานใหม่</td><td>หัวข้อ 4.2.2</td></tr><tr><td>มุ่งคน</td><td>3. ข้าพเจ้าสังเกตและตอบสนองต่อความกังวลหรืออารมณ์ของผู้ได้รับผลกระทบ</td><td>หัวข้อ 4.2.1</td></tr><tr><td>มุ่งคน</td><td>4. ข้าพเจ้าอธิบายเหตุผลของการเปลี่ยนแปลงจนผู้อื่นเข้าใจ ไม่ใช่เพียงแจ้งให้ทราบ</td><td>หัวข้อ 4.1.2 และ 4.2.2</td></tr><tr><td>การระดมคน</td><td>5. ข้าพเจ้าหาแนวร่วมจากผู้มีส่วนได้ส่วนเสียนอกทีมของตน</td><td>หัวข้อ 4.2.2</td></tr><tr><td>การประเมินผล</td><td>6. ข้าพเจ้ากำหนดตัวชี้วัดและติดตามผลของการเปลี่ยนแปลงหลังเริ่มดำเนินการ</td><td>หัวข้อ 4.2.2</td></tr><tr><td>การสร้างขีดความสามารถ</td><td>7. ข้าพเจ้าให้ผู้อื่นมีบทบาทตัดสินใจ แทนการทำเองหรือสั่งการทุกเรื่อง</td><td>หัวข้อ 4.2.3</td></tr><tr><td>การตัดสินใจ</td><td>8. ข้าพเจ้าพิจารณาทางเลือกมากกว่าหนึ่งทาง และขอคำปรึกษาก่อนตัดสินใจ</td><td>หัวข้อ 4.3.1</td></tr><tr><td>การตัดสินใจ</td><td>9. ข้าพเจ้าลองตีความสถานการณ์อีกทางก่อนตัดสินใจ</td><td>หัวข้อ 4.3.2</td></tr><tr><td>วิกฤติ</td><td>10. ข้าพเจ้าระบุความเสี่ยงที่อาจกลายเป็นวิกฤติ และมีผู้รับผิดชอบล่วงหน้า</td><td>หัวข้อ 4.4.3</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอนจากเนื้อหาในบทนี้ ไม่ใช่แบบวัดมาตรฐาน และยังไม่ได้ตรวจสอบความเที่ยงหรือความตรง</p>
+<h3 id="s-4-5-2">4.5.2 การอ่านผลการประเมิน</h3>
+<p>ผลจากตารางที่ 4.6 ใช้เพื่อให้นิสิตเห็นทักษะที่ตนถนัดและทักษะที่ควรพัฒนา หรือที่ควรหาคนในทีมมาเสริม ไม่ใช่คะแนนที่บอกว่านิสิตเป็นผู้นำที่ดีหรือไม่ดี เหตุผลมีสามข้อ</p>
+<ol><li>แบบประเมินนี้ไม่ได้ผ่านการตรวจสอบความเที่ยงและความตรง ผลจึงเป็นข้อมูลสำหรับการสะท้อนตนเองเท่านั้น</li><li>การประเมินตนเองอาจต่างจากที่ผู้อื่นเห็น งานของ Battilana และคณะ (2010, p. 426) วัดทักษะผู้นำด้วยแบบสำรวจ 360 องศา ซึ่งรวมมุมมองของผู้อื่น ไม่ใช่การประเมินตนเองอย่างเดียว</li><li>หลักฐานในหัวข้อ 4.2 เป็นความสัมพันธ์ระดับกลุ่ม คะแนนสูงในข้อหนึ่งจึงไม่ได้รับประกันว่าการเปลี่ยนแปลงที่นิสิตนำจะสำเร็จ</li></ol>
+<p>ในกิจกรรมคู่ ให้นิสิตแลกเปลี่ยนผลกับเพื่อน และให้เพื่อนถามหาตัวอย่างพฤติกรรมจริงของข้อที่ได้คะแนนสูงสุดและต่ำสุด ขั้นนี้ช่วยลดข้อจำกัดข้อที่ 2 ได้บางส่วน ผลการประเมินนี้ใช้ต่อได้ตอนกำหนดบทบาทของสมาชิกในแผนการจัดการการเปลี่ยนแปลง (กลุ่ม)</p>
+<h2 id="s-4-6">4.6 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในบทนี้มีทั้งงานเชิงประจักษ์และงานเชิงแนวคิด งานเชิงประจักษ์ส่วนใหญ่แสดงความสัมพันธ์ในบริบทเฉพาะ จึงใช้เป็นข้อเสนอให้ผู้นำพิจารณา ไม่ใช่สูตรสำเร็จ</p>
+<p class="tcap"><b>ตารางที่ 4.7</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Battilana และคณะ (2010)</td><td>ทักษะผู้นำกับกิจกรรมการดำเนินการเปลี่ยนแปลง</td><td>ผู้จัดการ 89 คนใน NHS แบบสำรวจ 360 องศาและการสัมภาษณ์</td><td>มุ่งคนสัมพันธ์กับการสื่อสาร มุ่งงานสัมพันธ์กับการระดมคนและการประเมินผล</td></tr><tr><td>Higgs และ Rowland (2005)</td><td>แนวทางการเปลี่ยนแปลงกับพฤติกรรมผู้นำ</td><td>กรณีศึกษา 7 องค์กร 70 เรื่องเล่า</td><td>พฤติกรรมยึดผู้นำเป็นศูนย์กลางทำให้การดำเนินการแย่ลง</td></tr><tr><td>Herold และคณะ (2008)</td><td>ภาวะผู้นำกับความผูกพันต่อการเปลี่ยนแปลง</td><td>การศึกษาหลายระดับ</td><td>การจัดการการเปลี่ยนแปลงที่ดีเพิ่มความผูกพันได้ แม้ผู้นำไม่ใช่แบบการเปลี่ยนสภาพ</td></tr><tr><td>Eisenhardt (1989)</td><td>การตัดสินใจเชิงกลยุทธ์ที่รวดเร็ว</td><td>กรณีศึกษาเชิงอุปนัย 8 บริษัท</td><td>ผู้ตัดสินใจเร็วใช้ข้อมูลและทางเลือกมากกว่า</td></tr><tr><td>Pearson และ Clair (1998)</td><td>นิยามและการจัดการวิกฤติขององค์กร</td><td>บทความเชิงแนวคิด</td><td>นิยามวิกฤติ เกณฑ์ประสิทธิผล 3 ข้อ และสามช่วงของการจัดการ</td></tr><tr><td>Wu และคณะ (2021)</td><td>ภาวะผู้นำในภาวะวิกฤติ</td><td>ทบทวนเชิงบรรณมิติ 168 บทความ</td><td>ลักษณะของวิกฤติ บทบาทผู้นำ และความสำคัญของการสื่อสาร</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Higgs และ Rowland Herold และคณะ และ Eisenhardt มาจากบทคัดย่อ ส่วน Balogun และคณะ (2015) ซึ่งใช้ในหัวข้อ 4.1.2 อ่านได้เฉพาะบทคัดย่อเช่นกัน</p>
+<h2 id="s-4-7">4.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยเมื่อนิสิตเขียนเรื่องภาวะผู้นำในแผนการเปลี่ยนแปลง</p>
+<p class="tcap"><b>ตารางที่ 4.8</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เขียนว่า "ผู้บริหารระดับสูงเป็นผู้นำการเปลี่ยนแปลง" โดยไม่ระบุกิจกรรม</td><td>ผู้นำคนเดียวอาจไม่ถนัดทุกกิจกรรม (Battilana et al., 2010, p. 434)</td><td>ระบุผู้รับผิดชอบการสื่อสาร การระดมคน และการประเมินผล</td></tr><tr><td>เขียนว่างานวิจัยพิสูจน์แล้วว่าผู้นำมุ่งงานทำให้การเปลี่ยนแปลงสำเร็จ</td><td>งานนี้วัดการให้น้ำหนักกับกิจกรรม ไม่ได้วัดความสำเร็จ และเป็นการศึกษาเชิงสำรวจ (หัวข้อ 4.2.2)</td><td>บอกว่าพบความสัมพันธ์อะไร ในบริบทใด และข้อจำกัดคืออะไร</td></tr><tr><td>ให้ผู้นำเป็นศูนย์กลางของทุกการตัดสินใจ</td><td>พฤติกรรมยึดผู้นำเป็นศูนย์กลางทำให้การดำเนินการแย่ลง (Higgs &amp; Rowland, 2005)</td><td>ให้ผู้นำวางกรอบและสร้างขีดความสามารถให้ผู้อื่น</td></tr><tr><td>เชื่อว่าตัดสินใจเร็วต้องใช้ข้อมูลน้อย</td><td>ผู้ตัดสินใจเร็วใช้ข้อมูลและทางเลือกมากกว่า (Eisenhardt, 1989)</td><td>ใช้ข้อมูลปัจจุบันและเทียบหลายทางเลือกพร้อมกัน</td></tr><tr><td>เขียนแผนรับวิกฤติเฉพาะช่วงที่เกิดเหตุ</td><td>การจัดการวิกฤติครอบคลุมก่อน ระหว่าง และหลังเหตุการณ์ (Pearson &amp; Clair, 1998, p. 66)</td><td>เพิ่มการลดความเสี่ยงล่วงหน้าและการเรียนรู้หลังเหตุการณ์</td></tr><tr><td>ถือว่าผ่านวิกฤติแล้วเมื่อองค์กรรอด</td><td>เกณฑ์ที่ดีรวมการลดความสูญเสียและการเรียนรู้ด้วย (Pearson &amp; Clair, 1998, pp. 60–61)</td><td>ใช้เกณฑ์ 3 ข้อในหัวข้อ 4.4.2</td></tr><tr><td>ใช้ผลประเมินตนเองตัดสินว่าเป็นผู้นำที่ดีหรือไม่</td><td>แบบประเมินในตารางที่ 4.6 ไม่ใช่แบบวัดมาตรฐาน (หัวข้อ 4.5.2)</td><td>ใช้ผลเพื่อหาทักษะที่ต้องพัฒนาหรือหาคนมาเสริม</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: IBM กับการเชื่อมกลยุทธ์เข้ากับการลงมือ</div><p>Harreld, O'Reilly และ Tushman (2007) ใช้ IBM เป็นกรณีตัวอย่างของแนวคิดสมรรถภาพเชิงพลวัต (dynamic capabilities) ซึ่งบทที่ 3 แนะนำไว้ในหัวข้อ 3.5.3</p><p>บทคัดย่อของงานนี้ระบุว่า</p><p>1. ในช่วง 15 ปี IBM เปลี่ยนจากผู้ขายฮาร์ดแวร์ที่กำลังลำบาก เป็นผู้ให้บริการโซลูชันหลากหลายที่ประสบความสำเร็จ</p><p>2. เบื้องหลังการเปลี่ยนแปลงคือกลยุทธ์ที่มองการณ์ไกลและการลงมือที่มีวินัย คือการเชื่อมการรู้เข้ากับการทำ</p><p>3. IBM รับรู้การเปลี่ยนแปลงของตลาด และคว้าโอกาสโดยจัดสินทรัพย์และสมรรถนะเดิมใหม่</p><p>4. กระบวนการกลยุทธ์ของ IBM ทำให้บริษัทสำรวจตลาดและเทคโนโลยีใหม่ เช่น วิทยาศาสตร์ชีวภาพ และใช้ประโยชน์จากสินค้าที่อิ่มตัว เช่น คอมพิวเตอร์เมนเฟรม ได้พร้อมกัน</p><p>ข้อมูลในกล่องนี้มาจากบทคัดย่อเท่านั้น ไม่มีชื่อผู้บริหาร ปีของเหตุการณ์ หรือขั้นตอนของกระบวนการกลยุทธ์ เรื่องเล่ายอดนิยมเกี่ยวกับการพลิกฟื้น IBM มีมาก แต่ยังไม่ได้ตรวจสอบ จึงไม่นำมาใช้ เมื่อมองด้วยกรอบในบทนี้ คำว่า "เชื่อมการรู้เข้ากับการทำ" ตรงกับข้อค้นพบของ Eisenhardt (1989) ว่าการเชื่อมการตัดสินใจเชิงกลยุทธ์กับแผนปฏิบัติการเป็นส่วนหนึ่งของการตัดสินใจที่ดี และตรงกับกิจกรรมการระดมคนและการประเมินผลของ Battilana และคณะ (2010) ซึ่งเป็นกิจกรรมที่ทำให้กลยุทธ์กลายเป็นงานประจำแบบใหม่</p><p class="q"><b>คำถามชวนคิด</b> ถ้าบริษัทเดิมต้องทั้งดูแลธุรกิจที่อิ่มตัวและสำรวจธุรกิจใหม่ไปพร้อมกัน ทีมนำการเปลี่ยนแปลงควรมีทักษะมุ่งงานและมุ่งคนอย่างไร และควรแบ่งกิจกรรมการสื่อสาร การระดมคน และการประเมินผลให้ใครรับผิดชอบ</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ส่วนที่บอกว่า "ใครนำการเปลี่ยนแปลง และต้องใช้ทักษะอะไร" ผู้วางแผนต้องระบุผู้รับผิดชอบกิจกรรมการสื่อสาร การระดมคน และการประเมินผล ในแต่ละขั้นของกรอบที่เลือกไว้ในใบงานที่ 2</p><p>แผนควรบอกด้วยว่าใครรับผิดชอบความเสี่ยงที่อาจกลายเป็นวิกฤติระหว่างการเปลี่ยนแปลง และใครทำให้คนในองค์กรเข้าใจแรงขับการเปลี่ยนแปลงจากใบงานที่ 3 ตรงกัน</p><p>ผลการประเมินตนเองในตารางที่ 4.6 ใช้กำหนดบทบาทของสมาชิกในแผนการจัดการการเปลี่ยนแปลง (กลุ่ม) ได้</p><p>บทที่ 5 จะต่อด้วยการสื่อสารในการจัดการการเปลี่ยนแปลง ซึ่งเป็นกิจกรรมที่บทนี้ชี้ว่าสำคัญทั้งในการเปลี่ยนแปลงตามแผนและในภาวะวิกฤติ</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรอธิบายได้ว่าผู้นำมีบทบาทในทุกช่วงของการเปลี่ยนแปลง ตั้งแต่จูงใจให้เปลี่ยนจนถึงรักษาแรงขับเคลื่อน และบทบาทหลักของผู้นำสูงสุดคือการทำความเข้าใจสถานการณ์และการสื่อความหมายให้ผู้อื่น โดยผู้บริหารแต่ละหน่วยอาจตีความการเปลี่ยนแปลงเดียวกันต่างกัน</p>
+<p>หลักฐานเรื่องทักษะผู้นำแสดงว่าผู้นำที่ถนัดด้านคนมีแนวโน้มเน้นการสื่อสาร ส่วนผู้นำที่ถนัดด้านงานมีแนวโน้มเน้นการระดมคนและการประเมินผล พฤติกรรมที่ยึดผู้นำเป็นศูนย์กลางทำให้การดำเนินการแย่ลง และการจัดการการเปลี่ยนแปลงที่ดีสัมพันธ์กับความผูกพันของผู้ตามที่สูงขึ้น แม้ผู้ตามไม่ได้มองว่าผู้นำเป็นผู้นำการเปลี่ยนสภาพ ในการตัดสินใจเชิงกลยุทธ์ ผู้ตัดสินใจเร็วใช้ข้อมูลและทางเลือกมากกว่า และเชื่อมการตัดสินใจกับแผนปฏิบัติการ ในภาวะวิกฤติ การจัดการที่มีประสิทธิผลครอบคลุมก่อน ระหว่าง และหลังเหตุการณ์ โดยการสื่อสารสำคัญเป็นพิเศษ และช่วงหลังวิกฤติเป็นโอกาสเริ่มการเปลี่ยนแปลงเชิงกลยุทธ์</p>
+<p>หลักฐานเกือบทั้งหมดในบทนี้เป็นความสัมพันธ์ในบริบทเฉพาะหรือข้อเสนอเชิงแนวคิด นิสิตจึงควรใช้เป็นข้อเสนอให้พิจารณาเมื่อกำหนดบทบาทผู้นำในแผน บทที่ 5 จะต่อด้วยการสื่อสารในการจัดการการเปลี่ยนแปลง</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การทำความเข้าใจสถานการณ์ (sensemaking)</li><li>การสื่อความหมาย (sensegiving)</li><li>พฤติกรรมมุ่งงาน (task-oriented behaviors)</li><li>พฤติกรรมมุ่งคน (person-oriented behaviors)</li><li>การดำเนินการเปลี่ยนแปลงตามแผน (planned organizational change implementation)</li><li>การระดมคน (mobilizing)</li><li>ภาวะผู้นำการเปลี่ยนสภาพ (transformational leadership)</li><li>ความผูกพันต่อการเปลี่ยนแปลง (commitment to change)</li><li>ภาวะแวดล้อมที่เปลี่ยนเร็วมาก (high-velocity environment)</li><li>วิกฤติขององค์กร (organizational crisis)</li><li>การจัดการวิกฤติ (crisis management)</li><li>ภาวะผู้นำในภาวะวิกฤติ (crisis leadership)</li><li>สมรรถภาพเชิงพลวัต (dynamic capabilities)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายกิจกรรมของผู้นำในสามขั้นของ Lewin ตามตารางที่ 4.1 และบอกว่าเหตุใดตารางนี้จึงยังไม่ได้บอกว่าผู้นำแบบใดทำกิจกรรมใดได้ดี</li><li>Balogun และคณะ (2015) พบว่าทีมผู้บริหารระดับสูงมีบทบาทซ้อนอย่างไร และข้อค้นพบนี้มีนัยอย่างไรต่อการเขียนผู้นำการเปลี่ยนแปลงในแผน</li><li>ทักษะมุ่งงานกับทักษะมุ่งคนต่างกันอย่างไร และ Battilana และคณะ (2010) พบความสัมพันธ์ระหว่างทักษะทั้งสองกับกิจกรรมการดำเนินการเปลี่ยนแปลงอย่างไร</li><li>เพื่อนร่วมชั้นเขียนในรายงานว่า "งานวิจัยพิสูจน์แล้วว่าผู้นำมุ่งงานทำให้การเปลี่ยนแปลงสำเร็จ" นิสิตจะให้ข้อเสนอแนะอย่างไรตามหลักหลักฐานก่อนความนิยม จงบอกอย่างน้อยสองข้อ</li><li>Higgs และ Rowland (2005) พบว่าพฤติกรรมผู้นำแบบใดทำให้การดำเนินการเปลี่ยนแปลงแย่ลง ข้อค้นพบนี้ต่างจากภาพยอดนิยมของผู้นำอย่างไร</li><li>Herold และคณะ (2008) พบอะไรเกี่ยวกับผู้นำที่ไม่ได้เป็นผู้นำการเปลี่ยนสภาพ และข้อค้นพบนี้มีความหมายอย่างไรต่อการพัฒนาทักษะผู้นำ</li><li>จงอธิบายแบบแผนการตัดสินใจเร็วตาม Eisenhardt (1989) และบอกข้อจำกัดของการนำไปใช้กับองค์กรอื่น</li><li>จงอธิบายนิยามวิกฤติขององค์กรของ Pearson และ Clair (1998) และลักษณะสามข้อที่ Wu และคณะ (2021) สรุปไว้ และบอกว่าเหตุใดการรับรู้วิกฤติจึงเป็นเรื่องเชิงอัตวิสัย</li><li>เกณฑ์การจัดการวิกฤติที่มีประสิทธิผลของ Pearson และ Clair มีอะไรบ้าง และบทบาทของผู้นำในระยะหลังวิกฤติเชื่อมกับการเปลี่ยนแปลงเชิงกลยุทธ์อย่างไร</li><li>จากผลการประเมินตนเองในตารางที่ 4.6 จงอธิบายทักษะที่ท่านถนัดที่สุดและทักษะที่ควรพัฒนา พร้อมบอกข้อจำกัดของการแปลผลนี้อย่างน้อยสองข้อ</li></ol>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Balogun, J., Bartunek, J. M., &amp; Do, B. (2015). Senior managers' sensemaking and responses to strategic change. <em>Organization Science</em>, <em>26</em>(4), 960–979. <a href="https://doi.org/10.1287/orsc.2015.0985" target="_blank" rel="noopener">https://doi.org/10.1287/orsc.2015.0985</a></div>
+<div class="r">Battilana, J., Gilmartin, M., Sengul, M., Pache, A.-C., &amp; Alexander, J. A. (2010). Leadership competencies for implementing planned organizational change. <em>The Leadership Quarterly</em>, <em>21</em>(3), 422–438. <a href="https://doi.org/10.1016/j.leaqua.2010.03.007" target="_blank" rel="noopener">https://doi.org/10.1016/j.leaqua.2010.03.007</a></div>
+<div class="r">Dutton, J. E., &amp; Jackson, S. E. (1987). Categorizing strategic issues: Links to organizational action. <em>Academy of Management Review</em>, <em>12</em>(1), 76. <a href="https://doi.org/10.2307/257995" target="_blank" rel="noopener">https://doi.org/10.2307/257995</a></div>
+<div class="r">Eisenhardt, K. M. (1989). Making fast strategic decisions in high-velocity environments. <em>Academy of Management Journal</em>, <em>32</em>(3), 543–576. <a href="https://doi.org/10.2307/256434" target="_blank" rel="noopener">https://doi.org/10.2307/256434</a></div>
+<div class="r">Gioia, D. A., &amp; Chittipeddi, K. (1991). Sensemaking and sensegiving in strategic change initiation. <em>Strategic Management Journal</em>, <em>12</em>(6), 433–448. <a href="https://doi.org/10.1002/smj.4250120604" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250120604</a></div>
+<div class="r">Harreld, J. B., O'Reilly, C. A., &amp; Tushman, M. L. (2007). Dynamic capabilities at IBM: Driving strategy into action. <em>California Management Review</em>, <em>49</em>(4), 21–43. <a href="https://doi.org/10.2307/41166404" target="_blank" rel="noopener">https://doi.org/10.2307/41166404</a></div>
+<div class="r">Herold, D. M., Fedor, D. B., Caldwell, S., &amp; Liu, Y. (2008). The effects of transformational and change leadership on employees' commitment to a change: A multilevel study. <em>Journal of Applied Psychology</em>, <em>93</em>(2), 346–357. <a href="https://doi.org/10.1037/0021-9010.93.2.346" target="_blank" rel="noopener">https://doi.org/10.1037/0021-9010.93.2.346</a></div>
+<div class="r">Higgs, M., &amp; Rowland, D. (2005). All changes great and small: Exploring approaches to change and its leadership. <em>Journal of Change Management</em>, <em>5</em>(2), 121–151. <a href="https://doi.org/10.1080/14697010500082902" target="_blank" rel="noopener">https://doi.org/10.1080/14697010500082902</a></div>
+<div class="r">Hussain, S. T., Lei, S., Akram, T., Haider, M. J., Hussain, S. H., &amp; Ali, M. (2018). Kurt Lewin's change model: A critical review of the role of leadership and employee involvement in organizational change. <em>Journal of Innovation &amp; Knowledge</em>, <em>3</em>(3), 123–127. <a href="https://doi.org/10.1016/j.jik.2016.07.002" target="_blank" rel="noopener">https://doi.org/10.1016/j.jik.2016.07.002</a></div>
+<div class="r">Pearson, C. M., &amp; Clair, J. A. (1998). Reframing crisis management. <em>Academy of Management Review</em>, <em>23</em>(1), 59–76. <a href="https://doi.org/10.2307/259099" target="_blank" rel="noopener">https://doi.org/10.2307/259099</a></div>
+<div class="r">Wu, Y. L., Shao, B., Newman, A., &amp; Schwarz, G. (2021). Crisis leadership: A review and future research agenda. <em>The Leadership Quarterly</em>, <em>32</em>(6), 101518. <a href="https://doi.org/10.1016/j.leaqua.2021.101518" target="_blank" rel="noopener">https://doi.org/10.1016/j.leaqua.2021.101518</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 4 ภาวะผู้นำสำหรับการเปลี่ยนแปลง. ใน <em>การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์: เอกสารประกอบการสอนรายวิชา 0907021</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/sc_lesson_04.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="sc_lesson_03.html"><small>◀ บทก่อนหน้า</small>บทที่ 3 การวิเคราะห์ภาวะแวดล้อมทางธุรกิจด้วย SWOT และ PESTEL</a><a href="sc_lesson_05.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 5 การสื่อสารในการจัดการการเปลี่ยนแปลง</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907021 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['sc/slides/04/s-01.jpg', 'sc/slides/04/s-02.jpg', 'sc/slides/04/s-03.jpg', 'sc/slides/04/s-04.jpg', 'sc/slides/04/s-05.jpg', 'sc/slides/04/s-06.jpg', 'sc/slides/04/s-07.jpg', 'sc/slides/04/s-08.jpg', 'sc/slides/04/s-09.jpg', 'sc/slides/04/s-10.jpg', 'sc/slides/04/s-11.jpg', 'sc/slides/04/s-12.jpg', 'sc/slides/04/s-13.jpg', 'sc/slides/04/s-14.jpg', 'sc/slides/04/s-15.jpg', 'sc/slides/04/s-16.jpg', 'sc/slides/04/s-17.jpg', 'sc/slides/04/s-18.jpg', 'sc/slides/04/s-19.jpg', 'sc/slides/04/s-20.jpg', 'sc/slides/04/s-21.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

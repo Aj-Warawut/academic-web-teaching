@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 2 ทฤษฎีการเปลี่ยนแปลงของ Lewin Kotter และแนวคิดอื่น · วิชา 0907021</title>
+<meta name="description" content="บทเรียนบทที่ 2 วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="sc_0907021.html">วิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="sc_0907021.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 2</div><a href="#x6">ความนำ</a><a href="#s-2-1">2.1 การเปลี่ยนแปลงแบบมีแผนและกรอบขั้นตอนการเปลี่ยนแปลง</a><a href="#s-2-2">2.2 แนวคิดการเปลี่ยนแปลงสามขั้นที่ยกให้เป็นของ Lewin</a><a href="#s-2-3">2.3 กระบวนการแปดขั้นของ Kotter</a><a href="#s-2-4">2.4 การเลือกกรอบขั้นตอนสำหรับแผนการจัดการการเปลี่ยนแปลง</a><a href="#s-2-5">2.5 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-2-6">2.6 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 2 เลือกและให้เหตุผลกรอบขั้นตอนการเปลี่ยนแปลง</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907021 การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์</div>
+<h1>บทที่ 2 ทฤษฎีการเปลี่ยนแปลงของ Lewin Kotter และแนวคิดอื่น</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>2</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (23 สไลด์)</button><a class="btn line" href="sc/files/sc_0907021_บทที่02_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความหมายของกรอบขั้นตอนการเปลี่ยนแปลง และความต่างระหว่างการเปลี่ยนแปลงแบบครั้งคราวกับแบบต่อเนื่องได้</li><li>อธิบายแนวคิดการเปลี่ยนแปลงสามขั้นที่ยกให้เป็นของ Lewin พร้อมข้อวิจารณ์และข้อถกเถียงเรื่องที่มาของแนวคิดได้</li><li>อธิบายกระบวนการแปดขั้นของ Kotter และหลักฐานเชิงวิจัยที่รองรับและที่ยังขาดได้</li><li>อธิบายความเหมือนและความต่างของกรอบขั้นตอนแต่ละแบบ โดยอ้างหลักฐานเชิงวิจัยได้</li><li>อธิบายเหตุผลในการเลือกกรอบขั้นตอนสำหรับการเปลี่ยนแปลงขององค์กรที่เลือกได้ (ใบงานที่ 2)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 ให้ส่วนแรกของแผนการจัดการการเปลี่ยนแปลง คือการบอกว่าการเปลี่ยนแปลงที่จะนำเป็นแบบใดและขับเคลื่อนด้วยกลไกใด เมื่อรู้แล้วว่ากำลังจะเปลี่ยนอะไร คำถามถัดไปคือ "จะเปลี่ยนตามลำดับอย่างไร" ผู้นำการเปลี่ยนแปลงจำนวนมากตอบคำถามนี้ด้วยกรอบขั้นตอนสำเร็จรูป ซึ่งแบ่งการเปลี่ยนแปลงเป็นขั้น ๆ ให้ทำทีละขั้น กรอบที่รู้จักมากที่สุดสองกรอบคือแนวคิดสามขั้นที่ยกให้เป็นของ Kurt Lewin และกระบวนการแปดขั้นของ John Kotter</p>
+<p class="lead">กรอบขั้นตอนมีประโยชน์ เพราะทำให้คนในองค์กรเห็นภาพเดียวกันว่าตอนนี้อยู่ตรงไหนและต่อไปต้องทำอะไร แต่กรอบที่ได้รับความนิยมไม่ได้มีหลักฐานรองรับเท่ากับความนิยมเสมอไป บทนี้จึงอธิบายแต่ละกรอบพร้อมหลักฐาน ข้อวิจารณ์ และผลการวิจัยที่ศึกษาการนำกรอบไปใช้จริง หลักคิดเรื่องหลักฐานก่อนความนิยมจากบทที่ 1 จึงเป็นแกนของบทนี้</p>
+<p class="lead">ท้ายบทมีกรณีศึกษา Shell Gabon และใบงานที่ 2 ซึ่งให้นิสิตเลือกกรอบขั้นตอนสำหรับองค์กรที่เลือกไว้ในใบงานที่ 1 พร้อมเหตุผล</p>
+<h2 id="s-2-1">2.1 การเปลี่ยนแปลงแบบมีแผนและกรอบขั้นตอนการเปลี่ยนแปลง</h2>
+<p>ก่อนเปรียบเทียบกรอบใดกรอบหนึ่ง ผู้วางแผนควรเข้าใจก่อนว่ากรอบขั้นตอนทั้งหมดตั้งอยู่บนสมมติฐานอะไร และสมมติฐานนั้นเหมาะกับการเปลี่ยนแปลงทุกแบบหรือไม่</p>
+<h3 id="s-2-1-1">2.1.1 การเปลี่ยนแปลงแบบมีแผน (planned change)</h3>
+<p>การเปลี่ยนแปลงแบบมีแผน หมายถึงการเปลี่ยนแปลงที่ผู้นำตั้งใจริเริ่ม กำหนดเป้าหมาย และจัดลำดับกิจกรรมไว้ล่วงหน้า Hussain และคณะ (2018, p. 123) ทบทวนว่าแนวคิดของ Lewin เป็นตัวแบบการเปลี่ยนแปลงแบบมีแผนรุ่นแรก ๆ และตัวแบบที่ตามมาจำนวนมาก เช่น กระบวนการแปดขั้นของ Kotter ก็อยู่ในกลุ่มนี้ (Hussain et al., 2018, p. 126)</p>
+<p>กรอบขั้นตอนการเปลี่ยนแปลง (change process framework) คือคำอธิบายว่าการเปลี่ยนแปลงแบบมีแผนควรผ่านขั้นใดบ้างและตามลำดับใด กรอบแบบนี้ตอบคำถามว่า "ทำอะไรก่อนหลัง" แต่ไม่ได้บอกว่าองค์กรนี้ควรเปลี่ยนอะไร หรือจะรับมือกับแรงต้านของคนกลุ่มใด</p>
+<h3 id="s-2-1-2">2.1.2 กรอบขั้นตอนเมื่อมองด้วยกลไกขับเคลื่อน (motors of change)</h3>
+<p>บทที่ 1 แบ่งกลไกขับเคลื่อนการเปลี่ยนแปลงเป็น 4 แบบตามกรอบของ Van de Ven และ Poole (1995) กลไกสองแบบที่เกี่ยวกับบทนี้โดยตรงคือกลไกมุ่งเป้าหมาย (teleology) และกลไกวงจรชีวิต (life cycle)</p>
+<ul><li>กลไกมุ่งเป้าหมาย องค์กรตั้งเป้า ลงมือ ประเมิน แล้วปรับเป้าซ้ำเป็นวงจร โดยไม่กำหนดลำดับขั้นตายตัว Van de Ven และ Poole (1995, p. 516) ระบุว่ากลไกนี้อยู่เบื้องหลังแบบจำลองการวางแผนกลยุทธ์และการตั้งเป้าส่วนใหญ่</li><li>กลไกวงจรชีวิต การเปลี่ยนแปลงผ่านลำดับขั้นที่กำหนดไว้แล้ว และขั้นก่อนเป็นเงื่อนไขของขั้นถัดไป (Van de Ven &amp; Poole, 1995, p. 515)</li></ul>
+<p>Van de Ven และ Poole (1995, p. 523) ชี้ว่าคำอธิบายการวางแผนกลยุทธ์ที่แบ่งเป็นขั้น ๆ ทีละน้อย แท้จริงคือการผสมกลไกมุ่งเป้าหมายกับกลไกวงจรชีวิต ผู้เขียนเห็นว่ากรอบขั้นตอนในบทนี้อ่านได้ในทำนองเดียวกัน คือมีเป้าหมายที่ผู้นำตั้งไว้ (มุ่งเป้าหมาย) และกำหนดลำดับขั้นที่ต้องผ่าน (วงจรชีวิต) ข้อสังเกตนี้ช่วยในการเลือกกรอบ ถ้าการเปลี่ยนแปลงขององค์กรที่ศึกษาขับเคลื่อนด้วยกลไกวิภาษวิธีหรือวิวัฒนาการเป็นหลัก กรอบขั้นตอนที่ผู้นำกำหนดลำดับเองอาจอธิบายได้เพียงบางส่วน</p>
+<h3 id="s-2-1-3">2.1.3 การเปลี่ยนแปลงแบบครั้งคราว (episodic change) และแบบต่อเนื่อง (continuous change)</h3>
+<p>Weick และ Quinn (1999) ทบทวนวรรณกรรมด้านการเปลี่ยนแปลงองค์กร และแยกการเปลี่ยนแปลงตามจังหวะ (tempo) เป็นสองแบบ แบบครั้งคราวเกิดเป็นช่วง ๆ และมีลำดับ unfreeze transition refreeze ส่วนแบบต่อเนื่องเกิดอยู่ตลอดเวลาและมีลำดับ freeze rebalance unfreeze ผู้เขียนทั้งสองเปรียบเทียบสองแบบนี้ใน 5 ด้าน ได้แก่ อุปมาของการจัดองค์กร กรอบการวิเคราะห์ องค์กรในอุดมคติ ทฤษฎีการแทรกแซง และบทบาทของผู้ขับเคลื่อนการเปลี่ยนแปลง และสรุปว่าการเลือกมองแบบใดขึ้นกับว่าผู้มองคิดเรื่องความเฉื่อย (inertia) ขององค์กรอย่างไร</p>
+<p>สำหรับผู้วางแผน ข้อเตือนที่ได้จากงานนี้คือ แผนที่เขียนราวกับว่าองค์กรหยุดนิ่งรอการเปลี่ยนแปลงครั้งใหญ่ อาจมองข้ามการปรับตัวที่คนในองค์กรทำอยู่แล้ว กรอบขั้นตอนในหัวข้อ 2.2 และ 2.3 มองการเปลี่ยนแปลงแบบครั้งคราวเป็นหลัก ข้อมูลของ Weick และ Quinn ในบทนี้มาจากบทคัดย่อ</p>
+<h3 id="s-2-1-4">2.1.4 หลักฐานของกรอบยอดนิยม</h3>
+<p>บทที่ 1 เตือนว่าความนิยมไม่ได้แปลว่ามีหลักฐาน (By, 2005) งานทบทวนสองชิ้นทำให้ข้อเตือนนี้ชัดขึ้นในเรื่องกรอบขั้นตอน</p>
+<p>ชิ้นแรก Stouten, Rousseau และ De Cremer (2018) เทียบโมเดลการเปลี่ยนแปลงที่ผู้ปฏิบัตินิยมใช้กับผลการวิจัยวิชาการ และพบว่าผู้ปฏิบัติพึ่งโมเดลยอดนิยมที่อ้างความเห็นของผู้เชี่ยวชาญมากกว่าหลักฐานทางวิทยาศาสตร์ ผู้เขียนสรุปว่าเรื่องใดรู้แล้ว เรื่องใดยังโต้แย้งกันอยู่ เรื่องใดยังไม่ได้ทดสอบ และเรื่องใดยังใช้น้อย แล้วเสนอขั้นตอน 10 ขั้นสำหรับการเปลี่ยนแปลงแบบมีแผนที่มีหลักฐานรองรับ ชื่อของทั้ง 10 ขั้นไม่ได้อยู่ในบทคัดย่อ เอกสารนี้จึงยังไม่ได้ลงรายละเอียด</p>
+<p>ชิ้นที่สอง Hughes (2011) ตรวจตัวเลขที่ถูกอ้างบ่อยว่า "การเปลี่ยนแปลงในองค์กรล้มเหลวร้อยละ 70" โดยทบทวนแหล่งที่ตีพิมพ์ 5 แหล่งที่ระบุตัวเลขนี้ และพบว่าไม่มีแหล่งใดมีหลักฐานเชิงประจักษ์ที่ถูกต้องและเชื่อถือได้รองรับ Hughes ยังชี้ว่าการกำหนดอัตราความล้มเหลวของการเปลี่ยนแปลงทำได้ยากในตัวเอง เพราะความกำกวมของคำว่าการเปลี่ยนแปลง บริบท การรับรู้ที่ต่างกัน เวลา และการวัด ตัวเลขนี้มักถูกใช้เป็นเหตุผลให้ใช้กรอบขั้นตอนบางกรอบ นิสิตจึงไม่ควรนำมาใช้ในแผน</p>
+<h2 id="s-2-2">2.2 แนวคิดการเปลี่ยนแปลงสามขั้นที่ยกให้เป็นของ Lewin</h2>
+<p>แนวคิดสามขั้น ละลาย (unfreezing) เปลี่ยน (moving หรือ changing) และตรึงใหม่ (refreezing) เป็นกรอบที่ถูกอ้างถึงมากที่สุดกรอบหนึ่งในสาขาการจัดการการเปลี่ยนแปลง Burnes (2004) ระบุในบทคัดย่อว่างานของ Lewin ครอบงำทั้งทฤษฎีและการปฏิบัติด้านการจัดการการเปลี่ยนแปลงมากว่า 40 ปี หัวข้อนี้อธิบายตัวแนวคิด ข้อวิจารณ์ และข้อถกเถียงว่าแนวคิดนี้มาจาก Lewin จริงหรือไม่</p>
+<p>บทความต้นฉบับของ Lewin (1947) ไม่มีบทคัดย่อและยังเข้าถึงฉบับเต็มไม่ได้ เนื้อหาในหัวข้อนี้จึงอ้างผ่านงานที่ทบทวนแนวคิดของ Lewin</p>
+<h3 id="s-2-2-1">2.2.1 สนามแรง (force field) และสามขั้นของการเปลี่ยนแปลง</h3>
+<p>Hussain และคณะ (2018, p. 123) อธิบายว่าแนวคิดของ Lewin มองสภาพปัจจุบันขององค์กรเป็นดุลยภาพระหว่างแรงสองฝ่าย คือแรงที่รักษาสภาพเดิม (restraining forces) กับแรงที่ผลักให้เปลี่ยน (driving forces) การเปลี่ยนสภาพนี้ทำได้สามทาง เพิ่มแรงผลัก ลดแรงต้าน หรือทำทั้งสองอย่าง Hussain และคณะ (2018, pp. 123–124) ยังอธิบายว่าการเปลี่ยนแปลงคือการย้ายจากสภาพปัจจุบันที่รู้จักไปสู่สภาพที่ต้องการซึ่งยังไม่แน่นอน คนในองค์กรจึงมักไม่สนับสนุนจนกว่าจะเชื่อว่าสภาพเดิมไปต่อไม่ได้</p>
+<p class="tcap"><b>ตารางที่ 2.1</b> สามขั้นของการเปลี่ยนแปลงและสิ่งที่ผู้วางแผนต้องตอบ</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>ความหมาย</th><th>คำถามที่แผนต้องตอบ</th></tr></thead><tbody><tr><td>ละลาย (unfreezing)</td><td>ทำให้คนเห็นเหตุผลที่ต้องออกจากสภาพเดิม</td><td>แรงผลักและแรงต้านในองค์กรนี้มีอะไรบ้าง จะเพิ่มแรงผลักหรือลดแรงต้านตัวใด</td></tr><tr><td>เปลี่ยน (moving)</td><td>ย้ายพฤติกรรมหรือวิธีทำงานไปสู่ระดับใหม่ อาศัยการมีส่วนร่วมของพนักงานและการแบ่งปันความรู้</td><td>ใครต้องทำอะไรต่างจากเดิม และจะมีส่วนร่วมในการออกแบบการเปลี่ยนอย่างไร</td></tr><tr><td>ตรึงใหม่ (refreezing)</td><td>ทำให้วิธีใหม่คงอยู่ ไม่ถอยกลับไปสภาพเดิม</td><td>ระบบ กติกา หรือแรงจูงใจใดจะรักษาวิธีใหม่ไว้ และจะตรวจได้อย่างไรว่าวิธีใหม่ยังอยู่</td></tr></tbody></table></div>
+<p>ที่มา ความหมายของแต่ละขั้นสรุปจาก Hussain และคณะ (2018, pp. 123–125) คำถามในคอลัมน์ขวาผู้เขียนสร้างเพื่อการสอน</p>
+<p>การเขียนแรงผลักและแรงต้านเป็นรายการ ช่วยให้แผนไม่ได้มีเพียงคำว่า "สร้างความตระหนัก" เช่น องค์กรที่ต้องการเปลี่ยนระบบงานเป็นดิจิทัล แรงผลักอาจเป็นต้นทุนที่สูงขึ้นและคู่แข่งที่เร็วกว่า ส่วนแรงต้านอาจเป็นความกลัวว่าทักษะเดิมจะไม่มีค่า (ตัวอย่างสมมติ) แผนที่ดีบอกว่าจะจัดการแรงต้านตัวใดก่อน เพราะการเพิ่มแรงผลักอย่างเดียวโดยไม่ลดแรงต้าน อาจทำให้แรงต้านเพิ่มขึ้นตาม</p>
+<h3 id="s-2-2-2">2.2.2 แนวทางการเปลี่ยนแปลงแบบมีแผนของ Lewin (Lewin's planned approach) สี่องค์ประกอบ</h3>
+<p>Burnes (2004) ทบทวนภูมิหลังและงานของ Lewin และชี้ว่าแนวคิดสามขั้นเป็นเพียงหนึ่งในสี่องค์ประกอบของแนวทางการเปลี่ยนแปลงแบบมีแผนของ Lewin องค์ประกอบทั้งสี่คือ ทฤษฎีสนาม (field theory) พลวัตกลุ่ม (group dynamics) การวิจัยเชิงปฏิบัติการ (action research) และแนวคิดสามขั้น Burnes ยังชี้ว่า Lewin สนใจการแก้ความขัดแย้งทางสังคมเป็นหลัก</p>
+<p>การใช้แนวคิดสามขั้นโดยไม่มีอีกสามองค์ประกอบ เท่ากับใช้เพียงลำดับขั้น แผนที่อ้าง Lewin จึงควรบอกด้วยว่าจะวิเคราะห์แรงอย่างไร และจะให้กลุ่มที่ได้รับผลกระทบมีส่วนร่วมอย่างไร</p>
+<h3 id="s-2-2-3">2.2.3 ข้อวิจารณ์แนวคิดสามขั้น</h3>
+<p>Burnes (2004) ระบุว่าในช่วง 20 ปีก่อนบทความของเขา แนวคิดสามขั้นถูกวิจารณ์มาก และสรุปคำวิจารณ์หลักไว้ 4 ข้อ</p>
+<p class="tcap"><b>ตารางที่ 2.2</b> คำวิจารณ์หลักต่อแนวคิดสามขั้นตามการสรุปของ Burnes (2004)</p>
+<div class="tablewrap"><table><thead><tr><th>คำวิจารณ์</th><th>ความหมาย</th><th>คำถามที่ผู้วางแผนควรถามตัวเอง</th></tr></thead><tbody><tr><td>มององค์กรว่าอยู่ในสภาวะคงที่</td><td>ถือว่าองค์กรนิ่งอยู่ก่อนละลายและหลังตรึงใหม่</td><td>องค์กรนี้มีช่วงที่นิ่งพอจะ "ตรึงใหม่" จริงหรือไม่</td></tr><tr><td>เหมาะกับโครงการขนาดเล็ก</td><td>ใช้ได้กับการเปลี่ยนแปลงในวงจำกัด มากกว่าการเปลี่ยนทั้งองค์กร</td><td>การเปลี่ยนแปลงนี้กว้างแค่ไหน มีกี่กลุ่มที่ต้องผ่านสามขั้น</td></tr><tr><td>ละเลยอำนาจและการเมืองในองค์กร</td><td>ไม่อธิบายว่ากลุ่มที่มีผลประโยชน์ต่างกันจะต่อรองกันอย่างไร</td><td>ใครได้และใครเสียจากการเปลี่ยนแปลงนี้</td></tr><tr><td>เป็นแบบบนลงล่างที่ฝ่ายบริหารขับ</td><td>ฝ่ายบริหารเป็นผู้กำหนดและสั่งการ</td><td>พนักงานมีบทบาทในการออกแบบการเปลี่ยนแปลงตรงไหน</td></tr></tbody></table></div>
+<p>ที่มา คำวิจารณ์ 4 ข้อจากบทคัดย่อของ Burnes (2004) คอลัมน์ความหมายและคำถามผู้เขียนสร้างเพื่อการสอน</p>
+<p>Burnes ไม่ได้เห็นด้วยกับคำวิจารณ์เหล่านี้ และสรุปว่าแนวทางของ Lewin ยังใช้ได้กับโลกปัจจุบัน เหตุผลที่ใช้โต้แต่ละข้ออยู่ในฉบับเต็มซึ่งยังเข้าถึงไม่ได้ สิ่งที่นิสิตนำไปใช้ได้จากข้อถกเถียงนี้คือคอลัมน์ขวาของตาราง ไม่ว่าจะเห็นด้วยกับฝ่ายใด คำถามทั้งสี่ข้อช่วยตรวจว่าแผนที่ใช้แนวคิดสามขั้นมีจุดอ่อนตรงไหน</p>
+<h3 id="s-2-2-4">2.2.4 ข้อถกเถียงเรื่องที่มาของแนวคิด</h3>
+<p>Cummings, Bridgman และ Brown (2016) ตั้งคำถามที่ลึกกว่านั้น ผู้เขียนทั้งสามเทียบสิ่งที่ Lewin เขียนเรื่องการเปลี่ยนแปลงเป็นสามขั้น กับวิธีที่งานรุ่นหลังนำเสนอ และโต้แย้งว่า Lewin ไม่เคยพัฒนาแนวคิดสามขั้นในรูปแบบที่รู้จักกันในปัจจุบัน แนวคิดนี้ก่อรูปขึ้นหลังจาก Lewin เสียชีวิต แต่ถูกยกเป็นรากฐานของสาขาการจัดการการเปลี่ยนแปลง และมักถูกสืบย้อนไปที่บทความแรกของวารสาร Human Relations ผู้เขียนเสนอว่าการตั้งคำถามกับรากฐานนี้เปิดทางให้คิดใหม่ทั้งในทฤษฎีและการปฏิบัติ</p>
+<p>ข้อถกเถียงนี้ส่งผลต่อการเขียนรายงานโดยตรง นิสิตควรเขียนว่า "แนวคิดสามขั้นที่มักยกให้เป็นของ Lewin" และอ้างแหล่งที่นิสิตอ่านจริง แทนการเขียนว่า "Lewin เสนอว่าการเปลี่ยนแปลงมีสามขั้น" โดยอ้าง Lewin (1947) ที่ไม่ได้อ่าน</p>
+<h3 id="s-2-2-5">2.2.5 บทบาทของผู้นำในแต่ละขั้น</h3>
+<p>Hussain และคณะ (2018, p. 125) นำกิจกรรมสำคัญของผู้นำในการเปลี่ยนแปลง 5 อย่างตามตำราของ Cummings และ Worley มาจับคู่กับสามขั้น จูงใจให้เปลี่ยนและสร้างวิสัยทัศน์อยู่ในขั้นละลาย สร้างแรงสนับสนุนทางการเมืองและบริหารช่วงเปลี่ยนผ่านอยู่ในขั้นเปลี่ยน และรักษาแรงขับเคลื่อนอยู่ในขั้นตรึงใหม่ ผู้เขียนยังสรุปกิจกรรมของการนำไปใช้ 3 อย่างตาม Beckhard และ Harris (1987) คือ การวางแผนกิจกรรม การวางแผนสร้างพันธะ และโครงสร้างบริหารการเปลี่ยนแปลง</p>
+<p>Hussain และคณะ (2018, p. 124) ยังทบทวนว่าการให้พนักงานมีส่วนร่วม (employee involvement) เป็นกลยุทธ์ที่เก่าแก่และได้ผลในการลดแรงต้านต่อการเปลี่ยนแปลง ข้อนี้สอดคล้องกับหลักคิดของรายวิชาที่ว่าผู้นำคือผู้ทำให้คนเข้าใจตรงกัน กิจกรรมเหล่านี้ส่วนใหญ่คือการทำความเข้าใจและการสื่อความหมาย (sensemaking และ sensegiving) ในบทที่ 1 ไม่ใช่การสั่งการ</p>
+<p>ข้อควรระวังคือบทความของ Hussain และคณะเป็นการทบทวนเชิงแนวคิด ไม่มีข้อมูลเชิงประจักษ์ การจับคู่นี้จึงเป็นกรอบสำหรับคิด ไม่ใช่ผลการวิจัยที่พิสูจน์แล้ว</p>
+<h2 id="s-2-3">2.3 กระบวนการแปดขั้นของ Kotter</h2>
+<p>กระบวนการแปดขั้นของ Kotter (Kotter's eight-stage process) มาจากหนังสือ Leading Change (Kotter, 1996 อ้างถึงใน Pollack &amp; Pollack, 2015, p. 53) Pollack และ Pollack (2015, p. 52) รวบรวมว่างานหลายชิ้นยกกรอบนี้เป็นแนวทางที่รู้จักมากที่สุดแนวทางหนึ่งในการเปลี่ยนแปลงองค์กร และ Appelbaum และคณะ (2012) ระบุว่ากรอบนี้มาจากประสบการณ์ทางธุรกิจและการวิจัยของ Kotter เอง โดยไม่ได้อ้างแหล่งภายนอก</p>
+<h3 id="s-2-3-1">2.3.1 แปดขั้นของการสร้างการเปลี่ยนแปลงครั้งใหญ่</h3>
+<p class="tcap"><b>ตารางที่ 2.3</b> กระบวนการแปดขั้นของ Kotter และตัวอย่างการใช้ที่ UGF</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>ความหมาย</th><th>ตัวอย่างจากงานวิจัยที่ UGF</th></tr></thead><tbody><tr><td>1 สร้างความรู้สึกเร่งด่วน (establishing a sense of urgency)</td><td>ทำให้คนรับรู้ว่าองค์กรต้องเปลี่ยน Kotter ถือว่าการไม่สร้างความเร่งด่วนเป็นข้อผิดพลาดใหญ่ที่สุด (p. 55)</td><td>ความเสี่ยงจากกำลังคนสูงวัย ตำแหน่งงานอาวุโสขาดคนรุ่นใหม่มาแทน เหตุผลนี้ขายได้ง่าย (p. 56)</td></tr><tr><td>2 สร้างคณะผู้นำการเปลี่ยนแปลง (creating the guiding coalition)</td><td>ตั้งกลุ่มที่มีอำนาจพอจะนำการเปลี่ยนแปลง (p. 56)</td><td>มีหลายคณะ คณะผู้บริหารที่ CEO นำ คณะกำกับโครงการ และกลุ่มผู้ฝึกสอนระดับเทคนิค (pp. 56–57)</td></tr><tr><td>3 พัฒนาวิสัยทัศน์และกลยุทธ์ (developing a vision and strategy)</td><td>กำหนดภาพอนาคตและวิธีไปถึง</td><td>วิสัยทัศน์นิยามในเชิงลบ คือหลีกเลี่ยงผลของการไม่ทำอะไร กลยุทธ์คือหลายโครงการ เช่น ระบบพี่เลี้ยง ชุมชนนักปฏิบัติ (p. 57)</td></tr><tr><td>4 สื่อสารวิสัยทัศน์ (communicating the change vision)</td><td>Kotter ชี้ว่าผู้จัดการประเมินปริมาณการสื่อสารที่ต้องใช้ต่ำเกินไป (p. 57)</td><td>ใช้เวลากับการสื่อสารมากกว่ากิจกรรมอื่น ให้ผู้บริหารนำเสนอเอง และใช้เวทีที่มีอยู่แล้ว (pp. 57–58)</td></tr><tr><td>5 เสริมพลังให้คนจำนวนมากลงมือ (empowering broad-based change)</td><td>ขจัดอุปสรรค เปลี่ยนโครงสร้างหรือระบบที่บั่นทอนวิสัยทัศน์ ส่งเสริมความคิดใหม่ (p. 58)</td><td>ใส่โครงการในแผนธุรกิจของทุกหน่วย ผู้ฝึกสอนราวร้อยละ 80 เห็นว่าควรปรับบทบาทงาน ผู้จัดการจึงปรับตาม (pp. 58–59)</td></tr><tr><td>6 สร้างชัยชนะระยะสั้น (generating short-term wins)</td><td>ชัยชนะต้องมองเห็นได้ สำเร็จชัดเจน และเกี่ยวกับทิศทางการเปลี่ยนแปลง (p. 59)</td><td>ผู้ฝึกสอนร้อยละ 94 ที่ตอบแบบสำรวจเห็นว่าความมั่นใจและความรู้ของผู้รับการถ่ายทอดดีขึ้น และใช้การเล่าเรื่อง (pp. 59–60)</td></tr><tr><td>7 รวบรวมผลและสร้างการเปลี่ยนแปลงต่อ (consolidating gains and producing more change)</td><td>ไม่ผ่อนแรงก่อนงานเสร็จ เพราะการเปลี่ยนแปลงยังเปราะบาง (p. 60)</td><td>ภาพ "สโมสรพิเศษ" ที่เคยช่วยกลับไม่เหมาะเมื่อขยายวง และต้องต้านการเปลี่ยนโครงการไปเน้นคลังความรู้ด้วยไอที (p. 60)</td></tr><tr><td>8 ฝังแนวทางใหม่ในวัฒนธรรม (anchoring new approaches in the culture)</td><td>ทำให้วิธีปฏิบัติใหม่กลายเป็นส่วนหนึ่งของวัฒนธรรม (p. 60)</td><td>ขั้นที่ 7 และ 8 ใช้เวลานาน ต้องอีกหลายปีจึงบอกได้ว่าฝังในวัฒนธรรมแล้วหรือไม่ (pp. 60–61)</td></tr></tbody></table></div>
+<p>ที่มา Pollack และ Pollack (2015) เลขหน้าในตารางเป็นหน้าของบทความนี้ ความหมายของแต่ละขั้นเป็นการสรุป Kotter (1996, 2008) ที่ Pollack และ Pollack อ้างไว้</p>
+<p>UGF เป็นชื่อสมมุติของบริษัทการเงินและประกันภัยในออสเตรเลีย พนักงานกว่า 10,000 คน (Pollack &amp; Pollack, 2015, p. 54) ตัวอย่างในตารางจึงใช้แสดงว่าแต่ละขั้นทำอะไรในทางปฏิบัติ ไม่ใช่กรณีศึกษาขององค์กรที่นิสิตค้นข้อมูลเพิ่มได้</p>
+<p>สองแถวในตารางที่ผู้วางแผนมักพลาดคือขั้นที่ 4 และขั้นที่ 6 ที่ UGF แม้ CEO จะสนับสนุนโครงการ ทีมการเปลี่ยนแปลงยังต้องหาเวทีให้ผู้บริหารพูดเอง และพบว่าผู้บริหารคนหนึ่งที่ดูเบื่อรายงานความคืบหน้า กลับตื่นตัวเมื่อได้รับสไลด์ไปนำเสนอต่อทีมของตน (Pollack &amp; Pollack, 2015, p. 58) ส่วนขั้นที่ 6 ผู้ฝึกสอนบางคนเริ่มท้อเพราะรู้สึกว่าไม่มีความคืบหน้า ความสำเร็จหลายอย่างจับต้องไม่ได้และถูกลืมง่าย การสื่อสารชัยชนะระยะสั้นจึงช่วยได้แต่ต้องใช้แรงมาก (Pollack &amp; Pollack, 2015, p. 60)</p>
+<h3 id="s-2-3-2">2.3.2 ลักษณะของกรอบและข้อวิจารณ์</h3>
+<p>Pollack และ Pollack (2015, p. 53) สรุปว่างานหลายชิ้นอธิบายกรอบของ Kotter ว่าเน้นภาวะผู้นำและมองการเปลี่ยนแปลงแบบนำจากบน แต่ยังมีความเห็นที่ต่างกัน บางงานจัดว่าเป็นการเปลี่ยนแปลงที่วางแผนจากส่วนกลาง ขณะที่ By (2005 อ้างถึงใน Pollack &amp; Pollack, 2015, p. 53) จัดว่าเป็นการเปลี่ยนแปลงแบบเกิดขึ้นเอง (emergent) ความเห็นที่ต่างกันนี้บอกว่ากรอบเดียวกันถูกอ่านได้หลายทาง</p>
+<p>Pollack และ Pollack (2015, p. 53) รวบรวมข้อวิจารณ์ต่อกรอบของ Kotter ว่าบอกว่าต้องทำอะไรแต่บอกน้อยว่าทำอย่างไร ไม่ละเอียดพอจะใช้ในทุกสถานการณ์ ไม่กว้างพอสำหรับการเปลี่ยนแปลงบางแบบ และวางแผนมากเกินไปจนไม่สะท้อนความเป็นจริงขององค์กร</p>
+<h3 id="s-2-3-3">2.3.3 หลักฐานที่รองรับกรอบของ Kotter</h3>
+<p>Appelbaum และคณะ (2012) ทบทวนวรรณกรรมด้านการจัดการการเปลี่ยนแปลงทีละขั้นของกรอบแปดขั้น ในช่วง 15 ปีหลังหนังสือ Leading Change ออก ข้อค้นพบในบทคัดย่อมีสามส่วน</p>
+<ul><li>พบหลักฐานรองรับขั้นส่วนใหญ่ แต่ไม่พบงานที่ศึกษาทั้งกรอบ</li><li>ความนิยมของกรอบมาจากรูปแบบที่ตรงและใช้ง่าย มากกว่าฉันทามติทางวิทยาศาสตร์</li><li>ไม่พบหลักฐานคัดค้าน และกรอบนี้เหมาะเป็นเครื่องมือวางแผนการดำเนินการ แต่ควรใช้ร่วมกับเครื่องมืออื่นเพื่อปรับตามบริบทหรืออุปสรรค</li></ul>
+<p>Pollack และ Pollack (2015, p. 52) เสริมว่ากรณีศึกษาที่ศึกษาการใช้กรอบนี้จริงยังมีน้อย กรอบของ Kotter จึงใช้เป็นโครงของแผนได้ แต่ไม่ควรเขียนในแผนว่า "ผ่านการพิสูจน์แล้ว" และควรบอกว่าจะเติมเครื่องมือใดในขั้นที่กรอบไม่ได้บอกวิธีทำ</p>
+<h3 id="s-2-3-4">2.3.4 เมื่อใช้จริง แปดขั้นไม่ได้เดินเป็นเส้นตรง</h3>
+<p>Pollack และ Pollack (2015) ศึกษาการใช้กรอบของ Kotter ที่ UGF ด้วยการวิจัยเชิงปฏิบัติการ (action research) ผู้เขียนคนหนึ่งเป็นผู้จัดการการเปลี่ยนแปลงของโครงการจัดการความรู้เพื่อรับมือกับกำลังคนสูงวัย และโครงการดำเนินมาแล้วกว่า 2 ปีเมื่อส่งบทความ (pp. 54–55)</p>
+<p>ผู้เขียนชี้ว่ากรอบของ Kotter มักถูกตีความเป็นขั้นตอนเส้นตรง และ Kotter เองก็เน้นความสำคัญของลำดับ (p. 61) แต่ที่ UGF ผลที่พบมีสามข้อ</p>
+<ul><li>กลุ่มผู้มีส่วนได้ส่วนเสียแต่ละกลุ่มเริ่มกระบวนการคนละเวลา ทีมต้องดูแลกระบวนการแปดขั้นหลายชุดพร้อมกัน แปดขั้นอธิบายการเปลี่ยนแปลงได้ถูกต้องในระดับกลุ่ม (p. 61)</li><li>แต่ละกลุ่มเดินคนละความเร็ว หลังโครงการเริ่มไป 10 เดือน กลุ่มผู้จัดการที่อยู่ต่ำกว่า CEO ห้าระดับยังไม่เห็นความเร่งด่วน ทีมต้องเริ่มกระบวนการใหม่กับกลุ่มนี้ ตั้งแต่ให้ผู้บริหารระดับสูงมาพูดถึงความจำเป็น ตั้งกลุ่มนำของตนเอง และกำหนดว่าการเปลี่ยนแปลงหมายถึงอะไรสำหรับกลุ่มนี้ (pp. 61–62)</li><li>มีคณะผู้นำการเปลี่ยนแปลงหลายคณะในหลายระดับ แต่ละคณะรับผิดชอบในขอบเขตของตน ขณะที่งานเขียนของ Kotter มักพูดถึงคณะผู้นำเพียงคณะเดียว (p. 62)</li></ul>
+<p>เมื่อรวมความพยายามของทุกกลุ่ม ภาพในระดับองค์กรดูเหมือนเดินผ่านแปดขั้นเป็นเส้นตรง แต่ภาพนั้นประกอบด้วยหลายกลุ่มที่เดินขนานกัน ทีมการเปลี่ยนแปลงจึงต้องพร้อมทำหลายขั้นในเวลาเดียวกัน ขึ้นกับว่ากำลังทำงานกับกลุ่มใด (p. 63) ผู้เขียนสรุปว่ากรอบของ Kotter เป็นวิธีที่ได้ผลในการจัดการการเปลี่ยนแปลงครั้งนี้ แต่ต้องปรับให้เข้ากับองค์กร (p. 63)</p>
+<p>ข้อจำกัดของงานนี้คือศึกษาองค์กรเดียว และผู้ให้ข้อมูลหลักคือผู้จัดการการเปลี่ยนแปลงเอง ผู้เขียนยอมรับว่าพิสูจน์ไม่ได้ว่าวิธีที่ใช้ดีที่สุด (p. 61) ข้อค้นพบจึงใช้เป็นข้อเตือนสำหรับการวางแผน มากกว่าเป็นข้อสรุปที่ใช้ได้กับทุกองค์กร</p>
+<p class="tcap"><b>ตารางที่ 2.4</b> ตัวอย่างการวางแปดขั้นแยกตามกลุ่มผู้มีส่วนได้ส่วนเสีย (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>กลุ่ม</th><th>เดือนที่ 1–2</th><th>เดือนที่ 3–4</th><th>เดือนที่ 5–6</th></tr></thead><tbody><tr><td>คณะผู้บริหารระดับสูง</td><td>ขั้น 1–3</td><td>ขั้น 4</td><td>ขั้น 6–7</td></tr><tr><td>ผู้จัดการระดับกลาง</td><td>ยังไม่เริ่ม</td><td>ขั้น 1–2</td><td>ขั้น 3–5</td></tr><tr><td>พนักงานหน้างาน</td><td>ยังไม่เริ่ม</td><td>ขั้น 1</td><td>ขั้น 4–6</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอนจากข้อค้นพบของ Pollack และ Pollack (2015, pp. 61–63) จำนวนเดือนและลำดับเป็นตัวอย่าง ไม่ใช่ค่าที่งานวิจัยแนะนำ</p>
+<p>ตารางแบบนี้ทำให้แผนตอบได้ว่า ณ เวลาหนึ่ง แต่ละกลุ่มอยู่ขั้นใด และช่วยไม่ให้ผู้วางแผนสรุปเร็วเกินไปว่า "ผ่านขั้นสร้างความเร่งด่วนแล้ว" เพียงเพราะผู้บริหารระดับสูงเห็นด้วย</p>
+<h2 id="s-2-4">2.4 การเลือกกรอบขั้นตอนสำหรับแผนการจัดการการเปลี่ยนแปลง</h2>
+<p>หัวข้อ 2.1 ถึง 2.3 แสดงว่าไม่มีกรอบใดที่มีหลักฐานครบและใช้ได้กับทุกองค์กร การเลือกกรอบจึงเป็นการตัดสินใจที่ต้องให้เหตุผล ไม่ใช่การเลือกกรอบที่ดีที่สุดเพียงกรอบเดียว</p>
+<h3 id="s-2-4-1">2.4.1 เปรียบเทียบกรอบขั้นตอน</h3>
+<p class="tcap"><b>ตารางที่ 2.5</b> เปรียบเทียบกรอบขั้นตอนการเปลี่ยนแปลงในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>แนวคิดสามขั้น</th><th>กระบวนการแปดขั้นของ Kotter</th><th>มุมมองการเปลี่ยนแปลงแบบต่อเนื่อง</th></tr></thead><tbody><tr><td>มองการเปลี่ยนแปลงเป็น</td><td>ช่วงเปลี่ยนระหว่างสภาพนิ่งสองสภาพ</td><td>ลำดับขั้นที่ผู้นำขับ</td><td>การปรับตัวที่เกิดอยู่ตลอด</td></tr><tr><td>จุดแข็ง</td><td>เรียบง่าย ใช้วิเคราะห์แรงผลักและแรงต้านได้</td><td>บอกกิจกรรมละเอียดกว่า มีขั้นสื่อสารและชัยชนะระยะสั้น</td><td>ไม่มองข้ามการปรับตัวที่มีอยู่แล้ว</td></tr><tr><td>ข้อวิจารณ์หรือข้อจำกัด</td><td>มององค์กรคงที่ ละเลยอำนาจ บนลงล่าง ที่มาของแนวคิดถูกตั้งคำถาม (Burnes, 2004; Cummings et al., 2016)</td><td>บอกว่าทำอะไรแต่ไม่บอกวิธี วางแผนมากเกินจริง (Pollack &amp; Pollack, 2015, p. 53)</td><td>ยังไม่มีกรอบสำเร็จรูปสำหรับเขียนเป็นแผน</td></tr><tr><td>หลักฐาน</td><td>งานทบทวนเชิงแนวคิด (Burnes, 2004; Hussain et al., 2018)</td><td>หลักฐานรายขั้นส่วนใหญ่ แต่ไม่มีงานศึกษาทั้งกรอบ (Appelbaum et al., 2012) กรณีใช้จริงมีน้อย</td><td>งานทบทวน (Weick &amp; Quinn, 1999)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างจากแหล่งที่อ้างในตาราง</p>
+<h3 id="s-2-4-2">2.4.2 เกณฑ์การเลือกกรอบ</h3>
+<p>ตารางที่ 2.6 รวมคำถามที่ผู้วางแผนควรตอบก่อนเลือกกรอบ คำถามแต่ละข้อมาจากหลักฐานในบทที่ 1 และบทนี้</p>
+<p class="tcap"><b>ตารางที่ 2.6</b> คำถามช่วยเลือกกรอบขั้นตอนการเปลี่ยนแปลง</p>
+<div class="tablewrap"><table><thead><tr><th>คำถาม</th><th>ถ้าตอบว่าใช่</th><th>ที่มาของเหตุผล</th></tr></thead><tbody><tr><td>การเปลี่ยนแปลงขับเคลื่อนด้วยเป้าหมายที่ผู้นำตั้งไว้เป็นหลัก หรือไม่</td><td>กรอบขั้นตอนแบบมีแผนใช้ได้ดี</td><td>กลไกมุ่งเป้าหมาย (Van de Ven &amp; Poole, 1995, pp. 516, 523)</td></tr><tr><td>การเปลี่ยนแปลงเกิดจากการต่อรองระหว่างกลุ่มที่มีผลประโยชน์ต่างกัน หรือไม่</td><td>เติมการวิเคราะห์อำนาจและผู้มีส่วนได้ส่วนเสีย เพราะกรอบขั้นตอนอธิบายเรื่องนี้น้อย</td><td>คำวิจารณ์เรื่องอำนาจและการเมือง (Burnes, 2004)</td></tr><tr><td>มีกลุ่มผู้มีส่วนได้ส่วนเสียหลายกลุ่มในหลายระดับ หรือไม่</td><td>วางขั้นแยกตามกลุ่ม และมีคณะผู้นำมากกว่าหนึ่งคณะ</td><td>Pollack และ Pollack (2015, pp. 61–63)</td></tr><tr><td>องค์กรปรับตัวอยู่ตลอดและไม่มีช่วงนิ่งชัดเจน หรือไม่</td><td>ระวังการใช้ขั้นตรึงใหม่ และพิจารณามุมมองแบบต่อเนื่อง</td><td>Weick และ Quinn (1999)</td></tr><tr><td>กรอบที่เลือกไม่ได้บอกวิธีทำในบางขั้น หรือไม่</td><td>ระบุเครื่องมือที่จะใช้เสริมในขั้นนั้น</td><td>Appelbaum และคณะ (2012) และ Pollack และ Pollack (2015, p. 53)</td></tr><tr><td>ผู้วางแผนจะอ้างว่ากรอบนี้ "ได้ผล" หรือไม่</td><td>อ้างเฉพาะหลักฐานที่ตรวจได้ ไม่ใช้ตัวเลขร้อยละ 70</td><td>Hughes (2011) และ Stouten และคณะ (2018)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างจากแหล่งที่อ้างในคอลัมน์ขวา</p>
+<p>นิสิตไม่จำเป็นต้องเลือกกรอบเดียว การใช้แนวคิดสามขั้นเป็นโครงใหญ่ แล้วใช้แปดขั้นของ Kotter อธิบายกิจกรรมในขั้น "เปลี่ยน" ก็เป็นทางเลือกที่ให้เหตุผลได้ สิ่งที่ต้องมีคือเหตุผลว่าทำไมกรอบที่เลือกเหมาะกับการเปลี่ยนแปลงขององค์กรนี้ และจุดใดที่กรอบไม่ครอบคลุม</p>
+<h3 id="s-2-4-3">2.4.3 เขียนกรอบขั้นตอนในแผนให้ตรวจได้</h3>
+<p>หลักคิดข้อที่ 4 ของรายวิชาคือแผนต้องตรวจได้ กรอบขั้นตอนที่เขียนเพียงชื่อขั้นยังตรวจไม่ได้ ตารางที่ 2.7 แสดงความต่างระหว่างการเขียนที่ตรวจไม่ได้กับการเขียนที่ตรวจได้</p>
+<p class="tcap"><b>ตารางที่ 2.7</b> ตัวอย่างการเขียนกรอบขั้นตอนในแผนให้ตรวจได้ (ตัวอย่างสมมติ)</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>เขียนแบบตรวจไม่ได้</th><th>เขียนแบบตรวจได้</th></tr></thead><tbody><tr><td>สร้างความรู้สึกเร่งด่วน</td><td>สร้างความตระหนักให้พนักงาน</td><td>ผู้อำนวยการฝ่ายนำเสนอข้อมูลต้นทุนที่เพิ่มขึ้นในการประชุมทุกหน่วย ภายในเดือนที่ 1 วัดจากแบบสอบถามสั้นว่าพนักงานบอกเหตุผลของการเปลี่ยนได้</td></tr><tr><td>สร้างคณะผู้นำการเปลี่ยนแปลง</td><td>ตั้งคณะทำงาน</td><td>ตั้งคณะผู้บริหาร 1 คณะ และคณะระดับหน่วยอีก 3 คณะ ระบุชื่อประธานและอำนาจตัดสินใจของแต่ละคณะ ภายในเดือนที่ 2</td></tr><tr><td>สื่อสารวิสัยทัศน์</td><td>สื่อสารอย่างทั่วถึง</td><td>ผู้บริหารแต่ละคนนำเสนอต่อทีมของตนอย่างน้อยเดือนละครั้ง ทีมการเปลี่ยนแปลงจัดเวทีและเตรียมสไลด์ให้ ตรวจจากบันทึกการประชุม</td></tr><tr><td>สร้างชัยชนะระยะสั้น</td><td>ประชาสัมพันธ์ความสำเร็จ</td><td>กำหนดชัยชนะที่วัดได้ 2 เรื่องภายในเดือนที่ 4 และเล่าผ่านเรื่องเล่าของพนักงานจริงในอินทราเน็ต</td></tr><tr><td>ตรึงใหม่ หรือฝังในวัฒนธรรม</td><td>ทำให้เป็นวัฒนธรรมองค์กร</td><td>ใส่พฤติกรรมใหม่ในเกณฑ์ประเมินผลงานประจำปี และติดตามตัวชี้วัดต่อหลังโครงการจบอย่างน้อย 1 ปี</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสร้างเพื่อการสอน ตัวอย่างในคอลัมน์ขวาได้แนวคิดจากการปฏิบัติที่ UGF (Pollack &amp; Pollack, 2015, pp. 56–60) จำนวนและเวลาเป็นตัวอย่าง ไม่ใช่ค่าที่งานวิจัยแนะนำ</p>
+<h2 id="s-2-5">2.5 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานวิจัยในบทนี้ส่วนใหญ่เป็นงานทบทวน งานเชิงประจักษ์ที่ศึกษาการใช้กรอบขั้นตอนจริงมีน้อย ซึ่งสอดคล้องกับข้อสังเกตของ Appelbaum และคณะ (2012) และ Pollack และ Pollack (2015) งานเชิงประจักษ์สองชิ้นในตารางใช้การวิจัยเชิงปฏิบัติการ ผู้วิจัยมีส่วนร่วมในการเปลี่ยนแปลงเอง ข้อดีคือเห็นการใช้กรอบในรายละเอียด ข้อจำกัดคือศึกษาองค์กรเดียวและผู้วิจัยไม่ได้เป็นผู้สังเกตภายนอก</p>
+<p class="tcap"><b>ตารางที่ 2.8</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Pollack และ Pollack (2015)</td><td>การใช้กรอบแปดขั้นของ Kotter ในโครงการจัดการความรู้ของบริษัทการเงินและประกันภัย (UGF)</td><td>วิจัยเชิงปฏิบัติการ</td><td>แปดขั้นถูกต้องในระดับกลุ่ม แต่ต้องดูแลหลายชุดพร้อมกัน แต่ละกลุ่มเดินคนละความเร็ว</td></tr><tr><td>Ansari และ Bell (2009)</td><td>โครงการผู้นำด้านต้นทุนที่ Shell Gabon</td><td>วิจัยเชิงปฏิบัติการ</td><td>การเปลี่ยนแปลงทางบัญชีคือการจัดการการเปลี่ยนแปลง บทเรียน 5 ข้อ และพบช่องว่างของตัวแบบที่มีอยู่</td></tr><tr><td>Appelbaum และคณะ (2012)</td><td>หลักฐานของกรอบแปดขั้น</td><td>ทบทวนวรรณกรรมรายขั้น</td><td>หลักฐานรองรับขั้นส่วนใหญ่ ไม่มีงานศึกษาทั้งกรอบ ความนิยมมาจากรูปแบบที่ใช้ง่าย</td></tr><tr><td>Stouten และคณะ (2018)</td><td>ความสอดคล้องของโมเดลยอดนิยมกับงานวิชาการ</td><td>ทบทวนวรรณกรรม</td><td>ผู้ปฏิบัติพึ่งความเห็นผู้เชี่ยวชาญมากกว่าหลักฐาน เสนอ 10 ขั้นที่มีหลักฐาน</td></tr><tr><td>Hughes (2011)</td><td>ที่มาของตัวเลขความล้มเหลวร้อยละ 70</td><td>ทบทวนแหล่งที่ตีพิมพ์ 5 แหล่ง</td><td>ไม่มีหลักฐานเชิงประจักษ์ที่ถูกต้องรองรับ</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Ansari และ Bell Appelbaum และคณะ Stouten และคณะ และ Hughes มาจากบทคัดย่อ</p>
+<h2 id="s-2-6">2.6 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยเมื่อนิสิตและองค์กรนำกรอบขั้นตอนไปใช้</p>
+<p class="tcap"><b>ตารางที่ 2.9</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เขียนว่า "Lewin เสนอการเปลี่ยนแปลงสามขั้น" โดยอ้าง Lewin (1947) ที่ไม่ได้อ่าน</td><td>ที่มาของแนวคิดถูกโต้แย้ง (Cummings et al., 2016) และการอ้างแหล่งที่ไม่ได้อ่านตรวจสอบไม่ได้ (หัวข้อ 2.2.4)</td><td>เขียนว่า "แนวคิดสามขั้นที่มักยกให้เป็นของ Lewin" และอ้างแหล่งที่อ่านจริง</td></tr><tr><td>ใช้แปดขั้นของ Kotter เป็นรายการตรวจที่ทำทีละขั้นทั้งองค์กร</td><td>ในทางปฏิบัติแต่ละกลุ่มเริ่มคนละเวลาและเดินคนละความเร็ว (Pollack &amp; Pollack, 2015, pp. 61–63)</td><td>วางขั้นแยกตามกลุ่มตามตารางที่ 2.4</td></tr><tr><td>เขียนว่ากรอบของ Kotter "พิสูจน์แล้วว่าได้ผล"</td><td>ไม่มีงานที่ศึกษาทั้งกรอบ และหลักฐานส่วนใหญ่มาจาก Kotter เอง (Appelbaum et al., 2012)</td><td>บอกว่ามีหลักฐานรายขั้นส่วนใหญ่ และระบุเครื่องมือเสริม</td></tr><tr><td>อ้าง "การเปลี่ยนแปลงล้มเหลวร้อยละ 70" เพื่อให้เหตุผลว่าต้องใช้กรอบขั้นตอน</td><td>ไม่มีหลักฐานเชิงประจักษ์ที่ถูกต้องรองรับ (Hughes, 2011)</td><td>ให้เหตุผลจากลักษณะการเปลี่ยนแปลงขององค์กรตามตารางที่ 2.6</td></tr><tr><td>เขียนชื่อขั้นในแผนโดยไม่มีผู้รับผิดชอบ เวลา และตัวชี้วัด</td><td>ตรวจไม่ได้ว่าทำแล้วหรือยัง (หัวข้อ 2.4.3)</td><td>เขียนตามรูปแบบในตารางที่ 2.7</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: Shell Gabon กับการเลือกและปรับกรอบขั้นตอน</div><p>Shell Gabon เป็นหน่วยธุรกิจของ Royal Dutch Shell ในแอฟริกาตะวันตก งานวิจัยของ Ansari และ Bell (2009) ศึกษาการนำโครงการผู้นำด้านต้นทุนเชิงกลยุทธ์มาใช้ในหน่วยธุรกิจนี้ ด้วยการวิจัยเชิงปฏิบัติการ</p><p>งานวิจัยของ Ansari และ Bell พบว่าการเปลี่ยนแปลงทางบัญชีที่ดูเป็นเรื่องเทคนิค ท้ายที่สุดคือการจัดการการเปลี่ยนแปลง การนำไปใช้ให้สำเร็จต้องสร้างภาพอนาคตที่ยังไม่มีอยู่ แล้วทำให้ภาพนั้นน่าเชื่อด้วยการเชื่อมกับค่านิยมของคนในองค์กร ผู้วิจัยสรุปบทเรียน 5 ข้อสำหรับผู้นำการเปลี่ยนแปลง</p><p>1. เข้าใจแบบแผนความคิดของคนในองค์กร</p><p>2. เคารพค่านิยมทางวัฒนธรรมขององค์กร</p><p>3. ให้คนในองค์กรมีส่วนร่วมอย่างมีความหมาย</p><p>4. ใช้กระบวนการที่มีโครงสร้างในการคลี่การเปลี่ยนแปลง</p><p>5. พร้อมคว้าโอกาสใหม่และทิ้งแผนเดิมเมื่อจำเป็น</p><p>ผู้วิจัยยังระบุว่ากรณีนี้เผยช่องว่างของตัวแบบการจัดการการเปลี่ยนแปลงที่มีอยู่ Pollack และ Pollack (2015, p. 54) รายงานจากงานนี้ว่าทีมใช้กรอบของ Kotter ในช่วงวางแผนเริ่มต้น แต่พบว่าไม่ใช่ทุกขั้นที่เข้ากับบริบท จึงต้องเพิ่มกรอบแนวคิดอื่น และ Ansari และ Bell เห็นว่าการสื่อสารเป็นหนึ่งในสองขั้นที่สำคัญที่สุดของ Kotter (Ansari &amp; Bell, 2009 อ้างถึงใน Pollack &amp; Pollack, 2015, p. 57)</p><p>ข้อมูลในกล่องนี้มาจากบทคัดย่อของ Ansari และ Bell และจากการอ้างถึงใน Pollack และ Pollack เท่านั้น เมื่อมองด้วยกรอบในบทนี้ บทเรียนข้อ 4 และข้อ 5 คือหัวใจของการเลือกกรอบ ใช้กรอบขั้นตอนเป็นโครง แต่พร้อมปรับเมื่อบางขั้นไม่เข้ากับบริบท ซึ่งตรงกับข้อสรุปของ Appelbaum และคณะ (2012) ว่ากรอบของ Kotter ควรใช้ร่วมกับเครื่องมืออื่น</p><p class="q"><b>คำถามชวนคิด</b> ถ้าท่านเป็นผู้นำการเปลี่ยนแปลงที่ Shell Gabon และพบว่าบางขั้นของกรอบที่เลือกไม่เข้ากับวัฒนธรรมของหน่วยธุรกิจ ท่านจะใช้ข้อมูลอะไรตัดสินใจว่าจะปรับขั้นนั้น ตัดทิ้ง หรือเติมกรอบอื่น และจะเขียนการตัดสินใจนี้ไว้ในแผนอย่างไรให้ตรวจได้</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ส่วนที่ 2 ของแผนการจัดการการเปลี่ยนแปลง คือ "กรอบขั้นตอนการเปลี่ยนแปลงที่เลือกใช้และเหตุผล" ผู้วางแผนต้องบอกได้ว่าเลือกกรอบใด เพราะเหตุใดจึงเหมาะกับลักษณะการเปลี่ยนแปลงที่ระบุไว้ในส่วนที่ 1 และกรอบนี้มีหลักฐานรองรับแค่ไหน</p><p>ส่วนนี้ต้องวางขั้นแยกตามกลุ่มผู้มีส่วนได้ส่วนเสีย และเขียนแต่ละขั้นให้มีผู้รับผิดชอบ เวลา และตัวชี้วัด ตามตารางที่ 2.4 และ 2.7</p><p>ใบงานที่ 2 คือร่างแรกของส่วนนี้ ส่งสัปดาห์ที่ 3 และเป็นส่วนที่ 2 ของเล่มแผนกลุ่มในสัปดาห์ที่ 16</p><p>บทที่ 3 จะใช้ SWOT และ PESTEL วิเคราะห์แรงขับการเปลี่ยนแปลงขององค์กร ซึ่งจะเป็นข้อมูลสำหรับขั้นสร้างความเร่งด่วนหรือขั้นละลาย</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรอธิบายได้ว่ากรอบขั้นตอนการเปลี่ยนแปลงคือคำตอบของคำถาม "ทำอะไรก่อนหลัง" สำหรับการเปลี่ยนแปลงแบบมีแผน และเมื่อมองด้วยกรอบกลไกขับเคลื่อนในบทที่ 1 กรอบขั้นตอนผสมกลไกมุ่งเป้าหมายกับวงจรชีวิตเข้าด้วยกัน นิสิตควรแยกการเปลี่ยนแปลงแบบครั้งคราวกับแบบต่อเนื่องได้ และรู้ว่ากรอบขั้นตอนส่วนใหญ่มองการเปลี่ยนแปลงแบบครั้งคราว</p>
+<p>นิสิตยังสามารถอธิบายแนวคิดสามขั้นที่ยกให้เป็นของ Lewin ทั้งการวิเคราะห์แรงผลักและแรงต้าน คำวิจารณ์ 4 ข้อ และข้อถกเถียงว่า Lewin ไม่ได้พัฒนาแนวคิดนี้ในรูปที่รู้จักกัน และอธิบายกระบวนการแปดขั้นของ Kotter พร้อมหลักฐานว่ามีงานรองรับขั้นส่วนใหญ่ แต่ไม่มีงานที่ศึกษาทั้งกรอบ ผลการวิจัยที่ UGF แสดงว่าแปดขั้นใช้ได้ในระดับกลุ่ม แต่ทั้งองค์กรต้องดูแลหลายชุดพร้อมกัน</p>
+<p>นิสิตนำความรู้นี้ไปใช้ทันทีในใบงานที่ 2 โดยใช้ตารางที่ 2.6 เลือกกรอบให้เหมาะกับองค์กรที่เลือก และเขียนกรอบให้ตรวจได้ตามตารางที่ 2.7 บทที่ 3 จะต่อด้วยการวิเคราะห์ภาวะแวดล้อมด้วย SWOT และ PESTEL ซึ่งให้ข้อมูลว่าแรงใดผลักให้องค์กรต้องเปลี่ยน</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การเปลี่ยนแปลงแบบมีแผน (planned change)</li><li>กรอบขั้นตอนการเปลี่ยนแปลง (change process framework)</li><li>การเปลี่ยนแปลงแบบครั้งคราวและแบบต่อเนื่อง (episodic and continuous change)</li><li>ความเฉื่อย (inertia)</li><li>สนามแรง แรงผลักและแรงต้าน (force field, driving and restraining forces)</li><li>ละลาย เปลี่ยน ตรึงใหม่ (unfreezing, moving, refreezing)</li><li>ทฤษฎีสนามและพลวัตกลุ่ม (field theory and group dynamics)</li><li>การวิจัยเชิงปฏิบัติการ (action research)</li><li>การมีส่วนร่วมของพนักงาน (employee involvement)</li><li>คณะผู้นำการเปลี่ยนแปลง (guiding coalition)</li><li>ชัยชนะระยะสั้น (short-term wins)</li><li>การเปลี่ยนแปลงแบบเกิดขึ้นเอง (emergent change)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>กรอบขั้นตอนการเปลี่ยนแปลงตอบคำถามใดของแผน และไม่ได้ตอบคำถามใด จงยกตัวอย่าง</li><li>จงอธิบายด้วยข้อสังเกตของ Van de Ven และ Poole (1995, p. 523) ว่ากรอบขั้นตอนแบบมีแผนผสมกลไกขับเคลื่อนแบบใด และข้อนี้มีผลต่อการเลือกกรอบอย่างไร</li><li>การเปลี่ยนแปลงแบบครั้งคราวกับแบบต่อเนื่องต่างกันอย่างไรตาม Weick และ Quinn (1999) และการมองแบบต่อเนื่องเตือนผู้วางแผนเรื่องใด</li><li>จงอธิบายการวิเคราะห์สนามแรง และยกตัวอย่างแรงผลักและแรงต้านขององค์กรที่นิสิตเลือกในใบงานที่ 1 อย่างละสองข้อ</li><li>Burnes (2004) สรุปคำวิจารณ์หลักต่อแนวคิดสามขั้นไว้ 4 ข้อ จงอธิบายแต่ละข้อ และบอกว่าข้อใดสำคัญที่สุดสำหรับองค์กรของนิสิต</li><li>Cummings, Bridgman และ Brown (2016) โต้แย้งเรื่องที่มาของแนวคิดสามขั้นว่าอย่างไร และข้อโต้แย้งนี้เปลี่ยนวิธีที่นิสิตควรอ้างแนวคิดนี้ในรายงานอย่างไร</li><li>จงอธิบายแปดขั้นของ Kotter และบอกว่าขั้นใดที่ UGF ใช้แรงมากที่สุดตามรายงานของ Pollack และ Pollack (2015)</li><li>ผลการวิจัยที่ UGF แสดงว่ากระบวนการแปดขั้นไม่ได้เดินเป็นเส้นตรงอย่างไร และผู้วางแผนควรเขียนแผนต่างไปจากเดิมอย่างไร</li><li>เพื่อนร่วมชั้นเขียนในรายงานว่า "กรอบแปดขั้นของ Kotter ได้รับการพิสูจน์แล้วว่าได้ผล เพราะเป็นกรอบที่นิยมที่สุด" นิสิตจะให้ข้อเสนอแนะอย่างไรตามหลักหลักฐานก่อนความนิยม โดยอ้าง Appelbaum และคณะ (2012) และ Stouten และคณะ (2018)</li><li>บทเรียนของ Ansari และ Bell (2009) จากกรณี Shell Gabon ข้อใดช่วยในการเลือกและปรับกรอบขั้นตอน จงอธิบาย</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 2 เลือกและให้เหตุผลกรอบขั้นตอนการเปลี่ยนแปลง</h2>
+<p>ใบงานเดี่ยว ตอบไม่เกินสามหน้ากระดาษ A4 และส่งก่อนเริ่มเรียนสัปดาห์ที่ 3 ใช้องค์กรและการเปลี่ยนแปลงเดียวกับใบงานที่ 1 ใบงานนี้เป็นส่วนที่ 2 ของเล่มแผนกลุ่มสัปดาห์ที่ 16</p>
+<ol><li>สรุปองค์กรและการเปลี่ยนแปลงจากใบงานที่ 1 ไม่เกินห้าบรรทัด รวมทั้งประเภทและกลไกขับเคลื่อนที่ระบุไว้</li><li>ตอบคำถามทั้ง 6 ข้อในตารางที่ 2.6 สำหรับองค์กรนี้ ข้อละหนึ่งถึงสองประโยค</li><li>กรอบขั้นตอนที่เลือก (แนวคิดสามขั้น กระบวนการแปดขั้น การผสม หรือกรอบอื่นที่มีแหล่งอ้างอิง) พร้อมเหตุผลจากคำตอบในข้อ 2</li><li>หลักฐานที่รองรับและข้อจำกัดของกรอบที่เลือก อ้างงานวิจัยในบทนี้อย่างน้อย 2 เรื่อง</li><li>กลุ่มผู้มีส่วนได้ส่วนเสียอย่างน้อย 3 กลุ่ม และตารางว่าแต่ละกลุ่มจะผ่านขั้นใดในช่วงเวลาใด ตามรูปแบบตารางที่ 2.4</li><li>เขียนอย่างน้อย 3 ขั้นของกรอบที่เลือกให้ตรวจได้ ตามรูปแบบคอลัมน์ขวาของตารางที่ 2.7 คือมีผู้รับผิดชอบ เวลา และตัวชี้วัด</li><li>ขั้นใดของกรอบที่อาจไม่เข้ากับองค์กรนี้ และจะปรับหรือเติมด้วยอะไร</li><li>รายการแหล่งอ้างอิงที่ใช้ตามรูปแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Ansari, S., &amp; Bell, J. (2009). Five easy pieces: A case study of cost management as organizational change. <em>Journal of Accounting &amp; Organizational Change</em>, <em>5</em>(2), 139–167. <a href="https://doi.org/10.1108/18325910910963418" target="_blank" rel="noopener">https://doi.org/10.1108/18325910910963418</a></div>
+<div class="r">Appelbaum, S. H., Habashy, S., Malo, J., &amp; Shafiq, H. (2012). Back to the future: Revisiting Kotter's 1996 change model. <em>Journal of Management Development</em>, <em>31</em>(8), 764–782. <a href="https://doi.org/10.1108/02621711211253231" target="_blank" rel="noopener">https://doi.org/10.1108/02621711211253231</a></div>
+<div class="r">Burnes, B. (2004). Kurt Lewin and the planned approach to change: A re-appraisal. <em>Journal of Management Studies</em>, <em>41</em>(6), 977–1002. <a href="https://doi.org/10.1111/j.1467-6486.2004.00463.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1467-6486.2004.00463.x</a></div>
+<div class="r">By, R. T. (2005). Organisational change management: A critical review. <em>Journal of Change Management</em>, <em>5</em>(4), 369–380. <a href="https://doi.org/10.1080/14697010500359250" target="_blank" rel="noopener">https://doi.org/10.1080/14697010500359250</a></div>
+<div class="r">Cummings, S., Bridgman, T., &amp; Brown, K. G. (2016). Unfreezing change as three steps: Rethinking Kurt Lewin's legacy for change management. <em>Human Relations</em>, <em>69</em>(1), 33–60. <a href="https://doi.org/10.1177/0018726715577707" target="_blank" rel="noopener">https://doi.org/10.1177/0018726715577707</a></div>
+<div class="r">Hughes, M. (2011). Do 70 per cent of all organizational change initiatives really fail? <em>Journal of Change Management</em>, <em>11</em>(4), 451–464. <a href="https://doi.org/10.1080/14697017.2011.630506" target="_blank" rel="noopener">https://doi.org/10.1080/14697017.2011.630506</a></div>
+<div class="r">Hussain, S. T., Lei, S., Akram, T., Haider, M. J., Hussain, S. H., &amp; Ali, M. (2018). Kurt Lewin's change model: A critical review of the role of leadership and employee involvement in organizational change. <em>Journal of Innovation &amp; Knowledge</em>, <em>3</em>(3), 123–127. <a href="https://doi.org/10.1016/j.jik.2016.07.002" target="_blank" rel="noopener">https://doi.org/10.1016/j.jik.2016.07.002</a></div>
+<div class="r">Pollack, J., &amp; Pollack, R. (2015). Using Kotter's eight stage process to manage an organisational change program: Presentation and practice. <em>Systemic Practice and Action Research</em>, <em>28</em>(1), 51–66. <a href="https://doi.org/10.1007/s11213-014-9317-0" target="_blank" rel="noopener">https://doi.org/10.1007/s11213-014-9317-0</a></div>
+<div class="r">Stouten, J., Rousseau, D. M., &amp; De Cremer, D. (2018). Successful organizational change: Integrating the management practice and scholarly literatures. <em>Academy of Management Annals</em>, <em>12</em>(2), 752–788. <a href="https://doi.org/10.5465/annals.2016.0095" target="_blank" rel="noopener">https://doi.org/10.5465/annals.2016.0095</a></div>
+<div class="r">Van de Ven, A. H., &amp; Poole, M. S. (1995). Explaining development and change in organizations. <em>Academy of Management Review</em>, <em>20</em>(3), 510–540. <a href="https://doi.org/10.2307/258786" target="_blank" rel="noopener">https://doi.org/10.2307/258786</a></div>
+<div class="r">Weick, K. E., &amp; Quinn, R. E. (1999). Organizational change and development. <em>Annual Review of Psychology</em>, <em>50</em>(1), 361–386. <a href="https://doi.org/10.1146/annurev.psych.50.1.361" target="_blank" rel="noopener">https://doi.org/10.1146/annurev.psych.50.1.361</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 2 ทฤษฎีการเปลี่ยนแปลงของ Lewin Kotter และแนวคิดอื่น. ใน <em>การจัดการการเปลี่ยนแปลงเชิงกลยุทธ์: เอกสารประกอบการสอนรายวิชา 0907021</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/sc_lesson_02.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="sc_lesson_01.html"><small>◀ บทก่อนหน้า</small>บทที่ 1 บทนำการจัดการการเปลี่ยนแปลงเชิงกลยุทธ์</a><a href="sc_lesson_03.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 3 การวิเคราะห์ภาวะแวดล้อมทางธุรกิจด้วย SWOT และ PESTEL</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907021 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['sc/slides/02/s-01.jpg', 'sc/slides/02/s-02.jpg', 'sc/slides/02/s-03.jpg', 'sc/slides/02/s-04.jpg', 'sc/slides/02/s-05.jpg', 'sc/slides/02/s-06.jpg', 'sc/slides/02/s-07.jpg', 'sc/slides/02/s-08.jpg', 'sc/slides/02/s-09.jpg', 'sc/slides/02/s-10.jpg', 'sc/slides/02/s-11.jpg', 'sc/slides/02/s-12.jpg', 'sc/slides/02/s-13.jpg', 'sc/slides/02/s-14.jpg', 'sc/slides/02/s-15.jpg', 'sc/slides/02/s-16.jpg', 'sc/slides/02/s-17.jpg', 'sc/slides/02/s-18.jpg', 'sc/slides/02/s-19.jpg', 'sc/slides/02/s-20.jpg', 'sc/slides/02/s-21.jpg', 'sc/slides/02/s-22.jpg', 'sc/slides/02/s-23.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>
