@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 5 ออกแบบแบบสอบถามและกำหนดขนาดตัวอย่าง · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 5 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 5</div><a href="#x6">ความนำ</a><a href="#s-5-1">5.1 ความลำเอียงจากวิธีวัดร่วม</a><a href="#s-5-2">5.2 คำตอบจากเอเจนต์ AI ภัยใหม่ของแบบสอบถามออนไลน์</a><a href="#s-5-3">5.3 การตั้งค่าก่อนเปิดแบบสอบถาม</a><a href="#s-5-4">5.4 การรับสมัครและกรอบการสุ่ม</a><a href="#s-5-5">5.5 ขนาดตัวอย่างจากการวิเคราะห์กำลังทดสอบ</a><a href="#s-5-6">5.6 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 5 แบบสอบถามฉบับร่างและแผนขนาดตัวอย่าง</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 5 ออกแบบแบบสอบถามและกำหนดขนาดตัวอย่าง</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 5</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความลำเอียงจากวิธีวัดร่วม และเลือกวิธีป้องกันเชิงกระบวนการที่ใช้ได้กับงานของตนได้</li><li>อธิบายด้วยหลักฐานว่าวิธีตรวจคำตอบจากเอเจนต์ AI แบบใดได้ผลและแบบใดไม่ได้ผลได้</li><li>จัดทำรายการตั้งค่าป้องกันคำตอบจากบอทและ AI ของแบบสอบถามตนเองก่อนเปิดเก็บข้อมูลได้</li><li>อธิบายว่าเหตุใดกฎง่ายในการกำหนดขนาดตัวอย่างของ SEM จึงไม่เพียงพอได้</li><li>วิเคราะห์กำลังทดสอบของแบบจำลองตนเอง พร้อมระบุที่มาของค่าพารามิเตอร์ที่ใช้ได้ (ใบงานที่ 5)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 4 ได้ข้อคำถามที่ตรวจความเที่ยงตรงเชิงเนื้อหาแล้ว บทนี้นำข้อคำถามเหล่านั้นไปจัดเป็นแบบสอบถาม และตัดสินว่าจะส่งแบบสอบถามให้ใคร กี่คน การตัดสินใจทั้งสองเรื่องต้องทำก่อนเก็บข้อมูล และต้องเขียนลงในข้อ 3 และข้อ 4 ของแผนลงทะเบียนในบทที่ 3</p>
+<p class="lead">บทนี้มีสามประเด็น ประเด็นแรกคือความลำเอียงที่เกิดจากการวัดตัวแปรหลายตัวด้วยวิธีเดียวกัน ซึ่งป้องกันได้ดีที่สุดในขั้นออกแบบ ประเด็นที่สองเป็นภัยใหม่ที่เกิดขึ้นในช่วงไม่กี่ปีมานี้ คือเอเจนต์ AI ที่ตอบแบบสอบถามออนไลน์แทนคนได้ และผ่านวิธีตรวจแบบเดิมได้เกือบทั้งหมด ประเด็นที่สามคือขนาดตัวอย่าง ซึ่งนิสิตจำนวนมากกำหนดด้วยกฎง่ายที่ส่งต่อกันมา แทนการวิเคราะห์กำลังทดสอบของแบบจำลองตนเอง</p>
+<p class="lead">ท้ายบทเป็นกรณีศึกษาเดินเรื่องของปริม ซึ่งกำลังจะเปิดแบบสอบถาม บทนี้เน้นนิสิตที่เก็บข้อมูลปฐมภูมิ นิสิตที่ใช้ข้อมูลทุติยภูมิอย่างธามใช้หัวข้อ 5.5 ได้ เพราะคำถามเรื่องกำลังทดสอบใช้กับข้อมูลทุกแบบ</p>
+<h2 id="s-5-1">5.1 ความลำเอียงจากวิธีวัดร่วม</h2>
+<p>ความลำเอียงจากวิธีวัดร่วม (common method bias) คือความสัมพันธ์ที่เกิดจากวิธีวัด ไม่ได้เกิดจากความสัมพันธ์จริงระหว่างแนวคิด ตัวอย่างที่พบบ่อยคือการให้ผู้ตอบคนเดียวกันรายงานทั้งตัวแปรต้นและตัวแปรตามในแบบสอบถามครั้งเดียว ความสัมพันธ์ที่ได้อาจสูงขึ้นเพราะผู้ตอบมีแนวโน้มตอบแบบเดียวกันทั้งชุด</p>
+<p>Podsakoff และคณะ (2024) ทบทวนงานด้านนี้และจัดวิธีแก้เป็นสามกลุ่ม ได้แก่ วิธีเชิงกระบวนการ (procedural remedy) ที่ใช้ก่อนเก็บข้อมูล วิธีเชิงสถิติ และเทคนิคตัวแปรเครื่องหมาย (marker variable) และสรุปว่าไม่มีการทดสอบใดแก้ปัญหาได้ครบ ข้อค้นพบที่สำคัญต่อการออกแบบคือ การได้คะแนนจากแหล่งต่างกันลดความสัมพันธ์ที่ลำเอียงได้มากกว่าการเว้นช่วงเวลาระหว่างการวัดตัวแปรต้นกับตัวแปรเกณฑ์ (Podsakoff et al., 2024)</p>
+<h3 id="s-5-1-1">5.1.1 วาดแหล่งของตัวแปร</h3>
+<p>ผู้เขียนเสนอให้นิสิตวาดแผนภาพเชิงสาเหตุจากบทที่ 2 อีกครั้ง แล้วเขียนกำกับตัวแปรแต่ละตัวว่าได้คะแนนจากแหล่งใด ภาพที่ 5.1 แสดงตัวอย่างของปริม ภาพซ้ายคือแผนเดิม ทุกตัวแปรมาจากแบบสอบถามพนักงานครั้งเดียว ภาพขวาคือทางเลือกที่ตัวแปรต้นมาจากอีกแหล่ง</p>
+<figure class="fig"><img src="rs/fig/ch05_sources.png" alt="แหล่งของคะแนนตัวแปรในแผนของปริม แผนเดิมกับทางเลือก (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 5.1 แหล่งของคะแนนตัวแปรในแผนของปริม แผนเดิมกับทางเลือก (กรณีศึกษาสมมติ)</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากกรณีศึกษาสมมติ ตามหลักการใน Podsakoff et al. (2024)</p>
+<p>ทางเลือกในภาพขวาใช้ได้เมื่อมีแหล่งที่สองจริง เช่น บันทึกการใช้งานระบบที่องค์การเก็บ หรือการประเมินจากหัวหน้า ถ้าไม่มี ทางเลือกรองคือแยกการวัดเป็นสองช่วงเวลา ซึ่งได้ผลน้อยกว่าตามหลักฐานข้างต้น แต่ดีกว่าการวัดครั้งเดียว นิสิตปริญญาเอกควรออกแบบให้มีแหล่งข้อมูลหลายแหล่งหรือหลายช่วงเวลา และเขียนเหตุผลไว้ในแผนลงทะเบียน</p>
+<h2 id="s-5-2">5.2 คำตอบจากเอเจนต์ AI ภัยใหม่ของแบบสอบถามออนไลน์</h2>
+<p>เอเจนต์ AI (AI agent) คือโปรแกรมที่ใช้แบบจำลองภาษาขนาดใหญ่ (large language model หรือ LLM) ควบคุมเว็บเบราว์เซอร์และทำงานต่อเนื่องได้เอง เช่น เปิดลิงก์ อ่านคำถาม และกรอกคำตอบ งานสองเรื่องที่ตีพิมพ์ในปี 2025 แสดงว่าเอเจนต์ประเภทนี้ตอบแบบสอบถามออนไลน์ได้ และผ่านวิธีตรวจที่นักวิจัยใช้กันมาก</p>
+<h3 id="s-5-2-1">5.2.1 หลักฐานจากการทดลองให้เอเจนต์ตอบแบบสอบถาม</h3>
+<p>Martherus และคณะ (2025, p. 3) ให้เอเจนต์ OpenAI Operator ตอบแบบสอบถาม 100 ครั้ง ระหว่างวันที่ 12 มีนาคม ถึง 9 เมษายน 2025 ผลแบ่งได้เป็นสามกลุ่มตามตารางที่ 5.1</p>
+<p class="tcap"><b>ตารางที่ 5.1</b> วิธีตรวจคำตอบจากเอเจนต์ AI ที่ได้ผลและไม่ได้ผล</p>
+<div class="tablewrap"><table><thead><tr><th>ผล</th><th>วิธีตรวจ</th><th>แหล่ง</th></tr></thead><tbody><tr><td>ไม่ได้ผล</td><td>คำถามตรวจความตั้งใจ (attention check) เอเจนต์ผ่านทุกครั้ง</td><td>Martherus et al. (2025, pp. 4–5)</td></tr><tr><td>ไม่ได้ผล</td><td>ถามตรงว่าเป็น AI หรือไม่ เอเจนต์ตอบว่าเป็นมนุษย์ทุกครั้ง</td><td>Martherus et al. (2025, pp. 4–5)</td></tr><tr><td>ไม่ได้ผล</td><td>การจดจำภาพ และช่องดักที่ผู้ตอบมองไม่เห็น (honeypot)</td><td>Martherus et al. (2025, pp. 4–5)</td></tr><tr><td>ไม่ได้ผล</td><td>reCAPTCHA v3</td><td>Martherus et al. (2025, p. 7 ตาราง 3)</td></tr><tr><td>ได้ผลบางส่วน</td><td>reCAPTCHA v2</td><td>Martherus et al. (2025, p. 7 ตาราง 3)</td></tr><tr><td>ได้ผลบางส่วน</td><td>ตรวจความสอดคล้องของคำตอบ ได้ผลเฉพาะเมื่อไม่ได้กำหนดบุคลิกให้เอเจนต์</td><td>Martherus et al. (2025, p. 5 ตาราง 2)</td></tr><tr><td>ได้ผล</td><td>reverse shibboleth การตรวจการคัดลอกวาง และข้อมูลอุปกรณ์ เช่น IP ของศูนย์ข้อมูลและ user agent ที่ซ้ำกัน</td><td>Martherus et al. (2025, pp. 5–7)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Martherus et al. (2025, pp. 4–7)</p>
+<p>งานนี้มีข้อจำกัดสำคัญคือไม่มีกลุ่มมนุษย์เปรียบเทียบ (Martherus et al., 2025, pp. 7–8) และทดสอบเอเจนต์เพียงตัวเดียว วิธีที่ได้ผลในตารางจึงยังไม่มีเกณฑ์ตัวเลขที่ใช้ตัดสินได้ทันที และอาจใช้ไม่ได้กับเอเจนต์ตัวอื่น</p>
+<h3 id="s-5-2-2">5.2.2 หลักฐานจากผู้ตอบสังเคราะห์</h3>
+<p>Westwood (2025, บทคัดย่อ) สร้างผู้ตอบสังเคราะห์ที่ผ่านคำถามตรวจความตั้งใจร้อยละ 99.8 จากการทดสอบ 6,000 ครั้ง และสรุปว่าสมมติฐานพื้นฐานของการสำรวจที่ว่าคำตอบที่สอดคล้องกันคือคำตอบของมนุษย์ใช้ไม่ได้แล้ว ผู้ตอบสังเคราะห์ยังอนุมานสมมติฐานของผู้วิจัยและสร้างข้อมูลที่ยืนยันสมมติฐานนั้นได้ (Westwood, 2025, บทคัดย่อ) แรงจูงใจทางการเงินก็สูง ต้นทุนตอบแบบสอบถามประมาณ 0.05 ดอลลาร์ต่อชุด ขณะที่ค่าตอบแทน 1.50 ดอลลาร์ให้กำไรเกินร้อยละ 96.8 (Westwood, 2025, หัวข้อ 3.1)</p>
+<p>สองงานนี้ให้ผลต่างกันในบางเรื่อง เช่น reverse shibboleth ได้ผลในงานแรก แต่ผู้ตอบสังเคราะห์ในงานที่สองหลบได้ ผู้เขียนตีความว่าความต่างนี้มาจากการใช้เครื่องมือต่างกัน บทเรียนสำหรับนิสิตคือห้ามพึ่งวิธีตรวจแบบเดียว และควรให้น้ำหนักกับการควบคุมการรับสมัครมากกว่ากับดักในแบบสอบถาม ซึ่งเป็นเรื่องของหัวข้อ 5.4</p>
+<h2 id="s-5-3">5.3 การตั้งค่าก่อนเปิดแบบสอบถาม</h2>
+<p>การตรวจคำตอบจากบอทหรือ AI ในบทที่ 7 ทำได้เฉพาะเมื่อระบบเก็บข้อมูลที่ต้องใช้ไว้ตั้งแต่แรก ผู้เขียนเสนอรายการตั้งค่าในตารางที่ 5.2 รายการนี้สังเคราะห์จากสองงานในหัวข้อ 5.2 และจากหมวดการป้องกันการตอบซ้ำของ CHERRIES ซึ่งกำหนดให้รายงานวิธีป้องกัน เช่น cookies การตรวจ IP การวิเคราะห์ log file และการลงทะเบียน (Eysenbach, 2004, ตารางรายการตรวจ)</p>
+<p class="tcap"><b>ตารางที่ 5.2</b> รายการตั้งค่าป้องกันคำตอบจากบอทและ AI ก่อนเปิดแบบสอบถาม (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>เหตุผล</th><th>ใช้ตรวจในบทที่ 7</th></tr></thead><tbody><tr><td>เก็บเวลาเริ่ม เวลาจบ และเวลาต่อหน้า</td><td>ตรวจผู้ตอบที่เร็วผิดปกติ</td><td>ใช่</td></tr><tr><td>เก็บข้อมูลอุปกรณ์เท่าที่ระบบเก็บได้และข้อตกลงด้านข้อมูลส่วนบุคคลยอม</td><td>ข้อมูลอุปกรณ์เป็นวิธีที่ได้ผล (Martherus et al., 2025, pp. 5–7)</td><td>ใช่</td></tr><tr><td>เปิดการตรวจการวางข้อความในช่องปลายเปิดถ้าระบบรองรับ</td><td>การตรวจการคัดลอกวางเป็นวิธีที่ได้ผล (Martherus et al., 2025, pp. 5–7)</td><td>ใช่</td></tr><tr><td>ใช้ลิงก์เฉพาะรายหรือรหัสเชิญ แทนลิงก์เปิด</td><td>ลดโอกาสที่ผู้ตอบภายนอกเข้ามา</td><td>ใช่</td></tr><tr><td>ไม่แสดงรหัสตัวแปรหรือชื่อแนวคิดบนแบบสอบถาม</td><td>ลดโอกาสที่ผู้ตอบอนุมานสมมติฐาน (Westwood, 2025, บทคัดย่อ)</td><td>ไม่</td></tr><tr><td>มีช่องปลายเปิดอย่างน้อยหนึ่งช่อง</td><td>ใช้ตรวจข้อความที่คล้ายกันผิดปกติข้ามผู้ตอบ</td><td>ใช่</td></tr><tr><td>เขียนเกณฑ์ตรวจทุกข้อในแผนลงทะเบียนก่อนเปิด</td><td>ป้องกันการตั้งเกณฑ์หลังเห็นข้อมูล (บทที่ 3)</td><td>ใช่</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสังเคราะห์จาก Martherus et al. (2025) Westwood (2025) และ Eysenbach (2004)</p>
+<p>รายการที่สองต้องตรวจกับแผนคุ้มครองข้อมูลส่วนบุคคลในบทที่ 6 ก่อนเปิดใช้ เพราะข้อมูลอุปกรณ์บางอย่างอาจเป็นข้อมูลส่วนบุคคล</p>
+<h2 id="s-5-4">5.4 การรับสมัครและกรอบการสุ่ม</h2>
+<p>Westwood (2025, หัวข้อ 2.3) ประเมินว่าแผงที่รับสมัครแบบเปิด (river sampling) ซึ่งใครก็เข้ามาตอบได้ เสี่ยงต่อผู้ตอบสังเคราะห์มากที่สุด ส่วนการสุ่มจากรายชื่อที่อยู่ หรือการสุ่มหมายเลขโทรศัพท์ (random digit dialing หรือ RDD) น่าจะปลอดภัยกว่า และเสนอว่างานที่ต้องการความมั่นใจสูงควรกลับไปใช้การรับสมัครที่ควบคุมได้ (Westwood, 2025, หัวข้อ 4)</p>
+<p>สำหรับวิทยานิพนธ์บริหารธุรกิจ ผู้เขียนเสนอให้นิสิตเขียนกรอบการสุ่ม (sampling frame) ให้ชัดว่ารายชื่อของประชากรมาจากไหน และผู้ตอบเข้าถึงแบบสอบถามทางใด ถ้าเก็บข้อมูลในองค์การ การส่งลิงก์เฉพาะรายถึงพนักงานตามรายชื่อเป็นการรับสมัครที่ควบคุมได้ ส่วนการโพสต์ลิงก์ในกลุ่มสาธารณะเป็นการรับสมัครแบบเปิด ซึ่งทั้งเสี่ยงต่อคำตอบจาก AI และทำให้นิยามประชากรไม่ได้ การได้รายชื่อจากองค์การก็มีประเด็นข้อมูลส่วนบุคคลที่ต้องจัดการในบทที่ 6</p>
+<p>การเก็บข้อมูลพนักงานหลายฝ่ายยังมีประเด็นเรื่องระดับตามบทที่ 2 ถ้าตัวแปรต้นกำหนดที่ระดับฝ่าย จำนวนฝ่ายมีผลต่อการวิเคราะห์มากกว่าจำนวนพนักงานรวม การศึกษาด้วยการจำลองของ Maas และ Hox (2005) พบว่าเมื่อจำนวนกลุ่มน้อย คือ 50 กลุ่มหรือน้อยกว่า ค่าความคลาดเคลื่อนมาตรฐานระดับกลุ่มเอนเอียง นิสิตที่วางแผนวิเคราะห์ตัวแปรระดับฝ่ายจึงต้องนับจำนวนฝ่ายที่เข้าถึงได้ตั้งแต่ขั้นออกแบบ</p>
+<h2 id="s-5-5">5.5 ขนาดตัวอย่างจากการวิเคราะห์กำลังทดสอบ</h2>
+<p>นิสิตจำนวนมากกำหนดขนาดตัวอย่างของแบบจำลองสมการโครงสร้าง (structural equation modeling หรือ SEM) ด้วยกฎง่าย (rule of thumb) เช่น จำนวนผู้ตอบต่อพารามิเตอร์หนึ่งตัว Wang และ Rhemtulla (2021, p. 1) ชี้ว่ากฎง่ายเหล่านี้ไม่มีงานวิจัยรองรับ และการวิเคราะห์กำลังทดสอบ (power analysis) ที่ใช้กันใน SEM ส่วนใหญ่มุ่งตรวจการระบุแบบจำลองผิด ซึ่งต่างจากการตรวจผลเป้าหมาย คือเส้นทางที่สมมติฐานของนิสิตสนใจ</p>
+<h3 id="s-5-5-1">5.5.1 อะไรกำหนดกำลังทดสอบ</h3>
+<p>กำลังทดสอบ (statistical power) คือโอกาสที่การวิเคราะห์จะพบผลเมื่อผลนั้นมีอยู่จริง ใน SEM กำลังทดสอบไม่ได้ขึ้นกับขนาดตัวอย่างอย่างเดียว จำนวนตัวชี้วัดต่อแนวคิดและความเที่ยงของตัวชี้วัดก็มีผลต่อกำลังทดสอบ (Wang &amp; Rhemtulla, 2021, p. 3) ข้อนี้เชื่อมกับบทที่ 4 มาตรวัดที่มีข้อคำถามน้อยหรือความเที่ยงต่ำต้องใช้ผู้ตอบมากขึ้นเพื่อให้ได้กำลังทดสอบเท่าเดิม</p>
+<h3 id="s-5-5-2">5.5.2 เครื่องมือสองแบบ</h3>
+<p>ตารางที่ 5.3 เปรียบเทียบเครื่องมือสองแบบ แบบแรกใช้การจำลอง (simulation) แบบที่สองใช้สูตรเชิงวิเคราะห์</p>
+<p class="tcap"><b>ตารางที่ 5.3</b> เครื่องมือวิเคราะห์กำลังทดสอบสำหรับ SEM</p>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>pwrSEM</th><th>power4SEM</th></tr></thead><tbody><tr><td>วิธี</td><td>จำลองข้อมูลจากแบบจำลองที่ผู้วิจัยกำหนด</td><td>คำนวณเชิงวิเคราะห์ ไม่ต้องจำลอง</td></tr><tr><td>ใช้ตอบคำถาม</td><td>กำลังทดสอบของผลเป้าหมาย เช่น เส้นทางในสมมติฐาน</td><td>กำลังของการทดสอบไคสแควร์และ RMSEA</td></tr><tr><td>รูปแบบ</td><td>แอปแบบชี้และคลิก</td><td>แอป Shiny</td></tr><tr><td>แหล่ง</td><td>Wang and Rhemtulla (2021, pp. 1, 7)</td><td>Jak et al. (2020, p. 1385)</td></tr></tbody></table></div>
+<p>สำหรับวิทยานิพนธ์ที่สมมติฐานอยู่ที่เส้นทางในแบบจำลอง ผู้เขียนเสนอให้ใช้ pwrSEM เป็นหลัก เพราะตอบคำถามว่าตัวอย่างพอสำหรับทดสอบสมมติฐานหรือไม่ โดยตรง</p>
+<h3 id="s-5-5-3">5.5.3 ค่าตั้งต้นต้องมีที่มา</h3>
+<p>การจำลองต้องใช้ค่าพารามิเตอร์ตั้งต้น เช่น ขนาดของเส้นทางหลักและน้ำหนักองค์ประกอบ ผู้เขียนเสนอให้นิสิตนำค่าจากงานก่อนหน้าที่อ้างได้ และเขียนที่มาของทุกค่า ถ้าไม่มีงานก่อนหน้า ให้ใช้ค่าที่เล็กที่สุดที่ยังมีความหมายในทางปฏิบัติ และเขียนเหตุผล Wang และ Rhemtulla (2021, p. 7) เตือนว่าผลการจำลองในบทความของตนไม่ควรนำไปใช้เป็นกฎง่ายใหม่ ผู้วิจัยต้องจำลองจากแบบจำลองของตนเอง</p>
+<p>ขนาดตัวอย่างที่ได้จากการวิเคราะห์คือจำนวนผู้ตอบที่ใช้วิเคราะห์ได้ หลังตัดผู้ตอบตามเกณฑ์ในบทที่ 7 แล้ว ดังนั้นจำนวนที่ต้องเชิญต้องมากกว่านี้ และนิสิตต้องเขียนสมมติฐานเรื่องอัตราการตอบและอัตราที่จะถูกตัดไว้ในแผนด้วย</p>
+<p>ภาพที่ 5.2 สรุปลำดับจากค่าตั้งต้นไปถึงจำนวนผู้ตอบที่ต้องเชิญ</p>
+<figure class="fig"><img src="rs/fig/ch05_invite.png" alt="ลำดับจากค่าตั้งต้นถึงจำนวนผู้ตอบที่ต้องเชิญ (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 5.2 ลำดับจากค่าตั้งต้นถึงจำนวนผู้ตอบที่ต้องเชิญ (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ ตามหลักการใน Wang และ Rhemtulla (2021) การคำนวณในกรอบสีเขียวเป็นการประมาณอย่างง่าย อัตราการตอบและอัตราที่ถูกตัดใช้ค่าที่นิสิตเขียนไว้ในแผน</p>
+<h2 id="s-5-6">5.6 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 5.4</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>วัดตัวแปรต้นและตัวแปรตามจากผู้ตอบคนเดียวกันครั้งเดียวโดยไม่มีเหตุผล</td><td>ทุกตัวแปรอยู่ในแบบสอบถามพนักงานชุดเดียว</td><td>หาแหล่งที่สองหรือแยกช่วงเวลา (Podsakoff et al., 2024)</td></tr><tr><td>เชื่อว่าคำถามตรวจความตั้งใจกันบอทได้</td><td>ตัดเฉพาะผู้ตอบที่ตอบคำถามตรวจผิด</td><td>ใช้หลายวิธีตามตารางที่ 5.2 (Martherus et al., 2025, pp. 4–5; Westwood, 2025, บทคัดย่อ)</td></tr><tr><td>ไม่ได้ตั้งระบบเก็บเมทาดาตา</td><td>ไม่มีเวลาตอบหรือข้อมูลอุปกรณ์ให้ตรวจ</td><td>ตั้งค่าก่อนเปิดตามตารางที่ 5.2</td></tr><tr><td>ใช้ลิงก์เปิดในกลุ่มสาธารณะ</td><td>โพสต์ลิงก์ในกลุ่มบนสื่อสังคม</td><td>ใช้การรับสมัครที่ควบคุมได้ (Westwood, 2025, หัวข้อ 2.3)</td></tr><tr><td>กำหนดขนาดตัวอย่างด้วยกฎง่าย</td><td>10 คนต่อพารามิเตอร์</td><td>วิเคราะห์กำลังทดสอบของแบบจำลองตนเอง (Wang &amp; Rhemtulla, 2021, p. 1)</td></tr><tr><td>ใช้ค่าตั้งต้นการจำลองโดยไม่บอกที่มา</td><td>ใส่ขนาดผลที่ทำให้ได้ตัวอย่างน้อย</td><td>อ้างงานก่อนหน้าทุกค่า (Wang &amp; Rhemtulla, 2021, p. 7)</td></tr><tr><td>ไม่เผื่อผู้ตอบที่จะถูกตัด</td><td>เชิญเท่ากับขนาดตัวอย่างที่คำนวณได้พอดี</td><td>เขียนอัตราการตอบและอัตราที่จะถูกตัดไว้ในแผน (ผู้เขียนเสนอ)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริม (กรณีศึกษาสมมติ)</div><p>ปริมวางแผนส่งลิงก์แบบสอบถามเปิดในกลุ่มสาธารณะของพนักงานบริษัทบนสื่อสังคม เพื่อให้ได้ผู้ตอบเร็ว และวัดทั้งการใช้เครื่องมือ AI และความผูกพันในงานจากพนักงานคนเดียวกันในแบบสอบถามครั้งเดียว ปริมกำหนดขนาดตัวอย่าง 300 คน ด้วยกฎ 10 คนต่อพารามิเตอร์หนึ่งตัว ตามที่รุ่นพี่แนะนำ</p><p>ฝ่ายบุคคลของบริษัทเสนอส่งรายชื่ออีเมลพนักงานทั้ง 12 ฝ่ายให้ปริม</p><p class="q"><b>คำถามชวนคิด</b> แผนของปริมมีความเสี่ยงอะไรบ้างตามหัวข้อ 5.1 5.2 และ 5.4 ข้อเสนอของฝ่ายบุคคลช่วยแก้ความเสี่ยงข้อใด และสร้างประเด็นใหม่อะไรที่ต้องจัดการในบทที่ 6 ส่วนตัวเลข 300 คน ปริมควรได้มาด้วยวิธีใดแทน</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายความลำเอียงจากวิธีวัดร่วม และรู้ว่าการได้คะแนนจากแหล่งต่างกันป้องกันได้ดีกว่าการเว้นช่วงเวลา และไม่มีการทดสอบทางสถิติใดแก้ปัญหาได้ครบ นิสิตจึงออกแบบแหล่งของตัวแปรตั้งแต่ขั้นนี้ ไม่รอแก้ในขั้นวิเคราะห์</p>
+<p>นิสิตสามารถอธิบายด้วยหลักฐานว่าเอเจนต์ AI ผ่านคำถามตรวจความตั้งใจได้เกือบทุกครั้ง วิธีที่ได้ผลกว่าคือการตรวจข้อมูลอุปกรณ์ การตรวจการคัดลอกวาง และการควบคุมการรับสมัคร นิสิตจัดทำรายการตั้งค่าก่อนเปิดแบบสอบถาม และเขียนกรอบการสุ่มที่บอกได้ว่าผู้ตอบมาจากไหน นิสิตยังสามารถอธิบายว่ากฎง่ายในการกำหนดขนาดตัวอย่างของ SEM ไม่มีงานวิจัยรองรับ และวิเคราะห์กำลังทดสอบของแบบจำลองตนเองด้วยค่าตั้งต้นที่มีที่มา</p>
+<p>ผลของใบงานที่ 5 คือแบบสอบถามฉบับร่าง รายการตั้งค่า และผลวิเคราะห์กำลังทดสอบ ก่อนนำแบบสอบถามไปทดลองใช้ในบทที่ 7 นิสิตต้องผ่านขั้นจริยธรรมการวิจัยและการคุ้มครองข้อมูลส่วนบุคคล ซึ่งเป็นเรื่องของบทที่ 6</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ความลำเอียงจากวิธีวัดร่วม (common method bias)</li><li>วิธีเชิงกระบวนการ (procedural remedy)</li><li>ตัวแปรเครื่องหมาย (marker variable)</li><li>เอเจนต์ AI (AI agent)</li><li>คำถามตรวจความตั้งใจ (attention check)</li><li>ช่องดัก (honeypot)</li><li>reverse shibboleth</li><li>การรับสมัครแบบเปิด (river sampling)</li><li>กรอบการสุ่ม (sampling frame)</li><li>กฎง่าย (rule of thumb)</li><li>กำลังทดสอบ (statistical power)</li><li>การวิเคราะห์กำลังทดสอบ (power analysis)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายความลำเอียงจากวิธีวัดร่วม และเหตุใดการได้คะแนนจากแหล่งต่างกันจึงเป็นวิธีป้องกันที่ดีกว่าการเว้นช่วงเวลา พร้อมเสนอแหล่งที่สองที่เป็นไปได้สำหรับตัวแปรหนึ่งในงานของตน</li><li>นิสิตคนหนึ่งกล่าวว่า "แบบสอบถามของผมมีคำถามตรวจความตั้งใจสามข้อ จึงไม่ต้องกังวลเรื่องบอท" จงประเมินข้อความนี้ด้วยหลักฐานในหัวข้อ 5.2</li><li>เหตุใด Westwood (2025) จึงเสนอให้ให้น้ำหนักกับการรับสมัครมากกว่ากับดักในแบบสอบถาม และข้อเสนอนี้ใช้กับการเก็บข้อมูลในองค์การของนิสิตได้อย่างไร</li><li>จงอธิบายว่ากำลังทดสอบเพื่อตรวจการระบุแบบจำลองผิด ต่างจากกำลังทดสอบเพื่อตรวจผลเป้าหมายอย่างไร และวิทยานิพนธ์ของนิสิตต้องการแบบใด</li><li>ถ้าการวิเคราะห์กำลังทดสอบบอกว่าต้องการผู้ตอบ 250 คน นิสิตควรเชิญผู้ตอบกี่คน จงอธิบายสิ่งที่ต้องคิดเพิ่มโดยไม่ต้องคำนวณตัวเลข</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 5 แบบสอบถามฉบับร่างและแผนขนาดตัวอย่าง</h2>
+<p>ให้นิสิตที่เก็บข้อมูลปฐมภูมิจัดทำเอกสารสำหรับโครงการวิจัยของตนเอง นิสิตที่ใช้ข้อมูลทุติยภูมิทำเฉพาะข้อ 4 และข้อ 6</p>
+<ol><li>แบบสอบถามฉบับร่าง ระบุลำดับข้อ ข้อกลับทิศ และช่องปลายเปิด</li><li>ภาพแหล่งของตัวแปรแบบภาพที่ 5.1 และเหตุผลถ้าตัวแปรต้นกับตัวแปรตามมาจากแหล่งเดียวกัน</li><li>รายการตั้งค่าตามตารางที่ 5.2 ระบุว่าเปิดใช้รายการใด และรายการใดระบบไม่รองรับ</li><li>ผลวิเคราะห์กำลังทดสอบของเส้นทางหลัก พร้อมค่าตั้งต้นทุกค่าและแหล่ง (นิสิตปริญญาเอกทำทุกสมมติฐาน)</li><li>กรอบการสุ่ม วิธีรับสมัคร อัตราการตอบที่คาด และจำนวนที่จะเชิญ</li><li>ปรับข้อ 3 และข้อ 4 ของแผนลงทะเบียนให้ตรงกับใบงานนี้ และบันทึกในบันทึกการแก้แผน</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Eysenbach, G. (2004). Improving the quality of web surveys: The Checklist for Reporting Results of Internet E-Surveys (CHERRIES). <em>Journal of Medical Internet Research</em>, <em>6</em>(3), e34. <a href="https://doi.org/10.2196/jmir.6.3.e34" target="_blank" rel="noopener">https://doi.org/10.2196/jmir.6.3.e34</a></div>
+<div class="r">Jak, S., Jorgensen, T. D., Verdam, M. G. E., Oort, F. J., &amp; Elffers, L. (2020). Analytical power calculations for structural equation modeling: A tutorial and Shiny app. <em>Behavior Research Methods</em>, <em>53</em>(4), 1385–1406. <a href="https://doi.org/10.3758/s13428-020-01479-0" target="_blank" rel="noopener">https://doi.org/10.3758/s13428-020-01479-0</a></div>
+<div class="r">Maas, C. J. M., &amp; Hox, J. J. (2005). Sufficient sample sizes for multilevel modeling. <em>Methodology</em>, <em>1</em>(3), 86–92. <a href="https://doi.org/10.1027/1614-2241.1.3.86" target="_blank" rel="noopener">https://doi.org/10.1027/1614-2241.1.3.86</a></div>
+<div class="r">Martherus, J., Podkul, A., Cook, E., &amp; Liebowitz, R. (2025). How to detect AI-assisted interviews in online surveys. <em>Survey Practice</em>, <em>18</em>(1), 1–10. <a href="https://doi.org/10.29115/sp-2025-0016" target="_blank" rel="noopener">https://doi.org/10.29115/sp-2025-0016</a></div>
+<div class="r">Podsakoff, P. M., Podsakoff, N. P., Williams, L. J., Huang, C., &amp; Yang, J. (2024). Common method bias: It's bad, it's complex, it's widespread, and it's not easy to fix. <em>Annual Review of Organizational Psychology and Organizational Behavior</em>, <em>11</em>(1), 17–61. <a href="https://doi.org/10.1146/annurev-orgpsych-110721-040030" target="_blank" rel="noopener">https://doi.org/10.1146/annurev-orgpsych-110721-040030</a></div>
+<div class="r">Wang, Y. A., &amp; Rhemtulla, M. (2021). Power analysis for parameter estimation in structural equation modeling: A discussion and tutorial. <em>Advances in Methods and Practices in Psychological Science</em>, <em>4</em>(1). <a href="https://doi.org/10.1177/2515245920918253" target="_blank" rel="noopener">https://doi.org/10.1177/2515245920918253</a></div>
+<div class="r">Westwood, S. J. (2025). The potential existential threat of large language models to online survey research. <em>Proceedings of the National Academy of Sciences</em>, <em>122</em>(47). <a href="https://doi.org/10.1073/pnas.2518075122" target="_blank" rel="noopener">https://doi.org/10.1073/pnas.2518075122</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 5 ออกแบบแบบสอบถามและกำหนดขนาดตัวอย่าง. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_05.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_04.html"><small>◀ บทก่อนหน้า</small>บทที่ 4 นิยามตัวแปร เลือกมาตรวัด และแปลมาตรวัด</a><a href="rs_lesson_06.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 6 จริยธรรมการวิจัย ข้อมูลส่วนบุคคล และข้อตกลงการใช้ข้อมูล</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

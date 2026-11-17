@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 3 ลงทะเบียนแผนวิเคราะห์ก่อนเห็นผล · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 3 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 3</div><a href="#x6">ความนำ</a><a href="#s-3-1">3.1 นักวิเคราะห์หลายทีม ข้อมูลชุดเดียวกัน</a><a href="#s-3-2">3.2 ความยืดหยุ่นของผู้วิจัยและผลบวกลวง</a><a href="#s-3-3">3.3 การลงทะเบียนแผนวิเคราะห์ล่วงหน้า</a><a href="#s-3-4">3.4 แม่แบบสำหรับการวิเคราะห์ข้อมูลทุติยภูมิ</a><a href="#s-3-5">3.5 แม่แบบสั้นสำหรับปริญญาโท</a><a href="#s-3-6">3.6 แนวปฏิบัติการรายงาน</a><a href="#s-3-7">3.7 Registered Report สำหรับปริญญาเอก</a><a href="#s-3-8">3.8 การแก้แผนหลังลงทะเบียนและข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 3 แผนลงทะเบียนของโครงการตนเอง</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 3 ลงทะเบียนแผนวิเคราะห์ก่อนเห็นผล</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 3</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายว่าทางเลือกเชิงวิเคราะห์ที่สมเหตุสมผลหลายทางทำให้ผลการวิจัยจากข้อมูลชุดเดียวกันต่างกันได้อย่างไร โดยยกหลักฐานจากงานนักวิเคราะห์หลายทีมได้</li><li>จำแนกการวิเคราะห์เชิงยืนยันออกจากการวิเคราะห์เชิงสำรวจในแผนวิจัยของตนได้</li><li>เลือกแม่แบบการลงทะเบียนล่วงหน้าที่เหมาะกับแหล่งข้อมูลและระดับการศึกษาของตนได้</li><li>จัดทำแผนวิเคราะห์ตามแม่แบบที่เลือก พร้อมเกณฑ์ตัดสินสมมติฐานและวันที่ลงทะเบียนได้ (ใบงานที่ 3)</li><li>เลือกแนวปฏิบัติการรายงานที่ตรงกับแบบการวิจัยของตนได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 2 จบด้วยแผนภาพเชิงสาเหตุและรายการตัวแปรควบคุมพร้อมเหตุผล นิสิตหลายคนคิดว่าเมื่อมีสองสิ่งนี้แล้ว ขั้นต่อไปคือเก็บหรือเปิดข้อมูลแล้ววิเคราะห์ได้เลย บทนี้เสนอว่ายังมีอีกขั้นที่ต้องทำก่อน คือเขียนแผนวิเคราะห์ให้ละเอียดและบันทึกไว้พร้อมวันที่ ก่อนเห็นผลการวิเคราะห์ ขั้นนี้เรียกว่า การลงทะเบียนล่วงหน้า (preregistration)</p>
+<p class="lead">เหตุผลของขั้นนี้ไม่ใช่ความไม่ไว้ใจผู้วิจัย แต่มาจากธรรมชาติของการวิเคราะห์ข้อมูล ระหว่างข้อมูลดิบกับตัวเลขในตารางผล ผู้วิจัยต้องตัดสินใจหลายสิบจุด เช่น จะตัดผู้ตอบรายใดออก จะจัดการข้อมูลสูญหายอย่างไร และจะใส่ตัวแปรควบคุมตัวใด แต่ละจุดมีทางเลือกที่สมเหตุสมผลมากกว่าหนึ่งทาง ถ้าผู้วิจัยตัดสินใจหลังเห็นผล ก็มีโอกาสเลือกทางที่ให้ผลตรงกับที่หวังโดยไม่รู้ตัว</p>
+<p class="lead">บทนี้เริ่มจากหลักฐานว่าทางเลือกเชิงวิเคราะห์ทำให้ผลต่างกันมากเพียงใด แล้วอธิบายว่าความยืดหยุ่นนี้ทำให้ผลบวกลวงเพิ่มขึ้นอย่างไร จากนั้นเสนอแม่แบบลงทะเบียนสำหรับข้อมูลทุติยภูมิและแม่แบบสั้นสำหรับปริญญาโท แนวปฏิบัติการรายงานที่ควรเลือกตั้งแต่ขั้นนี้ และรูปแบบ Registered Report สำหรับนิสิตปริญญาเอก ท้ายบทเป็นกรณีศึกษาเดินเรื่องของปริมและธามต่อจากบทที่ 2</p>
+<h2 id="s-3-1">3.1 นักวิเคราะห์หลายทีม ข้อมูลชุดเดียวกัน</h2>
+<p>วิธีหนึ่งที่ใช้วัดผลของทางเลือกเชิงวิเคราะห์คือการศึกษาแบบนักวิเคราะห์หลายทีม (many-analysts study) ผู้จัดส่งข้อมูลชุดเดียวกันและคำถามเดียวกันให้หลายทีมวิเคราะห์อย่างอิสระ แล้วเทียบผลที่ได้ ถ้าผลต่างกันมาก แสดงว่าคำตอบขึ้นกับทางเลือกของผู้วิเคราะห์ ไม่ได้ขึ้นกับข้อมูลอย่างเดียว</p>
+<h3 id="s-3-1-1">3.1.1 กรณีใบแดงในฟุตบอล</h3>
+<p>Silberzahn และคณะ (2018, p. 338) ให้นักวิเคราะห์ 61 คนใน 29 ทีม ใช้ข้อมูลชุดเดียวกันตอบคำถามว่ากรรมการให้ใบแดงผู้เล่นผิวเข้มมากกว่าหรือไม่ ขนาดผลที่ทีมต่าง ๆ ได้อยู่ระหว่าง 0.89 ถึง 2.93 ในหน่วยอัตราส่วนออดส์ (odds ratio) มัธยฐาน 1.31 มี 20 ทีมพบผลบวกที่มีนัยสำคัญ และ 9 ทีมไม่พบความสัมพันธ์ที่มีนัยสำคัญ การวิเคราะห์ 29 แบบใช้ชุดตัวแปรควบคุมต่างกันถึง 21 แบบ และความเชื่อเดิมหรือระดับความเชี่ยวชาญของนักวิเคราะห์อธิบายความต่างของผลไม่ได้ (Silberzahn et al., 2018, p. 338)</p>
+<h3 id="s-3-1-2">3.1.2 กรณีการย้ายถิ่นกับการสนับสนุนนโยบายสังคม</h3>
+<p>Breznau และคณะ (2022) ขยายการศึกษาแบบเดียวกันให้ใหญ่ขึ้น นักวิจัย 161 คนใน 73 ทีม ใช้ข้อมูลชุดเดียวกันทดสอบสมมติฐานเดียวกัน (Breznau et al., 2022, p. 1) มี 72 ทีมที่ส่งแบบจำลองรวม 1,261 แบบ (Breznau et al., 2022, pp. 2–3) และผู้วิจัยพบการตัดสินใจเชิงวิเคราะห์ที่ต่างกัน 166 จุด (Breznau et al., 2022, p. 3)</p>
+<p>ผลที่น่าสนใจที่สุดคือที่มาของความต่าง ความแปรปรวนของผลร้อยละ 95.2 อธิบายไม่ได้ การตัดสินใจเชิงแบบการวิจัยอธิบายได้ร้อยละ 2.6 และลักษณะของนักวิจัยอธิบายได้ไม่เกินร้อยละ 1.2 ส่วนข้อสรุปของทีม 12 จาก 89 ข้อสรุปว่าทดสอบไม่ได้ 54 ว่าปฏิเสธสมมติฐาน และ 23 ว่าสนับสนุน (Breznau et al., 2022, p. 4)</p>
+<p>ตารางที่ 3.1 สรุปสองกรณี และภาพที่ 3.1 แสดงการกระจายของข้อสรุป</p>
+<p class="tcap"><b>ตารางที่ 3.1</b> สรุปการศึกษาแบบนักวิเคราะห์หลายทีมสองเรื่อง</p>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>Silberzahn และคณะ (2018)</th><th>Breznau และคณะ (2022)</th></tr></thead><tbody><tr><td>คำถาม</td><td>กรรมการให้ใบแดงผู้เล่นผิวเข้มมากกว่าหรือไม่</td><td>การย้ายถิ่นเข้าลดการสนับสนุนนโยบายสังคมของประชาชนหรือไม่</td></tr><tr><td>ผู้วิเคราะห์</td><td>61 คน 29 ทีม</td><td>161 คน 73 ทีม</td></tr><tr><td>ความหลากหลายของการวิเคราะห์</td><td>ชุดตัวแปรควบคุม 21 แบบ</td><td>แบบจำลอง 1,261 แบบ การตัดสินใจต่างกัน 166 จุด</td></tr><tr><td>ข้อสรุป</td><td>20 ทีมพบผลบวกมีนัยสำคัญ 9 ทีมไม่พบ</td><td>สนับสนุน 23 ปฏิเสธ 54 ทดสอบไม่ได้ 12 จาก 89 ข้อสรุป</td></tr><tr><td>สิ่งที่อธิบายความต่างไม่ได้</td><td>ความเชื่อเดิมและความเชี่ยวชาญของนักวิเคราะห์</td><td>ลักษณะของนักวิจัย อธิบายได้ไม่เกินร้อยละ 1.2</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Silberzahn et al. (2018, p. 338) และ Breznau et al. (2022, pp. 1–4)</p>
+<figure class="fig"><img src="rs/fig/ch03_many_analysts.png" alt="ข้อสรุปของทีมในการศึกษาแบบนักวิเคราะห์หลายทีมสองเรื่อง" loading="lazy"><figcaption>ภาพที่ 3.1 ข้อสรุปของทีมในการศึกษาแบบนักวิเคราะห์หลายทีมสองเรื่อง</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากตัวเลขใน Silberzahn et al. (2018, p. 338) และ Breznau et al. (2022, p. 4)</p>
+<h3 id="s-3-1-3">3.1.3 บทเรียนสำหรับงานของนิสิต</h3>
+<p>บทเรียนจากสองกรณีไม่ใช่ว่าการวิเคราะห์ส่วนใหญ่ผิด ทีมเหล่านี้เป็นนักวิจัยที่มีความรู้ และทางเลือกส่วนใหญ่มีเหตุผลรองรับ บทเรียนคือทางเลือกที่สมเหตุสมผลมีหลายทาง และผลที่ได้ขึ้นกับทางที่เลือก ในงานวิทยานิพนธ์ซึ่งมีผู้วิเคราะห์คนเดียว ผู้อ่านเห็นเพียงทางเดียวที่นิสิตเลือก ถ้านิสิตเลือกทางนั้นหลังเห็นผล ผู้อ่านไม่มีทางรู้ว่าผลจะเปลี่ยนหรือไม่ถ้าเลือกทางอื่น</p>
+<h2 id="s-3-2">3.2 ความยืดหยุ่นของผู้วิจัยและผลบวกลวง</h2>
+<p>ทางเลือกเชิงวิเคราะห์ที่ผู้วิจัยตัดสินได้เองเรียกรวมกันว่า ความยืดหยุ่นของผู้วิจัย (researcher degrees of freedom) Simmons และคณะ (2011, pp. 1359–1361) แสดงว่าความยืดหยุ่นที่ไม่เปิดเผยทำให้อัตราผลบวกลวง (false positive) สูงกว่าระดับ .05 ที่ผู้วิจัยตั้งไว้มาก ผลบวกลวงคือการสรุปว่าพบผล ทั้งที่ในความจริงไม่มีผล</p>
+<p>ผู้เขียนกลุ่มนี้จำลองความยืดหยุ่นสี่แบบ ได้แก่ การเลือกตัวแปรตามจากหลายตัว การกำหนดขนาดตัวอย่างหรือหยุดเก็บข้อมูลตามผลที่เห็น การใส่ตัวแปรร่วม และการรายงานเฉพาะบางเงื่อนไขของการทดลอง (Simmons et al., 2011, pp. 1360–1361) เมื่อใช้ทั้งสี่แบบร่วมกัน อัตราผลบวกลวงที่ระดับ p &lt; .05 สูงถึงร้อยละ 60.7 (Simmons et al., 2011, p. 1361 ตาราง 1) กล่าวคือ ในสถานการณ์จำลองที่ไม่มีผลจริง ผู้วิจัยที่ใช้ความยืดหยุ่นครบทั้งสี่แบบจะพบผลที่มีนัยสำคัญมากกว่าครึ่งของครั้งที่ทำ</p>
+<p>ความยืดหยุ่นสี่แบบนี้พบได้ในงานวิจัยบริหารธุรกิจทั่วไป นิสิตที่ใช้แบบสอบถามมักวัดผลลัพธ์หลายตัว และตัดสินว่าจะตัดผู้ตอบรายใดหลังเห็นข้อมูล นิสิตที่ใช้ข้อมูลทุติยภูมิมีตัวแปรควบคุมให้เลือกมาก และมีทางเลือกในการนิยามตัวแปรหลายแบบ Simmons และคณะ (2011, p. 1359) จึงเสนอข้อกำหนดสำหรับผู้แต่ง 6 ข้อ และแนวทางสำหรับผู้ประเมินบทความ 4 ข้อ เพื่อให้ความยืดหยุ่นเหล่านี้ปรากฏต่อผู้อ่าน</p>
+<h2 id="s-3-3">3.3 การลงทะเบียนแผนวิเคราะห์ล่วงหน้า</h2>
+<p>การลงทะเบียนล่วงหน้าคือการเขียนสมมติฐาน วิธีวัด เกณฑ์คัดเข้าและคัดออก และแผนวิเคราะห์ ให้ละเอียดพอที่คนอื่นทำตามได้ แล้วบันทึกไว้ในที่ที่แก้ย้อนหลังไม่ได้พร้อมวันที่ ก่อนผู้วิจัยเห็นผลการวิเคราะห์ที่ใช้ตัดสินสมมติฐาน ที่บันทึกที่ใช้กันมากคือเว็บไซต์ Open Science Framework (OSF) สำหรับวิทยานิพนธ์ ผู้เขียนเสนอว่าถ้ายังไม่พร้อมลงทะเบียนในที่สาธารณะ ให้ส่งแผนให้อาจารย์ที่ปรึกษาทางอีเมลและเก็บไว้พร้อมวันที่เป็นอย่างน้อย</p>
+<h3 id="s-3-3-1">3.3.1 แยกการวิเคราะห์เชิงยืนยันกับเชิงสำรวจ</h3>
+<p>การลงทะเบียนไม่ได้ห้ามการวิเคราะห์ที่ไม่ได้วางแผนไว้ สิ่งที่ทำคือแยกการวิเคราะห์สองแบบออกจากกัน การวิเคราะห์เชิงยืนยัน (confirmatory analysis) คือการทดสอบสมมติฐานที่เขียนไว้ก่อนเห็นข้อมูล ด้วยวิธีที่กำหนดไว้ก่อน ส่วนการวิเคราะห์เชิงสำรวจ (exploratory analysis) คือการค้นหาแบบแผนในข้อมูลที่ไม่ได้วางแผนไว้ ผลแบบหลังมีประโยชน์ในการสร้างสมมติฐานใหม่ แต่ใช้ยืนยันสมมติฐานไม่ได้ เพราะสมมติฐานเกิดจากข้อมูลชุดเดียวกับที่ใช้ทดสอบ</p>
+<p>ผู้เขียนเสนอหลักปฏิบัติสำหรับวิทยานิพนธ์ว่า ผลที่ไม่ได้อยู่ในแผนลงทะเบียนรายงานได้เสมอ แต่ต้องอยู่ในหัวข้อเชิงสำรวจที่แยกจากผลเชิงยืนยัน และต้องเขียนว่าการวิเคราะห์นั้นไม่ได้วางแผนไว้ก่อน</p>
+<h3 id="s-3-3-2">3.3.2 ข้อมูลทุติยภูมิก็ต้องลงทะเบียน</h3>
+<p>นิสิตที่ใช้ข้อมูลทุติยภูมิมักคิดว่าการลงทะเบียนใช้กับการเก็บข้อมูลใหม่เท่านั้น เพราะข้อมูลมีอยู่แล้ว Van den Akker และคณะ (2021, p. 1) ชี้ว่าแนวทางลงทะเบียนที่มีอยู่ออกแบบสำหรับการเก็บข้อมูลใหม่เป็นหลัก แต่การวิเคราะห์ข้อมูลเดิมก็ต้องลงทะเบียน เพราะความรู้เดิมเกี่ยวกับข้อมูลอาจทำให้สมมติฐานและการวิเคราะห์มีอคติ Mertens และ Krypotos (2019, p. 338) เสริมว่างานที่ใช้ข้อมูลที่มีอยู่แล้วต่างจากการเก็บข้อมูลใหม่ เพราะผู้วิจัยเปลี่ยนแบบการวิจัยไม่ได้</p>
+<p>ความต่างนี้ทำให้แผนลงทะเบียนสำหรับข้อมูลทุติยภูมิต้องมีสิ่งที่แผนสำหรับข้อมูลใหม่ไม่มี คือการเปิดเผยว่าผู้วิจัยเห็นข้อมูลส่วนใดไปแล้ว และเคยวิเคราะห์อะไรจากข้อมูลชุดนี้ การลงทะเบียนหลังเห็นข้อมูลบางส่วนจึงยังมีประโยชน์ ถ้าบอกตามจริงว่าเห็นอะไรไปแล้ว</p>
+<p>ภาพที่ 3.2 เปรียบเทียบลำดับเวลาของการลงทะเบียนในสองแทร็ก</p>
+<figure class="fig"><img src="rs/fig/ch03_timeline.png" alt="ลำดับเวลาของการลงทะเบียนล่วงหน้าในแทร็กข้อมูลปฐมภูมิและแทร็กข้อมูลทุติยภูมิ" loading="lazy"><figcaption>ภาพที่ 3.2 ลำดับเวลาของการลงทะเบียนล่วงหน้าในแทร็กข้อมูลปฐมภูมิและแทร็กข้อมูลทุติยภูมิ</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากหลักการใน Van den Akker et al. (2021, p. 1) และ Mertens and Krypotos (2019, p. 338) กรอบสีน้ำเงินคือจุดที่บันทึกแผนพร้อมวันที่ ในแทร็กทุติยภูมิ ข้อมูลมีอยู่ก่อนแผน ผู้วิจัยจึงต้องบันทึกความรู้เดิมว่าเห็นอะไรในข้อมูลไปแล้วก่อนเขียนแผน</p>
+<h2 id="s-3-4">3.4 แม่แบบสำหรับการวิเคราะห์ข้อมูลทุติยภูมิ</h2>
+<p>Van den Akker และคณะ (2021, p. 1) เสนอแม่แบบลงทะเบียนสำหรับการวิเคราะห์ข้อมูลทุติยภูมิ 25 ข้อ เผยแพร่ที่ OSF (doi 10.17605/OSF.IO/U68Y7) ผู้เขียนแม่แบบรายงานว่าการกรอกทำได้จริง ช่วยจำกัดความยืดหยุ่นของผู้วิจัย และทำให้เลือกข้อมูลและการวิเคราะห์อย่างตั้งใจมากขึ้น (Van den Akker et al., 2021, p. 1) ตารางที่ 3.2 จัดกลุ่มข้อทั้ง 25 ข้อ</p>
+<p class="tcap"><b>ตารางที่ 3.2</b> กลุ่มข้อในแม่แบบลงทะเบียนสำหรับข้อมูลทุติยภูมิ</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อ</th><th>เนื้อหา</th><th>หน้า</th></tr></thead><tbody><tr><td>1–4</td><td>ชื่อเรื่อง ผู้แต่ง คำถามวิจัย สมมติฐาน</td><td>p. 3</td></tr><tr><td>5–9</td><td>ชื่อชุดข้อมูล การเปิดเผยข้อมูล วิธีเข้าถึง วันดาวน์โหลด วิธีเก็บข้อมูลเดิม</td><td>pp. 4–5</td></tr><tr><td>10–13</td><td>คู่มือรหัสข้อมูล (codebook) ตัวแปรที่จัดกระทำ ตัวแปรที่วัด หน่วยวิเคราะห์และเกณฑ์คัดเข้า</td><td>pp. 6–8</td></tr><tr><td>14–16</td><td>ข้อมูลสูญหาย ค่าผิดปกติ (outlier) น้ำหนักตัวอย่าง</td><td>pp. 9–11</td></tr><tr><td>17–18</td><td>งานที่ผู้วิจัยเคยตีพิมพ์จากข้อมูลชุดนี้ และความรู้เดิมที่มีต่อข้อมูล</td><td>pp. 11–12</td></tr><tr><td>19–25</td><td>แบบจำลอง ขนาดผล กำลังทดสอบ เกณฑ์การอนุมาน การละเมิดข้อตกลงเบื้องต้น การวิเคราะห์ความทนทาน การวิเคราะห์เชิงสำรวจ</td><td>pp. 13–15</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Van den Akker et al. (2021, pp. 3–15)</p>
+<p>ข้อที่นิสิตปริญญาโทและเอกที่ใช้ข้อมูลทุติยภูมิมักตอบอ่อนที่สุดคือข้อ 17 และ 18 ผู้เขียนเสนอให้ตอบเป็นรายการ ได้แก่ วันที่ดาวน์โหลดข้อมูลครั้งแรก ตัวแปรที่เคยเปิดดู สถิติที่เคยคำนวณ เช่น ตารางสหสัมพันธ์ และงานที่เคยเขียนหรือนำเสนอจากข้อมูลชุดนี้ การเขียนว่า "ไม่เคยเห็นข้อมูล" ทั้งที่เคยเปิดดูแล้ว ทำให้แผนลงทะเบียนเสียประโยชน์ทั้งหมด</p>
+<h3 id="s-3-4-1">3.4.1 แม่แบบสั้นสิบคำถาม</h3>
+<p>Mertens และ Krypotos (2019, p. 345 ตาราง 1) เสนอโครงคำถาม 10 ข้อ ที่สั้นกว่าแม่แบบ 25 ข้อ ได้แก่ สมมติฐาน การวัดตัวแปร แหล่งข้อมูลและเคยตีพิมพ์หรือไม่ วิธีได้ข้อมูลและเคยสำรวจข้อมูลแล้วหรือไม่ เกณฑ์คัดออก การวิเคราะห์และการเตรียมข้อมูล เกณฑ์ยืนยันหรือปฏิเสธสมมติฐาน การตรวจกับข้อมูลส่วนย่อย ความรู้เดิม และลำดับเวลา ผู้เขียนโครงนี้ระบุว่าเป็นแนวทางทั่วไป รายละเอียดต้องปรับตามโครงการ (Mertens &amp; Krypotos, 2019, p. 347)</p>
+<h2 id="s-3-5">3.5 แม่แบบสั้นสำหรับปริญญาโท</h2>
+<p>สำหรับนิสิตปริญญาโทที่เก็บข้อมูลด้วยแบบสอบถาม ผู้เขียนเสนอแม่แบบแปดข้อในตารางที่ 3.3 แม่แบบนี้ผู้เขียนดัดแปลงจากโครงคำถามของ Mertens และ Krypotos (2019) และแม่แบบของ Van den Akker และคณะ (2021) ไม่ใช่แม่แบบที่ตีพิมพ์ นิสิตที่ต้องการแม่แบบที่อ้างอิงได้ในวิทยานิพนธ์ให้ใช้แม่แบบต้นฉบับ</p>
+<p class="tcap"><b>ตารางที่ 3.3</b> แม่แบบสั้นสำหรับการลงทะเบียนของนิสิตปริญญาโท (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อ</th><th>หัวข้อ</th><th>สิ่งที่ต้องเขียน</th><th>เชื่อมกับ</th></tr></thead><tbody><tr><td>1</td><td>สมมติฐานยืนยัน</td><td>สมมติฐานทีละข้อ ระบุทิศทาง</td><td>แผนภาพในบทที่ 2</td></tr><tr><td>2</td><td>ตัวแปรและมาตรวัด</td><td>ตัวแปรทุกตัว มาตรวัด และแหล่งของมาตรวัด</td><td>ตารางนิยามในบทที่ 4</td></tr><tr><td>3</td><td>กลุ่มตัวอย่าง</td><td>กรอบการสุ่ม วิธีรับสมัคร ขนาดตัวอย่างและที่มาของตัวเลข</td><td>บทที่ 5</td></tr><tr><td>4</td><td>เกณฑ์คัดผู้ตอบออก</td><td>เกณฑ์เวลาตอบ ข้อตรวจความตั้งใจ การตรวจคำตอบจากบอท</td><td>บทที่ 5 และบทที่ 7</td></tr><tr><td>5</td><td>ข้อมูลสูญหาย</td><td>วิธีจัดการและเหตุผล</td><td>บทที่ 7</td></tr><tr><td>6</td><td>แบบจำลองหลักและเกณฑ์ตัดสิน</td><td>วิธีวิเคราะห์ ตัวแปรควบคุม และเกณฑ์ที่ใช้ตัดสินว่าสมมติฐานได้รับการสนับสนุน</td><td>บทที่ 2 และบทที่ 7</td></tr><tr><td>7</td><td>การวิเคราะห์เชิงสำรวจ</td><td>รายการสิ่งที่จะสำรวจ แยกจากข้อ 6</td><td>หัวข้อ 3.3.1</td></tr><tr><td>8</td><td>วันที่</td><td>วันที่ลงทะเบียน และวันที่เริ่มเก็บข้อมูล</td><td>หัวข้อ 3.3</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนดัดแปลงจาก Mertens and Krypotos (2019, p. 345) และ Van den Akker et al. (2021, pp. 3–15)</p>
+<h3 id="s-3-5-1">3.5.1 เกณฑ์ตัดสินต้องเขียนให้คนอื่นตัดสินแทนได้</h3>
+<p>ข้อ 6 ของตารางที่ 3.3 เป็นข้อที่เขียนผิดบ่อยที่สุด นิสิตมักเขียนว่า "วิเคราะห์ด้วยการวิเคราะห์ถดถอย" ซึ่งยังเหลือทางเลือกอีกมาก ผู้เขียนเสนอให้ทดสอบเกณฑ์ด้วยคำถามข้อเดียว ถ้าให้เพื่อนที่ไม่รู้ผลอ่านแผนแล้วรันโค้ดเอง เพื่อนจะได้ข้อสรุปเดียวกับนิสิตหรือไม่ ถ้าคำตอบคือไม่แน่ใจ แผนยังไม่ละเอียดพอ ตัวอย่างเกณฑ์ที่ละเอียดพอ เช่น "สมมติฐานที่ 1 ได้รับการสนับสนุน ถ้าค่าสัมประสิทธิ์ของการใช้เครื่องมือ AI ในแบบจำลองหลักที่มีตัวแปรควบคุมตามแผนภาพเป็นบวก และช่วงความเชื่อมั่นร้อยละ 95 ไม่คร่อมศูนย์"</p>
+<h3 id="s-3-5-2">3.5.2 แม่แบบเต็มสำหรับปริญญาเอก</h3>
+<p>นิสิตปริญญาเอกที่ใช้ข้อมูลทุติยภูมิให้ใช้แม่แบบ 25 ข้อในตารางที่ 3.2 ครบทุกข้อ สำหรับนิสิตปริญญาเอกที่เก็บข้อมูลใหม่ ให้ใช้แม่แบบลงทะเบียนล่วงหน้าของ OSF (OSF Prereg) ซึ่งมีหกส่วน คือ ข้อมูลการศึกษา แผนการออกแบบ แผนการสุ่มตัวอย่าง ตัวแปร แผนการวิเคราะห์ และส่วนอื่น ๆ ในส่วนแผนการสุ่มตัวอย่าง ผู้ลงทะเบียนต้องระบุสถานะของข้อมูล ณ วันลงทะเบียน ตั้งแต่ยังไม่ได้สร้างข้อมูลไปจนถึงวิเคราะห์ข้อมูลแล้ว (Bowman et al., 2020) นิสิตที่เก็บข้อมูลใหม่ควรลงทะเบียนก่อนเริ่มเก็บข้อมูล ผู้เขียนเสนอให้ร่างด้วยแม่แบบสั้นในตารางที่ 3.3 ก่อน แล้วย้ายไปกรอกแม่แบบของ OSF โดยใส่กำลังทดสอบ และการวิเคราะห์ความทนทาน (robustness analysis) ตามข้อ 19 ถึง 25 ของตารางที่ 3.2 ไว้ในส่วนแผนการวิเคราะห์ด้วย</p>
+<h2 id="s-3-6">3.6 แนวปฏิบัติการรายงาน</h2>
+<p>แนวปฏิบัติการรายงาน (reporting guideline) คือรายการสิ่งที่บทความต้องรายงานสำหรับแบบการวิจัยหนึ่ง ๆ นิสิตควรเลือกแนวปฏิบัติตั้งแต่ขั้นลงทะเบียน ไม่ใช่ตอนเขียนบทความ เพราะหลายรายการต้องวางแผนเก็บไว้ตั้งแต่ก่อนเก็บข้อมูล ถ้าไม่ได้เก็บไว้ จะรายงานย้อนหลังไม่ได้ ตารางที่ 3.4 สรุปแนวปฏิบัติที่ใช้ในเอกสารนี้</p>
+<p class="tcap"><b>ตารางที่ 3.4</b> แนวปฏิบัติการรายงานตามแบบการวิจัย</p>
+<div class="tablewrap"><table><thead><tr><th>แบบการวิจัย</th><th>แนวปฏิบัติ</th><th>สิ่งที่ต้องวางแผนตั้งแต่ขั้นลงทะเบียน</th></tr></thead><tbody><tr><td>แบบสอบถามออนไลน์</td><td>CHERRIES (Eysenbach, 2004)</td><td>ระบบป้องกันการตอบซ้ำ และวิธีนับผู้เข้าชม ผู้เริ่มตอบ และผู้ตอบครบ</td></tr><tr><td>แบบจำลองสมการโครงสร้าง (SEM)</td><td>มาตรฐานการรายงานเสริมของ APA สำหรับ SEM (Hoyle &amp; Isherwood, 2013)</td><td>การระบุแบบจำลอง วิธีประมาณค่า และดัชนีความกลมกลืนที่จะใช้</td></tr><tr><td>ข้อมูลทุติยภูมิและแบบการวิจัยอื่น</td><td>มาตรฐานการรายงานของ APA สำหรับงานเชิงปริมาณ (JARS-Quant) ตาราง 1 ใช้กับทุกการศึกษา และมีโมดูลเพิ่มตามแบบการวิจัย เช่น การศึกษาแบบสังเกต และการศึกษาระยะยาว (Appelbaum et al., 2018, pp. 3, 5) หรือแนวปฏิบัติที่ตรงกับแบบการวิจัยจากเครือข่าย EQUATOR ซึ่งรวบรวมไว้มากกว่า 300 แนวปฏิบัติ (Appelbaum et al., 2018, p. 4)</td><td>ตามแนวปฏิบัติที่เลือก</td></tr></tbody></table></div>
+<p>CHERRIES ย่อมาจาก Checklist for Reporting Results of Internet E-Surveys มีวัตถุประสงค์ให้การรายงานการสำรวจทางเว็บครบถ้วน เพื่อให้ผู้อ่านเข้าใจการคัดเลือกตนเองของกลุ่มตัวอย่าง (Eysenbach, 2004) รายการตรวจแบ่งเป็นหมวดแบบการวิจัย จริยธรรมและการคุ้มครองข้อมูล การพัฒนาและทดสอบ การรับสมัคร การบริหารแบบสอบถาม อัตราการตอบ การป้องกันการตอบซ้ำ และการวิเคราะห์ (Eysenbach, 2004, ตารางรายการตรวจ) หมวดอัตราการตอบกำหนดให้รายงานอัตราการเข้าชม (view rate) อัตราการเข้าร่วม (participation rate) และอัตราการตอบครบ (completion rate) โดยนิยามจากผู้เข้าชมไม่ซ้ำ ตัวเลขเหล่านี้ต้องตั้งระบบเก็บไว้ก่อนเปิดแบบสอบถาม รายละเอียดของหมวดอื่นอยู่ในบทที่ 7</p>
+<p>สำหรับงานที่ใช้ SEM มาตรฐานของ Hoyle และ Isherwood (2013) กำหนดให้ระบุแบบจำลองละเอียดพอให้ผู้อ่านคำนวณองศาอิสระได้ รายงานโปรแกรมพร้อมรุ่นและวิธีประมาณค่าพร้อมเหตุผล และรายงานดัชนีความกลมกลืนอย่างน้อยสองกลุ่ม (Hoyle &amp; Isherwood, 2013, หัวข้อ Specification, Estimation และ Evaluation of fit) นิสิตที่เขียนสามเรื่องนี้ไว้ในแผนลงทะเบียน จะเขียนส่วนวิธีวิจัยของบทความได้เร็วขึ้น</p>
+<h2 id="s-3-7">3.7 Registered Report สำหรับปริญญาเอก</h2>
+<p>Registered Report คือรูปแบบบทความที่วารสารประเมินและตอบรับข้อเสนอการวิจัยก่อนผู้วิจัยเก็บหรือวิเคราะห์ข้อมูล โดยตัดสินจากคำถาม ทฤษฎี และวิธีการ ไม่ใช่จากผลที่ได้ Chambers และ Tzavella (2021, บทคัดย่อ) รายงานว่ามีหลักฐานเบื้องต้นว่ารูปแบบนี้ได้ผลตามที่ตั้งใจ แต่ไม่ใช่ทางแก้ทุกปัญหาของงานวิจัยที่ทำซ้ำไม่ได้</p>
+<p>ในสาขาการจัดการและจิตวิทยาประยุกต์ Briker และ Gerpott (2024, บทคัดย่อ) อธิบายว่าผู้แต่งส่งส่วนต้นของบทความให้ประเมินก่อนเก็บข้อมูล ผู้เขียนกลุ่มนี้พบ Registered Report 50 เรื่องในสาขานี้ สำรวจผู้แต่งและผู้ประเมิน แล้วสรุปเป็นแนวปฏิบัติสำหรับผู้แต่งและผู้ประเมิน</p>
+<p>ผู้เขียนเสนอให้นิสิตปริญญาเอกพิจารณารูปแบบนี้เมื่อคำถามวิจัยสำคัญพอที่ผลทั้งสองทิศทางมีคุณค่า และเมื่อกรอบเวลาของการศึกษายอมให้รอผลการประเมินรอบแรกก่อนเก็บข้อมูล ก่อนตัดสินใจ นิสิตต้องตรวจรายชื่อวารสารที่รับรูปแบบนี้ในวันที่จะส่ง และดูว่าสาขาของตนมีวารสารที่รับหรือไม่ เพราะรายชื่อเปลี่ยนตลอด</p>
+<h2 id="s-3-8">3.8 การแก้แผนหลังลงทะเบียนและข้อผิดพลาดที่พบบ่อย</h2>
+<p>แผนลงทะเบียนแก้ได้ งานวิจัยจริงมักพบปัญหาที่ไม่คาดคิด เช่น ข้อมูลไม่มีตัวแปรที่วางแผนไว้ หรือแบบจำลองหลักประมาณค่าไม่ได้ สิ่งที่ทำให้การแก้ยอมรับได้คือการบันทึก ผู้เขียนเสนอให้นิสิตเก็บบันทึกการแก้แผน (deviation log) ที่มีสี่ช่อง ได้แก่ วันที่ สิ่งที่แก้ เหตุผล และแก้ก่อนหรือหลังเห็นผลการวิเคราะห์ที่เกี่ยวข้อง แล้วรายงานบันทึกนี้ในวิทยานิพนธ์ บันทึกนี้ใช้ร่วมกับสมุดบันทึกการตัดสินใจในบทที่ 1</p>
+<p class="tcap"><b>ตารางที่ 3.5</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ใช้สิ่งที่พบจากการสำรวจข้อมูลเป็นสมมติฐานยืนยัน</td><td>เห็นตัวแปรคู่หนึ่งสัมพันธ์กันสูง แล้วเขียนเป็นสมมติฐาน</td><td>เขียนสมมติฐานจากทฤษฎีก่อนเปิดข้อมูล ผลจากการสำรวจรายงานในหัวข้อเชิงสำรวจ (Van den Akker et al., 2021, p. 1)</td></tr><tr><td>เปลี่ยนแผนหลังเห็นผลโดยไม่บันทึก</td><td>เปลี่ยนเกณฑ์ตัดผู้ตอบเพราะผลไม่มีนัยสำคัญ</td><td>บันทึกทุกการแก้ในบันทึกการแก้แผน (ผู้เขียนเสนอ)</td></tr><tr><td>ลงทะเบียนหลังวิเคราะห์ไปบางส่วนโดยไม่บอก</td><td>เขียนในข้อ 18 ว่าไม่เคยเห็นข้อมูล ทั้งที่เคยดูตารางสหสัมพันธ์</td><td>ตอบข้อ 17 และ 18 ตามจริง (Van den Akker et al., 2021, pp. 11–12)</td></tr><tr><td>เกณฑ์ตัดสินกว้างเกินไป</td><td>เขียนเพียงว่าจะใช้การวิเคราะห์ถดถอย</td><td>เขียนเกณฑ์ให้คนอื่นตัดสินแทนได้ตามหัวข้อ 3.5.1</td></tr><tr><td>ใช้ความยืดหยุ่นหลายจุดพร้อมกัน</td><td>เลือกตัวแปรตาม เกณฑ์ตัดผู้ตอบ และตัวแปรควบคุมหลังเห็นผล</td><td>กำหนดทุกจุดไว้ในแผน (Simmons et al., 2011, p. 1361)</td></tr><tr><td>รอถึงตอนเขียนบทความจึงเลือกแนวปฏิบัติการรายงาน</td><td>ไม่ได้ตั้งระบบนับผู้เข้าชม จึงรายงานอัตราการตอบไม่ได้</td><td>เลือกแนวปฏิบัติตามตารางที่ 3.4 ตั้งแต่ขั้นลงทะเบียน (Eysenbach, 2004)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริมและธาม (กรณีศึกษาสมมติ)</div><p>ปริมมีสมมติฐานยืนยันสองข้อ ข้อแรกคือการใช้เครื่องมือ AI สัมพันธ์ทางบวกกับความผูกพันในงาน ข้อสองคือผลนี้ผ่านภาระงานที่รับรู้บางส่วน ปริมตั้งใจรอให้ได้ข้อมูลครบก่อน แล้วค่อยตัดสินว่าจะตัดผู้ตอบที่ใช้เวลาน้อยออกหรือไม่ และจะใช้ตัวแปรควบคุมชุดใด เพราะคิดว่าเห็นข้อมูลแล้วจะตัดสินได้ดีกว่า</p><p>ธามเปิดดูความสัมพันธ์ของตัวแปรหลายคู่ในฐานข้อมูลไปแล้วตั้งแต่บทที่ 1 รวมถึงตารางสหสัมพันธ์ที่มีการลงทุนวิจัยและพัฒนากับ ROA แต่ยังไม่ได้ประมาณแบบจำลองใดที่มี ROA เป็นตัวแปรตาม ธามกำลังจะเขียนแผนลงทะเบียน และอาจารย์ที่ปรึกษาเสนอให้พิจารณาส่งบทความแบบ Registered Report</p><p class="q"><b>คำถามชวนคิด</b> แผนของปริมเปิดความยืดหยุ่นแบบใดตามหัวข้อ 3.2 และปริมควรเขียนข้อใดของตารางที่ 3.3 ให้เสร็จก่อนเก็บข้อมูล ส่วนธามยังลงทะเบียนได้หรือไม่ ควรเขียนข้อ 17 และ 18 ว่าอย่างไร และ Registered Report เหมาะกับงานของธามหรือไม่</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายด้วยหลักฐานว่าข้อมูลชุดเดียวกันให้ผลต่างกันได้มากตามทางเลือกเชิงวิเคราะห์ ทั้งในกรณีนักวิเคราะห์ 29 ทีมที่ได้ขนาดผลตั้งแต่ 0.89 ถึง 2.93 และกรณีนักวิจัย 73 ทีมที่ความแปรปรวนของผลส่วนใหญ่อธิบายไม่ได้ นิสิตเข้าใจว่าความยืดหยุ่นของผู้วิจัยที่ไม่เปิดเผยทำให้ผลบวกลวงเพิ่มขึ้นมาก และการลงทะเบียนล่วงหน้าเป็นวิธีทำให้ทางเลือกเหล่านั้นปรากฏต่อผู้อ่าน</p>
+<p>นิสิตสามารถแยกการวิเคราะห์เชิงยืนยันออกจากเชิงสำรวจ เลือกแม่แบบลงทะเบียนที่เหมาะกับแหล่งข้อมูลและระดับการศึกษาของตน ได้แก่ แม่แบบสั้นแปดข้อสำหรับปริญญาโท และแม่แบบ 25 ข้อสำหรับข้อมูลทุติยภูมิ เขียนเกณฑ์ตัดสินสมมติฐานให้คนอื่นตัดสินแทนได้ เลือกแนวปฏิบัติการรายงานตั้งแต่ขั้นนี้ และรู้ว่าการแก้แผนทำได้เมื่อบันทึกไว้ นิสิตปริญญาเอกรู้จักรูปแบบ Registered Report และสิ่งที่ต้องตรวจก่อนเลือกใช้</p>
+<p>ผลของใบงานที่ 3 คือแผนลงทะเบียนที่มีวันที่ ข้อ 2 ของแผน คือตัวแปรและมาตรวัด เป็นจุดตั้งต้นของบทที่ 4 ซึ่งจะนิยามตัวแปรเชิงปฏิบัติการ เลือกมาตรวัด แปล และตรวจความเที่ยงตรงเชิงเนื้อหาสำหรับนิสิตที่เก็บข้อมูลด้วยแบบสอบถาม</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การลงทะเบียนล่วงหน้า (preregistration)</li><li>การศึกษาแบบนักวิเคราะห์หลายทีม (many-analysts study)</li><li>ความยืดหยุ่นของผู้วิจัย (researcher degrees of freedom)</li><li>ผลบวกลวง (false positive)</li><li>การวิเคราะห์เชิงยืนยัน (confirmatory analysis)</li><li>การวิเคราะห์เชิงสำรวจ (exploratory analysis)</li><li>คู่มือรหัสข้อมูล (codebook)</li><li>การวิเคราะห์ความทนทาน (robustness analysis)</li><li>แนวปฏิบัติการรายงาน (reporting guideline)</li><li>Registered Report</li><li>บันทึกการแก้แผน (deviation log)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายว่าเหตุใดผลจากการศึกษาแบบนักวิเคราะห์หลายทีมของ Silberzahn และคณะ (2018) และ Breznau และคณะ (2022) จึงไม่ได้แปลว่าการวิเคราะห์ส่วนใหญ่ผิด และบทเรียนที่แท้จริงต่องานวิทยานิพนธ์ที่มีผู้วิเคราะห์คนเดียวคืออะไร</li><li>ความยืดหยุ่นของผู้วิจัยสี่แบบในงานของ Simmons และคณะ (2011) มีอะไรบ้าง จงยกตัวอย่างแต่ละแบบจากงานวิจัยบริหารธุรกิจที่ใช้แบบสอบถาม</li><li>นิสิตคนหนึ่งให้เหตุผลว่า "ผมใช้ข้อมูลทุติยภูมิที่มีอยู่แล้ว จึงไม่ต้องลงทะเบียน และเปิดดูข้อมูลไปแล้วก็ลงทะเบียนไม่ได้อีก" จงประเมินข้อความนี้ทั้งสองส่วน</li><li>จงเขียนเกณฑ์ตัดสินสมมติฐานข้อหนึ่งในงานของตนให้ละเอียดพอตามหัวข้อ 3.5.1 แล้วอธิบายว่าเกณฑ์เดิมที่เขียนว่า "วิเคราะห์ด้วยการวิเคราะห์ถดถอย" ยังเปิดทางเลือกอะไรไว้บ้าง</li><li>เหตุใดนิสิตจึงควรเลือกแนวปฏิบัติการรายงานตั้งแต่ขั้นลงทะเบียน จงยกตัวอย่างรายการใน CHERRIES ที่รายงานย้อนหลังไม่ได้ถ้าไม่ได้วางแผนไว้</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 3 แผนลงทะเบียนของโครงการตนเอง</h2>
+<p>ให้นิสิตแต่ละคนจัดทำแผนลงทะเบียนของโครงการวิจัยของตนเอง ความยาวไม่เกินสี่หน้ากระดาษ A4</p>
+<ol><li>ระบุแม่แบบที่เลือก (แม่แบบสั้นในตารางที่ 3.3 หรือแม่แบบ 25 ข้อในตารางที่ 3.2) พร้อมเหตุผลหนึ่งบรรทัด</li><li>แผนที่กรอกครบทุกข้อของแม่แบบที่เลือก ข้อที่ยังตอบไม่ได้ให้เขียนว่าจะตอบได้ในบทใด</li><li>เกณฑ์ตัดสินของสมมติฐานยืนยันทุกข้อ ที่ผ่านการทดสอบตามหัวข้อ 3.5.1</li><li>นิสิตที่ใช้ข้อมูลทุติยภูมิ ตอบข้อ 17 และ 18 ตามจริงเป็นรายการ</li><li>แนวปฏิบัติการรายงานที่เลือกตามตารางที่ 3.4 และรายการที่ต้องตั้งระบบเก็บก่อนเริ่มเก็บหรือเปิดข้อมูล</li><li>วันที่ลงทะเบียนและที่บันทึก (OSF หรืออีเมลถึงอาจารย์ที่ปรึกษา) พร้อมบันทึกการแก้แผนฉบับว่างที่มีสี่ช่องตามหัวข้อ 3.8</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Appelbaum, M., Cooper, H., Kline, R. B., Mayo-Wilson, E., Nezu, A. M., &amp; Rao, S. M. (2018). Journal article reporting standards for quantitative research in psychology: The APA Publications and Communications Board task force report. <em>American Psychologist</em>, <em>73</em>(1), 3–25. <a href="https://doi.org/10.1037/amp0000191" target="_blank" rel="noopener">https://doi.org/10.1037/amp0000191</a></div>
+<div class="r">Bowman, S. D., DeHaven, A. C., Errington, T. M., Hardwicke, T. E., Mellor, D. T., Nosek, B. A., &amp; Soderberg, C. K. (2020). <em>OSF Prereg template</em>. MetaArXiv. <a href="https://doi.org/10.31222/osf.io/epgjd" target="_blank" rel="noopener">https://doi.org/10.31222/osf.io/epgjd</a></div>
+<div class="r">Breznau, N., Rinke, E. M., Wuttke, A., Nguyen, H. H. V., Adem, M., Adriaans, J., Alvarez-Benjumea, A., Andersen, H. K., Auer, D., Azevedo, F., Bahnsen, O., Balzer, D., Bauer, G., Bauer, P. C., Baumann, M., Baute, S., Benoit, V., Bernauer, J., Berning, C., . . . Żółtak, T. (2022). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. <em>Proceedings of the National Academy of Sciences</em>, <em>119</em>(44). <a href="https://doi.org/10.1073/pnas.2203150119" target="_blank" rel="noopener">https://doi.org/10.1073/pnas.2203150119</a></div>
+<div class="r">Briker, R., &amp; Gerpott, F. H. (2024). Publishing registered reports in management and applied psychology: Common beliefs and best practices. <em>Organizational Research Methods</em>, <em>27</em>(4), 588–620. <a href="https://doi.org/10.1177/10944281231210309" target="_blank" rel="noopener">https://doi.org/10.1177/10944281231210309</a></div>
+<div class="r">Chambers, C. D., &amp; Tzavella, L. (2021). The past, present and future of Registered Reports. <em>Nature Human Behaviour</em>, <em>6</em>(1), 29–42. <a href="https://doi.org/10.1038/s41562-021-01193-7" target="_blank" rel="noopener">https://doi.org/10.1038/s41562-021-01193-7</a></div>
+<div class="r">Eysenbach, G. (2004). Improving the quality of web surveys: The Checklist for Reporting Results of Internet E-Surveys (CHERRIES). <em>Journal of Medical Internet Research</em>, <em>6</em>(3), e34. <a href="https://doi.org/10.2196/jmir.6.3.e34" target="_blank" rel="noopener">https://doi.org/10.2196/jmir.6.3.e34</a></div>
+<div class="r">Hoyle, R. H., &amp; Isherwood, J. C. (2013). Reporting results from structural equation modeling analyses in Archives of Scientific Psychology. <em>Archives of Scientific Psychology</em>, <em>1</em>(1), 14–22. <a href="https://doi.org/10.1037/arc0000004" target="_blank" rel="noopener">https://doi.org/10.1037/arc0000004</a></div>
+<div class="r">Mertens, G., &amp; Krypotos, A. M. (2019). Preregistration of analyses of preexisting data. <em>Psychologica Belgica</em>, <em>59</em>(1), 338–352. <a href="https://doi.org/10.5334/pb.493" target="_blank" rel="noopener">https://doi.org/10.5334/pb.493</a></div>
+<div class="r">Silberzahn, R., Uhlmann, E. L., Martin, D. P., Anselmi, P., Aust, F., Awtrey, E., Bahník, Š., Bai, F., Bannard, C., Bonnier, E., Carlsson, R., Cheung, F., Christensen, G., Clay, R., Craig, M. A., Dalla Rosa, A., Dam, L., Evans, M. H., Flores Cervantes, I., . . . Nosek, B. A. (2018). Many analysts, one data set: Making transparent how variations in analytic choices affect results. <em>Advances in Methods and Practices in Psychological Science</em>, <em>1</em>(3), 337–356. <a href="https://doi.org/10.1177/2515245917747646" target="_blank" rel="noopener">https://doi.org/10.1177/2515245917747646</a></div>
+<div class="r">Simmons, J. P., Nelson, L. D., &amp; Simonsohn, U. (2011). False-positive psychology. <em>Psychological Science</em>, <em>22</em>(11), 1359–1366. <a href="https://doi.org/10.1177/0956797611417632" target="_blank" rel="noopener">https://doi.org/10.1177/0956797611417632</a></div>
+<div class="r">Van den Akker, O. R., Weston, S., Campbell, L., Chopik, B., Damian, R., Davis-Kean, P., Hall, A., Kosie, J., Kruse, E., Olsen, J., Ritchie, S., Valentine, K., Van 't Veer, A., &amp; Bakker, M. (2021). Preregistration of secondary data analysis: A template and tutorial. <em>Meta-Psychology</em>, <em>5</em>. <a href="https://doi.org/10.15626/mp.2020.2625" target="_blank" rel="noopener">https://doi.org/10.15626/mp.2020.2625</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 3 ลงทะเบียนแผนวิเคราะห์ก่อนเห็นผล. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_03.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_02.html"><small>◀ บทก่อนหน้า</small>บทที่ 2 จากคำถามวิจัยสู่ตัวแปร หน่วยวิเคราะห์ และแผนภาพเชิงสาเหตุ</a><a href="rs_lesson_04.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 4 นิยามตัวแปร เลือกมาตรวัด และแปลมาตรวัด</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 10 ใช้ AI ในงานวิจัยและส่งต่อไปเขียนต้นฉบับ · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 10 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 10</div><a href="#x6">ความนำ</a><a href="#s-10-1">10.1 บันทึกการใช้ AI ตลอดกระบวนการวิจัย</a><a href="#s-10-2">10.2 LLM แทนผู้ตอบไม่ได้</a><a href="#s-10-3">10.3 ข้อมูลที่ห้ามนำเข้าเครื่องมือ AI ภายนอก และ AI ช่วยเขียนโค้ด</a><a href="#s-10-4">10.4 การเปิดเผยการใช้ AI ตามนโยบายวารสาร</a><a href="#s-10-5">10.5 ทำให้ทุกตัวเลขย้อนหาที่มาได้และรันซ้ำได้</a><a href="#s-10-6">10.6 เก็บถาวรและส่งต่อไปเขียนต้นฉบับ</a><a href="#s-10-7">10.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 10 ชุดส่งต่อไปเขียนต้นฉบับ</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 10 ใช้ AI ในงานวิจัยและส่งต่อไปเขียนต้นฉบับ</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 10</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>จัดทำตารางบันทึกการใช้ AI ของโครงการตนเองได้</li><li>อธิบายเหตุผลที่ห้ามใช้คำตอบจาก LLM เป็นข้อมูลของงานวิจัยได้</li><li>ระบุข้อมูลที่ห้ามนำเข้าเครื่องมือ AI ภายนอกในโครงการของตนได้</li><li>เขียนข้อความเปิดเผยการใช้ AI จากตารางบันทึก ตามนโยบายของวารสารเป้าหมายได้</li><li>รันการวิเคราะห์ทั้งหมดซ้ำจากข้อมูลดิบ และย้อนหาที่มาของตัวเลขในตารางผลได้ (ใบงานที่ 10)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทนี้เป็นบทสุดท้าย และนิสิตทั้งสองแทร็กกลับมารวมกัน เนื้อหามีสองเรื่อง เรื่องแรกคือการใช้ AI ในงานวิจัย ซึ่งปรากฏในหลายบทก่อนหน้า เช่น การตรวจคำตอบจากบอทในบทที่ 5 และบทที่ 7 และการไม่นำไฟล์ข้อมูลที่จำกัดการใช้เข้าเครื่องมือ AI ในบทที่ 6 บทนี้รวมเรื่องเหล่านั้นเป็นแนวปฏิบัติเดียว เรื่องที่สองคือขั้นส่งต่อ ซึ่งทำให้ทุกตัวเลขในผลวิเคราะห์ย้อนหาที่มาได้และรันซ้ำได้ ก่อนนิสิตจะเริ่มเขียนต้นฉบับ</p>
+<p class="lead">ผลของบทนี้เป็นข้อมูลนำเข้าของรายวิชาการเขียนบทความวิจัย ซึ่งเริ่มจากต้นฉบับที่มีผลวิเคราะห์พร้อมแล้ว</p>
+<h2 id="s-10-1">10.1 บันทึกการใช้ AI ตลอดกระบวนการวิจัย</h2>
+<p>ผู้เขียนเสนอให้นิสิตบันทึกการใช้ AI ทุกครั้งตั้งแต่บทที่ 1 ในตารางที่ 10.1 เพราะเมื่อถึงขั้นเขียนต้นฉบับ นิสิตจะจำไม่ได้ว่าใช้เครื่องมือใด ที่ขั้นใด และใช้ผลอย่างไร ตารางนี้ใช้สามงาน งานแรกคือเขียนข้อความเปิดเผยในหัวข้อ 10.4 งานที่สองคือตรวจว่าไม่ได้นำข้อมูลต้องห้ามเข้าเครื่องมือภายนอก จากช่องข้อมูลที่ป้อน งานที่สามคือแสดงว่านิสิตตรวจผลจาก AI เองก่อนใช้</p>
+<p class="tcap"><b>ตารางที่ 10.1</b> บันทึกการใช้ AI (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>วันที่</th><th>ขั้นหรือบท</th><th>เครื่องมือและรุ่น</th><th>ทำอะไร</th><th>ข้อมูลที่ป้อน</th><th>ใครตรวจผล อย่างไร</th><th>ใช้ผลในงานหรือไม่</th></tr></thead><tbody><tr><td>...</td><td>บทที่ 5</td><td>...</td><td>หาข้อคำถามที่กำกวม</td><td>ร่างข้อคำถาม ไม่มีข้อมูลผู้ตอบ</td><td>ผู้วิจัยอ่านทุกข้อ แล้วทดลองใช้กับคน</td><td>ใช้บางข้อ</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>นิสิตที่เริ่มบันทึกช้า ให้เขียนย้อนหลังตามที่จำได้ และระบุว่าเป็นบันทึกย้อนหลัง เช่นเดียวกับบันทึกความรู้เดิมเกี่ยวกับข้อมูลในบทที่ 8</p>
+<h2 id="s-10-2">10.2 LLM แทนผู้ตอบไม่ได้</h2>
+<p>แนวคิดที่ใช้แบบจำลองภาษาขนาดใหญ่ (large language model หรือ LLM) ตอบแบบสอบถามแทนคนมีหลักฐานสองด้าน ด้านที่เห็นศักยภาพ Argyle และคณะ (2023, p. 337) เสนอแนวคิด algorithmic fidelity และกลุ่มตัวอย่างซิลิคอน (silicon samples) ซึ่งกำหนดภูมิหลังจากผู้ตอบจริงให้แบบจำลอง แต่ผู้เขียนเองระบุว่าต้องตรวจ algorithmic fidelity ในแต่ละโดเมนก่อนใช้แทนกลุ่มตัวอย่าง (Argyle et al., 2023, pp. 340–341, 349) ด้านที่เตือน Bisbee และคณะ (2024) พบว่าข้อมูลสังเคราะห์จาก ChatGPT ไม่น่าเชื่อถือสำหรับการอนุมานทางสถิติ และคำตอบมีการกระจายน้อยกว่าข้อมูลจริง</p>
+<p>หลักฐานอีกกลุ่มมาจากแบบสอบถามออนไลน์ที่บทที่ 5 และบทที่ 7 กล่าวถึง Westwood (2025, บทคัดย่อ) สรุปว่าสมมติฐานพื้นฐานที่ว่าคำตอบที่สอดคล้องกันคือคำตอบของมนุษย์ใช้ไม่ได้แล้ว และเอเจนต์ AI อนุมานสมมติฐานของผู้วิจัยแล้วสร้างข้อมูลที่ยืนยันสมมติฐานได้ งานที่ต้องการความมั่นใจสูงจึงควรกลับไปใช้การรับสมัครที่ควบคุมได้ (Westwood, 2025, หัวข้อ 4)</p>
+<p>ผู้เขียนเสนอข้อสรุปสำหรับนิสิตสองข้อ ข้อแรก ห้ามใช้คำตอบจาก LLM เป็นข้อมูลของงานวิจัย หรือเป็นผลทดลองใช้แบบสอบถาม ข้อสอง ใช้ LLM ช่วยหาข้อคำถามที่กำกวมก่อนทดลองใช้กับคนได้ และบันทึกในตารางที่ 10.1</p>
+<h2 id="s-10-3">10.3 ข้อมูลที่ห้ามนำเข้าเครื่องมือ AI ภายนอก และ AI ช่วยเขียนโค้ด</h2>
+<p>ผู้เขียนเสนอให้นิสิตไม่นำข้อมูลสามประเภทเข้าเครื่องมือ AI ภายนอก ได้แก่ ข้อมูลส่วนบุคคลของผู้ตอบ ข้อมูลภายใต้ข้อตกลงที่จำกัดการใช้หรือการส่งออก และต้นฉบับที่ได้รับมาประเมิน ภาพที่ 6.2 ในบทที่ 6 แสดงการแยกไฟล์ตามหลักนี้ และนโยบายของสำนักพิมพ์เรื่องผู้ประเมินกับเครื่องมือ AI ยังรอผู้สอนเติมแหล่งตามบทที่ 6</p>
+<p>AI ช่วยเขียนโค้ดได้ ถ้าป้อนเฉพาะสิ่งที่ไม่ใช่ข้อมูลต้องห้าม เช่น ชื่อตัวแปร โครงสร้างตาราง และข้อมูลสมมติ ผู้เขียนเสนอเงื่อนไขสามข้อ ข้อแรก นิสิตต้องอธิบายได้ว่าโค้ดแต่ละส่วนทำอะไร ข้อสอง นิสิตรันซ้ำเองจากข้อมูลดิบแล้วได้ตัวเลขเดิมตามหัวข้อ 10.5 ข้อสาม บันทึกการใช้ในตารางที่ 10.1</p>
+<h2 id="s-10-4">10.4 การเปิดเผยการใช้ AI ตามนโยบายวารสาร</h2>
+<p>นโยบายการใช้ AI ต่างกันตามสำนักพิมพ์และเปลี่ยนบ่อย ตารางที่ 10.2 เปรียบเทียบนโยบายของสามสำนักพิมพ์ที่ผู้เขียนอ่านจากหน้าเว็บของสำนักพิมพ์ ระหว่างเตรียมส่งบทความวิจัยในปี 2569</p>
+<p class="tcap"><b>ตารางที่ 10.2</b> นโยบายการใช้ AI ของสามสำนักพิมพ์</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>Taylor &amp; Francis</th><th>Elsevier</th><th>Emerald</th></tr></thead><tbody><tr><td>ช่วยขัดเกลาภาษา</td><td>ใช้ได้</td><td>ใช้ได้ การตรวจไวยากรณ์และการสะกดพื้นฐานไม่ต้องเปิดเผย</td><td>ใช้ได้กับข้อความที่ผู้เขียนเขียนเอง</td></tr><tr><td>ช่วยร่างเนื้อหา</td><td>ห้ามสร้างข้อความหรือโค้ดโดยไม่ผ่านการแก้ไขอย่างเข้มงวด</td><td>ช่วยได้ แต่ต้องไม่แทนการตัดสินทางวิชาการและการมีส่วนทางปัญญาของผู้เขียน</td><td>ห้ามร่างส่วนใดของต้นฉบับ รวมถึงบทคัดย่อและการทบทวนวรรณกรรม</td></tr><tr><td>ช่วยเขียนโค้ด</td><td>ใช้ได้</td><td>ใช้ได้ และรายงานละเอียดในส่วนวิธีวิจัย</td><td>ห้ามสร้างโค้ด แต่ขัดเกลาโค้ดได้</td></tr><tr><td>ข้อมูลและผลวิจัย</td><td>ห้ามใช้ข้อมูลสังเคราะห์แทนข้อมูลที่ขาด</td><td>ภาพข้อมูลต้องได้จากข้อมูลด้วยวิธีที่ทำซ้ำได้ และรายงานในส่วนวิธีวิจัย</td><td>ห้ามสร้าง ดัดแปลง หรือรายงานข้อมูลและผลด้วย AI</td></tr><tr><td>การเปิดเผย</td><td>ชื่อเครื่องมือพร้อมรุ่น วิธีใช้ และเหตุผล</td><td>ส่วนแยกท้ายต้นฉบับก่อนเอกสารอ้างอิง ยืนยันว่าผู้เขียนตรวจผลและรับผิดชอบเนื้อหา</td><td>ในส่วนวิธีวิจัยและกิตติกรรมประกาศ ระบุเนื้อหาที่สร้างหรือแก้ ชื่อเครื่องมือ และรุ่น</td></tr><tr><td>AI เป็นผู้แต่ง</td><td>ไม่ได้</td><td>ไม่ได้</td><td>ไม่ได้</td></tr></tbody></table></div>
+<p>ที่มา สรุปจาก Taylor &amp; Francis (n.d.) เข้าถึง 10 กรกฎาคม 2569 Elsevier (2026) ฉบับปรับปรุงมิถุนายน 2026 เข้าถึง 15 พฤศจิกายน 2569 และ Emerald Publishing (n.d.) เข้าถึง 9 พฤศจิกายน 2569</p>
+<p>ตารางแสดงว่าสิ่งที่สำนักพิมพ์หนึ่งยอม อีกสำนักพิมพ์หนึ่งอาจห้าม ต้นฉบับที่ AI ช่วยร่างและเปิดเผยครบตามนโยบายของ Elsevier ยังไม่ผ่านนโยบายของ Emerald แม้จะเปิดเผยแล้ว เพราะ Emerald ไม่ยอมให้ AI ร่างส่วนใดของต้นฉบับ (Emerald Publishing, n.d.) ผู้เขียนเคยต้องเปลี่ยนวารสารเป้าหมายก่อนส่งด้วยเหตุนี้ นอกจากนี้ Taylor &amp; Francis (n.d.) เตือนว่าวารสารบางฉบับอาจไม่ยอมให้ใช้ AI เกินการช่วยภาษา กฎของวารสารจึงอาจเข้มกว่ากฎของสำนักพิมพ์</p>
+<p>ผู้เขียนเสนอขั้นตอนสี่ขั้น ขั้นแรก อ่านนโยบายของวารสารเป้าหมายและของสำนักพิมพ์ตั้งแต่เลือกวารสาร เพราะนโยบายอาจทำให้ต้องเปลี่ยนวิธีเขียนหรือเปลี่ยนวารสาร แล้วอ่านซ้ำในวันส่ง พร้อมบันทึกลิงก์และวันที่อ่าน ขั้นที่สอง เขียนข้อความเปิดเผยจากตารางที่ 10.1 แยกการช่วยภาษาออกจากการช่วยสร้างเนื้อหา ระบุชื่อเครื่องมือ รุ่น และผู้พัฒนา ขั้นที่สาม แยกการใช้ AI ในกระบวนการวิจัย เช่น การช่วยเขียนโค้ด ไปรายงานในส่วนวิธีวิจัย ตามที่ Elsevier (2026) กำหนด ขั้นที่สี่ เขียนประโยคยืนยันว่าผู้วิจัยตรวจผลทั้งหมด รวมถึงเอกสารอ้างอิงทุกรายการ และรับผิดชอบเนื้อหา ขั้นนี้ตรงกับที่ Elsevier (2026) ให้ยืนยันในข้อความเปิดเผย และสำนักพิมพ์ทั้งสามแห่งในตารางที่ 10.2 ไม่ยอมรับ AI เป็นผู้แต่ง</p>
+<h2 id="s-10-5">10.5 ทำให้ทุกตัวเลขย้อนหาที่มาได้และรันซ้ำได้</h2>
+<p>เป้าหมายของขั้นส่งต่อคือตัวเลขทุกตัวในต้นฉบับย้อนหาที่มาในโค้ดและข้อมูลได้ และนิสิตรันซ้ำเองได้ตัวเลขเดิม ภาพที่ 10.1 แสดงสายที่มาของตัวเลข และจุดตรวจที่ผู้เขียนเสนอ</p>
+<figure class="fig"><img src="rs/fig/ch10_trace.png" alt="สายที่มาของตัวเลขและจุดตรวจย้อนหา" loading="lazy"><figcaption>ภาพที่ 10.1 สายที่มาของตัวเลขและจุดตรวจย้อนหา</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>ผู้เขียนเสนอหลักปฏิบัติสี่ข้อ ข้อแรก ตารางผลสร้างจากโค้ด ไม่พิมพ์ตัวเลขเอง ข้อสอง บันทึกสภาพแวดล้อม ได้แก่ โปรแกรมและรุ่น และแพ็กเกจและรุ่น มาตรฐานการรายงาน SEM ก็กำหนดให้รายงานโปรแกรมพร้อมรุ่น (Hoyle &amp; Isherwood, 2013, หัวข้อ Estimation) ข้อสาม รันทั้งหมดซ้ำจากข้อมูลดิบในเครื่องที่ไม่เคยรันมาก่อน หรือให้เพื่อนรัน แล้วเทียบตัวเลข ข้อสี่ สุ่มตัวเลขห้าตัวจากตารางผล แล้วย้อนหาไฟล์และบรรทัดโค้ดที่สร้างให้ได้ทุกตัว</p>
+<p>ถ้าการรันซ้ำได้ตัวเลขต่างจากเดิม ผู้เขียนเสนอให้หาสาเหตุตามตารางที่ 10.3 ก่อนเลือกตัวเลขใดตัวเลขหนึ่ง</p>
+<p class="tcap"><b>ตารางที่ 10.3</b> สาเหตุที่การรันซ้ำได้ตัวเลขต่างกัน (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>สาเหตุ</th><th>สิ่งที่ตรวจ</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ค่าตั้งต้นของการสุ่มไม่ได้กำหนด</td><td>การสุ่ม เช่น bootstrap การแบ่งข้อมูล หรือการประมาณค่าซ้ำ</td><td>กำหนดค่าตั้งต้นในโค้ด และบันทึกไว้</td></tr><tr><td>รุ่นของโปรแกรมหรือแพ็กเกจต่างกัน</td><td>ไฟล์สภาพแวดล้อมของสองเครื่อง</td><td>บันทึกและล็อกรุ่น</td></tr><tr><td>ข้อมูลดิบคนละฉบับ</td><td>วันที่ดาวน์โหลด รุ่นของชุดข้อมูล และค่าแฮชของไฟล์</td><td>ระบุฉบับของข้อมูลใน README</td></tr><tr><td>มีขั้นที่ทำด้วยมือ</td><td>ขั้นที่ไม่อยู่ในโค้ด เช่น แก้ค่าในตารางคำนวณ</td><td>ย้ายทุกขั้นเข้าโค้ด (Wilson et al., 2017, p. 5)</td></tr><tr><td>ลำดับการรันต่างกัน</td><td>สคริปต์ที่ต้องรันตามลำดับ</td><td>เขียนลำดับใน README หรือทำสคริปต์หลักที่รันทั้งหมด</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<h2 id="s-10-6">10.6 เก็บถาวรและส่งต่อไปเขียนต้นฉบับ</h2>
+<p>นิสิตเก็บถาวรตามแผนจัดการข้อมูลในบทที่ 1 หลัก FAIR เน้นให้ข้อมูลค้นหาและนำกลับมาใช้ได้ ทั้งโดยบุคคลและโดยเครื่อง (Wilkinson et al., 2016, p. 1) นิสิตใช้หลักนี้ได้เท่าที่ข้อตกลงการใช้ข้อมูลยอม ถ้าข้อตกลงไม่ยอมให้วางข้อมูลในคลังสาธารณะ นิสิตยังเก็บโค้ด README และไฟล์สภาพแวดล้อมได้ ตามที่บทที่ 1 กล่าวไว้</p>
+<p>ผู้เขียนเสนอให้ส่งต่อไปเขียนต้นฉบับเมื่อมีห้าสิ่ง ได้แก่ โฟลเดอร์ผลลัพธ์ที่สร้างจากโค้ด ไฟล์สภาพแวดล้อม บันทึกการรันซ้ำ ข้อความเปิดเผยการใช้ AI และรายการไฟล์ที่เก็บถาวร นิสิตนำห้าสิ่งนี้ไปใช้ในรายวิชาการเขียนบทความวิจัย ตั้งแต่โมดูลสถาปัตยกรรมต้นฉบับเป็นต้นไป</p>
+<p>ภาพที่ 10.2 แสดงห้าสิ่งในชุดส่งต่อ</p>
+<figure class="fig"><img src="rs/fig/ch10_handoff.png" alt="ชุดส่งต่อห้าสิ่งไปยังรายวิชาการเขียนบทความวิจัย (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 10.2 ชุดส่งต่อห้าสิ่งไปยังรายวิชาการเขียนบทความวิจัย (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>LLM ยังใช้ในงานอื่นของการวิจัย เช่น การคัดกรองวรรณกรรมเพื่อทบทวนอย่างเป็นระบบ Khraisha และคณะ (2024, บทคัดย่อ) พบว่าความแม่นยำดิบของ GPT-4 ใกล้มนุษย์ แต่ถูกทำให้สูงเกินจริงโดยความบังเอิญและข้อมูลไม่สมดุล หลังปรับแล้ว การคัดกรองอยู่ระดับไม่มีถึงปานกลาง และผู้เขียนเตือนให้ระวังอย่างมาก ผู้เขียนเสนอให้ใช้ LLM ช่วยจัดลำดับหรือลดภาระได้ แต่คนตัดสินการคัดเข้าและคัดออกขั้นสุดท้าย</p>
+<h2 id="s-10-7">10.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 10.4</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ไม่บันทึกการใช้ AI</td><td>เขียนข้อความเปิดเผยจากความจำตอนส่ง</td><td>บันทึกตามตารางที่ 10.1 ตั้งแต่บทที่ 1</td></tr><tr><td>ใช้คำตอบจาก LLM เป็นข้อมูล</td><td>ให้ LLM ตอบแบบสอบถามแทนผู้ทดลองใช้</td><td>ทดลองใช้กับคน (Argyle et al., 2023, pp. 340–341)</td></tr><tr><td>ป้อนข้อมูลต้องห้ามเข้าเครื่องมือภายนอก</td><td>วางไฟล์ข้อมูลรายบริษัทเพื่อให้ AI เขียนโค้ด</td><td>ป้อนเฉพาะชื่อตัวแปรและข้อมูลสมมติ</td></tr><tr><td>ใช้โค้ดจาก AI โดยไม่เข้าใจ</td><td>อธิบายไม่ได้ว่าขั้นใดตัดแถว</td><td>อ่านและอธิบายทุกส่วน แล้วรันซ้ำเอง</td></tr><tr><td>พิมพ์ตัวเลขในตารางผลเอง</td><td>คัดลอกจากหน้าจอผลไปพิมพ์ในตาราง</td><td>สร้างตารางจากโค้ด</td></tr><tr><td>ไม่บันทึกรุ่นของโปรแกรม</td><td>ผลเปลี่ยนเมื่อปรับรุ่นแพ็กเกจ</td><td>บันทึกไฟล์สภาพแวดล้อม (Hoyle &amp; Isherwood, 2013, หัวข้อ Estimation)</td></tr><tr><td>เลือกตัวเลขเมื่อรันซ้ำได้ไม่ตรง</td><td>ใช้ตัวเลขเดิมเพราะตรงกับที่เขียนไว้</td><td>หาสาเหตุตามตารางที่ 10.3 ก่อน</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริมและธาม (กรณีศึกษาสมมติ)</div><p>ปริมใช้เครื่องมือ AI ช่วยหาข้อคำถามที่กำกวมและช่วยแก้ภาษาในบทที่ 2 ของวิทยานิพนธ์ แต่ไม่ได้จดว่าใช้เมื่อไรและใช้รุ่นใด</p><p>ธามใช้เครื่องมือ AI ช่วยเขียนโค้ดเตรียมข้อมูล โดยป้อนเฉพาะชื่อตัวแปรและข้อมูลสมมติ ไม่ป้อนข้อมูลรายบริษัท เมื่อเพื่อนของธามรันโค้ดซ้ำจากข้อมูลดิบ ค่าสัมประสิทธิ์หลักในตารางผลต่างจากต้นฉบับที่ทศนิยมตำแหน่งที่สอง</p><p class="q"><b>คำถามชวนคิด</b> ปริมควรทำอย่างไรกับบันทึกการใช้ AI ที่ขาดไป และควรเปิดเผยการใช้สองแบบอย่างไร การใช้ AI ของธามเหมาะสมหรือไม่ และธามควรหาสาเหตุที่ตัวเลขต่างกันอย่างไรก่อนส่งต่อไปเขียนต้นฉบับ</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตบันทึกการใช้ AI ทุกครั้งในตารางที่มีช่องข้อมูลที่ป้อนและผู้ตรวจผล นิสิตไม่ใช้คำตอบจาก LLM เป็นข้อมูลของงานวิจัย เพราะหลักฐานยังไม่สนับสนุน และไม่นำข้อมูลส่วนบุคคล ข้อมูลภายใต้ข้อตกลง หรือต้นฉบับที่ได้รับมาประเมิน เข้าเครื่องมือ AI ภายนอก นิสิตใช้ AI ช่วยเขียนโค้ดได้เมื่ออธิบายโค้ดได้และรันซ้ำเองได้ และเขียนข้อความเปิดเผยการใช้ AI ตามนโยบายของวารสารเป้าหมาย</p>
+<p>ในขั้นส่งต่อ นิสิตสร้างตารางผลจากโค้ด บันทึกสภาพแวดล้อม รันซ้ำจากข้อมูลดิบ และย้อนหาที่มาของตัวเลขได้ทุกตัว เมื่อรันซ้ำได้ตัวเลขต่างกัน นิสิตหาสาเหตุก่อนเลือกตัวเลข และเก็บถาวรตามแผนจัดการข้อมูลเท่าที่ข้อตกลงยอม</p>
+<p>รายวิชานี้เริ่มจากแผนจัดการข้อมูลในบทที่ 1 และจบที่ผลวิเคราะห์ที่ผู้อื่นตรวจย้อนและรันซ้ำได้ งานขั้นต่อไปคือการเขียนต้นฉบับในรายวิชาการเขียนบทความวิจัย</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>แบบจำลองภาษาขนาดใหญ่ (large language model หรือ LLM)</li><li>กลุ่มตัวอย่างซิลิคอน (silicon samples)</li><li>algorithmic fidelity</li><li>บันทึกการใช้ AI (AI use log)</li><li>ข้อความเปิดเผยการใช้ AI (AI disclosure statement)</li><li>ไฟล์สภาพแวดล้อม (environment file)</li><li>ค่าตั้งต้นของการสุ่ม (random seed)</li><li>การรันซ้ำ (rerun)</li><li>หลัก FAIR (FAIR principles)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายเหตุผลที่ต้องเริ่มบันทึกการใช้ AI ตั้งแต่บทที่ 1 และประโยชน์ของช่องข้อมูลที่ป้อน</li><li>นิสิตคนหนึ่งเสนอให้ใช้ LLM ตอบแบบสอบถามแทนการทดลองใช้กับคน เพื่อประหยัดเวลา จงประเมินข้อเสนอนี้ด้วยหลักฐานในหัวข้อ 10.2</li><li>จงระบุข้อมูลในโครงการของตนที่ห้ามนำเข้าเครื่องมือ AI ภายนอก และสิ่งที่ป้อนได้เมื่อให้ AI ช่วยเขียนโค้ด</li><li>จงเขียนข้อความเปิดเผยการใช้ AI จากตารางบันทึกของตนเอง โดยแยกการใช้ช่วยภาษาออกจากการใช้สร้างเนื้อหา</li><li>การรันซ้ำได้ตัวเลขต่างจากต้นฉบับ จงเสนอลำดับการหาสาเหตุ และอธิบายว่าเหตุใดจึงไม่ควรเลือกตัวเลขเดิมทันที</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 10 ชุดส่งต่อไปเขียนต้นฉบับ</h2>
+<p>ให้นิสิตทั้งสองแทร็กจัดทำชุดส่งต่อสำหรับโครงการวิจัยของตนเอง</p>
+<ol><li>ตารางบันทึกการใช้ AI ตามตารางที่ 10.1 ตั้งแต่บทที่ 1 ระบุรายการที่เขียนย้อนหลัง</li><li>ข้อความเปิดเผยการใช้ AI ตามนโยบายของวารสารเป้าหมาย พร้อมลิงก์และวันที่เข้าถึงนโยบาย</li><li>โฟลเดอร์ผลลัพธ์ที่สร้างจากโค้ด และไฟล์สภาพแวดล้อม</li><li>บันทึกการรันซ้ำ ระบุวันที่ ผู้รัน และตัวเลขตรงหรือไม่ ถ้าไม่ตรง ระบุสาเหตุตามตารางที่ 10.3 และวิธีแก้</li><li>ตัวเลขห้าตัวที่สุ่มจากตารางผล พร้อมไฟล์และบรรทัดโค้ดที่สร้างแต่ละตัว</li><li>รายการไฟล์ที่เก็บถาวร และไฟล์ที่เก็บไม่ได้เพราะข้อตกลงการใช้ข้อมูล</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Argyle, L. P., Busby, E. C., Fulda, N., Gubler, J. R., Rytting, C., &amp; Wingate, D. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, <em>31</em>(3), 337–351. <a href="https://doi.org/10.1017/pan.2023.2" target="_blank" rel="noopener">https://doi.org/10.1017/pan.2023.2</a></div>
+<div class="r">Bisbee, J., Clinton, J. D., Dorff, C., Kenkel, B., &amp; Larson, J. M. (2024). Synthetic replacements for human survey data? The perils of large language models. <em>Political Analysis</em>, <em>32</em>(4), 401–416. <a href="https://doi.org/10.1017/pan.2024.5" target="_blank" rel="noopener">https://doi.org/10.1017/pan.2024.5</a></div>
+<div class="r">Elsevier. (2026). <em>Generative AI policies for journals</em>. Retrieved November 15, 2026, from <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener">https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals</a></div>
+<div class="r">Emerald Publishing. (n.d.). <em>Publication ethics</em>. Retrieved November 9, 2026, from <a href="https://www.emerald.com/publish-with-us/pages/publication-ethics" target="_blank" rel="noopener">https://www.emerald.com/publish-with-us/pages/publication-ethics</a></div>
+<div class="r">Hoyle, R. H., &amp; Isherwood, J. C. (2013). Reporting results from structural equation modeling analyses in Archives of Scientific Psychology. <em>Archives of Scientific Psychology</em>, <em>1</em>(1), 14–22. <a href="https://doi.org/10.1037/arc0000004" target="_blank" rel="noopener">https://doi.org/10.1037/arc0000004</a></div>
+<div class="r">Khraisha, Q., Put, S., Kappenberg, J., Warraitch, A., &amp; Hadfield, K. (2024). Can large language models replace humans in systematic reviews? Evaluating GPT-4's efficacy in screening and extracting data from peer-reviewed and grey literature in multiple languages. <em>Research Synthesis Methods</em>, <em>15</em>(4), 616–626. <a href="https://doi.org/10.1002/jrsm.1715" target="_blank" rel="noopener">https://doi.org/10.1002/jrsm.1715</a></div>
+<div class="r">Taylor &amp; Francis. (n.d.). <em>AI policy</em>. Retrieved July 10, 2026, from <a href="https://taylorandfrancis.com/our-policies/ai-policy/" target="_blank" rel="noopener">https://taylorandfrancis.com/our-policies/ai-policy/</a></div>
+<div class="r">Westwood, S. J. (2025). The potential existential threat of large language models to online survey research. <em>Proceedings of the National Academy of Sciences</em>, <em>122</em>(47). <a href="https://doi.org/10.1073/pnas.2518075122" target="_blank" rel="noopener">https://doi.org/10.1073/pnas.2518075122</a></div>
+<div class="r">Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J. W., da Silva Santos, L. B., Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., . . . Mons, B. (2016). The FAIR guiding principles for scientific data management and stewardship. <em>Scientific Data</em>, <em>3</em>(1). <a href="https://doi.org/10.1038/sdata.2016.18" target="_blank" rel="noopener">https://doi.org/10.1038/sdata.2016.18</a></div>
+<div class="r">Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., &amp; Teal, T. K. (2017). Good enough practices in scientific computing. <em>PLOS Computational Biology</em>, <em>13</em>(6), e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pcbi.1005510</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 10 ใช้ AI ในงานวิจัยและส่งต่อไปเขียนต้นฉบับ. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_10.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_09.html"><small>◀ บทก่อนหน้า</small>บทที่ 9 ตรวจคุณภาพ เตรียมข้อมูลด้วยโค้ด และตรวจความทนทาน</a><a href="Research_Writing_Course.html" style="text-align:right"><small>อ่านต่อ ▶</small>การเขียนบทความวิจัย (Research Writing)</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

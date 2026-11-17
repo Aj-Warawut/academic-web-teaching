@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 7 ทดลองใช้ เก็บข้อมูลจริง และตรวจโมเดลการวัด · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 7 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 7</div><a href="#x6">ความนำ</a><a href="#s-7-1">7.1 การทดลองใช้เครื่องมือ</a><a href="#s-7-2">7.2 การเก็บจริงและบันทึกการตัดผู้ตอบ</a><a href="#s-7-3">7.3 การตรวจคำตอบจากบอทหรือ AI</a><a href="#s-7-4">7.4 ข้อมูลสูญหาย</a><a href="#s-7-5">7.5 การตรวจโมเดลการวัดก่อนทดสอบสมมติฐาน</a><a href="#s-7-6">7.6 การรายงานตามแนวปฏิบัติ</a><a href="#s-7-7">7.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 7 รายงานการเก็บข้อมูลและโมเดลการวัด</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 7 ทดลองใช้ เก็บข้อมูลจริง และตรวจโมเดลการวัด</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 7</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>จัดทำรายงานผลทดลองใช้ที่ครอบคลุมทั้งข้อคำถามและระบบเก็บข้อมูลได้</li><li>จัดทำบันทึกการตัดผู้ตอบที่แสดงจำนวนก่อนและหลังแต่ละเกณฑ์ตามแผนลงทะเบียนได้</li><li>อธิบายว่าเหตุใดการตัดรายที่ข้อมูลไม่ครบและการแทนด้วยค่าเฉลี่ยจึงให้ผลเอนเอียงได้</li><li>ตรวจความเที่ยงตรงเชิงจำแนกด้วย HTMT ตามค่าขีดที่กำหนดไว้ก่อนได้</li><li>จัดทำรายงานโมเดลการวัดและรายการตรวจ CHERRIES ของงานตนเองได้ (ใบงานที่ 7)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 3 ถึงบทที่ 6 เป็นการตัดสินใจก่อนเห็นข้อมูล บทนี้เป็นบทแรกที่นิสิตแทร็กข้อมูลปฐมภูมิได้ข้อมูลจริง และเป็นบทที่การตัดสินใจล่วงหน้าเหล่านั้นถูกนำมาใช้ เกณฑ์ตัดผู้ตอบ วิธีจัดการข้อมูลสูญหาย และค่าขีดของความเที่ยงตรงเชิงจำแนก ล้วนต้องเขียนไว้ในแผนลงทะเบียนแล้ว บทนี้จึงไม่ได้ถามว่าจะตัดสินอย่างไร แต่ถามว่าทำตามแผนอย่างไร และบันทึกอย่างไรเมื่อต้องเบี่ยงจากแผน</p>
+<p class="lead">บทนี้มีสามช่วง ช่วงแรกคือการทดลองใช้เครื่องมือก่อนเก็บจริง ช่วงที่สองคือการเก็บจริงและทำความสะอาดข้อมูล ซึ่งรวมการตรวจคำตอบจากบอทหรือ AI ตามที่เตรียมไว้ในบทที่ 5 และการจัดการข้อมูลสูญหาย ช่วงที่สามคือการตรวจโมเดลการวัด (measurement model) ก่อนทดสอบสมมติฐาน ลำดับนี้สำคัญ ถ้ามาตรวัดไม่ได้วัดสิ่งที่ตั้งใจ ผลการทดสอบสมมติฐานก็ตีความไม่ได้</p>
+<p class="lead">นิสิตแทร็กข้อมูลทุติยภูมิไม่ต้องทำใบงานบทนี้ แต่ควรอ่านหัวข้อ 7.4 เรื่องข้อมูลสูญหาย เพราะจะใช้ในบทที่ 8 และบทที่ 9</p>
+<h2 id="s-7-1">7.1 การทดลองใช้เครื่องมือ</h2>
+<p>การทดสอบคำถามก่อนใช้ (pre-testing) เป็นขั้นที่ 3 ของการพัฒนามาตรวัด มีเป้าหมายให้คำถามและตัวเลือกคำตอบมีความหมายต่อผู้ตอบ (Boateng et al., 2018, p. 3 ตาราง 1) ขั้นนี้ยังต้องทำแม้ใช้มาตรวัดที่มีอยู่และแปลแล้วตามบทที่ 4 เพราะฉบับแปลยังไม่เคยถูกตอบโดยผู้ตอบในบริบทของนิสิต</p>
+<p>ผู้เขียนเสนอให้การทดลองใช้ (pilot) ตรวจสองเรื่องพร้อมกัน เรื่องแรกคือข้อคำถาม ผู้ตอบเข้าใจตรงกับที่ผู้วิจัยตั้งใจหรือไม่ เรื่องที่สองคือระบบ การตั้งค่าตามตารางที่ 5.2 ทำงานจริงหรือไม่ เช่น ไฟล์ที่ส่งออกมีเวลาตอบและข้อมูลอุปกรณ์ครบหรือไม่ ลิงก์เฉพาะรายใช้ได้หรือไม่ ผลทั้งสองเรื่องเขียนเป็นรายงานผลทดลองใช้ที่มีจำนวนผู้ตอบ ปัญหาที่พบ ข้อที่ปรับ และเวลาที่ใช้ตอบ เวลาที่ใช้ตอบในการทดลองใช้ช่วยตรวจว่าเกณฑ์เวลาในแผนลงทะเบียนสมเหตุสมผลหรือไม่ ถ้าต้องปรับเกณฑ์ ให้ปรับก่อนเก็บจริงและบันทึกในบันทึกการแก้แผน</p>
+<p>ผู้ตอบในการทดลองใช้ควรมาจากประชากรเดียวกับกลุ่มตัวอย่างจริง แต่ไม่ใช่คนที่จะได้รับเชิญในการเก็บจริง นิสิตอาจใช้แบบจำลองภาษาขนาดใหญ่ช่วยหาข้อคำถามที่กำกวมก่อนทดลองใช้ได้ แต่ผู้เขียนเสนอว่าผลนั้นไม่นับเป็นผลทดลองใช้ เพราะคำตอบจากแบบจำลองไม่ใช่คำตอบของประชากรเป้าหมาย บทที่ 10 จะกล่าวถึงหลักฐานเรื่องนี้</p>
+<p>สำหรับการวิเคราะห์รายข้อ Boateng และคณะ (2018, p. 10) ถือว่าสหสัมพันธ์ระหว่างข้อ และสหสัมพันธ์ระหว่างข้อกับคะแนนรวมที่ปรับแล้ว (adjusted item-total correlation) ที่ต่ำกว่า 0.30 ไม่พึงประสงค์ ข้อนั้นอาจเป็นข้อที่ควรพิจารณาตัด ส่วนความเชื่อมั่น ค่า Cronbach's alpha 0.70 มักถือเป็นเกณฑ์ที่ยอมรับได้ (Boateng et al., 2018, p. 13) ผู้เขียนเสนอให้ใช้ค่าเหล่านี้หาข้อที่ต้องตรวจซ้ำร่วมกับความเห็นของผู้ตอบ ไม่ตัดข้อจากตัวเลขของผลทดลองใช้อย่างเดียว</p>
+<h2 id="s-7-2">7.2 การเก็บจริงและบันทึกการตัดผู้ตอบ</h2>
+<p>CHERRIES กำหนดให้รายงานอัตราการเข้าชม (view rate) อัตราการเข้าร่วม (participation rate) และอัตราการตอบครบ (completion rate) โดยนิยามจากผู้เข้าชมที่ไม่ซ้ำกัน (Eysenbach, 2004, ตารางรายการตรวจ หมวดอัตราการตอบ) และให้ระบุการจัดการแบบสอบถามที่ตอบไม่ครบ เกณฑ์ตัดผู้ตอบที่ใช้เวลาน้อยผิดปกติ และวิธีกำหนดเกณฑ์นั้น (Eysenbach, 2004, ตารางรายการตรวจ หมวดการวิเคราะห์)</p>
+<p>ผู้เขียนเสนอให้นิสิตบันทึกการตัดผู้ตอบเป็นลำดับขั้นตามภาพที่ 7.1 แต่ละขั้นมีจำนวนก่อนและหลัง และเกณฑ์ที่ใช้ต้องตรงกับแผนลงทะเบียนข้อ 4 จากบทที่ 3 การบันทึกแบบนี้ตอบคำถามที่ผู้อ่านมักถาม คือขนาดตัวอย่างสุดท้ายมาจากไหน และเกณฑ์แต่ละข้อตัดไปกี่คน</p>
+<figure class="fig"><img src="rs/fig/ch07_flow.png" alt="ลำดับขั้นการตัดผู้ตอบและอัตราที่ต้องรายงาน" loading="lazy"><figcaption>ภาพที่ 7.1 ลำดับขั้นการตัดผู้ตอบและอัตราที่ต้องรายงาน</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ อัตราที่ต้องรายงานจาก Eysenbach (2004, ตารางรายการตรวจ)</p>
+<p>ถ้าคำตอบชุดหนึ่งเข้าเกณฑ์ตัดหลายข้อ ให้นับในขั้นแรกที่ถูกตัด และเขียนลำดับขั้นไว้ในแผน เพราะลำดับขั้นเปลี่ยนจำนวนที่แต่ละเกณฑ์ตัดได้ ถ้าพบกรณีที่แผนไม่ได้คาดไว้ ให้ตัดสินตามหลักเดียวกับแผน บันทึกในบันทึกการแก้แผนว่าเบี่ยงอย่างไรและเพราะอะไร และรายงานผลทั้งแบบตัดและไม่ตัดกรณีนั้น</p>
+<h2 id="s-7-3">7.3 การตรวจคำตอบจากบอทหรือ AI</h2>
+<p>บทที่ 5 แสดงว่าคำถามตรวจความตั้งใจไม่พอ และให้นิสิตตั้งระบบเก็บข้อมูลที่ต้องใช้ตรวจไว้ก่อนเปิดแบบสอบถาม บทนี้ใช้ข้อมูลเหล่านั้น ตารางที่ 7.1 สรุปสัญญาณที่ใช้ตรวจ</p>
+<p class="tcap"><b>ตารางที่ 7.1</b> สัญญาณที่ใช้ตรวจคำตอบจากบอทหรือ AI</p>
+<div class="tablewrap"><table><thead><tr><th>สัญญาณ</th><th>สิ่งที่ตรวจ</th><th>แหล่ง</th></tr></thead><tbody><tr><td>ข้อมูลอุปกรณ์</td><td>IP ของศูนย์ข้อมูล user agent ที่ซ้ำกัน</td><td>Martherus et al. (2025, pp. 5–7)</td></tr><tr><td>การคัดลอกวาง</td><td>ข้อความในช่องปลายเปิดที่วางมาแทนการพิมพ์</td><td>Martherus et al. (2025, pp. 5–7)</td></tr><tr><td>รูปแบบคำตอบ</td><td>คำตอบกระจุกที่ค่าที่พบบ่อยไม่กี่ค่า เช่น ในการทดลอง รหัสไปรษณีย์ที่เอเจนต์ตอบเกินร้อยละ 80 เป็นค่าที่รู้จักกันไม่กี่ค่า</td><td>Martherus et al. (2025, p. 6)</td></tr><tr><td>เวลาตอบ</td><td>เร็วผิดปกติตามเกณฑ์ในแผน</td><td>Eysenbach (2004, ตารางรายการตรวจ หมวดการวิเคราะห์)</td></tr><tr><td>ช่องปลายเปิด</td><td>ข้อความคล้ายกันผิดปกติข้ามผู้ตอบ</td><td>ผู้เขียนเสนอ</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจากแหล่งในตาราง</p>
+<p>งานของ Martherus และคณะไม่มีกลุ่มมนุษย์เปรียบเทียบ (Martherus et al., 2025, pp. 7–8) สัญญาณในตารางจึงยังไม่มีเกณฑ์ตัวเลขที่บอกได้ว่าคำตอบชุดใดเป็นบอทแน่นอน และผู้ตอบสังเคราะห์บางแบบหลบวิธีตรวจส่วนใหญ่ได้ (Westwood, 2025, บทคัดย่อ) ผู้เขียนเสนอให้ใช้หลายสัญญาณร่วมกัน เขียนกฎการตัดสินไว้ในแผนก่อนเก็บ เช่น ตัดเมื่อพบสัญญาณอย่างน้อยสองแบบ และรายงานผลทั้งแบบตัดและไม่ตัดคำตอบที่น่าสงสัย นิสิตปริญญาเอกควรวิเคราะห์ความไวของผลต่อกฎนี้ CHERRIES ออกแบบในปี 2004 จึงไม่ได้ครอบคลุมภัยจากเอเจนต์ AI ผู้เขียนเสนอให้รายงานผลตรวจในหัวข้อนี้เพิ่มจากรายการตรวจ</p>
+<h2 id="s-7-4">7.4 ข้อมูลสูญหาย</h2>
+<p>ข้อมูลสูญหาย (missing data) เกิดได้เกือบทุกงาน คำถามสำคัญคือข้อมูลสูญหายด้วยกลไกใด Schafer และ Graham (2002) แยกกลไกเป็นสามแบบ ได้แก่ สูญหายแบบสุ่มโดยสมบูรณ์ (missing completely at random หรือ MCAR) สูญหายแบบสุ่ม (missing at random หรือ MAR) และสูญหายแบบไม่สุ่ม (missing not at random หรือ MNAR) ผลต่อวิธีจัดการสรุปได้ตามตารางที่ 7.2</p>
+<p class="tcap"><b>ตารางที่ 7.2</b> วิธีจัดการข้อมูลสูญหายและหลักฐาน</p>
+<div class="tablewrap"><table><thead><tr><th>วิธี</th><th>หลักฐาน</th><th>แหล่ง</th></tr></thead><tbody><tr><td>ตัดรายที่ข้อมูลไม่ครบ (listwise deletion)</td><td>ใช้ได้ทั่วไปเฉพาะเมื่อสูญหายแบบ MCAR</td><td>Schafer and Graham (2002, p. 155)</td></tr><tr><td>ตัดรายที่ข้อมูลไม่ครบ</td><td>การจำลองพบว่าเอนเอียงและช่วงความเชื่อมั่นครอบคลุมต่ำเมื่อสูญหายแบบ MAR หรือ MNAR</td><td>Schafer and Graham (2002, pp. 156–157 ตาราง 2)</td></tr><tr><td>แทนด้วยค่าเฉลี่ย (mean substitution)</td><td>เมื่อสูญหายร้อยละ 25 ช่วงความเชื่อมั่นครอบคลุมประมาณร้อยละ 86</td><td>Schafer and Graham (2002, p. 159)</td></tr><tr><td>ภาวะน่าจะเป็นสูงสุด (maximum likelihood หรือ ML) และการแทนค่าพหุ (multiple imputation หรือ MI)</td><td>แนวปฏิบัติที่ดีที่สุดในทางปฏิบัติภายใต้ข้อตกลง MAR</td><td>Schafer and Graham (2002, pp. 147, 173)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Schafer and Graham (2002)</p>
+<p>ข้อควรระวังคือบทความนี้ไม่ได้กำหนดเกณฑ์ร้อยละที่ตัดรายได้ การตัดรายยอมรับได้เมื่อตัดเพียงส่วนน้อยและรายที่ตัดไม่มีอิทธิพลมาก (Schafer &amp; Graham, 2002, p. 156) นิสิตจึงไม่ควรอ้างบทความนี้ว่ากำหนดเกณฑ์ร้อยละใดไว้</p>
+<p>ผู้เขียนเสนอให้นิสิตทำบันทึกข้อมูลสูญหายที่มีสี่ช่อง คือ ตัวแปร จำนวนที่สูญหาย รูปแบบ และวิธีจัดการ ช่องรูปแบบให้ดูว่าข้อมูลสูญหายกระจุกที่ข้อใดหรือกลุ่มใด ถ้าข้อหนึ่งสูญหายมากกว่าข้ออื่นชัดเจน อาจเป็นสัญญาณว่าข้อนั้นมีปัญหาที่การทดลองใช้ไม่พบ เช่น ผู้ตอบไม่อยากตอบหรือไม่เข้าใจ ข้อมูลสูญหายแบบนี้อาจไม่สุ่ม และการตัดรายจะเอนเอียง ข้อผิดพลาดที่ต้องระวังอีกข้อคือการนับข้อมูลสูญหายเป็นศูนย์ เช่น ช่องว่างในข้อคำถามมาตรประมาณค่าที่ถูกแปลงเป็น 0 เมื่อส่งออกไฟล์</p>
+<h2 id="s-7-5">7.5 การตรวจโมเดลการวัดก่อนทดสอบสมมติฐาน</h2>
+<p>ระยะประเมินมาตรวัดมีสามขั้น คือ ทดสอบมิติ ทดสอบความเชื่อมั่น และทดสอบความเที่ยงตรง (Boateng et al., 2018, p. 4 ตาราง 1) นิสิตต้องทำทั้งสามขั้นกับข้อมูลจริงก่อนดูผลของสมมติฐาน ตามที่บทที่ 4 ให้เหตุผลไว้ว่าหลักฐานจากต้นฉบับใช้แทนไม่ได้ทั้งหมด Hair และ Alamer (2022) เสนอเกณฑ์สำหรับโมเดลการวัดแบบสะท้อนดังนี้</p>
+<ul><li>น้ำหนักองค์ประกอบ (loading) ประมาณ .70 ขึ้นไป (p. 6)</li><li>Cronbach's alpha และความเชื่อมั่นเชิงประกอบ (composite reliability หรือ CR) ไม่น้อยกว่า .70 แต่ค่าตั้งแต่ .95 ขึ้นไปบ่งว่าข้อคำถามซ้ำกัน (p. 6)</li><li>ค่าเฉลี่ยความแปรปรวนที่สกัดได้ (average variance extracted หรือ AVE) ไม่น้อยกว่า .50 สำหรับความเที่ยงตรงเชิงเหมือน (p. 7)</li></ul>
+<h3 id="s-7-5-1">7.5.1 ความเที่ยงตรงเชิงจำแนก</h3>
+<p>ความเที่ยงตรงเชิงจำแนก (discriminant validity) คือหลักฐานว่าแนวคิดสองแนวคิดที่วัดแยกกันเป็นคนละเรื่องจริง Henseler และคณะ (2015, pp. 115, 120) แสดงว่าเกณฑ์ Fornell-Larcker และการดู cross-loadings ไวไม่พอที่จะตรวจพบการขาดความเที่ยงตรงเชิงจำแนก และเสนอ HTMT (heterotrait-monotrait ratio) แทน HTMT ใช้ได้สองแบบ แบบแรกเทียบกับค่าขีดที่กำหนดไว้ก่อน แบบที่สองทดสอบด้วยช่วงความเชื่อมั่น bootstrap (Henseler et al., 2015, pp. 121–122) ค่าขีดที่มีผู้เสนอมีสองค่า คือ 0.85 และ 0.90 (Henseler et al., 2015, p. 121)</p>
+<p>ผู้เขียนเสนอให้นิสิตเลือกค่าขีดและเขียนเหตุผลไว้ในแผนลงทะเบียนก่อนวิเคราะห์ เพราะถ้าเลือกหลังเห็นค่า HTMT ทางเลือกนี้จะกลายเป็นความยืดหยุ่นของผู้วิจัยตามบทที่ 3 ถ้าค่าเกินขีดที่เลือก ไม่ควรเปลี่ยนไปใช้ขีดที่หลวมกว่า ทางเลือกที่ทำได้คือกลับไปดูนิยามของสองแนวคิดในบทที่ 4 ว่าซ้อนกันหรือไม่ ดูข้อคำถามที่อาจวัดทั้งสองแนวคิด และรายงานผลตามจริงพร้อมข้อจำกัด</p>
+<p>ภาพที่ 7.2 สรุปลำดับการตรวจในหัวข้อนี้ และทางที่นิสิตต้องเลือกเมื่อค่า HTMT เกินขีด</p>
+<figure class="fig"><img src="rs/fig/ch07_measurement.png" alt="ลำดับการตรวจโมเดลการวัดและทางเลือกเมื่อ HTMT เกินขีด (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 7.2 ลำดับการตรวจโมเดลการวัดและทางเลือกเมื่อ HTMT เกินขีด (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ ลำดับขั้นจาก Boateng et al. (2018, p. 4) เกณฑ์ความเชื่อมั่นและ AVE จาก Hair และ Alamer (2022, pp. 6–7) และ HTMT จาก Henseler et al. (2015)</p>
+<h3 id="s-7-5-2">7.5.2 ความลำเอียงจากวิธีวัดร่วมในขั้นวิเคราะห์</h3>
+<p>Podsakoff และคณะ (2024) ระบุว่าการทดสอบปัจจัยเดียวของ Harman (Harman's single-factor test) เป็นเพียงการวินิจฉัย ไม่ใช่วิธีควบคุมความลำเอียง นิสิตที่รายงานว่าผ่านการทดสอบนี้จึงยังไม่ได้แสดงว่าผลปลอดจากความลำเอียงจากวิธีวัดร่วม วิธีป้องกันหลักอยู่ในขั้นออกแบบตามบทที่ 5 การตรวจในขั้นนี้ควรทำตามที่เขียนไว้ในแผนเท่านั้น</p>
+<h2 id="s-7-6">7.6 การรายงานตามแนวปฏิบัติ</h2>
+<p>Hoyle และ Isherwood (2013) เสนอสิ่งที่ต้องรายงานเมื่อใช้ SEM ตารางที่ 7.3 สรุปสิ่งที่นิสิตต้องเตรียมตั้งแต่ขั้นตรวจโมเดลการวัด</p>
+<p class="tcap"><b>ตารางที่ 7.3</b> สิ่งที่ต้องรายงานเมื่อใช้ SEM</p>
+<div class="tablewrap"><table><thead><tr><th>หัวข้อ</th><th>สิ่งที่ต้องรายงาน</th><th>แหล่ง</th></tr></thead><tbody><tr><td>การระบุแบบจำลอง</td><td>ละเอียดพอให้คำนวณองศาอิสระได้ และอธิบายการระบุค่าได้ (identification)</td><td>Hoyle and Isherwood (2013, หัวข้อ Specification)</td></tr><tr><td>การประมาณค่า</td><td>โปรแกรมพร้อมรุ่น วิธีประมาณค่าและเหตุผล การจัดการข้อมูลไม่ปกติ และข้อมูลนำเข้า</td><td>Hoyle and Isherwood (2013, หัวข้อ Estimation)</td></tr><tr><td>ความกลมกลืน</td><td>ดัชนีความกลมกลืนอย่างน้อยสองกลุ่ม ตีความด้วยเกณฑ์ที่อ้างหลักฐานล่าสุด</td><td>Hoyle and Isherwood (2013, หัวข้อ Evaluation of fit)</td></tr><tr><td>ค่าประมาณ</td><td>ค่าประมาณของพารามิเตอร์ทุกตัว ระบุว่าเป็นค่ามาตรฐานหรือไม่ พร้อมความคลาดเคลื่อนมาตรฐาน</td><td>Hoyle and Isherwood (2013, หัวข้อ Parameter estimates)</td></tr><tr><td>การปรับแบบจำลอง</td><td>จำนวนครั้งและเหตุผลเชิงแนวคิด แยกเป็นส่วนเชิงสำรวจ</td><td>Hoyle and Isherwood (2013, หัวข้อ Respecification)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Hoyle and Isherwood (2013)</p>
+<p>แถวสุดท้ายเชื่อมกับบทที่ 3 การปรับแบบจำลองหลังเห็นผลเป็นการวิเคราะห์เชิงสำรวจ ต้องรายงานแยกจากการวิเคราะห์เชิงยืนยันที่ลงทะเบียนไว้ ส่วนรายการตรวจ CHERRIES มีแปดหมวด ได้แก่ แบบการวิจัย จริยธรรมและการคุ้มครองข้อมูล การพัฒนาและทดสอบ การรับสมัคร การบริหารแบบสอบถาม อัตราการตอบ การป้องกันการตอบซ้ำ และการวิเคราะห์ (Eysenbach, 2004, ตารางรายการตรวจ) ผลของบทที่ 5 ถึงบทที่ 7 ตอบหมวดเหล่านี้ได้เกือบทั้งหมด</p>
+<h2 id="s-7-7">7.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 7.4</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ทดลองใช้เฉพาะข้อคำถาม ไม่ทดสอบระบบ</td><td>เก็บจริงแล้วพบว่าไม่มีเวลาตอบในไฟล์</td><td>ตรวจไฟล์ส่งออกในการทดลองใช้</td></tr><tr><td>กำหนดเกณฑ์ตัดผู้ตอบหลังเห็นผล</td><td>เลือกเกณฑ์เวลาที่ทำให้ผลชัดขึ้น</td><td>ใช้เกณฑ์ในแผนลงทะเบียน และบันทึกการเบี่ยงจากแผน</td></tr><tr><td>ไม่รายงานจำนวนที่แต่ละเกณฑ์ตัด</td><td>รายงานเพียงขนาดตัวอย่างสุดท้าย</td><td>บันทึกตามภาพที่ 7.1</td></tr><tr><td>นับข้อมูลสูญหายเป็นศูนย์</td><td>ช่องว่างถูกแปลงเป็น 0 ตอนส่งออก</td><td>ตรวจรหัสค่าสูญหายในคู่มือรหัสข้อมูล</td></tr><tr><td>แทนข้อมูลสูญหายด้วยค่าเฉลี่ย</td><td>เติมค่าเฉลี่ยของข้อให้ทุกช่องว่าง</td><td>ใช้ ML หรือ MI (Schafer &amp; Graham, 2002, pp. 159, 173)</td></tr><tr><td>ใช้ Fornell-Larcker อย่างเดียวตัดสินความเที่ยงตรงเชิงจำแนก</td><td>ผ่านเกณฑ์เดียวแล้วสรุปว่าผ่าน</td><td>ใช้ HTMT (Henseler et al., 2015, p. 120)</td></tr><tr><td>ใช้การทดสอบของ Harman เป็นหลักฐานว่าไม่มีความลำเอียง</td><td>เขียนว่าปัจจัยแรกอธิบายไม่ถึงครึ่ง จึงไม่มีปัญหา</td><td>รายงานเป็นการวินิจฉัย และอ้างการออกแบบ (Podsakoff et al., 2024)</td></tr><tr><td>ทดสอบสมมติฐานก่อนตรวจโมเดลการวัด</td><td>ดูค่าเส้นทางก่อน แล้วจึงตัดข้อคำถาม</td><td>ตรวจโมเดลการวัดให้เสร็จก่อน</td></tr><tr><td>รายงานเฉพาะค่าประมาณที่มีนัยสำคัญ</td><td>ตารางแสดงเฉพาะเส้นทางที่มีดาว</td><td>รายงานพารามิเตอร์ทุกตัว (Hoyle &amp; Isherwood, 2013, หัวข้อ Parameter estimates)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริม (กรณีศึกษาสมมติ)</div><p>ปริมทดลองใช้แบบสอบถามกับพนักงาน 30 คนนอกกลุ่มตัวอย่างจริง พบว่าผู้ตอบหลายคนเข้าใจคำว่า "เครื่องมือ AI" ต่างกัน เมื่อเก็บจริงได้คำตอบ 342 ชุด มี 18 ชุดที่ใช้เวลาตอบน้อยกว่าเกณฑ์ที่ปริมเขียนไว้ในแผนลงทะเบียน และมีคำตอบ 11 ชุดที่มาจากที่อยู่ IP เดียวกันของศูนย์ข้อมูล และตอบช่องปลายเปิดด้วยข้อความคล้ายกันมาก</p><p>ข้อคำถามเรื่องภาระงานที่รับรู้มีข้อมูลสูญหายมากกว่าข้ออื่น และค่า HTMT ระหว่างความผูกพันในงานกับความพึงพอใจในงานสูงกว่าค่าขีดที่ปริมเลือกไว้ในแผน</p><p class="q"><b>คำถามชวนคิด</b> ปริมควรทำอะไรกับผลการทดลองใช้ก่อนเก็บจริง ควรบันทึกการตัดผู้ตอบ 18 ชุดและ 11 ชุดอย่างไร ข้อมูลสูญหายที่กระจุกในข้อภาระงานที่รับรู้บอกอะไร และควรทำอย่างไรกับค่า HTMT ที่เกินขีด</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถจัดทำรายงานผลทดลองใช้ที่ตรวจทั้งข้อคำถามและระบบ และใช้ผลนั้นปรับเครื่องมือก่อนเก็บจริง นิสิตบันทึกการตัดผู้ตอบเป็นลำดับขั้นพร้อมจำนวนก่อนและหลัง ตรวจคำตอบจากบอทหรือ AI ด้วยหลายสัญญาณ และรายงานผลทั้งแบบตัดและไม่ตัดคำตอบที่น่าสงสัย</p>
+<p>นิสิตสามารถอธิบายว่าการตัดรายที่ข้อมูลไม่ครบใช้ได้ทั่วไปเฉพาะเมื่อข้อมูลสูญหายแบบสุ่มโดยสมบูรณ์ และการแทนด้วยค่าเฉลี่ยทำให้ช่วงความเชื่อมั่นครอบคลุมค่าจริงได้น้อยกว่าที่ควร นิสิตตรวจโมเดลการวัดก่อนทดสอบสมมติฐาน ใช้ HTMT กับค่าขีดที่กำหนดไว้ก่อน และรู้ว่าการทดสอบของ Harman เป็นเพียงการวินิจฉัย</p>
+<p>ผลของใบงานที่ 7 คือข้อมูลที่พร้อมทดสอบสมมติฐานตามแผนลงทะเบียน พร้อมบันทึกที่ผู้อ่านตรวจย้อนได้ บทที่ 8 และบทที่ 9 เป็นแทร็กของนิสิตที่ใช้ข้อมูลทุติยภูมิ นิสิตแทร็กข้อมูลปฐมภูมิควรอ่านหัวข้อ 9.2 เรื่องโค้ดที่ทำซ้ำได้และหัวข้อ 9.3 เรื่องความทนทาน เพราะใช้กับงานของตนเช่นกัน แล้วต่อด้วยบทที่ 10</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การทดสอบคำถามก่อนใช้ (pre-testing)</li><li>การทดลองใช้ (pilot)</li><li>อัตราการเข้าชม (view rate)</li><li>อัตราการเข้าร่วม (participation rate)</li><li>อัตราการตอบครบ (completion rate)</li><li>ข้อมูลสูญหาย (missing data)</li><li>สูญหายแบบสุ่มโดยสมบูรณ์ (MCAR)</li><li>สูญหายแบบสุ่ม (MAR)</li><li>การแทนค่าพหุ (multiple imputation)</li><li>โมเดลการวัด (measurement model)</li><li>ความเที่ยงตรงเชิงจำแนก (discriminant validity)</li><li>HTMT (heterotrait-monotrait ratio)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายว่าการทดลองใช้ควรตรวจอะไรบ้างนอกจากความเข้าใจข้อคำถาม และยกตัวอย่างปัญหาที่จะพบได้เฉพาะเมื่อตรวจระบบ</li><li>ได้แบบสอบถามคืนมา 342 ชุด และรายงานในบทที่ 4 ของวิทยานิพนธ์ว่ากลุ่มตัวอย่างมี 313 คน ผู้อ่านจะถามอะไร และนิสิตต้องมีบันทึกอะไรจึงตอบได้</li><li>นิสิตคนหนึ่งเติมค่าเฉลี่ยให้ทุกช่องที่สูญหาย เพราะต้องการเก็บผู้ตอบไว้ให้มากที่สุด จงประเมินด้วยหลักฐานในหัวข้อ 7.4 และเสนอทางเลือก</li><li>ค่า HTMT ของแนวคิดคู่หนึ่งเท่ากับ 0.88 นิสิตเขียนในแผนว่าใช้ค่าขีด 0.85 จงอธิบายว่านิสิตควรทำอะไร และไม่ควรทำอะไร</li><li>นิสิตเขียนว่า "ผลการทดสอบปัจจัยเดียวของ Harman แสดงว่างานนี้ไม่มีความลำเอียงจากวิธีวัดร่วม" จงประเมินข้อความนี้ และเขียนข้อความที่ถูกต้องแทน</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 7 รายงานการเก็บข้อมูลและโมเดลการวัด</h2>
+<p>ให้นิสิตแทร็กข้อมูลปฐมภูมิจัดทำเอกสารสำหรับโครงการวิจัยของตนเอง ถ้ายังเก็บจริงไม่เสร็จ ให้ทำข้อ 1 ก่อน แล้วทำข้อ 2 ถึง 6 เมื่อเก็บเสร็จ</p>
+<ol><li>รายงานผลทดลองใช้ จำนวนผู้ตอบ ปัญหาที่พบทั้งข้อคำถามและระบบ ข้อที่ปรับ และเวลาที่ใช้ตอบ</li><li>บันทึกการตัดผู้ตอบตามภาพที่ 7.1 พร้อมอัตราที่ CHERRIES กำหนด และเกณฑ์ที่ตรงกับแผนลงทะเบียน</li><li>ผลตรวจคำตอบจากบอทหรือ AI ตามตารางที่ 7.1 กฎการตัดสิน และผลแบบตัดและไม่ตัด</li><li>คู่มือรหัสข้อมูล และบันทึกข้อมูลสูญหายสี่ช่อง พร้อมวิธีจัดการและเหตุผล</li><li>ตารางโมเดลการวัด ความเชื่อมั่น ความเที่ยงตรงเชิงเหมือน และ HTMT เทียบกับค่าขีดในแผน</li><li>รายการตรวจ CHERRIES ที่กรอกแล้ว และบันทึกการแก้แผนทุกครั้งที่เบี่ยงจากแผน</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Boateng, G. O., Neilands, T. B., Frongillo, E. A., Melgar-Quiñonez, H. R., &amp; Young, S. L. (2018). Best practices for developing and validating scales for health, social, and behavioral research: A primer. <em>Frontiers in Public Health</em>, <em>6</em>. <a href="https://doi.org/10.3389/fpubh.2018.00149" target="_blank" rel="noopener">https://doi.org/10.3389/fpubh.2018.00149</a></div>
+<div class="r">Eysenbach, G. (2004). Improving the quality of web surveys: The Checklist for Reporting Results of Internet E-Surveys (CHERRIES). <em>Journal of Medical Internet Research</em>, <em>6</em>(3), e34. <a href="https://doi.org/10.2196/jmir.6.3.e34" target="_blank" rel="noopener">https://doi.org/10.2196/jmir.6.3.e34</a></div>
+<div class="r">Hair, J., &amp; Alamer, A. (2022). Partial least squares structural equation modeling (PLS-SEM) in second language and education research: Guidelines using an applied example. <em>Research Methods in Applied Linguistics</em>, <em>1</em>(3), 100027. <a href="https://doi.org/10.1016/j.rmal.2022.100027" target="_blank" rel="noopener">https://doi.org/10.1016/j.rmal.2022.100027</a></div>
+<div class="r">Henseler, J., Ringle, C. M., &amp; Sarstedt, M. (2015). A new criterion for assessing discriminant validity in variance-based structural equation modeling. <em>Journal of the Academy of Marketing Science</em>, <em>43</em>(1), 115–135. <a href="https://doi.org/10.1007/s11747-014-0403-8" target="_blank" rel="noopener">https://doi.org/10.1007/s11747-014-0403-8</a></div>
+<div class="r">Hoyle, R. H., &amp; Isherwood, J. C. (2013). Reporting results from structural equation modeling analyses in Archives of Scientific Psychology. <em>Archives of Scientific Psychology</em>, <em>1</em>(1), 14–22. <a href="https://doi.org/10.1037/arc0000004" target="_blank" rel="noopener">https://doi.org/10.1037/arc0000004</a></div>
+<div class="r">Martherus, J., Podkul, A., Cook, E., &amp; Liebowitz, R. (2025). How to detect AI-assisted interviews in online surveys. <em>Survey Practice</em>, <em>18</em>(1), 1–10. <a href="https://doi.org/10.29115/sp-2025-0016" target="_blank" rel="noopener">https://doi.org/10.29115/sp-2025-0016</a></div>
+<div class="r">Podsakoff, P. M., Podsakoff, N. P., Williams, L. J., Huang, C., &amp; Yang, J. (2024). Common method bias: It's bad, it's complex, it's widespread, and it's not easy to fix. <em>Annual Review of Organizational Psychology and Organizational Behavior</em>, <em>11</em>(1), 17–61. <a href="https://doi.org/10.1146/annurev-orgpsych-110721-040030" target="_blank" rel="noopener">https://doi.org/10.1146/annurev-orgpsych-110721-040030</a></div>
+<div class="r">Schafer, J. L., &amp; Graham, J. W. (2002). Missing data: Our view of the state of the art. <em>Psychological Methods</em>, <em>7</em>(2), 147–177. <a href="https://doi.org/10.1037/1082-989x.7.2.147" target="_blank" rel="noopener">https://doi.org/10.1037/1082-989x.7.2.147</a></div>
+<div class="r">Westwood, S. J. (2025). The potential existential threat of large language models to online survey research. <em>Proceedings of the National Academy of Sciences</em>, <em>122</em>(47). <a href="https://doi.org/10.1073/pnas.2518075122" target="_blank" rel="noopener">https://doi.org/10.1073/pnas.2518075122</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 7 ทดลองใช้ เก็บข้อมูลจริง และตรวจโมเดลการวัด. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_07.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_06.html"><small>◀ บทก่อนหน้า</small>บทที่ 6 จริยธรรมการวิจัย ข้อมูลส่วนบุคคล และข้อตกลงการใช้ข้อมูล</a><a href="rs_lesson_08.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 8 สำรวจและประเมินชุดข้อมูลทุติยภูมิ</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

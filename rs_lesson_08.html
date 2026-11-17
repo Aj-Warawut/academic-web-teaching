@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 8 สำรวจและประเมินชุดข้อมูลทุติยภูมิ · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 8 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 8</div><a href="#x6">ความนำ</a><a href="#s-8-1">8.1 รู้จักชุดข้อมูลจากเอกสารก่อนวิเคราะห์</a><a href="#s-8-2">8.2 โปรไฟล์ชุดข้อมูล</a><a href="#s-8-3">8.3 บันทึกความรู้เดิม</a><a href="#s-8-4">8.4 ประเมินความเหมาะกับคำถามวิจัย</a><a href="#s-8-5">8.5 อ่านเอกสารประกอบชุดข้อมูล</a><a href="#s-8-6">8.6 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 8 โปรไฟล์และความเหมาะของชุดข้อมูล</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 8 สำรวจและประเมินชุดข้อมูลทุติยภูมิ</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 8</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายว่าเหตุใดความรู้เดิมเกี่ยวกับข้อมูลจึงต้องบันทึกก่อนวิเคราะห์ได้</li><li>จัดทำโปรไฟล์ชุดข้อมูลจากเอกสารของผู้ผลิตข้อมูลได้</li><li>จัดทำบันทึกความรู้เดิมที่ตอบข้อ 17 และข้อ 18 ของแม่แบบลงทะเบียนได้</li><li>ประเมินความเหมาะของชุดข้อมูลกับคำถามวิจัยด้วยตารางคะแนนพร้อมหลักฐานรายด้านได้</li><li>จัดทำตารางตัวแปรที่ใช้จากเอกสารประกอบชุดข้อมูลได้ (ใบงานที่ 8)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">นิสิตแทร็กข้อมูลปฐมภูมิได้ข้อมูลหลังจากออกแบบเสร็จ นิสิตแทร็กข้อมูลทุติยภูมิมีข้อมูลอยู่แล้วตั้งแต่ก่อนออกแบบ ความต่างนี้ทำให้ความเสี่ยงของสองแทร็กต่างกัน ความเสี่ยงหลักของแทร็กนี้ไม่ใช่การเก็บข้อมูล แต่คือการที่ผู้วิจัยเห็นข้อมูลก่อนตั้งสมมติฐานได้ง่าย และใช้ข้อมูลที่เก็บมาเพื่อจุดประสงค์อื่นโดยไม่รู้ข้อจำกัดของมัน</p>
+<p class="lead">บทนี้ให้นิสิตรู้จักชุดข้อมูลจากเอกสาร ไม่ใช่จากการวิเคราะห์ เริ่มจากโปรไฟล์ของชุดข้อมูล บันทึกว่าตนเคยเห็นอะไรไปแล้ว ประเมินว่าชุดข้อมูลตอบคำถามวิจัยได้จริงหรือไม่ แล้วจึงอ่านเอกสารประกอบเพื่อรู้ความหมายของทุกตัวแปรที่จะใช้ ผลของบทนี้ตอบข้อ 5 ถึงข้อ 13 และข้อ 17 ถึงข้อ 18 ของแม่แบบลงทะเบียนสำหรับข้อมูลเดิมในบทที่ 3</p>
+<p class="lead">นิสิตแทร็กข้อมูลปฐมภูมิไม่ต้องทำใบงานบทนี้ แต่หัวข้อ 8.5 ใช้ได้กับการทำคู่มือรหัสข้อมูลของตนในบทที่ 7</p>
+<h2 id="s-8-1">8.1 รู้จักชุดข้อมูลจากเอกสารก่อนวิเคราะห์</h2>
+<p>Hox และ Boeije (2005, p. 593) นิยามข้อมูลทุติยภูมิ (secondary data) ว่าเป็นข้อมูลที่เก็บเพื่อจุดประสงค์อื่นแล้วนำมาใช้ตอบคำถามวิจัยอื่น ข้อดีคือต้นทุนต่ำกว่ามากและเข้าถึงได้เร็วกว่า ข้อเสียคือข้อมูลอาจไม่เหมาะกับปัญหาวิจัย เพราะเก็บเพื่อจุดประสงค์อื่น (Hox &amp; Boeije, 2005, p. 594)</p>
+<p>ความเสี่ยงที่สองมาจากความรู้เดิม Van den Akker และคณะ (2021, p. 1) อธิบายว่าความรู้เดิมเกี่ยวกับข้อมูลอาจทำให้สมมติฐานและการวิเคราะห์มีอคติ นี่คือเหตุผลที่บทที่ 3 ให้การวิเคราะห์ข้อมูลเดิมต้องลงทะเบียนด้วย ผู้เขียนเสนอหลักปฏิบัติสำหรับบทนี้ว่า ทุกสิ่งที่รู้ได้จากเอกสาร ให้รู้จากเอกสาร ไม่ใช่จากการเปิดไฟล์ข้อมูลดู เพราะการเปิดดูคือการสร้างความรู้เดิมเพิ่ม</p>
+<h2 id="s-8-2">8.2 โปรไฟล์ชุดข้อมูล</h2>
+<p>Hox และ Boeije (2005, p. 597) ชี้ว่าข้อมูลเกี่ยวกับวิธีเก็บข้อมูลเดิมจำเป็นต่อการประเมินคุณภาพข้อมูลทุติยภูมิ และกำหนดข้อมูลประกอบขั้นต่ำไว้ ได้แก่ จุดประสงค์ของการศึกษา นิยามเชิงปฏิบัติการ รายละเอียดการเก็บว่าใครเก็บ เมื่อไร ที่ไหน หน่วยที่ศึกษาและเกณฑ์การสุ่ม และอคติที่ทราบ (Hox &amp; Boeije, 2005, p. 598) ผู้เขียนเสนอให้นิสิตรวมข้อมูลเหล่านี้กับข้อ 5 ถึงข้อ 9 ของแม่แบบลงทะเบียน (Van den Akker et al., 2021, pp. 4–5) เป็นโปรไฟล์ชุดข้อมูลตามตารางที่ 8.1</p>
+<p class="tcap"><b>ตารางที่ 8.1</b> โปรไฟล์ชุดข้อมูล (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>หัวข้อ</th><th>สิ่งที่ต้องเขียน</th><th>ที่มาของหัวข้อ</th></tr></thead><tbody><tr><td>ชื่อและฉบับ</td><td>ชื่อชุดข้อมูล ผู้ผลิต ฉบับหรือวันที่ปรับปรุงล่าสุด</td><td>Van den Akker et al. (2021, pp. 4–5)</td></tr><tr><td>การเข้าถึง</td><td>วิธีเข้าถึง วันดาวน์โหลด ข้อตกลงการใช้</td><td>Van den Akker et al. (2021, pp. 4–5) และบทที่ 6</td></tr><tr><td>จุดประสงค์เดิม</td><td>ผู้ผลิตเก็บข้อมูลเพื่ออะไร</td><td>Hox and Boeije (2005, p. 598)</td></tr><tr><td>วิธีเก็บ</td><td>ใครเก็บ เมื่อไร ที่ไหน ด้วยวิธีใด</td><td>Hox and Boeije (2005, p. 598)</td></tr><tr><td>หน่วยและการสุ่ม</td><td>หน่วยที่ศึกษา เกณฑ์คัดเข้า วิธีสุ่ม</td><td>Hox and Boeije (2005, p. 598)</td></tr><tr><td>ขนาดและช่วงเวลา</td><td>จำนวนแถว จำนวนหน่วย ช่วงเวลาที่ครอบคลุม</td><td>ผู้เขียนเสนอ</td></tr><tr><td>อคติที่ทราบ</td><td>ข้อจำกัดที่ผู้ผลิตระบุไว้เอง</td><td>Hox and Boeije (2005, p. 598)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ รวมหัวข้อจาก Hox and Boeije (2005) และ Van den Akker et al. (2021)</p>
+<p>ทุกหัวข้อในตารางนี้ตอบได้จากเอกสารของผู้ผลิต ถ้าเอกสารไม่ตอบหัวข้อใด ให้เขียนว่าไม่พบ และระบุว่าจะถามใคร หัวข้อที่ไม่มีคำตอบเป็นข้อมูลสำคัญสำหรับหัวข้อ 8.4</p>
+<p>ภาพที่ 8.1 แสดงว่าโปรไฟล์ชุดข้อมูลเป็นจุดเริ่มของงานในบทนี้ และหัวข้อที่เอกสารไม่ตอบส่งต่อไปถึงตารางคะแนนความเหมาะ</p>
+<figure class="fig"><img src="rs/fig/ch08_profile_flow.png" alt="จากเอกสารของผู้ผลิตถึงตารางคะแนนความเหมาะ (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 8.1 จากเอกสารของผู้ผลิตถึงตารางคะแนนความเหมาะ (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<h2 id="s-8-3">8.3 บันทึกความรู้เดิม</h2>
+<p>แม่แบบลงทะเบียนของ Van den Akker และคณะ (2021, pp. 11–12) มีข้อ 17 และข้อ 18 ไว้ให้เปิดเผยงานที่ตนเคยตีพิมพ์จากข้อมูลชุดนี้ และความรู้เดิมที่มีต่อข้อมูล ผู้เขียนเสนอให้นิสิตเขียนบันทึกความรู้เดิม (prior knowledge log) เป็นตาราง มีวันที่ สิ่งที่ทำกับข้อมูล ตัวแปรที่เห็น และสิ่งที่สังเกตได้ ตัวอย่างรายการเช่น วันที่ดาวน์โหลด ตัวแปรที่เคยเปิดดูค่า ตารางหรือกราฟที่เคยทำ และบทความหรือรายงานที่เคยอ่านซึ่งใช้ข้อมูลชุดเดียวกัน</p>
+<p>บันทึกนี้ต้องเขียนก่อนเริ่มวิเคราะห์ใด ๆ และเพิ่มรายการทุกครั้งที่เปิดดูข้อมูลหลังจากนั้น ถ้านิสิตเคยเปิดข้อมูลไปแล้วโดยไม่ได้บันทึก ให้เขียนย้อนหลังตามที่จำได้ และระบุว่าเป็นบันทึกย้อนหลัง บทที่ 3 ได้กล่าวไว้ว่าการลงทะเบียนหลังเห็นข้อมูลบางส่วนยังมีประโยชน์ ถ้าบอกตามจริงว่าเห็นอะไรไปแล้ว บันทึกย้อนหลังที่ซื่อตรงจึงดีกว่าการเขียนว่าไม่เคยเห็นข้อมูล</p>
+<h2 id="s-8-4">8.4 ประเมินความเหมาะกับคำถามวิจัย</h2>
+<p>Hox และ Boeije (2005, p. 598) วางเกณฑ์ไว้ว่า ข้อจำกัดของข้อมูลที่ทำให้วิเคราะห์ได้ไม่ครบบางส่วนยอมรับได้ แต่ถ้าต้องเปลี่ยนคำถามวิจัยเพื่อให้ใช้ข้อมูลได้ ถือว่ายอมรับไม่ได้ ผู้เขียนเสนอให้นิสิตตัดสินด้วยตารางคะแนนความเหมาะ (fitness scorecard) ในตารางที่ 8.2 ก่อนลงแรงเตรียมข้อมูล แต่ละด้านต้องมีหลักฐานจากเอกสาร ไม่ใช่ความเห็น</p>
+<p class="tcap"><b>ตารางที่ 8.2</b> ตารางคะแนนความเหมาะของชุดข้อมูล (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามที่ต้องตอบ</th><th>หลักฐาน</th></tr></thead><tbody><tr><td>ความตรงของแนวคิด</td><td>ตัวแปรในชุดข้อมูลวัดแนวคิดตามนิยามในบทที่ 4 หรือเป็นเพียงตัวแทนหยาบ</td><td>คำถามต้นฉบับหรือนิยามในเอกสาร</td></tr><tr><td>หน่วยวิเคราะห์</td><td>ตรงกับคำถามวิจัยหรือต้องรวมระดับตามบทที่ 2</td><td>คู่มือชุดข้อมูล</td></tr><tr><td>ช่วงเวลา</td><td>ครอบคลุมช่วงที่คำถามต้องการ</td><td>คู่มือชุดข้อมูล</td></tr><tr><td>ตัวแปรกวน</td><td>ตัวแปรกวนในแผนภาพเชิงสาเหตุบทที่ 2 มีในชุดข้อมูลหรือไม่</td><td>ตารางเทียบตัวแปรกับแผนภาพ</td></tr><tr><td>กลุ่มตัวอย่าง</td><td>ประชากรและวิธีสุ่มตรงกับขอบเขตที่ต้องการอ้างผล</td><td>รายงานวิธีการของผู้ผลิต</td></tr><tr><td>ขนาด</td><td>พอสำหรับการวิเคราะห์ที่วางไว้</td><td>ตัวเลขจากเอกสาร</td></tr><tr><td>คุณภาพ</td><td>ข้อมูลสูญหายและการเปลี่ยนนิยามข้ามรอบ</td><td>คู่มือชุดข้อมูล</td></tr><tr><td>การเข้าถึง</td><td>ข้อตกลงการใช้ยอมให้ทำงานนี้และส่งออกผล</td><td>ตารางที่ 6.3</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>ภาพที่ 8.2 แสดงข้อสรุปสามแบบที่ได้จากตารางคะแนน</p>
+<figure class="fig"><img src="rs/fig/ch08_fitness.png" alt="ข้อสรุปจากตารางคะแนนความเหมาะ" loading="lazy"><figcaption>ภาพที่ 8.2 ข้อสรุปจากตารางคะแนนความเหมาะ</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ ตามเกณฑ์ใน Hox and Boeije (2005, p. 598)</p>
+<p>ข้อสรุปแบบที่สองต้องเขียนในแผนลงทะเบียนว่าสมมติฐานข้อใดทดสอบไม่ได้หรือทดสอบได้เพียงบางส่วน และเพราะอะไร ข้อสรุปแบบที่สามไม่ใช่ความล้มเหลว การรู้ว่าชุดข้อมูลไม่เหมาะก่อนเตรียมข้อมูลประหยัดเวลาได้มาก ข้อที่ต้องระวังคือการเลือกทางที่ง่ายกว่า คือแก้คำถามวิจัยให้ตรงกับตัวแปรที่มีโดยไม่บอกใคร ซึ่งเกณฑ์ข้างต้นถือว่ายอมรับไม่ได้</p>
+<h2 id="s-8-5">8.5 อ่านเอกสารประกอบชุดข้อมูล</h2>
+<p>คู่มือรหัสข้อมูล (codebook) คือเอกสารที่อธิบายตัวแปร ค่าที่เป็นไปได้ และตำแหน่งในไฟล์ข้อมูล (Hox &amp; Boeije, 2005, p. 593) แม่แบบลงทะเบียนให้นิสิตตอบเรื่อง codebook ตัวแปรที่จัดกระทำ ตัวแปรที่วัด หน่วยการวิเคราะห์ และเกณฑ์คัดเข้า ในข้อ 10 ถึงข้อ 13 (Van den Akker et al., 2021, pp. 6–8) ผู้เขียนเสนอให้นิสิตทำตารางตัวแปรที่ใช้ตามตารางที่ 8.3 สำหรับทุกตัวแปรในแผนภาพเชิงสาเหตุ</p>
+<p class="tcap"><b>ตารางที่ 8.3</b> ตารางตัวแปรที่ใช้ (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>คอลัมน์</th><th>ความหมาย</th></tr></thead><tbody><tr><td>ชื่อตัวแปรในไฟล์</td><td>ชื่อตามที่ปรากฏในไฟล์ข้อมูล</td></tr><tr><td>แนวคิดที่แทน</td><td>แนวคิดในแผนภาพเชิงสาเหตุที่ตัวแปรนี้แทน</td></tr><tr><td>นิยามหรือคำถามต้นฉบับ</td><td>ตามเอกสารของผู้ผลิต พร้อมเลขหน้า</td></tr><tr><td>ป้ายค่าและหน่วย</td><td>ค่าแต่ละค่าหมายถึงอะไร หน่วยวัดคืออะไร</td></tr><tr><td>รหัสข้อมูลสูญหาย</td><td>รหัสที่ใช้แทนข้อมูลสูญหาย และความหมายของช่องว่าง</td></tr><tr><td>นิยามที่เปลี่ยนข้ามรอบ</td><td>ปีหรือรอบที่นิยามหรือการจัดกลุ่มเปลี่ยน</td></tr><tr><td>น้ำหนักถ่วง</td><td>ตัวแปรน้ำหนักถ่วงที่เกี่ยวข้อง ถ้ามี</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ ตามข้อ 10 ถึงข้อ 13 ใน Van den Akker et al. (2021, pp. 6–8)</p>
+<p>สามคอลัมน์สุดท้ายเป็นจุดที่ผิดบ่อยที่สุด คอลัมน์รหัสข้อมูลสูญหายป้องกันการนับรหัส เช่น 99 หรือ -9 เป็นค่าจริง และป้องกันการตีความช่องว่างผิด คอลัมน์นิยามที่เปลี่ยนข้ามรอบสำคัญเพราะความต่างเล็กน้อยของนิยาม การจัดประเภท และแนวคิดระหว่างการศึกษามีผลต่อการนำข้อมูลกลับมาใช้ (Hox &amp; Boeije, 2005, p. 598) ผู้วิเคราะห์ใหม่ยังควรรู้ว่าผู้ผลิตแก้ไขและลงรหัสข้อมูลดิบเดิมอย่างไร ถ้าไม่มีเมทาดาตาเรื่องนี้ จะประเมินความเที่ยงและความตรงของวิธีเดิมไม่ได้ (Hox &amp; Boeije, 2005, p. 598) ส่วนน้ำหนักถ่วง แม่แบบลงทะเบียนให้ระบุการใช้น้ำหนักตัวอย่างไว้ในข้อ 16 (Van den Akker et al., 2021, pp. 9–11) ส่วนจะใช้น้ำหนักหรือไม่ Solon และคณะ (2015) ให้เริ่มจากคำถามว่ากำลังประมาณค่าอะไร ถ้าเป็นค่าสถิติพรรณนาของประชากร เช่น สัดส่วนหรือค่าเฉลี่ย ให้ใช้น้ำหนัก ถ้าเป็นผลเชิงสาเหตุ เหตุผลของการใช้น้ำหนักมีสามข้อ คือ ความแปรปรวนไม่คงที่ (heteroskedasticity) การสุ่มตัวอย่างที่ขึ้นกับตัวแปรตาม (endogenous sampling) และผลที่ต่างกันระหว่างกลุ่ม (heterogeneous effects) และแนะนำให้รายงานผลทั้งแบบใช้และไม่ใช้น้ำหนัก</p>
+<p>ถ้าเอกสารไม่ตอบคอลัมน์ใด ห้ามเดาจากชื่อคอลัมน์หรือจากการเปิดดูค่า ให้เขียนว่าเอกสารไม่ระบุ แล้วถามผู้ผลิตหรือผู้ดูแลข้อมูล ถ้าไม่ได้คำตอบ ให้ตัดสินในแผนลงทะเบียนว่าจะถือความหมายใด และวางแผนวิเคราะห์ความทนทานด้วยความหมายอื่นในบทที่ 9</p>
+<h2 id="s-8-6">8.6 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 8.4</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ตั้งคำถามวิจัยจากตัวแปรที่สัมพันธ์กันในชุดข้อมูล</td><td>เปิดตารางสหสัมพันธ์แล้วเลือกคู่ที่สูง</td><td>เริ่มจากแผนภาพเชิงสาเหตุในบทที่ 2 และบันทึกความรู้เดิม</td></tr><tr><td>ไม่บันทึกความรู้เดิม หรือเขียนว่าไม่เคยเห็นข้อมูล</td><td>ข้อ 18 ของแม่แบบว่างเปล่า</td><td>เขียนบันทึก ย้อนหลังได้ถ้าระบุว่าย้อนหลัง (Van den Akker et al., 2021, pp. 11–12)</td></tr><tr><td>แก้คำถามวิจัยให้ตรงกับตัวแปรที่มี</td><td>เปลี่ยนแนวคิดเป็นตัวแปรที่หาได้โดยไม่บอก</td><td>ใช้เกณฑ์ใน Hox and Boeije (2005, p. 598)</td></tr><tr><td>เดาความหมายของตัวแปรจากชื่อคอลัมน์</td><td>ถือว่าคอลัมน์ RD คือค่าใช้จ่ายวิจัยและพัฒนาทั้งหมด</td><td>อ่านนิยามในเอกสารพร้อมเลขหน้า</td></tr><tr><td>นับรหัสข้อมูลสูญหายเป็นค่าจริง</td><td>ค่า 99 ถูกนำไปคำนวณค่าเฉลี่ย</td><td>กรอกคอลัมน์รหัสข้อมูลสูญหายในตารางที่ 8.3</td></tr><tr><td>ไม่ตรวจนิยามที่เปลี่ยนข้ามรอบ</td><td>ใช้รหัสอุตสาหกรรมสองระบบเป็นตัวแปรเดียว</td><td>กรอกคอลัมน์นิยามที่เปลี่ยนข้ามรอบ (Hox &amp; Boeije, 2005, p. 598)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ธาม (กรณีศึกษาสมมติ)</div><p>ฐานข้อมูลของธามครอบคลุมบริษัทจดทะเบียนประมาณ 600 บริษัท ข้อมูลรายปีย้อนหลัง 10 ปี ค่าใช้จ่ายวิจัยและพัฒนาเป็นช่องว่างในข้อมูลบริษัทรายปีจำนวนมาก และเอกสารประกอบฐานข้อมูลไม่ได้บอกว่าช่องว่างหมายถึงศูนย์หรือไม่ได้เปิดเผย</p><p>รหัสอุตสาหกรรมในฐานข้อมูลเปลี่ยนระบบการจัดกลุ่มในช่วงกลางของช่วงเวลาที่ศึกษา และธามไม่ได้บันทึกว่าเคยดูตัวแปรใดไปแล้วบ้างตอนเปิดข้อมูลในบทที่ 1</p><p class="q"><b>คำถามชวนคิด</b> ธามควรเขียนบันทึกความรู้เดิมอย่างไร ช่องว่างของค่าใช้จ่ายวิจัยและพัฒนาและรหัสอุตสาหกรรมที่เปลี่ยนระบบควรเขียนในตารางที่ 8.3 อย่างไร และสองเรื่องนี้ทำให้ตารางคะแนนความเหมาะด้านใดน่ากังวล ข้อสรุปของธามควรเป็นแบบใดในภาพที่ 8.2</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถอธิบายว่าข้อมูลทุติยภูมิเก็บเพื่อจุดประสงค์อื่น จึงอาจไม่เหมาะกับปัญหาวิจัย และความรู้เดิมเกี่ยวกับข้อมูลอาจทำให้สมมติฐานและการวิเคราะห์มีอคติ นิสิตจึงรู้จักชุดข้อมูลจากเอกสารก่อนเปิดไฟล์ จัดทำโปรไฟล์ชุดข้อมูล และบันทึกความรู้เดิมตามจริง แม้ต้องเขียนย้อนหลัง</p>
+<p>นิสิตประเมินความเหมาะของชุดข้อมูลด้วยตารางคะแนนที่มีหลักฐานรายด้าน และใช้เกณฑ์ว่าข้อจำกัดที่ทำให้วิเคราะห์ได้ไม่ครบบางส่วนยอมรับได้ แต่การเปลี่ยนคำถามวิจัยเพื่อให้ใช้ข้อมูลได้ยอมรับไม่ได้ นิสิตจัดทำตารางตัวแปรที่ใช้จากเอกสารประกอบ โดยเฉพาะรหัสข้อมูลสูญหายและนิยามที่เปลี่ยนข้ามรอบ</p>
+<p>ผลของใบงานที่ 8 คือความรู้เกี่ยวกับชุดข้อมูลที่พร้อมใช้เตรียมข้อมูล บทที่ 9 นำตารางตัวแปรที่ใช้ไปตรวจคุณภาพข้อมูล เขียนโค้ดเตรียมข้อมูลที่ทำซ้ำได้ และตรวจว่าทางเลือกในการเตรียมข้อมูลเปลี่ยนผลหรือไม่</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ข้อมูลทุติยภูมิ (secondary data)</li><li>โปรไฟล์ชุดข้อมูล (dataset profile)</li><li>บันทึกความรู้เดิม (prior knowledge log)</li><li>ตารางคะแนนความเหมาะ (fitness scorecard)</li><li>คู่มือรหัสข้อมูล (codebook)</li><li>ป้ายค่า (value label)</li><li>รหัสข้อมูลสูญหาย (missing value code)</li><li>น้ำหนักถ่วง (weight)</li><li>เมทาดาตา (metadata)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายว่าเหตุใดการเปิดไฟล์ข้อมูลดูเพื่อทำความรู้จักชุดข้อมูลจึงเป็นความเสี่ยง และนิสิตควรรู้จักชุดข้อมูลด้วยวิธีใดแทน</li><li>นิสิตคนหนึ่งเปิดข้อมูลดูมาแล้วหลายเดือนโดยไม่ได้บันทึก จงเสนอวิธีเขียนบันทึกความรู้เดิมที่ซื่อตรงและยังมีประโยชน์</li><li>ชุดข้อมูลของนิสิตไม่มีตัวแปรกวนสำคัญหนึ่งตัวในแผนภาพเชิงสาเหตุ จงใช้เกณฑ์ของ Hox และ Boeije (2005) ตัดสินว่านิสิตควรสรุปแบบใดในภาพที่ 8.2 และควรเขียนอะไรในแผนลงทะเบียน</li><li>จงอธิบายด้วยตัวอย่างว่าการไม่ตรวจนิยามที่เปลี่ยนข้ามรอบส่งผลต่อผลการวิเคราะห์อย่างไร</li><li>เอกสารประกอบชุดข้อมูลไม่บอกว่าช่องว่างในตัวแปรหลักหมายถึงอะไร จงเสนอขั้นตอนที่นิสิตควรทำ ตั้งแต่ก่อนตัดสินจนถึงการวิเคราะห์</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 8 โปรไฟล์และความเหมาะของชุดข้อมูล</h2>
+<p>ให้นิสิตแทร็กข้อมูลทุติยภูมิจัดทำเอกสารสำหรับโครงการวิจัยของตนเอง</p>
+<ol><li>บันทึกความรู้เดิม พร้อมวันที่ ระบุรายการที่เขียนย้อนหลัง</li><li>โปรไฟล์ชุดข้อมูลตามตารางที่ 8.1 ระบุเลขหน้าของเอกสารทุกหัวข้อ</li><li>ตารางคะแนนความเหมาะตามตารางที่ 8.2 พร้อมหลักฐานรายด้าน และข้อสรุปตามภาพที่ 8.2</li><li>ตารางตัวแปรที่ใช้ตามตารางที่ 8.3 ครบทุกตัวแปรในแผนภาพเชิงสาเหตุ</li><li>รายการคำถามที่เอกสารไม่ตอบ พร้อมผู้ที่จะถามและสิ่งที่จะตัดสินถ้าไม่ได้คำตอบ</li><li>ปรับข้อ 5 ถึงข้อ 13 และข้อ 17 ถึงข้อ 18 ของแผนลงทะเบียนให้ตรงกับใบงานนี้ และบันทึกในบันทึกการแก้แผน</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Hox, J. J., &amp; Boeije, H. R. (2005). Data collection, primary vs. secondary. In <em>Encyclopedia of social measurement</em> (Vol. 1, pp. 593–599). Elsevier. <a href="https://doi.org/10.1016/b0-12-369398-5/00041-4" target="_blank" rel="noopener">https://doi.org/10.1016/b0-12-369398-5/00041-4</a></div>
+<div class="r">Solon, G., Haider, S. J., &amp; Wooldridge, J. M. (2015). What are we weighting for? <em>Journal of Human Resources</em>, <em>50</em>(2), 301–316. <a href="https://doi.org/10.3368/jhr.50.2.301" target="_blank" rel="noopener">https://doi.org/10.3368/jhr.50.2.301</a></div>
+<div class="r">Van den Akker, O. R., Weston, S., Campbell, L., Chopik, B., Damian, R., Davis-Kean, P., Hall, A., Kosie, J., Kruse, E., Olsen, J., Ritchie, S., Valentine, K., Van 't Veer, A., &amp; Bakker, M. (2021). Preregistration of secondary data analysis: A template and tutorial. <em>Meta-Psychology</em>, <em>5</em>. <a href="https://doi.org/10.15626/mp.2020.2625" target="_blank" rel="noopener">https://doi.org/10.15626/mp.2020.2625</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 8 สำรวจและประเมินชุดข้อมูลทุติยภูมิ. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_08.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_07.html"><small>◀ บทก่อนหน้า</small>บทที่ 7 ทดลองใช้ เก็บข้อมูลจริง และตรวจโมเดลการวัด</a><a href="rs_lesson_09.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 9 ตรวจคุณภาพ เตรียมข้อมูลด้วยโค้ด และตรวจความทนทาน</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

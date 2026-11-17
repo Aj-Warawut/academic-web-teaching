@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 2 จากคำถามวิจัยสู่ตัวแปร หน่วยวิเคราะห์ และแผนภาพเชิงสาเหตุ · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 2 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 2</div><a href="#x6">ความนำ</a><a href="#s-2-1">2.1 จากหัวข้อสู่คำถามวิจัย</a><a href="#s-2-2">2.2 ตัวแปรและนิยามเชิงปฏิบัติการ</a><a href="#s-2-3">2.3 หน่วยวิเคราะห์และระดับของการวิเคราะห์</a><a href="#s-2-4">2.4 แผนภาพเชิงสาเหตุ</a><a href="#s-2-5">2.5 ตัวแปรควบคุมที่ดี ไม่ดี และเป็นกลาง</a><a href="#s-2-6">2.6 ขั้นตอนสร้างแผนภาพเชิงสาเหตุ</a><a href="#s-2-7">2.7 เมื่อมีตัวแปรกวนที่วัดไม่ได้</a><a href="#s-2-8">2.8 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 2 แผนภาพเชิงสาเหตุและรายการตัวแปรของโครงการตนเอง</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 2 จากคำถามวิจัยสู่ตัวแปร หน่วยวิเคราะห์ และแผนภาพเชิงสาเหตุ</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 2</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>จำแนกคำถามวิจัยเชิงบรรยาย เชิงพยากรณ์ และเชิงสาเหตุ และระบุว่าคำถามของตนเป็นแบบใดได้</li><li>แปลงคำถามวิจัยเป็นตัวแปรต้น ตัวแปรตาม นิยามเชิงปฏิบัติการ และหน่วยวิเคราะห์ได้</li><li>อธิบายโครงสร้าง chain fork และ collider และผลของการควบคุมตัวแปรในแต่ละโครงสร้างได้</li><li>จำแนกตัวแปรควบคุมในแบบจำลองของตนว่าเป็นตัวควบคุมที่ดี ไม่ดี หรือเป็นกลาง โดยใช้แผนภาพเชิงสาเหตุได้</li><li>จัดทำแผนภาพเชิงสาเหตุของโครงการตนเองตามขั้นตอนสามขั้น และระบุตัวแปรที่ควรมีแต่วัดไม่ได้ได้ (ใบงานที่ 2)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 วางแผนว่าข้อมูลจะมาจากไหนและจะดูแลอย่างไร บทนี้ย้อนกลับไปที่จุดตั้งต้นของงานวิจัย คือคำถามวิจัย และถามต่อว่าคำถามนั้นต้องการตัวแปรอะไร วัดที่หน่วยใด และต้องควบคุมตัวแปรใดจึงจะตอบคำถามได้ คำถามสุดท้ายนี้ดูเหมือนเป็นเรื่องเทคนิคของการวิเคราะห์ แต่ความจริงเป็นเรื่องของการออกแบบ เพราะตัวแปรควบคุม (control variable) ที่เลือกผิดทำให้ผลการวิเคราะห์ห่างจากคำตอบที่ต้องการ ไม่ว่ากลุ่มตัวอย่างจะใหญ่เพียงใด</p>
+<p class="lead">ในงานวิจัยบริหารธุรกิจ นิสิตจำนวนมากเลือกตัวแปรควบคุมด้วยการคัดลอกจากงานก่อนหน้า หรือใส่ทุกตัวแปรที่มีในข้อมูล ด้วยความเชื่อว่าใส่มากยิ่งดี บทนี้แสดงว่าความเชื่อนี้ไม่ถูกต้อง และเสนอเครื่องมือที่ช่วยตัดสินใจอย่างมีเหตุผล คือ แผนภาพเชิงสาเหตุ (causal diagram) ซึ่งเขียนในรูปกราฟมีทิศทางที่ไม่มีวงวน (directed acyclic graph หรือ DAG)</p>
+<p class="lead">บทนี้เริ่มจากการจำแนกประเภทของคำถามวิจัย แล้วแปลงคำถามเป็นตัวแปร นิยามเชิงปฏิบัติการ และหน่วยวิเคราะห์ จากนั้นอธิบายองค์ประกอบของแผนภาพเชิงสาเหตุ ใช้แผนภาพจำแนกตัวแปรควบคุมที่ดีและไม่ดี เสนอขั้นตอนสร้างแผนภาพสามขั้น และกล่าวถึงกรณีที่มีตัวแปรกวนซึ่งวัดไม่ได้ ท้ายบทเป็นกรณีศึกษาเดินเรื่อง (running case) ของปริมและธามต่อจากบทที่ 1 ทั้งสองเป็นนิสิตสมมติที่ผู้เขียนใช้เป็นตัวอย่างตลอดเล่ม ปริมเป็นนิสิตปริญญาโท ศึกษาการใช้เครื่องมือ AI กับความผูกพันในงานของพนักงานสำนักงาน และเก็บข้อมูลปฐมภูมิด้วยแบบสอบถาม ส่วนธามเป็นนิสิตปริญญาเอก ศึกษาการลงทุนวิจัยและพัฒนากับผลการดำเนินงานของบริษัทจดทะเบียน และใช้ข้อมูลทุติยภูมิจากงบการเงิน</p>
+<h2 id="s-2-1">2.1 จากหัวข้อสู่คำถามวิจัย</h2>
+<p>หัวข้อวิจัยบอกว่านิสิตสนใจเรื่องใด แต่ยังไม่บอกว่าต้องการรู้อะไร หัวข้อ "การใช้เครื่องมือ AI กับความผูกพันในงาน (work engagement)" อาจกลายเป็นคำถามได้หลายแบบ เช่น พนักงานใช้เครื่องมือ AI มากน้อยเพียงใด การใช้เครื่องมือ AI ช่วยทำนายว่าใครจะผูกพันในงานสูงได้หรือไม่ หรือการใช้เครื่องมือ AI ทำให้ความผูกพันในงานสูงขึ้นหรือไม่ คำถามสามแบบนี้ต้องการข้อมูล ตัวแปร และวิธีวิเคราะห์ต่างกัน</p>
+<h3 id="s-2-1-1">2.1.1 คำถามสามแบบ</h3>
+<p>ผู้เขียนเสนอให้นิสิตจำแนกคำถามของตนก่อนเป็นสามแบบตามตารางที่ 2.1 การจำแนกนี้สำคัญเพราะเครื่องมือในบทนี้ ได้แก่ แผนภาพเชิงสาเหตุและการเลือกตัวแปรควบคุม จำเป็นสำหรับคำถามเชิงสาเหตุ สำหรับคำถามเชิงบรรยายและเชิงพยากรณ์ การเลือกตัวแปรใช้เหตุผลอื่น</p>
+<p class="tcap"><b>ตารางที่ 2.1</b> ประเภทของคำถามวิจัย</p>
+<div class="tablewrap"><table><thead><tr><th>ประเภท</th><th>ตัวอย่างคำถาม</th><th>สิ่งที่ต้องการรู้</th><th>บทบาทของตัวแปรควบคุม</th></tr></thead><tbody><tr><td>เชิงบรรยาย (descriptive)</td><td>พนักงานสำนักงานใช้เครื่องมือ AI ในงานบ่อยเพียงใด</td><td>ลักษณะหรือระดับของปรากฏการณ์</td><td>ใช้แยกกลุ่มย่อยเพื่อบรรยาย ไม่ได้ใช้ตัดอิทธิพล</td></tr><tr><td>เชิงพยากรณ์ (predictive)</td><td>การใช้เครื่องมือ AI ช่วยทำนายความผูกพันในงานได้แม่นขึ้นหรือไม่</td><td>ความแม่นของการทำนาย</td><td>ใส่ตัวแปรที่ช่วยทำนายได้ ไม่ต้องตีความค่าสัมประสิทธิ์เชิงสาเหตุ</td></tr><tr><td>เชิงสาเหตุ (causal)</td><td>การใช้เครื่องมือ AI ทำให้ความผูกพันในงานสูงขึ้นหรือไม่</td><td>ผลของการเปลี่ยนตัวแปรต้นต่อตัวแปรตาม</td><td>ต้องเลือกจากโครงสร้างเชิงสาเหตุ ใส่ผิดตัวทำให้ผลเอนเอียง (biased)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสังเคราะห์</p>
+<p>คำถามวิจัยทางบริหารธุรกิจส่วนใหญ่เป็นคำถามเชิงสาเหตุ แม้จะเขียนด้วยคำว่า "ความสัมพันธ์" หรือ "อิทธิพล" ถ้าข้อเสนอแนะท้ายงานบอกผู้บริหารว่า "ควรเพิ่มการใช้เครื่องมือ AI เพื่อเพิ่มความผูกพันในงาน" คำถามนั้นเป็นเชิงสาเหตุ เพราะข้อเสนอแนะสมมติว่าการเปลี่ยนตัวแปรต้นจะเปลี่ยนตัวแปรตาม ปัญหาคือข้อมูลที่นิสิตมีส่วนใหญ่เป็นข้อมูลเชิงสังเกต (observational data) ซึ่งไม่ได้สุ่มให้ใครได้รับปัจจัย (treatment) Rohrer (2018, บทคัดย่อ) ชี้ว่าความสัมพันธ์ไม่ได้บอกความเป็นเหตุเป็นผล แต่หลายครั้งข้อมูลเชิงสังเกตเป็นทางเลือกเดียว แม้คำถามวิจัยจะเกี่ยวกับความเป็นเหตุเป็นผลก็ตาม ผู้วิจัยจึงต้องคิดอย่างชัดเจนว่าตัวแปรใดเกี่ยวข้องกันอย่างไร</p>
+<h3 id="s-2-1-2">2.1.2 คำถามที่ดีมาจากทฤษฎี ไม่ใช่จากข้อมูล</h3>
+<p>ผู้เขียนเสนอว่า คำถามวิจัยต้องมาก่อนการดูข้อมูล และควรมาจากช่องว่างหรือข้อสมมติในวรรณกรรม ไม่ใช่จากตัวแปรที่บังเอิญมีในชุดข้อมูล Alvesson และ Sandberg (2011, บทคัดย่อ) ชี้ว่าวิธีที่ใช้กันมากคือการหาช่องว่างในวรรณกรรมเดิม (gap spotting) และเสนอวิธีที่เรียกว่าการตั้งคำถามต่อข้อสมมติ (problematization) คือระบุและท้าทายข้อสมมติที่วรรณกรรมเดิมยึดถือ แล้วสร้างคำถามวิจัยจากตรงนั้น นิสิตปริญญาเอกควรพิจารณาแนวทางนี้เมื่อต้องการให้งานมีส่วนสนับสนุนทางทฤษฎี (theoretical contribution) ที่ชัดเจน</p>
+<h2 id="s-2-2">2.2 ตัวแปรและนิยามเชิงปฏิบัติการ</h2>
+<p>เมื่อได้คำถามเชิงสาเหตุแล้ว ขั้นต่อไปคือระบุบทบาทของตัวแปร <strong>ตัวแปรต้น (treatment หรือ exposure)</strong> คือ ตัวแปรที่ผู้วิจัยต้องการรู้ผลของมัน <strong>ตัวแปรตาม (outcome)</strong> คือ ตัวแปรที่ผู้วิจัยต้องการรู้ว่าเปลี่ยนไปเท่าใดเมื่อตัวแปรต้นเปลี่ยน <strong>ตัวกลาง (mediator)</strong> คือ ตัวแปรที่อยู่บนเส้นทางที่ตัวแปรต้นส่งผลไปถึงตัวแปรตาม และ <strong>ตัวแปรกวน (confounder)</strong> คือ ตัวแปรที่เป็นสาเหตุร่วม (common cause) ของตัวแปรต้นและตัวแปรตาม ซึ่งทำให้ทั้งสองสัมพันธ์กันแม้ตัวแปรต้นไม่มีผลต่อตัวแปรตามเลย (Hünermund et al., 2025, p. 3)</p>
+<h3 id="s-2-2-1">2.2.1 นิยามเชิงแนวคิดและนิยามเชิงปฏิบัติการ</h3>
+<p>ตัวแปรต้นและตัวแปรตามแต่ละตัวต้องมีนิยามสองระดับ <strong>นิยามเชิงแนวคิด (conceptual definition)</strong> บอกว่าแนวคิดนั้นหมายถึงอะไรในทางทฤษฎี ส่วน <strong>นิยามเชิงปฏิบัติการ (operational definition)</strong> บอกว่าจะวัดแนวคิดนั้นอย่างไรในการวิจัยนี้ ตัวอย่างเช่น "ความผูกพันในงาน" มีนิยามเชิงแนวคิดตามทฤษฎีที่นิสิตเลือก และมีนิยามเชิงปฏิบัติการเป็นคะแนนจากมาตรวัด (scale) ฉบับใดฉบับหนึ่ง</p>
+<p>สำหรับข้อมูลปฐมภูมิ (primary data) การกำหนดนิยามเชิงแนวคิดให้ชัดเป็นขั้นแรกของการพัฒนามาตรวัด Boateng และคณะ (2018, p. 3) วางขั้นแรกของกระบวนการพัฒนามาตรวัดไว้ที่การกำหนดขอบเขตของแนวคิดและสร้างข้อคำถาม (item) ก่อนการตรวจความเที่ยงตรงเชิงเนื้อหา (content validity) ถ้านิยามเชิงแนวคิดไม่ชัด ข้อคำถามที่ได้จะวัดหลายเรื่องปนกัน รายละเอียดของการพัฒนามาตรวัดอยู่ในบทของแทร็ก A</p>
+<p>สำหรับข้อมูลทุติยภูมิ (secondary data) นิยามเชิงปฏิบัติการถูกกำหนดไว้แล้วโดยผู้ผลิตข้อมูล ผู้วิจัยจึงต้องตรวจว่าตัวแปรที่มีวัดแนวคิดที่ต้องการได้จริงหรือไม่ ตามที่บทที่ 1 กล่าวไว้ ตัวแทนจากข้อมูลเอกสาร (archival proxy) บางตัวถูกใช้แทนแนวคิดที่หลากหลาย และบางกรณีไม่ได้สัมพันธ์ใกล้ชิดกับแนวคิดที่ตั้งใจวัด (Ketchen et al., 2013, บทคัดย่อ) ผู้เขียนเสนอให้นิสิตเขียนนิยามเชิงแนวคิดก่อน แล้วจึงเขียนว่าตัวแปรในข้อมูลวัดแนวคิดนั้นได้ครบเพียงใด และส่วนใดที่วัดไม่ได้</p>
+<h3 id="s-2-2-2">2.2.2 ตารางคำถามสู่ตัวแปร</h3>
+<p>ผู้เขียนเสนอแม่แบบในตารางที่ 2.2 ให้นิสิตเติมก่อนวาดแผนภาพเชิงสาเหตุ คอลัมน์ที่ 2 และ 3 เป็นตัวอย่างที่เติมแล้วจากกรณีศึกษาเดินเรื่อง คอลัมน์ปริมคือโครงการระดับปริญญาโทที่ใช้แบบสอบถาม คอลัมน์ธามคือโครงการระดับปริญญาเอกที่ใช้ข้อมูลงบการเงิน นิสิตใช้คอลัมน์แรกเป็นแม่แบบและเติมข้อมูลของโครงการตนเองแทนคอลัมน์ตัวอย่าง</p>
+<p class="tcap"><b>ตารางที่ 2.2</b> แม่แบบตารางคำถามสู่ตัวแปร พร้อมตัวอย่างจากกรณีศึกษา</p>
+<div class="tablewrap"><table><thead><tr><th>รายการ</th><th>ปริม (ปริญญาโท ข้อมูลแบบสอบถาม)</th><th>ธาม (ปริญญาเอก ข้อมูลงบการเงิน)</th></tr></thead><tbody><tr><td>ประเภทคำถาม (question type)</td><td>เชิงสาเหตุ</td><td>เชิงสาเหตุ</td></tr><tr><td>ตัวแปรต้น (treatment)</td><td>การใช้เครื่องมือ AI ในงานประจำวัน (AI tool use)</td><td>ความเข้มข้นของการลงทุนวิจัยและพัฒนา (R&amp;D intensity)</td></tr><tr><td>นิยามเชิงปฏิบัติการ (operational definition) ของตัวแปรต้น</td><td>คะแนนความถี่ของการใช้จากแบบสอบถาม</td><td>ค่าใช้จ่ายวิจัยและพัฒนาต่อยอดขาย (R&amp;D expenditure to sales) จากงบการเงิน</td></tr><tr><td>ตัวแปรตาม (outcome)</td><td>ความผูกพันในงาน (work engagement)</td><td>ผลการดำเนินงาน (firm performance)</td></tr><tr><td>นิยามเชิงปฏิบัติการของตัวแปรตาม</td><td>คะแนนจากมาตรวัดความผูกพันในงาน</td><td>ผลตอบแทนต่อสินทรัพย์ (ROA)</td></tr><tr><td>หน่วยวิเคราะห์ (unit of analysis)</td><td>พนักงาน (employee)</td><td>บริษัทรายปี (firm-year)</td></tr><tr><td>ประชากรและช่วงเวลา (population and period)</td><td>พนักงานสำนักงานของบริษัทหนึ่ง ปีเดียว</td><td>บริษัทจดทะเบียน หลายปี</td></tr><tr><td>ตัวแปรที่ระดับสูงกว่า (higher-level variable)</td><td>ฝ่ายที่สังกัด (department)</td><td>อุตสาหกรรม (industry)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสังเคราะห์ ข้อมูลกรณีศึกษาเป็นข้อมูลสมมติ</p>
+<h2 id="s-2-3">2.3 หน่วยวิเคราะห์และระดับของการวิเคราะห์</h2>
+<p><strong>หน่วยวิเคราะห์ (unit of analysis)</strong> คือ สิ่งที่ข้อสรุปของงานวิจัยกล่าวถึง เช่น บุคคล ทีม ฝ่าย บริษัท หรือบริษัทในแต่ละปี หน่วยวิเคราะห์ต่างจากผู้ให้ข้อมูล เช่น งานที่ให้ผู้จัดการตอบแบบสอบถามเรื่องกลยุทธ์ของบริษัท มีผู้ให้ข้อมูลเป็นบุคคล แต่หน่วยวิเคราะห์เป็นบริษัท</p>
+<h3 id="s-2-3-1">2.3.1 ข้อสมมติเรื่องระดับ</h3>
+<p>งานวิจัยองค์การมักมีหน่วยซ้อนกัน พนักงานอยู่ในฝ่าย ฝ่ายอยู่ในบริษัท บริษัทอยู่ในอุตสาหกรรม Klein และคณะ (1994, บทคัดย่อ) ชี้ว่าทฤษฎีที่ระบุระดับต้องตั้งข้อสมมติอย่างใดอย่างหนึ่งในสามแบบ แบบแรก สมาชิกในหน่วยระดับสูงเหมือนกัน แบบที่สอง สมาชิกเป็นอิสระจากหน่วยระดับสูง และแบบที่สาม สมาชิกแตกต่างกันภายในหน่วยระดับสูง ข้อสมมติที่เลือกควรกำหนดการเก็บข้อมูล การวิเคราะห์ และการตีความด้วย</p>
+<h3 id="s-2-3-2">2.3.2 ตัวแปรต้นและตัวแปรตามอยู่ระดับเดียวกันหรือไม่</h3>
+<p>ผู้เขียนเสนอจุดตรวจหนึ่งข้อ คือหน่วยวิเคราะห์ของตัวแปรต้นและตัวแปรตามต้องตรงกัน หรือมีแผนชัดเจนว่าจะเชื่อมระดับอย่างไร ในกรณีของปริม การใช้เครื่องมือ AI วัดที่ระดับพนักงาน แต่บริษัทให้แต่ละฝ่ายตัดสินใจเองว่าจะเปิดให้ใช้เครื่องมือ AI หรือไม่ การได้ใช้เครื่องมือจึงถูกกำหนดบางส่วนที่ระดับฝ่าย ถ้าบรรยากาศของฝ่ายส่งผลต่อความผูกพันในงานด้วย ฝ่ายจะเป็นตัวแปรกวน (confounder) ที่ระดับสูงกว่า ปริมต้องตัดสินว่าข้อสรุปของตนกล่าวถึงพนักงานหรือฝ่าย และวางแผนการวิเคราะห์ที่คำนึงถึงการที่พนักงานซ้อนอยู่ในฝ่าย รายละเอียดของการวิเคราะห์หลายระดับ (multilevel analysis) อยู่นอกขอบเขตของบทนี้</p>
+<p>ในกรณีของธาม หน่วยวิเคราะห์คือบริษัทรายปี ทั้งการลงทุนวิจัยและพัฒนาและ ROA วัดที่ระดับเดียวกัน แต่บริษัทซ้อนอยู่ในอุตสาหกรรม และแต่ละบริษัทมีหลายปี ธามต้องระบุว่าคำถามสนใจความต่างระหว่างบริษัท (between-firm difference) หรือการเปลี่ยนแปลงภายในบริษัทเดียวกัน (within-firm change) เมื่อเวลาผ่านไป เพราะสองคำถามนี้ใช้การวิเคราะห์ต่างกัน</p>
+<p>ภาพที่ 2.1 เปรียบเทียบการซ้อนของหน่วยในสองกรณี ในกรณีของปริม พนักงานซ้อนอยู่ใน 12 ฝ่าย และการเปิดใช้เครื่องมือ AI ถูกตัดสินที่ระดับฝ่าย ในกรณีของธาม ข้อมูลแต่ละแถวคือบริษัทในปีหนึ่ง แต่ละบริษัทมีหลายปี และบริษัทซ้อนอยู่ในอุตสาหกรรม</p>
+<figure class="fig"><img src="rs/fig/ch02_levels.png" alt="การซ้อนของหน่วยวิเคราะห์ในกรณีศึกษาเดินเรื่อง (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 2.1 การซ้อนของหน่วยวิเคราะห์ในกรณีศึกษาเดินเรื่อง (กรณีศึกษาสมมติ)</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากกรณีศึกษาสมมติ แสดงเพียงบางหน่วย กล่องเส้นประแทนหน่วยที่ไม่ได้แสดง</p>
+<h2 id="s-2-4">2.4 แผนภาพเชิงสาเหตุ</h2>
+<p><strong>แผนภาพเชิงสาเหตุ (causal diagram)</strong> คือ แผนภาพที่แสดงลักษณะเชิงคุณภาพของกระบวนการที่สร้างข้อมูล (data-generating process) ตัวอักษรหรือกล่องแทนตัวแปร และลูกศรจากตัวแปรหนึ่งไปอีกตัวหนึ่งแทนผลทางตรงที่อาจมีของตัวแปรแรกต่อตัวแปรที่สอง แผนภาพไม่ต้องกำหนดรูปแบบฟังก์ชัน (functional form) ของความสัมพันธ์หรือการแจกแจงของตัวแปร (Cinelli et al., 2024, p. 3) แผนภาพจึงเป็นเครื่องมือของทฤษฎี ไม่ใช่แบบจำลองทางสถิติ (statistical model) Hünermund และคณะ (2025, p. 4) อธิบายว่าแบบจำลองเชิงสาเหตุเชิงโครงสร้าง (structural causal model) เป็นเครื่องมือแสดงข้อสมมติเชิงสาเหตุที่แบบจำลองทางสถิติ เช่น สมการถดถอย (regression equation) ตั้งอยู่ ไม่ใช่ตัวแบบจำลองทางสถิติเอง</p>
+<p>เลขหน้าของ Cinelli และคณะ (2024) ในบทนี้อ้างตามฉบับก่อนตีพิมพ์ (Technical Report R-493 ฉบับปรับปรุงมีนาคม 2022) ซึ่งเลขหน้าต่างจากฉบับวารสาร</p>
+<h3 id="s-2-4-1">2.4.1 การระบุผลกับการประมาณค่า</h3>
+<p>ก่อนใช้แผนภาพ นิสิตต้องแยกสองเรื่องออกจากกัน <strong>การระบุผลเชิงสาเหตุ (causal identification)</strong> ถามว่าแบบการวิจัยและข้อมูลรองรับการอนุมานเชิงสาเหตุได้หรือไม่ ส่วนการประมาณค่า (estimation) และการอนุมานทางสถิติ (statistical inference) ถามว่าจะได้ค่าประมาณที่แม่นเพียงใด Hünermund และคณะ (2025, p. 3) ชี้ว่าการระบุผลเป็นคนละเรื่องกับการประมาณค่า และไม่ขึ้นกับขนาดตัวอย่าง ความหมายในทางปฏิบัติคือ ถ้าเลือกตัวแปรควบคุมผิด การเพิ่มกลุ่มตัวอย่างไม่ได้ช่วยให้ได้คำตอบที่ถูก</p>
+<h3 id="s-2-4-2">2.4.2 โครงสร้างพื้นฐานสามแบบ</h3>
+<p>แผนภาพเชิงสาเหตุทุกแผนประกอบด้วยโครงสร้างพื้นฐานสามแบบตามภาพที่ 2.2 (Hünermund et al., 2025, p. 3)</p>
+<figure class="fig"><img src="rs/fig/ch02_structures.png" alt="โครงสร้างพื้นฐานสามแบบของแผนภาพเชิงสาเหตุ" loading="lazy"><figcaption>ภาพที่ 2.2 โครงสร้างพื้นฐานสามแบบของแผนภาพเชิงสาเหตุ</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดตามคำอธิบายของ Hünermund และคณะ (2025, p. 3)</p>
+<p>ในโครงสร้าง chain ตัวแปร A ส่งผลต่อ B และ B ส่งผลต่อ C ในโครงสร้าง fork ตัวแปร B เป็นสาเหตุร่วมของ A และ C ในทั้งสองโครงสร้าง A และ C สัมพันธ์กันทางสถิติ และความสัมพันธ์นั้นหายไปเมื่อควบคุม B (Hünermund et al., 2025, p. 3) ความต่างอยู่ที่ความหมาย ใน chain การควบคุม B ปิดกลไกที่ A ส่งผลต่อ C Hünermund และคณะ (2025, p. 3) ยกตัวอย่างว่า ถ้าการลงทุนเชิงกลยุทธ์ส่งผลต่อผลการดำเนินงานผ่านยอดขายเท่านั้น ในกลุ่มตัวอย่างที่ทุกบริษัทมียอดขายเท่ากัน การลงทุนจะไม่สัมพันธ์กับผลการดำเนินงานเลย ส่วนใน fork การควบคุม B ตัดความสัมพันธ์ลวง (spurious association) ที่เกิดจากสาเหตุร่วม</p>
+<p>โครงสร้าง collider ตรงข้ามกับสองแบบแรก A และ C ต่างส่งผลต่อ B โดยที่ A กับ C ไม่ได้สัมพันธ์กัน แต่เมื่อควบคุม B หรือเลือกกลุ่มตัวอย่างตามค่าของ B ความสัมพันธ์ลวงระหว่าง A กับ C จะเกิดขึ้น ตัวอย่างที่ Cinelli และคณะ (2024, p. 12) ยกไว้ คือการศึกษาที่ใช้เฉพาะข้อมูลทหาร ถ้าคนตัวเตี้ยมีแนวโน้มสมัครเป็นทหารมากกว่า การจำกัดตัวอย่างเฉพาะผู้ที่เป็นทหารก็เท่ากับควบคุม collider และทำให้เกิดความเอนเอียงจากการเลือกตัวอย่าง (selection bias)</p>
+<p class="tcap"><b>ตารางที่ 2.3</b> ผลของการควบคุมตัวแปรกลางในโครงสร้างพื้นฐานสามแบบ</p>
+<div class="tablewrap"><table><thead><tr><th>โครงสร้าง</th><th>ความหมาย</th><th>ถ้าไม่ควบคุม B</th><th>ถ้าควบคุม B</th></tr></thead><tbody><tr><td>chain</td><td>B เป็นตัวกลางที่ A ส่งผลผ่านไปถึง C</td><td>เห็นผลรวม (total effect) ของ A ต่อ C</td><td>ปิดกลไก เห็นผลน้อยลงหรือไม่เห็นผล</td></tr><tr><td>fork</td><td>B เป็นสาเหตุร่วมของ A และ C</td><td>มีความสัมพันธ์ลวง</td><td>ตัดความสัมพันธ์ลวง</td></tr><tr><td>collider</td><td>B เป็นผลร่วมของ A และ C</td><td>เส้นทางปิดอยู่แล้ว</td><td>เปิดความสัมพันธ์ลวงขึ้นมาใหม่</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Hünermund และคณะ (2025, p. 3) และ Cinelli และคณะ (2024, pp. 3–4)</p>
+<h3 id="s-2-4-3">2.4.3 เส้นทางหลังบ้านและเกณฑ์หลังบ้าน</h3>
+<p>ระหว่างตัวแปรต้นกับตัวแปรตามอาจมีหลายเส้นทาง บางเส้นทางเป็นเส้นทางเชิงสาเหตุ (causal path) คือเริ่มจากตัวแปรต้นและไปตามลูกศรจนถึงตัวแปรตาม บางเส้นทางเป็นเส้นทางลวง (non-causal path) เส้นทางลวงที่เริ่มด้วยลูกศรที่ชี้เข้าหาตัวแปรต้น เรียกว่า <strong>เส้นทางหลังบ้าน (backdoor path)</strong> หลักชี้นำในการเลือกตัวแปรควบคุมมีเพียงข้อเดียว คือต้องปิดเส้นทางลวงทั้งหมดระหว่างตัวแปรต้นกับตัวแปรตาม และต้องไม่รบกวนเส้นทางเชิงสาเหตุใด ๆ (Cinelli et al., 2024, p. 4)</p>
+<p>หลักนี้เขียนเป็นเกณฑ์ที่ตรวจได้ เรียกว่า <strong>เกณฑ์หลังบ้าน (backdoor criterion)</strong> ชุดตัวแปรควบคุมผ่านเกณฑ์นี้เมื่อไม่มีตัวแปรใดในชุดเป็นผลที่สืบมาจากตัวแปรต้น (descendant of the treatment) และชุดนั้นปิดทุกเส้นทางที่มีลูกศรชี้เข้าหาตัวแปรต้น (Hünermund et al., 2025, p. 7) เมื่อชุดตัวแปรควบคุมผ่านเกณฑ์นี้ การควบคุมด้วยการถดถอยพหุคูณ (multiple regression) การจับคู่ด้วยคะแนนความโน้มเอียง (propensity score matching) หรือวิธีอื่นที่ทำหน้าที่ควบคุม จะประมาณผลเชิงสาเหตุได้อย่างสอดคล้อง (consistent) (Hünermund et al., 2025, p. 7)</p>
+<p>การควบคุมไม่ได้หมายถึงการใส่ตัวแปรในสมการถดถอยเท่านั้น Hünermund และคณะ (2025, p. 2) ชี้ว่าการควบคุมทำได้ทั้งการปรับทางสถิติ (statistical adjustment) และการเลือกกลุ่มตัวอย่างให้ตัวแปรนั้นคงที่ เช่น ศึกษาเพียงอุตสาหกรรมเดียว ข้อนี้สำคัญเพราะการกำหนดเกณฑ์คัดเลือกกลุ่มตัวอย่างก็เป็นการควบคุมเช่นกัน และอาจเป็นการควบคุม collider โดยไม่รู้ตัว</p>
+<h2 id="s-2-5">2.5 ตัวแปรควบคุมที่ดี ไม่ดี และเป็นกลาง</h2>
+<p>ตำราสถิติที่ใช้กันแพร่หลายพูดถึงปัญหาการละตัวแปรที่เกี่ยวข้อง (omitted variable bias) แต่ไม่บอกว่าตัวแปรใดเกี่ยวข้อง หรือตัวแปรใดที่ใส่แล้วทำให้ความเอนเอียงเกิดขึ้นหรือแย่ลง ผู้อ่านจึงอาจเข้าใจว่าการใส่ตัวแปรควบคุมมากขึ้นดีกว่าเสมอ (Cinelli et al., 2024, p. 2) งานทบทวนในวารสารการจัดการพบปัญหาในทางปฏิบัติที่สอดคล้องกัน Becker (2005, บทคัดย่อ) ศึกษาบทความ 60 เรื่องจากวารสารชั้นนำสี่ฉบับ และพบว่าผู้เขียนจำนวนมากไม่อธิบายเหตุผลที่ใส่ตัวแปรควบคุม บรรยายการวัดไม่ชัด และรายงานผลไม่ครบ Spector และ Brannick (2011, บทคัดย่อ) เรียกการใส่ตัวแปรควบคุมแบบอัตโนมัติว่าเป็นตำนานเชิงวิธีการ (methodological urban legend) และเสนอให้ผู้วิจัยระบุบทบาทของตัวแปรควบคุมอย่างชัดแจ้ง</p>
+<h3 id="s-2-5-1">2.5.1 ตัวควบคุมสามกลุ่ม</h3>
+<p>Cinelli และคณะ (2024, pp. 4–13) ใช้แบบจำลองตัวอย่าง 18 แบบจำแนกตัวแปรควบคุมเป็นสามกลุ่ม <strong>ตัวควบคุมที่ดี (good control)</strong> ลดความเอนเอียง <strong>ตัวควบคุมไม่ดี (bad control)</strong> เพิ่มความเอนเอียง และ <strong>ตัวควบคุมที่เป็นกลาง (neutral control)</strong> ไม่เพิ่มและไม่ลดความเอนเอียง แต่อาจทำให้ค่าประมาณแม่นขึ้นหรือแม่นน้อยลง ซึ่งเป็นเรื่องของความแม่นยำ (precision) ตารางที่ 2.4 สรุปกรณีที่นิสิตพบบ่อย</p>
+<p class="tcap"><b>ตารางที่ 2.4</b> ตัวแปรควบคุมที่ดี ไม่ดี และเป็นกลาง</p>
+<div class="tablewrap"><table><thead><tr><th>ตำแหน่งของตัวแปร Z ในแผนภาพ</th><th>กลุ่ม</th><th>ผลของการควบคุม Z</th><th>แหล่ง</th></tr></thead><tbody><tr><td>สาเหตุร่วมของตัวแปรต้นและตัวแปรตาม</td><td>ดี</td><td>ปิดเส้นทางหลังบ้าน</td><td>Cinelli et al. (2024, pp. 4–5)</td></tr><tr><td>อยู่บนเส้นทางหลังบ้านแม้ไม่ใช่สาเหตุร่วมโดยตรง</td><td>ดี</td><td>ปิดเส้นทางหลังบ้านที่ผ่านตัวแปรที่วัดไม่ได้</td><td>Cinelli et al. (2024, p. 5)</td></tr><tr><td>ตัวกลางระหว่างตัวแปรต้นกับตัวแปรตาม</td><td>ไม่ดี</td><td>ปิดผลที่ต้องการประมาณ เรียกว่าความเอนเอียงจากการควบคุมเกิน (overcontrol bias)</td><td>Cinelli et al. (2024, p. 8)</td></tr><tr><td>ผลร่วมของตัวแปรต้นกับตัวแปรตาม หรือผลของตัวแปรตาม</td><td>ไม่ดี</td><td>เปิดเส้นทางลวง ทำให้เกิดความเอนเอียงจากการเลือก</td><td>Cinelli et al. (2024, p. 10)</td></tr><tr><td>ตัวแปรก่อนการได้รับปัจจัย (pre-treatment variable) ที่เป็น collider ของตัวแปรที่วัดไม่ได้สองตัว</td><td>ไม่ดี</td><td>เปิดเส้นทางลวง เรียกว่า M-bias</td><td>Cinelli et al. (2024, p. 5)</td></tr><tr><td>สาเหตุของตัวแปรต้นเท่านั้น เมื่อมีตัวแปรกวนที่วัดไม่ได้</td><td>ไม่ดี</td><td>ขยายความเอนเอียงที่มีอยู่เดิม (bias amplification)</td><td>Cinelli et al. (2024, p. 7)</td></tr><tr><td>สาเหตุของตัวแปรตามเท่านั้น</td><td>เป็นกลาง</td><td>ความเอนเอียงไม่เปลี่ยน ค่าประมาณอาจแม่นขึ้น</td><td>Cinelli et al. (2024, p. 6)</td></tr><tr><td>สาเหตุของตัวแปรต้นเท่านั้น เมื่อไม่มีตัวแปรกวนที่วัดไม่ได้</td><td>เป็นกลาง</td><td>ความเอนเอียงไม่เปลี่ยน ค่าประมาณอาจแม่นน้อยลง</td><td>Cinelli et al. (2024, p. 7)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนสรุปจาก Cinelli และคณะ (2024) ฉบับก่อนตีพิมพ์</p>
+<p>ภาพที่ 2.3 แสดงแผนภาพของหกกรณีที่พบบ่อยในตารางที่ 2.4 ในทุกช่อง X คือตัวแปรต้น Y คือตัวแปรตาม และ Z คือตัวแปรที่กำลังพิจารณาว่าจะควบคุมหรือไม่ สีของ Z บอกกลุ่ม สีเขียวคือตัวควบคุมที่ดี สีแดงคือตัวควบคุมไม่ดี และสีน้ำเงินคือตัวควบคุมที่เป็นกลาง ช่อง (ก) กับช่อง (จ) แสดงว่าตัวแปรที่ชี้ลูกศรเข้าหา X เหมือนกัน อาจเป็นตัวควบคุมที่ดีหรือไม่ดีก็ได้ ขึ้นกับว่าส่งผลต่อ Y ด้วยหรือไม่ และมีตัวแปรกวนที่วัดไม่ได้หรือไม่</p>
+<figure class="fig"><img src="rs/fig/ch02_controls.png" alt="ตัวอย่างตัวแปรควบคุมที่ดี ไม่ดี และเป็นกลาง" loading="lazy"><figcaption>ภาพที่ 2.3 ตัวอย่างตัวแปรควบคุมที่ดี ไม่ดี และเป็นกลาง</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดตามแบบจำลองของ Cinelli และคณะ (2024, pp. 4–8, 10) วงกลมเส้นประคือตัวแปรที่วัดไม่ได้</p>
+<h3 id="s-2-5-2">2.5.2 บทเรียนสามข้อจากตารางที่ 2.4</h3>
+<p>บทเรียนแรก ตัวแปรที่เกิดก่อนตัวแปรต้นไม่ได้เป็นตัวควบคุมที่ดีเสมอ ตำราเศรษฐมิติ (econometrics) มักถือว่าตัวแปรก่อนการได้รับปัจจัยเป็นตัวควบคุมที่ดี แต่ M-bias แสดงว่าตัวแปรก่อนการได้รับปัจจัยก็เป็นตัวควบคุมไม่ดีได้ (Cinelli et al., 2024, p. 5) และตัวแปรที่เป็นสาเหตุของตัวแปรต้นเพียงอย่างเดียวอาจขยายความเอนเอียงที่มีอยู่ (Cinelli et al., 2024, p. 7)</p>
+<p>บทเรียนที่สอง ตัวกลางเป็นตัวควบคุมไม่ดีเมื่อคำถามสนใจผลรวม ถ้าเป้าหมายคือผลทั้งหมดของตัวแปรต้นต่อตัวแปรตาม ต้องปล่อยทุกช่องทางที่ผลไหลผ่านไว้โดยไม่แตะต้อง การควบคุมตัวกลางปิดผลที่ต้องการประมาณเอง (Cinelli et al., 2024, p. 8) Hünermund และคณะ (2025, p. 10) แสดงด้วยข้อมูลจำลองว่า เมื่อสร้างข้อมูลให้รูปลักษณ์ของ CEO ส่งผลต่อ ROA ผ่านยอดขาย การควบคุมยอดขายทำให้ไม่พบผล แต่เมื่อตัดยอดขายออกจากตัวควบคุม ค่าสัมประสิทธิ์มีขนาดใหญ่และมีนัยสำคัญสูง</p>
+<p>บทเรียนที่สาม ตัวแปรที่เกิดหลังตัวแปรต้นไม่ได้เป็นตัวควบคุมไม่ดีเสมอ Cinelli และคณะ (2024, p. 9) ชี้ว่าในบางโครงสร้าง การควบคุมตัวแปรหลังการได้รับปัจจัย (post-treatment variable) ไม่เปิดเส้นทางลวงใด ๆ จึงเป็นกลางในแง่ความเอนเอียง สิ่งที่ตัดสินจึงไม่ใช่ลำดับเวลาอย่างเดียว แต่เป็นตำแหน่งของตัวแปรในแผนภาพ</p>
+<p>ผู้เขียนเสนอว่า บทเรียนทั้งสามข้อนำไปสู่ข้อสรุปเดียวกัน คือไม่มีกฎง่าย ๆ เช่น "ใส่ตัวแปรประชากรศาสตร์ทุกตัว" หรือ "ใส่ทุกตัวแปรที่เกิดก่อน" ที่ใช้แทนการวาดแผนภาพได้ Spector และ Brannick (2011, บทคัดย่อ) ยังเตือนให้หลีกเลี่ยงการใช้ตัวแปรประชากรศาสตร์เป็นตัวแทนของตัวแปรที่สนใจจริงทางทฤษฎี</p>
+<h2 id="s-2-6">2.6 ขั้นตอนสร้างแผนภาพเชิงสาเหตุ</h2>
+<p>Hünermund และคณะ (2025, p. 8) เสนอขั้นตอนสามขั้นในการวาดแผนภาพเชิงสาเหตุ ตารางที่ 2.5 สรุปแต่ละขั้นพร้อมจุดตรวจที่ผู้เขียนเพิ่มสำหรับนิสิต</p>
+<p class="tcap"><b>ตารางที่ 2.5</b> ขั้นตอนสร้างแผนภาพเชิงสาเหตุสามขั้น</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>สิ่งที่ทำ</th><th>แหล่งของเหตุผล</th><th>จุดตรวจสำหรับนิสิต (ผู้เขียนเพิ่ม)</th></tr></thead><tbody><tr><td>1 ทำรายการกว้าง (long list)</td><td>รวบรวมตัวแปรที่งานก่อนหน้าใช้ และตัวแปรที่ผู้วิจัยคิดว่าเกี่ยวข้อง</td><td>วรรณกรรม และความเข้าใจของผู้วิจัย เพราะงานก่อนหน้าอาจละตัวแปรสำคัญ (p. 8)</td><td>ทุกตัวแปรมีแหล่งอ้างอิงหรือเหตุผลกำกับ</td></tr><tr><td>2 คัดเป็นรายการสั้น (shortlist)</td><td>เลือกตัวแปรที่เกี่ยวข้องกับทั้งตัวแปรต้นและตัวแปรตาม</td><td>ความหนักแน่นของเหตุผลทางทฤษฎี และหลักฐานเชิงประจักษ์ในงานก่อนหน้า (p. 9)</td><td>ตัวแปรที่ถูกตัดออกบันทึกเหตุผลไว้</td></tr><tr><td>3 ระบุความสัมพันธ์ (relationships)</td><td>วาดลูกศรระหว่างตัวแปรในรายการสั้น</td><td>ทฤษฎี การไม่วาดลูกศรเป็นข้อสมมติที่หนักกว่าการวาด (p. 9)</td><td>ทุกลูกศรและทุกการไม่วาดลูกศรมีเหตุผล</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์ที่ 1 ถึง 3 สรุปจาก Hünermund และคณะ (2025, pp. 8–9) คอลัมน์ที่ 4 ผู้เขียนเพิ่ม</p>
+<h3 id="s-2-6-1">2.6.1 วาดแผนภาพโดยไม่ขึ้นกับข้อมูล</h3>
+<p>Hünermund และคณะ (2025, p. 8) เน้นว่าการวาดแผนภาพเป็นงานเชิงแนวคิดที่แยกจากการมีข้อมูล แม้ตัวแปรควบคุมที่เกี่ยวข้องจะวัดไม่ได้ ก็ต้องบันทึกไว้ในแผนภาพ เพราะช่วยให้ผู้อ่านประเมินความน่าเชื่อถือของงาน ใช้ในการวิเคราะห์ความไว (sensitivity analysis) และเป็นประโยชน์ต่องานในอนาคตที่อาจวัดตัวแปรนั้นได้ ในแผนภาพที่ใช้ในบทนี้ ตัวแปรที่วัดไม่ได้แสดงด้วยวงกลมเส้นประ</p>
+<p>ข้อนี้เชื่อมกับบทที่ 1 โดยตรง ผังตัดสินใจเลือกแหล่งข้อมูลในตารางที่ 1.5 ถามว่าตัวแปรหลักทุกตัวมีในชุดข้อมูลหรือไม่ แผนภาพเชิงสาเหตุคือเครื่องมือที่บอกว่า "ตัวแปรหลักทุกตัว" มีอะไรบ้าง ถ้าแผนภาพชี้ว่ามีตัวแปรกวนสำคัญที่ข้อมูลไม่มี นิสิตต้องกลับไปทบทวนผังตัดสินใจในบทที่ 1</p>
+<h3 id="s-2-6-2">2.6.2 ใช้ตารางสหสัมพันธ์อย่างระมัดระวัง</h3>
+<p>Hünermund และคณะ (2025, p. 8) แนะนำให้ดูตารางสหสัมพันธ์ (correlation table) ประกอบได้ แต่ต้องระวัง ความสัมพันธ์ไม่ได้บอกความเป็นเหตุเป็นผล และการไม่มีความสัมพันธ์ก็ไม่ได้แปลว่าไม่มีผลเชิงสาเหตุ ค่าสหสัมพันธ์ที่ต่ำจึงไม่ใช่หลักฐานว่าตัวแปรไม่เกี่ยวข้องกัน เพราะงานอาจประมาณค่าสหสัมพันธ์ผิดได้จากหลายสาเหตุ เช่น การวัดที่อ่อน หรือกลุ่มตัวอย่างเล็กหรือเอนเอียง สำหรับนิสิตที่ใช้ข้อมูลทุติยภูมิ ผู้เขียนเสนอให้วาดแผนภาพก่อนเปิดดูตารางสหสัมพันธ์ และบันทึกในสมุดบันทึกการตัดสินใจ (decision log) ว่าเปลี่ยนแผนภาพเพราะเห็นอะไรในข้อมูล ตามหลักเรื่องความรู้เดิมเกี่ยวกับข้อมูลในบทที่ 1</p>
+<h3 id="s-2-6-3">2.6.3 แผนภาพตรวจกับข้อมูลได้บางส่วน</h3>
+<p>แผนภาพเชิงสาเหตุไม่ได้เป็นเพียงความเชื่อของผู้วิจัยที่ตรวจสอบไม่ได้ Hünermund และคณะ (2025, p. 10) อธิบายว่าแผนภาพบอกความเป็นอิสระแบบมีเงื่อนไข (conditional independence) ระหว่างตัวแปรบางคู่ ซึ่งนำไปตรวจกับข้อมูลได้ว่าสอดคล้องหรือไม่ การหาชุดตัวแปรควบคุมที่ผ่านเกณฑ์หลังบ้านทำด้วยอัลกอริทึมคอมพิวเตอร์ได้ และแผนภาพที่ซับซ้อนวาดและวิเคราะห์ด้วยคอมพิวเตอร์ได้ (Hünermund et al., 2025, pp. 7, 9) งานที่บทความอ้างถึงคือแพ็กเกจ dagitty ซึ่งมีทั้งแพ็กเกจในภาษา R และเว็บไซต์สำหรับวาดแผนภาพ</p>
+<h3 id="s-2-6-4">2.6.4 ตัวอย่าง แผนภาพของธาม</h3>
+<p>ภาพที่ 2.4 เป็นแผนภาพที่ผู้เขียนร่างจากสถานการณ์ของธามในกรณีศึกษาเดินเรื่อง ตัวแปรต้นคือความเข้มข้นของการลงทุนวิจัยและพัฒนา (R&amp;D) ตัวแปรตามคือ ROA ขนาดบริษัท (firm size) และอุตสาหกรรม (industry) เป็นสาเหตุร่วม ยอดขาย (sales) เป็นตัวกลาง ความสามารถในการดูดซับความรู้ (absorptive capacity) เป็นตัวกลางที่วัดไม่ได้ และคุณภาพผู้บริหาร (management quality) เป็นตัวแปรกวนที่วัดไม่ได้</p>
+<figure class="fig"><img src="rs/fig/ch02_tham_dag.png" alt="แผนภาพเชิงสาเหตุตัวอย่างของธาม (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 2.4 แผนภาพเชิงสาเหตุตัวอย่างของธาม (กรณีศึกษาสมมติ)</figcaption></figure>
+<p>ที่มา ผู้เขียนร่างจากกรณีศึกษาสมมติ วงกลมเส้นประคือตัวแปรที่วัดไม่ได้ วงกลมสีแดงคือตัวแปรที่อยู่ในรายการควบคุมเดิมแต่ไม่ควรควบคุม</p>
+<p>เมื่อใช้เกณฑ์หลังบ้านกับภาพที่ 2.4 จะได้ข้อสรุปสามข้อ ข้อแรก ขนาดบริษัทและอุตสาหกรรมเป็นตัวควบคุมที่ดี เพราะปิดเส้นทางหลังบ้านสองเส้น ข้อที่สอง ยอดขายเป็นตัวควบคุมไม่ดี เพราะเป็นตัวกลางที่การลงทุนวิจัยและพัฒนาส่งผลผ่านไปถึง ROA การควบคุมยอดขายจึงปิดผลส่วนหนึ่งที่ธามต้องการประมาณ ข้อที่สาม คุณภาพผู้บริหารเปิดเส้นทางหลังบ้านที่ปิดด้วยการควบคุมไม่ได้ เพราะวัดไม่ได้ ผลเชิงสาเหตุจึงระบุไม่ได้ด้วยตัวแปรควบคุมเพียงอย่างเดียว ซึ่งเป็นเรื่องของหัวข้อ 2.7 ส่วนอายุบริษัทและอัตราส่วนหนี้สินที่ธามวางแผนใส่ ยังไม่ได้อยู่ในแผนภาพ ธามต้องตัดสินว่าทั้งสองตัวอยู่ตำแหน่งใดก่อนตัดสินว่าจะควบคุมหรือไม่</p>
+<p>ภาพที่ 2.5 แยกเส้นทางในแผนภาพของธามเป็นสองกลุ่ม ภาพ (ก) แสดงเส้นทางเชิงสาเหตุสองเส้นที่ธามต้องปล่อยไว้ คือเส้นที่ผ่านยอดขายและเส้นที่ผ่านความสามารถในการดูดซับความรู้ ภาพ (ข) แสดงเส้นทางหลังบ้านสามเส้น เส้นที่ผ่านขนาดบริษัทและเส้นที่ผ่านอุตสาหกรรมปิดได้ด้วยการควบคุม ส่วนเส้นที่ผ่านคุณภาพผู้บริหารปิดไม่ได้</p>
+<figure class="fig"><img src="rs/fig/ch02_tham_paths.png" alt="เส้นทางเชิงสาเหตุและเส้นทางหลังบ้านในแผนภาพของธาม" loading="lazy"><figcaption>ภาพที่ 2.5 เส้นทางเชิงสาเหตุและเส้นทางหลังบ้านในแผนภาพของธาม</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากภาพที่ 2.4 สีน้ำเงินคือเส้นทางเชิงสาเหตุ สีเขียวคือเส้นทางหลังบ้านที่ปิดได้ด้วยการควบคุม สีแดงคือเส้นทางหลังบ้านที่ปิดไม่ได้เพราะวัดตัวแปรไม่ได้</p>
+<p>แผนภาพนี้เป็นตัวอย่างเพื่อการสอน ไม่ใช่แผนภาพที่ถูกต้องเพียงแบบเดียว นิสิตที่มีเหตุผลทางทฤษฎีต่างกันอาจวาดลูกศรต่างกันได้ สิ่งที่ต้องมีคือเหตุผลของทุกลูกศร</p>
+<h3 id="s-2-6-5">2.6.5 แบบฝึก แผนภาพร่างแรกของปริม</h3>
+<p>ภาพที่ 2.6 เป็นแผนภาพร่างแรกที่ผู้เขียนวาดตามความเชื่อของปริมในกรณีศึกษาเดินเรื่อง ปริมเชื่อว่าการใช้เครื่องมือ AI ลดภาระงาน และภาระงานที่ลดลงทำให้ผูกพันในงานมากขึ้น ลูกศรเส้นประสีเทาที่มีเครื่องหมายคำถามคือความสัมพันธ์ที่ปริมยังไม่มีเหตุผลทางทฤษฎีรองรับ ได้แก่ ทิศทางระหว่างการสนับสนุนจากหัวหน้ากับการใช้เครื่องมือ AI และผลของลักษณะส่วนบุคคล เช่น อายุ เพศ อายุงาน และตำแหน่ง ร่างนี้ยังไม่มีฝ่ายที่สังกัด นิสิตใช้ภาพนี้ประกอบการตอบคำถามชวนคิดในกล่องกรณีศึกษาท้ายหัวข้อ 2.8</p>
+<figure class="fig"><img src="rs/fig/ch02_prim_draft.png" alt="แผนภาพร่างแรกของปริม (กรณีศึกษาสมมติ)" loading="lazy"><figcaption>ภาพที่ 2.6 แผนภาพร่างแรกของปริม (กรณีศึกษาสมมติ)</figcaption></figure>
+<p>ที่มา ผู้เขียนวาดจากกรณีศึกษาสมมติ ลูกศรเส้นประสีเทาคือความสัมพันธ์ที่ยังต้องการเหตุผลทางทฤษฎี</p>
+<h2 id="s-2-7">2.7 เมื่อมีตัวแปรกวนที่วัดไม่ได้</h2>
+<p>ในงานจริง ผลเชิงสาเหตุมักระบุไม่ได้จากโครงสร้างของแผนภาพเพียงอย่างเดียว เพราะมีตัวแปรกวนที่วัดไม่ได้ ในกรณีนี้ ถ้าไม่มีข้อสมมติเพิ่ม ผู้วิจัยมักบอกไม่ได้ว่าการใส่ตัวแปรควบคุมตัวหนึ่งจะลดหรือเพิ่มขนาดของความเอนเอียง (Cinelli et al., 2024, p. 13) ทางเลือกของนิสิตมีสองทาง</p>
+<h3 id="s-2-7-1">2.7.1 การวิเคราะห์ความไว</h3>
+<p><strong>การวิเคราะห์ความไว (sensitivity analysis)</strong> ถามว่า ตัวแปรกวนที่วัดไม่ได้ต้องแรงเพียงใดจึงจะเปลี่ยนข้อสรุปของงาน Cinelli และคณะ (2024, p. 6) เสนอให้กำหนดขอบเขตที่เป็นไปได้ของความแรงของตัวแปรที่วัดไม่ได้ แล้วดูว่าผลเปลี่ยนเพียงใด Hünermund และคณะ (2025, p. 12) อธิบายว่าแนวทางของ Cinelli และ Hazlett กำหนดขอบเขตของผลโดยสมมติว่าตัวแปรกวนที่วัดไม่ได้แรงเป็นจำนวนเท่าของตัวแปรควบคุมที่วัดได้ตัวหนึ่ง ซึ่งผู้วิจัยใช้ความรู้ในสาขา (domain knowledge) ตัดสินได้ง่ายกว่าการระบุตัวเลขลอย ๆ บทความใช้แพ็กเกจ sensemakr ซึ่งมีให้ใช้ในภาษา R, Python และ Stata (Hünermund et al., 2025, p. 12)</p>
+<p>ในกรณีของธาม การวิเคราะห์ความไวจะถามว่า ถ้าคุณภาพผู้บริหารแรงเท่ากับหรือมากกว่าขนาดบริษัทหลายเท่า ผลของการลงทุนวิจัยและพัฒนาต่อ ROA จะยังอยู่หรือไม่ คำตอบไม่ได้พิสูจน์ว่าไม่มีตัวแปรกวน แต่บอกผู้อ่านว่าข้อสรุปทนต่อตัวแปรกวนได้มากเพียงใด</p>
+<h3 id="s-2-7-2">2.7.2 กลยุทธ์การระบุผลแบบอื่น</h3>
+<p>ทางเลือกที่สองคือใช้แบบการวิจัย (research design) ที่รับมือกับตัวแปรที่วัดไม่ได้ Hünermund และคณะ (2025, p. 5) ระบุตัวอย่าง เช่น ตัวแปรเครื่องมือ (instrumental variables) ผลต่างของผลต่าง (difference-in-differences) และการถดถอยแบบไม่ต่อเนื่อง (regression discontinuity) Cinelli และคณะ (2024, p. 13) ชี้ว่าตัวแปรที่เป็นตัวควบคุมไม่ดีบางตัวยังใช้เป็นตัวแปรเครื่องมือได้ภายใต้ข้อสมมติบางประการ ปัญหาที่ตัวแปรต้นสัมพันธ์กับส่วนที่อธิบายไม่ได้ของแบบจำลอง (error term) เรียกรวมว่า endogeneity Hill และคณะ (2021, บทคัดย่อ) จัดสาเหตุของ endogeneity เป็นสี่แบบ และพบว่าแนวปฏิบัติในงานวิจัยการจัดการมักต่างจากข้อแนะนำของวรรณกรรมวิธีวิทยา วิธีเหล่านี้อยู่นอกขอบเขตของบทนี้ นิสิตปริญญาเอกที่ใช้ข้อมูลทุติยภูมิควรศึกษาเพิ่มในแทร็ก B</p>
+<h2 id="s-2-8">2.8 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 2.6</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ตั้งคำถามจากตัวแปรที่ข้อมูลมี</td><td>เปิดฐานข้อมูลแล้วเลือกคู่ตัวแปรที่สัมพันธ์กันสูงมาเป็นคำถาม</td><td>เขียนคำถามและแผนภาพก่อนเปิดข้อมูล (Hünermund et al., 2025, p. 8)</td></tr><tr><td>เขียนคำถามว่า "ความสัมพันธ์" แต่สรุปเชิงสาเหตุ</td><td>ข้อเสนอแนะให้ผู้บริหารเพิ่มตัวแปรต้น</td><td>จำแนกประเภทคำถามตามตารางที่ 2.1 และใช้เครื่องมือให้ตรงประเภท (ผู้เขียนเสนอ)</td></tr><tr><td>คัดลอกรายการตัวแปรควบคุมจากงานก่อนหน้า</td><td>ใส่ตัวแปรเพราะ "งานก่อนหน้าใส่"</td><td>ทุกตัวควบคุมมีเหตุผลจากแผนภาพ (Becker, 2005, บทคัดย่อ)</td></tr><tr><td>ควบคุมตัวกลาง</td><td>ควบคุมยอดขายเมื่อศึกษาผลของการลงทุนวิจัยและพัฒนาต่อ ROA</td><td>ตัดตัวกลางออกถ้าต้องการผลรวม (Cinelli et al., 2024, p. 8)</td></tr><tr><td>ควบคุมหรือเลือกตัวอย่างตาม collider</td><td>ศึกษาเฉพาะผู้ที่อยู่ในกลุ่มที่ถูกคัดเลือกด้วยตัวแปรตาม</td><td>ตรวจเกณฑ์คัดเลือกกลุ่มตัวอย่างด้วยแผนภาพ (Cinelli et al., 2024, pp. 10–12)</td></tr><tr><td>หน่วยวิเคราะห์ไม่ตรงกัน</td><td>ตัวแปรต้นกำหนดที่ระดับฝ่าย แต่สรุปที่ระดับพนักงานโดยไม่คำนึงถึงการซ้อน</td><td>ระบุข้อสมมติเรื่องระดับและแผนเชื่อมระดับ (Klein et al., 1994, บทคัดย่อ)</td></tr><tr><td>ไม่บันทึกตัวแปรที่วัดไม่ได้</td><td>วาดแผนภาพเฉพาะตัวแปรที่มีในข้อมูล</td><td>ใส่ตัวแปรที่วัดไม่ได้ในแผนภาพ และวิเคราะห์ความไว (Hünermund et al., 2025, pp. 8, 12)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริมและธาม (กรณีศึกษาสมมติ)</div><p>ปริมเขียนคำถามวิจัยว่า "การใช้เครื่องมือ AI ในงานประจำวันทำให้ความผูกพันในงานของพนักงานสำนักงานสูงขึ้นหรือไม่" แล้วคัดลอกรายการตัวแปรควบคุมจากงานก่อนหน้าสามเรื่อง ได้แก่ อายุ เพศ อายุงาน ตำแหน่ง ภาระงานที่รับรู้ และการสนับสนุนจากหัวหน้า ปริมเชื่อว่าเครื่องมือ AI ช่วยลดภาระงาน และภาระงานที่ลดลงทำให้ผูกพันในงานมากขึ้น บริษัทที่ปริมจะเก็บข้อมูลให้แต่ละฝ่ายตัดสินใจเองว่าจะเปิดให้ใช้เครื่องมือ AI หรือไม่ และปริมวางแผนเก็บแบบสอบถามพนักงานประมาณ 300 คนจาก 12 ฝ่าย</p><p>ธามเขียนคำถามวิจัยว่า "ความเข้มข้นของการลงทุนวิจัยและพัฒนาทำให้ ROA ของบริษัทจดทะเบียนสูงขึ้นหรือไม่" โดยใช้ข้อมูลบริษัทรายปี และวางแผนควบคุมขนาดบริษัท อุตสาหกรรม อายุบริษัท อัตราส่วนหนี้สิน และยอดขาย ตามที่งานก่อนหน้าส่วนใหญ่ใส่ ธามเชื่อว่าการลงทุนวิจัยและพัฒนาส่งผลต่อ ROA ส่วนหนึ่งผ่านผลิตภัณฑ์ใหม่ที่เพิ่มยอดขาย และกังวลว่าคุณภาพผู้บริหารอาจเป็นสาเหตุทั้งของการลงทุนวิจัยและพัฒนาและของ ROA แต่วัดจากฐานข้อมูลไม่ได้</p><p class="q"><b>คำถามชวนคิด</b> ในรายการตัวแปรควบคุมของปริม ตัวแปรใดควรตัดออก ตัวแปรใดต้องการเหตุผลทางทฤษฎีเพิ่มก่อนตัดสิน และการที่ฝ่ายเป็นผู้ตัดสินใจเปิดใช้เครื่องมือ AI เปลี่ยนแผนภาพของปริมอย่างไร ส่วนธามควรรายงานอะไรเกี่ยวกับคุณภาพผู้บริหาร แทนการเงียบไว้</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถจำแนกได้ว่าคำถามวิจัยของตนเป็นเชิงบรรยาย เชิงพยากรณ์ หรือเชิงสาเหตุ และรู้ว่าคำถามที่ลงท้ายด้วยข้อเสนอแนะให้เปลี่ยนตัวแปรต้นเป็นคำถามเชิงสาเหตุ แม้จะเขียนด้วยคำว่าความสัมพันธ์ นิสิตสามารถแปลงคำถามเป็นตัวแปรต้น ตัวแปรตาม นิยามเชิงแนวคิดและนิยามเชิงปฏิบัติการ และระบุหน่วยวิเคราะห์ พร้อมตรวจว่าตัวแปรต้นและตัวแปรตามอยู่ระดับเดียวกันหรือมีแผนเชื่อมระดับ</p>
+<p>นิสิตยังสามารถใช้แผนภาพเชิงสาเหตุเลือกตัวแปรควบคุมตามหลักว่าต้องปิดเส้นทางลวงทั้งหมดและไม่รบกวนเส้นทางเชิงสาเหตุ แยกตัวควบคุมที่ดีออกจากตัวควบคุมไม่ดี ได้แก่ ตัวกลาง collider และตัวแปรที่ขยายความเอนเอียง และเข้าใจว่าลำดับเวลาของตัวแปรอย่างเดียวไม่พอตัดสิน นิสิตสามารถสร้างแผนภาพตามขั้นตอนสามขั้น โดยวาดตัวแปรที่ควรมีแม้วัดไม่ได้ และรู้ว่าเมื่อมีตัวแปรกวนที่วัดไม่ได้ ทางเลือกคือการวิเคราะห์ความไวหรือกลยุทธ์การระบุผลแบบอื่น ไม่ใช่การเงียบไว้</p>
+<p>ผลของใบงานที่ 2 คือรายการตัวแปรควบคุมพร้อมเหตุผล และรายการตัวแปรที่ควรมีแต่วัดไม่ได้ ทั้งสองรายการเป็นข้อมูลนำเข้าของบทที่ 3 ซึ่งจะนำแผนภาพและรายการตัวแปรไปเขียนเป็นแผนวิเคราะห์ที่ลงทะเบียนไว้ล่วงหน้า ก่อนเห็นผลการวิเคราะห์</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>คำถามวิจัยเชิงสาเหตุ (causal research question)</li><li>นิยามเชิงแนวคิด (conceptual definition)</li><li>นิยามเชิงปฏิบัติการ (operational definition)</li><li>หน่วยวิเคราะห์ (unit of analysis)</li><li>แผนภาพเชิงสาเหตุ (causal diagram, directed acyclic graph)</li><li>การระบุผลเชิงสาเหตุ (causal identification)</li><li>ตัวแปรกวน (confounder)</li><li>ตัวกลาง (mediator)</li><li>collider (ตัวแปรที่เป็นผลร่วม)</li><li>ความเอนเอียงจากการเลือกตัวอย่าง (selection bias)</li><li>ผลรวม (total effect)</li><li>เส้นทางหลังบ้าน (backdoor path)</li><li>เกณฑ์หลังบ้าน (backdoor criterion)</li><li>ตัวควบคุมที่ดี (good control)</li><li>ตัวควบคุมไม่ดี (bad control)</li><li>ตัวควบคุมที่เป็นกลาง (neutral control)</li><li>การวิเคราะห์ความไว (sensitivity analysis)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>คำถามวิจัย "ความสัมพันธ์ระหว่างการฝึกอบรมกับผลการปฏิบัติงานของพนักงาน" ที่มีข้อเสนอแนะท้ายงานว่า "องค์การควรเพิ่มชั่วโมงฝึกอบรม" เป็นคำถามประเภทใด เพราะเหตุใด และการจัดประเภทนี้มีผลต่อการเลือกตัวแปรควบคุมอย่างไร</li><li>จงอธิบายความต่างระหว่างโครงสร้าง fork และ collider และผลของการควบคุมตัวแปรกลางในแต่ละโครงสร้าง พร้อมยกตัวอย่างจากงานวิจัยบริหารธุรกิจโครงสร้างละหนึ่งตัวอย่าง</li><li>นิสิตคนหนึ่งให้เหตุผลว่า "ตัวแปรที่เกิดก่อนตัวแปรต้นทุกตัวเป็นตัวควบคุมที่ดี และตัวแปรที่เกิดหลังทุกตัวเป็นตัวควบคุมไม่ดี" จงประเมินข้อความนี้ด้วยหลักฐานในหัวข้อ 2.5</li><li>ทำไมการวาดแผนภาพเชิงสาเหตุจึงต้องไม่ขึ้นกับว่ามีข้อมูลหรือไม่ และการบันทึกตัวแปรที่วัดไม่ได้มีประโยชน์อย่างไร</li><li>จงใช้เกณฑ์หลังบ้านวิเคราะห์ภาพที่ 2.4 ว่าธามควรควบคุมตัวแปรใด ไม่ควรควบคุมตัวแปรใด และเพราะเหตุใดธามจึงยังอ้างผลเชิงสาเหตุไม่ได้แม้ควบคุมครบตามแผนภาพ</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 2 แผนภาพเชิงสาเหตุและรายการตัวแปรของโครงการตนเอง</h2>
+<p>ให้นิสิตแต่ละคนจัดทำเอกสารสำหรับโครงการวิจัยของตนเอง ความยาวรวมไม่เกินสามหน้ากระดาษ A4</p>
+<ol><li>คำถามวิจัยหนึ่งประโยค พร้อมระบุประเภทตามตารางที่ 2.1 และเหตุผลหนึ่งบรรทัด</li><li>ตารางคำถามสู่ตัวแปรตามแม่แบบในตารางที่ 2.2 ที่เติมครบทุกแถว</li><li>แผนภาพเชิงสาเหตุของแบบจำลองหลักที่วาดตามขั้นตอนในตารางที่ 2.5 ตัวแปรที่วัดไม่ได้แสดงด้วยเส้นประ และแนบรายการยาวกับรายการสั้นพร้อมเหตุผลที่ตัดตัวแปรออก</li><li>ตารางตัวแปรควบคุม ระบุตัวแปรควบคุมเดิมที่ตั้งใจใส่ทุกตัว ตำแหน่งในแผนภาพ การตัดสิน (ใส่ ไม่ใส่ หรือรอเหตุผลเพิ่ม) และเหตุผล</li><li>รายการตัวแปรที่ควรมีแต่วัดไม่ได้ และแนวทางรับมือเบื้องต้น เช่น วิเคราะห์ความไว หรือกลับไปทบทวนผังตัดสินใจในบทที่ 1</li><li>บันทึกเพิ่มในสมุดบันทึกการตัดสินใจอย่างน้อยหนึ่งรายการ คือการตัดตัวแปรควบคุมตัวใดตัวหนึ่งออก</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Alvesson, M., &amp; Sandberg, J. (2011). Generating research questions through problematization. <em>Academy of Management Review</em>, <em>36</em>(2), 247–271. <a href="https://doi.org/10.5465/amr.2009.0188" target="_blank" rel="noopener">https://doi.org/10.5465/amr.2009.0188</a></div>
+<div class="r">Becker, T. E. (2005). Potential problems in the statistical control of variables in organizational research: A qualitative analysis with recommendations. <em>Organizational Research Methods</em>, <em>8</em>(3), 274–289. <a href="https://doi.org/10.1177/1094428105278021" target="_blank" rel="noopener">https://doi.org/10.1177/1094428105278021</a></div>
+<div class="r">Boateng, G. O., Neilands, T. B., Frongillo, E. A., Melgar-Quiñonez, H. R., &amp; Young, S. L. (2018). Best practices for developing and validating scales for health, social, and behavioral research: A primer. <em>Frontiers in Public Health</em>, <em>6</em>. <a href="https://doi.org/10.3389/fpubh.2018.00149" target="_blank" rel="noopener">https://doi.org/10.3389/fpubh.2018.00149</a></div>
+<div class="r">Cinelli, C., Forney, A., &amp; Pearl, J. (2024). A crash course in good and bad controls. <em>Sociological Methods &amp; Research</em>, <em>53</em>(3), 1071–1104. <a href="https://doi.org/10.1177/00491241221099552" target="_blank" rel="noopener">https://doi.org/10.1177/00491241221099552</a> (ฉบับที่อ่านและใช้เลขหน้า คือ Technical Report R-493 ฉบับปรับปรุงมีนาคม 2022)</div>
+<div class="r">Hill, A. D., Johnson, S. G., Greco, L. M., O'Boyle, E. H., &amp; Walter, S. L. (2021). Endogeneity: A review and agenda for the methodology-practice divide affecting micro and macro research. <em>Journal of Management</em>, <em>47</em>(1), 105–143. <a href="https://doi.org/10.1177/0149206320960533" target="_blank" rel="noopener">https://doi.org/10.1177/0149206320960533</a></div>
+<div class="r">Hünermund, P., Louw, B., &amp; Rönkkö, M. (2025). The choice of control variables in empirical management research: How causal diagrams can inform the decision. <em>The Leadership Quarterly</em>, <em>36</em>(2), 101845. <a href="https://doi.org/10.1016/j.leaqua.2024.101845" target="_blank" rel="noopener">https://doi.org/10.1016/j.leaqua.2024.101845</a></div>
+<div class="r">Ketchen, D. J., Ireland, R. D., &amp; Baker, L. T. (2013). The use of archival proxies in strategic management studies. <em>Organizational Research Methods</em>, <em>16</em>(1), 32–42. <a href="https://doi.org/10.1177/1094428112459911" target="_blank" rel="noopener">https://doi.org/10.1177/1094428112459911</a></div>
+<div class="r">Klein, K. J., Dansereau, F., &amp; Hall, R. J. (1994). Levels issues in theory development, data collection, and analysis. <em>Academy of Management Review</em>, <em>19</em>(2), 195. <a href="https://doi.org/10.2307/258703" target="_blank" rel="noopener">https://doi.org/10.2307/258703</a></div>
+<div class="r">Rohrer, J. M. (2018). Thinking clearly about correlations and causation: Graphical causal models for observational data. <em>Advances in Methods and Practices in Psychological Science</em>, <em>1</em>(1), 27–42. <a href="https://doi.org/10.1177/2515245917745629" target="_blank" rel="noopener">https://doi.org/10.1177/2515245917745629</a></div>
+<div class="r">Spector, P. E., &amp; Brannick, M. T. (2011). Methodological urban legends: The misuse of statistical control variables. <em>Organizational Research Methods</em>, <em>14</em>(2), 287–305. <a href="https://doi.org/10.1177/1094428110369842" target="_blank" rel="noopener">https://doi.org/10.1177/1094428110369842</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 2 จากคำถามวิจัยสู่ตัวแปร หน่วยวิเคราะห์ และแผนภาพเชิงสาเหตุ. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_02.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_01.html"><small>◀ บทก่อนหน้า</small>บทที่ 1 แผนจัดการข้อมูลและการเลือกแหล่งข้อมูล</a><a href="rs_lesson_03.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 3 ลงทะเบียนแผนวิเคราะห์ก่อนเห็นผล</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

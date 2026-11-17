@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 6 จริยธรรมการวิจัย ข้อมูลส่วนบุคคล และข้อตกลงการใช้ข้อมูล · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</title>
+<meta name="description" content="บทเรียนบทที่ 6 เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="rs_research_start.html">เริ่มต้นทำวิจัย<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="rs_research_start.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 6</div><a href="#x6">ความนำ</a><a href="#s-6-1">6.1 สามเรื่องที่ต้องแยกให้ออก</a><a href="#s-6-2">6.2 การยื่นคณะกรรมการจริยธรรมการวิจัยในมนุษย์</a><a href="#s-6-3">6.3 ข้อมูลส่วนบุคคลในงานวิจัย</a><a href="#s-6-4">6.4 การเก็บข้อมูลในองค์การ</a><a href="#s-6-5">6.5 ข้อตกลงการใช้ข้อมูลทุติยภูมิ</a><a href="#s-6-6">6.6 ข้อมูลกับเครื่องมือ AI ภายนอก</a><a href="#s-6-7">6.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#ws">ใบงานที่ 6 เอกสารจริยธรรมและแผนคุ้มครองข้อมูล</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">ตำรา · เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</div>
+<h1>บทที่ 6 จริยธรรมการวิจัย ข้อมูลส่วนบุคคล และข้อตกลงการใช้ข้อมูล</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><a class="btn line" href="#ws">📝 ใบงานที่ 6</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความต่างระหว่างความยินยอมเข้าร่วมวิจัย ฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคล และการจัดการข้อมูลอ่อนไหวได้</li><li>ระบุข้อมูลส่วนบุคคลที่งานของตนเก็บ และจัดทำแผนเก็บเท่าที่จำเป็นพร้อมการแยกตัวระบุได้</li><li>วิเคราะห์ข้อตกลงการใช้ข้อมูลทุติยภูมิ และสรุปว่าเก็บไฟล์ที่ใด ใครใช้ได้ และส่งออกอะไรได้</li><li>จำแนกไฟล์ในโครงการของตนว่าไฟล์ใดนำเข้าเครื่องมือ AI ภายนอกได้และไฟล์ใดห้ามได้</li><li>จัดทำเอกสารยื่นคณะกรรมการจริยธรรมและแผนคุ้มครองข้อมูลของโครงการตนเองได้ (ใบงานที่ 6)</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 ให้นิสิตเขียนหัวข้อนโยบายข้อมูลไว้ในแผนจัดการข้อมูล และบอกว่ารายละเอียดด้านกฎหมายและจริยธรรมจะกล่าวในบทที่ว่าด้วยจริยธรรม บทนี้คือบทนั้น และต้องทำให้เสร็จก่อนเก็บข้อมูลจริงในบทที่ 7 หรือก่อนเริ่มเตรียมข้อมูลในบทที่ 8</p>
+<p class="lead">นิสิตจำนวนมากมองว่าเรื่องนี้คือการกรอกแบบฟอร์มให้ผ่าน แต่การตัดสินใจในบทนี้ย้อนกลับไปเปลี่ยนแบบสอบถาม วิธีรับสมัคร และวิธีเก็บไฟล์ได้ ตัวอย่างในบทที่ 5 คือข้อมูลอุปกรณ์ที่ใช้ตรวจบอท ซึ่งอาจเป็นข้อมูลส่วนบุคคล และรายชื่ออีเมลจากฝ่ายบุคคล ซึ่งทำให้รับสมัครได้ดีขึ้น แต่สร้างคำถามเรื่องความยินยอมและความเป็นอิสระของผู้ตอบ</p>
+<p class="lead">บทนี้ใช้กับนิสิตทั้งสองแทร็ก นิสิตที่เก็บข้อมูลปฐมภูมิเน้นหัวข้อ 6.1 ถึง 6.4 นิสิตที่ใช้ข้อมูลทุติยภูมิเน้นหัวข้อ 6.5 และทุกคนต้องทำหัวข้อ 6.6 บทนี้มีหลายส่วนที่ผู้เขียนเสนอจากการสังเคราะห์ ส่วนข้อกำหนดทางกฎหมายสรุปจากพระราชบัญญัติและประกาศฉบับที่ลงในราชกิจจานุเบกษา</p>
+<h2 id="s-6-1">6.1 สามเรื่องที่ต้องแยกให้ออก</h2>
+<p>Michener (2015, p. 6) ให้แผนจัดการข้อมูลระบุข้อจำกัดทางกฎหมายและจริยธรรมของข้อมูลมนุษย์และข้อมูลอ่อนไหว ผู้เขียนเสนอให้นิสิตแยกข้อจำกัดเหล่านี้เป็นสามเรื่องตามตารางที่ 6.1 เพราะแต่ละเรื่องมีผู้ตัดสินและเอกสารต่างกัน การผ่านเรื่องหนึ่งไม่ได้ทำให้อีกสองเรื่องผ่านไปด้วย</p>
+<p class="tcap"><b>ตารางที่ 6.1</b> สามเรื่องที่ต้องแยกเมื่อเก็บข้อมูลจากมนุษย์ (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>เรื่อง</th><th>คำถามที่ต้องตอบ</th><th>ผู้ตัดสินหรือแหล่งกำหนด</th><th>เอกสารของนิสิต</th></tr></thead><tbody><tr><td>ความยินยอมเข้าร่วมวิจัย (informed consent)</td><td>ผู้ตอบรู้หรือไม่ว่าเข้าร่วมอะไร มีความเสี่ยงอะไร และถอนตัวได้อย่างไร</td><td>คณะกรรมการจริยธรรมการวิจัยในคน ตามระเบียบมหาวิทยาลัยมหาสารคาม ว่าด้วย ข้อกำหนดการวิจัยในคน พ.ศ. 2562</td><td>เอกสารชี้แจงและแบบแสดงความยินยอม</td></tr><tr><td>ฐานทางกฎหมาย (lawful basis) ในการประมวลผลข้อมูลส่วนบุคคล</td><td>ผู้วิจัยมีสิทธิ์ตามกฎหมายในการเก็บ ใช้ และเก็บรักษาข้อมูลส่วนบุคคลนี้ด้วยฐานใด</td><td>พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 มาตรา 19 และมาตรา 24 (1)</td><td>คำชี้แจงฐานทางกฎหมายและมาตรการคุ้มครอง</td></tr><tr><td>ข้อมูลอ่อนไหว (sensitive data)</td><td>งานนี้เก็บข้อมูลประเภทที่กฎหมายกำหนดให้คุ้มครองเข้มขึ้นหรือไม่ ถ้าเก็บ จำเป็นจริงหรือไม่</td><td>พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 มาตรา 26</td><td>รายการข้อมูลอ่อนไหวและเหตุผลที่ต้องเก็บ</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอจากกฎข้อที่ 7 ใน Michener (2015, p. 6)</p>
+<p>ภาพที่ 6.1 แสดงหลักเดียวกันในรูปที่จำง่าย นิสิตเริ่มเก็บข้อมูลได้เมื่อผ่านครบทั้งสามเรื่อง</p>
+<figure class="fig"><img src="rs/fig/ch06_three_matters.png" alt="สามเรื่องที่ต้องผ่านก่อนเริ่มเก็บข้อมูล (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 6.1 สามเรื่องที่ต้องผ่านก่อนเริ่มเก็บข้อมูล (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ สรุปจากตารางที่ 6.1</p>
+<p>ความเข้าใจผิดที่พบบ่อยคือคิดว่าแบบแสดงความยินยอมเข้าร่วมวิจัยคือฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคลไปด้วย สองเรื่องนี้อาจใช้เอกสารชุดเดียวกันได้ แต่ต้องตอบคนละคำถาม คณะกรรมการคุ้มครองข้อมูลส่วนบุคคลออกประกาศเรื่องมาตรการที่เหมาะสมสำหรับการเก็บรวบรวมข้อมูลส่วนบุคคลเพื่อให้บรรลุวัตถุประสงค์ที่เกี่ยวกับการศึกษาวิจัยหรือสถิติ พ.ศ. 2566 ซึ่งเกี่ยวกับเรื่องนี้โดยตรง</p>
+<p>ตามพระราชบัญญัติ มาตรา 19 ถ้าใช้ความยินยอมเป็นฐาน ต้องขอโดยชัดแจ้ง เป็นหนังสือหรือผ่านระบบอิเล็กทรอนิกส์ เว้นแต่โดยสภาพไม่อาจขอด้วยวิธีดังกล่าวได้ และต้องแจ้งวัตถุประสงค์ไปด้วย มาตรา 24 (1) ให้เก็บข้อมูลส่วนบุคคลเพื่อการศึกษาวิจัยหรือสถิติได้โดยไม่ต้องขอความยินยอมตามกฎหมาย เมื่อจัดให้มีมาตรการปกป้องที่เหมาะสมเพื่อคุ้มครองสิทธิและเสรีภาพของเจ้าของข้อมูลส่วนบุคคลตามที่คณะกรรมการประกาศกำหนด ส่วนข้อมูลอ่อนไหวตามมาตรา 26 ได้แก่ เชื้อชาติ เผ่าพันธุ์ ความคิดเห็นทางการเมือง ความเชื่อในลัทธิ ศาสนาหรือปรัชญา พฤติกรรมทางเพศ ประวัติอาชญากรรม ข้อมูลสุขภาพ ความพิการ ข้อมูลสหภาพแรงงาน ข้อมูลพันธุกรรม ข้อมูลชีวภาพ และข้อมูลอื่นที่กระทบต่อเจ้าของข้อมูลในทำนองเดียวกันตามที่คณะกรรมการประกาศกำหนด การเก็บข้อมูลกลุ่มนี้ต้องได้รับความยินยอมโดยชัดแจ้ง เว้นแต่เข้าข้อยกเว้น ซึ่งรวมถึงกรณีที่จำเป็นในการปฏิบัติตามกฎหมายเพื่อการศึกษาวิจัยทางวิทยาศาสตร์ ประวัติศาสตร์ หรือสถิติ หรือประโยชน์สาธารณะอื่นตามมาตรา 26 (5) (ง) ซึ่งต้องทำเพียงเท่าที่จำเป็นและมีมาตรการที่เหมาะสมตามที่คณะกรรมการประกาศกำหนด</p>
+<p>ประกาศ พ.ศ. 2566 กำหนดมาตรการสำหรับสองกรณีนี้ สาระที่นิสิตต้องรู้มีสามข้อ</p>
+<ol><li>ข้อ 4 ใช้กับการเก็บตามมาตรา 24 (1) ผู้ควบคุมข้อมูลต้องมีมาตรการเชิงองค์กรและเชิงเทคนิคให้เก็บเท่าที่จำเป็นต่อการวิจัย มีมาตรการรักษาความมั่นคงปลอดภัย และกำกับให้การเก็บเป็นไปตามมาตรฐานทางจริยธรรม โดยอาจทำให้ข้อมูลไม่สามารถระบุตัวบุคคลได้ แฝงข้อมูล (pseudonymization) หรือเข้ารหัสข้อมูล (encryption) เพื่อลดความเสี่ยง</li><li>ข้อ 5 ใช้กับข้อมูลอ่อนไหวตามมาตรา 26 (5) (ง) ผู้ควบคุมข้อมูลต้องพิจารณาก่อนว่าการเก็บจำเป็นจริง แล้วมีมาตรการทำนองเดียวกับข้อ 4 และข้อ 5 (4) กำหนดให้คณะกรรมการจริยธรรมการศึกษาวิจัยในคนพิจารณาอนุมัติหรือรับรองก่อนเริ่มการศึกษาวิจัย</li><li>ข้อ 6 (1) แม้การวิจัยได้รับยกเว้นไม่ต้องขอความยินยอมตามกฎหมาย ผู้วิจัยยังต้องขอความยินยอมเข้าร่วมวิจัยจากผู้เข้าร่วม เว้นแต่เข้ากรณียกเว้นสามกรณีที่ประกาศกำหนด</li></ol>
+<p>สาระข้อที่ 3 ยืนยันว่าความยินยอมสองแบบเป็นคนละเรื่องกัน สาระข้างต้นสรุปจากฉบับในราชกิจจานุเบกษา เมื่อต้องอ้างในเอกสารทางการ ให้ยกถ้อยคำจากฉบับเต็ม ไม่ใช้ถ้อยคำสรุปในบทนี้</p>
+<h2 id="s-6-2">6.2 การยื่นคณะกรรมการจริยธรรมการวิจัยในมนุษย์</h2>
+<p>งานวิจัยที่เก็บข้อมูลจากมนุษย์ต้องยื่นคณะกรรมการจริยธรรมการวิจัยในมนุษย์ตามระเบียบของมหาวิทยาลัย สำหรับมหาวิทยาลัยมหาสารคาม คือ ระเบียบมหาวิทยาลัยมหาสารคาม ว่าด้วย ข้อกำหนดการวิจัยในคน พ.ศ. 2562 ซึ่งนับการสอบถามและการสัมภาษณ์ทางสังคมศาสตร์เป็นการวิจัยในคน (ข้อ 3) คณะกรรมการจริยธรรมการวิจัยในคน มหาวิทยาลัยมหาสารคาม พิจารณาโครงการสามแบบ คือ แบบยกเว้น (exemption review) แบบเร่งรัด (expedited) และแบบกรรมการเต็มชุด (full board review) และมีแบบฟอร์มให้ดาวน์โหลดจากเว็บไซต์ของคณะกรรมการ (คณะกรรมการจริยธรรมการวิจัยในคน มหาวิทยาลัยมหาสารคาม, ม.ป.ป.) ผู้เขียนเสนอให้นิสิตเตรียมเอกสารจากผลงานของบทก่อนหน้า เพราะคณะกรรมการต้องเห็นสิ่งเดียวกับที่นิสิตจะทำจริง ได้แก่</p>
+<ol><li>แบบสอบถามฉบับร่างจากใบงานที่ 5 รวมช่องปลายเปิดและคำถามตรวจทุกข้อ</li><li>วิธีรับสมัครและกรอบการสุ่มจากใบงานที่ 5 ระบุว่าใครเป็นผู้ส่งคำเชิญ</li><li>รายการข้อมูลที่ระบบเก็บโดยผู้ตอบไม่ต้องกรอก เช่น เวลาตอบและข้อมูลอุปกรณ์ตามตารางที่ 5.2</li><li>แผนจัดการข้อมูลจากใบงานที่ 1 โดยเฉพาะที่เก็บไฟล์ ผู้เข้าถึง และระยะเวลาเก็บรักษา</li><li>เอกสารชี้แจงและแบบแสดงความยินยอม</li></ol>
+<p>ข้อ 3 เป็นจุดที่ถูกมองข้ามบ่อย ผู้ตอบอาจไม่รู้ว่าระบบเก็บข้อมูลเหล่านี้ เอกสารชี้แจงจึงควรบอกว่าเก็บอะไรและใช้ทำอะไร ถ้าแผนเปลี่ยนหลังได้รับอนุมัติ เช่น เพิ่มข้อคำถามหลังการทดลองใช้ในบทที่ 7 นิสิตต้องตรวจกับระเบียบว่าต้องแจ้งคณะกรรมการหรือไม่ และบันทึกในบันทึกการแก้แผนจากบทที่ 3</p>
+<h2 id="s-6-3">6.3 ข้อมูลส่วนบุคคลในงานวิจัย</h2>
+<h3 id="s-6-3-1">6.3.1 เก็บเท่าที่จำเป็น</h3>
+<p>ผู้เขียนเสนอให้นิสิตเขียนรายการข้อมูลส่วนบุคคลทุกรายการที่งานเก็บ แล้วถามทีละรายการว่าใช้ตอบคำถามวิจัยข้อใด รายการที่ตอบไม่ได้ให้ตัดออก ตัวอย่างเช่น อายุอาจจำเป็นเป็นตัวแปรควบคุม แต่วันเดือนปีเกิดไม่จำเป็น ช่วงอายุอาจพอแทนอายุเป็นปี ชื่อและอีเมลไม่จำเป็นต่อการวิเคราะห์ ยกเว้นการออกแบบที่ต้องเชื่อมข้อมูลหลายช่วงเวลาหรือหลายแหล่ง</p>
+<h3 id="s-6-3-2">6.3.2 แยกตัวระบุออกจากคำตอบ</h3>
+<p>ถ้าการออกแบบต้องเชื่อมข้อมูล เช่น การแยกการวัดเป็นสองช่วงเวลาตามบทที่ 5 ผู้เขียนเสนอให้ใช้รหัสแทนชื่อในไฟล์คำตอบ และเก็บตารางจับคู่รหัสกับตัวระบุ (identifier) แยกไว้ในที่ที่จำกัดผู้เข้าถึง เมื่อเชื่อมข้อมูลเสร็จและไม่จำเป็นต้องใช้ตารางจับคู่อีก ให้ทำตามแผนที่เขียนไว้ว่าจะทำลายหรือเก็บต่อ วิธีนี้เป็นการแฝงข้อมูลตามที่ประกาศ พ.ศ. 2566 ข้อ 4 ให้พิจารณา ส่วนระยะเวลาเก็บรักษา ประกาศฉบับนี้ไม่ได้กำหนดไว้ ผู้เขียนเสนอให้ระบุระยะเวลาเก็บรักษาและวิธีลบหรือทำลายข้อมูลไว้ในแบบเสนอโครงการที่ยื่นคณะกรรมการจริยธรรม แล้วทำตามที่คณะกรรมการอนุมัติ</p>
+<h3 id="s-6-3-3">6.3.3 การตัดตัวระบุอาจไม่พอ</h3>
+<p>การลบชื่อออกไม่ได้ทำให้ข้อมูลระบุตัวไม่ได้เสมอ Hox และ Boeije (2005, p. 598) อธิบายว่าผู้ผลิตข้อมูลบางครั้งต้องปรับข้อมูลก่อนเผยแพร่เพื่อปกป้องความลับของผู้ตอบ เพราะการรวมข้อมูลหลายตัวแปรของบุคคลเดียวอาจระบุตัวบุคคลได้ ในงานภายในองค์การ ฝ่าย ตำแหน่ง อายุงาน และเพศ เมื่อรวมกันอาจชี้ไปที่พนักงานคนเดียวได้ โดยเฉพาะฝ่ายที่มีคนน้อย ผลข้อนี้ใช้ทั้งกับไฟล์ข้อมูลและกับตารางในวิทยานิพนธ์ ตารางที่แยกกลุ่มย่อยจนเหลือไม่กี่คนอาจเปิดเผยคำตอบของคนในกลุ่มนั้น</p>
+<h2 id="s-6-4">6.4 การเก็บข้อมูลในองค์การ</h2>
+<p>งานวิทยานิพนธ์บริหารธุรกิจจำนวนมากเก็บข้อมูลจากพนักงานโดยได้รับความร่วมมือจากองค์การ ผู้เขียนเสนอประเด็นที่นิสิตต้องตกลงกับองค์การเป็นลายลักษณ์อักษรก่อนเก็บข้อมูล ตามตารางที่ 6.2</p>
+<p class="tcap"><b>ตารางที่ 6.2</b> ประเด็นที่ต้องตกลงกับองค์การก่อนเก็บข้อมูล (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>เหตุผล</th><th>สิ่งที่ควรตกลง</th></tr></thead><tbody><tr><td>ใครเห็นคำตอบรายบุคคล</td><td>ผู้ตอบอาจไม่ตอบตามจริงถ้าคิดว่าองค์การเห็น</td><td>องค์การได้รับเฉพาะผลรวม ไม่ได้รับไฟล์รายบุคคล</td></tr><tr><td>การเชื่อมกับข้อมูลขององค์การ</td><td>การเชื่อมกับผลประเมินหรือข้อมูลบุคคลขยายขอบเขตข้อมูลส่วนบุคคล</td><td>ถ้าจำเป็นต่อคำถามวิจัย ให้ระบุในเอกสารยื่นคณะกรรมการจริยธรรมและเอกสารชี้แจงผู้ตอบ</td></tr><tr><td>ความสมัครใจ</td><td>คำเชิญจากองค์การอาจทำให้ผู้ตอบรู้สึกว่าต้องตอบ</td><td>คำเชิญระบุชัดว่าไม่ตอบได้โดยไม่มีผลต่อการทำงาน</td></tr><tr><td>การส่งรายชื่อให้ผู้วิจัย</td><td>รายชื่ออีเมลเป็นข้อมูลส่วนบุคคล</td><td>ตรวจว่าองค์การส่งรายชื่อให้ได้หรือไม่ หรือให้องค์การเป็นผู้ส่งลิงก์แทน</td></tr><tr><td>ตารางผลที่ส่งคืนองค์การ</td><td>กลุ่มย่อยเล็กอาจระบุตัวได้ (Hox &amp; Boeije, 2005, p. 598)</td><td>กำหนดขนาดกลุ่มย่อยต่ำสุดที่จะรายงาน</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>ประเด็นที่สองต้องระวังเป็นพิเศษ การเชื่อมคำตอบของพนักงานกับผลประเมินการปฏิบัติงานอาจทำให้คำถามวิจัยดีขึ้น เพราะได้ตัวแปรจากแหล่งที่สองตามหัวข้อ 5.1 แต่ต้องใช้ตัวระบุของพนักงาน และองค์การต้องส่งข้อมูลผลประเมินให้ผู้วิจัย ผู้เขียนเสนอให้นิสิตชั่งประโยชน์ทางวิชาการกับความเสี่ยงต่อผู้ตอบ และเขียนเหตุผลให้คณะกรรมการจริยธรรมพิจารณา ไม่ตัดสินเองเพียงเพราะองค์การยินยอม</p>
+<h2 id="s-6-5">6.5 ข้อตกลงการใช้ข้อมูลทุติยภูมิ</h2>
+<p>ข้อมูลทุติยภูมิไม่มีขั้นขอความยินยอมจากผู้ให้ข้อมูล สิทธิ์ในการใช้มาจากข้อตกลงการใช้ข้อมูล (data use agreement) หรือสัญญาอนุญาตใช้ข้อมูล (license) ตามที่กล่าวในบทที่ 1 Michener (2015, p. 3) ระบุว่าผู้ประเมินแผนจัดการข้อมูลสนใจว่าข้อมูลเป็นกรรมสิทธิ์ (proprietary) หรือมีข้อจำกัดการใช้และการเผยแพร่ต่อหรือไม่ Hox และ Boeije (2005, p. 597) อธิบายว่าคลังข้อมูลแต่ละแห่งกำหนดเงื่อนไขการให้ข้อมูลต่างกัน บางชุดใช้ได้เฉพาะผู้ขอ การใช้สอนในชั้นมักต้องขออนุญาตเพิ่ม และบางกรณีผู้ขอต้องแจ้งจุดประสงค์ต่อผู้เก็บข้อมูลเดิม</p>
+<p>ผู้เขียนเสนอให้นิสิตอ่านข้อตกลงก่อนเปิดไฟล์ข้อมูลครั้งแรก แล้วสรุปตามตารางที่ 6.3</p>
+<p class="tcap"><b>ตารางที่ 6.3</b> สรุปข้อตกลงการใช้ข้อมูลทุติยภูมิ (ผู้เขียนเสนอ)</p>
+<div class="tablewrap"><table><thead><tr><th>คำถาม</th><th>ตัวอย่างคำตอบ</th></tr></thead><tbody><tr><td>ประเภทการเข้าถึง</td><td>เปิด ลงทะเบียน หรือต้องขอสิทธิ์</td></tr><tr><td>ใครใช้ได้</td><td>เฉพาะผู้ขอ หรือทุกคนในโครงการ อาจารย์ที่ปรึกษาเปิดไฟล์ได้หรือไม่</td></tr><tr><td>เก็บไฟล์ที่ใดได้</td><td>เฉพาะเครื่องของมหาวิทยาลัย หรือบริการเก็บไฟล์ออนไลน์ได้</td></tr><tr><td>ส่งออกอะไรได้</td><td>ผลรวมเท่านั้น หรือข้อมูลรายหน่วยได้</td></tr><tr><td>ข้อกำหนดเรื่องขนาดกลุ่มย่อย</td><td>มีเกณฑ์จำนวนต่ำสุดต่อช่องของตารางหรือไม่</td></tr><tr><td>แบ่งปันข้อมูลหลังจบได้หรือไม่</td><td>วางไฟล์ในคลังสาธารณะได้หรือไม่ ถ้าไม่ได้ จะให้ผู้อื่นทำซ้ำผลได้อย่างไร</td></tr><tr><td>การอ้างอิงและการแจ้งผลงาน</td><td>ต้องอ้างชุดข้อมูลแบบใด ต้องแจ้งผู้ให้ข้อมูลเมื่อตีพิมพ์หรือไม่</td></tr><tr><td>วันหมดอายุของสิทธิ์</td><td>ต้องลบไฟล์เมื่อใด</td></tr></tbody></table></div>
+<p>ที่มา ผู้เขียนเสนอ ปรับจาก Michener (2015, pp. 3, 6) และ Hox and Boeije (2005, p. 597)</p>
+<p>คำถามแถวที่หกเชื่อมกับบทที่ 9 และบทที่ 10 ถ้าข้อตกลงไม่ยอมให้วางข้อมูลในคลังสาธารณะ นิสิตยังทำงานให้ผู้อื่นทำซ้ำได้ด้วยการเผยแพร่โค้ดเตรียมข้อมูลและคำอธิบายวิธีขอข้อมูล โดยไม่เผยแพร่ตัวข้อมูล</p>
+<h2 id="s-6-6">6.6 ข้อมูลกับเครื่องมือ AI ภายนอก</h2>
+<p>เครื่องมือ AI ภายนอก (external AI tool) ในบทนี้หมายถึงบริการที่ส่งข้อความหรือไฟล์ออกจากเครื่องของนิสิตไปประมวลผลที่เครื่องของผู้ให้บริการ ผู้เขียนเสนอว่าข้อมูลสามประเภทห้ามนำเข้าเครื่องมือเหล่านี้</p>
+<ol><li>ข้อมูลส่วนบุคคลของผู้ตอบ</li><li>ข้อมูลภายใต้ข้อตกลงที่จำกัดการใช้ การเก็บ หรือการส่งออก</li><li>ต้นฉบับบทความหรือข้อเสนอโครงการที่นิสิตได้รับมาเพื่อประเมิน</li></ol>
+<p>เหตุผลของข้อ 1 และข้อ 2 คือการอัปโหลดเป็นการส่งข้อมูลไปเก็บที่อื่น ซึ่งข้อตกลงหรือเอกสารชี้แจงผู้ตอบมักไม่ได้ครอบคลุม และเมื่อข้อมูลออกนอกเครื่องไปแล้วจะเรียกคืนไม่ได้ สำนักพิมพ์บางแห่งมีนโยบายห้ามผู้ประเมินอัปโหลดต้นฉบับเข้าเครื่องมือ AI เช่น Elsevier ระบุว่าผู้ประเมินไม่ควรอัปโหลดต้นฉบับที่ได้รับมาประเมินหรือส่วนใดของต้นฉบับเข้าเครื่องมือ AI (Elsevier, 2026) ภาพที่ 6.2 เป็นขั้นตัดสินที่ผู้เขียนเสนอให้นิสิตใช้กับทุกไฟล์ก่อนนำเข้าเครื่องมือ AI</p>
+<figure class="fig"><img src="rs/fig/ch06_ai_files.png" alt="ขั้นตัดสินก่อนนำไฟล์เข้าเครื่องมือ AI ภายนอก (ผู้เขียนเสนอ)" loading="lazy"><figcaption>ภาพที่ 6.2 ขั้นตัดสินก่อนนำไฟล์เข้าเครื่องมือ AI ภายนอก (ผู้เขียนเสนอ)</figcaption></figure>
+<p>ที่มา ผู้เขียนเสนอ</p>
+<p>ทางเลือกเมื่อไฟล์ห้ามนำเข้า คือส่งเฉพาะสิ่งที่ไม่ใช่ข้อมูล เช่น ชื่อตัวแปร ชนิดข้อมูล และคำอธิบายโครงสร้างไฟล์ หรือสร้างข้อมูลสมมติที่มีโครงสร้างเดียวกันแต่ค่าไม่ได้มาจากข้อมูลจริง แล้วให้เครื่องมือช่วยเขียนโค้ดจากสิ่งเหล่านั้น จากนั้นนิสิตนำโค้ดมารันกับข้อมูลจริงในเครื่องของตนเอง บทที่ 10 จะกล่าวถึงการบันทึกการใช้ AI แบบนี้</p>
+<h2 id="s-6-7">6.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p class="tcap"><b>ตารางที่ 6.4</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ตัวอย่าง</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>คิดว่าผ่านคณะกรรมการจริยธรรมแล้วไม่ต้องคิดเรื่องข้อมูลส่วนบุคคล</td><td>ไม่เขียนฐานทางกฎหมายและมาตรการคุ้มครอง</td><td>แยกสามเรื่องตามตารางที่ 6.1</td></tr><tr><td>เก็บข้อมูลส่วนบุคคลเกินจำเป็น</td><td>ถามวันเดือนปีเกิด ทั้งที่ใช้เพียงช่วงอายุ</td><td>ทำรายการและตัดรายการที่ไม่ได้ใช้ตอบคำถามวิจัย</td></tr><tr><td>เก็บชื่อไว้ในไฟล์เดียวกับคำตอบ</td><td>ไฟล์วิเคราะห์มีคอลัมน์ชื่อพนักงาน</td><td>ใช้รหัสแทน และเก็บตารางจับคู่แยก</td></tr><tr><td>รายงานกลุ่มย่อยที่เล็กเกินไป</td><td>ตารางผลแยกตามฝ่ายที่มีพนักงานสามคน</td><td>กำหนดขนาดกลุ่มย่อยต่ำสุดก่อนรายงาน (Hox &amp; Boeije, 2005, p. 598)</td></tr><tr><td>ดาวน์โหลดข้อมูลแล้วเริ่มวิเคราะห์ก่อนอ่านข้อตกลง</td><td>เก็บไฟล์ในบริการออนไลน์ที่ข้อตกลงไม่อนุญาต</td><td>สรุปข้อตกลงตามตารางที่ 6.3 ก่อนเปิดไฟล์</td></tr><tr><td>อัปโหลดไฟล์ข้อมูลเข้าเครื่องมือ AI ภายนอก</td><td>ให้ AI ช่วยเขียนโค้ดโดยแนบไฟล์ข้อมูลจริง</td><td>ใช้ภาพที่ 6.2 และส่งเฉพาะโครงสร้างหรือข้อมูลสมมติ</td></tr><tr><td>ไม่แจ้งการเปลี่ยนแผนหลังได้รับอนุมัติ</td><td>เพิ่มข้อคำถามหลังการทดลองใช้</td><td>ตรวจระเบียบและบันทึกในบันทึกการแก้แผน</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษาเดินเรื่อง ปริมและธาม (กรณีศึกษาสมมติ)</div><p>ฝ่ายบุคคลขอให้แบบสอบถามของปริมเก็บชื่อพนักงาน เพื่อนำผลไปเทียบกับผลประเมินการปฏิบัติงาน ปริมผ่านคณะกรรมการจริยธรรมการวิจัยในมนุษย์แล้ว จึงคิดว่าไม่ต้องคิดเรื่องกฎหมายคุ้มครองข้อมูลส่วนบุคคลอีก</p><p>ธามอยากอัปโหลดไฟล์ข้อมูลรายบริษัททั้งไฟล์เข้าเครื่องมือ AI ออนไลน์ เพื่อให้ช่วยเขียนโค้ดเตรียมข้อมูล ข้อตกลงการใช้ฐานข้อมูลของคณะไม่อนุญาตให้เผยแพร่ข้อมูลรายบริษัทต่อ</p><p class="q"><b>คำถามชวนคิด</b> ความคิดของปริมผิดตรงไหนตามตารางที่ 6.1 คำขอของฝ่ายบุคคลมีประเด็นใดในตารางที่ 6.2 และปริมควรตอบฝ่ายบุคคลอย่างไร ส่วนธามควรทำอย่างไรจึงได้ความช่วยเหลือจากเครื่องมือ AI โดยไม่ขัดข้อตกลง</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตสามารถแยกความยินยอมเข้าร่วมวิจัย ฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคล และการจัดการข้อมูลอ่อนไหวออกจากกัน และรู้ว่าการผ่านเรื่องหนึ่งไม่ได้ทำให้อีกสองเรื่องผ่านไปด้วย นิสิตทำรายการข้อมูลส่วนบุคคลที่งานเก็บ ตัดรายการที่ไม่จำเป็น และแยกตัวระบุออกจากคำตอบ โดยเข้าใจว่าการลบชื่ออย่างเดียวอาจไม่พอ เพราะข้อมูลหลายตัวแปรรวมกันอาจระบุตัวบุคคลได้</p>
+<p>นิสิตที่เก็บข้อมูลในองค์การรู้ว่าต้องตกลงเรื่องใดกับองค์การก่อนเก็บข้อมูล นิสิตที่ใช้ข้อมูลทุติยภูมิสามารถสรุปข้อตกลงการใช้ข้อมูลว่าเก็บไฟล์ที่ใด ใครใช้ได้ และส่งออกอะไรได้ ทุกคนจำแนกได้ว่าไฟล์ใดนำเข้าเครื่องมือ AI ภายนอกได้ และมีทางเลือกเมื่อไฟล์ห้ามนำเข้า</p>
+<p>ผลของใบงานที่ 6 คือเอกสารที่ทำให้เริ่มเก็บข้อมูลได้ นิสิตแทร็กข้อมูลปฐมภูมิจะนำแบบสอบถามไปทดลองใช้และเก็บจริงในบทที่ 7 ส่วนนิสิตแทร็กข้อมูลทุติยภูมิจะเริ่มสำรวจและประเมินชุดข้อมูลในบทที่ 8</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ความยินยอมเข้าร่วมวิจัย (informed consent)</li><li>ฐานทางกฎหมาย (lawful basis)</li><li>ข้อมูลส่วนบุคคล (personal data)</li><li>ข้อมูลอ่อนไหว (sensitive data)</li><li>ตัวระบุ (identifier)</li><li>ความลับ (confidentiality)</li><li>ข้อตกลงการใช้ข้อมูล (data use agreement)</li><li>สัญญาอนุญาตใช้ข้อมูล (license)</li><li>ข้อมูลกรรมสิทธิ์ (proprietary data)</li><li>เครื่องมือ AI ภายนอก (external AI tool)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายความต่างระหว่างความยินยอมเข้าร่วมวิจัยกับฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคล และเหตุใดการผ่านคณะกรรมการจริยธรรมจึงไม่ได้ตอบคำถามเรื่องข้อมูลส่วนบุคคลทั้งหมด</li><li>นิสิตคนหนึ่งลบคอลัมน์ชื่อออกจากไฟล์คำตอบของพนักงาน แล้วสรุปว่าข้อมูลระบุตัวไม่ได้แล้ว จงประเมินข้อสรุปนี้ และเสนอสิ่งที่ต้องทำเพิ่ม</li><li>องค์การเสนอส่งผลประเมินการปฏิบัติงานรายบุคคลให้นิสิตเพื่อใช้เป็นตัวแปรตาม จงวิเคราะห์ประโยชน์ทางวิชาการและความเสี่ยงต่อผู้ตอบ และระบุสิ่งที่ต้องทำก่อนรับข้อมูล</li><li>จงเลือกชุดข้อมูลทุติยภูมิที่นิสิตใช้หรือจะใช้ แล้วตอบคำถามในตารางที่ 6.3 อย่างน้อยห้าแถว ถ้าข้อตกลงไม่ตอบแถวใด ให้ระบุว่าจะถามใคร</li><li>จงอธิบายว่าเหตุใดการส่งเฉพาะชื่อตัวแปรหรือข้อมูลสมมติให้เครื่องมือ AI จึงต่างจากการอัปโหลดไฟล์ข้อมูลจริง และทางเลือกนี้ยังมีข้อจำกัดอะไร</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 6 เอกสารจริยธรรมและแผนคุ้มครองข้อมูล</h2>
+<p>ให้นิสิตจัดทำเอกสารสำหรับโครงการวิจัยของตนเอง นิสิตแทร็กข้อมูลปฐมภูมิทำข้อ 1 ถึง 4 และข้อ 6 นิสิตแทร็กข้อมูลทุติยภูมิทำข้อ 5 และข้อ 6 ถ้าข้อมูลทุติยภูมิมีข้อมูลส่วนบุคคล ให้ทำข้อ 2 และข้อ 3 ด้วย</p>
+<ol><li>ตารางที่ 6.1 ของงานตนเอง ครบสามแถว</li><li>รายการข้อมูลส่วนบุคคลทุกรายการ พร้อมคำถามวิจัยที่ใช้ และรายการที่ตัดออก</li><li>แผนแยกตัวระบุ ที่เก็บตารางจับคู่ ผู้เข้าถึง และวิธีจัดการหลังเชื่อมข้อมูลเสร็จ</li><li>ร่างเอกสารยื่นคณะกรรมการจริยธรรมตามรายการในหัวข้อ 6.2 และร่างเอกสารชี้แจงพร้อมแบบแสดงความยินยอม ถ้าเก็บในองค์การ ให้แนบประเด็นที่ตกลงตามตารางที่ 6.2</li><li>ตารางที่ 6.3 ของชุดข้อมูลที่ใช้ พร้อมสำเนาหรือที่อยู่ของข้อตกลงการใช้ข้อมูล</li><li>รายการไฟล์ในโฟลเดอร์โครงการ จำแนกตามภาพที่ 6.2 ว่านำเข้าเครื่องมือ AI ภายนอกได้หรือห้าม และปรับหัวข้อนโยบายข้อมูลในแผนจัดการข้อมูลจากใบงานที่ 1 ให้ตรง</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">คณะกรรมการจริยธรรมการวิจัยในคน มหาวิทยาลัยมหาสารคาม. (ม.ป.ป.). <em>คณะกรรมการจริยธรรมการวิจัยในคน มหาวิทยาลัยมหาสารคาม</em>. สืบค้นเมื่อ 17 พฤศจิกายน 2569, จาก <a href="https://res.msu.ac.th/Ethics/" target="_blank" rel="noopener">https://res.msu.ac.th/Ethics/</a></div>
+<div class="r">ประกาศคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล เรื่อง มาตรการที่เหมาะสมสำหรับการเก็บรวบรวมข้อมูลส่วนบุคคลเพื่อให้บรรลุวัตถุประสงค์ที่เกี่ยวกับการศึกษาวิจัยหรือสถิติตามมาตรา 24 (1) และการศึกษาวิจัยทางวิทยาศาสตร์ ประวัติศาสตร์ หรือสถิติ หรือประโยชน์สาธารณะอื่นตามมาตรา 26 (5) (ง) แห่งพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 พ.ศ. 2566. (2567, 8 มกราคม). <em>ราชกิจจานุเบกษา</em>. เล่ม 141 ตอนพิเศษ 7 ง หน้า 21–27.</div>
+<div class="r">พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562. (2562, 27 พฤษภาคม). <em>ราชกิจจานุเบกษา</em>. เล่ม 136 ตอนที่ 69 ก หน้า 52–95.</div>
+<div class="r">มหาวิทยาลัยมหาสารคาม. (2562). <em>ระเบียบมหาวิทยาลัยมหาสารคาม ว่าด้วย ข้อกำหนดการวิจัยในคน พ.ศ. 2562</em>. <a href="https://res.msu.ac.th/Ethics/" target="_blank" rel="noopener">https://res.msu.ac.th/Ethics/</a></div>
+<div class="r">Elsevier. (2026). <em>Generative AI policies for journals</em>. Retrieved November 15, 2026, from <a href="https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals" target="_blank" rel="noopener">https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals</a></div>
+<div class="r">Hox, J. J., &amp; Boeije, H. R. (2005). Data collection, primary vs. secondary. In <em>Encyclopedia of social measurement</em> (Vol. 1, pp. 593–599). Elsevier. <a href="https://doi.org/10.1016/b0-12-369398-5/00041-4" target="_blank" rel="noopener">https://doi.org/10.1016/b0-12-369398-5/00041-4</a></div>
+<div class="r">Michener, W. K. (2015). Ten simple rules for creating a good data management plan. <em>PLOS Computational Biology</em>, <em>11</em>(10), e1004525. <a href="https://doi.org/10.1371/journal.pcbi.1004525" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pcbi.1004525</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 6 จริยธรรมการวิจัย ข้อมูลส่วนบุคคล และข้อตกลงการใช้ข้อมูล. ใน <em>เริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/rs_lesson_06.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="rs_lesson_05.html"><small>◀ บทก่อนหน้า</small>บทที่ 5 ออกแบบแบบสอบถามและกำหนดขนาดตัวอย่าง</a><a href="rs_lesson_07.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 7 ทดลองใช้ เก็บข้อมูลจริง และตรวจโมเดลการวัด</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · ตำราเริ่มต้นทำวิจัย จากคำถามถึงชุดข้อมูลที่วิเคราะห์ได้ · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=[],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>
