@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 8 ช่องว่างองค์ความรู้และทิศทางงานวิจัยนวัตกรรมในอนาคต · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 8 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 8</div><a href="#x6">ความนำ</a><a href="#s-8-1">8.1 สองวิธีสร้างคำถามวิจัยจากวรรณกรรม</a><a href="#s-8-2">8.2 แหล่งของช่องว่างองค์ความรู้</a><a href="#s-8-3">8.3 การวิเคราะห์แนวโน้มด้วยบรรณมิติ</a><a href="#s-8-4">8.4 ทิศทางวิจัยที่บทความทบทวนเสนอ</a><a href="#s-8-5">8.5 จากช่องว่างสู่คำถามวิจัยที่ตอบได้</a><a href="#s-8-6">8.6 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-8-7">8.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x265">รายการอ่านสำหรับสัมมนา</a><a href="#ws">ใบงานที่ 5 ข้อความช่องว่างองค์ความรู้และคำถามวิจัย</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 8 ช่องว่างองค์ความรู้และทิศทางงานวิจัยนวัตกรรมในอนาคต</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>12–13</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (30 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่08_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 ใบงานที่ 5</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความต่างของการหาช่องว่างกับการตั้งคำถามต่อข้อสมมติในการสร้างคำถามวิจัยได้</li><li>จำแนกแหล่งของช่องว่างองค์ความรู้ในงานวิจัยนวัตกรรม และบอกหลักฐานที่ต้องใช้ยืนยันแต่ละแหล่งได้</li><li>เลือกวิธีบรรณมิติที่เหมาะกับคำถามเรื่องแนวโน้มของสาขาตามตารางที่ 8.3 ได้</li><li>วิเคราะห์วาระวิจัยที่บทความทบทวนเสนอ และระบุขั้นตอนพิสูจน์ว่ายังเป็นช่องว่างอยู่ได้</li><li>จัดทำข้อความช่องว่างองค์ความรู้และคำถามวิจัยของตนตามแบบในตารางที่ 8.5 ได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">ข้อเสนอวิจัยทุกฉบับต้องตอบคำถามว่า "งานนี้เพิ่มอะไรให้สิ่งที่รู้อยู่แล้ว" คำตอบที่พบบ่อยที่สุดคือ "ยังไม่มีใครศึกษาเรื่องนี้ในบริบทนี้" ซึ่งอาจจริง แต่ไม่พอ เพราะไม่ได้บอกว่าทำไมการไม่มีใครศึกษาจึงเป็นปัญหา และผลที่ได้จะเปลี่ยนความเข้าใจของสาขาอย่างไร</p>
+<p class="lead">บทนี้เชื่อมงานของบทที่ผ่านมาเข้าด้วยกัน ข้อจำกัดของงานเดิมที่พบจากการวิพากษ์ในบทที่ 6 แนวโน้มของสาขาจากการทบทวนในบทที่ 2 และ 5 และจุดเริ่มต้นทางทฤษฎีในบทที่ 7 ล้วนเป็นวัตถุดิบของช่องว่างองค์ความรู้ บทนี้สอนให้แปลงวัตถุดิบเหล่านั้นเป็นข้อความช่องว่างที่มีหลักฐาน และเป็นคำถามวิจัยที่ตอบได้</p>
+<p class="lead">บทนี้ใช้สองสัปดาห์ สัปดาห์ที่ 12 ว่าด้วยวิธีสร้างคำถามวิจัยและแหล่งของช่องว่าง สัปดาห์ที่ 13 ว่าด้วยการอ่านแนวโน้มและวาระวิจัยของสาขา แล้วจบด้วยใบงานที่ 5</p>
+<h2 id="s-8-1">8.1 สองวิธีสร้างคำถามวิจัยจากวรรณกรรม</h2>
+<h3 id="s-8-1-1">8.1.1 การหาช่องว่าง</h3>
+<p>Sandberg และ Alvesson (2011) ทบทวน 52 บทความในสาขาองค์การศึกษา และสร้างแบบจัดประเภทของวิธีที่นักวิจัยสร้างคำถามวิจัยจากวรรณกรรมเดิม ผลคือวิธีที่พบมากที่สุดในทุกกระบวนทัศน์คือการหาช่องว่าง (gap-spotting) ในวรรณกรรม แล้วตั้งคำถามวิจัยจากช่องว่างนั้น (บทคัดย่อ)</p>
+<p>ผู้เขียนเห็นว่าการที่การหาช่องว่างครองสาขาเป็นเรื่องน่าแปลก เพราะเป็นที่ยอมรับมากขึ้นว่าทฤษฎีจะน่าสนใจและมีอิทธิพลเมื่อท้าทายข้อสมมติที่อยู่เบื้องหลังวรรณกรรมเดิม ผู้เขียนระบุบรรทัดฐานทางสังคมหลายข้อที่เอื้อการหาช่องว่าง และเสนอวิธีสร้างคำถามที่ไปไกลกว่าการหาช่องว่าง (Sandberg &amp; Alvesson, 2011 บทคัดย่อ)</p>
+<h3 id="s-8-1-2">8.1.2 การตั้งคำถามต่อข้อสมมติ</h3>
+<p>Alvesson และ Sandberg (2011) เสนอการตั้งคำถามต่อข้อสมมติ (problematization) เป็นวิธีระบุและท้าทายข้อสมมติที่อยู่เบื้องหลังวรรณกรรมเดิม แล้วสร้างคำถามวิจัยที่น่าจะนำไปสู่ทฤษฎีที่มีอิทธิพลมากขึ้น (บทคัดย่อ) ตารางที่ 8.1 เปรียบเทียบสองวิธี</p>
+<p class="tcap"><b>ตารางที่ 8.1</b> การหาช่องว่างกับการตั้งคำถามต่อข้อสมมติ</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>การหาช่องว่าง</th><th>การตั้งคำถามต่อข้อสมมติ</th></tr></thead><tbody><tr><td>คำถามตั้งต้น</td><td>วรรณกรรมยังขาดอะไร</td><td>วรรณกรรมเชื่ออะไรโดยไม่ได้ตรวจ</td></tr><tr><td>ความสัมพันธ์กับทฤษฎีเดิม</td><td>เติมให้ครบ</td><td>ท้าทายฐานของทฤษฎี</td></tr><tr><td>ผลที่คาด</td><td>ความรู้เพิ่มทีละส่วน</td><td>มุมมองใหม่ที่อาจเปลี่ยนคำถามของสาขา</td></tr><tr><td>ความเสี่ยง</td><td>คำถามเล็กหรือไม่สำคัญ</td><td>ข้อสมมติที่เลือกไม่ใช่ฐานจริงของทฤษฎี หรือไม่มีหลักฐานพอท้าทาย</td></tr><tr><td>ความถี่ในวรรณกรรม</td><td>พบมากที่สุด (Sandberg &amp; Alvesson, 2011)</td><td>พบน้อย (Sandberg &amp; Alvesson, 2011)</td></tr></tbody></table></div>
+<p>ที่มา แถวสุดท้ายจาก Sandberg และ Alvesson (2011 บทคัดย่อ) แถวอื่นเป็นข้อสังเคราะห์ของผู้เรียบเรียงจากบทคัดย่อของสองบทความ</p>
+<p>ผู้เรียบเรียงไม่ได้เสนอให้นิสิตทิ้งการหาช่องว่าง งานระดับบัณฑิตศึกษาส่วนใหญ่เป็นการเติมความรู้ และการเติมที่ดีมีคุณค่า แต่นิสิตควรรู้ว่ามีอีกทางหนึ่ง และควรถามตนเองอย่างน้อยหนึ่งครั้งว่าทฤษฎีที่ตนใช้มีข้อสมมติใดที่บริบทของตนอาจไม่เป็นไปตามนั้น</p>
+<h3 id="s-8-1-3">8.1.3 ตัวอย่างการตั้งคำถามต่อข้อสมมติในงานนวัตกรรม</h3>
+<p>งานที่นิสิตอ่านมาแล้วมีตัวอย่างของทั้งสองวิธี Nambisan และคณะ (2017) เสนอว่าการทำให้กระบวนการและผลลัพธ์ของนวัตกรรมเป็นดิจิทัลทำให้ข้อสมมติของทฤษฎีการจัดการนวัตกรรมเดิมถูกตั้งคำถาม ข้อสมมติที่ถูกตั้งคำถามมีสามเรื่อง คือขอบเขตของนวัตกรรม ผู้กระทำของนวัตกรรม และความสัมพันธ์ระหว่างกระบวนการกับผลลัพธ์ (บทคัดย่อ) นี่เป็นการตั้งคำถามต่อข้อสมมติในระดับสาขา</p>
+<p>ตัวอย่างอีกแบบมาจากทฤษฎีนวัตกรรมแบบรบกวน Christensen และคณะ (2018) สรุปงานของ King และ Baatartogtokh (2015) ที่สำรวจผู้เชี่ยวชาญ 77 กรณี และพบว่าหลายกรณีไม่ตรงเงื่อนไขของทฤษฎี ส่วน Preißner และคณะ (2024) ถามว่านวัตกรรมแบบรบกวนมาจากใคร และพบว่าร้อยละ 43 มาจากผู้ใช้ ร้อยละ 43 มาจากผู้ผลิต และร้อยละ 13 มาจากแหล่งอื่น ผู้เรียบเรียงเห็นว่างานของ Preißner และคณะ ใกล้การตั้งคำถามต่อข้อสมมติ เพราะท้าทายภาพที่ว่าการรบกวนเป็นเรื่องระหว่างผู้ผลิตรายเดิมกับรายใหม่เป็นหลัก ส่วนงานของ King และ Baatartogtokh ใกล้การตรวจซ้ำเชิงประจักษ์</p>
+<h2 id="s-8-2">8.2 แหล่งของช่องว่างองค์ความรู้</h2>
+<h3 id="s-8-2-1">8.2.1 ช่องว่างไม่ใช่สิ่งที่ยังไม่มีใครทำ</h3>
+<p>ผู้เรียบเรียงเห็นว่าช่องว่างที่มีคุณค่าต้องมีสองส่วน ส่วนแรกคือหลักฐานว่าสิ่งนั้นยังไม่รู้จริง ส่วนที่สองคือเหตุผลว่าการไม่รู้นั้นเป็นปัญหาต่อทฤษฎีหรือการปฏิบัติ Keupp และคณะ (2012) ทบทวนงานด้านการจัดการนวัตกรรมเชิงกลยุทธ์และพบว่าความรู้ในเรื่องนี้มีทั้งคำทำนายทางทฤษฎีที่ขัดกัน ช่องว่างที่ยังอยู่ และความไม่สอดคล้องทางทฤษฎี (บทคัดย่อ) สามแบบนี้เป็นปัญหาต่างกัน และต้องใช้หลักฐานต่างกัน</p>
+<h3 id="s-8-2-2">8.2.2 สถานการณ์ที่ทฤษฎีเดิมไม่พอ</h3>
+<p>Fisher และ Aguinis (2017, pp. 453–457) ระบุสถานการณ์ที่เหมาะกับการขยายทฤษฎี ได้แก่ ทฤษฎีที่กำลังเกิด บริบทใหม่ การยืมทฤษฎี ผลข้ามระดับ ข้อค้นพบที่ขัดแย้ง และผลที่กลับทิศ สถานการณ์เหล่านี้เป็นแหล่งของช่องว่างด้วย ผู้เรียบเรียงรวมกับแหล่งอื่นที่พบในบทที่ผ่านมาเป็นตารางที่ 8.2</p>
+<p class="tcap"><b>ตารางที่ 8.2</b> แหล่งของช่องว่างองค์ความรู้และหลักฐานที่ต้องใช้</p>
+<div class="tablewrap"><table><thead><tr><th>แหล่ง</th><th>ความหมาย</th><th>หลักฐานที่ต้องใช้ยืนยัน</th><th>ตัวอย่างจากงานในวิชานี้</th></tr></thead><tbody><tr><td>ข้อค้นพบขัดแย้ง</td><td>งานต่าง ๆ ได้ผลต่างกัน</td><td>งานอย่างน้อยสองกลุ่มที่ผลต่างกัน และเงื่อนไขที่อาจอธิบายความต่าง</td><td>คำทำนายที่ขัดกันในการจัดการนวัตกรรมเชิงกลยุทธ์ (Keupp et al., 2012 บทคัดย่อ)</td></tr><tr><td>บริบทใหม่</td><td>ทฤษฎีพัฒนาในบริบทหนึ่ง ยังไม่รู้ว่าใช้ในอีกบริบทได้หรือไม่</td><td>บริบทต้นทางของทฤษฎี และเหตุผลว่าบริบทใหม่ต่างในจุดที่กระทบกลไก</td><td>Laursen และ Salter (2006) ใช้ข้อมูลบริษัทผู้ผลิตของสหราชอาณาจักร</td></tr><tr><td>ผลข้ามระดับ</td><td>ทฤษฎีระดับหนึ่งอาจทำงานต่างไปในอีกระดับ</td><td>หลักฐานว่าทฤษฎีทดสอบมาในระดับเดียว</td><td>การเปรียบเทียบแนวตั้งในบทที่ 7 หัวข้อ 7.2.2</td></tr><tr><td>ข้อจำกัดของงานเดิม</td><td>การออกแบบของงานเดิมทำให้ข้อสรุปบางข้อยังไม่แน่</td><td>ข้อจำกัดที่ระบุในงานเดิมพร้อมเลขหน้า และผลต่อข้อสรุป</td><td>Preißner และคณะ (2024, p. 81) กลุ่มตัวอย่างเป็นนวัตกรรมที่สำเร็จแล้ว</td></tr><tr><td>ข้อสมมติที่ไม่ได้ตรวจ</td><td>ทฤษฎีตั้งบนข้อสมมติที่อาจไม่จริงในบางกรณี</td><td>ข้อสมมติที่ระบุได้ และกรณีที่ข้อสมมติไม่เป็นจริง</td><td>Nambisan และคณะ (2017 บทคัดย่อ)</td></tr><tr><td>วาระวิจัยของบทความทบทวน</td><td>ผู้ทบทวนเสนอสิ่งที่ควรศึกษาต่อ</td><td>วาระพร้อมเลขหน้า และผลการค้นว่ายังไม่มีงานตอบ</td><td>หัวข้อ 8.4</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์แหล่งรวมจาก Fisher และ Aguinis (2017, pp. 453–457) และ Keupp และคณะ (2012 บทคัดย่อ) คอลัมน์หลักฐานเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<p>คอลัมน์หลักฐานเป็นหัวใจของตาราง ช่องว่างแบบบริบทใหม่ซึ่งนิสิตเลือกบ่อยที่สุด จะมีน้ำหนักเมื่อนิสิตบอกได้ว่าบริบทใหม่ต่างจากบริบทต้นทางในจุดใดที่กระทบกลไกของทฤษฎี ไม่ใช่เพียงบอกว่าเป็นประเทศไทย</p>
+<h3 id="s-8-2-3">8.2.3 ใช้ข้อจำกัดจากใบงานที่ 3</h3>
+<p>ข้อจำกัดที่ผู้อ่านพบเพิ่มในใบงานที่ 3 (บทที่ 6 หัวข้อ 6.5.1) เป็นวัตถุดิบโดยตรงของช่องว่างแบบข้อจำกัดของงานเดิม แต่ต้องผ่านการตรวจอีกขั้น คือค้นว่ามีงานหลังจากนั้นแก้ข้อจำกัดนั้นแล้วหรือไม่ การค้นงานที่อ้างถึงบทความต้นทาง (forward citation search) ที่เรียนในบทที่ 2 เป็นเครื่องมือหลักของขั้นนี้</p>
+<h2 id="s-8-3">8.3 การวิเคราะห์แนวโน้มด้วยบรรณมิติ</h2>
+<h3 id="s-8-3-1">8.3.1 วิธีบรรณมิติกับคำถามเรื่องช่องว่าง</h3>
+<p>บทที่ 2 แนะนำวิธีบรรณมิติในฐานะวิธีทบทวนวรรณกรรม บทนี้ใช้วิธีเดียวกันตอบคำถามว่าสาขากำลังไปทางใด และส่วนใดถูกละเลย Zupic และ Čater (2015) ระบุวิธีบรรณมิติห้าวิธี คือการวิเคราะห์การอ้างอิง การอ้างร่วม การเชื่อมโยงทางบรรณานุกรม การวิเคราะห์ผู้แต่งร่วม และการวิเคราะห์คำร่วม (บทคัดย่อ) และเสนอว่าแผนที่ความรู้ (science mapping) เป็นวิธีสังเคราะห์ที่สาม เสริมการทบทวนแบบมีโครงสร้างและการวิเคราะห์อภิมาน (บทนำ) ตารางที่ 8.3 จับคู่แต่ละวิธีกับคำถามเรื่องช่องว่าง</p>
+<p class="tcap"><b>ตารางที่ 8.3</b> วิธีบรรณมิติกับคำถามเรื่องช่องว่าง</p>
+<div class="tablewrap"><table><thead><tr><th>วิธี</th><th>คำถามเรื่องช่องว่างที่ตอบได้ (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>การวิเคราะห์การอ้างอิง</td><td>งานใดเป็นฐานของสาขา และงานใดถูกอ้างน้อยทั้งที่เกี่ยวข้อง</td></tr><tr><td>การอ้างร่วม</td><td>กลุ่มความรู้ฐานมีกี่กลุ่ม และกลุ่มใดแยกจากกัน</td></tr><tr><td>การเชื่อมโยงทางบรรณานุกรม</td><td>งานใหม่กำลังรวมกลุ่มเป็นหัวข้อใด</td></tr><tr><td>การวิเคราะห์ผู้แต่งร่วม</td><td>กลุ่มนักวิจัยใดทำงานแยกกัน และประเทศใดยังไม่อยู่ในเครือข่าย</td></tr><tr><td>การวิเคราะห์คำร่วม</td><td>หัวข้อใดอยู่ร่วมกันบ่อย และหัวข้อใดยังไม่ถูกเชื่อมกัน</td></tr></tbody></table></div>
+<p>ที่มา ห้าวิธีจาก Zupic และ Čater (2015 บทคัดย่อ) คอลัมน์ที่สองเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<h3 id="s-8-3-2">8.3.2 ตัวอย่างจากงานในวิชานี้</h3>
+<p>Keupp และคณะ (2012) ทบทวน 342 บทความใน 7 วารสาร ช่วงปี 1992 ถึง 2010 ด้วยการวิเคราะห์คำร่วม การวิเคราะห์กลุ่ม และการวิเคราะห์ความถี่ แล้วเสนอแนวทางวิจัยในอนาคตเพื่อพัฒนาทฤษฎีและช่วยการตัดสินใจของผู้บริหาร (บทคัดย่อ) Fagerberg และคณะ (2012) ใช้รายการอ้างอิงจากคู่มือวิชาการ 11 เล่ม (pp. 4–6) และพบว่าวรรณกรรมแกนกลางแบ่งเป็นสามกลุ่ม (Table 5, p. 23) ผู้เขียนยังเตือนว่ากลุ่มต่าง ๆ อาจแยกห่างจากกันจนเสียผลต่อความก้าวหน้าของสาขา (p. 38)</p>
+<p>ข้อเตือนของ Fagerberg และคณะ เป็นตัวอย่างของการอ่านผลบรรณมิติเพื่อหาช่องว่าง ผู้เรียบเรียงเห็นว่างานที่เชื่อมสองกลุ่มความรู้ที่แยกกัน เช่น การจัดองค์กรเพื่อนวัตกรรมกับระบบนวัตกรรม เป็นทิศทางที่ผลบรรณมิติชี้ให้เห็น แต่ผลบรรณมิติไม่ได้บอกว่าการเชื่อมนั้นทำอย่างไร นิสิตยังต้องอ่านงานในแต่ละกลุ่มเอง</p>
+<h3 id="s-8-3-3">8.3.3 ข้อควรระวังของบรรณมิติ</h3>
+<p>ผู้เรียบเรียงเห็นข้อควรระวังสามข้อ ข้อแรก ผลขึ้นกับฐานข้อมูลและคำค้น ทำนองเดียวกับที่ Hanelt และคณะ (2021, p. 1185) ระบุข้อจำกัดของการทบทวนของตนว่าใช้ฐานข้อมูลเดียว และเกณฑ์ตัดอาจตัดงานที่เกี่ยวข้องออก ข้อที่สอง งานใหม่ถูกอ้างน้อยเพราะยังไม่มีเวลาสะสม หัวข้อที่ดูเหมือนถูกละเลยอาจเป็นหัวข้อที่เพิ่งเกิด ข้อที่สาม ช่องว่างในแผนที่ความรู้บอกว่าไม่มีงาน แต่ไม่บอกว่าควรมี เหตุผลว่าทำไมควรมียังเป็นงานของผู้วิจัย</p>
+<h2 id="s-8-4">8.4 ทิศทางวิจัยที่บทความทบทวนเสนอ</h2>
+<h3 id="s-8-4-1">8.4.1 วาระวิจัยของบทความทบทวนในวิชานี้</h3>
+<p>บทความทบทวนมักจบด้วยวาระวิจัย ซึ่งเป็นแหล่งช่องว่างที่สะดวกที่สุด ตารางที่ 8.4 สรุปวาระของบทความทบทวนและบทความเชิงแนวคิดที่ใช้ในวิชานี้</p>
+<p class="tcap"><b>ตารางที่ 8.4</b> ทิศทางวิจัยที่บทความทบทวนในวิชานี้เสนอ</p>
+<div class="tablewrap"><table><thead><tr><th>บทความ</th><th>ทิศทางที่เสนอ</th><th>ระดับข้อมูลที่ระบบคลังมี</th></tr></thead><tbody><tr><td>Keupp และคณะ (2012)</td><td>แนวทางวิจัยในอนาคตเพื่อพัฒนาทฤษฎีและช่วยการตัดสินใจของผู้บริหาร</td><td>บทคัดย่อ</td></tr><tr><td>Nambisan และคณะ (2017)</td><td>ตรรกะการสร้างทฤษฎีใหม่สี่ข้อสำหรับนวัตกรรมดิจิทัล</td><td>บทคัดย่อ</td></tr><tr><td>Christensen และคณะ (2018)</td><td>หัวข้อที่ยังสำรวจน้อย ได้แก่ กลยุทธ์การตอบสนอง เส้นทางของผลการดำเนินงาน และตัวชี้วัดนวัตกรรม</td><td>บทคัดย่อ</td></tr><tr><td>Vial (2019)</td><td>วาระวิจัยด้านสมรรถภาพเชิงพลวัตและจริยธรรมของการเปลี่ยนแปลงทางดิจิทัล (p. 118)</td><td>ฉบับเต็ม</td></tr><tr><td>Hanelt และคณะ (2021)</td><td>วาระวิจัยด้านกลยุทธ์และการเปลี่ยนแปลงองค์การ โดยชี้เงื่อนไขขอบเขตของปรากฏการณ์ (p. 1162)</td><td>ฉบับเต็ม</td></tr></tbody></table></div>
+<p>ที่มา สรุปจากงานที่อ้าง</p>
+<h3 id="s-8-4-2">8.4.2 วาระวิจัยไม่ใช่ช่องว่างโดยอัตโนมัติ</h3>
+<p>ผู้เรียบเรียงเห็นว่าวาระวิจัยมีอายุ Keupp และคณะ (2012) ทบทวนงานถึงปี 2010 วาระที่เสนอไว้อาจถูกตอบแล้วในสิบกว่าปีต่อมา นิสิตที่อ้างวาระวิจัยต้องทำสามอย่าง อย่างแรก อ้างวาระพร้อมเลขหน้า อย่างที่สอง ค้นงานที่อ้างบทความทบทวนนั้นเพื่อดูว่ามีงานตอบวาระแล้วหรือไม่ อย่างที่สาม ถ้ามีงานตอบแล้ว บอกว่างานของตนต่างจากงานเหล่านั้นอย่างไร</p>
+<h3 id="s-8-4-3">8.4.3 ทิศทางที่ใกล้กับบริบทไทย</h3>
+<p>จากตารางที่ 8.4 ผู้เรียบเรียงเห็นว่ามีทิศทางสองแบบที่นิสิตในบริบทไทยเข้าถึงได้ แบบแรกคือการตรวจทฤษฎีในบริบทใหม่ เช่น การเปลี่ยนแปลงทางดิจิทัลในองค์กรที่ไม่ใช่ดิจิทัล ซึ่ง Hanelt และคณะ (2021) ชี้ว่าต้องจัดการการออกแบบองค์กรที่มีอยู่ก่อน แบบที่สองคือการตั้งคำถามต่อข้อสมมติแบบที่ Nambisan และคณะ (2017) ทำ ในระดับองค์กรไทย เช่น ใครเป็นผู้กระทำของนวัตกรรมในองค์กรที่ตัดสินใจจากบนลงล่าง ทั้งสองแบบต้องใช้หลักฐานตามตารางที่ 8.2</p>
+<h2 id="s-8-5">8.5 จากช่องว่างสู่คำถามวิจัยที่ตอบได้</h2>
+<h3 id="s-8-5-1">8.5.1 การมีส่วนสนับสนุนที่ช่องว่างจะให้</h3>
+<p>ก่อนเขียนคำถาม นิสิตควรรู้ว่าการปิดช่องว่างจะให้การมีส่วนสนับสนุนแบบใด Corley และ Gioia (2011) กลั่นวรรณกรรมเรื่องการมีส่วนสนับสนุนทางทฤษฎีเป็นสองมิติ คือความใหม่ ซึ่งเป็นแบบค่อยเป็นค่อยไปหรือแบบเปิดเผยสิ่งใหม่ และประโยชน์ ซึ่งเป็นเชิงวิทยาศาสตร์หรือเชิงปฏิบัติ (บทคัดย่อ) บทที่ 4 หัวข้อ 4.4 ใช้สองมิตินี้ประเมินการมีส่วนสนับสนุน บทนี้ใช้ในทางกลับ คือให้นิสิตบอกล่วงหน้าว่าช่องว่างของตนจะให้การมีส่วนสนับสนุนในช่องใด ผู้เรียบเรียงเห็นว่าการหาช่องว่างมักให้ความใหม่แบบค่อยเป็นค่อยไป ส่วนการตั้งคำถามต่อข้อสมมติมีโอกาสให้แบบเปิดเผยสิ่งใหม่มากกว่า</p>
+<h3 id="s-8-5-2">8.5.2 ข้อความช่องว่างห้าส่วน</h3>
+<p>ข้อความช่องว่างที่ดีมีโครงที่ผู้อ่านตามได้ ตารางที่ 8.5 เป็นโครงที่เสนอ</p>
+<p class="tcap"><b>ตารางที่ 8.5</b> โครงของข้อความช่องว่างองค์ความรู้</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>คำถามที่ต้องตอบ</th><th>ตัวอย่างสั้น (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>1. สิ่งที่รู้</td><td>งานเดิมพบอะไร</td><td>ความเปิดของการค้นสัมพันธ์กับผลงานนวัตกรรมเป็นรูปตัวยูคว่ำในบริษัทผู้ผลิตของสหราชอาณาจักร (Laursen &amp; Salter, 2006, p. 131)</td></tr><tr><td>2. สิ่งที่ยังไม่รู้</td><td>อะไรยังไม่รู้ พร้อมหลักฐานว่ายังไม่รู้จริง</td><td>ยังไม่รู้ว่ากลไกต้นทุนของการค้นทำงานอย่างไรในบริษัทที่มีทรัพยากรด้านการวิจัยน้อย ผลการค้นงานที่อ้างถึงยังไม่พบงานในบริบทนี้</td></tr><tr><td>3. แหล่งของช่องว่าง</td><td>เป็นแหล่งใดในตารางที่ 8.2</td><td>บริบทใหม่ และข้อจำกัดของงานเดิม</td></tr><tr><td>4. ทำไมสำคัญ</td><td>การไม่รู้นี้เป็นปัญหาต่อทฤษฎีหรือการปฏิบัติอย่างไร</td><td>ถ้าต้นทุนของการค้นสูงกว่าในบริษัทขนาดเล็ก จุดที่ความเปิดเริ่มให้ผลลดลงอาจมาเร็วกว่า คำแนะนำให้เปิดมากขึ้นจึงอาจผิด</td></tr><tr><td>5. คำถามวิจัย</td><td>คำถามที่ตอบได้ด้วยข้อมูลที่เข้าถึงได้</td><td>ผู้จัดการในบริษัทผู้ผลิตขนาดกลางของไทยจัดการต้นทุนของการค้นความรู้ภายนอกอย่างไร</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ</p>
+<p>ตัวอย่างในตารางเป็นตัวอย่างเพื่อแสดงโครง ไม่ใช่ข้อเสนอที่ตรวจแล้ว ส่วนที่ 2 ในตัวอย่างอ้างผลการค้นงานที่อ้างถึง ซึ่งนิสิตต้องทำจริงและบันทึกวิธีค้นไว้ ส่วนที่ 5 ในตัวอย่างเป็นคำถามเชิงคุณภาพแบบขยายทฤษฎี ซึ่งเชื่อมกับบทที่ 7</p>
+<h3 id="s-8-5-3">8.5.3 ตรวจว่าคำถามตอบได้</h3>
+<p>คำถามที่มาจากช่องว่างที่ดีอาจยังตอบไม่ได้ ตารางที่ 8.6 เป็นรายการตรวจที่ผู้เรียบเรียงเสนอ โดยใช้หลักจากบทที่ผ่านมา</p>
+<p class="tcap"><b>ตารางที่ 8.6</b> รายการตรวจคำถามวิจัยที่ตอบได้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อตรวจ</th><th>คำถาม</th><th>หลักที่ใช้</th></tr></thead><tbody><tr><td>1. สอดคล้องกับช่องว่าง</td><td>ถ้าตอบคำถามได้ ช่องว่างในส่วนที่ 2 ปิดหรือไม่</td><td>ความสอดคล้องเชิงระเบียบวิธี บทที่ 5 หัวข้อ 5.2</td></tr><tr><td>2. จุดเริ่มต้นทางทฤษฎีชัด</td><td>เป็นการสร้าง การขยาย หรือการทดสอบ</td><td>บทที่ 7 หัวข้อ 7.1.1</td></tr><tr><td>3. ข้อมูลเข้าถึงได้</td><td>ข้อมูลที่ต้องใช้มีจริงและเข้าถึงได้ในเวลาที่มี</td><td>ข้อมูลต้องตอบคำถามชนิดนั้นได้ บทที่ 6 หัวข้อ 6.1.1</td></tr><tr><td>4. ขอบเขตพอดี</td><td>ตอบได้ในหนึ่งงานวิจัย ไม่กว้างจนต้องใช้หลายงาน</td><td>ข้อสังเคราะห์ของผู้เรียบเรียง</td></tr><tr><td>5. ผลลัพธ์ทั้งสองทางมีความหมาย</td><td>ถ้าผลไม่เป็นตามที่คาด ยังมีคุณค่าหรือไม่</td><td>ข้อสังเคราะห์ของผู้เรียบเรียง</td></tr><tr><td>6. คำถามผ่านคำถามตัดสินใจ</td><td>ถ้าเป็นการขยายทฤษฎี ผ่านคำถามสามข้อหรือไม่</td><td>Fisher และ Aguinis (2017, pp. 450–453)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ โดยใช้หลักจากบทที่ 5 6 และ 7</p>
+<h2 id="s-8-6">8.6 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้มีสามกลุ่ม กลุ่มวิธีสร้างคำถามวิจัย กลุ่มเครื่องมือหาแนวโน้ม และกลุ่มบทความทบทวนที่ให้วาระวิจัย</p>
+<p class="tcap"><b>ตารางที่ 8.7</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Laursen และ Salter (2006)</td><td>ความเปิดของการค้นกับผลงานนวัตกรรม</td><td>ข้อมูลสำรวจ 2,707 บริษัท</td><td>ตัวอย่างในโครงข้อความช่องว่าง</td></tr><tr><td>Alvesson และ Sandberg (2011)</td><td>การสร้างคำถามวิจัยด้วยการตั้งคำถามต่อข้อสมมติ</td><td>บทความเชิงแนวคิด</td><td>วิธีตั้งคำถามต่อข้อสมมติ (บทคัดย่อ)</td></tr><tr><td>Corley และ Gioia (2011)</td><td>การมีส่วนสนับสนุนทางทฤษฎี</td><td>บทความเชิงแนวคิด</td><td>สองมิติ ความใหม่และประโยชน์ (บทคัดย่อ)</td></tr><tr><td>Sandberg และ Alvesson (2011)</td><td>วิธีสร้างคำถามวิจัยจากวรรณกรรม</td><td>ทบทวน 52 บทความ</td><td>การหาช่องว่างพบมากที่สุด (บทคัดย่อ)</td></tr><tr><td>Fagerberg และคณะ (2012)</td><td>ฐานความรู้ของการศึกษานวัตกรรม</td><td>บรรณมิติจากคู่มือ 11 เล่ม</td><td>สามกลุ่มความรู้และข้อเตือนเรื่องการแยกห่าง</td></tr><tr><td>Keupp และคณะ (2012)</td><td>การจัดการนวัตกรรมเชิงกลยุทธ์</td><td>ทบทวน 342 บทความด้วยการวิเคราะห์คำร่วม</td><td>คำทำนายขัดกัน ช่องว่าง และความไม่สอดคล้อง (บทคัดย่อ)</td></tr><tr><td>Zupic และ Čater (2015)</td><td>วิธีบรรณมิติในการจัดการ</td><td>บทความเชิงวิธีวิทยา</td><td>ห้าวิธีบรรณมิติ</td></tr><tr><td>Fisher และ Aguinis (2017)</td><td>การขยายทฤษฎี</td><td>บทความเชิงระเบียบวิธี</td><td>สถานการณ์ที่ทฤษฎีเดิมไม่พอ</td></tr><tr><td>Nambisan และคณะ (2017)</td><td>การจัดการนวัตกรรมดิจิทัล</td><td>บทความบรรณาธิการเชิงแนวคิด</td><td>ข้อสมมติสามเรื่องที่ถูกตั้งคำถาม (บทคัดย่อ)</td></tr><tr><td>Christensen และคณะ (2018)</td><td>ทฤษฎีนวัตกรรมแบบรบกวน</td><td>ทบทวนประวัติความคิด</td><td>ข้อถกเถียงและการตรวจซ้ำของงานอื่น</td></tr><tr><td>Vial (2019)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนแบบอุปนัย 282 ชิ้น</td><td>วาระวิจัย</td></tr><tr><td>Hanelt และคณะ (2021)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนอย่างเป็นระบบ 279 บทความ</td><td>เงื่อนไขขอบเขตและข้อจำกัดของการทบทวน</td></tr><tr><td>Preißner และคณะ (2024)</td><td>แหล่งของนวัตกรรมแบบรบกวน</td><td>ชุดข้อมูลกรณี 60 เรื่อง</td><td>ตัวอย่างการท้าทายภาพเดิมของทฤษฎี</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Alvesson และ Sandberg Sandberg และ Alvesson Corley และ Gioia Keupp และคณะ และ Nambisan และคณะ มาจากบทคัดย่อ งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว</p>
+<h2 id="s-8-7">8.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยในข้อความช่องว่างและคำถามวิจัยของผู้วิจัยมือใหม่</p>
+<p class="tcap"><b>ตารางที่ 8.8</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เขียนว่า "ยังไม่มีใครศึกษาในประเทศไทย" แล้วจบ</td><td>ไม่บอกว่าทำไมการไม่มีใครศึกษาเป็นปัญหา</td><td>เพิ่มส่วนที่ 4 ในตารางที่ 8.5 และบอกว่าบริบทต่างในจุดที่กระทบกลไก</td></tr><tr><td>อ้างว่าไม่มีงานโดยไม่ได้ค้นอย่างเป็นระบบ</td><td>ผู้ประเมินอาจรู้จักงานที่นิสิตไม่ได้ค้น</td><td>บันทึกวิธีค้นและค้นงานที่อ้างถึง (บทที่ 2)</td></tr><tr><td>อ้างวาระวิจัยเก่าโดยไม่ตรวจ</td><td>วาระอาจถูกตอบแล้ว</td><td>ทำสามขั้นในหัวข้อ 8.4.2</td></tr><tr><td>ช่องว่างกับคำถามไม่ตรงกัน</td><td>ตอบคำถามแล้วช่องว่างไม่ปิด</td><td>ใช้ข้อตรวจที่ 1 ในตารางที่ 8.6</td></tr><tr><td>ช่องว่างกว้างเกินหนึ่งงานวิจัย</td><td>ตอบไม่ได้ในงานเดียว</td><td>จำกัดบริบท กลไก หรือระดับการวิเคราะห์</td></tr><tr><td>อ้างการตั้งคำถามต่อข้อสมมติโดยไม่ระบุข้อสมมติ</td><td>ไม่รู้ว่าท้าทายอะไร (Alvesson &amp; Sandberg, 2011)</td><td>เขียนข้อสมมติเป็นประโยคเดียว และบอกกรณีที่ข้อสมมติไม่เป็นจริง</td></tr><tr><td>อ่านแผนที่บรรณมิติว่าพื้นที่ว่างคือช่องว่าง</td><td>ไม่มีงานไม่ได้แปลว่าควรมี</td><td>ให้เหตุผลว่าทำไมควรมี (หัวข้อ 8.3.3)</td></tr><tr><td>คำถามที่ผลทางเดียวเท่านั้นมีความหมาย</td><td>ถ้าผลไม่เป็นตามคาด งานไม่มีคุณค่า</td><td>ใช้ข้อตรวจที่ 5 ในตารางที่ 8.6</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: นวัตกรรมดิจิทัลกับข้อสมมติของทฤษฎีการจัดการนวัตกรรม</div><p>Nambisan และคณะ (2017) เขียนบทความบรรณาธิการของฉบับพิเศษใน MIS Quarterly และเสนอว่าการทำให้กระบวนการและผลลัพธ์ของนวัตกรรมเป็นดิจิทัล ทำให้ข้อสมมติของทฤษฎีการจัดการนวัตกรรมเดิมถูกตั้งคำถาม (บทคัดย่อ)</p><p>ข้อสมมติที่ผู้เขียนระบุมีสามเรื่อง คือขอบเขตของนวัตกรรม ผู้กระทำของนวัตกรรม และความสัมพันธ์ระหว่างกระบวนการกับผลลัพธ์ จากนั้นผู้เขียนเสนอตรรกะการสร้างทฤษฎีใหม่สี่ข้อ (บทคัดย่อ)</p><p>บทความนี้เป็นตัวอย่างของการตั้งคำถามต่อข้อสมมติในระดับสาขา ไม่ใช่การเติมช่องว่าง เพราะไม่ได้บอกว่าทฤษฎีเดิมขาดตัวแปรใด แต่บอกว่าฐานของทฤษฎีเดิมอาจไม่เป็นจริงเมื่อนวัตกรรมเป็นดิจิทัล</p><p>ระบบคลังของรายวิชาอ่านได้เฉพาะบทคัดย่อ จึงไม่รู้รายละเอียดของตรรกะสี่ข้อ</p><p class="q"><b>คำถามชวนคิด</b> ในหัวข้อวิจัยของนิสิต ข้อสมมติใดในสามเรื่องนี้ที่บริบทขององค์กรไทยอาจไม่เป็นไปตามนั้น และนิสิตต้องมีหลักฐานอะไรเพื่อแสดงว่าข้อสมมตินั้นไม่เป็นจริงในบริบทของตน</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ทำให้ข้อเสนอวิจัยของนิสิตมีส่วนที่ตอบคำถาม "งานนี้เพิ่มอะไร" ได้ ข้อความช่องว่างในใบงานที่ 5 จะเป็นส่วนนำของโครงข้อเสนอวิจัยในบทที่ 9</p><p>ช่องว่างแบบบริบทใหม่และแบบข้อสมมติที่ไม่ได้ตรวจเชื่อมกับการขยายทฤษฎีในบทที่ 7 ส่วนช่องว่างแบบข้อค้นพบขัดแย้งอาจต้องใช้การออกแบบเชิงปริมาณ</p><p>บทที่ 9 จะเพิ่มคำถามอีกข้อ คือผลของการปิดช่องว่างนี้นำไปพัฒนาความสามารถทางนวัตกรรมขององค์กรไทยได้อย่างไร</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรรู้ว่าคำถามวิจัยสร้างจากวรรณกรรมได้สองวิธี การหาช่องว่างซึ่งพบมากที่สุด และการตั้งคำถามต่อข้อสมมติซึ่งพบน้อยแต่มีโอกาสให้ทฤษฎีที่น่าสนใจกว่า นิสิตควรถามตนเองอย่างน้อยหนึ่งครั้งว่าทฤษฎีที่ใช้มีข้อสมมติใดที่บริบทของตนไม่เป็นไปตามนั้น</p>
+<p>นิสิตควรจำแนกแหล่งของช่องว่างได้ และรู้ว่าแต่ละแหล่งต้องใช้หลักฐานต่างกัน บรรณมิติช่วยเห็นแนวโน้มและส่วนที่ถูกละเลย แต่ไม่บอกว่าส่วนนั้นควรถูกศึกษา วาระวิจัยของบทความทบทวนเป็นแหล่งที่สะดวก แต่ต้องตรวจว่ายังไม่ถูกตอบ</p>
+<p>นิสิตนำความรู้นี้ไปเขียนข้อความช่องว่างห้าส่วนตามตารางที่ 8.5 ตรวจคำถามด้วยตารางที่ 8.6 และใช้ทั้งสองอย่างในใบงานที่ 5 ซึ่งจะกลายเป็นส่วนนำของโครงข้อเสนอวิจัยในบทที่ 9</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ช่องว่างองค์ความรู้ (research gap)</li><li>การหาช่องว่าง (gap-spotting)</li><li>การตั้งคำถามต่อข้อสมมติ (problematization)</li><li>ข้อสมมติ (assumption)</li><li>ข้อค้นพบที่ขัดแย้ง (contradictory findings)</li><li>บริบทใหม่ (new context)</li><li>ผลข้ามระดับ (cross-level effects)</li><li>การยืมทฤษฎี (theory borrowing)</li><li>วาระวิจัย (research agenda)</li><li>แผนที่ความรู้ (science mapping)</li><li>การวิเคราะห์การอ้างร่วม (co-citation analysis)</li><li>การเชื่อมโยงทางบรรณานุกรม (bibliographic coupling)</li><li>การวิเคราะห์คำร่วม (co-word analysis)</li><li>การค้นงานที่อ้างถึง (forward citation search)</li><li>ความใหม่แบบค่อยเป็นค่อยไป (incremental originality)</li><li>ความใหม่แบบเปิดเผยสิ่งใหม่ (revelatory originality)</li><li>ข้อความช่องว่างองค์ความรู้ (gap statement)</li><li>คำถามวิจัยที่ตอบได้ (answerable research question)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายความต่างของการหาช่องว่างกับการตั้งคำถามต่อข้อสมมติ และบอกว่าทำไม Sandberg และ Alvesson (2011) จึงเห็นว่าการครองของการหาช่องว่างน่าแปลก</li><li>จงเขียนข้อสมมติหนึ่งข้อของทฤษฎีที่นิสิตใช้ และบอกกรณีที่ข้อสมมตินั้นอาจไม่เป็นจริงในบริบทของนิสิต</li><li>งานของ Preißner และคณะ (2024) กับงานของ King และ Baatartogtokh (2015) ที่ Christensen และคณะ (2018) สรุปไว้ ต่างกันอย่างไรในแง่วิธีสร้างคำถาม</li><li>จงเลือกแหล่งของช่องว่างหนึ่งแหล่งในตารางที่ 8.2 ที่ตรงกับงานของนิสิต และบอกหลักฐานที่นิสิตมีแล้วและยังขาด</li><li>ทำไมช่องว่างแบบบริบทใหม่จึงต้องบอกว่าบริบทต่างในจุดที่กระทบกลไก จงยกตัวอย่างจาก Laursen และ Salter (2006)</li><li>ถ้านิสิตต้องการรู้ว่ากลุ่มความรู้ใดในสาขานวัตกรรมยังไม่ถูกเชื่อมกัน ควรใช้วิธีบรรณมิติใด เพราะอะไร</li><li>จงวิเคราะห์ข้อควรระวังของการใช้ผลบรรณมิติหาช่องว่าง โดยอ้างหัวข้อ 8.3.3</li><li>จงเลือกวาระวิจัยหนึ่งข้อในตารางที่ 8.4 แล้วอธิบายว่าจะตรวจอย่างไรว่ายังเป็นช่องว่างอยู่</li><li>การหาช่องว่างกับการตั้งคำถามต่อข้อสมมติน่าจะให้การมีส่วนสนับสนุนต่างกันอย่างไร ตามสองมิติของ Corley และ Gioia (2011)</li><li>จงใช้ตารางที่ 8.6 ตรวจคำถามวิจัยของนิสิต และบอกข้อที่ยังไม่ผ่านพร้อมวิธีแก้</li></ol>
+<h2 id="x265">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Sandberg และ Alvesson (2011) อ่านทั้งเรื่อง คำถามนำอภิปราย บรรทัดฐานทางสังคมใดที่ทำให้นิสิตเลือกการหาช่องว่าง</li><li>Alvesson และ Sandberg (2011) อ่านส่วนวิธีตั้งคำถามต่อข้อสมมติ คำถามนำอภิปราย ขั้นตอนใดทำได้ยากที่สุดในงานระดับบัณฑิตศึกษา</li><li>Nambisan และคณะ (2017) อ่านทั้งเรื่อง คำถามนำอภิปราย ตรรกะการสร้างทฤษฎีข้อใดใช้กับองค์กรไทยได้</li><li>Keupp และคณะ (2012) อ่านส่วนแนวทางวิจัยในอนาคต คำถามนำอภิปราย แนวทางใดถูกตอบแล้วหลังปี 2012 และแนวทางใดยังเปิดอยู่</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 5 ข้อความช่องว่างองค์ความรู้และคำถามวิจัย</h2>
+<p>ส่งก่อนเริ่มเรียนสัปดาห์ที่ 14 ใบงานนี้เป็นส่วนนำของโครงข้อเสนอวิจัย ใช้ต่อในบทที่ 9</p>
+<ol><li>เขียนข้อความช่องว่างห้าส่วนตามตารางที่ 8.5 ส่วนที่ 1 ต้องอ้างงานอย่างน้อยสามเรื่องพร้อมเลขหน้า</li><li>ระบุแหล่งของช่องว่างตามตารางที่ 8.2 และแนบหลักฐานตามคอลัมน์หลักฐานที่ต้องใช้ยืนยัน</li><li>แนบบันทึกการค้น ฐานข้อมูล คำค้น วันที่ค้น และผลการค้นงานที่อ้างถึงบทความหลักอย่างน้อยหนึ่งเรื่อง</li><li>เขียนข้อสมมติของทฤษฎีที่ใช้หนึ่งข้อ และบอกว่างานของนิสิตยอมรับหรือท้าทายข้อสมมตินั้น พร้อมเหตุผล</li><li>ระบุการมีส่วนสนับสนุนที่คาดตามสองมิติของ Corley และ Gioia (2011)</li><li>เขียนคำถามวิจัยหลักหนึ่งข้อ และคำถามย่อยไม่เกินสามข้อ แล้วตรวจด้วยตารางที่ 8.6 ทุกข้อ</li><li>ตรวจงานกับตารางที่ 8.8 ก่อนส่ง และเขียนรายการอ้างอิงแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Alvesson, M., &amp; Sandberg, J. (2011). Generating research questions through problematization. <em>Academy of Management Review</em>, <em>36</em>(2), 247–271. <a href="https://doi.org/10.5465/amr.2009.0188" target="_blank" rel="noopener">https://doi.org/10.5465/amr.2009.0188</a></div>
+<div class="r">Christensen, C. M., McDonald, R., Altman, E. J., &amp; Palmer, J. E. (2018). Disruptive innovation: An intellectual history and directions for future research. <em>Journal of Management Studies</em>, <em>55</em>(7), 1043–1078. <a href="https://doi.org/10.1111/joms.12349" target="_blank" rel="noopener">https://doi.org/10.1111/joms.12349</a></div>
+<div class="r">Corley, K. G., &amp; Gioia, D. A. (2011). Building theory about theory building: What constitutes a theoretical contribution? <em>Academy of Management Review</em>, <em>36</em>(1), 12–32. <a href="https://doi.org/10.5465/amr.2009.0486" target="_blank" rel="noopener">https://doi.org/10.5465/amr.2009.0486</a></div>
+<div class="r">Fagerberg, J., Fosaas, M., &amp; Sapprasert, K. (2012). Innovation: Exploring the knowledge base. <em>Research Policy</em>, <em>41</em>(7), 1132–1153. <a href="https://doi.org/10.1016/j.respol.2012.03.008" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2012.03.008</a></div>
+<div class="r">Fisher, G., &amp; Aguinis, H. (2017). Using theory elaboration to make theoretical advancements. <em>Organizational Research Methods</em>, <em>20</em>(3), 438–464. <a href="https://doi.org/10.1177/1094428116689707" target="_blank" rel="noopener">https://doi.org/10.1177/1094428116689707</a></div>
+<div class="r">Hanelt, A., Bohnsack, R., Marz, D., &amp; Antunes Marante, C. (2021). A systematic review of the literature on digital transformation: Insights and implications for strategy and organizational change. <em>Journal of Management Studies</em>, <em>58</em>(5), 1159–1197. <a href="https://doi.org/10.1111/joms.12639" target="_blank" rel="noopener">https://doi.org/10.1111/joms.12639</a></div>
+<div class="r">Keupp, M. M., Palmié, M., &amp; Gassmann, O. (2012). The strategic management of innovation: A systematic review and paths for future research. <em>International Journal of Management Reviews</em>, <em>14</em>(4), 367–390. <a href="https://doi.org/10.1111/j.1468-2370.2011.00321.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1468-2370.2011.00321.x</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. (2006). Open for innovation: The role of openness in explaining innovation performance among U.K. manufacturing firms. <em>Strategic Management Journal</em>, <em>27</em>(2), 131–150. <a href="https://doi.org/10.1002/smj.507" target="_blank" rel="noopener">https://doi.org/10.1002/smj.507</a></div>
+<div class="r">Nambisan, S., Lyytinen, K., Majchrzak, A., &amp; Song, M. (2017). Digital innovation management: Reinventing innovation management research in a digital world. <em>MIS Quarterly</em>, <em>41</em>(1), 223–238. <a href="https://doi.org/10.25300/misq/2017/41:1.03" target="_blank" rel="noopener">https://doi.org/10.25300/misq/2017/41:1.03</a></div>
+<div class="r">Preißner, S., Raasch, C., &amp; Schweisfurth, T. (2024). When necessity is the mother of disruption: Users versus producers as sources of disruptive innovation. <em>Journal of Product Innovation Management</em>, <em>41</em>(1), 62–85. <a href="https://doi.org/10.1111/jpim.12709" target="_blank" rel="noopener">https://doi.org/10.1111/jpim.12709</a></div>
+<div class="r">Sandberg, J., &amp; Alvesson, M. (2011). Ways of constructing research questions: Gap-spotting or problematization? <em>Organization</em>, <em>18</em>(1), 23–44. <a href="https://doi.org/10.1177/1350508410372151" target="_blank" rel="noopener">https://doi.org/10.1177/1350508410372151</a></div>
+<div class="r">Vial, G. (2019). Understanding digital transformation: A review and a research agenda. <em>The Journal of Strategic Information Systems</em>, <em>28</em>(2), 118–144. <a href="https://doi.org/10.1016/j.jsis.2019.01.003" target="_blank" rel="noopener">https://doi.org/10.1016/j.jsis.2019.01.003</a></div>
+<div class="r">Zupic, I., &amp; Čater, T. (2015). Bibliometric methods in management and organization. <em>Organizational Research Methods</em>, <em>18</em>(3), 429–472. <a href="https://doi.org/10.1177/1094428114562629" target="_blank" rel="noopener">https://doi.org/10.1177/1094428114562629</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 8 ช่องว่างองค์ความรู้และทิศทางงานวิจัยนวัตกรรมในอนาคต. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_08.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_07.html"><small>◀ บทก่อนหน้า</small>บทที่ 7 การออกแบบงานวิจัยเชิงคุณภาพเพื่อสำรวจปรากฏการณ์นวัตกรรมเชิงลึก</a><a href="ai_lesson_09.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 9 การนำผลวิจัยไปพัฒนาความสามารถทางนวัตกรรมขององค์กรในบริบทไทย</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/08/s-01.jpg', 'ai/slides/08/s-02.jpg', 'ai/slides/08/s-03.jpg', 'ai/slides/08/s-04.jpg', 'ai/slides/08/s-05.jpg', 'ai/slides/08/s-06.jpg', 'ai/slides/08/s-07.jpg', 'ai/slides/08/s-08.jpg', 'ai/slides/08/s-09.jpg', 'ai/slides/08/s-10.jpg', 'ai/slides/08/s-11.jpg', 'ai/slides/08/s-12.jpg', 'ai/slides/08/s-13.jpg', 'ai/slides/08/s-14.jpg', 'ai/slides/08/s-15.jpg', 'ai/slides/08/s-16.jpg', 'ai/slides/08/s-17.jpg', 'ai/slides/08/s-18.jpg', 'ai/slides/08/s-19.jpg', 'ai/slides/08/s-20.jpg', 'ai/slides/08/s-21.jpg', 'ai/slides/08/s-22.jpg', 'ai/slides/08/s-23.jpg', 'ai/slides/08/s-24.jpg', 'ai/slides/08/s-25.jpg', 'ai/slides/08/s-26.jpg', 'ai/slides/08/s-27.jpg', 'ai/slides/08/s-28.jpg', 'ai/slides/08/s-29.jpg', 'ai/slides/08/s-30.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

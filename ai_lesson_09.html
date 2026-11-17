@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 9 การนำผลวิจัยไปพัฒนาความสามารถทางนวัตกรรมขององค์กรในบริบทไทย · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 9 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 9</div><a href="#x6">ความนำ</a><a href="#s-9-1">9.1 ความสามารถทางนวัตกรรมขององค์กร</a><a href="#s-9-2">9.2 การวัดและประเมินความสามารถทางนวัตกรรม</a><a href="#s-9-3">9.3 งานวิจัยนวัตกรรมในบริบทไทย</a><a href="#s-9-4">9.4 จากผลวิจัยเชิงคุณภาพสู่ข้อเสนอเชิงปฏิบัติ</a><a href="#s-9-5">9.5 จริยธรรมการวิจัยและการนำเสนอแบบสัมมนาวิชาการ</a><a href="#s-9-6">9.6 โครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อ</a><a href="#s-9-7">9.7 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-9-8">9.8 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x254">รายการอ่านสำหรับสัมมนา</a><a href="#ws">ใบงานที่ 6 โครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อและแผนนำเสนอ</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 9 การนำผลวิจัยไปพัฒนาความสามารถทางนวัตกรรมขององค์กรในบริบทไทย</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>14–15</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (31 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่09_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 ใบงานที่ 6</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความหมายของความสามารถทางนวัตกรรม และความเชื่อมโยงกับความสามารถเชิงพลวัตได้</li><li>จำแนกด้านของการจัดการนวัตกรรมที่ผลวิจัยของตนจะนำไปใช้ ตามกรอบเจ็ดด้านในตารางที่ 9.2 ได้</li><li>วิเคราะห์ว่าผลการวิจัยในบริบทอื่นต้องปรับอย่างไรเมื่อนำมาใช้กับองค์กรไทยได้</li><li>เขียนข้อเสนอเชิงปฏิบัติที่ผูกกับข้อค้นพบ ขอบเขต และผู้ใช้ ตามตารางที่ 9.4 ได้</li><li>ระบุประเด็นจริยธรรมการวิจัยในข้อเสนอวิจัยเชิงคุณภาพของตนได้</li><li>จัดทำโครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อและแผนนำเสนอตามตารางที่ 9.6 ได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">คำถามหลักของรายวิชาถามสองเรื่อง เรื่องแรกคือข้อเสนอวิจัยเติมช่องว่างองค์ความรู้ได้จริงหรือไม่ ซึ่งบทที่ 2 ถึง 8 ตอบไปแล้ว เรื่องที่สองคือผลการวิจัยนำไปพัฒนาองค์กรหรือสังคมไทยได้อย่างไร บทนี้ตอบเรื่องที่สอง</p>
+<p class="lead">งานวิจัยระดับบัณฑิตศึกษาด้านนวัตกรรมมักจบด้วยข้อเสนอแนะเชิงปฏิบัติที่กว้างจนไม่มีใครทำตามได้ เช่น "องค์กรควรส่งเสริมวัฒนธรรมนวัตกรรม" บทนี้เสนอว่าข้อเสนอเชิงปฏิบัติที่ดีต้องผูกกับแนวคิดที่ชัด คือความสามารถทางนวัตกรรม ต้องบอกด้านของการจัดการนวัตกรรมที่ได้รับผล และต้องรู้ขอบเขตของข้อค้นพบ</p>
+<p class="lead">บทนี้ใช้สองสัปดาห์ สัปดาห์ที่ 14 ว่าด้วยความสามารถทางนวัตกรรม การวัด และบริบทไทย สัปดาห์ที่ 15 ว่าด้วยการแปลงผลวิจัยเป็นข้อเสนอ จริยธรรมการวิจัย และโครงข้อเสนอวิจัยฉบับย่อ ซึ่งนิสิตจะส่งและนำเสนอในสัปดาห์ที่ 16</p>
+<h2 id="s-9-1">9.1 ความสามารถทางนวัตกรรมขององค์กร</h2>
+<h3 id="s-9-1-1">9.1.1 นวัตกรรมในฐานะความสามารถ</h3>
+<p>Lawson และ Samson (2001) เสนอว่าการจัดการนวัตกรรมมองได้เป็นความสามารถขององค์การรูปแบบหนึ่ง บริษัทที่ลงทุนและบ่มเพาะความสามารถนี้ดำเนินกระบวนการนวัตกรรมได้อย่างมีประสิทธิผล ผู้เขียนทบทวนวรรณกรรมการจัดการนวัตกรรมร่วมกับกรณีศึกษา Cisco Systems และต่อยอดจากวรรณกรรมความสามารถเชิงพลวัต เสนอแนวคิดความสามารถทางนวัตกรรม (innovation capability) ที่มีเจ็ดองค์ประกอบ ได้แก่ วิสัยทัศน์และกลยุทธ์ การใช้ฐานสมรรถนะ ข่าวกรององค์การ ความคิดสร้างสรรค์และการจัดการความคิด โครงสร้างและระบบองค์การ วัฒนธรรมและบรรยากาศ และการจัดการเทคโนโลยี (บทคัดย่อ)</p>
+<p>ผู้เรียบเรียงเห็นว่าแนวคิดนี้มีประโยชน์ต่อข้อเสนอวิจัยของนิสิต เพราะเปลี่ยนคำถามจาก "องค์กรนี้มีนวัตกรรมอะไร" เป็น "องค์กรนี้มีความสามารถอะไรที่ทำให้สร้างนวัตกรรมได้ซ้ำ" คำถามแบบหลังทำให้ผลวิจัยนำไปพัฒนาได้ เพราะความสามารถเป็นสิ่งที่สร้างและปรับได้</p>
+<h3 id="s-9-1-2">9.1.2 ฐานระดับจุลภาคของความสามารถเชิงพลวัต</h3>
+<p>บทที่ 3 แนะนำความสามารถเชิงพลวัตแล้ว บทนี้ใช้ส่วนที่ต่อกับการนำผลวิจัยไปใช้ Teece (2007) เสนอว่าความสามารถเชิงพลวัตช่วยให้ธุรกิจสร้าง ใช้ และปกป้องสินทรัพย์ไม่มีตัวตนที่ค้ำผลการดำเนินงานระยะยาว ฐานระดับจุลภาค (microfoundations) ของความสามารถนี้คือทักษะ กระบวนการ ขั้นตอน โครงสร้าง กฎการตัดสินใจ และวินัย ที่รองรับการรับรู้ (sensing) การคว้าโอกาส (seizing) และการปรับโครงสร้าง (reconfiguring) ฐานเหล่านี้พัฒนาและใช้ได้ยาก (บทคัดย่อ)</p>
+<p>ผู้เรียบเรียงเห็นว่าฐานระดับจุลภาคเป็นจุดที่งานวิจัยเชิงคุณภาพเข้าไปช่วยได้มาก เพราะทักษะ กฎการตัดสินใจ และขั้นตอนเป็นสิ่งที่สังเกตและสัมภาษณ์ได้ งานเชิงคุณภาพที่อธิบายว่าผู้บริหารไทยรับรู้โอกาสอย่างไร หรือตัดสินใจคว้าโอกาสด้วยกฎใด จึงให้ทั้งการมีส่วนสนับสนุนทางทฤษฎีและข้อเสนอเชิงปฏิบัติได้พร้อมกัน</p>
+<h3 id="s-9-1-3">9.1.3 ความสามารถในการดูดซับ</h3>
+<p>แนวคิดที่สามที่เกี่ยวข้องคือความสามารถในการดูดซับ (absorptive capacity) Cohen และ Levinthal (1990) นิยามว่าเป็นความสามารถในการเห็นคุณค่า ดูดซับ และนำความรู้ใหม่จากภายนอกไปใช้เชิงพาณิชย์ ความสามารถนี้ขึ้นกับความรู้เดิมที่เกี่ยวข้อง สะสมตามเส้นทางในอดีต และการวิจัยและพัฒนาช่วยสร้างได้ (บทคัดย่อ) แนวคิดนี้สำคัญต่อบทนี้ เพราะการนำผลวิจัยไปใช้ในองค์กรก็คือการดูดซับความรู้จากภายนอกแบบหนึ่ง ตารางที่ 9.1 เทียบสามแนวคิด</p>
+<p class="tcap"><b>ตารางที่ 9.1</b> สามแนวคิดเรื่องความสามารถกับคำถามวิจัยที่ต่อยอดได้</p>
+<div class="tablewrap"><table><thead><tr><th>แนวคิด</th><th>สาระสำคัญ</th><th>ตัวอย่างคำถามวิจัยเชิงคุณภาพ (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>ความสามารถทางนวัตกรรม (Lawson &amp; Samson, 2001)</td><td>เจ็ดองค์ประกอบที่ทำให้องค์กรสร้างนวัตกรรมได้ซ้ำ</td><td>องค์ประกอบใดที่องค์กรไทยในอุตสาหกรรมหนึ่งพัฒนาได้ช้าที่สุด และเพราะอะไร</td></tr><tr><td>ฐานระดับจุลภาคของความสามารถเชิงพลวัต (Teece, 2007)</td><td>ทักษะ กระบวนการ และกฎการตัดสินใจที่รองรับการรับรู้ การคว้าโอกาส และการปรับโครงสร้าง</td><td>ผู้บริหารระดับกลางรับรู้โอกาสด้านดิจิทัลผ่านช่องทางใด</td></tr><tr><td>ความสามารถในการดูดซับ (Cohen &amp; Levinthal, 1990)</td><td>เห็นคุณค่า ดูดซับ และนำความรู้ภายนอกไปใช้ ขึ้นกับความรู้เดิม</td><td>องค์กรที่ร่วมโครงการกับมหาวิทยาลัยนำความรู้ที่ได้ไปใช้ต่ออย่างไร</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์สาระสำคัญจากบทคัดย่อของงานที่อ้าง คอลัมน์สุดท้ายเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<h2 id="s-9-2">9.2 การวัดและประเมินความสามารถทางนวัตกรรม</h2>
+<h3 id="s-9-2-1">9.2.1 กรอบเจ็ดด้านของการจัดการนวัตกรรม</h3>
+<p>ข้อเสนอเชิงปฏิบัติจะมีน้ำหนักเมื่อบอกได้ว่าจะรู้ได้อย่างไรว่าองค์กรดีขึ้น Adams และคณะ (2006) ทบทวนวรรณกรรมด้านการวัดการจัดการนวัตกรรมด้วยการทบทวนอย่างเป็นระบบที่ปรับตาม Tranfield และคณะ (2003) ร่วมกับเดลฟายผู้เชี่ยวชาญซึ่งตอบกลับ 28 คนจากที่ติดต่อ 100 คน (ส่วนวิธีการ) แล้วสังเคราะห์เป็นกรอบเจ็ดด้าน (Table 3) ตามตารางที่ 9.2</p>
+<p class="tcap"><b>ตารางที่ 9.2</b> กรอบเจ็ดด้านของการจัดการนวัตกรรมกับคำถามสำหรับข้อเสนอเชิงปฏิบัติ</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามสำหรับข้อเสนอเชิงปฏิบัติ (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>1. ปัจจัยนำเข้า</td><td>ผลวิจัยเปลี่ยนการจัดสรรคน ทรัพยากร หรือเครื่องมือหรือไม่</td></tr><tr><td>2. การจัดการความรู้</td><td>ผลวิจัยเปลี่ยนวิธีสร้างความคิด เก็บความรู้ หรือไหลของข้อมูลหรือไม่</td></tr><tr><td>3. กลยุทธ์นวัตกรรม</td><td>ผลวิจัยเปลี่ยนทิศทางหรือภาวะผู้นำเชิงกลยุทธ์หรือไม่</td></tr><tr><td>4. องค์การและวัฒนธรรม</td><td>ผลวิจัยเปลี่ยนโครงสร้างหรือวัฒนธรรมหรือไม่</td></tr><tr><td>5. การจัดการพอร์ตโฟลิโอ</td><td>ผลวิจัยเปลี่ยนการเลือกและสมดุลของโครงการหรือไม่</td></tr><tr><td>6. การจัดการโครงการ</td><td>ผลวิจัยเปลี่ยนวิธีดำเนินโครงการ การสื่อสาร หรือความร่วมมือหรือไม่</td></tr><tr><td>7. การนำออกสู่ตลาด</td><td>ผลวิจัยเปลี่ยนการศึกษาตลาด การทดสอบ หรือการขายหรือไม่</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์ด้านจาก Adams และคณะ (2006, Table 3) คอลัมน์ที่สองเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<h3 id="s-9-2-2">9.2.2 วัดเพียงปัจจัยนำเข้าและผลผลิตไม่พอ</h3>
+<p>Adams และคณะ (2006) สรุปงานก่อนหน้าว่าหลายองค์กรวัดเพียงปัจจัยนำเข้าและผลผลิต เช่น ค่าใช้จ่าย ความเร็วออกสู่ตลาด และจำนวนผลิตภัณฑ์ใหม่ แต่ละเลยกระบวนการที่อยู่ระหว่างกลาง ผู้เขียนยังชี้ว่าความเข้มข้นของการวิจัยและพัฒนาที่สูงไม่จำเป็นต้องแสดงการปฏิบัติด้านนวัตกรรมที่ดี และเป็นตัววัดที่อ่อนสำหรับธุรกิจขนาดกลางและขนาดย่อมและธุรกิจบริการที่ทำวิจัยน้อย (ส่วน Measuring the Management of Innovation)</p>
+<p>ข้อนี้สำคัญต่อบริบทไทย ซึ่งองค์กรที่นิสิตศึกษาจำนวนมากเป็นธุรกิจขนาดกลางและขนาดย่อมหรือธุรกิจบริการ ผู้เรียบเรียงเห็นว่าข้อเสนอเชิงปฏิบัติของนิสิตควรเสนอตัวชี้วัดกระบวนการ เช่น จำนวนความคิดที่ผ่านขั้นคัดเลือก หรือเวลาจากความคิดถึงการทดลอง มากกว่าเสนอให้เพิ่มงบวิจัยและพัฒนา</p>
+<h3 id="s-9-2-3">9.2.3 ระดับความใหม่ของนวัตกรรม</h3>
+<p>คำถามที่มักถูกถามในการนำเสนอคือ "สิ่งที่องค์กรนี้ทำเป็นนวัตกรรมจริงหรือ" คู่มือออสโล (Oslo Manual) แยกความใหม่เป็นสามระดับ คือใหม่ต่อบริษัท ใหม่ต่อตลาด และใหม่ต่อโลก (OECD &amp; Eurostat, 2018, paras 3.56–3.59 pp. 77–78) ผู้เรียบเรียงเห็นว่านิสิตควรระบุระดับความใหม่ของนวัตกรรมที่ศึกษาไว้ในข้อเสนอ เพราะนวัตกรรมที่ใหม่ต่อบริษัทแต่ไม่ใหม่ต่อตลาด ทำให้คำถามวิจัยเรื่องการดูดซับและการปรับใช้สำคัญกว่าคำถามเรื่องการคิดค้น</p>
+<h2 id="s-9-3">9.3 งานวิจัยนวัตกรรมในบริบทไทย</h2>
+<h3 id="s-9-3-1">9.3.1 ตัวอย่างงานวิจัยที่ใช้ข้อมูลไทย</h3>
+<p>Thawesaengskulthai และคณะ (2024) ศึกษาอุปสรรคของวิสาหกิจที่ขับเคลื่อนด้วยนวัตกรรม (innovation-driven enterprise, IDE) ในประเทศไทย ใช้ฐานข้อมูลผู้ลงทุน 320 รายและ IDE 883 ราย ร่วมกับการสัมภาษณ์กึ่งโครงสร้างผู้ลงทุน 3 คน ผู้ก่อตั้ง 22 คน และผู้บริหาร 8 คน (p. 1 และ p. 7) ผลพบอุปสรรคหลักสามเรื่อง คือคุณภาพของผู้ประกอบการ ความเหมาะของผลิตภัณฑ์กับตลาด และการสนับสนุน ผู้เขียนเสนอสามกลยุทธ์ คือการจัดการคนเก่ง ความง่ายในการขยายกิจการ และการเข้าถึงเงินทุน พร้อมกรอบศูนย์กลางที่เชื่อมระบบนิเวศของมหาวิทยาลัยกับภาครัฐและเอกชน (บทคัดย่อ pp. 2–3)</p>
+<p>งานนี้เป็นตัวอย่างที่ดีสำหรับนิสิต ด้วยเหตุผลสามข้อ ข้อแรก ใช้ข้อมูลผสมระหว่างฐานข้อมูลกับการสัมภาษณ์ ข้อที่สอง จบด้วยกรอบที่นำไปใช้ได้ ข้อที่สาม ผู้เขียนระบุตรง ๆ ว่ากลยุทธ์สอดคล้องกับต้นเหตุที่พบ แต่ไม่ได้จับคู่หนึ่งต่อหนึ่งกับอุปสรรค (p. 22) ความระมัดระวังแบบนี้คือสิ่งที่ข้อเสนอเชิงปฏิบัติควรมี</p>
+<h3 id="s-9-3-2">9.3.2 นำผลวิจัยจากบริบทอื่นมาใช้</h3>
+<p>งานส่วนใหญ่ที่นิสิตอ่านในวิชานี้ใช้ข้อมูลจากประเทศอื่น เช่น Laursen และ Salter (2006) ใช้บริษัทผู้ผลิตของสหราชอาณาจักร 2,707 แห่ง (Table 1 pp. 138–139) การนำผลแบบนี้มาใช้กับองค์กรไทยต้องถามแบบเดียวกับช่องว่างแบบบริบทใหม่ในบทที่ 8 หัวข้อ 8.2.2 คือบริบทไทยต่างในจุดที่กระทบกลไกหรือไม่</p>
+<p>ตัวอย่างหนึ่งคือการเปลี่ยนแปลงทางดิจิทัล Hanelt และคณะ (2021, p. 1169) ชี้ว่าองค์กรที่ไม่ใช่ดิจิทัลต้องจัดการการออกแบบองค์กรที่มีอยู่ก่อน จึงต้องมีกลยุทธ์และการประสานส่วนกายภาพกับดิจิทัล ต่างจากบริษัทดิจิทัลที่สร้างใหม่ตั้งแต่ต้น ผู้เรียบเรียงเห็นว่าข้อนี้ใช้กับองค์กรไทยดั้งเดิมจำนวนมากได้ และเป็นจุดที่งานเชิงคุณภาพช่วยอธิบายได้ว่าการประสานนั้นเกิดขึ้นจริงอย่างไร</p>
+<p class="tcap"><b>ตารางที่ 9.3</b> คำถามก่อนนำผลวิจัยจากบริบทอื่นมาใช้กับองค์กรไทย</p>
+<div class="tablewrap"><table><thead><tr><th>คำถาม</th><th>ตัวอย่างการตอบ (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>1. งานต้นทางศึกษาองค์กรแบบใด</td><td>บริษัทผู้ผลิตในสหราชอาณาจักร (Laursen &amp; Salter, 2006)</td></tr><tr><td>2. กลไกในงานต้นทางพึ่งเงื่อนไขใด</td><td>ต้นทุนของการค้นและความสนใจของผู้บริหารที่มีจำกัด</td></tr><tr><td>3. เงื่อนไขนั้นในองค์กรไทยต่างหรือไม่</td><td>ธุรกิจขนาดกลางที่มีทรัพยากรน้อยอาจมีต้นทุนการค้นสูงกว่า</td></tr><tr><td>4. ถ้าต่าง ข้อเสนอต้องปรับอย่างไร</td><td>เสนอให้ค้นอย่างเลือก ไม่ใช่ค้นให้กว้างที่สุด</td></tr><tr><td>5. มีหลักฐานจากบริบทไทยหรือไม่</td><td>ถ้ายังไม่มี ข้อเสนอเป็นสมมติฐานที่ต้องทดสอบ ไม่ใช่ข้อสรุป</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ</p>
+<h2 id="s-9-4">9.4 จากผลวิจัยเชิงคุณภาพสู่ข้อเสนอเชิงปฏิบัติ</h2>
+<h3 id="s-9-4-1">9.4.1 ขอบเขตของข้อค้นพบเชิงคุณภาพ</h3>
+<p>งานเชิงคุณภาพที่ออกแบบในบทที่ 7 ศึกษาไม่กี่กรณีอย่างลึก ข้อค้นพบจึงบอกได้ว่ากลไกทำงานอย่างไรในกรณีที่ศึกษา แต่ไม่บอกว่าพบบ่อยเพียงใดในองค์กรทั้งหมด ผู้เรียบเรียงเห็นว่าข้อเสนอเชิงปฏิบัติจากงานเชิงคุณภาพจึงควรเขียนในรูป "องค์กรที่มีเงื่อนไขคล้ายกรณีที่ศึกษา ควรพิจารณา" ไม่ใช่ "องค์กรไทยควร"</p>
+<h3 id="s-9-4-2">9.4.2 ข้อเสนอเชิงปฏิบัติที่ดี</h3>
+<p>ตารางที่ 9.4 เป็นโครงที่ผู้เรียบเรียงเสนอสำหรับเขียนข้อเสนอเชิงปฏิบัติ</p>
+<p class="tcap"><b>ตารางที่ 9.4</b> โครงของข้อเสนอเชิงปฏิบัติ</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>คำถามที่ต้องตอบ</th><th>ตัวอย่างสั้น (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>1. ข้อค้นพบที่รองรับ</td><td>ข้อเสนอนี้มาจากข้อค้นพบใด</td><td>ผู้จัดการฝ่ายผลิตรับความคิดจากลูกค้าผ่านพนักงานขายเท่านั้น</td></tr><tr><td>2. ผู้ใช้</td><td>ใครในองค์กรจะทำ</td><td>ผู้จัดการฝ่ายผลิตและฝ่ายขาย</td></tr><tr><td>3. สิ่งที่ทำต่างไป</td><td>ทำอะไรต่างจากเดิม</td><td>จัดประชุมร่วมเดือนละครั้งเพื่อคัดความคิดจากลูกค้า</td></tr><tr><td>4. ด้านที่ได้รับผล</td><td>ด้านใดในกรอบเจ็ดด้าน</td><td>การจัดการความรู้ (ตารางที่ 9.2 ด้านที่ 2)</td></tr><tr><td>5. ตัวชี้วัด</td><td>จะรู้ได้อย่างไรว่าได้ผล</td><td>จำนวนความคิดจากลูกค้าที่เข้าสู่ขั้นทดลอง</td></tr><tr><td>6. ขอบเขต</td><td>ใช้กับองค์กรแบบใด</td><td>ผู้ผลิตขนาดกลางที่ขายผ่านพนักงานขายโดยตรง</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ</p>
+<h2 id="s-9-5">9.5 จริยธรรมการวิจัยและการนำเสนอแบบสัมมนาวิชาการ</h2>
+<h3 id="s-9-5-1">9.5.1 ประเด็นจริยธรรมในงานวิจัยเชิงคุณภาพในองค์กร</h3>
+<p>ผลลัพธ์การเรียนรู้ที่ 4 กำหนดให้นิสิตนำเสนอข้อเสนอวิจัยตามจริยธรรมการวิจัย งานวิจัยที่เก็บข้อมูลจากมนุษย์ต้องผ่านการพิจารณาของคณะกรรมการจริยธรรมการวิจัยในมนุษย์ตามระเบียบของมหาวิทยาลัย ซึ่งผู้สอนจะแจกในชั้น เอกสารนี้ไม่ได้สรุประเบียบนั้น เพราะรายละเอียดเป็นของมหาวิทยาลัย</p>
+<p>งานเชิงคุณภาพในองค์กรมีประเด็นเฉพาะที่ผู้เรียบเรียงเห็นว่าต้องเตรียมในข้อเสนอ ประเด็นแรกคือความสัมพันธ์ของผู้วิจัยกับองค์กร COREQ จัดให้ทีมวิจัยและการสะท้อนคิดเป็นหมวดแรก ซึ่งรวมลักษณะของผู้สัมภาษณ์และความสัมพันธ์กับผู้ให้ข้อมูล (Tong et al., 2007, Table 1 p. 352) นิสิตที่ศึกษาองค์กรของตนเองต้องรายงานประเด็นนี้ ประเด็นที่สองคือผู้ให้ข้อมูลอาจถูกระบุตัวได้แม้ไม่ใส่ชื่อ เมื่อองค์กรเล็กหรือตำแหน่งมีคนเดียว ประเด็นที่สามคือความลับทางธุรกิจขององค์กร ซึ่งต้องตกลงกันก่อนเก็บข้อมูลว่าส่วนใดเผยแพร่ได้</p>
+<p class="tcap"><b>ตารางที่ 9.5</b> ประเด็นจริยธรรมที่ต้องเขียนในข้อเสนอวิจัยเชิงคุณภาพ</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>สิ่งที่ต้องเขียนในข้อเสนอ</th></tr></thead><tbody><tr><td>การยินยอมโดยได้รับข้อมูล</td><td>วิธีอธิบายโครงการ เอกสารยินยอม และสิทธิถอนตัว</td></tr><tr><td>ความสัมพันธ์ของผู้วิจัยกับองค์กร</td><td>บทบาทของผู้วิจัยและวิธีลดผลต่อข้อมูล (Tong et al., 2007, Table 1 p. 352)</td></tr><tr><td>การปกปิดตัวตน</td><td>วิธีปกปิดชื่อ ตำแหน่ง และรายละเอียดที่ระบุตัวได้</td></tr><tr><td>ความลับทางธุรกิจ</td><td>ข้อตกลงกับองค์กรเรื่องข้อมูลที่เผยแพร่ได้</td></tr><tr><td>การเก็บรักษาข้อมูล</td><td>ที่เก็บไฟล์เสียงและบันทึก ผู้เข้าถึง และระยะเวลาเก็บ</td></tr><tr><td>การพิจารณาโดยคณะกรรมการ</td><td>แผนยื่นขอรับการพิจารณาตามระเบียบของมหาวิทยาลัย</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ แถวที่สองอ้าง Tong และคณะ (2007)</p>
+<h3 id="s-9-5-2">9.5.2 การนำเสนอแบบสัมมนาวิชาการ</h3>
+<p>การนำเสนอในสัปดาห์ที่ 16 ประเมินตามรูบริก 4 โดยอาจารย์ผู้สอนและคณะกรรมการในสาขาวิชา ผู้เรียบเรียงเสนอลำดับที่ใช้เวลาน้อยและตอบคำถามหลักของรายวิชาครบ คือ ปัญหาและช่องว่างพร้อมหลักฐาน คำถามวิจัย จุดเริ่มต้นทางทฤษฎี การออกแบบ ข้อพิจารณาจริยธรรม และการนำผลไปใช้ การตอบคำถามจากกรรมการเป็นส่วนสำคัญของการสัมมนา นิสิตควรเตรียมคำตอบของคำถามที่คาดว่าจะถูกถาม เช่น ช่องว่างนี้มีงานตอบแล้วหรือไม่ และทำไมเลือกกรณีเหล่านี้</p>
+<h2 id="s-9-6">9.6 โครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อ</h2>
+<p>ข้อเสนอวิจัยฉบับย่อรวมงานจากใบงานที่ 3 ถึง 6 ตารางที่ 9.6 แสดงส่วนของข้อเสนอและบทที่เป็นที่มา</p>
+<p class="tcap"><b>ตารางที่ 9.6</b> โครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อ</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>สาระที่ต้องมี</th><th>ที่มาในรายวิชา</th></tr></thead><tbody><tr><td>1. ความเป็นมาและช่องว่าง</td><td>ข้อความช่องว่างห้าส่วนพร้อมหลักฐาน</td><td>ใบงานที่ 5 บทที่ 8</td></tr><tr><td>2. คำถามวิจัย</td><td>คำถามหลักและคำถามย่อยที่ผ่านรายการตรวจ</td><td>บทที่ 8 หัวข้อ 8.5.3</td></tr><tr><td>3. กรอบแนวคิดและจุดเริ่มต้นทางทฤษฎี</td><td>ทฤษฎีที่ใช้และข้อสมมติที่ยอมรับหรือท้าทาย</td><td>บทที่ 3 4 และ 7</td></tr><tr><td>4. การออกแบบการวิจัย</td><td>กรณี ผู้ให้ข้อมูล การเก็บและวิเคราะห์ข้อมูล ความน่าเชื่อถือ</td><td>ใบงานที่ 4 บทที่ 7</td></tr><tr><td>5. จริยธรรมการวิจัย</td><td>ประเด็นตามตารางที่ 9.5</td><td>หัวข้อ 9.5</td></tr><tr><td>6. การมีส่วนสนับสนุนที่คาด</td><td>ทางทฤษฎีและทางปฏิบัติ</td><td>บทที่ 8 หัวข้อ 8.5.1</td></tr><tr><td>7. การนำผลไปใช้</td><td>ข้อเสนอเชิงปฏิบัติตามตารางที่ 9.4 และด้านในตารางที่ 9.2</td><td>หัวข้อ 9.2 และ 9.4</td></tr><tr><td>8. แผนงานและข้อจำกัด</td><td>ระยะเวลา และข้อจำกัดที่คาดพร้อมวิธีรับมือ</td><td>บทที่ 6</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ ความยาวและรูปแบบให้เป็นไปตามที่ผู้สอนกำหนดในรูบริก 3</p>
+<h2 id="s-9-7">9.7 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้มีสองกลุ่ม กลุ่มแนวคิดเรื่องความสามารถและการวัด และกลุ่มที่ช่วยนำผลไปใช้ในบริบทไทยอย่างระมัดระวัง</p>
+<p class="tcap"><b>ตารางที่ 9.7</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Cohen และ Levinthal (1990)</td><td>ความสามารถในการดูดซับ</td><td>บทความเชิงแนวคิดและแบบจำลอง</td><td>นิยามและเงื่อนไขของการดูดซับความรู้ (บทคัดย่อ)</td></tr><tr><td>Lawson และ Samson (2001)</td><td>ความสามารถทางนวัตกรรม</td><td>ทบทวนวรรณกรรมและกรณี Cisco Systems</td><td>เจ็ดองค์ประกอบ (บทคัดย่อ)</td></tr><tr><td>Adams และคณะ (2006)</td><td>การวัดการจัดการนวัตกรรม</td><td>ทบทวนอย่างเป็นระบบและเดลฟาย</td><td>กรอบเจ็ดด้านและข้อจำกัดของตัววัดปัจจัยนำเข้า</td></tr><tr><td>Laursen และ Salter (2006)</td><td>ความเปิดของการค้นกับผลงานนวัตกรรม</td><td>ข้อมูลสำรวจ 2,707 บริษัท</td><td>ตัวอย่างการนำผลจากบริบทอื่นมาใช้</td></tr><tr><td>Teece (2007)</td><td>ฐานระดับจุลภาคของความสามารถเชิงพลวัต</td><td>บทความเชิงแนวคิด</td><td>การรับรู้ การคว้าโอกาส การปรับโครงสร้าง (บทคัดย่อ)</td></tr><tr><td>Tong และคณะ (2007)</td><td>เกณฑ์การรายงานงานวิจัยเชิงคุณภาพ</td><td>ทบทวนรายการตรวจที่มีอยู่</td><td>หมวดทีมวิจัยและการสะท้อนคิด</td></tr><tr><td>OECD และ Eurostat (2018)</td><td>การนิยามและวัดนวัตกรรม</td><td>คู่มือสถิติ</td><td>ความใหม่สามระดับ</td></tr><tr><td>Hanelt และคณะ (2021)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนอย่างเป็นระบบ 279 บทความ</td><td>องค์กรที่ไม่ใช่ดิจิทัลต้องจัดการการออกแบบเดิม</td></tr><tr><td>Thawesaengskulthai และคณะ (2024)</td><td>อุปสรรคของ IDE ในไทย</td><td>ฐานข้อมูลและสัมภาษณ์</td><td>อุปสรรคสามเรื่อง สามกลยุทธ์ และกรอบศูนย์กลาง</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Cohen และ Levinthal Lawson และ Samson และ Teece มาจากบทคัดย่อ งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว งานวิจัยนวัตกรรมไทยที่ตรวจได้ในระบบคลังยังมีน้อย จึงเป็นรายการแรกในประเด็นขยายของบทนี้</p>
+<h2 id="s-9-8">9.8 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยในส่วนการนำผลไปใช้และในข้อเสนอวิจัยฉบับย่อ</p>
+<p class="tcap"><b>ตารางที่ 9.8</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ข้อเสนอเชิงปฏิบัติกว้าง เช่น ควรส่งเสริมวัฒนธรรมนวัตกรรม</td><td>ไม่มีใครรู้ว่าต้องทำอะไร</td><td>ใช้ตารางที่ 9.4 ระบุผู้ใช้ สิ่งที่ทำต่างไป และตัวชี้วัด</td></tr><tr><td>ข้อเสนอไม่มาจากข้อค้นพบ</td><td>ข้อเสนอเป็นความเห็นของผู้วิจัย</td><td>เขียนส่วนที่ 1 ในตารางที่ 9.4 ทุกข้อ</td></tr><tr><td>สรุปจากไม่กี่กรณีว่าใช้กับองค์กรไทยทั้งหมด</td><td>เกินขอบเขตของงานเชิงคุณภาพ</td><td>ระบุขอบเขตตามหัวข้อ 9.4.1</td></tr><tr><td>เสนอให้เพิ่มงบวิจัยและพัฒนาเป็นข้อแรก</td><td>ตัววัดที่อ่อนสำหรับธุรกิจขนาดกลางและบริการ (Adams et al., 2006)</td><td>เสนอตัวชี้วัดกระบวนการ</td></tr><tr><td>ใช้ผลจากต่างประเทศโดยไม่ถามเรื่องบริบท</td><td>กลไกอาจไม่ทำงานแบบเดียวกัน</td><td>ใช้ตารางที่ 9.3</td></tr><tr><td>ไม่ระบุความสัมพันธ์ของผู้วิจัยกับองค์กรที่ศึกษา</td><td>ผู้อ่านประเมินอคติไม่ได้</td><td>รายงานตามหมวดแรกของ COREQ</td></tr><tr><td>ไม่วางแผนยื่นคณะกรรมการจริยธรรม</td><td>เก็บข้อมูลไม่ได้ตามกำหนด</td><td>ใส่ในแผนงานตั้งแต่ข้อเสนอ</td></tr><tr><td>การนำเสนออ่านตามสไลด์และไม่เตรียมตอบคำถาม</td><td>การสัมมนาประเมินการอภิปรายด้วย</td><td>เตรียมคำตอบของคำถามที่คาดตามหัวข้อ 9.5.2</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: อุปสรรคของวิสาหกิจที่ขับเคลื่อนด้วยนวัตกรรมในประเทศไทย</div><p>Thawesaengskulthai และคณะ (2024) ศึกษาว่าอะไรขัดขวางวิสาหกิจที่ขับเคลื่อนด้วยนวัตกรรมในประเทศไทย โดยใช้ฐานข้อมูลผู้ลงทุน 320 รายและวิสาหกิจ 883 ราย ร่วมกับการสัมภาษณ์ผู้ลงทุน ผู้ก่อตั้ง และผู้บริหาร (p. 1 และ p. 7)</p><p>ผลพบอุปสรรคหลักสามเรื่อง คือทีม ความเหมาะของผลิตภัณฑ์กับตลาด และการสนับสนุน ผู้เขียนเสนอสามกลยุทธ์ คือการจัดการคนเก่ง ความง่ายในการขยายกิจการ และการเข้าถึงเงินทุน พร้อมกรอบศูนย์กลางที่เชื่อมมหาวิทยาลัยกับภาครัฐและเอกชน (บทคัดย่อ)</p><p>ผู้เขียนระบุว่ากลยุทธ์สอดคล้องกับต้นเหตุที่พบ แต่ไม่ได้จับคู่หนึ่งต่อหนึ่งกับอุปสรรค (p. 22)</p><p class="q"><b>คำถามชวนคิด</b> ถ้านิสิตจะทำงานเชิงคุณภาพต่อยอดงานนี้ในระดับองค์กร จะเลือกอุปสรรคข้อใดมาศึกษาลึก ด้วยคำถามวิจัยแบบใด และข้อเสนอเชิงปฏิบัติที่ได้จะอยู่ในด้านใดของตารางที่ 9.2</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ปิดคำถามหลักของรายวิชา ข้อเสนอวิจัยที่ดีเติมช่องว่างที่มีหลักฐาน (บทที่ 8) ด้วยการออกแบบที่เหมาะกับคำถาม (บทที่ 7) และบอกได้ว่าผลจะนำไปพัฒนาความสามารถทางนวัตกรรมขององค์กรไทยอย่างไร โดยรู้ขอบเขตของตนเอง</p><p>ข้อเสนอฉบับย่อและการนำเสนอในสัปดาห์ที่ 16 เป็นหลักฐานของผลลัพธ์การเรียนรู้ที่ 4 ส่วนการสอบปลายภาคจะถามให้สังเคราะห์ทฤษฎีและออกแบบแนวทางวิจัยจากช่องว่างที่กำหนด</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรมองผลวิจัยของตนผ่านแนวคิดความสามารถทางนวัตกรรม ฐานระดับจุลภาคของความสามารถเชิงพลวัต และความสามารถในการดูดซับ แนวคิดเหล่านี้ทำให้ข้อเสนอเชิงปฏิบัติพูดถึงสิ่งที่องค์กรสร้างและปรับได้</p>
+<p>นิสิตควรบอกได้ว่าผลวิจัยกระทบด้านใดของการจัดการนวัตกรรม และจะวัดผลอย่างไร โดยไม่พึ่งตัววัดปัจจัยนำเข้าเพียงอย่างเดียว การนำผลจากบริบทอื่นมาใช้กับองค์กรไทยต้องถามว่ากลไกพึ่งเงื่อนไขที่ต่างหรือไม่ และงานเชิงคุณภาพให้ข้อเสนอที่ใช้กับองค์กรที่มีเงื่อนไขคล้ายกรณีที่ศึกษา</p>
+<p>นิสิตนำความรู้นี้ไปเขียนส่วนการนำผลไปใช้และส่วนจริยธรรมในข้อเสนอวิจัยฉบับย่อ รวมงานจากใบงานที่ 3 ถึง 6 ตามตารางที่ 9.6 แล้วนำเสนอแบบสัมมนาวิชาการในสัปดาห์ที่ 16</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ความสามารถทางนวัตกรรม (innovation capability)</li><li>ความสามารถเชิงพลวัต (dynamic capabilities)</li><li>ฐานระดับจุลภาค (microfoundations)</li><li>การรับรู้ (sensing)</li><li>การคว้าโอกาส (seizing)</li><li>การปรับโครงสร้าง (reconfiguring)</li><li>ความสามารถในการดูดซับ (absorptive capacity)</li><li>การวัดการจัดการนวัตกรรม (innovation management measurement)</li><li>การจัดการพอร์ตโฟลิโอ (portfolio management)</li><li>การนำออกสู่ตลาด (commercialization)</li><li>ความใหม่ต่อบริษัท (new to the firm)</li><li>วิสาหกิจที่ขับเคลื่อนด้วยนวัตกรรม (innovation-driven enterprise)</li><li>ข้อเสนอเชิงปฏิบัติ (practical implication)</li><li>ขอบเขตของข้อค้นพบ (scope of findings)</li><li>การยินยอมโดยได้รับข้อมูล (informed consent)</li><li>การปกปิดตัวตน (anonymization)</li><li>คณะกรรมการจริยธรรมการวิจัยในมนุษย์ (human research ethics committee)</li><li>คลินิกข้อเสนอวิจัย (proposal clinic)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายแนวคิดความสามารถทางนวัตกรรมของ Lawson และ Samson (2001) และบอกว่าทำไมแนวคิดนี้จึงทำให้ผลวิจัยนำไปพัฒนาองค์กรได้</li><li>ฐานระดับจุลภาคตาม Teece (2007) มีอะไรบ้าง และทำไมงานวิจัยเชิงคุณภาพจึงเหมาะกับการศึกษาฐานเหล่านี้</li><li>จงอธิบายความเชื่อมโยงระหว่างความสามารถในการดูดซับกับการนำผลวิจัยไปใช้ในองค์กร</li><li>จงวางงานวิจัยของนิสิตบนกรอบเจ็ดด้านของ Adams และคณะ (2006) และบอกว่าผลวิจัยกระทบด้านใดมากที่สุด</li><li>ทำไมการเสนอให้เพิ่มงบวิจัยและพัฒนาจึงอาจไม่เหมาะกับธุรกิจขนาดกลางและบริการ จงเสนอตัวชี้วัดกระบวนการแทนหนึ่งตัว</li><li>นวัตกรรมที่นิสิตศึกษามีความใหม่ระดับใดตามคู่มือออสโล และระดับนั้นเปลี่ยนคำถามวิจัยอย่างไร</li><li>จงใช้ตารางที่ 9.3 วิเคราะห์การนำผลของงานต่างประเทศหนึ่งเรื่องมาใช้กับองค์กรไทย</li><li>จงเขียนข้อเสนอเชิงปฏิบัติหนึ่งข้อตามโครงในตารางที่ 9.4</li><li>ข้อเสนอวิจัยของนิสิตมีประเด็นจริยธรรมใดในตารางที่ 9.5 ที่ต้องเตรียมมากที่สุด เพราะอะไร</li><li>จงวิเคราะห์งานของ Thawesaengskulthai และคณะ (2024) ว่าความระมัดระวังในการเสนอกลยุทธ์ (p. 22) เป็นตัวอย่างสำหรับข้อเสนอของนิสิตอย่างไร</li></ol>
+<h2 id="x254">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Lawson และ Samson (2001) อ่านส่วนเจ็ดองค์ประกอบ คำถามนำอภิปราย องค์ประกอบใดที่องค์กรไทยอ่อนที่สุด</li><li>Adams และคณะ (2006) อ่านกรอบเจ็ดด้านและตัววัด คำถามนำอภิปราย ตัววัดใดเก็บได้จริงในองค์กรที่นิสิตศึกษา</li><li>Thawesaengskulthai และคณะ (2024) อ่านทั้งเรื่อง คำถามนำอภิปราย ข้อมูลแต่ละแบบในงานนี้ตอบคำถามใด</li><li>Teece (2007) อ่านส่วนการรับรู้ การคว้าโอกาส และการปรับโครงสร้าง คำถามนำอภิปราย ฐานใดสังเกตได้ในองค์กรของนิสิต</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 6 โครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อและแผนนำเสนอ</h2>
+<p>ส่งก่อนเริ่มเรียนสัปดาห์ที่ 16 ใบงานนี้ต่อยอดเป็นข้อเสนอวิจัยฉบับย่อตามรูบริก 3 และการนำเสนอตามรูบริก 4</p>
+<ol><li>จัดทำโครงข้อเสนอแปดส่วนตามตารางที่ 9.6 โดยปรับส่วนที่ 1 ถึง 4 จากใบงานที่ 4 และ 5 ตามข้อเสนอแนะที่ได้</li><li>เขียนส่วนการนำผลไปใช้อย่างน้อยสองข้อตามโครงในตารางที่ 9.4 และระบุด้านในตารางที่ 9.2</li><li>ถ้าใช้ผลจากบริบทอื่น ตอบคำถามห้าข้อในตารางที่ 9.3</li><li>เขียนส่วนจริยธรรมครบทุกประเด็นในตารางที่ 9.5 และแผนยื่นขอรับการพิจารณา</li><li>จัดทำโครงการนำเสนอตามลำดับในหัวข้อ 9.5.2 และรายการคำถามที่คาดว่าจะถูกถามอย่างน้อยห้าข้อพร้อมแนวคำตอบ</li><li>ตรวจงานกับตารางที่ 9.8 ก่อนส่ง และเขียนรายการอ้างอิงแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Adams, R., Bessant, J., &amp; Phelps, R. (2006). Innovation management measurement: A review. <em>International Journal of Management Reviews</em>, <em>8</em>(1), 21–47. <a href="https://doi.org/10.1111/j.1468-2370.2006.00119.x" target="_blank" rel="noopener">https://doi.org/10.1111/j.1468-2370.2006.00119.x</a></div>
+<div class="r">Cohen, W. M., &amp; Levinthal, D. A. (1990). Absorptive capacity: A new perspective on learning and innovation. <em>Administrative Science Quarterly</em>, <em>35</em>(1), 128–152. <a href="https://doi.org/10.2307/2393553" target="_blank" rel="noopener">https://doi.org/10.2307/2393553</a></div>
+<div class="r">Hanelt, A., Bohnsack, R., Marz, D., &amp; Antunes Marante, C. (2021). A systematic review of the literature on digital transformation: Insights and implications for strategy and organizational change. <em>Journal of Management Studies</em>, <em>58</em>(5), 1159–1197. <a href="https://doi.org/10.1111/joms.12639" target="_blank" rel="noopener">https://doi.org/10.1111/joms.12639</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. (2006). Open for innovation: The role of openness in explaining innovation performance among U.K. manufacturing firms. <em>Strategic Management Journal</em>, <em>27</em>(2), 131–150. <a href="https://doi.org/10.1002/smj.507" target="_blank" rel="noopener">https://doi.org/10.1002/smj.507</a></div>
+<div class="r">Lawson, B., &amp; Samson, D. (2001). Developing innovation capability in organisations: A dynamic capabilities approach. <em>International Journal of Innovation Management</em>, <em>5</em>(3), 377–400. <a href="https://doi.org/10.1142/s1363919601000427" target="_blank" rel="noopener">https://doi.org/10.1142/s1363919601000427</a></div>
+<div class="r">OECD, &amp; Eurostat. (2018). <em>Oslo manual 2018: Guidelines for collecting, reporting and using data on innovation</em> (4th ed.). OECD Publishing. <a href="https://doi.org/10.1787/9789264304604-en" target="_blank" rel="noopener">https://doi.org/10.1787/9789264304604-en</a></div>
+<div class="r">Teece, D. J. (2007). Explicating dynamic capabilities: The nature and microfoundations of (sustainable) enterprise performance. <em>Strategic Management Journal</em>, <em>28</em>(13), 1319–1350. <a href="https://doi.org/10.1002/smj.640" target="_blank" rel="noopener">https://doi.org/10.1002/smj.640</a></div>
+<div class="r">Thawesaengskulthai, N., Chatmarathong, A., &amp; Koiwanit, J. (2024). Impact and policy supporting Thailand innovation driven enterprise: Orchestrating university innovation and entrepreneurship ecosystem with public and private stakeholders. <em>Journal of Innovation and Entrepreneurship</em>, <em>13</em>(1), Article 16. <a href="https://doi.org/10.1186/s13731-024-00371-x" target="_blank" rel="noopener">https://doi.org/10.1186/s13731-024-00371-x</a></div>
+<div class="r">Tong, A., Sainsbury, P., &amp; Craig, J. (2007). Consolidated criteria for reporting qualitative research (COREQ): A 32-item checklist for interviews and focus groups. <em>International Journal for Quality in Health Care</em>, <em>19</em>(6), 349–357. <a href="https://doi.org/10.1093/intqhc/mzm042" target="_blank" rel="noopener">https://doi.org/10.1093/intqhc/mzm042</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 9 การนำผลวิจัยไปพัฒนาความสามารถทางนวัตกรรมขององค์กรในบริบทไทย. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_09.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_08.html"><small>◀ บทก่อนหน้า</small>บทที่ 8 ช่องว่างองค์ความรู้และทิศทางงานวิจัยนวัตกรรมในอนาคต</a><a href="ai_0907508.html" style="text-align:right"><small>▶</small>หน้าวิชา</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/09/s-01.jpg', 'ai/slides/09/s-02.jpg', 'ai/slides/09/s-03.jpg', 'ai/slides/09/s-04.jpg', 'ai/slides/09/s-05.jpg', 'ai/slides/09/s-06.jpg', 'ai/slides/09/s-07.jpg', 'ai/slides/09/s-08.jpg', 'ai/slides/09/s-09.jpg', 'ai/slides/09/s-10.jpg', 'ai/slides/09/s-11.jpg', 'ai/slides/09/s-12.jpg', 'ai/slides/09/s-13.jpg', 'ai/slides/09/s-14.jpg', 'ai/slides/09/s-15.jpg', 'ai/slides/09/s-16.jpg', 'ai/slides/09/s-17.jpg', 'ai/slides/09/s-18.jpg', 'ai/slides/09/s-19.jpg', 'ai/slides/09/s-20.jpg', 'ai/slides/09/s-21.jpg', 'ai/slides/09/s-22.jpg', 'ai/slides/09/s-23.jpg', 'ai/slides/09/s-24.jpg', 'ai/slides/09/s-25.jpg', 'ai/slides/09/s-26.jpg', 'ai/slides/09/s-27.jpg', 'ai/slides/09/s-28.jpg', 'ai/slides/09/s-29.jpg', 'ai/slides/09/s-30.jpg', 'ai/slides/09/s-31.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

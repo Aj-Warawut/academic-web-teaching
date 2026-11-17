@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 4 นวัตกรรมแบบเปิด ระบบนิเวศ นวัตกรรมดิจิทัล และการสร้างกรอบแนวคิดข้ามสาขา · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 4 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 4</div><a href="#x6">ความนำ</a><a href="#s-4-1">4.1 นวัตกรรมแบบเปิด</a><a href="#s-4-2">4.2 ระบบนิเวศนวัตกรรม</a><a href="#s-4-3">4.3 นวัตกรรมดิจิทัล</a><a href="#s-4-4">4.4 อะไรคือการมีส่วนสนับสนุนทางทฤษฎี</a><a href="#s-4-5">4.5 การยืมแนวคิดข้ามสาขาและการสร้างกรอบแนวคิด</a><a href="#s-4-6">4.6 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-4-7">4.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x280">รายการอ่านสำหรับสัมมนา</a><a href="#ws">ใบงานที่ 2 กรอบแนวคิดเบื้องต้นข้ามสาขา</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 4 นวัตกรรมแบบเปิด ระบบนิเวศ นวัตกรรมดิจิทัล และการสร้างกรอบแนวคิดข้ามสาขา</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>4</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (31 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่04_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 ใบงานที่ 2</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายนิยามและรูปแบบของนวัตกรรมแบบเปิด และวิธีวัดความเปิดในงานวิจัยเชิงปริมาณได้</li><li>เปรียบเทียบมุมมองต่อระบบนิเวศนวัตกรรมแบบเน้นผู้กระทำกับแบบเน้นโครงสร้าง และบอกผลต่อการออกแบบงานวิจัยได้</li><li>อธิบายว่านวัตกรรมดิจิทัลตั้งคำถามกับข้อสมมติของทฤษฎีนวัตกรรมเดิมอย่างไร</li><li>จำแนกการมีส่วนสนับสนุนทางทฤษฎีของบทความวิจัยตามสองมิติของ Corley และ Gioia ได้</li><li>จัดทำกรอบแนวคิดเบื้องต้นที่ยืมแนวคิดข้ามสาขาตามแบบในตารางที่ 4.7 สำหรับหัวข้อวิจัยของตนได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">ทฤษฎีในบทที่ 3 ส่วนใหญ่มองนวัตกรรมจากภายในองค์กร หน่วยวิเคราะห์คือบริษัทหนึ่งแห่ง และคำถามคือบริษัทนั้นเรียนรู้ ปรับตัว หรือได้ผลตอบแทนอย่างไร บทนี้ขยายขอบเขตออกไปนอกองค์กร คำถามเปลี่ยนเป็นว่าองค์กรใช้ความรู้ของผู้อื่นอย่างไร องค์กรหลายฝ่ายต้องจัดแนวกันอย่างไรให้ข้อเสนอคุณค่าหนึ่งเกิดขึ้นได้ และเทคโนโลยีดิจิทัลเปลี่ยนคำตอบของคำถามเหล่านี้อย่างไร</p>
+<p class="lead">การขยายขอบเขตนี้ทำให้ผู้วิจัยต้องตัดสินใจเรื่องที่บทที่ 3 ไม่ค่อยต้องคิด คือหน่วยวิเคราะห์ งานวิจัยนวัตกรรมแบบเปิดอาจวัดที่บริษัท โครงการ หรือความสัมพันธ์ระหว่างสองฝ่าย งานวิจัยระบบนิเวศอาจวัดที่ผู้กระทำแต่ละราย หรือที่โครงสร้างของทั้งระบบ การเลือกหน่วยวิเคราะห์ผิดทำให้ข้อมูลที่เก็บมาตอบคำถามวิจัยไม่ได้</p>
+<p class="lead">ครึ่งหลังของบทเปลี่ยนจากเนื้อหาทฤษฎีมาเป็นการสร้างทฤษฎี หัวข้อ 4.4 ถามว่าอะไรนับเป็นการมีส่วนสนับสนุนทางทฤษฎี และหัวข้อ 4.5 สอนการยืมแนวคิดจากสาขาหนึ่งมาสร้างกรอบแนวคิดของงานวิจัยนวัตกรรม ซึ่งเป็นงานของใบงานที่ 2</p>
+<h2 id="s-4-1">4.1 นวัตกรรมแบบเปิด</h2>
+<h3 id="s-4-1-1">4.1.1 นิยามและสองทิศทาง</h3>
+<p>Bogers และคณะ (2018) ใช้นิยามของ Chesbrough และ Bogers (2014) ว่านวัตกรรมแบบเปิด (open innovation) คือกระบวนการนวัตกรรมแบบกระจาย บนการไหลของความรู้ข้ามขอบเขตองค์กรที่จัดการอย่างตั้งใจ (pp. 5–8) คำว่า "จัดการอย่างตั้งใจ" แยกนวัตกรรมแบบเปิดออกจากการรั่วไหลของความรู้ที่เกิดขึ้นเอง ผู้วิจัยที่ศึกษานวัตกรรมแบบเปิดจึงศึกษาการตัดสินใจขององค์กร ไม่ใช่เพียงการมีอยู่ของการไหลของความรู้</p>
+<p>ผู้เขียนแยกสองทิศทาง คือแบบจากนอกเข้าใน (outside-in) ที่องค์กรนำความรู้ภายนอกเข้ามา และแบบจากในออกนอก (inside-out) ที่องค์กรส่งความรู้ของตนออกไปให้ผู้อื่นใช้ และชี้ว่าแบบเข้าได้รับความสนใจในงานวิจัยมากที่สุด (Bogers et al., 2018, pp. 5–8) ข้อนี้เป็นสัญญาณถึงช่องว่าง นิสิตที่สนใจการให้สิทธิ์ การแยกบริษัท หรือการเปิดเผยความรู้ขององค์กรไทย อาจอยู่ในส่วนของวรรณกรรมที่ยังมีงานน้อย</p>
+<p>ผู้เขียนยังระบุปัจจัยที่เร่งให้นวัตกรรมแบบเปิดเกิดมากขึ้น ได้แก่ การเคลื่อนย้ายแรงงาน มหาวิทยาลัยที่มีความสามารถสูงขึ้น การที่บริษัทเกิดใหม่เข้าถึงทุนร่วมลงทุนได้มากขึ้น และอินเทอร์เน็ตกับเทคโนโลยีสารสนเทศ และวางนวัตกรรมแบบเปิดไว้ร่วมกับนโยบาย Three Opens ของสหภาพยุโรป คือนวัตกรรมแบบเปิด วิทยาศาสตร์แบบเปิด และเปิดสู่โลก (Bogers et al., 2018, pp. 5–8)</p>
+<h3 id="s-4-1-2">4.1.2 สี่รูปแบบของความเปิด</h3>
+<p>คำว่า "เปิด" ในงานวิจัยแต่ละเรื่องหมายถึงสิ่งต่างกัน Dahlander และ Gann (2010) ทบทวนวรรณกรรมนวัตกรรมแบบเปิดถึงปี 2009 และจัดความเปิดเป็นสี่รูปแบบจากสองมิติ คือทิศทางเข้าหรือออก และมีหรือไม่มีการจ่ายเงิน (§3, Table 3)</p>
+<p class="tcap"><b>ตารางที่ 4.1</b> สี่รูปแบบของความเปิดตาม Dahlander และ Gann (2010)</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>มีการจ่ายเงิน</th><th>ไม่มีการจ่ายเงิน</th></tr></thead><tbody><tr><td>เข้า (นอกเข้าใน)</td><td>การซื้อ (acquiring) ซื้อหรือรับสิทธิ์ความรู้จากภายนอก</td><td>การหาแหล่ง (sourcing) ใช้ความคิดจากภายนอกโดยไม่จ่ายเงิน</td></tr><tr><td>ออก (ในออกนอก)</td><td>การขาย (selling) ขายหรือให้สิทธิ์ความรู้ของตน</td><td>การเปิดเผย (revealing) เปิดความรู้ของตนให้ผู้อื่นใช้</td></tr></tbody></table></div>
+<p>ที่มา Dahlander และ Gann (2010, §3, Table 3)</p>
+<p>แต่ละรูปแบบมีปัญหาของตน การเปิดเผยเสี่ยงให้คู่แข่งที่มีสินทรัพย์ส่วนเติมเต็มได้ประโยชน์ (§4.1) การขายเจอปัญหาความย้อนแย้งของการเปิดเผย (disclosure paradox) ของ Arrow คือผู้ซื้อต้องเห็นความรู้ก่อนจึงประเมินราคาได้ แต่เมื่อเห็นแล้วก็ไม่จำเป็นต้องซื้อ และยังเสี่ยงต่อผู้รับสิทธิ์ที่ฉวยโอกาส (§4.2.3) การซื้อต้องมีความเชี่ยวชาญในการค้นหาและประเมิน (§4.4) ข้อสุดท้ายนี้เชื่อมกับความสามารถในการดูดซับในบทที่ 3 หัวข้อ 3.3 องค์กรที่ไม่มีความรู้เดิมเพียงพอจะประเมินความรู้ที่ซื้อมาได้ยาก</p>
+<p>ข้อสรุปสำคัญของ Dahlander และ Gann คือความเปิดเป็นระดับต่อเนื่อง ไม่ใช่ทางเลือกระหว่างเปิดกับปิด และวรรณกรรมมองข้ามต้นทุนการประสานงานและต้นทุนด้านการแข่งขันของความเปิด (§4–5) ผู้วิจัยที่ตั้งสมมติฐานว่า "ยิ่งเปิดยิ่งดี" จึงละเลยต้นทุนที่วรรณกรรมเองก็ยอมรับว่ายังศึกษาน้อย</p>
+<h3 id="s-4-1-3">4.1.3 การวัดความเปิด ความกว้างและความลึก</h3>
+<p>Laursen และ Salter (2006) เป็นงานที่ทำให้ความเปิดวัดได้ในข้อมูลขนาดใหญ่ ผู้เขียนใช้ข้อมูลการสำรวจนวัตกรรมของสหราชอาณาจักร (ตามแบบสำรวจนวัตกรรมของชุมชนยุโรป หรือ CIS) จากบริษัทผู้ผลิต 2,707 แห่ง ซึ่งรายงานการใช้แหล่งความรู้ภายนอก 16 แหล่ง (Table 1, pp. 138–139) แล้วสร้างตัวชี้วัดสองตัว</p>
+<p class="tcap"><b>ตารางที่ 4.2</b> การวัดความเปิดของการค้นหาตาม Laursen และ Salter (2006)</p>
+<div class="tablewrap"><table><thead><tr><th>ตัวชี้วัด</th><th>วิธีสร้าง</th><th>ช่วงค่า</th><th>ตำแหน่ง</th></tr></thead><tbody><tr><td>ความกว้างของการค้น (search breadth)</td><td>นับจำนวนแหล่งที่บริษัทใช้ จาก 16 แหล่ง</td><td>0–16</td><td>p. 140</td></tr><tr><td>ความลึกของการค้น (search depth)</td><td>นับจำนวนแหล่งที่บริษัทใช้ในระดับสูง</td><td>0–16</td><td>p. 140</td></tr></tbody></table></div>
+<p>ที่มา Laursen และ Salter (2006)</p>
+<p>ผลคือทั้งความกว้างและความลึกสัมพันธ์กับผลงานด้านนวัตกรรมเป็นรูปตัวยูคว่ำ (Laursen &amp; Salter, 2006, p. 131) ความเปิดเพิ่มผลงานได้ถึงจุดหนึ่ง หลังจากนั้นการค้นมากเกินไป (over-search) ทำให้ผลงานลดลง ข้อค้นพบนี้สอดคล้องกับข้อเตือนของ Dahlander และ Gann เรื่องต้นทุนของความเปิด</p>
+<p>ตัวชี้วัดนี้มีข้อดีคือสร้างได้จากข้อมูลการสำรวจนวัตกรรมที่หลายประเทศเก็บตามแบบเดียวกัน นิสิตที่มีข้อมูลแบบนี้ของไทยใช้วิธีเดียวกันได้ ข้อจำกัดคือตัวชี้วัดนับแหล่ง ไม่ได้บอกว่าความรู้จากแหล่งนั้นถูกใช้อย่างไร และเป็นข้อมูลตัดขวาง จึงบอกทิศทางของเหตุได้จำกัด บทที่ 6 จะใช้งานนี้เป็นตัวอย่างการวิพากษ์บทความ</p>
+<h2 id="s-4-2">4.2 ระบบนิเวศนวัตกรรม</h2>
+<h3 id="s-4-2-1">4.2.1 ปัญหาของนิยาม</h3>
+<p>คำว่าระบบนิเวศ (ecosystem) ใช้กันแพร่หลายจนมีความหมายหลายแบบ Granstrand และ Holgersson (2020) ทบทวนงาน 120 เรื่อง และพบนิยามระบบนิเวศนวัตกรรมที่ไม่ซ้ำกัน 21 นิยาม (บทคัดย่อและ Tables 1–2) ผู้เขียนพบว่านิยามเดิมไม่สมดุล เน้นความร่วมมือ ส่วนเติมเต็ม และผู้กระทำ แต่ให้น้ำหนักน้อยกับการแข่งขัน สิ่งทดแทน และสิ่งประดิษฐ์ (artifacts) (pp. 1–4)</p>
+<p>ผู้เขียนเสนอนิยามสังเคราะห์ว่า ระบบนิเวศนวัตกรรมคือชุดของผู้กระทำ กิจกรรม สิ่งประดิษฐ์ สถาบัน และความสัมพันธ์ทั้งแบบเติมเต็มและแบบทดแทน ที่เปลี่ยนไปตามเวลา และสำคัญต่อผลงานนวัตกรรมของผู้กระทำหรือกลุ่มผู้กระทำ และแยกระบบนิเวศนวัตกรรมออกจากระบบนวัตกรรมระดับชาติหรือรายสาขา (Granstrand &amp; Holgersson, 2020, §4)</p>
+<h3 id="s-4-2-2">4.2.2 สองมุมมองของ Adner</h3>
+<p>Adner (2017) ช่วยผู้วิจัยด้วยการแยกสองมุมมอง มุมแรกคือระบบนิเวศในฐานะการเป็นสมาชิก (ecosystem-as-affiliation) ซึ่งเน้นผู้กระทำ เครือข่าย และการเป็นสมาชิกของแพลตฟอร์ม มุมที่สองคือระบบนิเวศในฐานะโครงสร้าง (ecosystem-as-structure) ซึ่งเน้นกิจกรรม (pp. 39–44) ผู้เขียนเลือกมุมที่สอง และนิยามว่าระบบนิเวศคือโครงสร้างการจัดแนวของกลุ่มคู่ค้าหลายฝ่ายที่ต้องมีปฏิสัมพันธ์กัน เพื่อให้ข้อเสนอคุณค่าหลักเกิดขึ้นได้ (p. 42)</p>
+<p class="tcap"><b>ตารางที่ 4.3</b> เปรียบเทียบสองมุมมองต่อระบบนิเวศ</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>ระบบนิเวศในฐานะการเป็นสมาชิก</th><th>ระบบนิเวศในฐานะโครงสร้าง</th></tr></thead><tbody><tr><td>จุดเริ่มของการวิเคราะห์</td><td>ผู้กระทำและเครือข่าย</td><td>ข้อเสนอคุณค่าหลัก และกิจกรรมที่ต้องเกิด</td></tr><tr><td>ขอบเขตของระบบ</td><td>ผู้ที่เป็นสมาชิกหรือเชื่อมต่อกัน</td><td>กำหนดด้วยข้อเสนอคุณค่า</td></tr><tr><td>ตัวแปรที่มักวัด</td><td>จำนวนคู่ค้า ความหนาแน่น ความเป็นศูนย์กลาง</td><td>ตำแหน่ง การเชื่อมโยง และการจัดแนวของผู้กระทำ</td></tr><tr><td>คำถามวิจัยที่เหมาะ</td><td>ใครเชื่อมกับใคร และตำแหน่งในเครือข่ายสัมพันธ์กับผลอย่างไร</td><td>ข้อเสนอคุณค่าหนึ่งล้มเหลวหรือสำเร็จเพราะการจัดแนวแบบใด</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง จาก Adner (2017, pp. 39–44) แถวคำถามวิจัยเป็นของผู้เรียบเรียง</p>
+<p>การเลือกมุมมองกำหนดการเก็บข้อมูล ผู้วิจัยที่เลือกมุมการเป็นสมาชิกเก็บข้อมูลเครือข่าย ผู้วิจัยที่เลือกมุมโครงสร้างต้องเริ่มจากข้อเสนอคุณค่าหนึ่งเรื่อง แล้วไล่ว่ากิจกรรมใดต้องเกิด ใครทำ และต้องเชื่อมกันอย่างไร</p>
+<h3 id="s-4-2-3">4.2.3 องค์ประกอบและความเสี่ยงของโครงสร้าง</h3>
+<p class="tcap"><b>ตารางที่ 4.4</b> องค์ประกอบของโครงสร้างระบบนิเวศและความเสี่ยงตาม Adner (2017)</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>รายละเอียด</th><th>ตำแหน่ง</th></tr></thead><tbody><tr><td>องค์ประกอบ 1 กิจกรรม</td><td>สิ่งที่ต้องทำเพื่อให้ข้อเสนอคุณค่าเกิดขึ้น</td><td>Table 1</td></tr><tr><td>องค์ประกอบ 2 ผู้กระทำ</td><td>ผู้ที่ทำกิจกรรมเหล่านั้น</td><td>Table 1</td></tr><tr><td>องค์ประกอบ 3 ตำแหน่ง</td><td>ผู้กระทำแต่ละรายอยู่ตรงไหนในการไหลของกิจกรรม</td><td>Table 1</td></tr><tr><td>องค์ประกอบ 4 การเชื่อมโยง</td><td>การส่งต่อระหว่างผู้กระทำ</td><td>Table 1</td></tr><tr><td>ความเสี่ยงจากการร่วมสร้างนวัตกรรม (co-innovation risk)</td><td>คู่ค้ามีความสามารถทำกิจกรรมใหม่ได้หรือไม่</td><td>p. 48</td></tr><tr><td>ความเสี่ยงของห่วงโซ่การยอมรับ (adoption-chain risk)</td><td>คู่ค้าเต็มใจทำหรือไม่ ตามลำดับความสำคัญและแรงจูงใจของตน</td><td>p. 48</td></tr></tbody></table></div>
+<p>ที่มา Adner (2017)</p>
+<p>ผู้เขียนเตือนด้วยว่าระบบอาจไม่มีผู้นำ (p. 48) และผู้วิจัยเสี่ยง "จมน้ำ" ในความพึ่งพากันที่ไม่สิ้นสุด จึงต้องมีเกณฑ์ขอบเขตของระบบ (p. 55) คำเตือนข้อหลังเป็นคำเตือนเชิงวิธีวิทยาที่นิสิตควรจำ ระบบนิเวศที่ไม่มีขอบเขตชัดวิเคราะห์ไม่ได้ ข้อเสนอคุณค่าหลักคือเครื่องมือกำหนดขอบเขตที่ Adner เสนอ</p>
+<h3 id="s-4-2-4">4.2.4 ระบบนิเวศกับทฤษฎีในบทที่ 3</h3>
+<p>ระบบนิเวศเชื่อมกับทฤษฎีในบทที่ 3 อย่างน้อยสองทาง ทางแรกคือสินทรัพย์ส่วนเติมเต็มของ Teece (1986) ซึ่งเป็นความสัมพันธ์แบบเติมเต็มในนิยามของ Granstrand และ Holgersson ทางที่สองคือข้อเสนอของ Teece (2007) ว่าบริษัทที่มีความสามารถเชิงพลวัตสูงไม่เพียงปรับตัวตามระบบนิเวศ แต่สร้างรูประบบนิเวศด้วย (บทคัดย่อ) ผู้วิจัยที่ใช้แนวคิดระบบนิเวศจึงควรบอกว่าแนวคิดนี้เพิ่มอะไรที่ทฤษฎีระดับบริษัทอธิบายไม่ได้ เช่น การที่ข้อเสนอคุณค่าล้มเพราะคู่ค้าไม่เต็มใจ แม้บริษัทหลักจะทำทุกอย่างถูก</p>
+<h2 id="s-4-3">4.3 นวัตกรรมดิจิทัล</h2>
+<h3 id="s-4-3-1">4.3.1 สถาปัตยกรรมแยกส่วนเป็นชั้น</h3>
+<p>Yoo และคณะ (2010) เสนอว่าการทำให้เป็นดิจิทัลอย่างแพร่หลายทำให้เกิดสถาปัตยกรรมผลิตภัณฑ์แบบใหม่ คือสถาปัตยกรรมแยกส่วนเป็นชั้น (layered modular architecture) ซึ่งขยายสถาปัตยกรรมแยกส่วนของผลิตภัณฑ์กายภาพด้วยสี่ชั้นที่เชื่อมกันอย่างหลวม ได้แก่ อุปกรณ์ เครือข่าย บริการ และเนื้อหา ผู้เขียนเสนอว่าสถาปัตยกรรมนี้เปลี่ยนวิธีที่บริษัทจัดองค์กรเพื่อสร้างนวัตกรรม (บทคัดย่อ)</p>
+<p>ข้อเสนอนี้ต่อยอดจากนวัตกรรมเชิงสถาปัตยกรรมในบทที่ 3 หัวข้อ 3.2 ถ้าความรู้เชิงสถาปัตยกรรมฝังอยู่ในโครงสร้างขององค์กร การเปลี่ยนสถาปัตยกรรมของผลิตภัณฑ์เป็นชั้นที่แยกกันได้ ก็ควรเปลี่ยนโครงสร้างขององค์กรที่สร้างผลิตภัณฑ์ด้วย ข้อเชื่อมนี้เป็นข้อสังเกตของผู้เรียบเรียง ไม่ใช่ข้อความในบทคัดย่อของ Yoo และคณะ</p>
+<h3 id="s-4-3-2">4.3.2 ข้อสมมติที่ถูกตั้งคำถาม</h3>
+<p>Nambisan และคณะ (2017) ไปไกลกว่านั้น ผู้เขียนเสนอว่าการทำให้กระบวนการและผลลัพธ์ของนวัตกรรมเป็นดิจิทัล ทำให้ข้อสมมติพื้นฐานของทฤษฎีการจัดการนวัตกรรมถูกตั้งคำถามสามเรื่อง และเสนอตรรกะการสร้างทฤษฎีใหม่สี่ข้อ (บทคัดย่อ)</p>
+<p class="tcap"><b>ตารางที่ 4.5</b> ข้อสมมติของทฤษฎีนวัตกรรมเดิมที่นวัตกรรมดิจิทัลตั้งคำถาม</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อสมมติที่ถูกตั้งคำถาม (Nambisan et al., 2017)</th><th>ข้อสมมติเดิมโดยทั่วไป</th><th>ตัวอย่างคำถามวิจัยที่เปิดขึ้น</th></tr></thead><tbody><tr><td>ขอบเขตของนวัตกรรม</td><td>นวัตกรรมมีขอบเขตชัด ผลิตภัณฑ์เสร็จแล้วออกขาย</td><td>ผลิตภัณฑ์ที่ปรับปรุงต่อเนื่องหลังขายควรนับเป็นนวัตกรรมเมื่อใด</td></tr><tr><td>ผู้กระทำของนวัตกรรม</td><td>นวัตกรรมเกิดจากบริษัทหรือทีมที่ระบุได้</td><td>ใครเป็นผู้สร้างนวัตกรรมเมื่อผู้ใช้และผู้พัฒนาภายนอกร่วมสร้าง</td></tr><tr><td>ความสัมพันธ์ระหว่างกระบวนการกับผลลัพธ์</td><td>กระบวนการนำไปสู่ผลลัพธ์ตามลำดับ</td><td>กระบวนการกับผลลัพธ์แยกจากกันได้หรือไม่เมื่อผลิตภัณฑ์เปลี่ยนตลอด</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์แรกจาก Nambisan และคณะ (2017) (บทคัดย่อ) คอลัมน์ที่สองและสามเป็นการตีความของผู้เรียบเรียง</p>
+<p>ทั้งสองงานเป็นงานเชิงแนวคิดและรายวิชาอ่านได้เฉพาะบทคัดย่อ นิสิตที่จะใช้ตรรกะการสร้างทฤษฎีสี่ข้อของ Nambisan และคณะ ต้องอ่านฉบับเต็ม เพราะบทคัดย่อไม่ได้บอกว่าตรรกะสี่ข้อคืออะไร</p>
+<h2 id="s-4-4">4.4 อะไรคือการมีส่วนสนับสนุนทางทฤษฎี</h2>
+<h3 id="s-4-4-1">4.4.1 สองมิติของ Corley และ Gioia</h3>
+<p>ทุกทฤษฎีในบทที่ 3 และบทนี้เคยเป็นการมีส่วนสนับสนุนทางทฤษฎีใหม่ในวันที่ตีพิมพ์ คำถามสำหรับนิสิตปริญญาเอกคือ งานของนิสิตจะมีส่วนสนับสนุนทางทฤษฎีแบบใด Corley และ Gioia (2011) กลั่นวรรณกรรมเรื่องนี้เป็นสองมิติ คือความใหม่ (originality) ซึ่งเป็นได้ทั้งแบบค่อยเป็นค่อยไปและแบบเปิดเผยสิ่งใหม่ (revelatory) และประโยชน์ (utility) ซึ่งเป็นได้ทั้งเชิงวิทยาศาสตร์และเชิงปฏิบัติ (บทคัดย่อ)</p>
+<p class="tcap"><b>ตารางที่ 4.6</b> สองมิติของการมีส่วนสนับสนุนทางทฤษฎี</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>ประโยชน์เชิงวิทยาศาสตร์</th><th>ประโยชน์เชิงปฏิบัติ</th></tr></thead><tbody><tr><td>ความใหม่แบบค่อยเป็นค่อยไป</td><td>ขยายหรือทดสอบทฤษฎีเดิมในเงื่อนไขใหม่</td><td>ปรับข้อเสนอของทฤษฎีเดิมให้ผู้ปฏิบัติใช้ได้</td></tr><tr><td>ความใหม่แบบเปิดเผยสิ่งใหม่</td><td>เสนอคำอธิบายที่เปลี่ยนวิธีมองปรากฏการณ์</td><td>เปิดทางเลือกใหม่ที่ผู้ปฏิบัติไม่เคยเห็น</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง จากสองมิติของ Corley และ Gioia (2011) (บทคัดย่อ) ข้อความในช่องเป็นการตีความของผู้เรียบเรียง</p>
+<p>ผู้เขียนเสนอต่อว่าทฤษฎีควรมีขอบเขต (scope) คือมีประโยชน์ทั้งเชิงวิทยาศาสตร์และเชิงปฏิบัติ และเสนอการมองการณ์ไกล (prescience) เป็นทางให้ทฤษฎีมีขอบเขต และช่วยให้องค์กรและสังคมปรับตัวได้ (บทคัดย่อ)</p>
+<h3 id="s-4-4-2">4.4.2 ใช้ตารางที่ 4.6 กับงานของนิสิต</h3>
+<p>งานวิจัยปริญญาเอกส่วนใหญ่อยู่ในแถวแรกของตารางที่ 4.6 ซึ่งไม่ใช่เรื่องผิด การทดสอบทฤษฎีเดิมในบริบทที่ทฤษฎีไม่เคยถูกทดสอบเป็นการมีส่วนสนับสนุนที่ยอมรับได้ ถ้าผู้วิจัยบอกได้ว่าบริบทนั้นต่างอย่างไรในแง่ที่ทฤษฎีให้ความสำคัญ ตัวอย่างจากบทที่ 3 คือความสามารถในการดูดซับสัมพันธ์กับผลการดำเนินงานต่างกันระหว่างกลุ่มประเทศ (Pu &amp; Liu, 2023, p. 16) งานที่อธิบายว่าความต่างนั้นเกิดจากกลไกใด จะมีส่วนสนับสนุนมากกว่างานที่รายงานเพียงว่าในไทยก็สัมพันธ์กันเช่นกัน</p>
+<p>บทที่ 2 เสนอลำดับของทฤษฎีจาก Webster และ Watson (2002) คือจากระบบจัดกลุ่มเฉพาะกิจ สู่อนุกรมวิธาน สู่กรอบแนวคิด (ย่อหน้าแรก) ลำดับนี้ใช้ตรวจงานของนิสิตได้อีกทาง กรอบแนวคิดที่มีแต่กล่องและลูกศรโดยไม่บอกข้อเสนอ ยังอยู่ระดับอนุกรมวิธาน ไม่ใช่กรอบที่อธิบายหรือทำนายได้</p>
+<h2 id="s-4-5">4.5 การยืมแนวคิดข้ามสาขาและการสร้างกรอบแนวคิด</h2>
+<h3 id="s-4-5-1">4.5.1 ทำไมงานนวัตกรรมยืมแนวคิด</h3>
+<p>การศึกษานวัตกรรมเป็นสาขาที่เกิดจากหลายสาขา บทที่ 1 หัวข้อ 1.3 แสดงว่าการข้ามสาขาเป็นส่วนหนึ่งของพัฒนาการของสาขานี้ ทฤษฎีในบทนี้ก็มาจากหลายสาขา เช่น Yoo และคณะ (2010) เสนอเรื่องนวัตกรรมดิจิทัลเป็นวาระวิจัยของสาขาระบบสารสนเทศ (บทคัดย่อ) แต่ผู้วิจัยด้านการจัดการนวัตกรรมนำมาใช้ต่อ</p>
+<p>การยืมแนวคิดมีประโยชน์เมื่อแนวคิดจากสาขาอื่นอธิบายสิ่งที่ทฤษฎีในสาขาเดิมอธิบายไม่ได้ แต่มีความเสี่ยงสองข้อ ข้อแรกคือยืมแค่คำ แต่ไม่ได้ยืมกลไก เช่น เรียกเครือข่ายธุรกิจว่าระบบนิเวศโดยไม่มีอะไรต่างจากการวิเคราะห์เครือข่ายเดิม ข้อที่สองคือยืมแนวคิดข้ามระดับโดยไม่ให้เหตุผล เช่น ยืมแนวคิดระดับบุคคลมาใช้กับองค์กรโดยไม่อธิบายว่ากลไกระดับบุคคลรวมเป็นระดับองค์กรได้อย่างไร</p>
+<h3 id="s-4-5-2">4.5.2 ตัวอย่าง กรอบที่เชื่อมสองทฤษฎี</h3>
+<p>Laursen และ Salter (2014) เป็นตัวอย่างการสร้างกรอบที่เชื่อมสองทฤษฎีจากบทที่ 3 และบทนี้ ผู้เขียนตั้งคำถามว่าความเข้มของกลยุทธ์การถือครองผลประโยชน์สัมพันธ์กับความเปิดในการค้นและความร่วมมืออย่างไร โดยนิยามความย้อนแย้งของความเปิด (paradox of openness) ว่าการสร้างนวัตกรรมมักต้องเปิด แต่การนำนวัตกรรมออกสู่ตลาดต้องปกป้อง (p. 867)</p>
+<p>ผู้เขียนใช้ข้อมูลบริษัทผู้ผลิต 2,931 แห่ง และวัดความเข้มของการถือครองผลประโยชน์ด้วยดัชนีหกกลไก (pp. 871–872) คะแนน 0–3 ต่อกลไก รวม 0–18 (p. 871) ผลคือความสัมพันธ์เป็นรูปโค้งคว่ำ ชัดกว่าในความร่วมมือ (p. 867) โดยทั่วไปการปกป้องกับความเปิดไปด้วยกัน แต่การปกป้องที่สูงมากลดความเปิด (p. 869) และจุดสูงสุดทางทฤษฎีของความกว้างของความร่วมมืออยู่ราว 13 จาก 18 คะแนน (p. 873)</p>
+<p class="tcap"><b>ตารางที่ 4.7</b> แบบการสร้างกรอบแนวคิดข้ามสาขา พร้อมตัวอย่างจาก Laursen และ Salter (2014)</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>สิ่งที่ผู้วิจัยต้องเขียน</th><th>ตัวอย่างจาก Laursen และ Salter (2014)</th></tr></thead><tbody><tr><td>1 ปรากฏการณ์และคำถาม</td><td>ปรากฏการณ์ที่ทฤษฎีเดิมอธิบายไม่ครบ</td><td>ความเข้มของการปกป้องสัมพันธ์กับความเปิดอย่างไร</td></tr><tr><td>2 ทฤษฎีแกน</td><td>ทฤษฎีหลักและกลไกที่ใช้</td><td>ความเปิดในการค้นจาก Laursen และ Salter (2006)</td></tr><tr><td>3 แนวคิดที่ยืม</td><td>แนวคิดจากอีกสายหรืออีกสาขา และเหตุผลที่ต้องยืม</td><td>การถือครองผลประโยชน์ ซึ่งบทที่ 3 หัวข้อ 3.6 อธิบายจาก Teece (1986)</td></tr><tr><td>4 การแปลแนวคิด</td><td>แนวคิดที่ยืมมาวัดหรือสังเกตอย่างไรในบริบทใหม่</td><td>ดัชนีหกกลไก 0–18</td></tr><tr><td>5 ข้อเสนอ</td><td>ความสัมพันธ์ที่คาด พร้อมเงื่อนไข</td><td>ความสัมพันธ์รูปโค้งคว่ำ</td></tr><tr><td>6 สิ่งที่ได้เพิ่ม</td><td>กรอบนี้อธิบายอะไรที่ทฤษฎีแกนอย่างเดียวอธิบายไม่ได้</td><td>ความเปิดมีขีดจำกัดจากความต้องการปกป้อง</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง คอลัมน์ตัวอย่างจาก Laursen และ Salter (2014) การเชื่อมกับ Teece (1986) ในขั้นที่ 3 เป็นการวางของผู้เรียบเรียงตามโครงของบทนี้</p>
+<p>ตัวอย่างนี้ไม่ได้ยืมข้ามสาขาวิชาในความหมายกว้าง แต่ยืมข้ามสายวิจัยภายในการศึกษานวัตกรรม ซึ่งเป็นรูปแบบที่นิสิตปริญญาเอกทำได้จริงในเวลาที่มี จุดที่ควรเลียนแบบคือขั้นที่ 4 ผู้เขียนแปลแนวคิดที่ยืมมาเป็นตัวชี้วัดที่ชัด ผู้อ่านจึงตรวจได้ว่าแนวคิดถูกใช้ตามความหมายเดิมหรือไม่</p>
+<h3 id="s-4-5-3">4.5.3 ตรวจกรอบแนวคิดก่อนส่ง</h3>
+<p>กรอบแนวคิดเบื้องต้นที่ดีควรผ่านคำถามสี่ข้อ ซึ่งเป็นข้อสังเคราะห์ของผู้เรียบเรียงจากหัวข้อ 4.4 และ 4.5</p>
+<ul><li>ทุกลูกศรในแผนภาพมีข้อเสนอเป็นประโยคกำกับ และบอกได้ว่ามาจากทฤษฎีใด</li><li>แนวคิดที่ยืมมามีนิยามตามสาขาต้นทาง และมีวิธีวัดในบริบทใหม่</li><li>ระดับของแนวคิดตรงกับหน่วยวิเคราะห์ของงาน หรือมีเหตุผลอธิบายการข้ามระดับ</li><li>ระบุได้ว่าการมีส่วนสนับสนุนอยู่ช่องใดของตารางที่ 4.6</li></ul>
+<h2 id="s-4-6">4.6 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้มีทั้งงานเชิงประจักษ์ขนาดใหญ่ งานทบทวน และงานเชิงแนวคิด ตารางต่อไปนี้สรุปงานทั้งหมดที่ใช้ในบท</p>
+<p class="tcap"><b>ตารางที่ 4.8</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Laursen และ Salter (2006)</td><td>ความเปิดของการค้นกับผลงานนวัตกรรม</td><td>ข้อมูลสำรวจ 2,707 บริษัท</td><td>ความกว้างและความลึกสัมพันธ์รูปตัวยูคว่ำ</td></tr><tr><td>Dahlander และ Gann (2010)</td><td>ความหมายของความเปิด</td><td>ทบทวนวรรณกรรม</td><td>สี่รูปแบบของความเปิด และต้นทุนที่ถูกมองข้าม</td></tr><tr><td>Yoo และคณะ (2010)</td><td>การจัดองค์กรของนวัตกรรมดิจิทัล</td><td>ความเรียงเชิงแนวคิด</td><td>สถาปัตยกรรมแยกส่วนสี่ชั้น (บทคัดย่อ)</td></tr><tr><td>Corley และ Gioia (2011)</td><td>การมีส่วนสนับสนุนทางทฤษฎี</td><td>บทความเชิงแนวคิด</td><td>ความใหม่และประโยชน์ (บทคัดย่อ)</td></tr><tr><td>Laursen และ Salter (2014)</td><td>การถือครองผลประโยชน์กับความเปิด</td><td>ข้อมูลสำรวจ 2,931 บริษัท</td><td>ความสัมพันธ์รูปโค้งคว่ำ</td></tr><tr><td>Adner (2017)</td><td>ระบบนิเวศในฐานะโครงสร้าง</td><td>บทความเชิงแนวคิดพร้อมกรณี</td><td>นิยาม สี่องค์ประกอบ และสองความเสี่ยง</td></tr><tr><td>Nambisan และคณะ (2017)</td><td>การจัดการนวัตกรรมดิจิทัล</td><td>บทความบรรณาธิการเชิงแนวคิด</td><td>ข้อสมมติสามเรื่องที่ถูกตั้งคำถาม (บทคัดย่อ)</td></tr><tr><td>Bogers และคณะ (2018)</td><td>นวัตกรรมแบบเปิดในการวิจัย การปฏิบัติ และนโยบาย</td><td>บทความนำฉบับพิเศษ</td><td>นิยาม สองทิศทาง และปัจจัยเร่ง</td></tr><tr><td>Granstrand และ Holgersson (2020)</td><td>นิยามระบบนิเวศนวัตกรรม</td><td>ทบทวน 120 งาน</td><td>21 นิยาม และนิยามสังเคราะห์</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Yoo และคณะ Corley และ Gioia และ Nambisan และคณะ มาจากบทคัดย่อ งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว</p>
+<h2 id="s-4-7">4.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยในงานวิจัยด้านนวัตกรรมแบบเปิด ระบบนิเวศ และการสร้างกรอบแนวคิด</p>
+<p class="tcap"><b>ตารางที่ 4.9</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ใช้คำว่าความเปิดโดยไม่บอกรูปแบบ</td><td>ความเปิดมีสี่รูปแบบที่มีปัญหาต่างกัน (Dahlander &amp; Gann, 2010, §3)</td><td>ระบุทิศทางและการจ่ายเงิน</td></tr><tr><td>ตั้งสมมติฐานว่ายิ่งเปิดยิ่งดี</td><td>หลักฐานชี้ความสัมพันธ์รูปตัวยูคว่ำ (Laursen &amp; Salter, 2006, p. 131)</td><td>ทดสอบความสัมพันธ์แบบไม่เป็นเส้นตรง</td></tr><tr><td>เรียกเครือข่ายว่าระบบนิเวศโดยไม่บอกมุมมอง</td><td>ระบบนิเวศมีสองมุมมองที่เก็บข้อมูลต่างกัน (Adner, 2017)</td><td>เลือกมุมมองและบอกเหตุผล</td></tr><tr><td>ระบบนิเวศไม่มีขอบเขต</td><td>วิเคราะห์ไม่ได้ (Adner, 2017, p. 55)</td><td>ใช้ข้อเสนอคุณค่าหลักกำหนดขอบเขต</td></tr><tr><td>ใช้นิยามระบบนิเวศโดยไม่อ้างที่มา</td><td>มีนิยามอย่างน้อย 21 แบบ (Granstrand &amp; Holgersson, 2020)</td><td>อ้างนิยามที่ใช้และบอกเหตุผล</td></tr><tr><td>อ้างตรรกะสี่ข้อของ Nambisan และคณะ จากบทคัดย่อ</td><td>บทคัดย่อไม่ได้บอกเนื้อหาของตรรกะ</td><td>อ่านฉบับเต็มก่อนอ้าง</td></tr><tr><td>กรอบแนวคิดมีลูกศรแต่ไม่มีข้อเสนอ</td><td>ยังเป็นอนุกรมวิธาน ไม่ใช่กรอบที่อธิบายได้</td><td>เขียนข้อเสนอกำกับทุกลูกศร</td></tr><tr><td>ยืมคำจากสาขาอื่นแต่ไม่ยืมกลไก</td><td>แนวคิดไม่ได้เพิ่มคำอธิบาย</td><td>ใช้ขั้นที่ 3 และ 6 ในตารางที่ 4.7</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: นวัตกรรมที่ล้มเพราะคู่ค้า ยาง PAX ของ Michelin</div><p>Michelin พัฒนายาง PAX ที่ขับต่อได้ 125 ไมล์ด้วยความเร็วไม่เกิน 55 ไมล์ต่อชั่วโมงหลังยางรั่ว (Adner, 2017, p. 44) ข้อเสนอคุณค่านี้ต้องอาศัยผู้กระทำหลายฝ่าย ไม่ใช่ Michelin ฝ่ายเดียว</p><p>อู่ซ่อมต้องเปลี่ยนจากสมาชิกที่ไม่มีบทบาทเป็นผู้ยอมรับที่ต้องลงทุนในอุปกรณ์ซ่อมใหม่ ทำให้เกิดการเชื่อมโยงใหม่สองจุดในโครงสร้าง (p. 46) Michelin ใช้เวลาหลายปีกว่าจะเข้าใจว่าแรงจูงใจของอู่ผสมกันระหว่างการซ่อมกับการเปลี่ยนยาง (p. 47) และความชอบเปลี่ยนมากกว่าซ่อมของอู่บั่นทอนข้อเสนอคุณค่า (p. 51)</p><p>กรณีนี้แสดงความเสี่ยงของห่วงโซ่การยอมรับ ตัวยางทำงานได้ แต่คู่ค้าหนึ่งฝ่ายไม่เต็มใจทำบทบาทใหม่ ทฤษฎีระดับบริษัทในบทที่ 3 อธิบายความล้มเหลวแบบนี้ได้ยาก เพราะปัญหาไม่ได้อยู่ในบริษัทหลัก</p><p>ผู้เขียนระบุว่าไม่ได้ตัดสินข้อดีของยาง PAX (fn 3, pp. 56–57) กรณีนี้จึงใช้อธิบายโครงสร้าง ไม่ใช่ประเมินผลิตภัณฑ์</p><p class="q"><b>คำถามชวนคิด</b> ถ้าบริษัทไทยเสนอบริการเปลี่ยนแบตเตอรี่รถจักรยานยนต์ไฟฟ้าแบบสถานีสลับ นิสิตจะใช้ตารางที่ 4.4 ระบุกิจกรรม ผู้กระทำ และความเสี่ยงสองแบบของข้อเสนอคุณค่านี้อย่างไร</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ส่วนที่สามของข้อเสนอวิจัย คือกรอบแนวคิดเบื้องต้น นิสิตนำทฤษฎีแกนจากบทที่ 3 มาเพิ่มแนวคิดที่ยืมจากอีกสายหรืออีกสาขาตามตารางที่ 4.7</p><p>ใบงานที่ 2 (ส่งสัปดาห์ที่ 5) จะเป็นส่วนกรอบแนวคิดของข้อเสนอวิจัย (ส่งสัปดาห์ที่ 16) และบอกบทที่ 5 ว่างานของนิสิตต้องใช้รูปแบบการวิจัยแบบใด</p><p>บทที่ 5 จะถามต่อว่า เมื่อกรอบแนวคิดอยู่ระดับนี้ วิธีวิจัยแบบใดเหมาะกับระดับความสมบูรณ์ของทฤษฎี</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรอธิบายได้ว่านวัตกรรมแบบเปิดเป็นการจัดการการไหลของความรู้ข้ามขอบเขตองค์กรอย่างตั้งใจ มีสี่รูปแบบที่มีปัญหาต่างกัน และวัดได้ด้วยความกว้างและความลึกของการค้น ซึ่งสัมพันธ์กับผลงานแบบไม่เป็นเส้นตรง</p>
+<p>นิสิตควรแยกได้ว่าระบบนิเวศมีสองมุมมองที่ให้การเก็บข้อมูลต่างกัน มุมโครงสร้างเริ่มจากข้อเสนอคุณค่าหลัก และชี้ความเสี่ยงที่ทฤษฎีระดับบริษัทมองไม่เห็น ขณะที่นวัตกรรมดิจิทัลตั้งคำถามกับข้อสมมติเรื่องขอบเขต ผู้กระทำ และลำดับของกระบวนการกับผลลัพธ์</p>
+<p>นิสิตนำความรู้นี้ไปใช้ได้ทันทีกับใบงานที่ 2 ด้วยแบบในตารางที่ 4.7 ใช้ตารางที่ 4.6 บอกการมีส่วนสนับสนุนของงาน และใช้ตารางที่ 4.9 ตรวจกรอบแนวคิดก่อนส่ง</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>นวัตกรรมแบบเปิด (open innovation)</li><li>แบบจากนอกเข้าใน (outside-in)</li><li>แบบจากในออกนอก (inside-out)</li><li>การซื้อ การหาแหล่ง การขาย การเปิดเผย (acquiring, sourcing, selling, revealing)</li><li>ความย้อนแย้งของการเปิดเผย (disclosure paradox)</li><li>ความกว้างและความลึกของการค้น (search breadth and depth)</li><li>การค้นมากเกินไป (over-search)</li><li>ความย้อนแย้งของความเปิด (paradox of openness)</li><li>ระบบนิเวศนวัตกรรม (innovation ecosystem)</li><li>ระบบนิเวศในฐานะการเป็นสมาชิก (ecosystem-as-affiliation)</li><li>ระบบนิเวศในฐานะโครงสร้าง (ecosystem-as-structure)</li><li>ข้อเสนอคุณค่า (value proposition)</li><li>ความเสี่ยงจากการร่วมสร้างนวัตกรรม (co-innovation risk)</li><li>ความเสี่ยงของห่วงโซ่การยอมรับ (adoption-chain risk)</li><li>สถาปัตยกรรมแยกส่วนเป็นชั้น (layered modular architecture)</li><li>การมีส่วนสนับสนุนทางทฤษฎี (theoretical contribution)</li><li>ความใหม่แบบเปิดเผยสิ่งใหม่ (revelatory originality)</li><li>การมองการณ์ไกล (prescience)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายนิยามนวัตกรรมแบบเปิดที่ Bogers และคณะ (2018) ใช้ และบอกว่าคำว่า "จัดการอย่างตั้งใจ" มีผลต่อการออกแบบงานวิจัยอย่างไร</li><li>จงจำแนกตัวอย่างความร่วมมือขององค์กรที่นิสิตรู้จักสี่ตัวอย่าง ลงในสี่รูปแบบของ Dahlander และ Gann (2010) และบอกปัญหาของแต่ละรูปแบบ</li><li>Laursen และ Salter (2006) วัดความกว้างและความลึกของการค้นอย่างไร และผลรูปตัวยูคว่ำมีความหมายต่อสมมติฐานของนิสิตอย่างไร</li><li>ทำไม Granstrand และ Holgersson (2020) จึงเห็นว่านิยามระบบนิเวศเดิมไม่สมดุล และนิยามสังเคราะห์เพิ่มอะไรเข้ามา</li><li>จงเปรียบเทียบระบบนิเวศในฐานะการเป็นสมาชิกกับในฐานะโครงสร้าง ด้านจุดเริ่มของการวิเคราะห์ ขอบเขต และตัวแปรที่วัด</li><li>จงใช้กรณียาง PAX อธิบายความต่างระหว่างความเสี่ยงจากการร่วมสร้างนวัตกรรมกับความเสี่ยงของห่วงโซ่การยอมรับ</li><li>Nambisan และคณะ (2017) ชี้ว่าข้อสมมติใดของทฤษฎีนวัตกรรมเดิมถูกตั้งคำถาม จงยกตัวอย่างคำถามวิจัยที่เปิดขึ้นหนึ่งข้อ</li><li>จงจำแนกการมีส่วนสนับสนุนทางทฤษฎีของบทความหนึ่งเรื่องในรายการอ่าน ตามสองมิติของ Corley และ Gioia (2011) พร้อมเหตุผล</li><li>จงวิเคราะห์ว่า Laursen และ Salter (2014) ยืมแนวคิดใดมาเชื่อมกับความเปิด และแปลแนวคิดนั้นเป็นตัวชี้วัดอย่างไร</li><li>จงเขียนแถวที่ 1 ถึง 3 ของตารางที่ 4.7 สำหรับหัวข้อวิจัยของตน และบอกความเสี่ยงของการยืมแนวคิดหนึ่งข้อที่ต้องระวัง</li></ol>
+<h2 id="x280">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Dahlander และ Gann (2010) อ่านหัวข้อ 3 และ 4 คำถามนำอภิปราย รูปแบบความเปิดใดที่องค์กรไทยใช้มากที่สุด และรูปแบบใดที่ยังมีงานวิจัยน้อย</li><li>Adner (2017) อ่านส่วนนิยามและกรณี PAX คำถามนำอภิปราย การใช้ข้อเสนอคุณค่ากำหนดขอบเขตใช้ได้กับระบบนิเวศของภาครัฐหรือไม่</li><li>Laursen และ Salter (2014) อ่านทั้งเรื่อง คำถามนำอภิปราย การวัดการถือครองผลประโยชน์ด้วยดัชนีหกกลไกจับแนวคิดของ Teece (1986) ได้ครบหรือไม่</li><li>Granstrand และ Holgersson (2020) อ่านส่วนนิยามสังเคราะห์ คำถามนำอภิปราย การเพิ่มสิ่งทดแทนและสิ่งประดิษฐ์เข้าในนิยามเปลี่ยนการเก็บข้อมูลอย่างไร</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 2 กรอบแนวคิดเบื้องต้นข้ามสาขา</h2>
+<p>ใบงานเดี่ยว ส่งก่อนเริ่มเรียนสัปดาห์ที่ 5 ใบงานนี้เป็นส่วนกรอบแนวคิดของข้อเสนอวิจัย (ส่งสัปดาห์ที่ 16 รูบริก 3) ใช้ตารางสังเคราะห์จากใบงานที่ 1 และทฤษฎีแกนที่เลือกในบทที่ 3 เป็นฐาน</p>
+<ol><li>ปรากฏการณ์และคำถามวิจัยหนึ่งประโยค พร้อมเหตุผลสั้น ๆ ว่าทฤษฎีเดิมอธิบายส่วนใดไม่ครบ</li><li>ทฤษฎีแกนจากบทที่ 3 หรือบทนี้ พร้อมกลไกและเงื่อนไขขอบเขต อ้างตำแหน่งในบทความ</li><li>แนวคิดที่ยืมจากอีกสายหรืออีกสาขาอย่างน้อยหนึ่งแนวคิด พร้อมนิยามตามสาขาต้นทาง และเหตุผลที่ต้องยืม</li><li>ตารางตามแบบในตารางที่ 4.7 ครบหกขั้น</li><li>แผนภาพกรอบแนวคิดหนึ่งภาพ ทุกลูกศรมีข้อเสนอเป็นประโยคกำกับ และระบุทฤษฎีที่มาของแต่ละข้อเสนอ</li><li>หน่วยวิเคราะห์ของงาน และเหตุผลถ้ามีการข้ามระดับ</li><li>การมีส่วนสนับสนุนที่คาด ระบุช่องในตารางที่ 4.6 พร้อมเหตุผล</li><li>ผลการตรวจกรอบด้วยคำถามสี่ข้อในหัวข้อ 4.5.3 และรายการเอกสารอ้างอิงตามรูปแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Adner, R. (2017). Ecosystem as structure: An actionable construct for strategy. <em>Journal of Management</em>, <em>43</em>(1), 39–58. <a href="https://doi.org/10.1177/0149206316678451" target="_blank" rel="noopener">https://doi.org/10.1177/0149206316678451</a></div>
+<div class="r">Bogers, M., Chesbrough, H., &amp; Moedas, C. (2018). Open innovation: Research, practices, and policies. <em>California Management Review</em>, <em>60</em>(2), 5–16. <a href="https://doi.org/10.1177/0008125617745086" target="_blank" rel="noopener">https://doi.org/10.1177/0008125617745086</a></div>
+<div class="r">Corley, K. G., &amp; Gioia, D. A. (2011). Building theory about theory building: What constitutes a theoretical contribution? <em>Academy of Management Review</em>, <em>36</em>(1), 12–32. <a href="https://doi.org/10.5465/amr.2009.0486" target="_blank" rel="noopener">https://doi.org/10.5465/amr.2009.0486</a></div>
+<div class="r">Dahlander, L., &amp; Gann, D. M. (2010). How open is innovation? <em>Research Policy</em>, <em>39</em>(6), 699–709. <a href="https://doi.org/10.1016/j.respol.2010.01.013" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2010.01.013</a></div>
+<div class="r">Granstrand, O., &amp; Holgersson, M. (2020). Innovation ecosystems: A conceptual review and a new definition. <em>Technovation</em>, <em>90–91</em>, 102098. <a href="https://doi.org/10.1016/j.technovation.2019.102098" target="_blank" rel="noopener">https://doi.org/10.1016/j.technovation.2019.102098</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. (2006). Open for innovation: The role of openness in explaining innovation performance among U.K. manufacturing firms. <em>Strategic Management Journal</em>, <em>27</em>(2), 131–150. <a href="https://doi.org/10.1002/smj.507" target="_blank" rel="noopener">https://doi.org/10.1002/smj.507</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. J. (2014). The paradox of openness: Appropriability, external search and collaboration. <em>Research Policy</em>, <em>43</em>(5), 867–878. <a href="https://doi.org/10.1016/j.respol.2013.10.004" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2013.10.004</a></div>
+<div class="r">Nambisan, S., Lyytinen, K., Majchrzak, A., &amp; Song, M. (2017). Digital innovation management: Reinventing innovation management research in a digital world. <em>MIS Quarterly</em>, <em>41</em>(1), 223–238. <a href="https://doi.org/10.25300/misq/2017/41:1" target="_blank" rel="noopener">https://doi.org/10.25300/misq/2017/41:1</a></div>
+<div class="r">Pu, K., &amp; Liu, W. (2023). Is absorptive capacity the "panacea" for organizational development? A META analysis of absorptive capacity and firm performance from the perspective of constructivism. <em>PLOS ONE</em>, <em>18</em>(2), e0282321. <a href="https://doi.org/10.1371/journal.pone.0282321" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0282321</a></div>
+<div class="r">Teece, D. J. (1986). Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy. <em>Research Policy</em>, <em>15</em>(6), 285–305. <a href="https://doi.org/10.1016/0048-7333(86)90027-2" target="_blank" rel="noopener">https://doi.org/10.1016/0048-7333(86)90027-2</a></div>
+<div class="r">Teece, D. J. (2007). Explicating dynamic capabilities: The nature and microfoundations of (sustainable) enterprise performance. <em>Strategic Management Journal</em>, <em>28</em>(13), 1319–1350. <a href="https://doi.org/10.1002/smj.640" target="_blank" rel="noopener">https://doi.org/10.1002/smj.640</a></div>
+<div class="r">Webster, J., &amp; Watson, R. T. (2002). Analyzing the past to prepare for the future: Writing a literature review. <em>MIS Quarterly</em>, <em>26</em>(2), xiii–xxiii. <a href="https://doi.org/10.2307/4132319" target="_blank" rel="noopener">https://doi.org/10.2307/4132319</a></div>
+<div class="r">Yoo, Y., Henfridsson, O., &amp; Lyytinen, K. (2010). The new organizing logic of digital innovation: An agenda for information systems research. <em>Information Systems Research</em>, <em>21</em>(4), 724–735. <a href="https://doi.org/10.1287/isre.1100.0322" target="_blank" rel="noopener">https://doi.org/10.1287/isre.1100.0322</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 4 นวัตกรรมแบบเปิด ระบบนิเวศ นวัตกรรมดิจิทัล และการสร้างกรอบแนวคิดข้ามสาขา. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_04.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_03.html"><small>◀ บทก่อนหน้า</small>บทที่ 3 ทฤษฎีนวัตกรรมขั้นสูงระดับองค์กร</a><a href="ai_lesson_05.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 5 รูปแบบการวิจัยเชิงนวัตกรรมเพื่อค้นหากระบวนทัศน์ใหม่</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/04/s-01.jpg', 'ai/slides/04/s-02.jpg', 'ai/slides/04/s-03.jpg', 'ai/slides/04/s-04.jpg', 'ai/slides/04/s-05.jpg', 'ai/slides/04/s-06.jpg', 'ai/slides/04/s-07.jpg', 'ai/slides/04/s-08.jpg', 'ai/slides/04/s-09.jpg', 'ai/slides/04/s-10.jpg', 'ai/slides/04/s-11.jpg', 'ai/slides/04/s-12.jpg', 'ai/slides/04/s-13.jpg', 'ai/slides/04/s-14.jpg', 'ai/slides/04/s-15.jpg', 'ai/slides/04/s-16.jpg', 'ai/slides/04/s-17.jpg', 'ai/slides/04/s-18.jpg', 'ai/slides/04/s-19.jpg', 'ai/slides/04/s-20.jpg', 'ai/slides/04/s-21.jpg', 'ai/slides/04/s-22.jpg', 'ai/slides/04/s-23.jpg', 'ai/slides/04/s-24.jpg', 'ai/slides/04/s-25.jpg', 'ai/slides/04/s-26.jpg', 'ai/slides/04/s-27.jpg', 'ai/slides/04/s-28.jpg', 'ai/slides/04/s-29.jpg', 'ai/slides/04/s-30.jpg', 'ai/slides/04/s-31.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 7 การออกแบบงานวิจัยเชิงคุณภาพเพื่อสำรวจปรากฏการณ์นวัตกรรมเชิงลึก · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 7 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 7</div><a href="#x6">ความนำ</a><a href="#s-7-1">7.1 เมื่อใดควรใช้การวิจัยเชิงคุณภาพในงานนวัตกรรม</a><a href="#s-7-2">7.2 การสร้างและการขยายทฤษฎีจากกรณีศึกษา</a><a href="#s-7-3">7.3 ความเข้มงวดของงานเชิงอุปนัยและวิธีของ Gioia</a><a href="#s-7-4">7.4 การเลือกกรณี ผู้ให้ข้อมูล และขนาดตัวอย่าง</a><a href="#s-7-5">7.5 การวิเคราะห์ การลงรหัส และความน่าเชื่อถือ</a><a href="#s-7-6">7.6 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-7-7">7.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x258">รายการอ่านสำหรับสัมมนา</a><a href="#ws">ใบงานที่ 4 แบบร่างการออกแบบวิจัยเชิงคุณภาพ</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 7 การออกแบบงานวิจัยเชิงคุณภาพเพื่อสำรวจปรากฏการณ์นวัตกรรมเชิงลึก</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>10–11</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (31 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่07_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 ใบงานที่ 4</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายความต่างของการสร้าง การขยาย และการทดสอบทฤษฎี และบอกว่าคำถามวิจัยแบบใดเหมาะกับงานเชิงคุณภาพได้</li><li>เปรียบเทียบการสร้างทฤษฎีจากกรณีศึกษา การขยายทฤษฎี และการวิเคราะห์แม่แบบ ในด้านจุดเริ่มต้นและผลที่ได้ได้</li><li>วิเคราะห์ความเหมาะสมของการเลือกกรณี ผู้ให้ข้อมูล และขนาดตัวอย่าง โดยใช้หลักฐานเรื่องการอิ่มตัวของข้อมูลได้</li><li>วิเคราะห์ว่าเมื่อใดควรใช้ความเที่ยงระหว่างผู้ลงรหัส และเมื่อใดควรใช้วิธีสร้างความน่าเชื่อถือแบบอื่นได้</li><li>จัดทำแบบร่างการออกแบบวิจัยเชิงคุณภาพสำหรับคำถามวิจัยของตนตามขั้นตอนในใบงานที่ 4 ได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 6 ฝึกให้วิพากษ์งานเชิงคุณภาพของผู้อื่น บทนี้กลับด้าน คือออกแบบงานเชิงคุณภาพของตนให้ตอบคำถามวิพากษ์เหล่านั้นได้ตั้งแต่ต้น ผู้ทรงคุณวุฒิจะถามว่าทำไมเลือกกรณีนี้ ข้อมูลพอหรือไม่ และผู้อ่านเห็นเส้นทางจากข้อมูลถึงข้อสรุปหรือไม่ คำตอบของคำถามเหล่านี้ต้องอยู่ในแบบร่างการออกแบบก่อนเก็บข้อมูล ไม่ใช่เขียนเพิ่มหลังได้ผลแล้ว</p>
+<p class="lead">งานวิจัยนวัตกรรมหลายเรื่องที่นิสิตอ่านมาแล้วเป็นงานเชิงคุณภาพ Henderson และ Clark (1990) ใช้การศึกษาภาคสนามสองปี Tripsas และ Gavetti (2000) ใช้กรณีศึกษาเชิงลึกของ Polaroid และ Gioia และ Chittipeddi (1991) ใช้การศึกษาเชิงชาติพันธุ์วรรณนา งานเหล่านี้ให้แนวคิดใหม่ที่งานเชิงปริมาณให้ไม่ได้ แต่ก็มีระเบียบวิธีที่ต้องทำอย่างเข้มงวดไม่น้อยกว่างานเชิงปริมาณ</p>
+<p class="lead">บทนี้ใช้สองสัปดาห์ สัปดาห์ที่ 10 ว่าด้วยการตัดสินใจระดับการออกแบบ คือจุดเริ่มต้นทางทฤษฎี การเลือกกรณี และขนาดตัวอย่าง สัปดาห์ที่ 11 ว่าด้วยการวิเคราะห์และความน่าเชื่อถือ แล้วจบด้วยใบงานที่ 4 ซึ่งเป็นแบบร่างการออกแบบวิจัยเชิงคุณภาพของนิสิตเอง</p>
+<h2 id="s-7-1">7.1 เมื่อใดควรใช้การวิจัยเชิงคุณภาพในงานนวัตกรรม</h2>
+<h3 id="s-7-1-1">7.1.1 สามจุดเริ่มต้นทางทฤษฎี</h3>
+<p>คำถามแรกของการออกแบบไม่ใช่ "จะสัมภาษณ์ใคร" แต่คือ "ทฤษฎีที่มีอยู่อธิบายปรากฏการณ์นี้ได้แค่ไหน" Fisher และ Aguinis (2017, p. 442) แยกจุดเริ่มต้นเป็นสามแบบ การสร้างทฤษฎี (theory generation) เริ่มจากปรากฏการณ์ที่ยังไม่มีคำอธิบายและมีทฤษฎีน้อย การทดสอบทฤษฎี (theory testing) เริ่มจากสมมติฐานที่เป็นทางการ การขยายทฤษฎี (theory elaboration) เริ่มจากปรากฏการณ์ที่อธิบายได้บางส่วนและแบบจำลองที่มีอยู่ ตารางที่ 7.1 เปรียบเทียบสามแบบ</p>
+<p class="tcap"><b>ตารางที่ 7.1</b> สามจุดเริ่มต้นทางทฤษฎีของงานวิจัย</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>การสร้างทฤษฎี</th><th>การขยายทฤษฎี</th><th>การทดสอบทฤษฎี</th></tr></thead><tbody><tr><td>จุดเริ่มต้น</td><td>ปรากฏการณ์ที่ยังไม่มีคำอธิบาย ทฤษฎีมีน้อย</td><td>ปรากฏการณ์ที่อธิบายได้บางส่วน มีแบบจำลองอยู่แล้ว</td><td>สมมติฐานที่เป็นทางการ</td></tr><tr><td>บทบาทของทฤษฎีเดิม</td><td>น้อย</td><td>ใช้จัดระเบียบการเก็บและจัดข้อมูล</td><td>กำหนดสิ่งที่ทดสอบ</td></tr><tr><td>ผลที่ได้</td><td>แนวคิดและความสัมพันธ์ใหม่</td><td>ปรับปัจจัยบริบท แนวคิด หรือความสัมพันธ์</td><td>ยอมรับหรือปฏิเสธสมมติฐาน</td></tr><tr><td>ข้อมูลที่มักใช้</td><td>เชิงคุณภาพ</td><td>เชิงคุณภาพหรือเชิงปริมาณ</td><td>มักเป็นเชิงปริมาณ</td></tr></tbody></table></div>
+<p>ที่มา สามแถวแรกสรุปจาก Fisher และ Aguinis (2017, p. 442) แถวสุดท้ายเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<p>ผู้เรียบเรียงเห็นว่านิสิตในวิชานี้ส่วนใหญ่อยู่ในช่องกลาง เพราะทฤษฎีที่เรียนในบทที่ 3 และ 4 อธิบายนวัตกรรมได้บางส่วนแล้ว แต่ยังไม่ได้อธิบายบริบทขององค์กรไทย การเลือกช่องกลางทำให้ต้องบอกชัดว่าทฤษฎีใดเป็นจุดตั้งต้น ไม่ใช่อ้างว่าเข้าภาคสนามโดยไม่มีกรอบ</p>
+<h3 id="s-7-1-2">7.1.2 คุณค่าของงานเชิงคุณภาพในงานนวัตกรรม</h3>
+<p>Siggelkow (2007) เห็นว่าจุดประสงค์หลักของกรณีศึกษาควรเป็นการกระตุ้นความคิดและแนวคิดใหม่ (บทคัดย่อ) Fisher และ Aguinis (2017, p. 450) อ้าง Bacharach ว่างานภาคสนามเชิงคุณภาพอาจเพิ่มความสามารถในการอธิบายของทฤษฎีได้มากกว่างานเชิงปริมาณ ผู้เรียบเรียงสรุปว่างานเชิงคุณภาพเหมาะกับคำถามนวัตกรรมสามแบบ คือคำถามว่ากลไกทำงานอย่างไร คำถามว่าลำดับเหตุการณ์เป็นอย่างไร และคำถามว่าทฤษฎีเดิมใช้ได้หรือไม่ในบริบทที่ต่างจากที่พัฒนามา</p>
+<p>ตัวอย่างที่นิสิตรู้จักแล้วแสดงทั้งสามแบบ Henderson และ Clark (1990, p. 16) อธิบายกลไกว่าความรู้เชิงสถาปัตยกรรมฝังอยู่ในช่องทางสื่อสาร ตัวกรองข้อมูล และวิธีแก้ปัญหาขององค์กร Gioia และ Chittipeddi (1991) ติดตามลำดับของปีแรกของการเปลี่ยนแปลงเป็นสี่ระยะ (บทคัดย่อ) ส่วนคำถามเรื่องบริบทใหม่เป็นคำถามที่นิสิตส่วนใหญ่ในวิชานี้จะถาม</p>
+<h2 id="s-7-2">7.2 การสร้างและการขยายทฤษฎีจากกรณีศึกษา</h2>
+<h3 id="s-7-2-1">7.2.1 การสร้างทฤษฎีจากหลายกรณี</h3>
+<p>Eisenhardt และ Graebner (2007) อธิบายกลยุทธ์การสร้างทฤษฎีจากกรณีศึกษา โดยเฉพาะหลายกรณี ว่าใช้หลักฐานเชิงประจักษ์จากกรณีสร้างแนวคิด ข้อเสนอ หรือทฤษฎีระดับกลาง หัวใจของกลยุทธ์นี้คือตรรกะการทำซ้ำ (replication logic) ที่ให้แต่ละกรณีเป็นเหมือนการทดลองที่แยกกันและเป็นหน่วยวิเคราะห์ในตัวเอง ผู้เขียนยังชี้ว่าความท้าทายที่เกิดจากการใช้กรณีศึกษาอย่างแพร่หลายลดได้ด้วยถ้อยคำที่แม่นยำและการออกแบบวิจัยที่รอบคอบ (บทคัดย่อ)</p>
+<p>ตรรกะการทำซ้ำมีผลต่อการออกแบบโดยตรง ผู้เรียบเรียงเห็นว่ากรณีแต่ละกรณีควรถูกเลือกเพราะคาดว่าจะให้ผลซ้ำกับกรณีก่อน หรือให้ผลต่างอย่างมีเหตุผล ไม่ใช่เลือกเพราะเข้าถึงง่าย ตัวอย่างเช่น ถ้าคำถามคือบริษัทไทยปรับตัวต่อนวัตกรรมเชิงสถาปัตยกรรมอย่างไร การเลือกบริษัทที่ปรับตัวสำเร็จสองแห่งและไม่สำเร็จสองแห่งทำให้เปรียบเทียบกลไกได้ ซึ่งต่างจากการเลือกสี่บริษัทที่บังเอิญรู้จักผู้บริหาร</p>
+<h3 id="s-7-2-2">7.2.2 การขยายทฤษฎีด้วยเจ็ดกลวิธี</h3>
+<p>Fisher และ Aguinis (2017, p. 441) นิยามการขยายทฤษฎีว่าเป็นการใช้แนวคิดหรือแบบจำลองที่มีอยู่เป็นฐาน เพื่อพัฒนาความเข้าใจใหม่ด้วยการเปรียบเทียบ การระบุ หรือการจัดโครงสร้างแนวคิดและความสัมพันธ์ ให้อธิบายข้อสังเกตเชิงประจักษ์ได้ ตารางที่ 7.2 สรุปเจ็ดกลวิธีในสามแนวทาง พร้อมตัวอย่างคำถามนวัตกรรม</p>
+<p class="tcap"><b>ตารางที่ 7.2</b> เจ็ดกลวิธีของการขยายทฤษฎีและตัวอย่างคำถามนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>แนวทาง</th><th>กลวิธี</th><th>ความหมาย</th><th>ตัวอย่างคำถามนวัตกรรม (ข้อสังเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>การเปรียบเทียบ</td><td>แนวนอน</td><td>ดูว่าทฤษฎีเดิมใช้ได้อย่างไรในบริบทที่ต่างจากที่พัฒนามา ระดับการวิเคราะห์คงเดิม (pp. 444–446)</td><td>ความรู้เชิงสถาปัตยกรรมของ Henderson และ Clark ทำงานแบบเดียวกันในบริษัทครอบครัวไทยหรือไม่</td></tr><tr><td>การเปรียบเทียบ</td><td>แนวตั้ง</td><td>เทียบทฤษฎีเดียวกันข้ามระดับการวิเคราะห์ (p. 446)</td><td>ความสามารถในการดูดซับระดับทีมทำงานเหมือนระดับบริษัทหรือไม่</td></tr><tr><td>การระบุแนวคิด</td><td>แนวคิดใหม่</td><td>ระบุและนิยามแนวคิดที่ทฤษฎีเดิมยังไม่ได้พิจารณา (pp. 446–447)</td><td>มีแนวคิดใดที่อธิบายการรับนวัตกรรมในหน่วยงานรัฐไทยที่ทฤษฎีเดิมไม่มี</td></tr><tr><td>การระบุแนวคิด</td><td>การแยกแนวคิด</td><td>แยกแนวคิดกว้างเป็นมิติย่อย (p. 447)</td><td>ความเปิดของการค้นแยกเป็นมิติใดได้บ้างในมุมของผู้จัดการ</td></tr><tr><td>การจัดโครงสร้าง</td><td>ความสัมพันธ์เฉพาะ</td><td>ความสัมพันธ์ใหม่ ตัวกำกับ ตัวส่งผ่าน หรือกลไก (p. 448)</td><td>อะไรเป็นกลไกที่ทำให้การค้นมากเกินไปลดผลงานนวัตกรรม</td></tr><tr><td>การจัดโครงสร้าง</td><td>ลำดับ</td><td>ลำดับของกระบวนการ (pp. 448–449)</td><td>การเปลี่ยนแปลงทางดิจิทัลในธนาคารไทยผ่านระยะใดบ้าง</td></tr><tr><td>การจัดโครงสร้าง</td><td>ย้อนกลับ</td><td>ปฏิสัมพันธ์ที่ซ้ำหรือป้อนกลับ (p. 449)</td><td>ผลงานนวัตกรรมย้อนกลับไปเปลี่ยนการค้นความรู้ภายนอกหรือไม่</td></tr></tbody></table></div>
+<p>ที่มา สามคอลัมน์แรกสรุปจาก Fisher และ Aguinis (2017) คอลัมน์สุดท้ายเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<p>Fisher และ Aguinis (2017, p. 450) เห็นว่ากลวิธีเหล่านี้ใช้ร่วมกันได้ และการใช้ร่วมกันเป็นสิ่งที่พึงประสงค์ ผู้เขียนยกตัวอย่างการระบุแนวคิดใหม่ว่าแนวคิด sensegiving มาจากงานของ Gioia และ Chittipeddi (1991) (Fisher &amp; Aguinis, 2017, pp. 446–447) ซึ่งเป็นกรณีศึกษาในกล่องท้ายบทนี้</p>
+<h3 id="s-7-2-3">7.2.3 คำถามตัดสินใจสามข้อ</h3>
+<p>ก่อนเลือกการขยายทฤษฎี Fisher และ Aguinis (2017, pp. 450–453) เสนอให้ตอบคำถามสามข้อ ข้อแรก มีทฤษฎีที่มีอยู่และเข้าถึงข้อมูลได้หรือไม่ ข้อสอง คำอธิบายที่มีอยู่ขัดแย้ง คลุมเครือ หรือไม่เพียงพอหรือไม่ ข้อสาม ข้อมูลเพิ่มเติมช่วยพัฒนา ปรับปรุง หรือขยายทฤษฎีได้หรือไม่ ทั้งสามข้อต้องตอบว่าใช่ สำหรับบริบทใหม่ ผู้เขียนเห็นว่าการเปรียบเทียบแนวนอนน่าจะมีประโยชน์ที่สุด (p. 455)</p>
+<p>ข้อจำกัดของแนวทางนี้ที่ผู้เขียนระบุไว้เองคือขึ้นกับความแข็งแรงของทฤษฎีตั้งต้น และถูกจำกัดด้วยมุมมองตั้งต้น (Fisher &amp; Aguinis, 2017, pp. 457–458) นิสิตที่เลือกแนวทางนี้จึงต้องเลือกทฤษฎีตั้งต้นที่แข็งแรง และเปิดช่องให้ข้อมูลแย้งทฤษฎีได้</p>
+<h2 id="s-7-3">7.3 ความเข้มงวดของงานเชิงอุปนัยและวิธีของ Gioia</h2>
+<h3 id="s-7-3-1">7.3.1 ปัญหาเรื่องความเข้มงวด</h3>
+<p>Gioia และคณะ (2013) เริ่มจากข้อวิจารณ์ว่างานเชิงคุณภาพมักขาดความเข้มงวดทางวิชาการ และเสนอแนวทางที่เป็นระบบสำหรับพัฒนาแนวคิดใหม่และทฤษฎีฐานราก (grounded theory) เพื่อให้ทั้งการทำและการนำเสนองานวิจัยเชิงอุปนัยมีความเข้มงวดเชิงคุณภาพ (บทคัดย่อ) แนวทางนี้เป็นที่รู้จักในชื่อวิธีของ Gioia (Gioia methodology)</p>
+<p>ระบบคลังของรายวิชาอ่านบทความนี้ได้เฉพาะบทคัดย่อ บทนี้จึงไม่อธิบายรายละเอียดของขั้นตอนและรูปแบบการนำเสนอข้อมูลของวิธีนี้ นิสิตที่จะใช้วิธีของ Gioia ต้องอ่านฉบับเต็มเอง และอ้างขั้นตอนจากฉบับเต็มพร้อมเลขหน้า</p>
+<h3 id="s-7-3-2">7.3.2 สิ่งที่เทียบได้จากระดับบทคัดย่อ</h3>
+<p>แม้ไม่ลงรายละเอียด ผู้เรียบเรียงเห็นว่าเทียบวิธีของ Gioia กับการขยายทฤษฎีได้ในระดับจุดเริ่มต้น วิธีของ Gioia มุ่งพัฒนาแนวคิดใหม่ (Gioia et al., 2013 บทคัดย่อ) จึงอยู่ใกล้การสร้างทฤษฎีในตารางที่ 7.1 และใกล้กลวิธีการระบุแนวคิดใหม่ในตารางที่ 7.2 ส่วนการขยายทฤษฎีเริ่มจากทฤษฎีที่มีอยู่ (Fisher &amp; Aguinis, 2017, p. 441) นิสิตที่มีทฤษฎีตั้งต้นชัดแต่อ้างว่าใช้วิธีของ Gioia ควรถามตนเองว่าการออกแบบสอดคล้องกับจุดเริ่มต้นจริงหรือไม่ ซึ่งเป็นหลักความสอดคล้องเชิงระเบียบวิธีในบทที่ 5 หัวข้อ 5.2</p>
+<h2 id="s-7-4">7.4 การเลือกกรณี ผู้ให้ข้อมูล และขนาดตัวอย่าง</h2>
+<h3 id="s-7-4-1">7.4.1 การเลือกกรณีและแหล่งข้อมูล</h3>
+<p>การเลือกกรณีตามตรรกะการทำซ้ำ (Eisenhardt &amp; Graebner, 2007 บทคัดย่อ) ต้องคู่กับการเลือกแหล่งข้อมูลหลายแหล่ง Henderson และ Clark (1990) ใช้การสัมภาษณ์ เอกสารภายในบริษัท และข้อมูลอุตสาหกรรม ในอุตสาหกรรมที่มีนวัตกรรมเชิงสถาปัตยกรรมสี่รอบ (p. 20) การเลือกอุตสาหกรรมนี้ทำให้มีหลายรอบของปรากฏการณ์เดียวกันให้เปรียบเทียบในการศึกษาเดียว ซึ่งเป็นตัวอย่างของตรรกะการทำซ้ำในระดับรอบของนวัตกรรม (ข้อวิเคราะห์ของผู้เรียบเรียง)</p>
+<h3 id="s-7-4-2">7.4.2 ขนาดตัวอย่างและการอิ่มตัวของข้อมูล</h3>
+<p>คำถามว่าต้องสัมภาษณ์กี่คนเป็นคำถามที่ผู้ประเมินข้อเสนอวิจัยถามบ่อยที่สุด Hennink และ Kaiser (2022) ทบทวนอย่างเป็นระบบ 23 บทความที่ประเมินการอิ่มตัว (saturation) ด้วยข้อมูลเชิงประจักษ์หรือแบบจำลองทางสถิติ (บทคัดย่อ p. 1) การอิ่มตัวของข้อมูลหมายถึงจุดที่ไม่พบประเด็นใหม่และข้อมูลเริ่มซ้ำ การเก็บเพิ่มจึงไม่จำเป็น (p. 2) ตารางที่ 7.3 สรุปข้อค้นพบที่ใช้ในการออกแบบ</p>
+<p class="tcap"><b>ตารางที่ 7.3</b> ข้อค้นพบเรื่องการอิ่มตัวที่ใช้ในการออกแบบ</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อค้นพบ</th><th>ที่มา</th><th>ผลต่อการออกแบบ (ข้อวิเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>ไม่นับค่าผิดปกติ ส่วนใหญ่อิ่มตัวที่ 9 ถึง 17 การสัมภาษณ์ เฉลี่ย 12 ถึง 13</td><td>p. 6</td><td>ใช้เป็นจุดตั้งต้นของการประมาณ ไม่ใช่ตัวเลขตายตัว</td></tr><tr><td>ข้อมูลชุดเดียวกัน 9 การสัมภาษณ์ได้รหัสร้อยละ 91 แต่การอิ่มตัวของความหมายต้องใช้ 16 ถึง 24</td><td>Table 1 p. 4</td><td>คำถามที่ต้องการเข้าใจกลไกลึกต้องเผื่อจำนวนมากกว่า</td></tr><tr><td>งานหลายประเทศ แก่นเรื่องระดับสูง และการอิ่มตัวของความหมายต้องการตัวอย่างมากกว่า</td><td>บทคัดย่อ p. 1</td><td>งานหลายองค์กรหรือหลายอุตสาหกรรมต้องเผื่อจำนวน</td></tr><tr><td>ห้ากลยุทธ์ประเมินการอิ่มตัว เช่น นับความถี่รหัส เกณฑ์หยุด และความหมายของรหัส</td><td>Table 3 p. 6</td><td>ระบุในแบบร่างว่าจะใช้กลยุทธ์ใดตัดสินว่าพอ</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์แรกและที่สองจาก Hennink และ Kaiser (2022) คอลัมน์สุดท้ายเป็นข้อวิเคราะห์ของผู้เรียบเรียง</p>
+<p>ข้อควรระวังคือข้อค้นพบนี้มาจากงานที่กลุ่มตัวอย่างส่วนใหญ่เป็นเนื้อเดียวกันและวัตถุประสงค์แคบ (Hennink &amp; Kaiser, 2022 บทคัดย่อ p. 1) งานนวัตกรรมระดับองค์กรที่สัมภาษณ์ผู้บริหาร วิศวกร และลูกค้าในหลายบริษัทจึงไม่ควรอ้างตัวเลข 12 ถึง 13 โดยตรง แต่ควรอธิบายว่าการออกแบบของตนต่างจากงานเหล่านั้นอย่างไร</p>
+<h3 id="s-7-4-3">7.4.3 สิ่งที่ต้องรายงานเรื่องผู้ให้ข้อมูล</h3>
+<p>Tong และคณะ (2007, p. 351) พบว่ารายการที่รายการตรวจต่าง ๆ ใส่บ่อยที่สุดคือวิธีเลือกตัวอย่าง สถานที่เก็บข้อมูล วิธีเก็บข้อมูล การตรวจสอบโดยผู้ให้ข้อมูล วิธีบันทึกข้อมูล ที่มาของแก่นเรื่อง และคำพูดสนับสนุน รายการตรวจ COREQ ที่ผู้เขียนพัฒนาขึ้นมี 32 รายการใน 3 หมวด คือทีมวิจัยและการสะท้อนคิด การออกแบบการศึกษา และการวิเคราะห์และการรายงาน (Table 1, p. 352) หมวดแรกรวมลักษณะของผู้สัมภาษณ์และความสัมพันธ์กับผู้ให้ข้อมูล ซึ่งสำคัญกับนิสิตที่ศึกษาองค์กรที่ตนทำงานอยู่</p>
+<h2 id="s-7-5">7.5 การวิเคราะห์ การลงรหัส และความน่าเชื่อถือ</h2>
+<h3 id="s-7-5-1">7.5.1 การวิเคราะห์แม่แบบ</h3>
+<p>การวิเคราะห์แม่แบบ (template analysis) เป็นวิธีลงรหัสที่ยืดหยุ่นและเหมาะกับงานที่มีทฤษฎีตั้งต้น Brooks และ King (2014, p. 4) อธิบายว่าแม่แบบรหัสสรุปแก่นเรื่องที่ผู้วิจัยเห็นว่าสำคัญในชุดข้อมูล และจัดให้มีความหมายและใช้ประโยชน์ได้ ตารางที่ 7.4 สรุปหกขั้นตอน ซึ่งผู้เขียนระบุว่าไม่ใช่ขั้นตอนตายตัว (p. 5)</p>
+<p class="tcap"><b>ตารางที่ 7.4</b> หกขั้นตอนของการวิเคราะห์แม่แบบ</p>
+<div class="tablewrap"><table><thead><tr><th>ขั้น</th><th>สิ่งที่ทำ</th><th>ข้อควรระวัง</th></tr></thead><tbody><tr><td>1. ทำความคุ้นกับข้อมูล</td><td>อ่านข้อมูลทั้งหมดถ้าชุดเล็ก หรือชุดย่อยถ้าชุดใหญ่</td><td></td></tr><tr><td>2. ลงรหัสเบื้องต้น</td><td>ลงรหัสข้อความที่เกี่ยวกับคำถาม</td><td>แก่นเรื่องที่กำหนดไว้ก่อนเป็นของชั่วคราว ควรมีน้อย และเลือกจากจุดมุ่งหมายของการวิจัย (p. 6)</td></tr><tr><td>3. สร้างแม่แบบเริ่มต้น</td><td>จากชุดย่อยที่หลากหลาย (p. 7)</td><td>สร้างเร็วช่วยให้มีจุดเน้น แต่เสี่ยงไวต่อข้อมูลที่เข้ากับแม่แบบเกินไป (p. 7)</td></tr><tr><td>4. นำไปใช้และปรับ</td><td>ใช้กับข้อมูลเพิ่ม บันทึกข้อเสนอแก้ แล้วสร้างฉบับใหม่ (p. 8)</td><td>ลงรหัสซ้ำข้อมูลเดิมทุกครั้งที่แม่แบบเปลี่ยน (p. 11)</td></tr><tr><td>5. ทำซ้ำจนครบ</td><td>จนแม่แบบแทนข้อมูลได้ครบ</td><td>ไม่ควรมีข้อมูลที่เกี่ยวข้องชัดเจนถูกปล่อยไว้โดยไม่ลงรหัส (p. 8)</td></tr><tr><td>6. ใช้แม่แบบสุดท้าย</td><td>ใช้กับข้อมูลทั้งชุด (p. 8)</td><td></td></tr></tbody></table></div>
+<p>ที่มา สรุปจาก Brooks และ King (2014, pp. 5–8, 11)</p>
+<p>กรณีตัวอย่างในบทความเป็นการประเมินบริการดูแลผู้ป่วยระยะท้าย สัมภาษณ์ 69 คน ทีมผู้วิเคราะห์ 4 คน และเก็บข้อมูลคู่ขนานกับการวิเคราะห์ในระยะสองปี (Brooks &amp; King, 2014, pp. 10–11) ทีมทำเอกสารนิยามแก่นเรื่องทุกแก่นเรื่อง (p. 11) ผู้เรียบเรียงเห็นว่าเอกสารนิยามนี้เป็นเครื่องมือที่นิสิตที่ทำงานคนเดียวควรใช้ด้วย เพราะทำให้ผู้อ่านและอาจารย์ที่ปรึกษาตรวจการลงรหัสได้</p>
+<h3 id="s-7-5-2">7.5.2 ความเที่ยงระหว่างผู้ลงรหัส</h3>
+<p>ความเที่ยงระหว่างผู้ลงรหัส (intercoder reliability) เป็นค่าตัวเลขของความตรงกันระหว่างผู้ลงรหัสว่าข้อมูลเดียวกันควรลงรหัสอย่างไร (O'Connor &amp; Joffe, 2020, p. 2) เป็นหัวข้อที่ถกเถียงกัน ข้อดีคือช่วยตรวจความเป็นระบบของกรอบรหัส และส่งเสริมการสะท้อนคิดและการคุยกันในทีม (pp. 3–4) ข้อเสียคือตัวเลขให้ความแม่นยำลวง และไม่ควรเป็นเป้าหมายในตัวเอง (p. 5) นักวิจัยทฤษฎีฐานรากบางส่วนเห็นว่าไม่เหมาะ เพราะกระบวนการวิเคราะห์วนซ้ำ (p. 2) ตารางที่ 7.5 สรุปแนวปฏิบัติ</p>
+<p class="tcap"><b>ตารางที่ 7.5</b> แนวปฏิบัติเรื่องความเที่ยงระหว่างผู้ลงรหัส</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>แนวปฏิบัติ</th><th>หน้า</th></tr></thead><tbody><tr><td>ขั้นที่ใช้</td><td>ขั้นลงรหัส ไม่ใช่ขั้นสร้างแก่นเรื่อง</td><td>p. 2</td></tr><tr><td>จำนวนผู้ลงรหัส</td><td>อย่างน้อยสองคนที่ลงรหัสอย่างอิสระ</td><td>p. 5</td></tr><tr><td>สัดส่วนข้อมูล</td><td>ร้อยละ 10 ถึง 25 ของหน่วยข้อมูล โดยทั่วไป</td><td>p. 5</td></tr><tr><td>สถิติ</td><td>ไม่ใช้ร้อยละความตรงกัน เพราะรวมความตรงกันโดยบังเอิญ ใช้ Cohen's kappa หรือ Krippendorff's alpha</td><td>p. 8</td></tr><tr><td>เกณฑ์</td><td>กำหนดล่วงหน้า ไม่ตัดสินภายหลัง</td><td>p. 9</td></tr><tr><td>ขอบเขตของหลักฐาน</td><td>ยืนยันได้เฉพาะกระบวนการลงรหัส ไม่ใช่การเก็บข้อมูลหรือการสร้างแก่นเรื่อง</td><td>p. 11</td></tr></tbody></table></div>
+<p>ที่มา สรุปจาก O'Connor และ Joffe (2020)</p>
+<h3 id="s-7-5-3">7.5.3 เลือกวิธีสร้างความน่าเชื่อถือให้เข้ากับงาน</h3>
+<p>O'Connor และ Joffe (2020, p. 11) สรุปว่าความเที่ยงระหว่างผู้ลงรหัสอาจไม่เหมาะกับงานเชิงคุณภาพทุกงาน ผู้เรียบเรียงจึงเสนอให้เลือกวิธีสร้างความน่าเชื่อถือตามลักษณะของงาน ตามตารางที่ 7.6</p>
+<p class="tcap"><b>ตารางที่ 7.6</b> การเลือกวิธีสร้างความน่าเชื่อถือตามลักษณะงาน</p>
+<div class="tablewrap"><table><thead><tr><th>ลักษณะงาน</th><th>วิธีที่เสนอ</th><th>เหตุผล</th></tr></thead><tbody><tr><td>ทีมหลายคน ลงรหัสแยกกัน</td><td>ความเที่ยงระหว่างผู้ลงรหัสในชุดย่อย</td><td>ช่วยให้กรอบรหัสสื่อสารข้ามคนได้ (O'Connor &amp; Joffe, 2020, pp. 3–4)</td></tr><tr><td>นิสิตลงรหัสคนเดียว</td><td>ให้ผู้อื่นลงรหัสชุดย่อย หรือทำเอกสารนิยามแก่นเรื่องและบันทึกการแก้แม่แบบ</td><td>งานคนเดียวหาผู้ลงรหัสเพิ่มสำหรับชุดย่อยได้ (O'Connor &amp; Joffe, 2020, p. 5) และเอกสารนิยามแก่นเรื่องทำให้ตรวจได้ (Brooks &amp; King, 2014, p. 11)</td></tr><tr><td>ทฤษฎีฐานรากที่วนซ้ำมาก</td><td>คำอธิบายกระบวนการวิเคราะห์อย่างโปร่งใสและคำพูดของผู้ให้ข้อมูล</td><td>ความเที่ยงระหว่างผู้ลงรหัสอาจไม่เหมาะ (O'Connor &amp; Joffe, 2020, p. 2) คำพูดช่วยให้ผู้อ่านประเมินเอง (Brooks &amp; King, 2014, p. 12)</td></tr><tr><td>ทุกแบบ</td><td>รายงานตามรายการตรวจ COREQ</td><td>ครอบคลุมทีมวิจัย การออกแบบ และการวิเคราะห์ (Tong et al., 2007, p. 352)</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์วิธีที่เสนอเป็นข้อสังเคราะห์ของผู้เรียบเรียง เหตุผลอ้างจากงานที่ระบุ</p>
+<h2 id="s-7-6">7.6 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้มีสองกลุ่ม กลุ่มระเบียบวิธีให้หลักการออกแบบ และกลุ่มเชิงประจักษ์เป็นตัวอย่างงานเชิงคุณภาพด้านนวัตกรรมและการเปลี่ยนแปลง</p>
+<p class="tcap"><b>ตารางที่ 7.7</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Henderson และ Clark (1990)</td><td>ความล้มเหลวของบริษัทที่ครองตลาด</td><td>การศึกษาภาคสนามสองปี</td><td>การเลือกอุตสาหกรรมที่มีหลายรอบของปรากฏการณ์</td></tr><tr><td>Gioia และ Chittipeddi (1991)</td><td>การเริ่มการเปลี่ยนแปลงเชิงกลยุทธ์</td><td>ชาติพันธุ์วรรณนาในมหาวิทยาลัย</td><td>สี่ระยะ sensemaking และ sensegiving (บทคัดย่อ)</td></tr><tr><td>Tripsas และ Gavetti (2000)</td><td>ความเข้าใจของผู้บริหารกับขีดความสามารถ</td><td>กรณีศึกษาเชิงลึก Polaroid</td><td>ตัวอย่างกรณีเดียว (บทคัดย่อ)</td></tr><tr><td>Eisenhardt และ Graebner (2007)</td><td>การสร้างทฤษฎีจากกรณี</td><td>บทความเชิงระเบียบวิธี</td><td>ตรรกะการทำซ้ำ (บทคัดย่อ)</td></tr><tr><td>Siggelkow (2007)</td><td>การเขียนงานกรณีศึกษาให้น่าเชื่อ</td><td>บทความเชิงระเบียบวิธี</td><td>จุดประสงค์ของกรณีศึกษา (บทคัดย่อ)</td></tr><tr><td>Tong และคณะ (2007)</td><td>การรายงานงานเชิงคุณภาพ</td><td>รวบรวมรายการตรวจ</td><td>COREQ 32 รายการ 3 หมวด</td></tr><tr><td>Gioia และคณะ (2013)</td><td>ความเข้มงวดของงานเชิงอุปนัย</td><td>บทความเชิงระเบียบวิธี</td><td>แนวทางที่เป็นระบบ (บทคัดย่อ)</td></tr><tr><td>Brooks และ King (2014)</td><td>การวิเคราะห์แม่แบบ</td><td>บทเรียนพร้อมกรณีตัวอย่าง</td><td>หกขั้นตอนและการลงรหัสซ้ำ</td></tr><tr><td>Fisher และ Aguinis (2017)</td><td>การขยายทฤษฎี</td><td>บทความเชิงระเบียบวิธี</td><td>สามจุดเริ่มต้นและเจ็ดกลวิธี</td></tr><tr><td>O'Connor และ Joffe (2020)</td><td>ความเที่ยงระหว่างผู้ลงรหัส</td><td>บทความทบทวนและแนวทาง</td><td>ข้อดี ข้อเสีย และแนวปฏิบัติ</td></tr><tr><td>Hennink และ Kaiser (2022)</td><td>ขนาดตัวอย่างที่อิ่มตัว</td><td>ทบทวนอย่างเป็นระบบ 23 บทความ</td><td>9 ถึง 17 การสัมภาษณ์และข้อควรระวัง</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Gioia และ Chittipeddi Tripsas และ Gavetti Eisenhardt และ Graebner Siggelkow และ Gioia และคณะ มาจากบทคัดย่อ Brooks และ King (2014) เป็นฉบับผู้เขียน เลขหน้าเป็นเลขหน้าของต้นฉบับ งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว บทความของ Eisenhardt (1989) ที่อยู่ในโครงของบท ยังไม่ได้ใช้ เพราะยังไม่มีฉบับเต็มและบทคัดย่อที่ตรวจได้</p>
+<h2 id="s-7-7">7.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยในแบบร่างการออกแบบวิจัยเชิงคุณภาพของผู้วิจัยมือใหม่</p>
+<p class="tcap"><b>ตารางที่ 7.8</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>ไม่บอกจุดเริ่มต้นทางทฤษฎี</td><td>ผู้อ่านตัดสินไม่ได้ว่าผลเป็นการสร้างหรือการขยาย</td><td>ระบุช่องในตารางที่ 7.1 และทฤษฎีตั้งต้น</td></tr><tr><td>อ้างว่าใช้วิธีของ Gioia แต่มีทฤษฎีตั้งต้นชัด</td><td>จุดเริ่มต้นไม่สอดคล้องกับวิธี</td><td>พิจารณาการขยายทฤษฎีหรือการวิเคราะห์แม่แบบ</td></tr><tr><td>เลือกกรณีเพราะเข้าถึงง่าย</td><td>ไม่มีตรรกะการทำซ้ำ (Eisenhardt &amp; Graebner, 2007)</td><td>บอกว่าแต่ละกรณีคาดว่าให้ผลซ้ำหรือต่างอย่างไร</td></tr><tr><td>อ้างตัวเลข 12 คนโดยไม่มีเงื่อนไข</td><td>งานที่ให้ตัวเลขนี้ส่วนใหญ่มีตัวอย่างเนื้อเดียวกัน (Hennink &amp; Kaiser, 2022)</td><td>อธิบายความต่างของงานตนและกลยุทธ์ตัดสินการอิ่มตัว</td></tr><tr><td>มีแก่นเรื่องที่กำหนดไว้ก่อนมากเกินไป</td><td>ปิดโอกาสเห็นสิ่งใหม่ (Brooks &amp; King, 2014, p. 6)</td><td>จำกัดจำนวนและเลือกจากจุดมุ่งหมาย</td></tr><tr><td>รายงานร้อยละความตรงกัน</td><td>รวมความตรงกันโดยบังเอิญ (O'Connor &amp; Joffe, 2020, p. 8)</td><td>ใช้ Cohen's kappa หรือ Krippendorff's alpha และกำหนดเกณฑ์ล่วงหน้า</td></tr><tr><td>ไม่บอกความสัมพันธ์ของผู้วิจัยกับองค์กรที่ศึกษา</td><td>เป็นรายการในหมวดแรกของ COREQ (Tong et al., 2007)</td><td>รายงานบทบาทและวิธีจัดการ</td></tr><tr><td>นำเสนอแก่นเรื่องโดยไม่มีคำพูดของผู้ให้ข้อมูล</td><td>ผู้อ่านประเมินความน่าเชื่อเองไม่ได้ (Brooks &amp; King, 2014, p. 12)</td><td>ใส่คำพูดที่เลือกอย่างมีเหตุผล</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: Gioia และ Chittipeddi กับแนวคิด sensegiving</div><p>Gioia และ Chittipeddi (1991) ศึกษาการเริ่มการเปลี่ยนแปลงเชิงกลยุทธ์ในมหาวิทยาลัยรัฐขนาดใหญ่แห่งหนึ่งด้วยการศึกษาเชิงชาติพันธุ์วรรณนา และติดตามปีแรกของการเปลี่ยนแปลงผ่านสี่ระยะ คือ envisioning signaling re-visioning และ energizing (บทคัดย่อ)</p><p>ผู้เขียนเสนอว่าบทบาทหลักของผู้นำสูงสุดในการเริ่มการเปลี่ยนแปลงเข้าใจได้ดีที่สุดผ่านแนวคิดที่เกิดจากข้อมูลสองแนวคิด คือ sensemaking หรือการทำความเข้าใจสถานการณ์ และ sensegiving หรือการสื่อความหมายให้ผู้อื่น (บทคัดย่อ)</p><p>Fisher และ Aguinis (2017, pp. 446–447) ใช้ sensegiving เป็นตัวอย่างของการระบุแนวคิดใหม่ คือแนวคิดที่ทฤษฎีเดิมยังไม่ได้พิจารณา</p><p>ระบบคลังของรายวิชาอ่านบทความนี้ได้เฉพาะบทคัดย่อ จึงไม่รู้รายละเอียดว่าผู้เขียนเก็บข้อมูลอย่างไร และได้สี่ระยะมาจากการวิเคราะห์แบบใด</p><p class="q"><b>คำถามชวนคิด</b> ถ้านิสิตจะศึกษาการเริ่มนวัตกรรมในองค์กรไทยหนึ่งแห่งโดยใช้ sensegiving เป็นทฤษฎีตั้งต้น งานของนิสิตจะเป็นการสร้างหรือการขยายทฤษฎี และควรใช้กลวิธีใดในตารางที่ 7.2</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ทำให้ข้อเสนอวิจัยของนิสิตมีส่วนวิธีการที่ตอบคำถามวิพากษ์ในบทที่ 6 ตารางที่ 6.5 ได้ตั้งแต่ต้น</p><p>การเลือกจุดเริ่มต้นทางทฤษฎีในตารางที่ 7.1 ผูกกับช่องว่างองค์ความรู้ที่จะเขียนในบทที่ 8 ช่องว่างแบบทฤษฎีเดิมไม่ครอบคลุมบริบทใหม่นำไปสู่การขยายทฤษฎี</p><p>บทที่ 9 จะใช้แบบร่างจากใบงานที่ 4 เป็นส่วนวิธีการของโครงข้อเสนอวิจัยเชิงคุณภาพฉบับย่อ</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรเริ่มออกแบบงานเชิงคุณภาพจากจุดเริ่มต้นทางทฤษฎี คือการสร้าง การขยาย หรือการทดสอบทฤษฎี และรู้ว่าคำถามนวัตกรรมเรื่องกลไก ลำดับเหตุการณ์ และบริบทใหม่เหมาะกับงานเชิงคุณภาพ</p>
+<p>นิสิตควรเลือกกรณีตามตรรกะการทำซ้ำ ประมาณขนาดตัวอย่างโดยใช้หลักฐานเรื่องการอิ่มตัวพร้อมเงื่อนไขของหลักฐานนั้น และเลือกวิธีวิเคราะห์ให้เข้ากับจุดเริ่มต้น การวิเคราะห์แม่แบบเหมาะกับงานที่มีทฤษฎีตั้งต้น ส่วนวิธีของ Gioia มุ่งพัฒนาแนวคิดใหม่ ซึ่งต้องอ่านฉบับเต็มก่อนใช้</p>
+<p>นิสิตควรเลือกวิธีสร้างความน่าเชื่อถือตามลักษณะงาน ความเที่ยงระหว่างผู้ลงรหัสเหมาะกับงานทีมและงานที่ต้องการตัวเลขยืนยัน ส่วนงานคนเดียวใช้เอกสารนิยามแก่นเรื่อง บันทึกการแก้แม่แบบ คำพูดของผู้ให้ข้อมูล และการรายงานตาม COREQ แล้วนำทั้งหมดไปใช้ในใบงานที่ 4</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การสร้างทฤษฎี (theory generation)</li><li>การขยายทฤษฎี (theory elaboration)</li><li>การทดสอบทฤษฎี (theory testing)</li><li>ตรรกะการทำซ้ำ (replication logic)</li><li>ทฤษฎีระดับกลาง (midrange theory)</li><li>การเปรียบเทียบแนวนอน (horizontal contrasting)</li><li>การระบุแนวคิดใหม่ (new construct specification)</li><li>การแยกแนวคิด (construct splitting)</li><li>ทฤษฎีฐานราก (grounded theory)</li><li>วิธีของ Gioia (Gioia methodology)</li><li>การอิ่มตัวของข้อมูล (data saturation)</li><li>การอิ่มตัวของความหมาย (meaning saturation)</li><li>การวิเคราะห์แม่แบบ (template analysis)</li><li>แก่นเรื่องที่กำหนดไว้ก่อน (a priori themes)</li><li>ความเที่ยงระหว่างผู้ลงรหัส (intercoder reliability)</li><li>การสะท้อนคิด (reflexivity)</li><li>รายการตรวจ COREQ (consolidated criteria for reporting qualitative research)</li><li>การทำความเข้าใจและการสื่อความหมาย (sensemaking and sensegiving)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายความต่างของการสร้าง การขยาย และการทดสอบทฤษฎี และบอกว่าคำถามวิจัยของนิสิตอยู่ในแบบใด เพราะอะไร</li><li>ทำไมงานเชิงคุณภาพจึงเหมาะกับคำถามเรื่องกลไกและลำดับเหตุการณ์ จงยกตัวอย่างจากงานที่เรียนในบทนี้</li><li>ตรรกะการทำซ้ำมีผลต่อการเลือกกรณีอย่างไร จงออกแบบการเลือกสี่กรณีสำหรับคำถามนวัตกรรมหนึ่งข้อ</li><li>จงเลือกกลวิธีการขยายทฤษฎีหนึ่งกลวิธีในตารางที่ 7.2 ที่เหมาะกับคำถามวิจัยของนิสิต และอธิบายเหตุผล</li><li>จงใช้คำถามตัดสินใจสามข้อของ Fisher และ Aguinis (2017) ตรวจว่างานของนิสิตเหมาะกับการขยายทฤษฎีหรือไม่</li><li>ทำไมการอ้างว่า "สัมภาษณ์ 12 คนก็พอ" จึงไม่เพียงพอ จงใช้ข้อค้นพบของ Hennink และ Kaiser (2022) อธิบาย</li><li>แก่นเรื่องที่กำหนดไว้ก่อนช่วยและเสี่ยงอย่างไรในการวิเคราะห์แม่แบบ</li><li>งานแบบใดควรใช้ความเที่ยงระหว่างผู้ลงรหัส และงานแบบใดไม่ควร จงอธิบายด้วยข้อโต้แย้งของ O'Connor และ Joffe (2020)</li><li>ถ้านิสิตศึกษาองค์กรที่ตนทำงานอยู่ นิสิตต้องรายงานอะไรตามหมวดแรกของ COREQ และจะจัดการความลำเอียงอย่างไร</li><li>จงวิเคราะห์ว่างานของ Gioia และ Chittipeddi (1991) อยู่ในจุดเริ่มต้นใดในตารางที่ 7.1 และเหตุใด Fisher และ Aguinis (2017) จึงใช้งานนี้เป็นตัวอย่างการระบุแนวคิดใหม่</li></ol>
+<h2 id="x258">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Fisher และ Aguinis (2017) อ่านส่วนเจ็ดกลวิธีและคำถามตัดสินใจ คำถามนำอภิปราย กลวิธีใดเหมาะกับงานนวัตกรรมในบริบทไทยมากที่สุด</li><li>Eisenhardt และ Graebner (2007) อ่านทั้งเรื่อง คำถามนำอภิปราย ความท้าทายของการสร้างทฤษฎีจากกรณีที่ผู้เขียนระบุมีอะไร และแก้อย่างไร</li><li>Gioia และคณะ (2013) อ่านทั้งเรื่อง คำถามนำอภิปราย วิธีนี้ต่างจากการวิเคราะห์แม่แบบของ Brooks และ King (2014) อย่างไรในด้านบทบาทของทฤษฎีเดิม</li><li>O'Connor และ Joffe (2020) อ่านส่วนแนวปฏิบัติ คำถามนำอภิปราย งานคนเดียวของนิสิตจะสร้างความน่าเชื่อถือของการลงรหัสได้อย่างไร</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 4 แบบร่างการออกแบบวิจัยเชิงคุณภาพ</h2>
+<p>ส่งก่อนเริ่มเรียนสัปดาห์ที่ 12 ประเมินตามรูบริก 3 ใบงานนี้เป็นแบบร่างส่วนวิธีการของข้อเสนอวิจัยเชิงคุณภาพ ใช้ต่อในบทที่ 9</p>
+<ol><li>เขียนคำถามวิจัยหนึ่งข้อ และระบุจุดเริ่มต้นทางทฤษฎีตามตารางที่ 7.1 พร้อมทฤษฎีตั้งต้นและเหตุผล</li><li>ถ้าเป็นการขยายทฤษฎี ระบุกลวิธีในตารางที่ 7.2 และตอบคำถามตัดสินใจสามข้อในหัวข้อ 7.2.3</li><li>ระบุกรณีหรือองค์กรที่จะศึกษา และอธิบายตามตรรกะการทำซ้ำว่าแต่ละกรณีคาดว่าให้ผลซ้ำหรือต่างอย่างไร</li><li>ระบุผู้ให้ข้อมูล แหล่งข้อมูลอย่างน้อยสองแหล่ง จำนวนที่คาด และกลยุทธ์ตัดสินการอิ่มตัวตามตารางที่ 7.3</li><li>ระบุวิธีวิเคราะห์ ถ้าใช้การวิเคราะห์แม่แบบ ระบุแก่นเรื่องที่กำหนดไว้ก่อนไม่เกินห้าแก่นเรื่องพร้อมเหตุผล</li><li>เลือกวิธีสร้างความน่าเชื่อถือตามตารางที่ 7.6 พร้อมเหตุผล</li><li>ระบุความสัมพันธ์ของนิสิตกับองค์กรที่ศึกษา และวิธีจัดการตามหมวดแรกของ COREQ</li><li>ตรวจแบบร่างกับตารางที่ 7.8 ก่อนส่ง และเขียนรายการอ้างอิงแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Brooks, J., &amp; King, N. (2014). <em>Doing template analysis: Evaluating an end-of-life care service</em>. SAGE Research Methods Cases. <a href="https://doi.org/10.4135/978144627305013512755" target="_blank" rel="noopener">https://doi.org/10.4135/978144627305013512755</a></div>
+<div class="r">Eisenhardt, K. M., &amp; Graebner, M. E. (2007). Theory building from cases: Opportunities and challenges. <em>Academy of Management Journal</em>, <em>50</em>(1), 25–32. <a href="https://doi.org/10.5465/amj.2007.24160888" target="_blank" rel="noopener">https://doi.org/10.5465/amj.2007.24160888</a></div>
+<div class="r">Fisher, G., &amp; Aguinis, H. (2017). Using theory elaboration to make theoretical advancements. <em>Organizational Research Methods</em>, <em>20</em>(3), 438–464. <a href="https://doi.org/10.1177/1094428116689707" target="_blank" rel="noopener">https://doi.org/10.1177/1094428116689707</a></div>
+<div class="r">Gioia, D. A., &amp; Chittipeddi, K. (1991). Sensemaking and sensegiving in strategic change initiation. <em>Strategic Management Journal</em>, <em>12</em>(6), 433–448. <a href="https://doi.org/10.1002/smj.4250120604" target="_blank" rel="noopener">https://doi.org/10.1002/smj.4250120604</a></div>
+<div class="r">Gioia, D. A., Corley, K. G., &amp; Hamilton, A. L. (2013). Seeking qualitative rigor in inductive research. <em>Organizational Research Methods</em>, <em>16</em>(1), 15–31. <a href="https://doi.org/10.1177/1094428112452151" target="_blank" rel="noopener">https://doi.org/10.1177/1094428112452151</a></div>
+<div class="r">Henderson, R. M., &amp; Clark, K. B. (1990). Architectural innovation: The reconfiguration of existing product technologies and the failure of established firms. <em>Administrative Science Quarterly</em>, <em>35</em>(1), 9–30. <a href="https://doi.org/10.2307/2393549" target="_blank" rel="noopener">https://doi.org/10.2307/2393549</a></div>
+<div class="r">Hennink, M., &amp; Kaiser, B. N. (2022). Sample sizes for saturation in qualitative research: A systematic review of empirical tests. <em>Social Science &amp; Medicine</em>, <em>292</em>, 114523. <a href="https://doi.org/10.1016/j.socscimed.2021.114523" target="_blank" rel="noopener">https://doi.org/10.1016/j.socscimed.2021.114523</a></div>
+<div class="r">O'Connor, C., &amp; Joffe, H. (2020). Intercoder reliability in qualitative research: Debates and practical guidelines. <em>International Journal of Qualitative Methods</em>, <em>19</em>, 1–13. <a href="https://doi.org/10.1177/1609406919899220" target="_blank" rel="noopener">https://doi.org/10.1177/1609406919899220</a></div>
+<div class="r">Siggelkow, N. (2007). Persuasion with case studies. <em>Academy of Management Journal</em>, <em>50</em>(1), 20–24. <a href="https://doi.org/10.5465/amj.2007.24160882" target="_blank" rel="noopener">https://doi.org/10.5465/amj.2007.24160882</a></div>
+<div class="r">Tong, A., Sainsbury, P., &amp; Craig, J. (2007). Consolidated criteria for reporting qualitative research (COREQ): A 32-item checklist for interviews and focus groups. <em>International Journal for Quality in Health Care</em>, <em>19</em>(6), 349–357. <a href="https://doi.org/10.1093/intqhc/mzm042" target="_blank" rel="noopener">https://doi.org/10.1093/intqhc/mzm042</a></div>
+<div class="r">Tripsas, M., &amp; Gavetti, G. (2000). Capabilities, cognition, and inertia: Evidence from digital imaging. <em>Strategic Management Journal</em>, <em>21</em>(10–11), 1147–1161. <a href="https://doi.org/10.1002/1097-0266(200010/11)21:10/11&lt;1147::aid-smj128&gt;3.0.co;2-r" target="_blank" rel="noopener">https://doi.org/10.1002/1097-0266(200010/11)21:10/11&lt;1147::aid-smj128&gt;3.0.co;2-r</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 7 การออกแบบงานวิจัยเชิงคุณภาพเพื่อสำรวจปรากฏการณ์นวัตกรรมเชิงลึก. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_07.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_06.html"><small>◀ บทก่อนหน้า</small>บทที่ 6 การประเมินคุณค่าของงานวิจัยนวัตกรรมที่โดดเด่น</a><a href="ai_lesson_08.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 8 ช่องว่างองค์ความรู้และทิศทางงานวิจัยนวัตกรรมในอนาคต</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/07/s-01.jpg', 'ai/slides/07/s-02.jpg', 'ai/slides/07/s-03.jpg', 'ai/slides/07/s-04.jpg', 'ai/slides/07/s-05.jpg', 'ai/slides/07/s-06.jpg', 'ai/slides/07/s-07.jpg', 'ai/slides/07/s-08.jpg', 'ai/slides/07/s-09.jpg', 'ai/slides/07/s-10.jpg', 'ai/slides/07/s-11.jpg', 'ai/slides/07/s-12.jpg', 'ai/slides/07/s-13.jpg', 'ai/slides/07/s-14.jpg', 'ai/slides/07/s-15.jpg', 'ai/slides/07/s-16.jpg', 'ai/slides/07/s-17.jpg', 'ai/slides/07/s-18.jpg', 'ai/slides/07/s-19.jpg', 'ai/slides/07/s-20.jpg', 'ai/slides/07/s-21.jpg', 'ai/slides/07/s-22.jpg', 'ai/slides/07/s-23.jpg', 'ai/slides/07/s-24.jpg', 'ai/slides/07/s-25.jpg', 'ai/slides/07/s-26.jpg', 'ai/slides/07/s-27.jpg', 'ai/slides/07/s-28.jpg', 'ai/slides/07/s-29.jpg', 'ai/slides/07/s-30.jpg', 'ai/slides/07/s-31.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 6 การประเมินคุณค่าของงานวิจัยนวัตกรรมที่โดดเด่น · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 6 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 6</div><a href="#x6">ความนำ</a><a href="#s-6-1">6.1 เจ็ดด้านของการอ่านบทความวิจัยเชิงวิพากษ์</a><a href="#s-6-2">6.2 การวิพากษ์บทความเชิงปริมาณ</a><a href="#s-6-3">6.3 การวิพากษ์บทความเชิงคุณภาพ</a><a href="#s-6-4">6.4 การวิพากษ์บทความทบทวนและบทความเชิงแนวคิด</a><a href="#s-6-5">6.5 การเขียนและนำเสนอ critical review</a><a href="#s-6-6">6.6 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-6-7">6.7 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x288">รายการอ่านสำหรับสัมมนา</a><a href="#ws">ใบงานที่ 3 แบบวิพากษ์บทความวิจัย</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 6 การประเมินคุณค่าของงานวิจัยนวัตกรรมที่โดดเด่น</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>6–7</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (34 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่06_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a><a class="btn line" href="#ws">📝 ใบงานที่ 3</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายเจ็ดด้านของการอ่านบทความวิจัยเชิงวิพากษ์ และคำถามหลักของแต่ละด้านได้</li><li>วิเคราะห์จุดเด่นและข้อจำกัดของบทความเชิงปริมาณ ด้านการวัด ความลำเอียงจากวิธีวัดร่วม และทางเลือกในการวิเคราะห์ได้</li><li>วิเคราะห์จุดเด่นและข้อจำกัดของบทความเชิงคุณภาพ บทความทบทวน และบทความเชิงแนวคิดได้</li><li>แยกข้อจำกัดที่ผู้เขียนระบุออกจากข้อจำกัดที่ผู้อ่านพบเพิ่ม และบอกผลของแต่ละข้อต่อข้อสรุปของบทความได้</li><li>จัดทำ critical review บทความวิจัย 2 เรื่องตามแบบในตารางที่ 6.7 ได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 5 สอนให้ดูว่ารูปแบบการวิจัยของบทความสอดคล้องกับคำถามหรือไม่ บทนี้ลงลึกอีกขั้น คือการอ่านบทความหนึ่งเรื่องอย่างละเอียดเพื่อบอกว่าข้อสรุปของบทความมีหลักฐานรองรับแข็งแรงเพียงใด จุดใดเป็นจุดเด่นที่ควรเรียนรู้ และจุดใดเป็นข้อจำกัดที่ต้องระวังเมื่อนำผลไปใช้</p>
+<p class="lead">การวิพากษ์ (critique) ไม่ใช่การจับผิด บทความที่ถูกอ้างมากที่สุดของสาขาก็มีข้อจำกัด และบทความที่มีข้อจำกัดชัดก็อาจเปิดคำถามที่สำคัญที่สุด เป้าหมายของการวิพากษ์จึงเป็นการบอกว่าผู้อ่านเชื่อข้อสรุปใดได้มากเท่าใด และงานวิจัยถัดไปควรทำอะไรต่อ ซึ่งเป็นทักษะเดียวกับที่นิสิตต้องใช้เมื่อหาช่องว่างองค์ความรู้ในบทที่ 8</p>
+<p class="lead">บทนี้ใช้สองสัปดาห์ สัปดาห์ที่ 6 วางเกณฑ์และสาธิตกับบทความเชิงปริมาณ สัปดาห์ที่ 7 ใช้กับบทความเชิงคุณภาพ บทความทบทวน และบทความเชิงแนวคิด แล้วจบด้วยการเขียน critical review ซึ่งเป็นใบงานที่ 3</p>
+<h2 id="s-6-1">6.1 เจ็ดด้านของการอ่านบทความวิจัยเชิงวิพากษ์</h2>
+<h3 id="s-6-1-1">6.1.1 จากสี่องค์ประกอบสู่เจ็ดด้าน</h3>
+<p>บทที่ 5 หัวข้อ 5.2 ใช้สี่องค์ประกอบของความสอดคล้องเชิงระเบียบวิธี คือคำถามวิจัย งานก่อนหน้า การออกแบบวิจัย และการมีส่วนสนับสนุนทางทฤษฎี (Edmondson &amp; McManus, 2007 บทคัดย่อ) การวิพากษ์บทความหนึ่งเรื่องต้องแตกการออกแบบวิจัยให้ละเอียดขึ้น เพราะข้อจำกัดส่วนใหญ่อยู่ในรายละเอียดของข้อมูล การวัด และการวิเคราะห์ ตารางที่ 6.1 จัดการอ่านเป็นเจ็ดด้าน</p>
+<p class="tcap"><b>ตารางที่ 6.1</b> เจ็ดด้านของการอ่านบทความวิจัยเชิงวิพากษ์</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามหลัก</th><th>แหล่งที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>1. คำถามวิจัย</td><td>คำถามชัด และสำคัญต่อสาขาหรือไม่</td><td>Edmondson และ McManus (2007)</td></tr><tr><td>2. ทฤษฎีและกรอบแนวคิด</td><td>กลไกที่อธิบายผลระบุไว้ชัดหรือไม่</td><td>บทที่ 4 หัวข้อ 4.4 และ 4.5</td></tr><tr><td>3. การออกแบบและกลุ่มตัวอย่าง</td><td>ข้อมูลตอบคำถามชนิดนั้นได้หรือไม่ กลุ่มตัวอย่างเลือกอย่างไร</td><td>บทที่ 5 หัวข้อ 5.3</td></tr><tr><td>4. การวัด</td><td>ตัวชี้วัดจับแนวคิดได้หรือไม่ มีหลักฐานความตรงอะไร</td><td>Strauss และ Smith (2009) Podsakoff และคณะ (2024)</td></tr><tr><td>5. การวิเคราะห์</td><td>วิธีวิเคราะห์เหมาะ และผลทนต่อทางเลือกอื่นหรือไม่</td><td>Steegen และคณะ (2016)</td></tr><tr><td>6. การอนุมาน</td><td>ข้อสรุปเกินหลักฐานหรือไม่ เป็นเหตุผลหรือความสัมพันธ์</td><td>บทที่ 5 หัวข้อ 5.3.3</td></tr><tr><td>7. การมีส่วนสนับสนุน</td><td>สิ่งที่อ้างว่าเพิ่มให้ทฤษฎีมาจากข้อมูลชุดนี้จริงหรือไม่</td><td>บทที่ 4 หัวข้อ 4.4</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ โดยขยายจากสี่องค์ประกอบของ Edmondson และ McManus (2007 บทคัดย่อ)</p>
+<h3 id="s-6-1-2">6.1.2 จุดเด่นก็ต้องมีหลักฐาน</h3>
+<p>ข้อผิดพลาดของการวิพากษ์ที่พบบ่อยคือเขียนจุดเด่นแบบกว้าง เช่น "ใช้กลุ่มตัวอย่างขนาดใหญ่" โดยไม่บอกว่าขนาดใหญ่ช่วยข้อสรุปข้อใด จุดเด่นที่ดีต้องผูกกับด้านใดด้านหนึ่งในตารางที่ 6.1 และบอกผลต่อข้อสรุป เช่น บริษัท 2,707 แห่งของ Laursen และ Salter (2006, pp. 138–139) ทำให้มีความแปรผันพอจะทดสอบรูปตัวยูคว่ำได้ ซึ่งงานกรณีศึกษาทำไม่ได้</p>
+<p>ข้อจำกัดก็เช่นกัน ข้อจำกัดที่ดีต้องบอกว่าทำให้ข้อสรุปข้อใดอ่อนลง และอ่อนลงเท่าใด ข้อจำกัดที่ไม่กระทบข้อสรุปหลักควรเขียนสั้น หรือไม่ต้องเขียน</p>
+<h3 id="s-6-1-3">6.1.3 ข้อจำกัดสองชั้น</h3>
+<p>ผู้เขียนที่ดีระบุข้อจำกัดของตนเอง เช่น Hanelt และคณะ (2021, p. 1185) ระบุว่าใช้ฐานข้อมูลเดียว เกณฑ์ตัดอาจตัดงานที่เกี่ยวข้อง และการลงรหัสด้วยมืออาจมีอัตวิสัย Preißner และคณะ (2024, p. 81) ระบุว่ากลุ่มตัวอย่างเป็นนวัตกรรมที่สำเร็จแล้ว ผู้วิพากษ์ต้องทำสองอย่างกับข้อจำกัดเหล่านี้ อย่างแรกคือบอกว่าข้อจำกัดที่ผู้เขียนระบุกระทบข้อสรุปมากเพียงใด อย่างที่สองคือหาข้อจำกัดที่ผู้เขียนไม่ได้ระบุ ใบงานที่ 3 ให้แยกสองชั้นนี้ออกจากกัน</p>
+<h2 id="s-6-2">6.2 การวิพากษ์บทความเชิงปริมาณ</h2>
+<h3 id="s-6-2-1">6.2.1 ตัวอย่างการวิพากษ์ Laursen และ Salter (2006)</h3>
+<p>Laursen และ Salter (2006) ถามว่าความเปิดของการค้นความรู้ภายนอกสัมพันธ์กับผลงานนวัตกรรมอย่างไร ใช้ข้อมูลการสำรวจนวัตกรรมของสหราชอาณาจักรปี 2001 ตามแบบ CIS ของ Eurostat และวิเคราะห์ด้วยการถดถอยแบบ Tobit ตารางที่ 6.2 วิพากษ์บทความนี้ตามเจ็ดด้าน</p>
+<p class="tcap"><b>ตารางที่ 6.2</b> ตัวอย่างการวิพากษ์ Laursen และ Salter (2006) ตามเจ็ดด้าน</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>สิ่งที่บทความทำ</th><th>จุดเด่น</th><th>คำถามวิพากษ์</th></tr></thead><tbody><tr><td>1. คำถามวิจัย</td><td>ความเปิดของการค้นสัมพันธ์กับผลงานนวัตกรรมอย่างไร</td><td>ชัด วัดได้</td><td>คำถามถามระดับความเปิด ไม่ได้ถามว่าเปิดกับใครเพื่ออะไร</td></tr><tr><td>2. ทฤษฎี</td><td>ความเปิดมีต้นทุน การค้นมากเกินไปลดผลงาน (p. 131)</td><td>ให้กลไกของรูปไม่เป็นเส้นตรง</td><td>กลไกต้นทุนของการค้นถูกวัดโดยตรงหรือเป็นการอนุมานจากรูปของเส้นโค้ง</td></tr><tr><td>3. การออกแบบ</td><td>บริษัทผู้ผลิต 2,707 แห่ง (pp. 138–139) จากการสำรวจปี 2001</td><td>กลุ่มตัวอย่างใหญ่ แบบสำรวจมาตรฐาน</td><td>ข้อมูลครั้งเดียว ทิศทางของเหตุยืนยันได้หรือไม่ ผลใช้กับภาคบริการได้หรือไม่</td></tr><tr><td>4. การวัด</td><td>ความกว้างและความลึก 0 ถึง 16 จาก 16 แหล่ง (p. 140)</td><td>วัดซ้ำได้ งานต่อมาใช้ตาม</td><td>การนับจำนวนแหล่งให้น้ำหนักทุกแหล่งเท่ากัน ตัวแปรตามมาจากแบบสำรวจเดียวกันหรือไม่</td></tr><tr><td>5. การวิเคราะห์</td><td>การถดถอยแบบ Tobit</td><td>เหมาะกับตัวแปรตามที่มีขอบเขต</td><td>ผลทนต่อการกำหนดตัวแปรควบคุมแบบอื่นหรือไม่</td></tr><tr><td>6. การอนุมาน</td><td>ความสัมพันธ์รูปตัวยูคว่ำ (p. 131)</td><td>ข้อค้นพบไม่ชัดในตัวเอง จึงมีคุณค่า</td><td>ใช้คำว่า "สัมพันธ์" ตลอดหรือไม่ จุดสูงสุดของเส้นโค้งอยู่ในช่วงข้อมูลจริงหรือไม่</td></tr><tr><td>7. การมีส่วนสนับสนุน</td><td>มาตรวัดความเปิดและแนวคิดการค้นมากเกินไป</td><td>เป็นเครื่องมือให้งานต่อมา</td><td>การมีส่วนสนับสนุนเชิงวิธีการอาจมากกว่าเชิงทฤษฎี</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์ที่สองสรุปจาก Laursen และ Salter (2006) คอลัมน์จุดเด่นและคำถามวิพากษ์เป็นข้อวิเคราะห์ของผู้เรียบเรียง ใช้เป็นตัวอย่าง ไม่ใช่คำตอบเดียว</p>
+<p>คอลัมน์สุดท้ายเขียนเป็นคำถาม ไม่ใช่ข้อสรุป เพราะคำตอบหลายข้ออยู่ในฉบับเต็ม ซึ่งนิสิตต้องอ่านเอง เช่น วิธีวัดผลงานนวัตกรรม และตัวแปรควบคุมที่ใช้ การวิพากษ์ที่ดีเริ่มจากคำถาม แล้วตรวจกับบทความ ถ้าบทความตอบไว้แล้ว คำถามนั้นไม่ใช่ข้อจำกัด</p>
+<h3 id="s-6-2-2">6.2.2 การวัด ความตรงเชิงโครงสร้าง</h3>
+<p>ด้านที่ 4 มักเป็นด้านที่ข้อจำกัดซ่อนอยู่มากที่สุด Strauss และ Smith (2009) อธิบายว่าเครื่องมือวัดแนวคิดได้รับการตรวจความตรงโดยทดสอบว่าสัมพันธ์กับการวัดแนวคิดอื่นตามที่ทฤษฎีกำหนดหรือไม่ และการทดสอบแต่ละครั้งสะท้อนความตรงของทั้งเครื่องมือวัดและทฤษฎีพร้อมกัน (บทคัดย่อ) ผู้เขียนยังเห็นว่าไม่มีการทดลองครั้งเดียวที่พิสูจน์หรือหักล้างทฤษฎีได้ทั้งหมด หลักฐานความตรงสะสมตามเวลา</p>
+<p>ข้อนี้มีผลต่อการวิพากษ์โดยตรง เมื่อบทความพบผลไม่ตรงสมมติฐาน ผู้วิพากษ์ต้องถามว่าทฤษฎีผิด หรือตัวชี้วัดไม่ได้วัดแนวคิดนั้น บทความที่ดีจะให้หลักฐานว่าตัวชี้วัดของตนสัมพันธ์กับตัวชี้วัดอื่นตามที่ควร คือความตรงเชิงเหมือน (convergent validity) และไม่สัมพันธ์กับแนวคิดที่ไม่เกี่ยวข้อง คือความตรงเชิงจำแนก (discriminant validity) (Strauss &amp; Smith, 2009)</p>
+<p>ตัวอย่างที่ดีของการพัฒนามาตรวัดอยู่ในงานสองเรื่องของผู้เขียนกลุ่มเดียวกัน ตารางที่ 6.3 เปรียบเทียบ</p>
+<p class="tcap"><b>ตารางที่ 6.3</b> การวัดในงานสองเรื่องของ Laursen และ Salter</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>Laursen และ Salter (2006)</th><th>Laursen และ Salter (2014)</th></tr></thead><tbody><tr><td>แนวคิดหลัก</td><td>ความเปิดของการค้น</td><td>การถือครองผลประโยชน์กับความเปิดในความร่วมมือ</td></tr><tr><td>กลุ่มตัวอย่าง</td><td>บริษัทผู้ผลิต 2,707 แห่ง (pp. 138–139)</td><td>บริษัทผู้ผลิต 2,931 แห่ง (pp. 871–872)</td></tr><tr><td>ตัวชี้วัด</td><td>ความกว้างและความลึก 0 ถึง 16 (p. 140)</td><td>ดัชนีหกกลไก คะแนน 0 ถึง 3 ต่อกลไก รวม 0 ถึง 18 α 0.86 (p. 871)</td></tr><tr><td>หลักฐานความเที่ยง</td><td>ไม่ได้บันทึกในบัตร</td><td>ค่า α (p. 871)</td></tr><tr><td>ข้อค้นพบ</td><td>รูปตัวยูคว่ำ (p. 131)</td><td>รูปโค้งคว่ำ ชัดกว่าในความร่วมมือ (p. 867)</td></tr></tbody></table></div>
+<p>ที่มา สรุปจาก Laursen และ Salter (2006, 2014)</p>
+<p>คำถามวิพากษ์ที่ตารางนี้เปิดคือ ดัชนีที่รวมคะแนนจากหลายกลไกบอกได้หรือไม่ว่ากลไกใดสำคัญ และค่า α สูงบอกความเที่ยงของการวัด แต่ยังไม่บอกว่าดัชนีวัดแนวคิดการถือครองผลประโยชน์ของ Teece (1986) ได้ครบ ซึ่งเป็นคำถามเรื่องความตรง ไม่ใช่ความเที่ยง</p>
+<h3 id="s-6-2-3">6.2.3 ความลำเอียงจากวิธีวัดร่วม</h3>
+<p>ความลำเอียงจากวิธีวัดร่วม (common method bias) เกิดเมื่อความสัมพันธ์ระหว่างตัวแปรส่วนหนึ่งมาจากวิธีวัดเดียวกัน ไม่ใช่จากความสัมพันธ์จริง เช่น ผู้ตอบคนเดียวตอบทั้งตัวแปรต้นและตัวแปรตามในแบบสอบถามชุดเดียว Podsakoff และคณะ (2024) ทบทวนเรื่องนี้เป็นห้าส่วน คือผลเสีย ความซับซ้อนจากการมีหลายแหล่ง ความแพร่หลาย ความยากในการแก้ และวาระวิจัย (บทคัดย่อ) ข้อสรุปที่ใช้กับการวิพากษ์ได้ทันทีมีสามข้อ ตามตารางที่ 6.4</p>
+<p class="tcap"><b>ตารางที่ 6.4</b> วิธีรับมือความลำเอียงจากวิธีวัดร่วมและสิ่งที่ผู้วิพากษ์ตรวจ</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็นจาก Podsakoff และคณะ (2024)</th><th>สิ่งที่ผู้วิพากษ์ตรวจ (ข้อวิเคราะห์ของผู้เรียบเรียง)</th></tr></thead><tbody><tr><td>วิธีแก้มีสามกลุ่ม วิธีเชิงกระบวนการก่อนเก็บข้อมูล วิธีเชิงสถิติ และเทคนิคตัวแปรเครื่องหมาย ไม่มีการทดสอบใดแก้ได้ครบ</td><td>บทความวางแผนป้องกันตั้งแต่การออกแบบหรือไม่ หรือพึ่งการทดสอบหลังเก็บข้อมูลอย่างเดียว</td></tr><tr><td>การได้คะแนนจากแหล่งต่างกันลดความสัมพันธ์ที่ลำเอียงได้มากกว่าการเว้นช่วงเวลา</td><td>ตัวแปรต้นและตัวแปรตามมาจากผู้ตอบหรือแหล่งข้อมูลเดียวกันหรือไม่</td></tr><tr><td>การทดสอบปัจจัยเดียวของ Harman ใช้มากที่สุด แต่เป็นเพียงการวินิจฉัย ไม่ใช่การควบคุม</td><td>ถ้าบทความอ้างการทดสอบนี้เป็นหลักฐานว่าไม่มีความลำเอียง ให้ถือว่ายังตอบไม่ครบ</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์แรกจาก Podsakoff และคณะ (2024) ตามโน้ตคลังวิจัยที่ตรวจกับต้นฉบับ คอลัมน์ที่สองเป็นข้อวิเคราะห์ของผู้เรียบเรียง</p>
+<p>ประเด็นนี้สำคัญกับงานวิจัยนวัตกรรมในประเทศไทย เพราะข้อเสนอวิจัยเชิงปริมาณจำนวนมากใช้แบบสอบถามที่ผู้บริหารคนเดียวตอบทั้งความสามารถทางนวัตกรรมและผลการดำเนินงาน ผู้เรียบเรียงเห็นว่าเมื่อนิสิตวิพากษ์บทความแบบนี้ ข้อแรกที่ควรตรวจคือแหล่งของตัวแปรตาม</p>
+<h3 id="s-6-2-4">6.2.4 ทางเลือกในการวิเคราะห์</h3>
+<p>ด้านที่ 5 ถามว่าผลทนต่อทางเลือกอื่นหรือไม่ Steegen และคณะ (2016, p. 702) ชี้ว่าการเตรียมข้อมูลมีทางเลือกที่สมเหตุสมผลหลายทาง เช่น การตัดข้อมูล การแปลงค่า และการลงรหัส การวิเคราะห์ชุดข้อมูลเดียวจึงอาจทำให้เข้าใจผิด ผู้เขียนเสนอการวิเคราะห์พหุจักรวาล (multiverse analysis) ที่รายงานการกระจายของผลจากทุกทางเลือก ทำให้เห็นว่าข้อสรุปเปลี่ยนเพราะทางเลือกที่ไม่มีเหตุผลรองรับมากเพียงใด และทางเลือกใดสำคัญที่สุด (p. 702)</p>
+<p>ผู้วิพากษ์ไม่จำเป็นต้องขอให้ทุกบทความทำการวิเคราะห์พหุจักรวาล แต่ใช้แนวคิดนี้เป็นคำถามได้ บทความมีการตรวจความทนทาน (robustness check) หรือไม่ ทางเลือกใดที่ผู้เขียนตัดสินใจโดยไม่ให้เหตุผล และถ้าเลือกอีกทาง ข้อสรุปหลักน่าจะเปลี่ยนหรือไม่</p>
+<h2 id="s-6-3">6.3 การวิพากษ์บทความเชิงคุณภาพ</h2>
+<h3 id="s-6-3-1">6.3.1 เกณฑ์ที่ต่างจากงานเชิงปริมาณ</h3>
+<p>บทความเชิงคุณภาพไม่ควรถูกวิพากษ์ด้วยเกณฑ์ของงานเชิงปริมาณ เช่น ขนาดกลุ่มตัวอย่าง หรือการสรุปอ้างอิงสู่ประชากร Siggelkow (2007) เห็นว่างานกรณีศึกษามักถูกวิจารณ์ว่าตัวอย่างลำเอียง แต่จุดประสงค์หลักของกรณีศึกษาควรเป็นการกระตุ้นความคิดและแนวคิดใหม่ ไม่ใช่การหาช่องโหว่ของทฤษฎีเดิม (บทคัดย่อ) คำถามวิพากษ์ที่เหมาะจึงเป็นคำถามว่ากรณีที่เลือกให้แนวคิดอะไรที่กรณีอื่นให้ไม่ได้ และหลักฐานในกรณีพอรองรับแนวคิดนั้นหรือไม่</p>
+<p class="tcap"><b>ตารางที่ 6.5</b> คำถามวิพากษ์บทความเชิงคุณภาพ</p>
+<div class="tablewrap"><table><thead><tr><th>ด้าน</th><th>คำถามวิพากษ์</th><th>ตัวอย่างจากงานในวิชานี้</th></tr></thead><tbody><tr><td>การเลือกกรณี</td><td>ทำไมกรณีนี้ กรณีให้เห็นสิ่งที่กรณีอื่นให้ไม่ได้หรือไม่</td><td>Henderson และ Clark (1990) เลือกอุตสาหกรรมที่มีนวัตกรรมเชิงสถาปัตยกรรมสี่รอบ (p. 20)</td></tr><tr><td>แหล่งข้อมูล</td><td>ใช้ข้อมูลหลายแหล่งตรวจซึ่งกันหรือไม่</td><td>Henderson และ Clark (1990) ใช้การสัมภาษณ์ เอกสารภายใน และข้อมูลอุตสาหกรรม</td></tr><tr><td>ระยะเวลา</td><td>ข้อมูลครอบคลุมช่วงที่กลไกทำงานหรือไม่</td><td>การศึกษาภาคสนามสองปีของ Henderson และ Clark (1990)</td></tr><tr><td>จากข้อมูลสู่แนวคิด</td><td>ผู้อ่านเห็นเส้นทางจากข้อมูลถึงข้อสรุปหรือไม่</td><td>กรอบ 2×2 (p. 12) และกลไกที่ฝังในช่องทางสื่อสาร (p. 16)</td></tr><tr><td>คำอธิบายทางเลือก</td><td>ผู้เขียนพิจารณาคำอธิบายอื่นหรือไม่</td><td>ผู้นำตลาดพลาดทั้งที่เทคโนโลยีแกนแทบไม่เปลี่ยน (p. 23) ตัดคำอธิบายเรื่องความยากทางเทคนิค</td></tr><tr><td>ขอบเขตของข้อสรุป</td><td>ข้อสรุปจำกัดอยู่ในเงื่อนไขของกรณีหรือไม่</td><td>ผลใช้กับอุตสาหกรรมที่ความรู้เชิงสถาปัตยกรรมฝังในองค์กร</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์คำถามเป็นข้อสังเคราะห์ของผู้เรียบเรียง ตัวอย่างจาก Henderson และ Clark (1990) วิธีการจากโน้ตคลังวิจัยที่ตรวจกับต้นฉบับ</p>
+<p>แถวคำอธิบายทางเลือกในตารางที่ 6.5 เป็นข้อวิเคราะห์ของผู้เรียบเรียง ข้อค้นพบว่าเทคโนโลยีแกนแทบไม่เปลี่ยน (Henderson &amp; Clark, 1990, p. 23) ทำให้คำอธิบายว่าผู้นำตลาดตามเทคโนโลยีใหม่ไม่ทันอ่อนลง และทำให้กลไกด้านองค์กรมีน้ำหนักขึ้น นี่คือตัวอย่างของจุดเด่นที่ผูกกับข้อสรุป ตามหลักในหัวข้อ 6.1.2</p>
+<h3 id="s-6-3-2">6.3.2 ข้อจำกัดเมื่ออ่านได้เฉพาะบทคัดย่อ</h3>
+<p>Teece, D. J. (1986). Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy. <em>Research Policy</em>, <em>15</em>(6), 285–305. <a href="https://doi.org/10.1016/0048-7333(86)90027-2" target="_blank" rel="noopener">https://doi.org/10.1016/0048-7333(86)90027-2</a></p>
+<p>Tripsas และ Gavetti (2000) เป็นบทความเชิงคุณภาพที่อยู่ในโครงของบทนี้ แต่ระบบคลังของรายวิชาอ่านได้เฉพาะบทคัดย่อ บทนี้จึงใช้เป็นกรณีศึกษาในกล่องท้ายบท พร้อมข้อจำกัดว่าอ้างได้เฉพาะสิ่งที่บทคัดย่อระบุ สถานการณ์นี้เป็นบทเรียนในตัวเอง การวิพากษ์บทความเชิงคุณภาพจากบทคัดย่อทำไม่ได้ เพราะด้านที่สำคัญที่สุดในตารางที่ 6.5 คือเส้นทางจากข้อมูลถึงข้อสรุป ซึ่งไม่อยู่ในบทคัดย่อ</p>
+<h2 id="s-6-4">6.4 การวิพากษ์บทความทบทวนและบทความเชิงแนวคิด</h2>
+<h3 id="s-6-4-1">6.4.1 บทความทบทวน</h3>
+<p>บทความทบทวนมีข้อมูลคือบทความอื่น การวิพากษ์จึงเริ่มจากการตัดสินใจที่เปลี่ยนชุดข้อมูลนั้น บทที่ 5 หัวข้อ 5.3.5 แสดงว่า Hanelt และคณะ (2021) กับ Vial (2019) ตัดสินใจต่างกันในฐานข้อมูล เกณฑ์คัดเลือก และวิธีลงรหัส การวิเคราะห์อภิมานเพิ่มคำถามอีกชั้น คือมุมมองทางทฤษฎีของผู้ทบทวน Pu และ Liu (2023) ทบทวนงานความสามารถในการดูดซับจากมุมมองเชิงสร้างสรรค์ความรู้ (constructivism) และชี้ว่าแนวคิดเดิมตั้งบนมุมมองเชิงปัญญา (cognitivism) และกระบวนการเชิงเส้น การเลือกมุมมองนี้กำหนดว่าผู้เขียนจะมองหาตัวกำกับแบบใด</p>
+<p class="tcap"><b>ตารางที่ 6.6</b> คำถามวิพากษ์บทความทบทวนและบทความเชิงแนวคิด</p>
+<div class="tablewrap"><table><thead><tr><th>ชนิดบทความ</th><th>คำถามวิพากษ์</th><th>ตัวอย่างจากงานในวิชานี้</th></tr></thead><tbody><tr><td>ทบทวนอย่างเป็นระบบ</td><td>ฐานข้อมูลและเกณฑ์คัดเลือกตัดงานกลุ่มใดออก</td><td>Hanelt และคณะ (2021) ใช้ฐานเดียว คัดด้วย FT50 และจำนวนการอ้าง (p. 1163)</td></tr><tr><td>ทบทวนแบบอุปนัย</td><td>หมวดที่ได้มาจากข้อมูลจริงหรือจากกรอบที่ผู้เขียนมีอยู่ก่อน</td><td>Vial (2019) ทบทวนแบบอุปนัยห้าขั้นตามแนวทางของ Wolfswinkel และคณะ (p. 119)</td></tr><tr><td>วิเคราะห์อภิมาน</td><td>งานที่รวมไว้มีคุณภาพและการวัดเทียบกันได้หรือไม่ มุมมองของผู้ทบทวนกำหนดตัวกำกับอย่างไร</td><td>Pu และ Liu (2023) 58 งาน แบบจำลองผลสุ่ม (pp. 11, 14)</td></tr><tr><td>บรรณมิติ</td><td>ข้อมูลการอ้างอิงบอกสิ่งที่ผู้เขียนสรุปได้จริงหรือไม่</td><td>Fagerberg และคณะ (2012) ใช้การอ้างในคู่มือ 11 เล่ม (pp. 4–6)</td></tr><tr><td>เชิงแนวคิด</td><td>นิยามชัด ขอบเขตชัด และข้อเสนอนำไปทดสอบได้หรือไม่</td><td>Adner (2017) ใช้ข้อเสนอคุณค่ากำหนดขอบเขตของระบบนิเวศ</td></tr><tr><td>เชิงแนวคิดที่สังเคราะห์นิยาม</td><td>นิยามสังเคราะห์ครอบนิยามเดิมโดยไม่ขัดกันเองหรือไม่</td><td>Granstrand และ Holgersson (2020) ทบทวน 120 งาน พบ 21 นิยาม</td></tr></tbody></table></div>
+<p>ที่มา คอลัมน์คำถามเป็นข้อสังเคราะห์ของผู้เรียบเรียง ตัวอย่างจากงานที่อ้าง</p>
+<h3 id="s-6-4-2">6.4.2 บทความเชิงแนวคิด</h3>
+<p>บทความเชิงแนวคิดไม่มีข้อมูลให้ตรวจ การวิพากษ์จึงย้ายไปที่ตรรกะ ผู้เรียบเรียงเสนอให้ถามสามข้อ นิยามแนวคิดหลักชัดพอจะวัดได้หรือไม่ ขอบเขตของทฤษฎีบอกไว้หรือไม่ว่าใช้กับกรณีใดไม่ได้ และข้อเสนอแต่ละข้อทดสอบได้ด้วยข้อมูลแบบใด ตัวอย่างคือ Adner (2017) ที่ใช้ข้อเสนอคุณค่าหลักกำหนดขอบเขตของระบบนิเวศ (บทที่ 4 หัวข้อ 4.2) ซึ่งตอบคำถามเรื่องขอบเขตได้ชัด แต่การทดสอบข้อเสนอต้องใช้ข้อมูลระดับโครงสร้างที่เก็บยาก</p>
+<h2 id="s-6-5">6.5 การเขียนและนำเสนอ critical review</h2>
+<h3 id="s-6-5-1">6.5.1 โครงของ critical review หนึ่งเรื่อง</h3>
+<p>ใบงานที่ 3 ให้เขียน critical review บทความ 2 เรื่องที่เลือกในบทที่ 5 ตารางที่ 6.7 เป็นโครงที่เสนอสำหรับแต่ละเรื่อง</p>
+<p class="tcap"><b>ตารางที่ 6.7</b> โครงของ critical review บทความหนึ่งเรื่อง</p>
+<div class="tablewrap"><table><thead><tr><th>ส่วน</th><th>เนื้อหา</th><th>ความยาวเสนอ</th></tr></thead><tbody><tr><td>1. ข้อมูลบทความ</td><td>รายการอ้างอิงแบบ APA และเหตุผลที่เลือกตามเกณฑ์ในบทที่ 5 หัวข้อ 5.4.2</td><td>3–5 บรรทัด</td></tr><tr><td>2. สรุปบทความ</td><td>คำถาม ทฤษฎี ข้อมูล วิธีวิเคราะห์ และข้อค้นพบหลัก โดยไม่วิพากษ์</td><td>ครึ่งหน้า</td></tr><tr><td>3. จุดเด่น</td><td>สองหรือสามข้อ แต่ละข้อผูกกับด้านในตารางที่ 6.1 และบอกผลต่อข้อสรุป</td><td>ครึ่งหน้า</td></tr><tr><td>4. ข้อจำกัดที่ผู้เขียนระบุ</td><td>ข้อจำกัดพร้อมเลขหน้า และผลต่อข้อสรุป</td><td>1–2 ย่อหน้า</td></tr><tr><td>5. ข้อจำกัดที่ผู้อ่านพบเพิ่ม</td><td>สองหรือสามข้อ แต่ละข้อมีหลักฐานจากบทความ และบอกว่าข้อสรุปข้อใดอ่อนลง</td><td>ครึ่งถึงหนึ่งหน้า</td></tr><tr><td>6. ข้อเสนอสำหรับงานวิจัยถัดไป</td><td>งานวิจัยแบบใดจะแก้ข้อจำกัดในส่วนที่ 5</td><td>1 ย่อหน้า</td></tr><tr><td>7. ความเกี่ยวข้องกับข้อเสนอวิจัยของตน</td><td>ใช้อะไรจากบทความนี้ และหลีกเลี่ยงอะไร</td><td>1 ย่อหน้า</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียงจัดทำ</p>
+<p>ส่วนที่ 2 ต้องแยกจากส่วนที่ 3 ถึง 5 อย่างเด็ดขาด การสรุปที่ปนการวิจารณ์ทำให้ผู้อ่านไม่รู้ว่าข้อความใดเป็นของผู้เขียนบทความ และข้อความใดเป็นของผู้วิพากษ์ ส่วนที่ 6 เชื่อมไปยังบทที่ 8 เพราะข้อจำกัดของงานเดิมเป็นแหล่งหนึ่งของช่องว่างองค์ความรู้</p>
+<h3 id="s-6-5-2">6.5.2 ภาษาของการวิพากษ์</h3>
+<p>การวิพากษ์ใช้ภาษาที่ระบุหลักฐานและระดับความแน่ใจ ประโยคที่ควรใช้ เช่น "ตัวแปรตามมาจากแบบสอบถามชุดเดียวกับตัวแปรต้น (หน้า ...) จึงอาจมีความลำเอียงจากวิธีวัดร่วม ผู้เขียนใช้เพียงการทดสอบปัจจัยเดียวของ Harman ซึ่งเป็นการวินิจฉัย ไม่ใช่การควบคุม" ประโยคที่ควรเลี่ยง เช่น "งานนี้มีระเบียบวิธีที่อ่อน" ซึ่งไม่บอกว่าอ่อนตรงไหนและกระทบอะไร</p>
+<h3 id="s-6-5-3">6.5.3 การนำเสนอในสัปดาห์ที่ 8</h3>
+<p>การนำเสนอ critical review ในสัปดาห์ที่ 8 ไม่ใช่การอ่านรายงาน ผู้เรียบเรียงเสนอให้ใช้เวลาส่วนใหญ่กับข้อจำกัดที่ผู้อ่านพบเพิ่มหนึ่งข้อที่สำคัญที่สุด พร้อมหลักฐานจากบทความ แล้วเปิดให้ผู้ฟังโต้แย้ง ผู้ฟังทำหน้าที่ผู้วิพากษ์ของผู้วิพากษ์ คือถามว่าข้อจำกัดนั้นผู้เขียนตอบไว้แล้วในส่วนใดของบทความหรือไม่</p>
+<h2 id="s-6-6">6.6 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้มีสองบทบาท งานด้านระเบียบวิธีให้เกณฑ์ และงานเชิงประจักษ์เป็นตัวอย่างของการวิพากษ์ ตารางต่อไปนี้สรุปงานทั้งหมด</p>
+<p class="tcap"><b>ตารางที่ 6.8</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Henderson และ Clark (1990)</td><td>ความล้มเหลวของบริษัทที่ครองตลาด</td><td>การศึกษาภาคสนามสองปี</td><td>ตัวอย่างการวิพากษ์งานเชิงคุณภาพ</td></tr><tr><td>Tripsas และ Gavetti (2000)</td><td>ความเข้าใจของผู้บริหารกับขีดความสามารถ</td><td>กรณีศึกษาเชิงลึก Polaroid</td><td>กรณีในกล่อง (บทคัดย่อ)</td></tr><tr><td>Laursen และ Salter (2006)</td><td>ความเปิดของการค้นกับผลงานนวัตกรรม</td><td>ข้อมูลสำรวจ 2,707 บริษัท</td><td>ตัวอย่างการวิพากษ์ตามเจ็ดด้าน</td></tr><tr><td>Edmondson และ McManus (2007)</td><td>ความสอดคล้องเชิงระเบียบวิธี</td><td>บทความเชิงแนวคิด</td><td>สี่องค์ประกอบ (บทคัดย่อ)</td></tr><tr><td>Siggelkow (2007)</td><td>การเขียนงานกรณีศึกษาให้น่าเชื่อ</td><td>บทความเชิงระเบียบวิธี</td><td>จุดประสงค์ของกรณีศึกษา (บทคัดย่อ)</td></tr><tr><td>Strauss และ Smith (2009)</td><td>ความตรงเชิงโครงสร้าง</td><td>บทความทบทวน</td><td>การตรวจเครื่องมือวัดและทฤษฎีพร้อมกัน</td></tr><tr><td>Fagerberg และคณะ (2012)</td><td>ฐานความรู้ของการศึกษานวัตกรรม</td><td>บรรณมิติ</td><td>ตัวอย่างบทความบรรณมิติ</td></tr><tr><td>Laursen และ Salter (2014)</td><td>การถือครองผลประโยชน์กับความเปิด</td><td>ข้อมูลสำรวจ 2,931 บริษัท</td><td>ตัวอย่างการพัฒนามาตรวัด</td></tr><tr><td>Steegen และคณะ (2016)</td><td>ความเปราะบางของผลต่อทางเลือกในการเตรียมข้อมูล</td><td>ข้อเสนอเชิงระเบียบวิธี</td><td>การวิเคราะห์พหุจักรวาล</td></tr><tr><td>Adner (2017)</td><td>ระบบนิเวศในฐานะโครงสร้าง</td><td>บทความเชิงแนวคิด</td><td>ตัวอย่างการวิพากษ์บทความเชิงแนวคิด</td></tr><tr><td>Vial (2019)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนแบบอุปนัย</td><td>ตัวอย่างการวิพากษ์บทความทบทวน</td></tr><tr><td>Granstrand และ Holgersson (2020)</td><td>นิยามระบบนิเวศนวัตกรรม</td><td>ทบทวน 120 งาน</td><td>ตัวอย่างการสังเคราะห์นิยาม</td></tr><tr><td>Hanelt และคณะ (2021)</td><td>การเปลี่ยนแปลงทางดิจิทัล</td><td>ทบทวนอย่างเป็นระบบ</td><td>ข้อจำกัดที่ผู้เขียนระบุ</td></tr><tr><td>Pu และ Liu (2023)</td><td>ความสามารถในการดูดซับกับผลการดำเนินงาน</td><td>วิเคราะห์อภิมาน</td><td>มุมมองของผู้ทบทวน</td></tr><tr><td>Podsakoff และคณะ (2024)</td><td>ความลำเอียงจากวิธีวัดร่วม</td><td>บทความทบทวน</td><td>วิธีแก้สามกลุ่มและข้อจำกัดของการทดสอบของ Harman</td></tr><tr><td>Preißner และคณะ (2024)</td><td>แหล่งของนวัตกรรมแบบรบกวน</td><td>ชุดข้อมูลกรณี 60 เรื่อง</td><td>ข้อจำกัดที่ผู้เขียนระบุ</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Tripsas และ Gavetti Edmondson และ McManus และ Siggelkow มาจากบทคัดย่อ ข้อมูลของ Podsakoff และคณะ มาจากโน้ตคลังวิจัยที่ตรวจกับต้นฉบับแต่ไม่ได้ระบุหน้า งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว</p>
+<h2 id="s-6-7">6.7 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยในงาน critical review ของผู้วิจัยมือใหม่</p>
+<p class="tcap"><b>ตารางที่ 6.9</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>สรุปบทความแทนการวิพากษ์</td><td>ไม่ได้บอกว่าเชื่อข้อสรุปได้เพียงใด</td><td>แยกส่วนสรุปออกจากส่วนวิพากษ์ตามตารางที่ 6.7</td></tr><tr><td>เขียนจุดเด่นแบบกว้าง</td><td>ไม่บอกว่าช่วยข้อสรุปข้อใด</td><td>ผูกกับด้านในตารางที่ 6.1 และบอกผล</td></tr><tr><td>ทวนข้อจำกัดที่ผู้เขียนเขียนไว้แล้ว</td><td>ไม่มีอะไรใหม่จากผู้วิพากษ์</td><td>แยกข้อจำกัดสองชั้น (หัวข้อ 6.1.3)</td></tr><tr><td>วิพากษ์ว่ากลุ่มตัวอย่างของกรณีศึกษาเล็ก</td><td>ใช้เกณฑ์ของงานเชิงปริมาณกับงานเชิงคุณภาพ (Siggelkow, 2007)</td><td>ใช้คำถามในตารางที่ 6.5</td></tr><tr><td>ยอมรับการทดสอบของ Harman ว่าแก้ความลำเอียงแล้ว</td><td>เป็นการวินิจฉัย ไม่ใช่การควบคุม (Podsakoff et al., 2024)</td><td>ตรวจแหล่งของตัวแปรตามและวิธีป้องกันในการออกแบบ</td></tr><tr><td>ถือว่าค่า α สูงแปลว่าวัดถูกแนวคิด</td><td>ความเที่ยงไม่ใช่ความตรง (Strauss &amp; Smith, 2009)</td><td>หาหลักฐานความตรงเชิงเหมือนและเชิงจำแนก</td></tr><tr><td>วิพากษ์จากบทคัดย่อ</td><td>เส้นทางจากข้อมูลถึงข้อสรุปไม่อยู่ในบทคัดย่อ</td><td>อ่านฉบับเต็ม (บทที่ 5 หัวข้อ 5.4.2)</td></tr><tr><td>ใช้ภาษากว้าง เช่น "ระเบียบวิธีอ่อน"</td><td>ไม่ระบุหลักฐานและผลกระทบ</td><td>ระบุหน้า หลักฐาน และข้อสรุปที่อ่อนลง (หัวข้อ 6.5.2)</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: Polaroid กับการเปลี่ยนสู่ภาพดิจิทัล บทความที่ต้องอ่านฉบับเต็มก่อนวิพากษ์</div><p>Tripsas และ Gavetti (2000) เริ่มจากหลักฐานเชิงประจักษ์ว่าบริษัทที่ตั้งมั่นแล้วมักปรับตัวต่อการเปลี่ยนแปลงทางเทคโนโลยีแบบถอนรากได้ยาก และชี้ว่างานในสายวิวัฒนาการเน้นแรงเฉื่อยจากการเรียนรู้แบบเฉพาะที่ แต่ให้ความสนใจน้อยกับบทบาทของความเข้าใจของผู้บริหาร (บทคัดย่อ)</p><p>ผู้เขียนใช้กรณีศึกษาเชิงลึกของ Polaroid ในการเปลี่ยนจากภาพแอนะล็อกสู่ภาพดิจิทัล และสรุปว่าภาพแทนความคิดของผู้บริหารกำหนดทิศทางการค้นหาในสภาพแวดล้อมการเรียนรู้ใหม่ เส้นทางวิวัฒนาการของขีดความสามารถ และกระบวนการปรับตัวขององค์กร (บทคัดย่อ)</p><p>บทความนี้เชื่อมกับบทที่ 3 หัวข้อ 3.2 เรื่องบริษัทที่ครองตลาดพลาดนวัตกรรม แต่เสนอกลไกอีกแบบ คือความเข้าใจของผู้บริหาร ไม่ใช่โครงสร้างความรู้เชิงสถาปัตยกรรมขององค์กร</p><p>เอกสารนี้อ่านได้เฉพาะบทคัดย่อ จึงไม่ได้บอกว่าผู้เขียนเก็บข้อมูลอย่างไร นานเท่าใด และแยกความเข้าใจของผู้บริหารออกจากปัจจัยอื่นอย่างไร ซึ่งเป็นสิ่งที่ต้องวิพากษ์</p><p class="q"><b>คำถามชวนคิด</b> ถ้านิสิตเลือกบทความนี้สำหรับ critical review นิสิตต้องหาข้อมูลใดในฉบับเต็มเพื่อตอบคำถามในตารางที่ 6.5 แต่ละแถว และคำอธิบายทางเลือกใดที่ผู้เขียนต้องตัดออกเพื่อให้ข้อสรุปเรื่องความเข้าใจของผู้บริหารน่าเชื่อ</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ทักษะที่ใช้ในทุกส่วนที่เหลือของข้อเสนอวิจัย ข้อจำกัดที่นิสิตพบในใบงานที่ 3 เป็นแหล่งหนึ่งของช่องว่างองค์ความรู้ในบทที่ 8</p><p>นิสิตควรใช้ตารางที่ 6.1 ตรวจข้อเสนอวิจัยของตนเองด้วย ก่อนผู้ประเมินในสัปดาห์ที่ 16 จะใช้เกณฑ์แบบเดียวกัน</p><p>บทที่ 7 จะใช้คำถามในตารางที่ 6.5 กลับด้าน คือออกแบบงานเชิงคุณภาพของตนให้ตอบคำถามเหล่านั้นได้ตั้งแต่ต้น</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรอ่านบทความวิจัยหนึ่งเรื่องตามเจ็ดด้าน คือคำถาม ทฤษฎี การออกแบบ การวัด การวิเคราะห์ การอนุมาน และการมีส่วนสนับสนุน และเขียนทั้งจุดเด่นและข้อจำกัดโดยผูกกับหลักฐานในบทความและบอกผลต่อข้อสรุป</p>
+<p>นิสิตควรรู้ว่าแต่ละชนิดบทความมีคำถามวิพากษ์ต่างกัน งานเชิงปริมาณต้องตรวจความตรงของการวัด ความลำเอียงจากวิธีวัดร่วม และความทนทานของผลต่อทางเลือกในการวิเคราะห์ งานเชิงคุณภาพต้องตรวจการเลือกกรณีและเส้นทางจากข้อมูลถึงแนวคิด ส่วนบทความทบทวนและบทความเชิงแนวคิดต้องตรวจการตัดสินใจในขั้นตอนและตรรกะของนิยาม</p>
+<p>นิสิตนำความรู้นี้ไปใช้ทันทีกับใบงานที่ 3 ด้วยโครงในตารางที่ 6.7 และใช้ตารางที่ 6.9 ตรวจงานของตนก่อนส่งและก่อนนำเสนอในสัปดาห์ที่ 8</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>การวิพากษ์ (critique)</li><li>การวิพากษ์บทความ (critical review)</li><li>ข้อจำกัดที่ผู้เขียนระบุ (stated limitations)</li><li>ความตรงเชิงโครงสร้าง (construct validity)</li><li>ความตรงเชิงเหมือน (convergent validity)</li><li>ความตรงเชิงจำแนก (discriminant validity)</li><li>ความเที่ยง (reliability)</li><li>เมทริกซ์หลายลักษณะหลายวิธี (multitrait multimethod matrix)</li><li>ความลำเอียงจากวิธีวัดร่วม (common method bias)</li><li>วิธีแก้เชิงกระบวนการ (procedural remedies)</li><li>การทดสอบปัจจัยเดียวของ Harman (Harman's single factor test)</li><li>การตรวจความทนทาน (robustness check)</li><li>การวิเคราะห์พหุจักรวาล (multiverse analysis)</li><li>คำอธิบายทางเลือก (alternative explanation)</li><li>การสรุปอ้างอิง (generalization)</li><li>ผู้ทรงคุณวุฒิ (peer reviewer)</li><li>ภาพแทนความคิดของผู้บริหาร (managerial cognitive representation)</li><li>มุมมองเชิงสร้างสรรค์ความรู้ (constructivism)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายเจ็ดด้านของการอ่านบทความวิจัยเชิงวิพากษ์ และบอกว่าขยายจากสี่องค์ประกอบของ Edmondson และ McManus (2007) อย่างไร</li><li>ทำไมจุดเด่นของบทความจึงต้องผูกกับข้อสรุป จงเขียนจุดเด่นหนึ่งข้อของ Laursen และ Salter (2006) ตามหลักนี้</li><li>จงเลือกคำถามวิพากษ์หนึ่งข้อในตารางที่ 6.2 แล้วตรวจกับฉบับเต็มของ Laursen และ Salter (2006) ว่าผู้เขียนตอบไว้แล้วหรือไม่</li><li>ความเที่ยงกับความตรงต่างกันอย่างไร จงใช้ดัชนีหกกลไกของ Laursen และ Salter (2014) อธิบาย</li><li>ความลำเอียงจากวิธีวัดร่วมเกิดขึ้นได้อย่างไรในงานวิจัยนวัตกรรมที่ใช้แบบสอบถาม และทำไมการทดสอบปัจจัยเดียวของ Harman จึงไม่พอ</li><li>การวิเคราะห์พหุจักรวาลของ Steegen และคณะ (2016) ช่วยผู้วิพากษ์ตั้งคำถามแบบใด</li><li>ทำไมการวิพากษ์ว่ากลุ่มตัวอย่างของกรณีศึกษาเล็กจึงไม่ใช่การวิพากษ์ที่ดี จงเสนอคำถามที่ดีกว่าหนึ่งข้อ</li><li>จงใช้ตารางที่ 6.5 วิเคราะห์จุดเด่นด้านคำอธิบายทางเลือกของ Henderson และ Clark (1990)</li><li>การเลือกมุมมองทางทฤษฎีของผู้ทบทวน เช่นใน Pu และ Liu (2023) มีผลต่อข้อสรุปของการวิเคราะห์อภิมานอย่างไร</li><li>จงเขียนส่วนที่ 5 ของตารางที่ 6.7 หนึ่งข้อ สำหรับบทความหนึ่งเรื่องที่นิสิตเลือก พร้อมหลักฐานและข้อสรุปที่อ่อนลง</li></ol>
+<h2 id="x288">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Laursen และ Salter (2006) อ่านทั้งเรื่อง คำถามนำอภิปราย ข้อจำกัดใดที่ผู้เขียนไม่ได้ระบุ และกระทบข้อสรุปรูปตัวยูคว่ำหรือไม่</li><li>Tripsas และ Gavetti (2000) อ่านทั้งเรื่อง คำถามนำอภิปราย ผู้เขียนแยกความเข้าใจของผู้บริหารออกจากปัจจัยด้านทรัพยากรได้อย่างไร</li><li>Podsakoff และคณะ (2024) อ่านส่วนวิธีแก้ คำถามนำอภิปราย งานวิจัยนวัตกรรมในประเทศไทยที่ใช้แบบสอบถามป้องกันความลำเอียงจากวิธีวัดร่วมได้ด้วยวิธีใด</li><li>Hanelt และคณะ (2021) อ่านส่วนวิธีการและข้อจำกัด คำถามนำอภิปราย ข้อจำกัดข้อใดที่ผู้เขียนระบุกระทบกรอบที่ได้มากที่สุด</li></ol>
+<div class="box ws" id="ws"><div class="bt">งานของกลุ่ม</div><h2>ใบงานที่ 3 แบบวิพากษ์บทความวิจัย</h2>
+<p>ส่งก่อนเริ่มเรียนสัปดาห์ที่ 7 ใบงานนี้เป็นงาน critical review บทความวิจัย 2 เรื่อง ประเมินตามรูบริก 1 และใช้เป็นฐานของการนำเสนอในสัปดาห์ที่ 8</p>
+<ol><li>ใช้บทความ 2 เรื่องที่เลือกในบทที่ 5 ตามเกณฑ์ในหัวข้อ 5.4.2 สองเรื่องต้องใช้รูปแบบการวิจัยต่างกัน</li><li>แนบตารางบันทึกการอ่านจากบทที่ 5 หัวข้อ 5.4.1 ของทั้งสองเรื่อง</li><li>เขียน critical review แต่ละเรื่องตามโครงเจ็ดส่วนในตารางที่ 6.7 ทุกข้อความที่อ้างบทความต้องมีเลขหน้า</li><li>ในส่วนที่ 3 และ 5 ระบุว่าแต่ละข้อเป็นด้านใดในตารางที่ 6.1</li><li>ถ้าบทความเป็นเชิงปริมาณ ตอบให้ครบว่าตัวแปรต้นและตัวแปรตามมาจากแหล่งใด และผู้เขียนรับมือความลำเอียงจากวิธีวัดร่วมอย่างไร ถ้าเป็นเชิงคุณภาพ ตอบคำถามในตารางที่ 6.5 ให้ครบทุกแถว</li><li>ปิดท้ายด้วยย่อหน้าเปรียบเทียบสองเรื่อง ว่ารูปแบบการวิจัยที่ต่างกันทำให้ข้อจำกัดต่างกันอย่างไร</li><li>ตรวจงานกับตารางที่ 6.9 ก่อนส่ง และเขียนรายการอ้างอิงแบบ APA</li></ol>
+</div>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Adner, R. (2017). Ecosystem as structure: An actionable construct for strategy. <em>Journal of Management</em>, <em>43</em>(1), 39–58. <a href="https://doi.org/10.1177/0149206316678451" target="_blank" rel="noopener">https://doi.org/10.1177/0149206316678451</a></div>
+<div class="r">Edmondson, A. C., &amp; McManus, S. E. (2007). Methodological fit in management field research. <em>Academy of Management Review</em>, <em>32</em>(4), 1246–1264. <a href="https://doi.org/10.5465/amr.2007.26586086" target="_blank" rel="noopener">https://doi.org/10.5465/amr.2007.26586086</a></div>
+<div class="r">Fagerberg, J., Fosaas, M., &amp; Sapprasert, K. (2012). Innovation: Exploring the knowledge base. <em>Research Policy</em>, <em>41</em>(7), 1132–1153. <a href="https://doi.org/10.1016/j.respol.2012.03.008" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2012.03.008</a></div>
+<div class="r">Granstrand, O., &amp; Holgersson, M. (2020). Innovation ecosystems: A conceptual review and a new definition. <em>Technovation</em>, <em>90–91</em>, 102098. <a href="https://doi.org/10.1016/j.technovation.2019.102098" target="_blank" rel="noopener">https://doi.org/10.1016/j.technovation.2019.102098</a></div>
+<div class="r">Hanelt, A., Bohnsack, R., Marz, D., &amp; Antunes Marante, C. (2021). A systematic review of the literature on digital transformation: Insights and implications for strategy and organizational change. <em>Journal of Management Studies</em>, <em>58</em>(5), 1159–1197. <a href="https://doi.org/10.1111/joms.12639" target="_blank" rel="noopener">https://doi.org/10.1111/joms.12639</a></div>
+<div class="r">Henderson, R. M., &amp; Clark, K. B. (1990). Architectural innovation: The reconfiguration of existing product technologies and the failure of established firms. <em>Administrative Science Quarterly</em>, <em>35</em>(1), 9–30. <a href="https://doi.org/10.2307/2393549" target="_blank" rel="noopener">https://doi.org/10.2307/2393549</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. (2006). Open for innovation: The role of openness in explaining innovation performance among U.K. manufacturing firms. <em>Strategic Management Journal</em>, <em>27</em>(2), 131–150. <a href="https://doi.org/10.1002/smj.507" target="_blank" rel="noopener">https://doi.org/10.1002/smj.507</a></div>
+<div class="r">Laursen, K., &amp; Salter, A. J. (2014). The paradox of openness: Appropriability, external search and collaboration. <em>Research Policy</em>, <em>43</em>(5), 867–878. <a href="https://doi.org/10.1016/j.respol.2013.10.004" target="_blank" rel="noopener">https://doi.org/10.1016/j.respol.2013.10.004</a></div>
+<div class="r">Podsakoff, P. M., Podsakoff, N. P., Williams, L. J., Huang, C., &amp; Yang, J. (2024). Common method bias: It's bad, it's complex, it's widespread, and it's not easy to fix. <em>Annual Review of Organizational Psychology and Organizational Behavior</em>, <em>11</em>(1), 17–61. <a href="https://doi.org/10.1146/annurev-orgpsych-110721-040030" target="_blank" rel="noopener">https://doi.org/10.1146/annurev-orgpsych-110721-040030</a></div>
+<div class="r">Preißner, S., Raasch, C., &amp; Schweisfurth, T. (2024). When necessity is the mother of disruption: Users versus producers as sources of disruptive innovation. <em>Journal of Product Innovation Management</em>, <em>41</em>(1), 62–85. <a href="https://doi.org/10.1111/jpim.12709" target="_blank" rel="noopener">https://doi.org/10.1111/jpim.12709</a></div>
+<div class="r">Pu, K., &amp; Liu, W. (2023). Is absorptive capacity the "panacea" for organizational development? A meta analysis of absorptive capacity and firm performance from the perspective of constructivism. <em>PLOS ONE</em>, <em>18</em>(2), e0282321. <a href="https://doi.org/10.1371/journal.pone.0282321" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0282321</a></div>
+<div class="r">Siggelkow, N. (2007). Persuasion with case studies. <em>Academy of Management Journal</em>, <em>50</em>(1), 20–24. <a href="https://doi.org/10.5465/amj.2007.24160882" target="_blank" rel="noopener">https://doi.org/10.5465/amj.2007.24160882</a></div>
+<div class="r">Steegen, S., Tuerlinckx, F., Gelman, A., &amp; Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. <em>Perspectives on Psychological Science</em>, <em>11</em>(5), 702–712. <a href="https://doi.org/10.1177/1745691616658637" target="_blank" rel="noopener">https://doi.org/10.1177/1745691616658637</a></div>
+<div class="r">Strauss, M. E., &amp; Smith, G. T. (2009). Construct validity: Advances in theory and methodology. <em>Annual Review of Clinical Psychology</em>, <em>5</em>(1), 1–25. <a href="https://doi.org/10.1146/annurev.clinpsy.032408.153639" target="_blank" rel="noopener">https://doi.org/10.1146/annurev.clinpsy.032408.153639</a></div>
+<div class="r">Tripsas, M., &amp; Gavetti, G. (2000). Capabilities, cognition, and inertia: Evidence from digital imaging. <em>Strategic Management Journal</em>, <em>21</em>(10–11), 1147–1161. <a href="https://doi.org/10.1002/1097-0266(200010/11)21:10/11&lt;1147::aid-smj128&gt;3.0.co;2-r" target="_blank" rel="noopener">https://doi.org/10.1002/1097-0266(200010/11)21:10/11&lt;1147::aid-smj128&gt;3.0.co;2-r</a></div>
+<div class="r">Vial, G. (2019). Understanding digital transformation: A review and a research agenda. <em>The Journal of Strategic Information Systems</em>, <em>28</em>(2), 118–144. <a href="https://doi.org/10.1016/j.jsis.2019.01.003" target="_blank" rel="noopener">https://doi.org/10.1016/j.jsis.2019.01.003</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 6 การประเมินคุณค่าของงานวิจัยนวัตกรรมที่โดดเด่น. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_06.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_05.html"><small>◀ บทก่อนหน้า</small>บทที่ 5 รูปแบบการวิจัยเชิงนวัตกรรมเพื่อค้นหากระบวนทัศน์ใหม่</a><a href="ai_lesson_07.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 7 การออกแบบงานวิจัยเชิงคุณภาพเพื่อสำรวจปรากฏการณ์นวัตกรรมเชิงลึก</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/06/s-01.jpg', 'ai/slides/06/s-02.jpg', 'ai/slides/06/s-03.jpg', 'ai/slides/06/s-04.jpg', 'ai/slides/06/s-05.jpg', 'ai/slides/06/s-06.jpg', 'ai/slides/06/s-07.jpg', 'ai/slides/06/s-08.jpg', 'ai/slides/06/s-09.jpg', 'ai/slides/06/s-10.jpg', 'ai/slides/06/s-11.jpg', 'ai/slides/06/s-12.jpg', 'ai/slides/06/s-13.jpg', 'ai/slides/06/s-14.jpg', 'ai/slides/06/s-15.jpg', 'ai/slides/06/s-16.jpg', 'ai/slides/06/s-17.jpg', 'ai/slides/06/s-18.jpg', 'ai/slides/06/s-19.jpg', 'ai/slides/06/s-20.jpg', 'ai/slides/06/s-21.jpg', 'ai/slides/06/s-22.jpg', 'ai/slides/06/s-23.jpg', 'ai/slides/06/s-24.jpg', 'ai/slides/06/s-25.jpg', 'ai/slides/06/s-26.jpg', 'ai/slides/06/s-27.jpg', 'ai/slides/06/s-28.jpg', 'ai/slides/06/s-29.jpg', 'ai/slides/06/s-30.jpg', 'ai/slides/06/s-31.jpg', 'ai/slides/06/s-32.jpg', 'ai/slides/06/s-33.jpg', 'ai/slides/06/s-34.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>

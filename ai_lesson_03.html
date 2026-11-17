@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 3 ทฤษฎีนวัตกรรมขั้นสูงระดับองค์กร · วิชา 0907508</title>
+<meta name="description" content="บทเรียนบทที่ 3 วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#141D3F;--blue:#2F5BD0;--teal:#2FA392;--amber:#E9A72C;--gold:#F4C150;--ink:#20262E;--mute:#5C6B7A;--line:#E2E7F0;--tint:#F1F5FC;--bg:#F7F8FB;--panel:#fff;--shadow:0 4px 18px rgba(17,34,51,.07);--maxread:780px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Sarabun','Segoe UI',Tahoma,'Leelawadee UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.topbar{background:var(--navy);color:#fff;position:sticky;top:0;z-index:40}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.brandname{flex:1;min-width:0;font-size:15px;font-weight:700;color:#fff;line-height:1.35}.brandname:hover{text-decoration:none}.brandname small{display:block;font-size:11.5px;color:#9DB0D6;font-weight:400}
+.tools{display:flex;gap:6px}.tools button,.tools a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;height:34px;font-weight:600;padding:0 12px;font-size:13px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+.tools button:hover,.tools a:hover{background:var(--blue);text-decoration:none}
+#progress{height:3px;background:rgba(255,255,255,.15)}#progress .bar{height:100%;width:0;background:var(--gold);transition:.15s}
+/* ปก */
+.cover{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:52px 0 46px}
+.cover .kick{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:13px}
+.cover h1{font-size:34px;line-height:1.28;margin:12px 0 6px;max-width:760px}
+.cover .sub{font-size:17px;color:#CADCFC;max-width:700px}
+.cover .by{margin-top:20px;font-size:15px;color:#E6EEFB}.cover .by b{color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.14);padding:6px 14px;border-radius:20px;font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:inherit}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn:hover{text-decoration:none;filter:brightness(1.05)}
+/* หน้าวิชา */
+section.sec{padding:30px 0 4px}
+.sec>h2,.hh{font-size:24px;color:var(--navy);margin-bottom:12px;border-bottom:2px solid var(--amber);display:inline-block;padding-bottom:4px}
+.sec p{margin:0 0 14px}.pre{font-size:16.5px;color:#333}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.ch{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
+.ch:hover{transform:translateY(-2px);border-left-color:var(--amber);text-decoration:none}
+.ch .n{flex:0 0 42px;height:42px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.ch .t{font-size:16px;color:var(--navy);font-weight:600;line-height:1.4}
+.ch .st{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.5}
+.ch .tag{display:inline-block;font-size:12px;color:#9A6B00;background:#FBF3DF;border-radius:20px;padding:1px 9px;margin-top:5px;line-height:1.5}
+.box{border-radius:14px;padding:18px 22px;box-shadow:var(--shadow);margin:14px 0}
+.box .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.info{background:var(--tint);border:1px solid #CFDBF2}.info b{color:var(--navy)}
+.lic{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue);border-radius:6px;padding:1px 9px;font-weight:600;font-size:13px}
+.cite,.citebox{background:var(--navy);color:#EAF0FB}.cite .bt,.citebox .bt{color:var(--gold)}
+.cite code,.citebox code{display:block;background:rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;font-family:inherit;font-size:14.5px;line-height:1.7;color:#fff}
+.citebox{border-radius:14px;padding:18px 22px;margin:26px 0 0;box-shadow:var(--shadow)}.citebox .bt{font-size:12.5px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
+.cpbtn{margin-top:10px;background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 16px;font-family:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.st2{border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);background:#fff;box-shadow:var(--shadow)}
+.st2:hover{text-decoration:none;border-color:var(--blue)}.st2.big{border:2px solid var(--amber);background:#FFF9EC}
+.st2 .sw{font-size:12px;font-weight:800;color:var(--blue)}.st2 .sn{font-weight:700;color:var(--navy);line-height:1.4}.st2 .so{font-size:14px;color:var(--mute);line-height:1.5}
+details.plan{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:8px}
+details.plan summary{cursor:pointer;padding:12px 18px;font-weight:700;color:var(--navy)}
+details.plan .tablewrap{padding:0 14px 14px}
+.dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px}
+.dl a{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--navy);font-size:15px}
+.dl a span{color:var(--mute);font-size:13px;white-space:nowrap}.dl a:hover{border-color:var(--blue);text-decoration:none}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.howto ul{margin:6px 0 0 20px}.howto li{margin:3px 0}.howto code{background:#fff;border-radius:4px;padding:0 4px;font-size:.92em}
+.wsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.wsc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column}
+.wsc:hover{text-decoration:none;border-top-color:var(--blue)}.wsc .w{font-size:12px;font-weight:800;color:var(--blue)}
+.wsc h3{font-size:16px;color:var(--navy);line-height:1.4;margin:4px 0 6px}.wsc p{font-size:14px;color:var(--mute);margin:0 0 8px;line-height:1.6}.wsc .go{margin-top:auto;font-weight:700;font-size:14px;color:var(--blue)}
+/* หน้าบท */
+.shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:36px;padding:28px 20px 60px}
+#toc{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-size:13.5px}
+#toc .h{font-size:12px;letter-spacing:1px;color:var(--mute);font-weight:800;margin-bottom:10px}
+#toc a{display:block;color:var(--mute);padding:3px 10px;border-left:2px solid var(--line);line-height:1.4}#toc a:hover{color:var(--blue);text-decoration:none}
+#toc a.active{color:var(--navy);border-left-color:var(--amber);font-weight:700;background:var(--tint)}
+article{max-width:var(--maxread);min-width:0;font-size:18px;line-height:1.9}
+.eyebrow{font-size:12.5px;letter-spacing:2px;font-weight:800;color:var(--teal)}
+article h1{font-size:31px;line-height:1.3;color:var(--navy);margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:14px 0 12px}.meta b{color:var(--ink)}
+article .actions{margin:0 0 6px}
+article h2{font-size:23.5px;color:var(--navy);margin:36px 0 10px;padding-top:10px;line-height:1.35;border-top:1px solid var(--line);scroll-margin-top:80px}
+article h3{font-size:19px;color:var(--blue);margin:22px 0 8px;scroll-margin-top:80px}
+article p{margin:0 0 15px}article ul,article ol{margin:0 0 15px 26px}article li{margin-bottom:7px}
+.lead{font-size:17.5px;color:#3a4654}
+.obj{background:#fff;border:1px solid var(--line);border-top:4px solid var(--amber)}.obj .bt{color:var(--amber)}.obj ol{margin:6px 0 0 22px}
+.case{background:#EAF5F1;border:1px solid #C7E6DC}.case .bt{color:var(--teal)}
+.worked{background:#FFF9EC;border:1px solid #EBD8A6}.worked .bt{color:#9A6B00}
+.box p{margin:0 0 10px}.box p:last-child{margin-bottom:0}.box p.q{color:var(--navy)}
+.summary{background:#FBF3DF;border:1px solid #EBD8A6;scroll-margin-top:80px}.summary .bt{color:#9A6B00}
+.keyterm{background:#fff;border:1px solid var(--line);scroll-margin-top:80px}.keyterm .bt{color:var(--navy)}
+ul.terms{list-style:none;margin:4px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:16px}ul.terms li{margin:0;padding-left:14px;position:relative}ul.terms li:before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:2px;background:var(--amber)}
+.keyterm dt{font-weight:700;color:var(--navy);margin-top:8px}.keyterm dd{margin:0 0 4px;font-size:16.5px}
+.ws{background:#fff;border:2px solid var(--amber);scroll-margin-top:80px}.ws .bt{color:var(--amber)}.ws h2{border-top:none;margin:0 0 10px;padding-top:0}
+p.tcap{margin:18px 0 6px;font-size:15px;color:var(--navy)}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.55;box-shadow:var(--shadow);background:#fff;border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even) td{background:#FAFBFE}
+figure.fig{margin:22px 0;text-align:center}figure.fig img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+figure.fig figcaption{font-size:14px;color:var(--mute);margin-top:10px;font-weight:700}
+p.src{font-size:14px;color:var(--mute)}
+ol.ex{margin-left:24px}ol.ex li{margin-bottom:10px}
+.refs{margin-top:10px}.refs .r{font-size:15.5px;padding-left:32px;text-indent:-32px;margin-bottom:10px}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+.navrow a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;font-size:14px;max-width:48%}.navrow a:hover{background:var(--blue);color:#fff;text-decoration:none}
+.navrow small{display:block;font-weight:400;color:var(--mute);font-size:12px}.navrow a:hover small{color:#dfe7ff}
+footer.ft{background:var(--navy);color:#9DB0D6;padding:22px 0;font-size:13px;text-align:center;line-height:1.7;margin-top:30px}
+/* โหมดนำเสนอ */
+#deck{position:fixed;inset:0;background:#0b0f22;z-index:100;display:none;flex-direction:column}#deck.on{display:flex}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:10px}
+#deck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+#deck .bar2{display:flex;align-items:center;gap:10px;justify-content:center;padding:10px;color:#cfd7ee;font-size:14px;transition:opacity .3s}
+#deck:fullscreen .stage{padding:0}#deck:fullscreen .bar2{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(11,15,34,.85))}
+#deck.idle .bar2{opacity:0;pointer-events:none}#deck.idle{cursor:none}
+#deck button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:7px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}#toc{display:none}article{font-size:17px}}
+@media(max-width:720px){.toc{grid-template-columns:1fr}ul.terms{grid-template-columns:1fr}.cover{padding:36px 0 32px}.cover h1{font-size:26px}
+ .wrap{padding:0 16px}.shell{padding:20px 16px 40px}article h1{font-size:25px}.tools .hide-m{display:none}.brandname{font-size:13px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.brandname small{display:none}.tools a{padding:0 10px}.navrow{flex-direction:column}.navrow a{max-width:none}}
+@media print{.topbar,#toc,.tools,.cpbtn,.navrow,.actions,#deck,.gc-views{display:none!important}.shell{display:block;max-width:100%;padding:0}
+ body{background:#fff}article{font-size:12pt}.box,table,.ch{box-shadow:none}.cover{background:none;color:#000;padding:0 0 10px}.cover .kick,.cover .sub,.cover .by,.pill{color:#000}figure,table,.box{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brandname" href="ai_0907508.html">วิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง<small>อ.ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม</small></a>
+  <div class="tools"><button class="hide-m" onclick="fsz(-1)">ก−</button><button class="hide-m" onclick="fsz(1)">ก+</button><a href="ai_0907508.html">📚 หน้าวิชา</a><a href="index.html">🏠 หน้าแรก</a><button class="hide-m" onclick="window.print()">พิมพ์ / PDF</button></div>
+</div><div id="progress"><div class="bar"></div></div></div>
+<div class="shell">
+<nav id="toc"><div class="h">สารบัญบทที่ 3</div><a href="#x6">ความนำ</a><a href="#s-3-1">3.1 ความไม่ต่อเนื่องทางเทคโนโลยีและแบบเด่น</a><a href="#s-3-2">3.2 นวัตกรรมเชิงสถาปัตยกรรมและนวัตกรรมแบบรบกวน</a><a href="#s-3-3">3.3 ความสามารถในการดูดซับ</a><a href="#s-3-4">3.4 การแสวงหาสิ่งใหม่ การใช้ประโยชน์จากของเดิม และความสามารถสองทาง</a><a href="#s-3-5">3.5 ความสามารถเชิงพลวัต</a><a href="#s-3-6">3.6 การได้ผลตอบแทนจากนวัตกรรม</a><a href="#s-3-7">3.7 การเลือกทฤษฎีเป็นเลนส์ของงานวิจัย</a><a href="#s-3-8">3.8 งานวิจัยที่เกี่ยวข้อง</a><a href="#s-3-9">3.9 ข้อผิดพลาดที่พบบ่อย</a><a href="#sum">บทสรุป</a><a href="#terms">คำศัพท์สำคัญ</a><a href="#review">คำถามทบทวน</a><a href="#x340">รายการอ่านสำหรับสัมมนา</a><a href="#refs">เอกสารอ้างอิง</a></nav>
+<article>
+<div class="eyebrow">เอกสารประกอบการสอน · รายวิชา 0907508 สัมมนาทางนวัตกรรมขั้นสูง</div>
+<h1>บทที่ 3 ทฤษฎีนวัตกรรมขั้นสูงระดับองค์กร</h1>
+<div class="meta"><span>ผู้เรียบเรียง: <b>อาจารย์ ดร.วราวุฒิ นาคบุญนำ</b></span><span>สัปดาห์ที่ <b>3</b></span><span><span class="lic">CC BY-NC-SA 4.0</span></span></div>
+<div class="actions"><button class="btn" onclick="openDeck(0)">▶ โหมดนำเสนอ (33 สไลด์)</button><a class="btn line" href="ai/files/ai_0907508_บทที่03_สไลด์.pptx" download>⬇ สไลด์ PowerPoint</a></div>
+<div class="box obj"><div class="bt">วัตถุประสงค์การเรียนรู้ประจำบท</div><p>เมื่อศึกษาบทนี้จบแล้ว นิสิตสามารถ</p><ol><li>อธิบายข้อเสนอหลัก กลไก และเงื่อนไขขอบเขตของทฤษฎีนวัตกรรมระดับองค์กรหกเรื่องในบทนี้ได้</li><li>เปรียบเทียบนวัตกรรมเชิงสถาปัตยกรรมกับนวัตกรรมแบบรบกวน ด้านคำถามที่ตอบ กลไกที่เสนอ และหลักฐานที่มีได้</li><li>จำแนกระดับของหลักฐานที่รองรับแต่ละทฤษฎี ว่าเป็นกรอบเชิงแนวคิด การศึกษาภาคสนาม หรือการสังเคราะห์เชิงปริมาณได้</li><li>วิเคราะห์กรณีศึกษาทางธุรกิจด้วยกรอบการได้ผลตอบแทนจากนวัตกรรม โดยระบุระบอบการถือครองผลประโยชน์และสินทรัพย์ส่วนเติมเต็มได้</li><li>เลือกทฤษฎีที่เหมาะกับคำถามวิจัยของตนตามแบบในตารางที่ 3.7 และอธิบายเหตุผลของการเลือกได้</li></ol></div>
+<h2 id="x6">ความนำ</h2>
+<p class="lead">บทที่ 1 แนะนำกระแสวิจัยนวัตกรรมระดับองค์กรแบบภาพรวม และวางแผนที่ไว้ในหัวข้อ 1.5 ว่าทฤษฎีใดจะลงลึกในบทนี้ บทที่ 2 ให้เครื่องมือค้นและสังเคราะห์วรรณกรรม บทนี้จึงทำงานต่อจากสองบทนั้น คือเปิดทฤษฎีแต่ละเรื่องให้เห็นข้างใน ว่าทฤษฎีตอบคำถามอะไร ใช้กลไกอะไรอธิบาย มีเงื่อนไขขอบเขตตรงไหน และหลักฐานที่รองรับอยู่ระดับใด</p>
+<p class="lead">ระดับปริญญาเอก การรู้ชื่อทฤษฎียังไม่พอ ผู้วิจัยต้องบอกได้ว่าทฤษฎีที่เลือกทำนายอะไรที่ทฤษฎีอื่นไม่ทำนาย และหลักฐานเดิมรองรับคำทำนายนั้นแค่ไหน ข้อเสนอวิจัยที่อ้างทฤษฎีห้าเรื่องในย่อหน้าเดียวโดยไม่บอกกลไก มักถูกกรรมการถามว่าทฤษฎีใดเป็นแกนของงาน และงานนี้จะเพิ่มอะไรให้ทฤษฎีนั้น</p>
+<p class="lead">บทนี้จัดทฤษฎีเป็นสามกลุ่ม กลุ่มแรกถามว่าเทคโนโลยีเปลี่ยนอย่างไรและทำไมผู้นำตลาดจึงล้ม (หัวข้อ 3.1 และ 3.2) กลุ่มที่สองถามว่าองค์กรเรียนรู้และปรับตัวอย่างไร (หัวข้อ 3.3 ถึง 3.5) กลุ่มที่สามถามว่าใครได้ผลตอบแทนจากนวัตกรรม (หัวข้อ 3.6) แล้วจบที่การเลือกทฤษฎีเป็นเลนส์ของงานวิจัย (หัวข้อ 3.7)</p>
+<p class="lead">ข้อควรรู้ก่อนอ่าน งานบางเรื่องในบทนี้รายวิชาอ่านได้เฉพาะบทคัดย่อ ข้อความที่มาจากบทคัดย่อจะกำกับว่า (บทคัดย่อ) และไม่มีเลขหน้า ข้อความที่มาจากฉบับเต็มจะมีเลขหน้า นิสิตควรแยกสองแบบนี้ในตารางสังเคราะห์ของตนเช่นกัน</p>
+<h2 id="s-3-1">3.1 ความไม่ต่อเนื่องทางเทคโนโลยีและแบบเด่น</h2>
+<h3 id="s-3-1-1">3.1.1 วัฏจักรเทคโนโลยี</h3>
+<p>คำถามแรกของกลุ่มนี้คือ เทคโนโลยีของอุตสาหกรรมเปลี่ยนแบบค่อยเป็นค่อยไปตลอด หรือเปลี่ยนเป็นช่วง Anderson และ Tushman (1990) เสนอแบบจำลองวิวัฒนาการที่ตอบว่าเปลี่ยนเป็นวัฏจักร ความก้าวหน้าแบบก้าวกระโดดหรือความไม่ต่อเนื่องทางเทคโนโลยี (technological discontinuity) เปิดยุคแปรผัน (era of ferment) ซึ่งมีการทดลองและคัดเลือกทางเทคนิคอย่างเข้มข้น ยุคนี้จบเมื่อเกิดแบบเด่น (dominant design) แบบเดียว แล้วตามด้วยช่วงที่ความก้าวหน้าเป็นแบบค่อยเป็นค่อยไป จนกว่าจะเกิดความไม่ต่อเนื่องครั้งต่อไป (บทคัดย่อ)</p>
+<p class="tcap"><b>ตารางที่ 3.1</b> วัฏจักรเทคโนโลยีตามแบบจำลองของ Anderson และ Tushman (1990)</p>
+<div class="tablewrap"><table><thead><tr><th>ช่วง</th><th>สิ่งที่เกิดขึ้น</th><th>คำถามวิจัยที่ช่วงนี้เปิด</th></tr></thead><tbody><tr><td>ความไม่ต่อเนื่องทางเทคโนโลยี</td><td>ความก้าวหน้าแบบก้าวกระโดดเริ่มวัฏจักรใหม่</td><td>ความไม่ต่อเนื่องกระทบความสามารถเดิมของบริษัทอย่างไร</td></tr><tr><td>ยุคแปรผัน</td><td>การทดลองและคัดเลือกทางเทคนิคอย่างเข้มข้น หลายแบบแข่งกัน</td><td>บริษัทประเภทใดชนะการแข่งขันของแบบ และยุคนี้ยาวเท่าใด</td></tr><tr><td>แบบเด่น</td><td>แบบเดียวกลายเป็นมาตรฐานของอุตสาหกรรม</td><td>อะไรทำให้แบบหนึ่งกลายเป็นมาตรฐาน</td></tr><tr><td>ช่วงค่อยเป็นค่อยไป</td><td>ความก้าวหน้าเล็กน้อยต่อเนื่องบนแบบเด่น</td><td>บริษัทรักษาตำแหน่งในช่วงนี้อย่างไร และเตรียมรับรอบถัดไปได้หรือไม่</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง จาก Anderson และ Tushman (1990) (บทคัดย่อ) คอลัมน์คำถามวิจัยเป็นของผู้เรียบเรียง</p>
+<h3 id="s-3-1-2">3.1.2 สิ่งที่ข้อมูลระยะยาวบอก</h3>
+<p>ข้อเสนอนี้ไม่ได้มาจากการคิดอย่างเดียว ผู้เขียนศึกษาระยะยาวในสามอุตสาหกรรม คือซีเมนต์ (1888–1980) แก้ว (1893–1980) และมินิคอมพิวเตอร์ (1958–1982) และรายงานข้อค้นพบหลายข้อ (บทคัดย่อ)</p>
+<ul><li>เมื่อสิทธิบัตรไม่เป็นปัจจัยสำคัญ ความไม่ต่อเนื่องมักตามด้วยมาตรฐานเดียว</li><li>ยอดขายของอุตสาหกรรมสูงสุดหลังแบบเด่นเกิดขึ้นเสมอ</li><li>ความไม่ต่อเนื่องไม่เคยกลายเป็นแบบเด่นเอง และแบบเด่นตามหลังพรมแดนทางเทคนิคของอุตสาหกรรม</li><li>ความยาวของยุคแปรผัน และประเภทของบริษัทที่เริ่มมาตรฐาน ขึ้นกับว่าความไม่ต่อเนื่องกระทบความสามารถเดิมของบริษัทอย่างไร</li><li>ความก้าวหน้าทางเทคนิคส่วนใหญ่ที่สังเกตได้ในสามอุตสาหกรรมเกิดในยุคแปรผัน</li></ul>
+<p>ข้อค้นพบข้อที่สามขัดกับสามัญสำนึกของผู้จัดการจำนวนมาก แบบที่ดีที่สุดทางเทคนิคไม่จำเป็นต้องชนะ แบบที่ชนะคือแบบที่ตลาดยอมรับเป็นมาตรฐาน ข้อค้นพบข้อที่สี่บอกผู้วิจัยว่า ตัวแปรสำคัญไม่ใช่ขนาดของการเปลี่ยนทางเทคนิคเพียงอย่างเดียว แต่เป็นความสัมพันธ์ระหว่างการเปลี่ยนนั้นกับความสามารถที่บริษัทมีอยู่</p>
+<h3 id="s-3-1-3">3.1.3 เงื่อนไขขอบเขต</h3>
+<p>ข้อค้นพบเรื่องมาตรฐานเดียวมีเงื่อนไขกำกับว่า "เมื่อสิทธิบัตรไม่เป็นปัจจัยสำคัญ" (บทคัดย่อ) ผู้วิจัยที่ศึกษาอุตสาหกรรมยาหรือเทคโนโลยีชีวภาพ ซึ่งสิทธิบัตรเป็นปัจจัยหลัก จึงยกข้อนี้ไปใช้ตรง ๆ ไม่ได้ ข้อจำกัดอีกข้อคือข้อมูลมาจากอุตสาหกรรมผลิตสามแห่ง ผู้วิจัยที่ศึกษาธุรกิจบริการหรือแพลตฟอร์มดิจิทัลต้องให้เหตุผลว่าวัฏจักรแบบเดียวกันเกิดในบริบทของตน หรือใช้บริบทนั้นทดสอบว่าแบบจำลองยังใช้ได้หรือไม่</p>
+<p>Tushman และ Anderson (1986) เป็นงานต้นทางของแนวคิดที่แยกความไม่ต่อเนื่องตามผลต่อความสามารถเดิม รายวิชายังไม่ได้อ่านงานนี้ บทนี้จึงอ้างแนวคิดดังกล่าวผ่านบทคัดย่อของงานปี 1990 เท่านั้น นิสิตที่จะใช้แนวคิดนี้เป็นแกนของข้อเสนอวิจัยต้องอ่านงานปี 1986 ฉบับเต็มก่อน</p>
+<h2 id="s-3-2">3.2 นวัตกรรมเชิงสถาปัตยกรรมและนวัตกรรมแบบรบกวน</h2>
+<p>ทฤษฎีสองเรื่องในหัวข้อนี้ตอบคำถามเดียวกัน คือทำไมบริษัทที่ประสบความสำเร็จจึงล้มเมื่อเทคโนโลยีเปลี่ยน แต่ตอบด้วยกลไกต่างกัน บทที่ 1 หัวข้อ 1.1.4 แนะนำกรอบสี่แบบของ Henderson และ Clark ไว้แล้ว หัวข้อนี้จึงเน้นกลไกและการเปรียบเทียบ</p>
+<h3 id="s-3-2-1">3.2.1 กลไกของนวัตกรรมเชิงสถาปัตยกรรม</h3>
+<p>Henderson และ Clark (1990) แยกความรู้ของผลิตภัณฑ์เป็นสองส่วน ส่วนแรกคือความรู้เรื่ององค์ประกอบ ส่วนที่สองคือความรู้เรื่องวิธีเชื่อมองค์ประกอบเข้าด้วยกัน หรือความรู้เชิงสถาปัตยกรรม (architectural knowledge) ข้อเสนอสำคัญคือ ความรู้เชิงสถาปัตยกรรมขององค์กรฝังอยู่ในช่องทางสื่อสาร ตัวกรองข้อมูล และวิธีแก้ปัญหาที่องค์กรใช้เป็นประจำ (p. 16)</p>
+<p>กลไกนี้อธิบายว่าทำไมนวัตกรรมที่ดูเล็กจึงทำร้ายผู้นำตลาด เมื่อวิธีเชื่อมองค์ประกอบเปลี่ยน แต่องค์ประกอบแต่ละชิ้นเปลี่ยนน้อย องค์กรเดิมยังมองผลิตภัณฑ์ผ่านช่องทางและตัวกรองเก่า จึงไม่เห็นว่าการเปลี่ยนนั้นสำคัญ ในอุตสาหกรรมเครื่องจัดแนวแสงสำหรับผลิตเซมิคอนดักเตอร์ ผู้เขียนพบนวัตกรรมเชิงสถาปัตยกรรมสี่รอบ ในแต่ละรอบผู้เข้าตลาดรายใหม่ขึ้นเป็นผู้นำ (p. 20) และผู้นำตลาดพลาดการเปลี่ยนผ่านทั้งที่เทคโนโลยีแกนแทบไม่เปลี่ยน (p. 23)</p>
+<p>ความสำคัญของกลไกนี้ต่อผู้วิจัยคือ ตัวแปรที่ต้องวัดไม่ใช่ความใหม่ของเทคโนโลยี แต่เป็นความต่างระหว่างโครงสร้างการเชื่อมองค์ประกอบใหม่ กับโครงสร้างการสื่อสารและการแก้ปัญหาขององค์กร ผู้วิจัยที่วัดเฉพาะ "ระดับความใหม่" ของนวัตกรรมจะพลาดกลไกนี้ทั้งหมด</p>
+<h3 id="s-3-2-2">3.2.2 นวัตกรรมแบบรบกวน และพัฒนาการของทฤษฎี</h3>
+<p>ทฤษฎีนวัตกรรมแบบรบกวน (disruptive innovation) ตอบคำถามเดียวกันด้วยกลไกด้านตลาด Christensen และคณะ (2018) ทบทวนพัฒนาการของทฤษฎี และรายงานว่าทฤษฎีเริ่มจากกรอบการเปลี่ยนเทคโนโลยีที่เป็นเชิงพรรณนาและมีขอบเขตจำกัด แล้วพัฒนาเป็นทฤษฎีเชิงเหตุของนวัตกรรมและการตอบสนองของคู่แข่งที่กว้างขึ้น (บทคัดย่อ) ผู้เขียนยังชี้ว่าแนวคิดนี้แพร่หลายในหมู่ผู้ปฏิบัติ ทั้งที่หลักการแกนกลางถูกเข้าใจผิดอย่างกว้างขวาง และงานเชิงประจักษ์ที่ตามมาไม่ค่อยทดสอบข้อโต้แย้งหลักของทฤษฎี (บทคัดย่อ)</p>
+<p>ประเด็นที่นิสิตควรจับจากงานนี้มีสามข้อ</p>
+<ul><li>ทฤษฎีแยกการรบกวนจากตลาดล่างกับการรบกวนที่สร้างตลาดใหม่ การแยกนี้มาจาก Christensen และ Raynor (2003) ตามที่ผู้เขียนสรุปไว้ (Christensen et al., 2018)</li><li>การเป็นนวัตกรรมแบบรบกวนเป็นเรื่องสัมพัทธ์ อินเทอร์เน็ตไม่ได้รบกวนผู้ค้าปลีกทางแคตตาล็อก เพราะเข้ากับรูปแบบธุรกิจเดิมของผู้ค้ากลุ่มนี้ (Christensen et al., 2018)</li><li>ทฤษฎียังมีข้อถกเถียงว่าใช้พยากรณ์ล่วงหน้าได้ หรืออธิบายได้เฉพาะเมื่อเกิดเหตุแล้ว (Christensen et al., 2018)</li></ul>
+<p>ข้อที่สองสำคัญต่อการออกแบบงานวิจัย นวัตกรรมเดียวกันอาจรบกวนบริษัทหนึ่งแต่ไม่รบกวนอีกบริษัทหนึ่ง ผู้วิจัยจึงไม่ควรจัดนวัตกรรมเป็น "แบบรบกวน" โดยไม่บอกว่ารบกวนใคร</p>
+<h3 id="s-3-2-3">3.2.3 แหล่งของนวัตกรรมแบบรบกวน</h3>
+<p>งานรุ่นหลังเริ่มถามคำถามที่ทฤษฎีเดิมไม่ได้ถาม คือนวัตกรรมแบบรบกวนมาจากใคร Preißner และคณะ (2024) สร้างชุดข้อมูลนวัตกรรม 60 เรื่องที่วรรณกรรมระบุว่าเป็นแบบรบกวน ลงรหัสกรณีโดยผู้ประเมินห้าคน และวิเคราะห์ด้วยการถดถอย ผลคือร้อยละ 43 มาจากผู้ใช้ ร้อยละ 43 มาจากผู้ผลิตทั้งรายเดิมและรายใหม่ และร้อยละ 13 มาจากแหล่งอื่น (pp. 62–63) ผู้ใช้เป็นแหล่งมากกว่าเมื่อความต้องการของลูกค้าผันผวนสูง ผู้ผลิตเป็นแหล่งมากกว่าเมื่อเทคโนโลยีผันผวนสูง</p>
+<p>ผู้เขียนระบุข้อจำกัดเองว่า กลุ่มตัวอย่างเป็นนวัตกรรมที่สำเร็จและถูกระบุว่าเป็นแบบรบกวนไว้ก่อนแล้ว (p. 81) ข้อจำกัดนี้คือการเลือกตัวอย่างจากผลลัพธ์ (selection on the dependent variable) ซึ่งพบบ่อยในงานวิจัยนวัตกรรม เพราะนวัตกรรมที่ล้มเหลวมักไม่มีใครบันทึก งานนี้จึงบอกได้ว่านวัตกรรมแบบรบกวนที่สำเร็จมาจากใคร แต่ยังบอกไม่ได้ว่าผู้ใช้หรือผู้ผลิตมีโอกาสสร้างนวัตกรรมแบบรบกวนได้มากกว่ากัน</p>
+<h3 id="s-3-2-4">3.2.4 เปรียบเทียบสองทฤษฎี</h3>
+<p class="tcap"><b>ตารางที่ 3.2</b> เปรียบเทียบนวัตกรรมเชิงสถาปัตยกรรมกับนวัตกรรมแบบรบกวน</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>นวัตกรรมเชิงสถาปัตยกรรม</th><th>นวัตกรรมแบบรบกวน</th></tr></thead><tbody><tr><td>งานหลักในบทนี้</td><td>Henderson และ Clark (1990)</td><td>Christensen และคณะ (2018)</td></tr><tr><td>คำถาม</td><td>ทำไมผู้นำตลาดพลาดนวัตกรรมที่ดูเล็กน้อย</td><td>ผู้มาใหม่ที่ด้อยกว่าแทนที่ผู้นำตลาดได้อย่างไร</td></tr><tr><td>ที่ตั้งของกลไก</td><td>ภายในองค์กร ความรู้ที่ฝังในช่องทางสื่อสาร ตัวกรอง และวิธีแก้ปัญหา</td><td>ระหว่างบริษัทกับตลาด ลูกค้ากลุ่มใดที่บริษัทเดิมให้ความสำคัญ</td></tr><tr><td>หน่วยวิเคราะห์ที่เหมาะ</td><td>ทีมพัฒนาผลิตภัณฑ์หรือโครงการ</td><td>บริษัทเทียบกับคู่แข่งในตลาด</td></tr><tr><td>ระดับหลักฐานในบทนี้</td><td>ศึกษาภาคสนามอุตสาหกรรมเดียว มีเลขหน้า</td><td>บทความทบทวน มีข้อถกเถียงเรื่องการพยากรณ์</td></tr><tr><td>คำเตือนเมื่อใช้</td><td>ต้องวัดโครงสร้างการเชื่อม ไม่ใช่ความใหม่</td><td>ต้องบอกว่ารบกวนใคร และระวังการอธิบายย้อนหลัง</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง จาก Henderson และ Clark (1990) และ Christensen และคณะ (2018) แถวคำเตือนเป็นข้อสังเคราะห์ของผู้เรียบเรียง</p>
+<h2 id="s-3-3">3.3 ความสามารถในการดูดซับ</h2>
+<h3 id="s-3-3-1">3.3.1 นิยามและข้อเสนอหลัก</h3>
+<p>Cohen และ Levinthal (1990) เสนอแนวคิดความสามารถในการดูดซับ (absorptive capacity) คือความสามารถขององค์กรในการเห็นคุณค่าของความรู้ใหม่จากภายนอก ดูดซับ และนำไปใช้เชิงพาณิชย์ ความสามารถนี้ขึ้นกับความรู้เดิมที่เกี่ยวข้อง สะสมตามเส้นทางในอดีต และการวิจัยและพัฒนาช่วยสร้างความสามารถนี้ (บทคัดย่อ)</p>
+<p>ข้อเสนอนี้เปลี่ยนวิธีมองการวิจัยและพัฒนา จากที่มองว่าเป็นแหล่งสร้างความรู้ใหม่อย่างเดียว เป็นแหล่งของความสามารถในการเรียนรู้จากภายนอกด้วย ผลต่อการวิจัยคือ งานที่ศึกษาความร่วมมือ การรับเทคโนโลยี หรือนวัตกรรมแบบเปิด มักใช้ความสามารถในการดูดซับเป็นตัวแปรกำกับหรือตัวแปรส่งผ่าน บทที่ 4 จะใช้แนวคิดนี้อีกครั้งในหัวข้อนวัตกรรมแบบเปิด</p>
+<p>ข้อที่ว่าความสามารถนี้สะสมตามเส้นทางในอดีต มีนัยต่อการวิจัยสองข้อ ข้อแรก องค์กรที่ไม่เคยลงทุนในความรู้เรื่องหนึ่ง อาจรับความรู้เรื่องนั้นจากภายนอกได้ยาก แม้ความรู้นั้นจะหาได้ง่าย ข้อสอง การวัดความสามารถในการดูดซับ ณ จุดเวลาเดียว อาจไม่จับลักษณะการสะสมที่เป็นแก่นของแนวคิด</p>
+<h3 id="s-3-3-2">3.3.2 หลักฐานจากการวิเคราะห์อภิมาน</h3>
+<p>แนวคิดนี้มีงานเชิงประจักษ์มากพอให้สังเคราะห์เชิงปริมาณได้ Pu และ Liu (2023) วิเคราะห์อภิมานงาน 58 เรื่องที่ผ่านเกณฑ์ (p. 11) รวมค่าขนาดผล 58 ค่าจาก 13,783 หน่วยสังเกต ด้วยแบบจำลองผลสุ่ม (p. 14)</p>
+<p class="tcap"><b>ตารางที่ 3.3</b> ผลการวิเคราะห์อภิมานความสัมพันธ์ระหว่างความสามารถในการดูดซับกับผลการดำเนินงาน</p>
+<div class="tablewrap"><table><thead><tr><th>ผลที่รายงาน</th><th>ค่า</th><th>ตำแหน่ง</th></tr></thead><tbody><tr><td>จำนวนงานและค่าขนาดผล</td><td>58 งาน 58 ค่า 13,783 หน่วยสังเกต</td><td>pp. 11, 14</td></tr><tr><td>สหสัมพันธ์รวม (แบบจำลองผลสุ่ม)</td><td>0.309 (95% CI 0.247–0.368)</td><td>p. 14</td></tr><tr><td>ประเทศกำลังพัฒนา</td><td>0.376 (k = 25)</td><td>p. 16</td></tr><tr><td>ประเทศพัฒนาแล้ว</td><td>0.255 (k = 33)</td><td>p. 16</td></tr><tr><td>ตัวกำกับที่มีนัยสำคัญ</td><td>บริบทการวิจัย บริบทเศรษฐกิจ และบริบทของกลุ่มตัวอย่าง</td><td>p. 16</td></tr></tbody></table></div>
+<p>ที่มา Pu และ Liu (2023)</p>
+<p>ตัวเลขชุดนี้บอกสามเรื่อง เรื่องแรก ความสัมพันธ์เป็นบวกและช่วงความเชื่อมั่นไม่คร่อมศูนย์ เรื่องที่สอง ความสัมพันธ์ต่างกันตามบริบท ค่าในกลุ่มประเทศกำลังพัฒนาสูงกว่ากลุ่มประเทศพัฒนาแล้ว เรื่องที่สาม ค่า 0.309 เป็นสหสัมพันธ์ ไม่ใช่ผลเชิงเหตุ งานที่รวมไว้ส่วนใหญ่ไม่ได้ออกแบบมาเพื่อแยกทิศทางของเหตุ ผู้วิจัยที่อ้างตัวเลขนี้จึงควรเขียนว่า "สัมพันธ์กับ" ไม่ใช่ "ส่งผลให้"</p>
+<p>ผู้เขียนยังชี้ว่าแนวคิดหลักของความสามารถในการดูดซับตั้งบนมุมมองเชิงปัญญา (cognitivism) และกระบวนการเชิงเส้น ซึ่งไม่สะท้อนอิทธิพลของบริบท (บทคัดย่อ) ข้อวิจารณ์นี้เปิดคำถามวิจัยให้นิสิตที่ศึกษาองค์กรในประเทศไทย ซึ่งอยู่ในกลุ่มบริบทที่ค่าความสัมพันธ์ต่างจากกลุ่มประเทศพัฒนาแล้ว</p>
+<h2 id="s-3-4">3.4 การแสวงหาสิ่งใหม่ การใช้ประโยชน์จากของเดิม และความสามารถสองทาง</h2>
+<h3 id="s-3-4-1">3.4.1 ปัญหาของ March</h3>
+<p>March (1991) นิยามการแสวงหาสิ่งใหม่ (exploration) และการใช้ประโยชน์จากสิ่งที่มีอยู่ (exploitation) และชี้ว่าทั้งสองแบบจำเป็นแต่แย่งทรัพยากรกัน สมดุลระหว่างสองแบบจึงเป็นปัจจัยหลักของการอยู่รอด (p. 71) องค์กรที่ใช้ประโยชน์จากของเดิมอย่างเดียว เสี่ยงติดอยู่ในสมดุลที่ไม่ดีที่สุด (p. 71) ปัญหาคือกระบวนการปรับตัวเอื้อการใช้ประโยชน์จากของเดิมเร็วกว่า จึงได้ผลในระยะสั้นแต่ทำร้ายตัวเองในระยะยาว (p. 73)</p>
+<p>บทที่ 1 เตือนไว้ว่างานนี้เป็นบทความเชิงแนวคิดประกอบแบบจำลองอย่างง่าย คำถามที่ตามมาจึงเป็นคำถามเชิงประจักษ์ คือองค์กรจริงแก้ปัญหานี้อย่างไร และวิธีใดได้ผล</p>
+<h3 id="s-3-4-2">3.4.2 ความสามารถสองทางในฐานะความสามารถเชิงพลวัต</h3>
+<p>O'Reilly และ Tushman (2008) ตอบคำถามนั้นด้วยแนวคิดความสามารถสองทาง (ambidexterity) ผู้เขียนเสนอว่าความสามารถนี้เป็นความสามารถเชิงพลวัตที่อยู่ในการตัดสินใจของทีมผู้บริหารระดับสูง ครอบคลุมการตัดสินใจเรื่องโครงสร้าง กลไกเชื่อมโยง วัฒนธรรม และกระบวนการของทีมผู้บริหาร (p. 188) ข้อเสนอนี้ย้ายคำถามจาก "องค์กรควรสมดุลอย่างไร" เป็น "ผู้บริหารทำอะไรเพื่อให้ทั้งสองแบบอยู่ด้วยกันได้"</p>
+<p class="tcap"><b>ตารางที่ 3.4</b> สองรูปแบบของความสามารถสองทางตาม O'Reilly และ Tushman (2008)</p>
+<div class="tablewrap"><table><thead><tr><th>รูปแบบ</th><th>วิธีจัดองค์กร</th><th>สิ่งที่ต้องมีเพื่อให้ได้ผล</th><th>ตำแหน่ง</th></tr></thead><tbody><tr><td>สลับช่วงเวลา (sequential)</td><td>ใช้โครงสร้างแบบยืดหยุ่นเพื่อแสวงหาสิ่งใหม่ แล้วเปลี่ยนเป็นโครงสร้างแบบเป็นระบบเพื่อใช้ประโยชน์</td><td>การเปลี่ยนโครงสร้างตามช่วงของงาน</td><td>p. 193</td></tr><tr><td>พร้อมกันด้วยการแยกหน่วย (simultaneous)</td><td>แยกหน่วยย่อยที่จัดองค์กรต่างกัน</td><td>เจตนาเชิงกลยุทธ์ร่วม ค่านิยมร่วม และกลไกเชื่อมโยงเชิงโครงสร้างเฉพาะจุด</td><td>p. 193</td></tr></tbody></table></div>
+<p>ที่มา O'Reilly และ Tushman (2008)</p>
+<h3 id="s-3-4-3">3.4.3 หลักฐานที่ผู้เขียนสรุป</h3>
+<p>ผู้เขียนสรุปหลักฐานจากงานก่อนหน้าว่า ใน 22 โครงการนวัตกรรมของ 13 บริษัท รูปแบบที่แยกหน่วยพร้อมกลไกเชื่อมโยงได้ผลดีกว่ารูปแบบเชิงหน้าที่ รูปแบบข้ามหน้าที่ และการแยกตัวออกไปตั้งบริษัท ยกเว้นกรณีการทดแทนผลิตภัณฑ์ (p. 196) หลักฐานนี้เป็นการสรุปงานของผู้อื่น ไม่ใช่ข้อมูลที่ผู้เขียนเก็บเองในบทความนี้ ผู้วิจัยที่จะอ้างตัวเลข 22 โครงการ ควรอ่านงานต้นทางก่อน</p>
+<p>ข้อยกเว้นเรื่องการทดแทนผลิตภัณฑ์มีความหมายต่อการวิจัย หลักฐานไม่ได้บอกว่าการแยกหน่วยดีเสมอ แต่บอกว่าดีกว่าในเงื่อนไขหนึ่ง นิสิตที่ตั้งสมมติฐานเรื่องความสามารถสองทางควรระบุเงื่อนไขนี้ไว้ในสมมติฐาน ไม่ใช่เขียนว่าความสามารถสองทางส่งผลบวกต่อผลการดำเนินงานแบบไม่มีเงื่อนไข</p>
+<h2 id="s-3-5">3.5 ความสามารถเชิงพลวัต</h2>
+<h3 id="s-3-5-1">3.5.1 กรอบปี 1997</h3>
+<p>O'Reilly และ Tushman วางความสามารถสองทางไว้ใต้แนวคิดที่กว้างกว่า คือความสามารถเชิงพลวัต (dynamic capabilities) Teece และคณะ (1997) เสนอกรอบนี้เพื่ออธิบายแหล่งของการสร้างและเก็บความมั่งคั่งของบริษัทในสภาพที่เทคโนโลยีเปลี่ยนเร็ว ความได้เปรียบในการแข่งขันอยู่ที่กระบวนการเฉพาะของบริษัท คือวิธีประสานและผสมทรัพยากร ซึ่งถูกกำหนดด้วยตำแหน่งสินทรัพย์ของบริษัท และเส้นทางที่บริษัทเลือกหรือรับมา (บทคัดย่อ)</p>
+<p>ผู้เขียนเสนอต่อว่า การกัดกร่อนของความได้เปรียบขึ้นกับเสถียรภาพของอุปสงค์ ความง่ายในการทำซ้ำภายในบริษัท และความง่ายในการลอกเลียนของคู่แข่ง และสรุปว่าการหาโอกาสใหม่และจัดองค์กรรับโอกาสนั้น สำคัญต่อการสร้างความมั่งคั่งมากกว่าการเล่นเกมกลยุทธ์เพื่อกันคู่แข่ง (บทคัดย่อ)</p>
+<h3 id="s-3-5-2">3.5.2 ฐานระดับจุลภาคในปี 2007</h3>
+<p>สิบปีต่อมา Teece (2007) ขยายกรอบด้วยการระบุฐานระดับจุลภาค (microfoundations) ของความสามารถเชิงพลวัต คือทักษะ กระบวนการ ขั้นตอน โครงสร้างองค์กร กฎการตัดสินใจ และวินัย ซึ่งรองรับความสามารถสามด้าน ได้แก่ การรับรู้โอกาส (sensing) การคว้าโอกาส (seizing) และการปรับโครงสร้าง (reconfiguring) ฐานเหล่านี้พัฒนาและใช้ได้ยาก (บทคัดย่อ)</p>
+<p>ผู้เขียนเสนอด้วยว่า บริษัทที่มีความสามารถเชิงพลวัตสูงมีลักษณะผู้ประกอบการสูง และไม่เพียงปรับตัวตามระบบนิเวศธุรกิจ แต่ยังสร้างรูประบบนิเวศด้วยนวัตกรรมและความร่วมมือกับหน่วยงานอื่น (บทคัดย่อ) ข้อเสนอเรื่องระบบนิเวศนี้เชื่อมกับบทที่ 4</p>
+<p class="tcap"><b>ตารางที่ 3.5</b> เปรียบเทียบกรอบความสามารถเชิงพลวัตสองรุ่น</p>
+<div class="tablewrap"><table><thead><tr><th>ประเด็น</th><th>Teece และคณะ (1997)</th><th>Teece (2007)</th></tr></thead><tbody><tr><td>คำถาม</td><td>แหล่งของการสร้างและเก็บความมั่งคั่งในสภาพเทคโนโลยีเปลี่ยนเร็ว</td><td>ธรรมชาติและฐานระดับจุลภาคของความสามารถที่ค้ำผลการดำเนินงานระยะยาว</td></tr><tr><td>องค์ประกอบหลัก</td><td>กระบวนการ ตำแหน่งสินทรัพย์ และเส้นทาง</td><td>การรับรู้โอกาส การคว้าโอกาส และการปรับโครงสร้าง</td></tr><tr><td>ระดับของคำอธิบาย</td><td>ระดับบริษัท</td><td>ลงถึงทักษะ ขั้นตอน และกฎการตัดสินใจ</td></tr><tr><td>ความสัมพันธ์กับสภาพแวดล้อม</td><td>ความได้เปรียบกัดกร่อนตามอุปสงค์และการลอกเลียน</td><td>บริษัทสร้างรูประบบนิเวศได้</td></tr><tr><td>ประเภทหลักฐานในบทนี้</td><td>กรอบเชิงแนวคิด (บทคัดย่อ)</td><td>กรอบเชิงแนวคิด (บทคัดย่อ)</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง จากบทคัดย่อของ Teece และคณะ (1997) และ Teece (2007)</p>
+<h3 id="s-3-5-3">3.5.3 ปัญหาของการวัด</h3>
+<p>ความสามารถเชิงพลวัตเป็นแนวคิดที่ใช้แพร่หลาย แต่การวัดยาก Teece (2007) เองระบุว่าฐานระดับจุลภาคพัฒนาและใช้ได้ยาก (บทคัดย่อ) ถ้าความสามารถนี้สังเกตได้ง่าย คู่แข่งก็ลอกเลียนได้ง่าย ซึ่งขัดกับเหตุผลที่ทำให้มันเป็นแหล่งของความได้เปรียบ ผู้วิจัยที่วัดความสามารถเชิงพลวัตด้วยแบบสอบถามให้ผู้จัดการประเมินตนเอง จึงต้องตอบคำถามว่าสิ่งที่วัดได้เป็นความสามารถจริง หรือเป็นการรับรู้ของผู้ตอบ</p>
+<p>อีกปัญหาหนึ่งคือการอธิบายวนกลับ ถ้าผู้วิจัยสรุปว่าบริษัทที่อยู่รอดมีความสามารถเชิงพลวัต โดยใช้การอยู่รอดเป็นหลักฐานของความสามารถนั้น คำอธิบายจะไม่มีทางผิด และจึงไม่ได้อธิบายอะไร ทางแก้คือวัดความสามารถแยกจากผลลัพธ์ และวัดก่อนผลลัพธ์ตามเวลา ปัญหาทั้งสองข้อในหัวข้อนี้เป็นข้อวิเคราะห์ของผู้เรียบเรียง นิสิตที่จะใช้ในข้อเสนอวิจัยควรหางานเชิงวิธีวิทยาด้านการวัดมาอ้างเพิ่ม</p>
+<h2 id="s-3-6">3.6 การได้ผลตอบแทนจากนวัตกรรม</h2>
+<h3 id="s-3-6-1">3.6.1 คำถามของ Teece (1986)</h3>
+<p>ทฤษฎีในหัวข้อก่อนหน้าถามว่าองค์กรสร้างนวัตกรรมได้อย่างไร Teece (1986) ถามคำถามที่ต่างออกไป คือทำไมผู้คิดค้นนวัตกรรมจึงมักแพ้ผู้ตามหรือผู้ลอกเลียนที่มีสินทรัพย์ส่วนเติมเต็มดีกว่า และควรเลือกกลยุทธ์รวมกิจการ ร่วมมือ หรือให้สิทธิ์ (p. 285) งานนี้เป็นกรอบเชิงแนวคิดที่ตั้งบนเหตุผลด้านต้นทุนธุรกรรมและแนวคิดแบบเด่น ประกอบด้วยกรณีทางประวัติศาสตร์ ไม่มีชุดข้อมูล</p>
+<h3 id="s-3-6-2">3.6.2 สามองค์ประกอบ</h3>
+<p class="tcap"><b>ตารางที่ 3.6</b> องค์ประกอบของกรอบการได้ผลตอบแทนจากนวัตกรรม</p>
+<div class="tablewrap"><table><thead><tr><th>องค์ประกอบ</th><th>ความหมาย</th><th>ตำแหน่ง</th></tr></thead><tbody><tr><td>ระบอบการถือครองผลประโยชน์ (regime of appropriability)</td><td>ปัจจัยแวดล้อมที่กำหนดความสามารถของผู้คิดค้นในการเก็บกำไร มิติหลักคือลักษณะของเทคโนโลยีและประสิทธิผลของกลไกทางกฎหมาย</td><td>p. 287</td></tr><tr><td>แบบเด่น (dominant design)</td><td>ก่อนเกิดแบบเด่น บริษัทแข่งกันด้วยแบบ หลังเกิดแบบเด่น การแข่งขันย้ายไปที่ราคา</td><td>pp. 287–288</td></tr><tr><td>สินทรัพย์ส่วนเติมเต็ม (complementary assets)</td><td>มีสามแบบ ทั่วไป เฉพาะ (พึ่งพาทางเดียว) และเฉพาะร่วม (พึ่งพาสองทาง) เช่น การผลิต การจัดจำหน่าย และการบริการ</td><td>p. 289</td></tr></tbody></table></div>
+<p>ที่มา Teece (1986)</p>
+<p>ระบอบการถือครองผลประโยชน์ที่เข้มงวดเป็นข้อยกเว้นมากกว่าเป็นกฎทั่วไป (Teece, 1986, pp. 287, 290) ผู้เขียนชี้ด้วยว่าสิทธิบัตรแทบไม่ให้การถือครองผลประโยชน์ที่สมบูรณ์ (p. 287) ข้อนี้มีนัยกว้าง เมื่อผู้คิดค้นปกป้องนวัตกรรมได้ไม่เต็มที่ ผลตอบแทนจึงไปตกที่ผู้ที่มีสินทรัพย์ส่วนเติมเต็ม ไม่ใช่ผู้ที่คิดค้นก่อน</p>
+<p>องค์ประกอบแบบเด่นเชื่อมกรอบนี้กับหัวข้อ 3.1 ถ้าการลอกเลียนทำได้ง่ายก่อนเกิดแบบเด่น แบบของผู้ตามอาจกลายเป็นมาตรฐาน (Teece, 1986, pp. 287–288) ผู้คิดค้นที่ชนะการแข่งขันทางเทคนิคในยุคแปรผัน จึงอาจแพ้ในขั้นที่ตลาดเลือกมาตรฐาน</p>
+<h3 id="s-3-6-3">3.6.3 จากกรอบสู่การตัดสินใจ</h3>
+<p>Teece (1986) เสนอว่า เมื่อระบอบเข้มงวดและสินทรัพย์ส่วนเติมเต็มหาได้ทั่วไป ผู้คิดค้นควรทำสัญญาหรือให้สิทธิ์ แต่เมื่อระบอบอ่อน ผู้คิดค้นควรเป็นเจ้าของสินทรัพย์เฉพาะที่สำคัญ (pp. 293–296) และแม้กลยุทธ์ที่ดีที่สุดก็แพ้ได้เมื่อระบอบอ่อน (p. 297)</p>
+<p>ระดับนโยบาย ผู้เขียนเสนอว่านโยบายนวัตกรรมต้องดูสินทรัพย์ส่วนเติมเต็มและโครงสร้างพื้นฐาน ไม่ใช่การวิจัยและพัฒนาอย่างเดียว (pp. 302–304) ข้อเสนอนี้เกี่ยวกับนิสิตที่ศึกษานโยบายส่งเสริมนวัตกรรมของไทย ซึ่งมักวัดผลด้วยงบวิจัยและจำนวนสิทธิบัตร งานวิจัยที่ใช้กรอบนี้จะถามต่อว่า ผู้ประกอบการที่ได้ทุนวิจัยเข้าถึงการผลิตและช่องทางจำหน่ายได้หรือไม่</p>
+<h2 id="s-3-7">3.7 การเลือกทฤษฎีเป็นเลนส์ของงานวิจัย</h2>
+<h3 id="s-3-7-1">3.7.1 ทฤษฎีกับคำถาม</h3>
+<p>ทฤษฎีหกเรื่องในบทนี้ไม่ได้แข่งกันว่าเรื่องใดถูก แต่ละเรื่องตอบคำถามต่างกัน และให้ตัวแปรที่ต้องวัดต่างกัน การเลือกทฤษฎีจึงเริ่มจากคำถามวิจัย ไม่ใช่จากความนิยมของทฤษฎี</p>
+<p class="tcap"><b>ตารางที่ 3.7</b> แนวการเลือกทฤษฎีนวัตกรรมระดับองค์กรตามคำถามวิจัย</p>
+<div class="tablewrap"><table><thead><tr><th>ถ้าคำถามวิจัยถามว่า</th><th>ทฤษฎีที่ควรพิจารณา</th><th>ตัวแปรหรือแนวคิดหลักที่ต้องวัด</th><th>ข้อควรระวัง</th></tr></thead><tbody><tr><td>ทำไมเทคโนโลยีหนึ่งกลายเป็นมาตรฐาน</td><td>วัฏจักรเทคโนโลยีและแบบเด่น</td><td>ช่วงของวัฏจักร ประเภทบริษัทที่เริ่มมาตรฐาน</td><td>เงื่อนไขเรื่องสิทธิบัตร</td></tr><tr><td>ทำไมผู้นำตลาดพลาดนวัตกรรม</td><td>นวัตกรรมเชิงสถาปัตยกรรม</td><td>โครงสร้างการเชื่อมองค์ประกอบ ช่องทางสื่อสารภายใน</td><td>อย่าวัดเพียงความใหม่</td></tr><tr><td>ผู้มาใหม่แทนที่ผู้นำได้อย่างไร</td><td>นวัตกรรมแบบรบกวน</td><td>ลูกค้าที่บริษัทเดิมให้ความสำคัญ ทิศทางของสมรรถนะ</td><td>บอกว่ารบกวนใคร ระวังการอธิบายย้อนหลัง</td></tr><tr><td>องค์กรใช้ความรู้ภายนอกได้ดีเพราะอะไร</td><td>ความสามารถในการดูดซับ</td><td>ความรู้เดิมที่เกี่ยวข้อง การลงทุนวิจัยและพัฒนา</td><td>ผลต่างตามบริบท สหสัมพันธ์ไม่ใช่เหตุ</td></tr><tr><td>องค์กรรักษาทั้งของเดิมและของใหม่ได้อย่างไร</td><td>ความสามารถสองทาง</td><td>รูปแบบการจัดองค์กร กลไกเชื่อมโยง บทบาทผู้บริหาร</td><td>ระบุเงื่อนไขของสมมติฐาน</td></tr><tr><td>องค์กรปรับตัวต่อเนื่องได้อย่างไร</td><td>ความสามารถเชิงพลวัต</td><td>การรับรู้ การคว้า และการปรับโครงสร้าง</td><td>ปัญหาการวัดและการอธิบายวนกลับ</td></tr><tr><td>ใครได้ผลตอบแทนจากนวัตกรรม</td><td>การได้ผลตอบแทนจากนวัตกรรม</td><td>ระบอบการถือครองผลประโยชน์ สินทรัพย์ส่วนเติมเต็ม</td><td>ข้อสรุปขึ้นกับระบอบ</td></tr></tbody></table></div>
+<p>ที่มา ผู้เรียบเรียง สังเคราะห์จากหัวข้อ 3.1 ถึง 3.6</p>
+<h3 id="s-3-7-2">3.7.2 การใช้ทฤษฎีมากกว่าหนึ่งเรื่อง</h3>
+<p>งานวิจัยจำนวนมากใช้ทฤษฎีสองเรื่องร่วมกัน ซึ่งทำได้ถ้าผู้วิจัยบอกว่าแต่ละทฤษฎีทำหน้าที่อะไร ตัวอย่างการจับคู่ที่มีเหตุผลรองรับจากบทนี้มีสามแบบ</p>
+<ul><li>ความสามารถสองทางกับความสามารถเชิงพลวัต O'Reilly และ Tushman (2008, p. 188) วางความสามารถสองทางเป็นความสามารถเชิงพลวัตชนิดหนึ่ง การใช้ร่วมกันจึงเป็นการใช้กรอบกว้างกับกรณีเฉพาะ</li><li>แบบเด่นกับการได้ผลตอบแทนจากนวัตกรรม Teece (1986, pp. 287–288) ใช้แนวคิดแบบเด่นเป็นองค์ประกอบหนึ่งของกรอบ</li><li>ความสามารถในการดูดซับกับนวัตกรรมแบบเปิด ซึ่งบทที่ 4 จะอธิบาย</li></ul>
+<p>การจับคู่ที่ไม่มีเหตุผลรองรับคือการใส่ทฤษฎีหลายเรื่องไว้ในกรอบแนวคิดเพื่อให้ดูครบ โดยที่สมมติฐานแต่ละข้อไม่ได้มาจากทฤษฎีใดชัดเจน กรรมการสอบมักถามว่าถ้าตัดทฤษฎีใดออก สมมติฐานข้อใดจะหายไป ถ้าตอบไม่ได้ แสดงว่าทฤษฎีนั้นไม่ได้ทำหน้าที่ในงาน</p>
+<h3 id="s-3-7-3">3.7.3 ระดับหลักฐานของทฤษฎี</h3>
+<p>ทฤษฎีในบทนี้มีหลักฐานรองรับต่างระดับกัน งานของ March (1991) Teece (1986) และ Teece และคณะ (1997) เป็นกรอบเชิงแนวคิด งานของ Henderson และ Clark (1990) และ Anderson และ Tushman (1990) เป็นการศึกษาเชิงประจักษ์ในอุตสาหกรรมจำนวนน้อย งานของ Pu และ Liu (2023) เป็นการสังเคราะห์เชิงปริมาณ ผู้วิจัยควรบอกระดับนี้เมื่ออ้างทฤษฎี เช่น เขียนว่า "Teece (1986) เสนอว่า" ไม่ใช่ "Teece (1986) พบว่า" เพราะงานนั้นไม่มีชุดข้อมูล</p>
+<h2 id="s-3-8">3.8 งานวิจัยที่เกี่ยวข้อง</h2>
+<p>งานในบทนี้แบ่งเป็นงานต้นทางของทฤษฎี และงานรุ่นหลังที่ทบทวนหรือทดสอบทฤษฎี ตารางต่อไปนี้สรุปงานทั้งหมดที่ใช้ในบท</p>
+<p class="tcap"><b>ตารางที่ 3.8</b> สรุปงานวิจัยที่ใช้ในบทนี้</p>
+<div class="tablewrap"><table><thead><tr><th>งานวิจัย</th><th>สิ่งที่ศึกษา</th><th>วิธีการ</th><th>ข้อค้นพบหลักที่ใช้ในบทนี้</th></tr></thead><tbody><tr><td>Teece (1986)</td><td>ใครได้ผลตอบแทนจากนวัตกรรม</td><td>กรอบเชิงแนวคิดประกอบกรณี</td><td>ระบอบการถือครองผลประโยชน์ แบบเด่น สินทรัพย์ส่วนเติมเต็ม</td></tr><tr><td>Anderson และ Tushman (1990)</td><td>วัฏจักรเทคโนโลยี</td><td>ศึกษาระยะยาวสามอุตสาหกรรม</td><td>ยุคแปรผัน แบบเด่น และช่วงค่อยเป็นค่อยไป (บทคัดย่อ)</td></tr><tr><td>Henderson และ Clark (1990)</td><td>การล้มของผู้นำตลาด</td><td>ศึกษาภาคสนามอุตสาหกรรมเดียว</td><td>ความรู้เชิงสถาปัตยกรรมฝังในช่องทางสื่อสารและตัวกรอง</td></tr><tr><td>Cohen และ Levinthal (1990)</td><td>การเรียนรู้จากภายนอก</td><td>เชิงทฤษฎีและเชิงประจักษ์</td><td>นิยามความสามารถในการดูดซับ (บทคัดย่อ)</td></tr><tr><td>March (1991)</td><td>การแบ่งทรัพยากรระหว่างของใหม่กับของเดิม</td><td>เชิงแนวคิดและแบบจำลอง</td><td>การปรับตัวเอื้อการใช้ประโยชน์จากของเดิม</td></tr><tr><td>Teece และคณะ (1997)</td><td>แหล่งของความได้เปรียบในสภาพเทคโนโลยีเปลี่ยนเร็ว</td><td>กรอบเชิงแนวคิด</td><td>กระบวนการ ตำแหน่งสินทรัพย์ และเส้นทาง (บทคัดย่อ)</td></tr><tr><td>Teece (2007)</td><td>ฐานระดับจุลภาคของความสามารถเชิงพลวัต</td><td>กรอบเชิงแนวคิด</td><td>การรับรู้ การคว้า การปรับโครงสร้าง (บทคัดย่อ)</td></tr><tr><td>O'Reilly และ Tushman (2008)</td><td>ความสามารถสองทาง</td><td>บทความเชิงแนวคิดพร้อมหลักฐานจากงานอื่น</td><td>สองรูปแบบ และหลักฐาน 22 โครงการ</td></tr><tr><td>Christensen และคณะ (2018)</td><td>พัฒนาการของทฤษฎีนวัตกรรมแบบรบกวน</td><td>บทความทบทวน</td><td>ความเป็นสัมพัทธ์และข้อถกเถียงเรื่องการพยากรณ์</td></tr><tr><td>Pu และ Liu (2023)</td><td>ความสามารถในการดูดซับกับผลการดำเนินงาน</td><td>วิเคราะห์อภิมาน 58 งาน</td><td>สหสัมพันธ์รวม 0.309 ต่างตามบริบท</td></tr><tr><td>Preißner และคณะ (2024)</td><td>แหล่งของนวัตกรรมแบบรบกวน</td><td>ลงรหัสกรณี 60 เรื่อง และการถดถอย</td><td>ผู้ใช้และผู้ผลิตเป็นแหล่งในสัดส่วนเท่ากัน</td></tr></tbody></table></div>
+<p>หมายเหตุ ข้อมูลของ Anderson และ Tushman (1990) Cohen และ Levinthal (1990) Teece และคณะ (1997) และ Teece (2007) มาจากบทคัดย่อ งานอื่นมาจากฉบับเต็มหรือโน้ตที่ระบบคลังวิจัยตรวจกับต้นฉบับแล้ว</p>
+<h2 id="s-3-9">3.9 ข้อผิดพลาดที่พบบ่อย</h2>
+<p>ข้อผิดพลาดต่อไปนี้พบบ่อยเมื่อนักวิจัยใช้ทฤษฎีนวัตกรรมระดับองค์กร</p>
+<p class="tcap"><b>ตารางที่ 3.9</b> ข้อผิดพลาดที่พบบ่อยและวิธีแก้</p>
+<div class="tablewrap"><table><thead><tr><th>ข้อผิดพลาด</th><th>ทำไมจึงผิด</th><th>วิธีแก้</th></tr></thead><tbody><tr><td>เรียกนวัตกรรมว่าแบบรบกวนโดยไม่บอกว่ารบกวนใคร</td><td>การเป็นการรบกวนเป็นเรื่องสัมพัทธ์ (Christensen et al., 2018)</td><td>ระบุบริษัทหรือรูปแบบธุรกิจที่ถูกรบกวน</td></tr><tr><td>ใช้ความใหม่ของเทคโนโลยีแทนนวัตกรรมเชิงสถาปัตยกรรม</td><td>กลไกอยู่ที่การเปลี่ยนวิธีเชื่อมองค์ประกอบ (Henderson &amp; Clark, 1990, p. 16)</td><td>วัดโครงสร้างการเชื่อมและช่องทางสื่อสาร</td></tr><tr><td>เขียนว่าความสามารถในการดูดซับ "ส่งผลให้" ผลการดำเนินงานดีขึ้น</td><td>หลักฐานรวมเป็นสหสัมพันธ์และต่างตามบริบท (Pu &amp; Liu, 2023, pp. 14, 16)</td><td>เขียนว่า "สัมพันธ์กับ" และระบุบริบท</td></tr><tr><td>ตั้งสมมติฐานความสามารถสองทางแบบไม่มีเงื่อนไข</td><td>หลักฐานมีข้อยกเว้นเรื่องการทดแทนผลิตภัณฑ์ (O'Reilly &amp; Tushman, 2008, p. 196)</td><td>ใส่เงื่อนไขในสมมติฐาน</td></tr><tr><td>ใช้การอยู่รอดเป็นหลักฐานของความสามารถเชิงพลวัต</td><td>คำอธิบายวนกลับและผิดไม่ได้</td><td>วัดความสามารถแยกจากผล และวัดก่อนผล</td></tr><tr><td>อ้างกรอบเชิงแนวคิดด้วยคำว่า "พบว่า"</td><td>งานเชิงแนวคิดไม่มีชุดข้อมูล</td><td>ใช้คำว่า "เสนอ" และบอกระดับหลักฐาน</td></tr><tr><td>ใส่ทฤษฎีหลายเรื่องในกรอบแนวคิดโดยไม่บอกหน้าที่</td><td>กรรมการไม่เห็นว่าสมมติฐานมาจากทฤษฎีใด</td><td>ผูกสมมติฐานแต่ละข้อกับทฤษฎีหนึ่งเรื่อง</td></tr><tr><td>อ้างรายละเอียดจากงานที่อ่านเฉพาะบทคัดย่อ</td><td>บทคัดย่อไม่มีรายละเอียดพอยืนยันกลไก</td><td>อ่านฉบับเต็มก่อนอ้างกลไกหรือตัวเลข</td></tr></tbody></table></div>
+<div class="box case"><div class="bt">กรณีศึกษา: ผู้คิดค้นที่แพ้ เครื่องสแกน CT ของ EMI</div><p>EMI เปิดตัวเครื่องสแกน CT ในสหรัฐอเมริกาปี 1973 และเสียตำแหน่งผู้นำตลาดภายในราว 6 ปี ให้ GE และ Technicare ซึ่งมีความสามารถส่วนเติมเต็ม (Teece, 1986, pp. 286, 298–299)</p><p>กรณีนี้เป็นตัวอย่างหลักของ Teece เพราะผู้คิดค้นมีเทคโนโลยีที่ดีกว่าในช่วงแรก แต่ไม่มีสินทรัพย์ส่วนเติมเต็มที่ตลาดต้องการ เมื่อระบอบการถือครองผลประโยชน์ไม่เข้มงวดพอจะกันการลอกเลียน ผลตอบแทนจึงไปตกที่ผู้ตามที่มีสินทรัพย์เหล่านั้น</p><p>ถ้ามองด้วยกรอบในตารางที่ 3.6 คำถามที่ต้องตอบมีสามข้อ ระบอบของเทคโนโลยีนี้เข้มงวดหรืออ่อน แบบเด่นของเครื่องสแกนเกิดแล้วหรือยัง และ EMI ขาดสินทรัพย์ส่วนเติมเต็มประเภทใด</p><p>กรณีเดียวยังไม่ใช่หลักฐานเชิงประจักษ์ของกรอบทั้งหมด Teece ใช้กรณีเพื่ออธิบายกรอบ ไม่ใช่ทดสอบกรอบ ผู้วิจัยที่จะทดสอบต้องเก็บข้อมูลหลายกรณีหรือหลายบริษัท</p><p class="q"><b>คำถามชวนคิด</b> ถ้าบริษัทเกิดใหม่ด้านเทคโนโลยีของไทยพัฒนาอุปกรณ์การแพทย์ได้ก่อนคู่แข่งต่างชาติ นิสิตจะใช้กรอบของ Teece วิเคราะห์อย่างไรว่าบริษัทควรให้สิทธิ์ ร่วมมือ หรือสร้างการผลิตและช่องทางจำหน่ายเอง</p></div>
+<div class="box worked"><div class="bt">ต่อกับคำถามหลัก</div><p>บทนี้ให้ส่วนที่สองของข้อเสนอวิจัย คือทฤษฎีแกนของงาน นิสิตควรเลือกทฤษฎีหนึ่งเรื่องจากตารางที่ 3.7 เป็นแกน และบอกกลไก เงื่อนไขขอบเขต และระดับหลักฐานของทฤษฎีนั้นได้</p><p>ทฤษฎีที่เลือกจะเป็นหมวดหลักของตารางสังเคราะห์จากใบงานที่ 1 และเป็นฐานของกรอบแนวคิดในใบงานที่ 2 (ส่งสัปดาห์ที่ 5)</p><p>บทที่ 4 จะเพิ่มทฤษฎีระดับเหนือองค์กร ได้แก่ นวัตกรรมแบบเปิด ระบบนิเวศ และนวัตกรรมดิจิทัล และสอนการสร้างกรอบแนวคิดที่ยืมแนวคิดข้ามสาขา</p></div>
+<div class="box summary" id="sum"><div class="bt">บทสรุป</div>
+<p>เมื่อศึกษาบทนี้แล้ว นิสิตควรอธิบายได้ว่าทฤษฎีนวัตกรรมระดับองค์กรหกเรื่องตอบคำถามต่างกัน กลุ่มแรกอธิบายว่าเทคโนโลยีเปลี่ยนเป็นวัฏจักร และผู้นำตลาดล้มเพราะความรู้ที่ฝังในองค์กร หรือเพราะลูกค้าที่องค์กรให้ความสำคัญ กลุ่มที่สองอธิบายว่าองค์กรเรียนรู้จากภายนอก รักษาสมดุลระหว่างของเดิมกับของใหม่ และปรับตัวต่อเนื่องได้อย่างไร กลุ่มที่สามอธิบายว่าผลตอบแทนจากนวัตกรรมไปตกที่ใคร</p>
+<p>นิสิตควรแยกได้ว่าทฤษฎีแต่ละเรื่องมีหลักฐานระดับใด กรอบเชิงแนวคิดของ March และ Teece ยังต้องการการทดสอบ การศึกษาภาคสนามของ Henderson และ Clark มาจากอุตสาหกรรมเดียว และการวิเคราะห์อภิมานของ Pu และ Liu ให้ค่าความสัมพันธ์ที่ต่างตามบริบท</p>
+<p>นิสิตนำความรู้นี้ไปใช้ได้ทันทีกับข้อเสนอวิจัยของตน ด้วยตารางที่ 3.7 เลือกทฤษฎีแกน และใช้ตารางที่ 3.9 ตรวจว่าการใช้ทฤษฎีในร่างของตนมีข้อผิดพลาดหรือไม่</p>
+</div>
+<div class="box keyterm" id="terms"><div class="bt">ศัพท์และแนวคิดสำคัญประจำบท</div>
+<ul class="terms"><li>ความไม่ต่อเนื่องทางเทคโนโลยี (technological discontinuity)</li><li>ยุคแปรผัน (era of ferment)</li><li>แบบเด่น (dominant design)</li><li>ความรู้เชิงสถาปัตยกรรม (architectural knowledge)</li><li>นวัตกรรมเชิงสถาปัตยกรรม (architectural innovation)</li><li>นวัตกรรมแบบรบกวน (disruptive innovation)</li><li>การรบกวนจากตลาดล่าง (low-end disruption)</li><li>การรบกวนที่สร้างตลาดใหม่ (new-market disruption)</li><li>การเลือกตัวอย่างจากผลลัพธ์ (selection on the dependent variable)</li><li>ความสามารถในการดูดซับ (absorptive capacity)</li><li>การแสวงหาสิ่งใหม่ (exploration)</li><li>การใช้ประโยชน์จากสิ่งที่มีอยู่ (exploitation)</li><li>ความสามารถสองทาง (ambidexterity)</li><li>ความสามารถเชิงพลวัต (dynamic capabilities)</li><li>ฐานระดับจุลภาค (microfoundations)</li><li>การรับรู้โอกาส การคว้าโอกาส และการปรับโครงสร้าง (sensing, seizing, reconfiguring)</li><li>ระบอบการถือครองผลประโยชน์ (regime of appropriability)</li><li>สินทรัพย์ส่วนเติมเต็ม (complementary assets)</li></ul>
+</div>
+<h2 id="review">คำถามทบทวน</h2>
+<ol class="ex"><li>จงอธิบายวัฏจักรเทคโนโลยีตามแบบจำลองของ Anderson และ Tushman (1990) และบอกว่าข้อค้นพบเรื่องมาตรฐานเดียวมีเงื่อนไขกำกับอะไร</li><li>ทำไม Anderson และ Tushman (1990) จึงรายงานว่าแบบเด่นตามหลังพรมแดนทางเทคนิคของอุตสาหกรรม และข้อนี้ขัดกับความเชื่อของผู้จัดการอย่างไร</li><li>จงอธิบายกลไกที่ Henderson และ Clark (1990) ใช้อธิบายการล้มของผู้นำตลาด และบอกว่าผู้วิจัยต้องวัดอะไรเพื่อทดสอบกลไกนี้</li><li>จงเปรียบเทียบนวัตกรรมเชิงสถาปัตยกรรมกับนวัตกรรมแบบรบกวน ด้านคำถาม ที่ตั้งของกลไก และหน่วยวิเคราะห์</li><li>Preißner และคณะ (2024) พบอะไรเรื่องแหล่งของนวัตกรรมแบบรบกวน และข้อจำกัดเรื่องกลุ่มตัวอย่างจำกัดการตีความผลอย่างไร</li><li>จงตีความผลการวิเคราะห์อภิมานของ Pu และ Liu (2023) ในตารางที่ 3.3 และบอกว่าทำไมจึงไม่ควรเขียนว่าความสามารถในการดูดซับ "ส่งผลให้" ผลการดำเนินงานดีขึ้น</li><li>O'Reilly และ Tushman (2008) ย้ายคำถามของ March (1991) ไปอย่างไร และสองรูปแบบของความสามารถสองทางต่างกันอย่างไร</li><li>จงเปรียบเทียบกรอบความสามารถเชิงพลวัตของ Teece และคณะ (1997) กับ Teece (2007) และอธิบายปัญหาการวัดที่ผู้วิจัยต้องเตรียมตอบ</li><li>จงใช้กรอบของ Teece (1986) วิเคราะห์ว่าทำไม EMI จึงเสียตำแหน่งผู้นำตลาดเครื่องสแกน CT</li><li>จงเขียนคำถามวิจัยของตนหนึ่งประโยค แล้วใช้ตารางที่ 3.7 เลือกทฤษฎีแกน พร้อมบอกตัวแปรหลักที่ต้องวัดและข้อควรระวังหนึ่งข้อ</li></ol>
+<h2 id="x340">รายการอ่านสำหรับสัมมนา</h2>
+<ol><li>Henderson และ Clark (1990) อ่านส่วนที่อธิบายความรู้เชิงสถาปัตยกรรมและกรณีเครื่องจัดแนวแสง คำถามนำอภิปราย กลไกเรื่องช่องทางสื่อสารและตัวกรองใช้กับองค์กรบริการได้หรือไม่</li><li>O'Reilly และ Tushman (2008) อ่านส่วนรูปแบบของความสามารถสองทางและหลักฐาน คำถามนำอภิปราย หลักฐานที่ผู้เขียนสรุปเพียงพอให้ตั้งสมมติฐานได้หรือไม่</li><li>Teece (1986) อ่านส่วนองค์ประกอบสามข้อและกรณี EMI คำถามนำอภิปราย กรอบนี้ยังใช้ได้กับธุรกิจแพลตฟอร์มดิจิทัลหรือไม่</li><li>Pu และ Liu (2023) อ่านส่วนผลและการวิเคราะห์ตัวกำกับ คำถามนำอภิปราย ความต่างระหว่างประเทศกำลังพัฒนากับประเทศพัฒนาแล้วเปิดคำถามวิจัยอะไรในบริบทไทย</li></ol>
+<h2 id="refs">เอกสารอ้างอิง</h2>
+<div class="refs">
+<div class="r">Anderson, P., &amp; Tushman, M. L. (1990). Technological discontinuities and dominant designs: A cyclical model of technological change. <em>Administrative Science Quarterly</em>, <em>35</em>(4), 604. <a href="https://doi.org/10.2307/2393511" target="_blank" rel="noopener">https://doi.org/10.2307/2393511</a></div>
+<div class="r">Christensen, C. M., McDonald, R., Altman, E. J., &amp; Palmer, J. E. (2018). Disruptive innovation: An intellectual history and directions for future research. <em>Journal of Management Studies</em>, <em>55</em>(7), 1043–1078. <a href="https://doi.org/10.1111/joms.12349" target="_blank" rel="noopener">https://doi.org/10.1111/joms.12349</a></div>
+<div class="r">Cohen, W. M., &amp; Levinthal, D. A. (1990). Absorptive capacity: A new perspective on learning and innovation. <em>Administrative Science Quarterly</em>, <em>35</em>(1), 128–152. <a href="https://doi.org/10.2307/2393553" target="_blank" rel="noopener">https://doi.org/10.2307/2393553</a></div>
+<div class="r">Henderson, R. M., &amp; Clark, K. B. (1990). Architectural innovation: The reconfiguration of existing product technologies and the failure of established firms. <em>Administrative Science Quarterly</em>, <em>35</em>(1), 9–30. <a href="https://doi.org/10.2307/2393549" target="_blank" rel="noopener">https://doi.org/10.2307/2393549</a></div>
+<div class="r">March, J. G. (1991). Exploration and exploitation in organizational learning. <em>Organization Science</em>, <em>2</em>(1), 71–87. <a href="https://doi.org/10.1287/orsc.2.1.71" target="_blank" rel="noopener">https://doi.org/10.1287/orsc.2.1.71</a></div>
+<div class="r">O’Reilly, C. A., &amp; Tushman, M. L. (2008). Ambidexterity as a dynamic capability: Resolving the innovator's dilemma. <em>Research in Organizational Behavior</em>, <em>28</em>, 185–206. <a href="https://doi.org/10.1016/j.riob.2008.06.002" target="_blank" rel="noopener">https://doi.org/10.1016/j.riob.2008.06.002</a></div>
+<div class="r">Preißner, S., Raasch, C., &amp; Schweisfurth, T. (2024). When necessity is the mother of disruption: Users versus producers as sources of disruptive innovation. <em>Journal of Product Innovation Management</em>, <em>41</em>(1), 62–85. <a href="https://doi.org/10.1111/jpim.12709" target="_blank" rel="noopener">https://doi.org/10.1111/jpim.12709</a></div>
+<div class="r">Pu, K., &amp; Liu, W. (2023). Is absorptive capacity the "panacea" for organizational development? A META analysis of absorptive capacity and firm performance from the perspective of constructivism. <em>PLOS ONE</em>, <em>18</em>(2), e0282321. <a href="https://doi.org/10.1371/journal.pone.0282321" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0282321</a></div>
+<div class="r">Teece, D. J. (1986). Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy. <em>Research Policy</em>, <em>15</em>(6), 285–305. <a href="https://doi.org/10.1016/0048-7333(86)90027-2" target="_blank" rel="noopener">https://doi.org/10.1016/0048-7333(86)90027-2</a></div>
+<div class="r">Teece, D. J. (2007). Explicating dynamic capabilities: The nature and microfoundations of (sustainable) enterprise performance. <em>Strategic Management Journal</em>, <em>28</em>(13), 1319–1350. <a href="https://doi.org/10.1002/smj.640" target="_blank" rel="noopener">https://doi.org/10.1002/smj.640</a></div>
+<div class="r">Teece, D. J., Pisano, G., &amp; Shuen, A. (1997). Dynamic capabilities and strategic management. <em>Strategic Management Journal</em>, <em>18</em>(7), 509–533. <a href="https://doi.org/10.1002/(sici)1097-0266(199708)18:7&lt;509::aid-smj882&gt;3.0.co;2-z" target="_blank" rel="noopener">https://doi.org/10.1002/(sici)1097-0266(199708)18:7&lt;509::aid-smj882&gt;3.0.co;2-z</a></div>
+</div>
+<div class="citebox"><div class="bt">อ้างอิงบทนี้ (APA)</div><code id="citech">วราวุฒิ นาคบุญนำ. (2569). บทที่ 3 ทฤษฎีนวัตกรรมขั้นสูงระดับองค์กร. ใน <em>สัมมนาทางนวัตกรรมขั้นสูง: เอกสารประกอบการสอนรายวิชา 0907508</em>. คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม. https://aj-warawut.github.io/academic-web-teaching/ai_lesson_03.html</code><button class="cpbtn" onclick="cp('citech',this)">คัดลอกรูปแบบอ้างอิง</button></div>
+<div class="navrow"><a href="ai_lesson_02.html"><small>◀ บทก่อนหน้า</small>บทที่ 2 การค้น อ่าน และสังเคราะห์วรรณกรรมนวัตกรรมอย่างเป็นระบบ</a><a href="ai_lesson_04.html" style="text-align:right"><small>บทถัดไป ▶</small>บทที่ 4 นวัตกรรมแบบเปิด ระบบนิเวศ นวัตกรรมดิจิทัล และการสร้างกรอบแนวคิดข้ามสาขา</a></div>
+</article>
+</div>
+<div id="deck" role="dialog" aria-label="โหมดนำเสนอ"><div class="stage"><img id="dimg" alt="สไลด์"></div>
+<div class="bar2"><button onclick="go(-1)">◀</button><span id="dno"></span><button onclick="go(1)">▶</button><button onclick="fs()">⛶ เต็มจอ</button><button onclick="closeDeck()">✕ ปิด</button></div></div>
+<footer class="ft"><div class="wrap">© 2569 อาจารย์ ดร.วราวุฒิ นาคบุญนำ · คณะการบัญชีและการจัดการ มหาวิทยาลัยมหาสารคาม · เอกสารประกอบการสอนรายวิชา 0907508 · CC BY-NC-SA 4.0</div></footer>
+<script>function cp(id,b){var t=document.getElementById(id).innerText;if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(function(){b.textContent=o;},1500);});}}</script><script>
+var S=['ai/slides/03/s-01.jpg', 'ai/slides/03/s-02.jpg', 'ai/slides/03/s-03.jpg', 'ai/slides/03/s-04.jpg', 'ai/slides/03/s-05.jpg', 'ai/slides/03/s-06.jpg', 'ai/slides/03/s-07.jpg', 'ai/slides/03/s-08.jpg', 'ai/slides/03/s-09.jpg', 'ai/slides/03/s-10.jpg', 'ai/slides/03/s-11.jpg', 'ai/slides/03/s-12.jpg', 'ai/slides/03/s-13.jpg', 'ai/slides/03/s-14.jpg', 'ai/slides/03/s-15.jpg', 'ai/slides/03/s-16.jpg', 'ai/slides/03/s-17.jpg', 'ai/slides/03/s-18.jpg', 'ai/slides/03/s-19.jpg', 'ai/slides/03/s-20.jpg', 'ai/slides/03/s-21.jpg', 'ai/slides/03/s-22.jpg', 'ai/slides/03/s-23.jpg', 'ai/slides/03/s-24.jpg', 'ai/slides/03/s-25.jpg', 'ai/slides/03/s-26.jpg', 'ai/slides/03/s-27.jpg', 'ai/slides/03/s-28.jpg', 'ai/slides/03/s-29.jpg', 'ai/slides/03/s-30.jpg', 'ai/slides/03/s-31.jpg', 'ai/slides/03/s-32.jpg', 'ai/slides/03/s-33.jpg'],cur=0;
+function show(){document.getElementById('dimg').src=S[cur];document.getElementById('dno').textContent=(cur+1)+' / '+S.length;if(cur+1<S.length){var p=new Image();p.src=S[cur+1];}}
+function openDeck(i){if(!S.length)return;cur=i||0;document.getElementById('deck').classList.add('on');show();}
+function closeDeck(){document.getElementById('deck').classList.remove('on');if(document.fullscreenElement)document.exitFullscreen();}
+function go(d){cur=Math.max(0,Math.min(S.length-1,cur+d));show();}
+function fs(){var e=document.getElementById('deck');if(!document.fullscreenElement)e.requestFullscreen&&e.requestFullscreen();else document.exitFullscreen();}
+var idt=null;function wake(){var e=document.getElementById('deck');e.classList.remove('idle');clearTimeout(idt);if(document.fullscreenElement===e)idt=setTimeout(function(){e.classList.add('idle');},2500);}
+document.addEventListener('fullscreenchange',wake);document.getElementById('deck').addEventListener('mousemove',wake);
+document.addEventListener('keydown',function(e){var on=document.getElementById('deck').classList.contains('on');
+ if(!on&&(e.key==='f'||e.key==='F')&&!e.target.closest('input,textarea')){openDeck(0);return;}
+ if(!on)return;if(['ArrowRight','PageDown',' '].indexOf(e.key)>=0){e.preventDefault();go(1);}else if(['ArrowLeft','PageUp'].indexOf(e.key)>=0){e.preventDefault();go(-1);}else if(e.key==='Escape')closeDeck();});
+var tx=null,dk=document.getElementById('deck');dk.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;wake();});
+dk.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)go(dx<0?1:-1);tx=null;});
+var fz=0;function fsz(d){fz=Math.max(-2,Math.min(4,fz+d));document.querySelector('article').style.fontSize=(18+fz)+'px';}
+var links=[].slice.call(document.querySelectorAll('#toc a')),heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+window.addEventListener('scroll',function(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.querySelector('#progress .bar').style.width=p+'%';
+ var k=-1;heads.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<120)k=i;});links.forEach(function(a,i){a.classList.toggle('active',i===k);});},{passive:true});
+</script>
+<script data-goatcounter="https://waruwut.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>(function(){fetch("https://waruwut.goatcounter.com/counter/"+location.pathname+".json").then(function(r){return r.json();}).then(function(d){var h=document.querySelector("footer")||document.querySelector("main")||document.body;var e=document.createElement("div");e.className="gc-views";e.style.cssText="text-align:center;font-size:13px;color:#9DB0D6;padding:6px 0 0;font-family:inherit";e.textContent="ผู้เข้าชมหน้านี้: "+d.count+" ครั้ง";h.appendChild(e);}).catch(function(){});})();</script>
+</body>
+</html>
